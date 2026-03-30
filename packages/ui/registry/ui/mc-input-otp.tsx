@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 
 
 const inputOTPSlotVariants = cva(
-  "relative flex size-11 items-center justify-center border border-border bg-input p-[2px] text-sm font-medium transition-all outline-none",
+  "relative flex size-11 items-center justify-center  border border-[#E6E9FF] bg-[#F9FAFF] p-[2px] text-sm font-medium transition-all outline-none",
   {
     variants: {
       position: {
@@ -18,8 +18,8 @@ const inputOTPSlotVariants = cva(
         alone:  "rounded-md",
       },
       isActive: {
-        true:  "bg-border z-10 ring-2 ring-border/60",
-        false: "bg-input",
+        true:  "bg-[#E6E9FF] z-10 ring-2 ring-[#E6E9FF]/60",
+        false: "bg-[#F9FAFF]",
       },
       invalid: {
         true:  "border-destructive ring-2 ring-destructive/20",
