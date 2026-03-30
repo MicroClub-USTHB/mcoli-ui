@@ -9,9 +9,8 @@ import { cn } from "@/lib/utils"
 
 const inputOTPSlotVariants = cva(
   "relative flex size-11 items-center justify-center border border-border bg-input p-[2px] text-sm font-medium transition-all outline-none",
-  {
-   
-  },
+ 
+    
 )
 
 

@@ -8,14 +8,12 @@ import {
 
 const meta: Meta = {
   title: 'Components/McInputOtp',
+  tags: ['autodocs'],
   argTypes: {
-    maxLength: {
-      control: 'number',
-    },
     disabled: { control: 'boolean' },
   },
   args: {
-    maxLength: 6,
+    
     disabled: false,
   },
 };
