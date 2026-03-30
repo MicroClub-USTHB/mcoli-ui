@@ -25,15 +25,13 @@ export const Default: Story = {
   render: (args) => (
     <InputOTP maxLength={6} {...args}>
       <InputOTPGroup>
-        <InputOTPSlot index={0} />
-        <InputOTPSlot index={1} />
-        <InputOTPSlot index={2} />
-      </InputOTPGroup>
-      <InputOTPSeparator />
-      <InputOTPGroup>
-        <InputOTPSlot index={3} />
-        <InputOTPSlot index={4} />
-        <InputOTPSlot index={5} />
+        <InputOTPSlot index={0} position="left" />
+        <InputOTPSlot index={1} position="middle"/>
+        <InputOTPSlot index={2}position="middle" />
+     
+        <InputOTPSlot index={3}position="middle" />
+        <InputOTPSlot index={4}position="middle"/>
+        <InputOTPSlot index={5} position="right" />
       </InputOTPGroup>
     </InputOTP>
   ),
@@ -41,7 +39,7 @@ export const Default: Story = {
 
 export const WithoutSeparator: Story = {
   render: (args) => (
-    <InputOTP maxLength={4} {...args}>
+    <InputOTP maxLength={6} {...args}>
       <InputOTPGroup>
         <InputOTPSlot index={0} />
         <InputOTPSlot index={1} />
