@@ -18,8 +18,8 @@ const inputOTPSlotVariants = cva(
         alone:  "rounded-md",
       },
       isActive: {
-        true:  "bg-[#E6E9FF] z-10 ring-2 ring-[#E6E9FF]/60",
-        false: "bg-[#F9FAFF]",
+        true:  "size-11 p-[2px] z-10 border-2 border-[#E6E9FF]",
+        false: "size-10 p-[10px] bg-[#F9FAFF]t",
       },
       invalid: {
         true:  "border-destructive ring-2 ring-destructive/20",
