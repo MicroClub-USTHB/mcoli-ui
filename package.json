@@ -11,12 +11,22 @@
     "build": "npm run build -w packages/ui",
     "start": "npm run start -w packages/ui",
     "lint": "npm run lint -w packages/ui",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "typecheck": "npm run typecheck -w packages/ui",
     "storybook": "npm run storybook -w packages/ui",
-    "build-storybook": "npm run build-storybook -w packages/ui"
+    "build-storybook": "npm run build-storybook -w packages/ui",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,mts,cjs,json,css,scss,md,mdx,yml,yaml}": "prettier --write"
   },
   "devDependencies": {
     "eslint": "^9",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.4.0",
+    "prettier": "^3.8.1",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "typescript": "^5.7.2"
   }
 }
