@@ -35,13 +35,13 @@ export const Default: Story = {
   render: (args) => (
     <InputOTP maxLength={6} {...args}>
       <InputOTPGroup>
-        <InputOTPSlot index={0} position="left" />
-        <InputOTPSlot index={1} position="middle"/>
-        <InputOTPSlot index={2}position="middle" />
+        <InputOTPSlot index={0} position="left" invalid={false}  />
+        <InputOTPSlot index={1} position="middle"invalid={false} />
+        <InputOTPSlot index={2}position="middle"invalid={false}  />
      
-        <InputOTPSlot index={3}position="middle" />
-        <InputOTPSlot index={4}position="middle"/>
-        <InputOTPSlot index={5} position="right" />
+        <InputOTPSlot index={3}position="middle" invalid={false} />
+        <InputOTPSlot index={4}position="middle"invalid={false} />
+        <InputOTPSlot index={5} position="right"invalid={false}  />
       </InputOTPGroup>
     </InputOTP>
   )
@@ -51,15 +51,15 @@ export const WithoutSeparator: Story = {
   render: (args) => (
      <InputOTP maxLength={6} {...args}>
       <InputOTPGroup>
-        <InputOTPSlot index={0} position="left" />
-        <InputOTPSlot index={1} position="middle" />
-        <InputOTPSlot index={2} position="right" />
+        <InputOTPSlot index={0} position="left" invalid={args.invalid}/>
+        <InputOTPSlot index={1} position="middle" invalid={args.invalid}/>
+        <InputOTPSlot index={2} position="right" invalid={args.invalid}/>
       </InputOTPGroup>
       <InputOTPSeparator />
       <InputOTPGroup>
-        <InputOTPSlot index={3} position="left" />
-        <InputOTPSlot index={4} position="middle" />
-        <InputOTPSlot index={5} position="right" />
+        <InputOTPSlot index={3} position="left"invalid={args.invalid} />
+        <InputOTPSlot index={4} position="middle" invalid={args.invalid}/>
+        <InputOTPSlot index={5} position="right" invalid={args.invalid}/>
       </InputOTPGroup>
     </InputOTP>
   ),
@@ -69,19 +69,19 @@ export const Disabled: Story = {
   render: (args) => (
   <InputOTP maxLength={7} value="00" {...args}>
       <InputOTPGroup>
-        <InputOTPSlot index={0} position="left" />
-        <InputOTPSlot index={1} position="right" />
+        <InputOTPSlot index={0} position="left"invalid={args.invalid} />
+        <InputOTPSlot index={1} position="right"invalid={args.invalid} />
       </InputOTPGroup>
       <InputOTPSeparator />
       <InputOTPGroup>
-        <InputOTPSlot index={2} position="left" />
-        <InputOTPSlot index={3} position="middle" />
-        <InputOTPSlot index={4} position="right" />
+        <InputOTPSlot index={2} position="left"invalid={args.invalid} />
+        <InputOTPSlot index={3} position="middle"invalid={args.invalid} />
+        <InputOTPSlot index={4} position="right"invalid={args.invalid} />
       </InputOTPGroup>
       <InputOTPSeparator />
       <InputOTPGroup>
-        <InputOTPSlot index={5} position="left" />
-        <InputOTPSlot index={6} position="right" />
+        <InputOTPSlot index={5} position="left"invalid={args.invalid} />
+        <InputOTPSlot index={6} position="right"invalid={args.invalid} />
       </InputOTPGroup>
     </InputOTP>
   ),

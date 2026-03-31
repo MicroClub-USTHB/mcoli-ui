@@ -10,15 +10,15 @@ export default function McInputOtpDemo() {
   return (
     <InputOTP maxLength={6}>
       <InputOTPGroup>
-        <InputOTPSlot index={0} />
-        <InputOTPSlot index={1} />
-        <InputOTPSlot index={2} />
+        <InputOTPSlot index={0} position="left" />
+        <InputOTPSlot index={1} position="middle" />
+        <InputOTPSlot index={2} position="right" />
       </InputOTPGroup>
       <InputOTPSeparator />
       <InputOTPGroup>
-        <InputOTPSlot index={3} />
-        <InputOTPSlot index={4} />
-        <InputOTPSlot index={5} />
+        <InputOTPSlot index={3} position="left" />
+        <InputOTPSlot index={4} position="middle" />
+        <InputOTPSlot index={5} position="right" />
       </InputOTPGroup>
     </InputOTP>
   );
