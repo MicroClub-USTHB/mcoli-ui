@@ -6,6 +6,7 @@ description: A secure one-time password input component.
 <Callout type="warn">
   This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for more information.
 </Callout>
+
 ## Overview
 
 The `mc-input-otp` is a core component of the MicroClub UI library. Built on the **input-otp** primitive, it combines accessibility with MicroClub's signature styling via **Tailwind CSS v4**.
@@ -59,27 +60,27 @@ Make sure `@/lib/utils` is available in your project.
 
 ```tsx
 import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-  InputOTPSeparator,
+  McInputOTP,
+  McInputOTPGroup,
+  McInputOTPSlot,
+  McInputOTPSeparator,
 } from "@/components/ui/mc-input-otp"
 
 export default function Example() {
   return (
-    <InputOTP maxLength={6}>
-      <InputOTPGroup>
-        <InputOTPSlot index={0} position="left" />
-        <InputOTPSlot index={1} position="middle" />
-        <InputOTPSlot index={2} position="right" />
-      </InputOTPGroup>
-      <InputOTPSeparator />
-      <InputOTPGroup>
-        <InputOTPSlot index={3} position="left" />
-        <InputOTPSlot index={4} position="middle" />
-        <InputOTPSlot index={5} position="right" />
-      </InputOTPGroup>
-    </InputOTP>
+    <McInputOTP maxLength={6}>
+      <McInputOTPGroup>
+        <McInputOTPSlot index={0} />
+        <McInputOTPSlot index={1} />
+        <McInputOTPSlot index={2} />
+      </McInputOTPGroup>
+      <McInputOTPSeparator />
+      <McInputOTPGroup>
+        <McInputOTPSlot index={3} />
+        <McInputOTPSlot index={4} />
+        <McInputOTPSlot index={5} />
+      </McInputOTPGroup>
+    </McInputOTP>
   )
 }
 ```
@@ -89,52 +90,52 @@ export default function Example() {
 ### Without Separator
 
 ```tsx
-<InputOTP maxLength={6}>
-  <InputOTPGroup>
-    <InputOTPSlot index={0} position="left" />
-    <InputOTPSlot index={1} position="middle" />
-    <InputOTPSlot index={2} position="middle" />
-    <InputOTPSlot index={3} position="middle" />
-    <InputOTPSlot index={4} position="middle" />
-    <InputOTPSlot index={5} position="right" />
-  </InputOTPGroup>
-</InputOTP>
+<McInputOTP maxLength={6}>
+  <McInputOTPGroup>
+    <McInputOTPSlot index={0} />
+    <McInputOTPSlot index={1} />
+    <McInputOTPSlot index={2} />
+    <McInputOTPSlot index={3} />
+    <McInputOTPSlot index={4} />
+    <McInputOTPSlot index={5} />
+  </McInputOTPGroup>
+</McInputOTP>
 ```
 
 ### Invalid
 
 ```tsx
-<InputOTP maxLength={6}>
-  <InputOTPGroup>
-    <InputOTPSlot index={0} position="left" invalid />
-    <InputOTPSlot index={1} position="middle" invalid />
-    <InputOTPSlot index={2} position="right" invalid />
-  </InputOTPGroup>
-  <InputOTPSeparator />
-  <InputOTPGroup>
-    <InputOTPSlot index={3} position="left" invalid />
-    <InputOTPSlot index={4} position="middle" invalid />
-    <InputOTPSlot index={5} position="right" invalid />
-  </InputOTPGroup>
-</InputOTP>
+<McInputOTP maxLength={6}>
+  <McInputOTPGroup>
+    <McInputOTPSlot index={0} invalid />
+    <McInputOTPSlot index={1} invalid />
+    <McInputOTPSlot index={2} invalid />
+  </McInputOTPGroup>
+  <McInputOTPSeparator />
+  <McInputOTPGroup>
+    <McInputOTPSlot index={3} invalid />
+    <McInputOTPSlot index={4} invalid />
+    <McInputOTPSlot index={5} invalid />
+  </McInputOTPGroup>
+</McInputOTP>
 ```
 
 ### Disabled
 
 ```tsx
-<InputOTP maxLength={6} disabled>
-  <InputOTPGroup>
-    <InputOTPSlot index={0} position="left" />
-    <InputOTPSlot index={1} position="middle" />
-    <InputOTPSlot index={2} position="right" />
-  </InputOTPGroup>
-  <InputOTPSeparator />
-  <InputOTPGroup>
-    <InputOTPSlot index={3} position="left" />
-    <InputOTPSlot index={4} position="middle" />
-    <InputOTPSlot index={5} position="right" />
-  </InputOTPGroup>
-</InputOTP>
+<McInputOTP maxLength={6} disabled>
+  <McInputOTPGroup>
+    <McInputOTPSlot index={0} />
+    <McInputOTPSlot index={1} />
+    <McInputOTPSlot index={2} />
+  </McInputOTPGroup>
+  <McInputOTPSeparator />
+  <McInputOTPGroup>
+    <McInputOTPSlot index={3} />
+    <McInputOTPSlot index={4} />
+    <McInputOTPSlot index={5} />
+  </McInputOTPGroup>
+</McInputOTP>
 ```
 
 ### Controlled
@@ -146,26 +147,26 @@ export default function Example() {
   const [value, setValue] = useState("")
 
   return (
-    <InputOTP maxLength={6} value={value} onChange={setValue}>
-      <InputOTPGroup>
-        <InputOTPSlot index={0} position="left" />
-        <InputOTPSlot index={1} position="middle" />
-        <InputOTPSlot index={2} position="right" />
-      </InputOTPGroup>
-      <InputOTPSeparator />
-      <InputOTPGroup>
-        <InputOTPSlot index={3} position="left" />
-        <InputOTPSlot index={4} position="middle" />
-        <InputOTPSlot index={5} position="right" />
-      </InputOTPGroup>
-    </InputOTP>
+    <McInputOTP maxLength={6} value={value} onChange={setValue}>
+      <McInputOTPGroup>
+        <McInputOTPSlot index={0} />
+        <McInputOTPSlot index={1} />
+        <McInputOTPSlot index={2} />
+      </McInputOTPGroup>
+      <McInputOTPSeparator />
+      <McInputOTPGroup>
+        <McInputOTPSlot index={3} />
+        <McInputOTPSlot index={4} />
+        <McInputOTPSlot index={5} />
+      </McInputOTPGroup>
+    </McInputOTP>
   )
 }
 ```
 
 ## API Reference
 
-### InputOTP
+### McInputOTP
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
@@ -176,21 +177,20 @@ export default function Example() {
 | `containerClassName` | `string` | `undefined` | Classes for the outer container |
 | `className` | `string` | `undefined` | Classes for the input element |
 
-### InputOTPSlot
+### McInputOTPSlot
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `index` | `number` | — | Slot index, must match its position in the OTP (required) |
-| `position` | `"left" \| "middle" \| "right" \| "alone"` | `"middle"` | Controls border radius based on slot position in the group |
-| `invalid` | `boolean` | `false` | Applies error styling with a red border |
+| `invalid` | `boolean` | `false` | Applies error styling with a red border on hover |
 | `className` | `string` | `undefined` | Additional CSS classes |
 
-### InputOTPGroup
+### McInputOTPGroup
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `className` | `string` | `undefined` | Additional CSS classes |
 
-### InputOTPSeparator
+### McInputOTPSeparator
 
 Renders a `—` separator between groups. Accepts standard div props.
