@@ -102,30 +102,4 @@ export const Invalid: Story = {
     </McInputOTP>
   ),
 }
-export const leftOne: Story = {
-  render: (args) => (
-    <McInputOTP maxLength={1} {...args}>
-      
-        <McInputOTPSlot index={0}  invalid={args.invalid}/>
-        
-    </McInputOTP>
-  ),
-}
-export const RightOne: Story = {
-  render: (args) => (
-    <McInputOTP maxLength={1} {...args}>
-      
-        <McInputOTPSlot index={0}  invalid={args.invalid}/>
-        
-    </McInputOTP>
-  ),
-}
-export const middleOne: Story = {
-  render: (args) => (
-    <McInputOTP maxLength={1} {...args}>
-      
-        <McInputOTPSlot index={0}  invalid={args.invalid}/>
-        
-    </McInputOTP>
-  ),
-}
+

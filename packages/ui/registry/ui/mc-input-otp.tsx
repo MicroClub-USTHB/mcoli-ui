@@ -11,6 +11,7 @@ const inputOTPSlotVariants = cva(
   "relative flex size-11 items-center justify-center border border-border bg-muted p-[2px] text-sm font-medium transition-all outline-none first:rounded-l-md last:rounded-r-md [&:not(:first-child)]:border-l-0",
   {
     variants: {
+      
       isActive: {
         true:  "size-11 p-[2px] z-10 border-2",
         false: "size-10 p-[10px]",
