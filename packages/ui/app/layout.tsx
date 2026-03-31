@@ -51,10 +51,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn(
-        dmSansDmSans.variable,
-        plusJakartaSansPlusJakartaSans.variable,
-      )}
+      className={cn(dmSansDmSans.variable, plusJakartaSansPlusJakartaSans.variable)}
     >
       <head>
         {/* SSR Flash Prevention Script */}

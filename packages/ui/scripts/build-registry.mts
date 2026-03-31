@@ -47,26 +47,19 @@ export const Index: Record<string, any> ={`;
   },`;
       continue;
     }
-    
+
     // Handle items with files
     if (!Array.isArray(item.files) || !item.files?.length) {
       continue;
     }
 
     const componentPath = `@/registry/${item.files[0].path}`;
-    const sourcePath = path.join(
-      process.cwd(),
-      "registry",
-      item.files[0].path,
-    );
+    const sourcePath = path.join(process.cwd(), "registry", item.files[0].path);
 
     const filesContent = await Promise.all(
       item.files.map(async (file) => {
         const filePath = `registry/${file.path}`;
-        const fileContent = await fs.readFile(
-          path.join(process.cwd(), filePath),
-          "utf-8",
-        );
+        const fileContent = await fs.readFile(path.join(process.cwd(), filePath), "utf-8");
         return `{
       path: ${JSON.stringify(filePath)},
       content: ${JSON.stringify(fileContent)},
@@ -75,9 +68,7 @@ export const Index: Record<string, any> ={`;
       }),
     );
 
-    const sourceContent = item.type === "registry:example"
-      ? await fs.readFile(sourcePath, "utf-8")
-      : "";
+    const sourceContent = item.type === "registry:example" ? await fs.readFile(sourcePath, "utf-8") : "";
 
     index += `
   "${item.name}": {
@@ -125,7 +116,7 @@ export const Index: Record<string, any> ={`;
               cssVars: item.cssVars,
             };
           }
-          
+
           // Handle component items with files
           return {
             ...item,
@@ -147,11 +138,7 @@ export const Index: Record<string, any> ={`;
   );
 
   rimraf.sync(path.join(REGISTRY_PATH, REGISTRY_FILENAME));
-  await fs.writeFile(
-    path.join(REGISTRY_PATH, REGISTRY_FILENAME),
-    registryJSON,
-    "utf8",
-  );
+  await fs.writeFile(path.join(REGISTRY_PATH, REGISTRY_FILENAME), registryJSON, "utf8");
 
   // Build /src/__registry__/index.tsx
   rimraf.sync(path.join(REGISTRY_PATH, "index.tsx"));

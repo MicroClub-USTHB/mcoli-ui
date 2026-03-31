@@ -20,32 +20,27 @@ const themeMap: Record<string, ThemeConfig> = {
   primary: {
     theme: primaryTheme,
     title: "Primary",
-    description:
-      "Blue Primary with Purple Secondary accents - Professional and modern.",
+    description: "Blue Primary with Purple Secondary accents - Professional and modern.",
   },
   secondary: {
     theme: secondaryTheme,
     title: "Secondary",
-    description:
-      "Purple Secondary with Blue Primary accents - Creative and bold.",
+    description: "Purple Secondary with Blue Primary accents - Creative and bold.",
   },
   "game-dev": {
     theme: gameDevTheme,
     title: "GameDev",
-    description:
-      "Pink Primary with Yellow accents - Vibrant and energetic for gaming.",
+    description: "Pink Primary with Yellow accents - Vibrant and energetic for gaming.",
   },
   robotics: {
     theme: roboticsTheme,
     title: "Robotics",
-    description:
-      "Blue Primary with Accent Blue accents - Technical and precise.",
+    description: "Blue Primary with Accent Blue accents - Technical and precise.",
   },
   it: {
     theme: itTheme,
     title: "IT",
-    description:
-      "Green Primary with Gray accents - Clean and professional for IT.",
+    description: "Green Primary with Gray accents - Clean and professional for IT.",
   },
 };
 
@@ -215,10 +210,7 @@ export default function createTheme(name: string): Registry["items"][number] {
     type: "registry:theme",
     title: config.title,
     description: config.description,
-    registryDependencies: [
-      `${REGISTRY_URL}/r/font-dm-sans.json`,
-      `${REGISTRY_URL}/r/font-plus-jakarta-sans.json`,
-    ],
+    registryDependencies: [`${REGISTRY_URL}/r/font-dm-sans.json`, `${REGISTRY_URL}/r/font-plus-jakarta-sans.json`],
     cssVars: {
       theme: {
         ...staticVars,

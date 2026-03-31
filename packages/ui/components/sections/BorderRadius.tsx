@@ -8,32 +8,28 @@ function BorderRadius() {
   ];
 
   return (
-    <section className="w-full max-w-[1200px] mx-auto space-y-6 sm:space-y-8 px-4">
-      <div className="space-y-2 text-center sm:text-left mb-6">
-        <h2 className="header-sm md:header-md font-bold text-foreground">
-          Border Radius
-        </h2>
+    <section className="mx-auto w-full max-w-[1200px] space-y-6 px-4 sm:space-y-8">
+      <div className="mb-6 space-y-2 text-center sm:text-left">
+        <h2 className="header-sm md:header-md text-foreground font-bold">Border Radius</h2>
         <p className="paragraph-sm sm:paragraph-md text-muted-foreground font-dm-sans px-2 sm:px-0">
           Consistent curvature mapped to CSS variables
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
         {radiuses.map((r) => (
           <div
             key={r.name}
-            className="flex flex-col items-center gap-4 p-6 rounded-2xl border border-border bg-surface/50 backdrop-blur-sm shadow-sm"
+            className="border-border bg-surface/50 flex flex-col items-center gap-4 rounded-2xl border p-6 shadow-sm backdrop-blur-sm"
           >
             <div
-              className={`size-16 bg-primary/10 border border-primary/30 flex items-center justify-center ${r.class}`}
+              className={`bg-primary/10 border-primary/30 flex size-16 items-center justify-center border ${r.class}`}
             >
-              <div className={`size-8 bg-primary ${r.class}`} />
+              <div className={`bg-primary size-8 ${r.class}`} />
             </div>
-            <div className="text-center space-y-1">
-              <p className="text-sm font-bold text-foreground">{r.name}</p>
-              <p className="text-[10px] font-mono text-muted-foreground">
-                {r.var}
-              </p>
+            <div className="space-y-1 text-center">
+              <p className="text-foreground text-sm font-bold">{r.name}</p>
+              <p className="text-muted-foreground font-mono text-[10px]">{r.var}</p>
             </div>
           </div>
         ))}

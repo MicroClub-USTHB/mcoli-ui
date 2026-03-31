@@ -14,8 +14,7 @@ config({ quiet: true });
 // CONSTANTS
 // =============================================================================
 
-const REGISTRY_URL =
-  process.env.MCOLI_UI_REGISTRY_URL || "https://mcoli-ui.microclub.info";
+const REGISTRY_URL = process.env.MCOLI_UI_REGISTRY_URL || "https://mcoli-ui.microclub.info";
 
 const THEMES = [
   {
@@ -76,9 +75,7 @@ function checkShadcnInitialized() {
     logError(`${ansis.bold("shadcn/ui")} is required but not initialized.`);
     console.log("\nPlease initialize shadcn/ui first:");
     console.log(`  ${ansis.cyan("npx shadcn@latest init")}\n`);
-    console.log(
-      `For more information, visit: ${ansis.underline(SHADCN_DOCS_URL)}`,
-    );
+    console.log(`For more information, visit: ${ansis.underline(SHADCN_DOCS_URL)}`);
     process.exit(1);
   }
 
@@ -111,25 +108,15 @@ async function promptThemeSelection() {
 }
 
 function showHelp() {
-  console.log(
-    `${ansis.bold("Usage:")} npx mcoli-ui <command> ${ansis.gray("[options]")}`,
-  );
+  console.log(`${ansis.bold("Usage:")} npx mcoli-ui <command> ${ansis.gray("[options]")}`);
   console.log();
   console.log(`${ansis.bold("Commands:")}`);
-  console.log(
-    `  ${ansis.cyan("init")} [theme]     ${ansis.gray("Initialize mcoli-ui theme (requires shadcn/ui)")}`,
-  );
-  console.log(
-    `  ${ansis.cyan("add")} <component>  ${ansis.gray("Add mcoli-ui component(s) to your project)")}`,
-  );
-  console.log(
-    `  ${ansis.cyan("list")}             ${ansis.gray("List all available mcoli-ui components")}`,
-  );
+  console.log(`  ${ansis.cyan("init")} [theme]     ${ansis.gray("Initialize mcoli-ui theme (requires shadcn/ui)")}`);
+  console.log(`  ${ansis.cyan("add")} <component>  ${ansis.gray("Add mcoli-ui component(s) to your project)")}`);
+  console.log(`  ${ansis.cyan("list")}             ${ansis.gray("List all available mcoli-ui components")}`);
   console.log();
   console.log(`${ansis.bold("Options:")}`);
-  console.log(
-    `  ${ansis.cyan("--help")}, -h        ${ansis.gray("Show this help message")}`,
-  );
+  console.log(`  ${ansis.cyan("--help")}, -h        ${ansis.gray("Show this help message")}`);
   console.log();
   console.log(`${ansis.bold("Examples:")}`);
   console.log(`  ${ansis.gray("# Initialize with a specific theme")}`);
@@ -169,9 +156,7 @@ function showAvailableThemes() {
 function handleInit(themeArgs) {
   checkShadcnInitialized();
 
-  const spinner = createSpinner(
-    `${ansis.green("✓")} shadcn/ui found, proceeding with mcoli-ui theme...`,
-  ).start();
+  const spinner = createSpinner(`${ansis.green("✓")} shadcn/ui found, proceeding with mcoli-ui theme...`).start();
   spinner.success({ text: "shadcn/ui configuration detected" });
 
   const selectedTheme = themeArgs[0]?.toLowerCase();
@@ -206,9 +191,7 @@ function handleInit(themeArgs) {
 }
 
 function addTheme(themeValue, themeName) {
-  const spinner = createSpinner(
-    `Adding ${ansis.yellow(themeName)} mcoli-ui theme...`,
-  ).start();
+  const spinner = createSpinner(`Adding ${ansis.yellow(themeName)} mcoli-ui theme...`).start();
 
   try {
     execSync(`npx shadcn@latest add ${REGISTRY_URL}/r/${themeValue}.json`, {
@@ -238,9 +221,7 @@ function handleAdd(componentNames) {
   for (const componentName of componentNames) {
     if (!componentName.trim()) continue;
 
-    const spinner = createSpinner(
-      `Adding ${ansis.yellow(componentName)} mcoli-ui component...`,
-    ).start();
+    const spinner = createSpinner(`Adding ${ansis.yellow(componentName)} mcoli-ui component...`).start();
 
     try {
       const url = new URL(`r/${componentName}.json`, REGISTRY_URL);
@@ -295,16 +276,11 @@ function displayRegistry(data) {
     console.log(`${ansis.bold("Available themes:")}`);
     console.log();
 
-    const maxNameLength = Math.max(
-      ...themes.map((t) => (t.title || t.name).length),
-      12,
-    );
+    const maxNameLength = Math.max(...themes.map((t) => (t.title || t.name).length), 12);
 
     themes.forEach((theme) => {
       const name = theme.title || theme.name;
-      console.log(
-        `  ${ansis.cyan(name.padEnd(maxNameLength))}  ${theme.description || ""}`,
-      );
+      console.log(`  ${ansis.cyan(name.padEnd(maxNameLength))}  ${theme.description || ""}`);
     });
   }
 
@@ -313,16 +289,11 @@ function displayRegistry(data) {
     console.log(`${ansis.bold("Available fonts:")}`);
     console.log();
 
-    const maxNameLength = Math.max(
-      ...fonts.map((f) => (f.font?.family || f.name).length),
-      8,
-    );
+    const maxNameLength = Math.max(...fonts.map((f) => (f.font?.family || f.name).length), 8);
 
     fonts.forEach((font) => {
       const name = font.font?.family || font.name;
-      console.log(
-        `  ${ansis.cyan(name.padEnd(maxNameLength))}  ${font.font?.variable || ""}`,
-      );
+      console.log(`  ${ansis.cyan(name.padEnd(maxNameLength))}  ${font.font?.variable || ""}`);
     });
   }
 
@@ -331,15 +302,10 @@ function displayRegistry(data) {
     console.log(`${ansis.bold("Available components:")}`);
     console.log();
 
-    const maxNameLength = Math.max(
-      ...components.map((c) => c.name.length),
-      12,
-    );
+    const maxNameLength = Math.max(...components.map((c) => c.name.length), 12);
 
     components.forEach((comp) => {
-      console.log(
-        `  ${ansis.cyan(comp.name.padEnd(maxNameLength))}  ${comp.description || ""}`,
-      );
+      console.log(`  ${ansis.cyan(comp.name.padEnd(maxNameLength))}  ${comp.description || ""}`);
     });
   }
 
@@ -351,17 +317,11 @@ function displayRegistry(data) {
 }
 
 function showListError() {
-  console.log(
-    `${ansis.red("Error:")} Could not fetch component list from registry`,
-  );
+  console.log(`${ansis.red("Error:")} Could not fetch component list from registry`);
   console.log(`  ${ansis.gray("Registry URL:")} ${REGISTRY_URL}`);
   console.log();
-  console.log(
-    `${ansis.yellow("Note:")} Registry may not be deployed or accessible.`,
-  );
-  console.log(
-    `  ${ansis.gray("You can manually add components using:")} npx mcoli-ui add <component-name>`,
-  );
+  console.log(`${ansis.yellow("Note:")} Registry may not be deployed or accessible.`);
+  console.log(`  ${ansis.gray("You can manually add components using:")} npx mcoli-ui add <component-name>`);
   process.exit(1);
 }
 
@@ -390,9 +350,7 @@ switch (command) {
     handleList();
     break;
   default:
-    console.log(
-      `${ansis.red("Error:")} Unknown command: ${ansis.bold(command)}`,
-    );
+    console.log(`${ansis.red("Error:")} Unknown command: ${ansis.bold(command)}`);
     console.log();
     showHelp();
     process.exit(1);

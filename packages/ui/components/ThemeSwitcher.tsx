@@ -48,28 +48,17 @@ export function ThemeSwitcher() {
           <DropdownMenuItem
             key={t.value}
             onClick={() => setColorTheme(t.value)}
-            className="flex items-center justify-between cursor-pointer rounded-lg my-0.5"
+            className="my-0.5 flex cursor-pointer items-center justify-between rounded-lg"
           >
             <div className="flex items-center gap-2.5">
-              <div
-                className={cn(
-                  "size-3.5 rounded-full shadow-sm border border-border/50",
-                  t.color,
-                )}
-              />
+              <div className={cn("border-border/50 size-3.5 rounded-full border shadow-sm", t.color)} />
               <span
-                className={
-                  mounted && colorTheme === t.value
-                    ? "font-semibold"
-                    : "font-medium text-muted-foreground"
-                }
+                className={mounted && colorTheme === t.value ? "font-semibold" : "text-muted-foreground font-medium"}
               >
                 {t.name}
               </span>
             </div>
-            {mounted && colorTheme === t.value && (
-              <Check className="size-4 text-primary" />
-            )}
+            {mounted && colorTheme === t.value && <Check className="text-primary size-4" />}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

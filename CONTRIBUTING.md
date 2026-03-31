@@ -144,14 +144,14 @@ External contributors should follow the same technical steps but start with a fo
 
 When adding a new item, you will create/edit these files:
 
-| File                                                                                                   | Purpose                       |
-| ------------------------------------------------------------------------------------------------------ | ----------------------------- |
-| [`packages/ui/registry/ui/mc-<name>.tsx`](packages/ui/registry/ui/mc-button.tsx)                       | The actual code to distribute |
-| [`packages/ui/registry/registry-ui.ts`](packages/ui/registry/registry-ui.ts)                           | Metadata for CLI discovery    |
-| [`packages/ui/registry/registry-examples.ts`](packages/ui/registry/registry-examples.ts)                | Links demos to registry       |
-| [`packages/ui/registry/examples/mc-<name>-demo.tsx`](packages/ui/registry/examples/mc-button-demo.tsx) | Live demo for documentation   |
-| [`packages/ui/stories/Mc<Name>.stories.tsx`](packages/ui/stories/McButton.stories.tsx)                 | Visual testing in Storybook   |
-| [`packages/ui/content/docs/components/mc-<name>.mdx`](packages/ui/content/docs/components/mc-button.mdx)| Markdown documentation        |
+| File                                                                                                     | Purpose                       |
+| -------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| [`packages/ui/registry/ui/mc-<name>.tsx`](packages/ui/registry/ui/mc-button.tsx)                         | The actual code to distribute |
+| [`packages/ui/registry/registry-ui.ts`](packages/ui/registry/registry-ui.ts)                             | Metadata for CLI discovery    |
+| [`packages/ui/registry/registry-examples.ts`](packages/ui/registry/registry-examples.ts)                 | Links demos to registry       |
+| [`packages/ui/registry/examples/mc-<name>-demo.tsx`](packages/ui/registry/examples/mc-button-demo.tsx)   | Live demo for documentation   |
+| [`packages/ui/stories/Mc<Name>.stories.tsx`](packages/ui/stories/McButton.stories.tsx)                   | Visual testing in Storybook   |
+| [`packages/ui/content/docs/components/mc-<name>.mdx`](packages/ui/content/docs/components/mc-button.mdx) | Markdown documentation        |
 
 ### Planned Components
 

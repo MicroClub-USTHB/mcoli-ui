@@ -2,8 +2,7 @@ import { config } from "dotenv";
 
 config();
 
-export const REGISTRY_URL =
-  process.env.MCOLI_UI_REGISTRY_URL || "https://mcoli-ui.microclub.info";
+export const REGISTRY_URL = process.env.MCOLI_UI_REGISTRY_URL || "https://mcoli-ui.microclub.info";
 
 export const commonCSS = {
   "@layer base": {
@@ -29,34 +28,29 @@ export const commonCSS = {
     "font-size": "72px",
     "line-height": "90px",
     "letter-spacing": "-0.02em",
-    "font-family":
-      "var(--font-plus-jakarta-sans), Plus Jakarta Sans, system-ui, sans-serif",
+    "font-family": "var(--font-plus-jakarta-sans), Plus Jakarta Sans, system-ui, sans-serif",
   },
   "@utility header-lg": {
     "font-size": "60px",
     "line-height": "72px",
     "letter-spacing": "-0.02em",
-    "font-family":
-      "var(--font-plus-jakarta-sans), Plus Jakarta Sans, system-ui, sans-serif",
+    "font-family": "var(--font-plus-jakarta-sans), Plus Jakarta Sans, system-ui, sans-serif",
   },
   "@utility header-md": {
     "font-size": "36px",
     "line-height": "44px",
     "letter-spacing": "-0.02em",
-    "font-family":
-      "var(--font-plus-jakarta-sans), Plus Jakarta Sans, system-ui, sans-serif",
+    "font-family": "var(--font-plus-jakarta-sans), Plus Jakarta Sans, system-ui, sans-serif",
   },
   "@utility header-sm": {
     "font-size": "30px",
     "line-height": "38px",
-    "font-family":
-      "var(--font-plus-jakarta-sans), Plus Jakarta Sans, system-ui, sans-serif",
+    "font-family": "var(--font-plus-jakarta-sans), Plus Jakarta Sans, system-ui, sans-serif",
   },
   "@utility header-xs": {
     "font-size": "24px",
     "line-height": "32px",
-    "font-family":
-      "var(--font-plus-jakarta-sans), Plus Jakarta Sans, system-ui, sans-serif",
+    "font-family": "var(--font-plus-jakarta-sans), Plus Jakarta Sans, system-ui, sans-serif",
   },
   "@utility paragraph-xl": {
     "font-size": "20px",

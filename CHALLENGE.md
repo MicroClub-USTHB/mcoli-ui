@@ -200,14 +200,14 @@ Create a PR targeting `dev` and link issue #6.
 
 ## File Structure Summary
 
-| File                                                  | Purpose             |
-| ----------------------------------------------------- | ------------------- |
-| `packages/ui/registry/ui/mc-checkbox.tsx`             | Main component code |
-| `packages/ui/registry/registry-ui.ts`                 | Registry metadata   |
+| File                                                  | Purpose                |
+| ----------------------------------------------------- | ---------------------- |
+| `packages/ui/registry/ui/mc-checkbox.tsx`             | Main component code    |
+| `packages/ui/registry/registry-ui.ts`                 | Registry metadata      |
 | `packages/ui/registry/registry-examples.ts`           | Links demo to registry |
-| `packages/ui/registry/examples/mc-checkbox-demo.tsx`  | Live demo           |
-| `packages/ui/stories/McCheckbox.stories.tsx`          | StoryBook stories   |
-| `packages/ui/content/docs/components/mc-checkbox.mdx` | Documentation       |
+| `packages/ui/registry/examples/mc-checkbox-demo.tsx`  | Live demo              |
+| `packages/ui/stories/McCheckbox.stories.tsx`          | StoryBook stories      |
+| `packages/ui/content/docs/components/mc-checkbox.mdx` | Documentation          |
 
 ---
 

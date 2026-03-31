@@ -15,27 +15,26 @@ function Hero() {
   };
 
   return (
-    <section className="relative flex flex-col items-center justify-center w-full overflow-hidden text-center px-4 sm:px-6">
+    <section className="relative flex w-full flex-col items-center justify-center overflow-hidden px-4 text-center sm:px-6">
       {/* 2026 Era Ambient Glow - Reacts to Theme Primary Color */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[500px] md:w-[800px] h-[200px] sm:h-[300px] md:h-[400px] bg-primary/20 blur-[80px] sm:blur-[120px] rounded-full pointer-events-none -z-10 transition-colors duration-700 ease-in-out" />
+      <div className="bg-primary/20 pointer-events-none absolute top-1/3 left-1/2 -z-10 h-[200px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full blur-[80px] transition-colors duration-700 ease-in-out sm:h-[300px] sm:w-[500px] sm:blur-[120px] md:h-[400px] md:w-[800px]" />
 
       {/* Main Heading */}
-      <h1 className="max-w-6xl font-extrabold header-md sm:header-lg md:header-xl xl:header-xl text-foreground mb-4 sm:mb-6 z-10">
+      <h1 className="header-md sm:header-lg md:header-xl xl:header-xl text-foreground z-10 mb-4 max-w-6xl font-extrabold sm:mb-6">
         Ship professional themed UIs, <br className="hidden sm:block" />
-        <span className="text-transparent bg-clip-text bg-linear-to-r from-primary via-primary to-primary/50">
+        <span className="from-primary via-primary to-primary/50 bg-linear-to-r bg-clip-text text-transparent">
           faster than ever
         </span>
       </h1>
 
       {/* Subtitle */}
-      <p className="max-w-2xl sm:max-w-3xl paragraph-md sm:paragraph-lg md:paragraph-xl text-muted-foreground mb-8 sm:mb-10 z-10 px-2 sm:px-0">
-        Mcoli UI is a premium component registry and theming engine. Copy,
-        paste, and customize accessible components directly into your
-        applications
+      <p className="paragraph-md sm:paragraph-lg md:paragraph-xl text-muted-foreground z-10 mb-8 max-w-2xl px-2 sm:mb-10 sm:max-w-3xl sm:px-0">
+        Mcoli UI is a premium component registry and theming engine. Copy, paste, and customize accessible components
+        directly into your applications
       </p>
 
       {/* Call to Actions */}
-      <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-12 sm:mb-16 w-full sm:w-auto px-4 sm:px-0 z-10">
+      <div className="z-10 mb-12 flex w-full flex-col items-center gap-3 px-4 sm:mb-16 sm:w-auto sm:flex-row sm:gap-4 sm:px-0">
         <Button
           render={
             <Link href="/docs/introduction">
@@ -44,35 +43,30 @@ function Hero() {
           }
           nativeButton={false}
           size="lg"
-          className="w-full sm:w-auto px-6 sm:px-8 h-11 sm:h-12 text-sm sm:text-base shadow-xl shadow-primary/20 transition-all hover:bg-primary/90"
+          className="shadow-primary/20 hover:bg-primary/90 h-11 w-full px-6 text-sm shadow-xl transition-all sm:h-12 sm:w-auto sm:px-8 sm:text-base"
         />
         <Button
           render={
-            <a
-              href="https://github.com/MicroClub-USTHB/mcoli-ui"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <GitFork className="size-4 mr-2" /> GitHub
+            <a href="https://github.com/MicroClub-USTHB/mcoli-ui" target="_blank" rel="noopener noreferrer">
+              <GitFork className="mr-2 size-4" /> GitHub
             </a>
           }
           nativeButton={false}
           variant="outline"
           size="lg"
-          className="w-full sm:w-auto px-6 sm:px-8 h-11 sm:h-12 text-sm sm:text-base border-border bg-surface/50 backdrop-blur-md hover:bg-accent hover:text-accent-foreground transition-all"
+          className="border-border bg-surface/50 hover:bg-accent hover:text-accent-foreground h-11 w-full px-6 text-sm backdrop-blur-md transition-all sm:h-12 sm:w-auto sm:px-8 sm:text-base"
         />
       </div>
 
       {/* High-End Terminal CLI Snippet */}
-      <div className="max-w-lg w-full rounded-xl sm:rounded-2xl border border-border bg-card overflow-hidden transition-transform duration-300 z-10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-0 p-3 sm:p-4 font-mono text-xs sm:text-sm text-foreground">
+      <div className="border-border bg-card text-foreground z-10 flex w-full max-w-lg flex-col items-center justify-between gap-3 overflow-hidden rounded-xl border p-3 font-mono text-xs transition-transform duration-300 sm:flex-row sm:gap-0 sm:rounded-2xl sm:p-4 sm:text-sm">
         <span className="flex items-center gap-2 sm:gap-3">
           <Terminal size={16} />
-          <span className="text-primary font-semibold">npx</span>{" "}
-          mcoli-ui@latest init
+          <span className="text-primary font-semibold">npx</span> mcoli-ui@latest init
         </span>
         <button
           onClick={copyToClipboard}
-          className="text-muted-foreground hover:text-foreground transition-colors p-2 rounded-md hover:bg-accent self-end sm:self-auto"
+          className="text-muted-foreground hover:text-foreground hover:bg-accent self-end rounded-md p-2 transition-colors sm:self-auto"
         >
           {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
         </button>

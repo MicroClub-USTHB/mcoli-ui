@@ -3,8 +3,7 @@
   font-style: normal;
   font-weight: 200 800;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/plusjakartasans/v8/L0xYDFLYSTwa_S2BcI-mTS86pU2G.woff2)
-    format("woff2");
+  src: url(https://fonts.gstatic.com/s/plusjakartasans/v8/L0xYDFLYSTwa_S2BcI-mTS86pU2G.woff2) format("woff2");
 }
 
 @font-face {
@@ -12,8 +11,7 @@
   font-style: normal;
   font-weight: 100 1000;
   font-display: swap;
-  src: url(https://fonts.gstatic.com/s/dmsans/v15/rP2Fp2yw_804K-6tfOnE.woff2)
-    format("woff2");
+  src: url(https://fonts.gstatic.com/s/dmsans/v15/rP2Fp2yw_804K-6tfOnE.woff2) format("woff2");
 }
 
 :root {

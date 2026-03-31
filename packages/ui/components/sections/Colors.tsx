@@ -191,43 +191,35 @@ const colorRamps = [
 
 function Colors() {
   return (
-    <section className="w-full max-w-[1200px] mx-auto space-y-6 sm:space-y-8 px-4">
-      <div className="space-y-2 text-center sm:text-left mb-6">
-        <h2 className="header-sm md:header-md font-bold text-foreground">
-          Color Palette
-        </h2>
+    <section className="mx-auto w-full max-w-[1200px] space-y-6 px-4 sm:space-y-8">
+      <div className="mb-6 space-y-2 text-center sm:text-left">
+        <h2 className="header-sm md:header-md text-foreground font-bold">Color Palette</h2>
         <p className="paragraph-sm sm:paragraph-md text-muted-foreground font-dm-sans px-2 sm:px-0">
           The comprehensive color system powering the theme engine
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
         {/* Core Ramps */}
         {colorRamps.map((ramp) => (
           <div
             key={ramp.name}
-            className="flex flex-col rounded-xl border border-border bg-card shadow-sm overflow-hidden p-4"
+            className="border-border bg-card flex flex-col overflow-hidden rounded-xl border p-4 shadow-sm"
           >
-            <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-semibold text-foreground">
-                {ramp.name}
-              </h3>
-              <span className="text-[10px] font-mono text-muted-foreground">
+            <div className="mb-3 flex items-center justify-between">
+              <h3 className="text-foreground text-sm font-semibold">{ramp.name}</h3>
+              <span className="text-muted-foreground font-mono text-[10px]">
                 {ramp.isSpecial ? "accent-*-50" : `--${ramp.prefix}-*`}
               </span>
             </div>
-            <div className="flex w-full h-10 rounded-md overflow-hidden border border-border/50">
+            <div className="border-border/50 flex h-10 w-full overflow-hidden rounded-md border">
               {ramp.steps.map((step) => {
                 const tailwindClass = colorClassMap[ramp.prefix][step];
                 return (
                   <div
                     key={step}
-                    className={`flex-1 hover:scale-110 hover:z-10 transition-transform origin-center cursor-pointer ${tailwindClass}`}
-                    title={
-                      ramp.isSpecial
-                        ? `accent-${step}`
-                        : `--${ramp.prefix}-${step}`
-                    }
+                    className={`flex-1 origin-center cursor-pointer transition-transform hover:z-10 hover:scale-110 ${tailwindClass}`}
+                    title={ramp.isSpecial ? `accent-${step}` : `--${ramp.prefix}-${step}`}
                   />
                 );
               })}
@@ -236,63 +228,59 @@ function Colors() {
         ))}
 
         {/* Gradients */}
-        <div className="flex flex-col rounded-xl border border-border bg-card shadow-sm overflow-hidden p-4">
-          <div className="flex items-center justify-between mb-3">
-            <h3 className="text-sm font-semibold text-foreground">Gradients</h3>
-            <span className="text-[10px] font-mono text-muted-foreground">
-              --*-gradient
-            </span>
+        <div className="border-border bg-card flex flex-col overflow-hidden rounded-xl border p-4 shadow-sm">
+          <div className="mb-3 flex items-center justify-between">
+            <h3 className="text-foreground text-sm font-semibold">Gradients</h3>
+            <span className="text-muted-foreground font-mono text-[10px]">--*-gradient</span>
           </div>
-          <div className="flex w-full h-10 rounded-md overflow-hidden border border-border/50">
+          <div className="border-border/50 flex h-10 w-full overflow-hidden rounded-md border">
             <div
-              className="flex-1 hover:scale-110 hover:z-10 transition-transform origin-center cursor-pointer bg-it-gradient"
+              className="bg-it-gradient flex-1 origin-center cursor-pointer transition-transform hover:z-10 hover:scale-110"
               title="--it-gradient"
             />
           </div>
         </div>
 
         {/* Neutrals */}
-        <div className="flex flex-col rounded-xl border border-border bg-card shadow-sm overflow-hidden p-4">
-          <div className="flex items-center justify-between mb-3">
-            <h3 className="text-sm font-semibold text-foreground">Neutrals</h3>
-            <span className="text-[10px] font-mono text-muted-foreground">
-              --neutral-*
-            </span>
+        <div className="border-border bg-card flex flex-col overflow-hidden rounded-xl border p-4 shadow-sm">
+          <div className="mb-3 flex items-center justify-between">
+            <h3 className="text-foreground text-sm font-semibold">Neutrals</h3>
+            <span className="text-muted-foreground font-mono text-[10px]">--neutral-*</span>
           </div>
-          <div className="flex w-full h-10 rounded-md overflow-hidden border border-border/50">
+          <div className="border-border/50 flex h-10 w-full overflow-hidden rounded-md border">
             <div
-              className="flex-1 hover:scale-110 hover:z-10 transition-transform origin-center cursor-pointer bg-neutral-black"
+              className="bg-neutral-black flex-1 origin-center cursor-pointer transition-transform hover:z-10 hover:scale-110"
               title="--neutral-black"
             />
             <div
-              className="flex-1 hover:scale-110 hover:z-10 transition-transform origin-center cursor-pointer bg-neutral-white"
+              className="bg-neutral-white flex-1 origin-center cursor-pointer transition-transform hover:z-10 hover:scale-110"
               title="--neutral-white"
             />
           </div>
         </div>
 
         {/* Semantic Colors */}
-        <div className="flex flex-col rounded-xl border border-border bg-card shadow-sm overflow-hidden p-4 lg:col-span-3">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-sm font-semibold text-foreground">Semantic</h3>
-            <span className="text-[10px] font-mono text-muted-foreground">
+        <div className="border-border bg-card flex flex-col overflow-hidden rounded-xl border p-4 shadow-sm lg:col-span-3">
+          <div className="mb-4 flex items-center justify-between">
+            <h3 className="text-foreground text-sm font-semibold">Semantic</h3>
+            <span className="text-muted-foreground font-mono text-[10px]">
               --success, --warning, --destructive, --info
             </span>
           </div>
           <div className="grid grid-cols-2 gap-2">
-            <div className="flex items-center gap-2 p-2 rounded-lg bg-success text-success-foreground border border-success/20">
+            <div className="bg-success text-success-foreground border-success/20 flex items-center gap-2 rounded-lg border p-2">
               <CheckCircle2 className="size-3 shrink-0" />
               <span className="text-[10px] font-semibold">Success</span>
             </div>
-            <div className="flex items-center gap-2 p-2 rounded-lg bg-warning text-warning-foreground border border-warning/20">
+            <div className="bg-warning text-warning-foreground border-warning/20 flex items-center gap-2 rounded-lg border p-2">
               <AlertTriangle className="size-3 shrink-0" />
               <span className="text-[10px] font-semibold">Warning</span>
             </div>
-            <div className="flex items-center gap-2 p-2 rounded-lg bg-destructive text-destructive-foreground border border-destructive/20">
+            <div className="bg-destructive text-destructive-foreground border-destructive/20 flex items-center gap-2 rounded-lg border p-2">
               <XCircle className="size-3 shrink-0" />
               <span className="text-[10px] font-semibold">Error</span>
             </div>
-            <div className="flex items-center gap-2 p-2 rounded-lg bg-info text-info-foreground border border-info/20">
+            <div className="bg-info text-info-foreground border-info/20 flex items-center gap-2 rounded-lg border p-2">
               <Info className="size-3 shrink-0" />
               <span className="text-[10px] font-semibold">Info</span>
             </div>

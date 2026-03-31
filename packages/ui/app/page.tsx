@@ -15,9 +15,9 @@ import Logo from "@/components/Logo";
 
 export default function Home() {
   return (
-    <div className="relative flex min-h-screen flex-col bg-background text-foreground">
+    <div className="bg-background text-foreground relative flex min-h-screen flex-col">
       {/* Sticky Glassmorphic Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg supports-backdrop-filter:bg-background/60">
+      <header className="border-border/40 bg-background/80 supports-backdrop-filter:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur-lg">
         <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 md:px-8">
           <Link href="/" className="transition-opacity hover:opacity-80">
             <Logo />
@@ -30,7 +30,7 @@ export default function Home() {
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 px-4 md:px-10 xl:px-16 py-20 flex flex-col items-center gap-24">
+      <main className="flex flex-1 flex-col items-center gap-24 px-4 py-20 md:px-10 xl:px-16">
         <Hero />
         <Showcase />
         <Colors />

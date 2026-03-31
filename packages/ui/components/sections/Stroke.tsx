@@ -7,34 +7,28 @@ function Stroke() {
   ];
 
   return (
-    <section className="w-full max-w-[1200px] mx-auto space-y-6 sm:space-y-8 px-4">
-      <div className="space-y-2 text-center sm:text-left mb-6">
-        <h2 className="header-sm md:header-md font-bold text-foreground">
-          Stroke Widths
-        </h2>
+    <section className="mx-auto w-full max-w-[1200px] space-y-6 px-4 sm:space-y-8">
+      <div className="mb-6 space-y-2 text-center sm:text-left">
+        <h2 className="header-sm md:header-md text-foreground font-bold">Stroke Widths</h2>
         <p className="paragraph-sm sm:paragraph-md text-muted-foreground font-dm-sans px-2 sm:px-0">
           Border thickness scale for component boundaries
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
         {strokes.map((s) => (
           <div
             key={s.name}
-            className="flex flex-col items-center gap-4 p-6 rounded-2xl bg-surface/50 backdrop-blur-sm border border-border/30"
+            className="bg-surface/50 border-border/30 flex flex-col items-center gap-4 rounded-2xl border p-6 backdrop-blur-sm"
           >
             <div
-              className={`size-16 bg-transparent flex items-center justify-center rounded-xl border-foreground/80 ${s.class}`}
+              className={`border-foreground/80 flex size-16 items-center justify-center rounded-xl bg-transparent ${s.class}`}
             >
-              <div
-                className={`size-8 rounded-md border-primary/50 bg-primary/5 ${s.class}`}
-              />
+              <div className={`border-primary/50 bg-primary/5 size-8 rounded-md ${s.class}`} />
             </div>
-            <div className="text-center space-y-1">
-              <p className="text-sm font-bold text-foreground">{s.name}</p>
-              <p className="text-[10px] font-mono text-muted-foreground">
-                {s.class}
-              </p>
+            <div className="space-y-1 text-center">
+              <p className="text-foreground text-sm font-bold">{s.name}</p>
+              <p className="text-muted-foreground font-mono text-[10px]">{s.class}</p>
             </div>
           </div>
         ))}

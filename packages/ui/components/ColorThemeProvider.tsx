@@ -2,12 +2,7 @@
 
 import React, { createContext, useContext, useState } from "react";
 
-export type ThemePalette =
-  | "primary"
-  | "secondary"
-  | "game-dev"
-  | "robotics"
-  | "it";
+export type ThemePalette = "primary" | "secondary" | "game-dev" | "robotics" | "it";
 
 interface ThemeContextType {
   colorTheme: ThemePalette;
@@ -19,11 +14,7 @@ const ThemeContext = createContext<ThemeContextType>({
   setColorTheme: () => null,
 });
 
-export function ColorThemeProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function ColorThemeProvider({ children }: { children: React.ReactNode }) {
   const [colorTheme, setColorThemeState] = useState<ThemePalette>(() => {
     if (typeof window === "undefined") return "primary";
     return (localStorage.getItem("mcoli-ui-color-theme") as ThemePalette) || "primary";
@@ -36,11 +27,7 @@ export function ColorThemeProvider({
   };
 
   // We always render the Provider to keep the React tree stable and prevent script injection errors
-  return (
-    <ThemeContext.Provider value={{ colorTheme, setColorTheme }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ colorTheme, setColorTheme }}>{children}</ThemeContext.Provider>;
 }
 
 export const useColorTheme = () => useContext(ThemeContext);

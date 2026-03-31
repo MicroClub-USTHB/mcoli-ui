@@ -10,32 +10,26 @@ function Shadow() {
   ];
 
   return (
-    <section className="w-full max-w-[1200px] mx-auto space-y-6 sm:space-y-8 px-4">
-      <div className="space-y-2 text-center sm:text-left mb-6">
-        <h2 className="header-sm md:header-md font-bold text-foreground">
-          Elevation & Shadows
-        </h2>
+    <section className="mx-auto w-full max-w-[1200px] space-y-6 px-4 sm:space-y-8">
+      <div className="mb-6 space-y-2 text-center sm:text-left">
+        <h2 className="header-sm md:header-md text-foreground font-bold">Elevation & Shadows</h2>
         <p className="paragraph-sm sm:paragraph-md text-muted-foreground font-dm-sans px-2 sm:px-0">
           Layer depth utilizing tailored box-shadow utilities
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-7">
         {shadows.map((s) => (
           <div
             key={s.name}
-            className="flex flex-col items-center gap-4 p-6 rounded-2xl border border-border bg-surface/30"
+            className="border-border bg-surface/30 flex flex-col items-center gap-4 rounded-2xl border p-6"
           >
             <div
-              className={`size-16 bg-background rounded-xl flex items-center justify-center border border-border/50 ${s.class}`}
+              className={`bg-background border-border/50 flex size-16 items-center justify-center rounded-xl border ${s.class}`}
             >
-              <span className="text-xs font-bold text-foreground">
-                {s.name}
-              </span>
+              <span className="text-foreground text-xs font-bold">{s.name}</span>
             </div>
-            <p className="text-[10px] font-mono text-muted-foreground truncate w-full text-center">
-              {s.var}
-            </p>
+            <p className="text-muted-foreground w-full truncate text-center font-mono text-[10px]">{s.var}</p>
           </div>
         ))}
       </div>

@@ -77,14 +77,12 @@ const buttonVariants = cva(
       {
         destructive: true,
         variant: "tertiary",
-        className:
-          "text-destructive hover:bg-destructive/10 active:ring-4 active:ring-destructive/20",
+        className: "text-destructive hover:bg-destructive/10 active:ring-4 active:ring-destructive/20",
       },
       {
         destructive: true,
         variant: "link",
-        className:
-          "text-destructive hover:text-destructive/80 active:text-destructive/80",
+        className: "text-destructive hover:text-destructive/80 active:text-destructive/80",
       },
     ],
     defaultVariants: {
@@ -97,8 +95,7 @@ const buttonVariants = cva(
 );
 
 export interface McButtonProps
-  extends Omit<ButtonPrimitive.Props, "icon">,
-    Omit<VariantProps<typeof buttonVariants>, "icon"> {
+  extends Omit<ButtonPrimitive.Props, "icon">, Omit<VariantProps<typeof buttonVariants>, "icon"> {
   iconDefinition?: React.ReactNode;
   icon?: "none" | "leading" | "trailing" | "dot" | "only";
   isLoading?: boolean;
@@ -118,11 +115,7 @@ function McButton({
 }: McButtonProps) {
   const isLink = variant === "link";
   const effectiveIcon =
-    isLink && (icon === "leading" || icon === "trailing") && !iconDefinition ? (
-      <LinkIcon />
-    ) : (
-      iconDefinition
-    );
+    isLink && (icon === "leading" || icon === "trailing") && !iconDefinition ? <LinkIcon /> : iconDefinition;
 
   return (
     <ButtonPrimitive
@@ -141,20 +134,12 @@ function McButton({
       {...props}
     >
       {isLoading ? (
-        <Loader2 className="size-4 animate-spin shrink-0" />
+        <Loader2 className="size-4 shrink-0 animate-spin" />
       ) : (
         <>
-          {icon === "dot" && (
-            <span
-              data-slot="dot"
-              className="size-2.5 shrink-0 rounded-full bg-current"
-            />
-          )}
+          {icon === "dot" && <span data-slot="dot" className="size-2.5 shrink-0 rounded-full bg-current" />}
           {icon === "leading" && effectiveIcon && (
-            <span
-              data-slot="leading-icon"
-              className="size-4 shrink-0 [&_svg]:size-full"
-            >
+            <span data-slot="leading-icon" className="size-4 shrink-0 [&_svg]:size-full">
               {effectiveIcon}
             </span>
           )}
@@ -165,10 +150,7 @@ function McButton({
       {icon === "only" && !isLoading && effectiveIcon}
 
       {icon === "trailing" && !isLoading && effectiveIcon && (
-        <span
-          data-slot="trailing-icon"
-          className="size-4 shrink-0 [&_svg]:size-full"
-        >
+        <span data-slot="trailing-icon" className="size-4 shrink-0 [&_svg]:size-full">
           {effectiveIcon}
         </span>
       )}

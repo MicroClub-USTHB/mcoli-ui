@@ -19,6 +19,7 @@ npx mcoli-ui init primary
 ```
 
 Available themes:
+
 - `primary` - Professional and modern (Blue Primary with Purple Secondary)
 - `secondary` - Creative and bold (Purple Secondary with Blue Primary)
 - `game-dev` - Fun and energetic (Pink Primary with Yellow accents)

@@ -4,14 +4,7 @@ import nextTypescript from "eslint-config-next/typescript";
 
 const eslintConfig = [
   {
-    ignores: [
-      ".source/**",
-      "storybook-static/**",
-      ".next/**",
-      "node_modules/**",
-      "dist/**",
-      "cli/dist/**",
-    ],
+    ignores: [".source/**", "storybook-static/**", ".next/**", "node_modules/**", "dist/**", "cli/dist/**"],
   },
   ...nextCoreWebVitals,
   ...nextTypescript,
