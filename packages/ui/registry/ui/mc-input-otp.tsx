@@ -77,21 +77,29 @@ function McInputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
 
 export interface InputOTPSlotProps
   extends Omit<React.ComponentProps<"div">, "children">,
-    VariantProps<typeof inputOTPSlotVariants> {
+     Omit<VariantProps<typeof inputOTPSlotVariants>, "position"> {
   index: number
    invalid?: boolean
 }
 
 function McInputOTPSlot({
   index,
-  position,
+
   className,
      invalid = false,
   ...props
-}: InputOTPSlotProps) {
+}: Omit<InputOTPSlotProps, 'position'>) {
   const inputOTPContext = React.useContext(OTPInputContext)
   const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {}
-
+const totalSlots = inputOTPContext?.slots.length ?? 1
+  const position =
+    totalSlots === 1
+      ? "alone"
+      : index === 0
+      ? "left"
+      : index === totalSlots - 1
+      ? "right"
+      : "middle"
   return (
     <div
       data-slot="input-otp-slot"
