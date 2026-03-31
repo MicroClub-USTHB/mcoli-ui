@@ -102,3 +102,12 @@ export const Invalid: Story = {
     </InputOTP>
   ),
 }
+export const leftOne: Story = {
+  render: (args) => (
+    <InputOTP maxLength={1} {...args}>
+      
+        <InputOTPSlot index={0} position="left" invalid={args.invalid}/>
+        
+    </InputOTP>
+  ),
+}
