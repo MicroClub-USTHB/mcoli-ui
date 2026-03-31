@@ -6,6 +6,25 @@ This guide covers how to add a new registry item (component, hook, or theme) to 
 
 **At this stage, our focus is explicitly on implementing remaining planned registry items (components).** We ask that you prioritize these before proposing other features or architectural changes.
 
+## How to Run
+
+```bash
+# Install dependencies
+npm install
+
+# Copy environment variables
+cp .env.example .env
+
+# Run development server (Next.js docs site)
+npm run dev
+
+# Run Storybook for component development
+npm run storybook
+
+# Build the registry (required before submitting PR)
+npm run build:registry
+```
+
 ## Choosing Your Path
 
 - **[Internal Contributors](#internal-contributors)**: You have push access to the repository.
@@ -56,25 +75,37 @@ Example file: [`packages/ui/registry/ui/mc-button.tsx`](packages/ui/registry/ui/
 
 Edit [`packages/ui/registry/registry-ui.ts`](packages/ui/registry/registry-ui.ts) and add your entry. This metadata allows the shadcn-based CLI to discover and distribute your code.
 
-### Step 5: Create Demo
+### Step 5: Add to Registry Examples
+
+Edit [`packages/ui/registry/registry-examples.ts`](packages/ui/registry/registry-examples.ts) and add your example to the `examples` array. This links the demo to the registry.
+
+### Step 6: Create Demo
 
 Create a demo for the documentation in `packages/ui/registry/examples/mc-<name>-demo.tsx`.
 
 Example file: [`packages/ui/registry/examples/mc-button-demo.tsx`](packages/ui/registry/examples/mc-button-demo.tsx)
 
-### Step 6: Create Storybook Story
+### Step 7: Create Storybook Story
 
 Create a story in `packages/ui/stories/Mc<Name>.stories.tsx` for visual testing and regression checks.
 
 Example file: [`packages/ui/stories/McButton.stories.tsx`](packages/ui/stories/McButton.stories.tsx)
 
-### Step 7: Create Documentation
+### Step 8: Create Documentation
 
 Create an MDX file in `packages/ui/content/docs/components/mc-<name>.mdx` using Fumadocs components.
 
 Example file: [`packages/ui/content/docs/components/mc-button.mdx`](packages/ui/content/docs/components/mc-button.mdx)
 
-### Step 8: Build and Test
+### Step 9: Build and Test
+
+First, copy the example environment file:
+
+```bash
+cp .env.example .env
+```
+
+Then build and test:
 
 ```bash
 # Build the registry metadata (registry.json)
@@ -117,6 +148,7 @@ When adding a new item, you will create/edit these files:
 | ------------------------------------------------------------------------------------------------------ | ----------------------------- |
 | [`packages/ui/registry/ui/mc-<name>.tsx`](packages/ui/registry/ui/mc-button.tsx)                       | The actual code to distribute |
 | [`packages/ui/registry/registry-ui.ts`](packages/ui/registry/registry-ui.ts)                           | Metadata for CLI discovery    |
+| [`packages/ui/registry/registry-examples.ts`](packages/ui/registry/registry-examples.ts)                | Links demos to registry       |
 | [`packages/ui/registry/examples/mc-<name>-demo.tsx`](packages/ui/registry/examples/mc-button-demo.tsx) | Live demo for documentation   |
 | [`packages/ui/stories/Mc<Name>.stories.tsx`](packages/ui/stories/McButton.stories.tsx)                 | Visual testing in Storybook   |
 | [`packages/ui/content/docs/components/mc-<name>.mdx`](packages/ui/content/docs/components/mc-button.mdx)| Markdown documentation        |
