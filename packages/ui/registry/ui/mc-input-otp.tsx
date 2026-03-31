@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 
 
 const inputOTPSlotVariants = cva(
-  "relative flex size-11 items-center justify-center  border  bg-[#F9FAFF] p-[2px] text-sm font-medium transition-all outline-none",
+  "relative flex size-11 items-center justify-center border border-border bg-muted p-[2px] text-sm font-medium transition-all outline-none",
   {
     variants: {
       position: {
@@ -22,8 +22,8 @@ const inputOTPSlotVariants = cva(
         false: "size-10 p-[10px]",
       },
       invalid: {
-        true: " hover:border-red-500",
-       false: "border-[#E6E9FF] hover:border-[#E6E9FF]",
+        true: "hover:border-destructive",
+       false: "border-border hover:border-border",
       },
     },
     compoundVariants: [

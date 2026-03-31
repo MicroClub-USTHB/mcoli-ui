@@ -6,8 +6,11 @@ const config: StorybookConfig = {
   ],
 
   "framework": "@storybook/nextjs-vite",
+
   "staticDirs": [
     "../public"
-  ]
+  ],
+
+  addons: ["@storybook/addon-vitest", "@storybook/addon-a11y"]
 };
 export default config;
