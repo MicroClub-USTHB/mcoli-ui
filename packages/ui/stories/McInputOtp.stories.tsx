@@ -4,10 +4,10 @@ type StoryProps = {
   invalid?: boolean
 }
 import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSlot,
-  InputOTPSeparator,
+  McInputOTP,
+  McInputOTPGroup,
+  McInputOTPSlot,
+  McInputOTPSeparator,
 } from '@/registry/ui/mc-input-otp';
 
 const meta: Meta = {
@@ -28,104 +28,101 @@ export default meta;
 
 
 export const Default: Story = {
-  args: {
-    invalid: true
-  },
-
+ 
   render: (args) => (
-    <InputOTP maxLength={6} {...args}>
-      <InputOTPGroup>
-        <InputOTPSlot index={0} position="left" invalid={false}  />
-        <InputOTPSlot index={1} position="middle"invalid={false} />
-        <InputOTPSlot index={2}position="middle"invalid={false}  />
+    <McInputOTP maxLength={6} {...args}>
+      <McInputOTPGroup>
+        <McInputOTPSlot index={0} position="left" invalid={args.invalid} />
+        <McInputOTPSlot index={1} position="middle"invalid={args.invalid} />
+        <McInputOTPSlot index={2}position="middle"invalid={args.invalid}  />
      
-        <InputOTPSlot index={3}position="middle" invalid={false} />
-        <InputOTPSlot index={4}position="middle"invalid={false} />
-        <InputOTPSlot index={5} position="right"invalid={false}  />
-      </InputOTPGroup>
-    </InputOTP>
+        <McInputOTPSlot index={3}position="middle" invalid={args.invalid} />
+        <McInputOTPSlot index={4}position="middle"invalid={args.invalid} />
+        <McInputOTPSlot index={5} position="right"invalid={args.invalid}  />
+      </McInputOTPGroup>
+    </McInputOTP>
   )
 };
 
 export const WithoutSeparator: Story = {
   render: (args) => (
-     <InputOTP maxLength={6} {...args}>
-      <InputOTPGroup>
-        <InputOTPSlot index={0} position="left" invalid={args.invalid}/>
-        <InputOTPSlot index={1} position="middle" invalid={args.invalid}/>
-        <InputOTPSlot index={2} position="right" invalid={args.invalid}/>
-      </InputOTPGroup>
-      <InputOTPSeparator />
-      <InputOTPGroup>
-        <InputOTPSlot index={3} position="left"invalid={args.invalid} />
-        <InputOTPSlot index={4} position="middle" invalid={args.invalid}/>
-        <InputOTPSlot index={5} position="right" invalid={args.invalid}/>
-      </InputOTPGroup>
-    </InputOTP>
+     <McInputOTP maxLength={6} {...args}>
+      <McInputOTPGroup>
+        <McInputOTPSlot index={0} position="left" invalid={args.invalid}/>
+        <McInputOTPSlot index={1} position="middle" invalid={args.invalid}/>
+        <McInputOTPSlot index={2} position="right" invalid={args.invalid}/>
+      </McInputOTPGroup>
+      <McInputOTPSeparator />
+      <McInputOTPGroup>
+        <McInputOTPSlot index={3} position="left"invalid={args.invalid} />
+        <McInputOTPSlot index={4} position="middle" invalid={args.invalid}/>
+        <McInputOTPSlot index={5} position="right" invalid={args.invalid}/>
+      </McInputOTPGroup>
+    </McInputOTP>
   ),
 };
 
 export const Disabled: Story = {
   render: (args) => (
-  <InputOTP maxLength={7} value="00" {...args}>
-      <InputOTPGroup>
-        <InputOTPSlot index={0} position="left"invalid={args.invalid} />
-        <InputOTPSlot index={1} position="right"invalid={args.invalid} />
-      </InputOTPGroup>
-      <InputOTPSeparator />
-      <InputOTPGroup>
-        <InputOTPSlot index={2} position="left"invalid={args.invalid} />
-        <InputOTPSlot index={3} position="middle"invalid={args.invalid} />
-        <InputOTPSlot index={4} position="right"invalid={args.invalid} />
-      </InputOTPGroup>
-      <InputOTPSeparator />
-      <InputOTPGroup>
-        <InputOTPSlot index={5} position="left"invalid={args.invalid} />
-        <InputOTPSlot index={6} position="right"invalid={args.invalid} />
-      </InputOTPGroup>
-    </InputOTP>
+  <McInputOTP maxLength={7} value="00" {...args}>
+      <McInputOTPGroup>
+        <McInputOTPSlot index={0} position="left"invalid={args.invalid} />
+        <McInputOTPSlot index={1} position="right"invalid={args.invalid} />
+      </McInputOTPGroup>
+      <McInputOTPSeparator />
+      <McInputOTPGroup>
+        <McInputOTPSlot index={2} position="left"invalid={args.invalid} />
+        <McInputOTPSlot index={3} position="middle"invalid={args.invalid} />
+        <McInputOTPSlot index={4} position="right"invalid={args.invalid} />
+      </McInputOTPGroup>
+      <McInputOTPSeparator />
+      <McInputOTPGroup>
+        <McInputOTPSlot index={5} position="left"invalid={args.invalid} />
+        <McInputOTPSlot index={6} position="right"invalid={args.invalid} />
+      </McInputOTPGroup>
+    </McInputOTP>
   ),
 };
 
 
 export const Invalid: Story = {
   render: (args) => (
-    <InputOTP maxLength={6} {...args}>
-      <InputOTPGroup>
-        <InputOTPSlot index={0} position="left" invalid={args.invalid}/>
-        <InputOTPSlot index={1} position="middle" invalid={args.invalid}/>
-        <InputOTPSlot index={2} position="middle" invalid={args.invalid} />
-        <InputOTPSlot index={3} position="middle" invalid={args.invalid} />
-        <InputOTPSlot index={4} position="middle" invalid={args.invalid} />
-        <InputOTPSlot index={5} position="right" invalid={args.invalid} />
-      </InputOTPGroup>
-    </InputOTP>
+    <McInputOTP maxLength={6} {...args}>
+      <McInputOTPGroup>
+        <McInputOTPSlot index={0} position="left" invalid={args.invalid}/>
+        <McInputOTPSlot index={1} position="middle" invalid={args.invalid}/>
+        <McInputOTPSlot index={2} position="middle" invalid={args.invalid} />
+        <McInputOTPSlot index={3} position="middle" invalid={args.invalid} />
+        <McInputOTPSlot index={4} position="middle" invalid={args.invalid} />
+        <McInputOTPSlot index={5} position="right" invalid={args.invalid} />
+      </McInputOTPGroup>
+    </McInputOTP>
   ),
 }
 export const leftOne: Story = {
   render: (args) => (
-    <InputOTP maxLength={1} {...args}>
+    <McInputOTP maxLength={1} {...args}>
       
-        <InputOTPSlot index={0} position="left" invalid={args.invalid}/>
+        <McInputOTPSlot index={0} position="left" invalid={args.invalid}/>
         
-    </InputOTP>
+    </McInputOTP>
   ),
 }
 export const RightOne: Story = {
   render: (args) => (
-    <InputOTP maxLength={1} {...args}>
+    <McInputOTP maxLength={1} {...args}>
       
-        <InputOTPSlot index={0} position="right" invalid={args.invalid}/>
+        <McInputOTPSlot index={0} position="right" invalid={args.invalid}/>
         
-    </InputOTP>
+    </McInputOTP>
   ),
 }
 export const middleOne: Story = {
   render: (args) => (
-    <InputOTP maxLength={1} {...args}>
+    <McInputOTP maxLength={1} {...args}>
       
-        <InputOTPSlot index={0} position="middle" invalid={args.invalid}/>
+        <McInputOTPSlot index={0} position="middle" invalid={args.invalid}/>
         
-    </InputOTP>
+    </McInputOTP>
   ),
 }

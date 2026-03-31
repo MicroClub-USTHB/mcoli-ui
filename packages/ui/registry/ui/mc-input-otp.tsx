@@ -22,7 +22,7 @@ const inputOTPSlotVariants = cva(
         false: "size-10 p-[10px]",
       },
       invalid: {
-        true: "border-[#E6E9FF]ring-2 ring-red-200 hover:border-red-500",
+        true: " hover:border-red-500",
        false: "border-[#E6E9FF] hover:border-[#E6E9FF]",
       },
     },
@@ -41,7 +41,7 @@ const inputOTPSlotVariants = cva(
   },
 )
 
-function InputOTP({
+function McInputOTP({
   className,
   containerClassName,
   ...props
@@ -64,7 +64,7 @@ function InputOTP({
 
 
 
-function InputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
+function McInputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="input-otp-group"
@@ -82,7 +82,7 @@ export interface InputOTPSlotProps
    invalid?: boolean
 }
 
-function InputOTPSlot({
+function McInputOTPSlot({
   index,
   position,
   className,
@@ -118,7 +118,7 @@ function InputOTPSlot({
 
 
 
-function InputOTPSeparator({ ...props }: React.ComponentProps<"div">) {
+function McInputOTPSeparator({ ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="input-otp-separator"
@@ -131,4 +131,4 @@ function InputOTPSeparator({ ...props }: React.ComponentProps<"div">) {
   )
 }
 
-export { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator, inputOTPSlotVariants }
+export { McInputOTP, McInputOTPGroup, McInputOTPSlot, McInputOTPSeparator, inputOTPSlotVariants }
