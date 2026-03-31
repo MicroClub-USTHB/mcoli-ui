@@ -111,3 +111,21 @@ export const leftOne: Story = {
     </InputOTP>
   ),
 }
+export const RightOne: Story = {
+  render: (args) => (
+    <InputOTP maxLength={1} {...args}>
+      
+        <InputOTPSlot index={0} position="right" invalid={args.invalid}/>
+        
+    </InputOTP>
+  ),
+}
+export const middleOne: Story = {
+  render: (args) => (
+    <InputOTP maxLength={1} {...args}>
+      
+        <InputOTPSlot index={0} position="middle" invalid={args.invalid}/>
+        
+    </InputOTP>
+  ),
+}
