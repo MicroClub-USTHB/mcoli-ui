@@ -28,9 +28,24 @@ This establishes the core registry structure and configuration that mcoli-ui ext
 Run the initialization command to set up our exclusive theme system and registry:
 
 <Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
-  <Tab>
+  <Tab value="npm">
     ```sh
 npx mcoli-ui@latest init
+    ```
+  </Tab>
+  <Tab value="pnpm">
+    ```sh
+pnpm dlx mcoli-ui@latest init
+    ```
+  </Tab>
+  <Tab value="yarn">
+    ```sh
+yarn dlx mcoli-ui@latest init
+    ```
+  </Tab>
+  <Tab value="bun">
+    ```sh
+bunx mcoli-ui@latest init
     ```
   </Tab>
 </Tabs>
@@ -61,9 +76,24 @@ Each theme comes with carefully crafted color ramps, semantic tokens, and compon
 Once initialized, add components to your project:
 
 <Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
-  <Tab>
+  <Tab value="npm">
     ```sh
 npx mcoli-ui@latest add mc-button
+    ```
+  </Tab>
+  <Tab value="pnpm">
+    ```sh
+pnpm dlx mcoli-ui@latest add mc-button
+    ```
+  </Tab>
+  <Tab value="yarn">
+    ```sh
+yarn dlx mcoli-ui@latest add mc-button
+    ```
+  </Tab>
+  <Tab value="bun">
+    ```sh
+bunx mcoli-ui@latest add mc-button
     ```
   </Tab>
 </Tabs>
@@ -75,9 +105,24 @@ This injects the component source directly into `components/ui`, giving you full
 Check what's available in the registry:
 
 <Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
-  <Tab>
+  <Tab value="npm">
     ```sh
 npx mcoli-ui@latest list
+    ```
+  </Tab>
+  <Tab value="pnpm">
+    ```sh
+pnpm dlx mcoli-ui@latest list
+    ```
+  </Tab>
+  <Tab value="yarn">
+    ```sh
+yarn dlx mcoli-ui@latest list
+    ```
+  </Tab>
+  <Tab value="bun">
+    ```sh
+bunx mcoli-ui@latest list
     ```
   </Tab>
 </Tabs>

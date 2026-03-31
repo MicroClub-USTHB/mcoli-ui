@@ -158,20 +158,78 @@ export const themeName = {
 
 ## Color System
 
-All themes use a consistent color system:
+All themes use a consistent color system. Here are all the available CSS variables you can use in your components. Each theme has its own values for light and dark modes.
 
 | Token | Usage |
 |-------|-------|
-| `background` | Page background |
-| `foreground` | Primary text |
-| `primary` | Main brand color |
-| `secondary` | Secondary actions |
-| `muted` | Subtle backgrounds |
-| `accent` | Highlights |
-| `destructive` | Error states |
-| `success` | Positive feedback |
-| `warning` | Caution states |
-| `border` | Borders and dividers |
+| `--background` | Page background |
+| `--foreground` | Primary text |
+| `--primary` | Main brand color |
+| `--primary-foreground` | Text on primary |
+| `--secondary` | Secondary actions |
+| `--secondary-foreground` | Text on secondary |
+| `--accent` | Highlights |
+| `--accent-foreground` | Text on accent |
+| `--card` | Card background |
+| `--card-foreground` | Card text |
+| `--popover` | Popover background |
+| `--popover-foreground` | Popover text |
+| `--muted` | Muted backgrounds |
+| `--muted-foreground` | Muted text |
+| `--destructive` | Error states |
+| `--destructive-foreground` | Text on destructive |
+| `--border` | Borders |
+| `--input` | Input backgrounds |
+| `--ring` | Focus ring |
+| `--surface` | Surface backgrounds |
+| `--surface-foreground` | Surface text |
+| `--success` | Success states |
+| `--success-foreground` | Text on success |
+| `--warning` | Warning states |
+| `--warning-foreground` | Text on warning |
+| `--error` | Error states |
+| `--info` | Info states |
+| `--info-foreground` | Text on info |
+
+## Sidebar Variables
+
+Sidebar-specific variables for navigation components:
+
+| Token | Usage |
+|-------|-------|
+| `--sidebar` | Sidebar background |
+| `--sidebar-foreground` | Sidebar text |
+| `--sidebar-primary` | Sidebar brand color |
+| `--sidebar-primary-foreground` | Text on sidebar primary |
+| `--sidebar-accent` | Sidebar accent |
+| `--sidebar-accent-foreground` | Text on sidebar accent |
+| `--sidebar-border` | Sidebar borders |
+| `--sidebar-ring` | Sidebar focus ring |
+
+## Chart Colors
+
+Colors for data visualization:
+
+| Token |
+|-------|
+| `--chart-1` |
+| `--chart-2` |
+| `--chart-3` |
+| `--chart-4` |
+| `--chart-5` |
+
+## Using Colors in Components
+
+In your Tailwind classes, use these tokens as follows:
+
+```tsx
+className="text-muted-foreground"  // Uses --muted-foreground
+className="bg-primary"             // Uses --primary
+className="border-border"          // Uses --border
+className="text-destructive"      // Uses --destructive
+```
+
+All colors are available as `bg-`, `text-`, `border-`, and other Tailwind utilities.
 
 ## Switching Themes
 
@@ -208,8 +266,16 @@ For advanced customization, you can extend or override any theme:
 
 ```css
 @theme {
-  --color-primary: your-custom-color;
+  --color-primary: var(--primary);
   --radius-lg: 1rem;
+}
+
+:root {
+  --primary: your-custom-color;
+}
+
+.dark {
+  --primary: your-custom-color;
 }
 ```
 
