@@ -8,15 +8,9 @@ import { cn } from "@/lib/utils"
 
 
 const inputOTPSlotVariants = cva(
-  "relative flex size-11 items-center justify-center border border-border bg-muted p-[2px] text-sm font-medium transition-all outline-none",
+  "relative flex size-11 items-center justify-center border border-border bg-muted p-[2px] text-sm font-medium transition-all outline-none first:rounded-l-md last:rounded-r-md [&:not(:first-child)]:border-l-0",
   {
     variants: {
-      position: {
-        left:   "rounded-l-md rounded-r-none",
-        middle: "rounded-none border-l-0",
-        right:  "rounded-r-md rounded-l-none border-l-0",
-        alone:  "rounded-md",
-      },
       isActive: {
         true:  "size-11 p-[2px] z-10 border-2",
         false: "size-10 p-[10px]",
@@ -34,7 +28,6 @@ const inputOTPSlotVariants = cva(
       },
     ],
     defaultVariants: {
-      position: "middle",
       isActive: false,
       invalid: false,
     },
@@ -77,38 +70,26 @@ function McInputOTPGroup({ className, ...props }: React.ComponentProps<"div">) {
 
 export interface InputOTPSlotProps
   extends Omit<React.ComponentProps<"div">, "children">,
-     Omit<VariantProps<typeof inputOTPSlotVariants>, "position"> {
+     Omit<VariantProps<typeof inputOTPSlotVariants>, "isActive"> {
   index: number
-   invalid?: boolean
 }
 
 function McInputOTPSlot({
   index,
-
   className,
-     invalid = false,
+  invalid = false,
   ...props
-}: Omit<InputOTPSlotProps, 'position'>) {
+}: InputOTPSlotProps) {
   const inputOTPContext = React.useContext(OTPInputContext)
   const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {}
-const totalSlots = inputOTPContext?.slots.length ?? 1
-  const position =
-    totalSlots === 1
-      ? "alone"
-      : index === 0
-      ? "left"
-      : index === totalSlots - 1
-      ? "right"
-      : "middle"
   return (
     <div
       data-slot="input-otp-slot"
       data-active={isActive}
       className={cn(
         inputOTPSlotVariants({
-          position,
           isActive,
-          invalid ,
+          invalid,
         }),
         className,
       )}
