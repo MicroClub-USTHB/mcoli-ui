@@ -1,4 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
+type StoryProps = {
+  disabled?: boolean
+  invalid?: boolean
+}
 import {
   InputOTP,
   InputOTPGroup,
@@ -11,17 +15,23 @@ const meta: Meta = {
   tags: ['autodocs'],
   argTypes: {
     disabled: { control: 'boolean' },
+     invalid: { control: 'boolean' }, 
   },
   args: {
-    
-    disabled: false,
+      invalid: false,
+      disabled: false,
   },
 };
+type Story = StoryObj<StoryProps>;
 
 export default meta;
-type Story = StoryObj;
+
 
 export const Default: Story = {
+  args: {
+    invalid: true
+  },
+
   render: (args) => (
     <InputOTP maxLength={6} {...args}>
       <InputOTPGroup>
@@ -34,7 +44,7 @@ export const Default: Story = {
         <InputOTPSlot index={5} position="right" />
       </InputOTPGroup>
     </InputOTP>
-  ),
+  )
 };
 
 export const WithoutSeparator: Story = {
@@ -77,17 +87,18 @@ export const Disabled: Story = {
   ),
 };
 
-export const FourDigits: Story = {
+
+export const Invalid: Story = {
   render: (args) => (
- <InputOTP maxLength={6} disabled {...args}>
+    <InputOTP maxLength={6} {...args}>
       <InputOTPGroup>
-        <InputOTPSlot index={0} position="left" />
-        <InputOTPSlot index={1} position="middle" />
-        <InputOTPSlot index={2} position="middle" />
-        <InputOTPSlot index={3} position="middle" />
-        <InputOTPSlot index={4} position="middle" />
-        <InputOTPSlot index={5} position="right" />
+        <InputOTPSlot index={0} position="left" invalid={args.invalid}/>
+        <InputOTPSlot index={1} position="middle" invalid={args.invalid}/>
+        <InputOTPSlot index={2} position="middle" invalid={args.invalid} />
+        <InputOTPSlot index={3} position="middle" invalid={args.invalid} />
+        <InputOTPSlot index={4} position="middle" invalid={args.invalid} />
+        <InputOTPSlot index={5} position="right" invalid={args.invalid} />
       </InputOTPGroup>
     </InputOTP>
   ),
-};
+}

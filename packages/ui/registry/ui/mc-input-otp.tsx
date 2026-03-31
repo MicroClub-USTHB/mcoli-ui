@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 
 
 const inputOTPSlotVariants = cva(
-  "relative flex size-11 items-center justify-center  border border-[#E6E9FF] bg-[#F9FAFF] p-[2px] text-sm font-medium transition-all outline-none",
+  "relative flex size-11 items-center justify-center  border  bg-[#F9FAFF] p-[2px] text-sm font-medium transition-all outline-none",
   {
     variants: {
       position: {
@@ -18,12 +18,12 @@ const inputOTPSlotVariants = cva(
         alone:  "rounded-md",
       },
       isActive: {
-        true:  "size-11 p-[2px] z-10 border-2 border-[#E6E9FF]",
-        false: "size-10 p-[10px] bg-[#F9FAFF]t",
+        true:  "size-11 p-[2px] z-10 border-2",
+        false: "size-10 p-[10px]",
       },
       invalid: {
-        true:  "border-destructive ring-2 ring-destructive/20",
-        false: "",
+        true: "border-[#E6E9FF]ring-2 ring-red-200 hover:border-red-500",
+       false: "border-[#E6E9FF] hover:border-[#E6E9FF]",
       },
     },
     compoundVariants: [
@@ -79,12 +79,14 @@ export interface InputOTPSlotProps
   extends Omit<React.ComponentProps<"div">, "children">,
     VariantProps<typeof inputOTPSlotVariants> {
   index: number
+   invalid?: boolean
 }
 
 function InputOTPSlot({
   index,
   position,
   className,
+     invalid = false,
   ...props
 }: InputOTPSlotProps) {
   const inputOTPContext = React.useContext(OTPInputContext)
@@ -98,7 +100,7 @@ function InputOTPSlot({
         inputOTPSlotVariants({
           position,
           isActive,
-          invalid: false,
+          invalid ,
         }),
         className,
       )}
