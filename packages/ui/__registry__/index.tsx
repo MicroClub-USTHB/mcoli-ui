@@ -94,4 +94,16 @@ export const Index: Record<string, any> ={
     component: React.lazy(() => import("@/registry/examples/mc-button-demo.tsx")),
     source: "import { McButton } from \"../ui/mc-button\";\r\n\r\nexport default function McButtonDemo() {\r\n  return <McButton>Button</McButton>;\r\n}\r\n",
   },
+  "mc-input-otp-demo": {
+    name: "mc-input-otp-demo",
+    description: "Demo for MicroClub Input OTP",
+    type: "registry:example",
+    files: [{
+      path: "registry/examples/mc-input-otp-demo.tsx",
+      content: "\r\nimport {\r\n  McInputOTP,\r\n  McInputOTPGroup,\r\n  McInputOTPSlot,\r\n  McInputOTPSeparator,\r\n} from \"../ui/mc-input-otp\";\r\n\r\nexport default function McInputOtpDemo() {\r\n  return (\r\n    <McInputOTP maxLength={6}>\r\n      <McInputOTPGroup>\r\n        <McInputOTPSlot index={0}  invalid={false} />\r\n        <McInputOTPSlot index={1} invalid={false}  />\r\n        <McInputOTPSlot index={2}invalid={false} />\r\n      </McInputOTPGroup>\r\n      <McInputOTPSeparator />\r\n      <McInputOTPGroup>\r\n        <McInputOTPSlot index={3}  invalid={false} />\r\n        <McInputOTPSlot index={4}invalid={false}  />\r\n        <McInputOTPSlot index={5}  invalid={false} />\r\n      </McInputOTPGroup>\r\n    </McInputOTP>\r\n  );\r\n}\r\n",
+      type: "registry:example",
+    }],
+    component: React.lazy(() => import("@/registry/examples/mc-input-otp-demo.tsx")),
+    source: "\r\nimport {\r\n  McInputOTP,\r\n  McInputOTPGroup,\r\n  McInputOTPSlot,\r\n  McInputOTPSeparator,\r\n} from \"../ui/mc-input-otp\";\r\n\r\nexport default function McInputOtpDemo() {\r\n  return (\r\n    <McInputOTP maxLength={6}>\r\n      <McInputOTPGroup>\r\n        <McInputOTPSlot index={0}  invalid={false} />\r\n        <McInputOTPSlot index={1} invalid={false}  />\r\n        <McInputOTPSlot index={2}invalid={false} />\r\n      </McInputOTPGroup>\r\n      <McInputOTPSeparator />\r\n      <McInputOTPGroup>\r\n        <McInputOTPSlot index={3}  invalid={false} />\r\n        <McInputOTPSlot index={4}invalid={false}  />\r\n        <McInputOTPSlot index={5}  invalid={false} />\r\n      </McInputOTPGroup>\r\n    </McInputOTP>\r\n  );\r\n}\r\n",
+  },
 }
