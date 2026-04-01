@@ -8,15 +8,12 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const checkboxVariants = cva(
-  "peer relative flex shrink-0 items-center justify-center transition-colors outline-none " +
-    "w-5 h-5 rounded-[6px] border border-muted-foreground " +
-    "hover:border-primary " +
-    "disabled:cursor-not-allowed disabled:opacity-50 disabled:border-muted-foreground",
+  "peer relative flex shrink-0 items-center justify-center transition-colors outline-none w-5 h-5 rounded-[6px] border border-muted-foreground hover:border-primary disabled:cursor-not-allowed disabled:opacity-50 disabled:border-muted-foreground",
   {
     variants: {
       size: {
-        sm: "w-4 h-4",
-        md: "w-5 h-5",
+        sm: "size-4",
+        md: "size-5",
       },
     },
     defaultVariants: {
@@ -43,31 +40,35 @@ export function McCheckbox({
 }: McCheckboxProps) {
   const generatedId = React.useId()
   const checkboxId = id ?? generatedId
+  const [isChecked, setIsChecked] = React.useState(checked)
 
   return (
     <div className="flex items-start gap-2">
       <CheckboxPrimitive.Root
         id={checkboxId}
         data-slot="checkbox"
+        checked={isChecked}
+        onCheckedChange={setIsChecked}
+        disabled={disabled}
         className={cn(
           checkboxVariants({ size }),
-          !disabled && checked && "border-primary text-primary",
-          disabled && "border-muted-foreground",
+          !disabled && isChecked && "border-primary text-primary",
+          disabled && "border-muted-foreground hover:border-muted-foreground",
           !disabled && "focus-visible:ring-4 focus-visible:ring-ring focus-visible:border-border",
           className
         )}
-        checked={checked}
-        disabled={disabled}
         {...props}
       >
         <CheckboxPrimitive.Indicator
           className={cn(
-            "grid place-content-center [&>svg]:w-3.5 [&>svg]:h-3.5",
-            !disabled && checked && "text-[#0006B1]",
+            size === "sm"
+              ? "grid place-content-center [&>svg]:w-3 [&>svg]:h-3 "
+              : "grid place-content-center [&>svg]:w-3.5 [&>svg]:h-3.5 ",
+            !disabled && isChecked && "text-[#0006B1]",
             disabled && "text-[#54588B]"
           )}
-        >
-          <CheckIcon />
+        > 
+          <CheckIcon  strokeWidth={"3px"} /> 
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
 

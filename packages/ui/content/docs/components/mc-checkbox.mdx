@@ -1,23 +1,109 @@
 ---
-title: "Components/McCheckbox"
+title: "McCheckbox"
+description: "A customizable checkbox component with labels, support text, sizes, and disabled state."
 ---
 
 import { McCheckbox } from '@mcoli/ui/registry/ui/mc-checkbox';
 
 # McCheckbox
 
-A customizable checkbox component with support for labels, support text, sizes, and disabled state.
+The `McCheckbox` component provides an accessible checkbox input built on `@base-ui/react/checkbox` with polished MicroClub UI theming.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name='mc-checkbox-demo' />
+  </Tab>
+  <Tab>
+    <ComponentSource name='mc-checkbox' />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Use the CLI helper to add the component in one command:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab>
+    ```sh
+npx mcoli-ui@latest add mc-checkbox
+    ```
+  </Tab>
+  <Tab>
+    ```sh
+pnpm add mcoli-ui@latest && pnpm mcoli-ui add mc-checkbox
+    ```
+  </Tab>
+  <Tab>
+    ```sh
+yarn add mcoli-ui@latest && yarn mcoli-ui add mc-checkbox
+    ```
+  </Tab>
+  <Tab>
+    ```sh
+bun add mcoli-ui@latest && bun mcoli-ui add mc-checkbox
+    ```
+  </Tab>
+</Tabs>
+
+### Manual Setup
+
+1. Install dependencies:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab>
+    ```sh
+npm install clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+    ```
+  </Tab>
+</Tabs>
+
+2. Copy the source from the `<ComponentSource name='mc-checkbox' />` panel.
+3. Ensure your component import path is correct, e.g. `@/components/ui/mc-checkbox`.
+
+## Usage
+
+```tsx
+import { McCheckbox } from '@/components/ui/mc-checkbox'
+
+export default function Example() {
+  const [checked, setChecked] = React.useState(false)
+
+  return (
+    <McCheckbox
+      checked={checked}
+      onCheckedChange={setChecked}
+      text="Accept terms"
+      supportText="Required for submission"
+    />
+  )
+}
+```
 
 ## Variants
 
-- **Size:** `sm` | `md` (default: `md`)  
-- **Checked:** `true` | `false`  
-- **Disabled:** `true` | `false`  
+<McCheckbox text="Default (md)" checked={false} />
 
-## Examples
+<McCheckbox text="Checked" checked={true} />
+<McCheckbox text="Disabled" checked={false} disabled />
+<McCheckbox text="Small" size="sm" checked={false} />
+<McCheckbox text="Label + support" supportText="Extra info" checked={false} />
 
-<McCheckbox text="Default Checkbox" checked={false} />
-<McCheckbox text="Checked Checkbox" checked={true} />
-<McCheckbox text="Disabled Checkbox" checked={false} disabled />
-<McCheckbox text="Small Checkbox" checked={false} size="sm" />
-<McCheckbox text="Label" supportText="Additional info" checked={false} />
+## API Reference
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `checked` | `boolean`  `"indeterminate"` | `undefined` | Controlled checked state |
+| `defaultChecked` | `boolean` | `undefined` | Initial checked state for uncontrolled usage |
+| `onCheckedChange` | `(checked: boolean  "indeterminate") => void` | `undefined` | Callback when checked state changes |
+| `disabled` | `boolean` | `false` | Disabled state |
+| `id` | `string` | auto-generated | Input id for label association |
+| `text` | `string` | `undefined` | Label text displayed next to checkbox |
+| `supportText` | `string` | `undefined` | Secondary text displayed below label |
+| `size` | `"sm"|"md"` | `"md"` | Checkbox size |
+| `className` | `string` | `undefined` | Additional wrapper class names |
+
+> All props from `@base-ui/react/checkbox` are supported and forwarded to `CheckboxPrimitive.Root`.

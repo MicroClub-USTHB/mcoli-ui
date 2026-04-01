@@ -4,8 +4,8 @@
   "title": "Primary",
   "description": "Blue Primary with Purple Secondary accents - Professional and modern.",
   "registryDependencies": [
-    "https://mcoli-ui.microclub.info/r/font-dm-sans.json",
-    "https://mcoli-ui.microclub.info/r/font-plus-jakarta-sans.json"
+    "http://localhost:3000/r/font-dm-sans.json",
+    "http://localhost:3000/r/font-plus-jakarta-sans.json"
   ],
   "cssVars": {
     "theme": {
