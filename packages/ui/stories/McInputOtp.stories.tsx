@@ -47,7 +47,7 @@ export const Default: Story = {
   )
 };
 
-export const WithoutSeparator: Story = {
+export const WithOneSeparator: Story = {
   render: (args) => (
      <McInputOTP maxLength={6} {...args}>
       <McInputOTPGroup>
@@ -65,7 +65,7 @@ export const WithoutSeparator: Story = {
   ),
 };
 
-export const Disabled: Story = {
+export const WithTwoSeparator: Story = {
   render: (args) => (
   <McInputOTP maxLength={7} value="00" {...args}>
       <McInputOTPGroup>
@@ -86,6 +86,5 @@ export const Disabled: Story = {
     </McInputOTP>
   ),
 };
-
 
 
