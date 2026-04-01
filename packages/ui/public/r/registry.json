@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "mcoli-ui-registry",
-  "homepage": "https://mcoli-ui.microclub.info/",
+  "homepage": "http://localhost:3000/",
   "items": [
     {
       "name": "font-dm-sans",
@@ -35,8 +35,8 @@
       "title": "Primary",
       "description": "Blue Primary with Purple Secondary accents - Professional and modern.",
       "registryDependencies": [
-        "https://mcoli-ui.microclub.info/r/font-dm-sans.json",
-        "https://mcoli-ui.microclub.info/r/font-plus-jakarta-sans.json"
+        "http://localhost:3000/r/font-dm-sans.json",
+        "http://localhost:3000/r/font-plus-jakarta-sans.json"
       ],
       "css": {
         "@layer base": {
@@ -461,8 +461,8 @@
       "title": "Secondary",
       "description": "Purple Secondary with Blue Primary accents - Creative and bold.",
       "registryDependencies": [
-        "https://mcoli-ui.microclub.info/r/font-dm-sans.json",
-        "https://mcoli-ui.microclub.info/r/font-plus-jakarta-sans.json"
+        "http://localhost:3000/r/font-dm-sans.json",
+        "http://localhost:3000/r/font-plus-jakarta-sans.json"
       ],
       "css": {
         "@layer base": {
@@ -887,8 +887,8 @@
       "title": "GameDev",
       "description": "Pink Primary with Yellow accents - Vibrant and energetic for gaming.",
       "registryDependencies": [
-        "https://mcoli-ui.microclub.info/r/font-dm-sans.json",
-        "https://mcoli-ui.microclub.info/r/font-plus-jakarta-sans.json"
+        "http://localhost:3000/r/font-dm-sans.json",
+        "http://localhost:3000/r/font-plus-jakarta-sans.json"
       ],
       "css": {
         "@layer base": {
@@ -1313,8 +1313,8 @@
       "title": "Robotics",
       "description": "Blue Primary with Accent Blue accents - Technical and precise.",
       "registryDependencies": [
-        "https://mcoli-ui.microclub.info/r/font-dm-sans.json",
-        "https://mcoli-ui.microclub.info/r/font-plus-jakarta-sans.json"
+        "http://localhost:3000/r/font-dm-sans.json",
+        "http://localhost:3000/r/font-plus-jakarta-sans.json"
       ],
       "css": {
         "@layer base": {
@@ -1739,8 +1739,8 @@
       "title": "IT",
       "description": "Green Primary with Gray accents - Clean and professional for IT.",
       "registryDependencies": [
-        "https://mcoli-ui.microclub.info/r/font-dm-sans.json",
-        "https://mcoli-ui.microclub.info/r/font-plus-jakarta-sans.json"
+        "http://localhost:3000/r/font-dm-sans.json",
+        "http://localhost:3000/r/font-plus-jakarta-sans.json"
       ],
       "css": {
         "@layer base": {

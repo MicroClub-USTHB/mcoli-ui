@@ -13,7 +13,7 @@ const inputOTPSlotVariants = cva(
     variants: {
       
       isActive: {
-        true:  "size-11 p-[2px] z-10 border-2",
+        true:  "size-11 p-[2px] z-10 border-2 !border-l-2",
         false: "size-10 p-[10px]",
       },
       invalid: {
@@ -112,7 +112,7 @@ function McInputOTPSeparator({ ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="input-otp-separator"
-      className="flex items-center text-border [&_svg:not([class*='size-'])]:size-4"
+     className="flex items-center text-foreground [&_svg:not([class*='size-'])]:size-4"
       role="separator"
       {...props}
     >
