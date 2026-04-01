@@ -1,5 +1,4 @@
-import React from "react"
-import { Meta, StoryObj } from "@storybook/react"
+import { Meta, StoryObj } from "@storybook/react-vite"
 import { McCheckbox } from "../registry/ui/mc-checkbox"
 
 const meta: Meta<typeof McCheckbox> = {

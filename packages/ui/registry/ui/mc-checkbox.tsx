@@ -9,9 +9,9 @@ import { cn } from "@/lib/utils"
 
 const checkboxVariants = cva(
   "peer relative flex shrink-0 items-center justify-center transition-colors outline-none " +
-  "w-5 h-5 rounded-[6px] border border-muted-foreground " +
-  "hover:border-primary " +
-  "disabled:cursor-not-allowed disabled:opacity-50 disabled:border-muted-foreground",
+    "w-5 h-5 rounded-[6px] border border-muted-foreground " +
+    "hover:border-primary " +
+    "disabled:cursor-not-allowed disabled:opacity-50 disabled:border-muted-foreground",
   {
     variants: {
       size: {
@@ -41,7 +41,8 @@ export function McCheckbox({
   disabled,
   ...props
 }: McCheckboxProps) {
-  const checkboxId = id || React.useId()
+  const generatedId = React.useId()
+  const checkboxId = id ?? generatedId
 
   return (
     <div className="flex items-start gap-2">

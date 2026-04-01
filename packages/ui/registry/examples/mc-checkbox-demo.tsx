@@ -6,7 +6,7 @@ import { McCheckbox } from "../ui/mc-checkbox"
 export default function McCheckboxDemo() {
   const [checked1, setChecked1] = React.useState(false)
   const [checked2, setChecked2] = React.useState(true)
-  const [checked3, setChecked3] = React.useState(false)
+  const [checked3] = React.useState(false)
 
   return (
     <div className="space-y-6 p-6">
