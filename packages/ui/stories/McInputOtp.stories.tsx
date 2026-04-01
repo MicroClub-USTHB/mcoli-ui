@@ -88,18 +88,4 @@ export const Disabled: Story = {
 };
 
 
-export const Invalid: Story = {
-  render: (args) => (
-    <McInputOTP maxLength={6} {...args}>
-      <McInputOTPGroup>
-        <McInputOTPSlot index={0}  invalid={args.invalid}/>
-        <McInputOTPSlot index={1}  invalid={args.invalid}/>
-        <McInputOTPSlot index={2}  invalid={args.invalid} />
-        <McInputOTPSlot index={3}  invalid={args.invalid} />
-        <McInputOTPSlot index={4}  invalid={args.invalid} />
-        <McInputOTPSlot index={5} invalid={args.invalid} />
-      </McInputOTPGroup>
-    </McInputOTP>
-  ),
-}
 
