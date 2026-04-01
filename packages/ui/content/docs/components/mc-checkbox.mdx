@@ -1,8 +1,23 @@
 ---
-title: MC Checkbox
-description: A control that allows the user to toggle between checked and not checked.
+title: "Components/McCheckbox"
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for more information.
-</Callout>
+import { McCheckbox } from '@mcoli/ui/registry/ui/mc-checkbox';
+
+# McCheckbox
+
+A customizable checkbox component with support for labels, support text, sizes, and disabled state.
+
+## Variants
+
+- **Size:** `sm` | `md` (default: `md`)  
+- **Checked:** `true` | `false`  
+- **Disabled:** `true` | `false`  
+
+## Examples
+
+<McCheckbox text="Default Checkbox" checked={false} />
+<McCheckbox text="Checked Checkbox" checked={true} />
+<McCheckbox text="Disabled Checkbox" checked={false} disabled />
+<McCheckbox text="Small Checkbox" checked={false} size="sm" />
+<McCheckbox text="Label" supportText="Additional info" checked={false} />

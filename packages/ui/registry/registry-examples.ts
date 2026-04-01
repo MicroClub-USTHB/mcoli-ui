@@ -14,4 +14,16 @@ export const examples: Registry["items"] = [
     ],
     registryDependencies: ["https://mcoli-ui.microclub.info/r/mc-button.json"],
   },
+  {
+    name: "mc-checkbox-demo",
+    type: "registry:example",
+    title: "MicroClub Checkbox Demo",
+    description: "Demo for MicroClub Checkbox",
+    files: [
+      {
+        path: "examples/mc-checkbox-demo.tsx",
+        type: "registry:example",
+      },
+    ],
+  },
 ];
