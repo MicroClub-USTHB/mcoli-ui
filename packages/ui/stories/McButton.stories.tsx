@@ -5,6 +5,9 @@ import { ArrowRight, Plus, Mail } from 'lucide-react';
 const meta: Meta<typeof McButton> = {
   title: 'Components/McButton',
   component: McButton,
+  parameters: {
+    layout: 'centered', 
+  },
   argTypes: {
     variant: {
       control: 'select',

@@ -1,8 +1,77 @@
 ---
 title: MC Checkbox
-description: A control that allows the user to toggle between checked and not checked.
+description: A checkbox component with optional label and support text.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for more information.
-</Callout>
+## Overview
+
+The `mc-checkbox` is built on **@base-ui/react** checkbox primitive with full
+accessibility and MicroClub styling via **Tailwind CSS v4**.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name='mc-checkbox-demo'/>
+  </Tab>
+  <Tab>
+    <ComponentSource name='mc-checkbox-demo' />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab>
+```sh
+npx mcoli-ui@latest add mc-checkbox
+```
+  </Tab>
+</Tabs>
+
+## Usage
+```tsx
+import { McCheckbox } from "@/components/ui/mc-checkbox"
+
+export default function Example() {
+  return <McCheckbox text="Remember me" />
+}
+```
+
+## Examples
+
+### With Support Text
+```tsx
+<McCheckbox
+  text="Remember me"
+  supportText="Save my login details for next time."
+/>
+```
+
+### Sizes
+```tsx
+<McCheckbox size="sm" text="Remember me" />
+<McCheckbox size="md" text="Remember me" />
+```
+
+### States
+```tsx
+<McCheckbox text="Remember me" />
+<McCheckbox text="Remember me" defaultChecked />
+<McCheckbox text="Remember me" disabled />
+```
+
+## API Reference
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `text` | `string` | `undefined` | Label shown next to the checkbox |
+| `supportText` | `string` | `undefined` | Helper text shown below the label |
+| `size` | `"sm" \| "md"` | `"md"` | Controls checkbox and text size |
+| `disabled` | `boolean` | `false` | Disables the checkbox |
+| `defaultChecked` | `boolean` | `false` | Initial checked state (uncontrolled) |
+| `checked` | `boolean` | `undefined` | Controlled checked state |
+| `onCheckedChange` | `(checked: boolean) => void` | `undefined` | Called when state changes |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+All other props from `@base-ui/react/checkbox` are supported.

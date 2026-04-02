@@ -4,8 +4,8 @@
   "title": "IT",
   "description": "Green Primary with Gray accents - Clean and professional for IT.",
   "registryDependencies": [
-    "http://localhost:3000/r/font-dm-sans.json",
-    "http://localhost:3000/r/font-plus-jakarta-sans.json"
+    "https://mcoli-ui.microclub.info/r/font-dm-sans.json",
+    "https://mcoli-ui.microclub.info/r/font-plus-jakarta-sans.json"
   ],
   "cssVars": {
     "theme": {

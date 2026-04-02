@@ -1,29 +1,147 @@
 "use client"
 
 import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox"
-
+import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
-import { CheckIcon } from "lucide-react"
+import { CheckIcon  } from "lucide-react"
+import * as React from "react"
 
-function McCheckbox({ className, ...props }: CheckboxPrimitive.Root.Props) {
+const checkboxVariants = cva("", {
+  variants: {
+    size: {
+      sm: "size-4",
+      md: "size-5",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+const labelVariants = cva("font-medium text-foreground cursor-pointer", {
+  variants: {
+    size: {
+      sm: "text-sm",
+      md: "text-sm",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+const supportTextVariants = cva("text-muted-foreground", {
+  variants: {
+    size: {
+      sm: "text-xs",
+      md: "text-sm",
+    },
+  },
+  defaultVariants: { size: "md" },
+})
+
+export interface McCheckboxProps
+  extends Omit<CheckboxPrimitive.Root.Props, "size" | "checked">,
+    VariantProps<typeof checkboxVariants> {
+  text?: string
+  supportText?: string
+  checked?: boolean | "indeterminate"
+}
+
+function McCheckbox({
+  className,
+  size,
+  text,
+  supportText,
+  id,
+  disabled,
+  ...props
+}: McCheckboxProps) {
+  const generatedId = React.useId()
+  const checkboxId = id ?? generatedId
+
   return (
-    <CheckboxPrimitive.Root
-      data-slot="checkbox"
-      className={cn(
-        "peer relative flex size-4 shrink-0 items-center justify-center rounded-[4px] border border-input transition-colors outline-none group-has-disabled/field:opacity-50 after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary",
-        className
-      )}
-      {...props}
-    >
-      <CheckboxPrimitive.Indicator
-        data-slot="checkbox-indicator"
-        className="grid place-content-center text-current transition-none [&>svg]:size-3.5"
+    // wrapper handles disabled fading for EVERYTHING including text
+    <div className={cn(
+      "flex items-start gap-2",
+      disabled && "opacity-50 cursor-not-allowed"
+    )}>
+      <CheckboxPrimitive.Root
+        id={checkboxId}
+        data-slot="checkbox"
+        disabled={disabled}
+        aria-describedby={supportText ? `${checkboxId}-description` : undefined}
+        className={cn(
+          // layout
+          "peer relative flex shrink-0 items-center justify-center",
+          // shape
+          "rounded-[4px] border border-border",
+          // background — always stays light/white
+          "bg-background dark:bg-input/30",
+          // transition
+          "transition-colors outline-none",
+          // extended click area
+          "after:absolute after:-inset-x-3 after:-inset-y-2",
+
+          // hover — slightly darker border
+          "hover:border-primary/60",
+
+          // focus — lavender background + ring
+          "focus-visible:bg-primary/10 focus-visible:border-primary focus-visible:ring-3 focus-visible:ring-primary/30",
+
+          // checked — border becomes primary, checkmark becomes primary
+          // background stays white, NOT filled
+          "data-checked:border-primary data-checked:text-primary",
+          "dark:data-checked:border-primary dark:data-checked:text-primary",
+
+          // checked + focused — ring shows around filled border
+          "data-checked:focus-visible:ring-primary/30",
+
+          // disabled — pointer events off, wrapper opacity handles the fading
+          "disabled:pointer-events-none",
+
+          // invalid state
+          "aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20",
+          "dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40",
+
+          // group disabled
+          "group-has-disabled/field:opacity-50",
+
+          // size from CVA
+          checkboxVariants({ size }),
+          className
+        )}
+        {...props}
       >
-        <CheckIcon
-        />
-      </CheckboxPrimitive.Indicator>
-    </CheckboxPrimitive.Root>
+       <CheckboxPrimitive.Indicator
+  data-slot="checkbox-indicator"
+  className="grid place-content-center text-current transition-none [&>svg]:size-3.5"
+>
+  <CheckIcon />
+</CheckboxPrimitive.Indicator>
+      </CheckboxPrimitive.Root>
+
+      {(text || supportText) && (
+        <div className="flex flex-col gap-0.5">
+          {text && (
+            <label
+              htmlFor={checkboxId}
+              className={cn(
+                labelVariants({ size }),
+                disabled && "pointer-events-none"
+              )}
+            >
+              {text}
+            </label>
+          )}
+          {supportText && (
+            <span
+              id={`${checkboxId}-description`}
+              className={cn(supportTextVariants({ size }))}
+            >
+              {supportText}
+            </span>
+          )}
+        </div>
+      )}
+    </div>
   )
 }
 
-export { McCheckbox }
+export { McCheckbox, checkboxVariants }
