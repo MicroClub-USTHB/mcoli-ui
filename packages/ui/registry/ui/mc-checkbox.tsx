@@ -37,11 +37,11 @@ const supportTextVariants = cva("text-muted-foreground", {
 })
 
 export interface McCheckboxProps
-  extends Omit<CheckboxPrimitive.Root.Props, "size" | "checked">,
+  extends Omit<CheckboxPrimitive.Root.Props, "size" >,
     VariantProps<typeof checkboxVariants> {
   text?: string
   supportText?: string
-  checked?: boolean | "indeterminate"
+  
 }
 
 function McCheckbox({
