@@ -3,7 +3,7 @@
 import { Checkbox as CheckboxPrimitive } from "@base-ui/react/checkbox"
 import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
-import { CheckIcon  } from "lucide-react"
+import { CheckIcon ,MinusIcon  } from "lucide-react"
 import * as React from "react"
 
 const checkboxVariants = cva("", {
@@ -51,6 +51,7 @@ function McCheckbox({
   supportText,
   id,
   disabled,
+  indeterminate,
   ...props
 }: McCheckboxProps) {
   const generatedId = React.useId()
@@ -66,34 +67,35 @@ function McCheckbox({
         id={checkboxId}
         data-slot="checkbox"
         disabled={disabled}
+        indeterminate={indeterminate}
         aria-describedby={supportText ? `${checkboxId}-description` : undefined}
         className={cn(
           // layout
           "peer relative flex shrink-0 items-center justify-center",
           // shape
           "rounded-[4px] border border-border",
-          // background — always stays light/white
+          // background
           "bg-background dark:bg-input/30",
           // transition
           "transition-colors outline-none",
           // extended click area
           "after:absolute after:-inset-x-3 after:-inset-y-2",
 
-          // hover — slightly darker border
+          // hover
           "hover:border-primary/60",
 
-          // focus — lavender background + ring
+          // focus 
           "focus-visible:bg-primary/10 focus-visible:border-primary focus-visible:ring-3 focus-visible:ring-primary/30",
 
-          // checked — border becomes primary, checkmark becomes primary
-          // background stays white, NOT filled
+          // checked
+          
           "data-checked:border-primary data-checked:text-primary",
           "dark:data-checked:border-primary dark:data-checked:text-primary",
 
-          // checked + focused — ring shows around filled border
+          // checked + focused 
           "data-checked:focus-visible:ring-primary/30",
 
-          // disabled — pointer events off, wrapper opacity handles the fading
+          // disabled 
           "disabled:pointer-events-none",
 
           // invalid state
@@ -113,7 +115,8 @@ function McCheckbox({
   data-slot="checkbox-indicator"
   className="grid place-content-center text-current transition-none [&>svg]:size-3.5"
 >
-  <CheckIcon />
+ 
+  {indeterminate ? <MinusIcon /> : <CheckIcon />}
 </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
 

@@ -8,7 +8,9 @@ const meta: Meta<typeof McCheckbox> = {
     size: {
       control: 'select',
       options: ['sm', 'md'],
+      
     },
+    indeterminate: { control: 'boolean' },
     disabled: { control: 'boolean' },
     defaultChecked: { control: 'boolean' },
     text: { control: 'text' },
@@ -20,6 +22,7 @@ const meta: Meta<typeof McCheckbox> = {
     defaultChecked: false,
     text: 'Remember me',
     supportText: '',
+    indeterminate: false,
   },
 }
 
@@ -39,6 +42,7 @@ export const States: Story = {
     <div className="flex flex-col gap-4">
       <McCheckbox {...args} text="Remember me" />
       <McCheckbox {...args} text="Remember me" defaultChecked />
+      <McCheckbox {...args} text="Remember me" indeterminate /> 
       <McCheckbox {...args} text="Remember me" disabled />
       <McCheckbox {...args} text="Remember me" disabled defaultChecked />
     </div>
@@ -90,9 +94,9 @@ export const WithSupportText: Story = {
 export const Bare: Story = {
   render: (args) => (
     <div className="flex gap-4">
-      <McCheckbox {...args} />
-      <McCheckbox {...args} defaultChecked />
-      <McCheckbox {...args} disabled />
+      <McCheckbox {...args} text={undefined} supportText={undefined} />
+      <McCheckbox {...args} text={undefined} supportText={undefined} defaultChecked />
+      <McCheckbox {...args} text={undefined} supportText={undefined} disabled />
     </div>
   ),
 }
