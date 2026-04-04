@@ -99,8 +99,8 @@ git remote add upstream https://github.com/MicroClub-USTHB/mcoli-ui.git
 ### Step 2: Create Branch
 
 ```bash
-git switch dev
-git pull upstream dev
+git switch challenge
+git pull upstream challenge
 git checkout -c component/mc-checkbox
 ```
 
@@ -195,7 +195,7 @@ git commit -m "feat: add mc-checkbox component"
 git push -u origin component/mc-checkbox
 ```
 
-Create a PR targeting `dev` and link issue #6.
+Create a PR targeting `challenge` and link issue #6.
 
 ---
 
