@@ -1,5 +1,4 @@
-import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/nextjs';
 import { McTabs, McTabsList, McTabsTrigger } from '../registry/ui/mc-tabs';
 
 const meta: Meta<typeof McTabs> = {
