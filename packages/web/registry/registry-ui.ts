@@ -40,4 +40,18 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+
+  {
+    name: 'mc-pagination',
+    type: 'registry:component',
+    title: 'MicroClub Pagination',
+    description: 'A pagination component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-pagination.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
