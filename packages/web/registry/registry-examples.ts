@@ -41,4 +41,17 @@ export const examples: Registry['items'] = [
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-checkbox.json`],
   },
+  {
+    name: 'mc-tabs-demo',
+    type: 'registry:example',
+    title: 'MicroClub Tabs Demo',
+    description: 'Demo for MicroClub Tabs',
+    files: [
+      {
+        path: 'examples/mc-tabs-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-tabs.json`],
+  },
 ];
