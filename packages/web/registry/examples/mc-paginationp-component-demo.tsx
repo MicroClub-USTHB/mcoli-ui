@@ -1,36 +1,36 @@
 import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from '@/components/ui/pagination';
+  McPagination,
+  McPaginationContent,
+  McPaginationEllipsis,
+  McPaginationItem,
+  McPaginationLink,
+  McPaginationNext,
+  McPaginationPrevious,
+} from '@/registry/ui/mc-pagination-component';
 
 function McPaginationComponentDemo() {
-  <Pagination>
-    <PaginationContent>
-      <PaginationItem>
-        <PaginationPrevious href="#" />
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink href="#">1</PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink href="#" isActive>
+  <McPagination>
+    <McPaginationContent>
+      <McPaginationItem>
+        <McPaginationPrevious href="#" />
+      </McPaginationItem>
+      <McPaginationItem>
+        <McPaginationLink href="#">1</McPaginationLink>
+      </McPaginationItem>
+      <McPaginationItem>
+        <McPaginationLink href="#" isActive>
           2
-        </PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationLink href="#">3</PaginationLink>
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationEllipsis />
-      </PaginationItem>
-      <PaginationItem>
-        <PaginationNext href="#" />
-      </PaginationItem>
-    </PaginationContent>
-  </Pagination>;
+        </McPaginationLink>
+      </McPaginationItem>
+      <McPaginationItem>
+        <McPaginationLink href="#">3</McPaginationLink>
+      </McPaginationItem>
+      <McPaginationItem>
+        <McPaginationEllipsis />
+      </McPaginationItem>
+      <McPaginationItem>
+        <McPaginationNext href="#" />
+      </McPaginationItem>
+    </McPaginationContent>
+  </McPagination>;
 }
