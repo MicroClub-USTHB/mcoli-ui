@@ -1,10 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import { McButton } from '@/registry/ui/mc-button';
+import {
+  McPagination,
+  McPaginationContent,
+  McPaginationItem,
+  McPaginationLink,
+  McPaginationPrevious,
+  McPaginationNext,
+  McPaginationEllipsis,
+} from '@/registry/ui/mc-pagination';
 import { ArrowRight, Plus, Mail } from 'lucide-react';
+import { PaginationItem } from '@/components/ui/pagination';
 
-const meta: Meta<typeof McButton> = {
-  title: 'Components/McButton',
-  component: McButton,
+const meta: Meta<typeof McPagination> = {
+  title: 'Components/McPagination',
+  component: McPagination,
   argTypes: {
     variant: {
       control: 'select',
@@ -20,139 +29,57 @@ const meta: Meta<typeof McButton> = {
     },
     destructive: { control: 'boolean' },
     isLoading: { control: 'boolean' },
-    disabled: { control: 'boolean' },
-    iconDefinition: {
-      control: { type: 'select' },
-      options: ['None', 'Mail', 'ArrowRight', 'Plus'],
-    },
+    // disabled: { control: 'boolean' },
   },
   args: {
-    children: 'Button',
+    children: 'Pagitnation',
     variant: 'primary',
     size: 'md',
     icon: 'none',
     destructive: false,
     isLoading: false,
-    disabled: false,
+    // disabled: false,
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof McButton>;
+type Story = StoryObj<typeof McPagination>;
 
-const iconMap = {
-  None: undefined,
-  Mail: <Mail />,
-  ArrowRight: <ArrowRight />,
-  Plus: <Plus />,
-};
+// const iconMap = {
+//   None: undefined,
+//   Mail: <Mail />,
+//   ArrowRight: <ArrowRight />,
+//   Plus: <Plus />,
+// };
 
 export const Playground: Story = {
   args: {
-    children: 'Button CTA',
+    variant: 'secondary',
+    size: 'xl',
   },
-  render: ({ iconDefinition, ...args }) => (
-    <McButton {...args} iconDefinition={iconMap[iconDefinition as keyof typeof iconMap]} />
-  ),
-};
 
-export const Variants: Story = {
-  render: (args) => (
-    <div className="flex flex-wrap gap-4">
-      <McButton {...args} variant="primary">
-        Primary
-      </McButton>
-      <McButton {...args} variant="secondary">
-        Secondary
-      </McButton>
-      <McButton {...args} variant="tertiary">
-        Tertiary
-      </McButton>
-      <McButton {...args} variant="link">
-        Link
-      </McButton>
-    </div>
-  ),
-};
-
-export const Sizes: Story = {
-  render: (args) => (
-    <div className="flex items-center gap-4">
-      <McButton {...args} size="sm">
-        Small
-      </McButton>
-      <McButton {...args} size="md">
-        Medium
-      </McButton>
-      <McButton {...args} size="lg">
-        Large
-      </McButton>
-      <McButton {...args} size="xl">
-        Extra Large
-      </McButton>
-    </div>
-  ),
-};
-
-export const Icons: Story = {
-  render: (args) => (
-    <div className="flex flex-wrap gap-4">
-      <McButton {...args} icon="leading" iconDefinition={<Mail />}>
-        Leading Icon
-      </McButton>
-      <McButton {...args} icon="trailing" iconDefinition={<ArrowRight />}>
-        Trailing Icon
-      </McButton>
-      <McButton {...args} icon="dot">
-        Dot Icon
-      </McButton>
-      <McButton {...args} icon="only" iconDefinition={<Plus />} />
-    </div>
-  ),
-};
-
-export const Destructive: Story = {
-  render: (args) => (
-    <div className="flex flex-wrap gap-4">
-      <McButton {...args} destructive variant="primary">
-        Primary
-      </McButton>
-      <McButton {...args} destructive variant="secondary">
-        Secondary
-      </McButton>
-      <McButton {...args} destructive variant="tertiary">
-        Tertiary
-      </McButton>
-      <McButton {...args} destructive variant="link">
-        Link
-      </McButton>
-    </div>
-  ),
-};
-
-export const States: Story = {
-  render: (args) => (
-    <div className="flex flex-wrap gap-4">
-      <McButton {...args} isLoading>
-        Loading
-      </McButton>
-      <McButton {...args} disabled>
-        Disabled
-      </McButton>
-      <McButton {...args} variant="link" icon="leading">
-        Auto Link Icon
-      </McButton>
-    </div>
-  ),
-};
-
-export const IconOnlySizes: Story = {
-  render: (args) => (
-    <div className="flex items-center gap-4">
-      <McButton {...args} icon="only" iconDefinition={<Plus />} size="sm" />
-      <McButton {...args} icon="only" iconDefinition={<Plus />} size="md" />
-      <McButton {...args} icon="only" iconDefinition={<Plus />} size="lg" />
-      <McButton {...args} icon="only" iconDefinition={<Plus />} size="xl" />
-    </div>
+  render: () => (
+    <McPagination>
+      <McPaginationContent>
+        <McPaginationItem>
+          <McPaginationPrevious href="#" />
+        </McPaginationItem>
+        <McPaginationItem>
+          <McPaginationLink href="#">1</McPaginationLink>
+        </McPaginationItem>
+        <McPaginationItem>
+          <McPaginationLink href="#" isActive>
+            2
+          </McPaginationLink>
+        </McPaginationItem>
+        <McPaginationItem>
+          <McPaginationLink href="#">3</McPaginationLink>
+        </McPaginationItem>
+        <McPaginationItem></McPaginationItem>
+        <McPaginationItem>
+          <McPaginationNext href="#" />
+        </McPaginationItem>
+      </McPaginationContent>
+    </McPagination>
   ),
 };

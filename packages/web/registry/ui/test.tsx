@@ -14,7 +14,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { LinkIcon, Loader2 } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { McButtonProps } from './mc-pagination-component';
+import { McButtonProps } from './mc-pagination';
 import { Props } from 'next/dist/client/script';
 
 const paginationVariants = cva(

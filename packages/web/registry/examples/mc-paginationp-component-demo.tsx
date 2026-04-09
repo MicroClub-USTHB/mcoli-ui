@@ -6,7 +6,7 @@ import {
   McPaginationLink,
   McPaginationNext,
   McPaginationPrevious,
-} from '@/registry/ui/mc-pagination-component';
+} from '@/registry/ui/mc-pagination';
 
 function McPaginationComponentDemo() {
   <McPagination>
