@@ -40,4 +40,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+  {
+    name: 'mc-breadcrumb',
+    type: 'registry:component',
+    title: 'MicroClub Breadcrumb',
+    description: 'A breadcrumb component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-breadcrumb.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
