@@ -2098,6 +2098,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-tabs': {
+    name: 'mc-tabs',
+    description: 'A tabs component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-tabs.tsx',
+        content:
+          '"use client"\n\nimport { Tabs as TabsPrimitive } from "@base-ui/react/tabs"\nimport { cva, type VariantProps } from "class-variance-authority"\nimport { cn } from "@/lib/utils"\n\nconst McTabsListVariants = cva(\n  "flex bg-muted rounded-lg p-[3px] size-fit",\n  {\n    variants: {\n      variant: {\n        horizontal: "flex-row",\n        vertical: "flex-col",\n      },\n    },\n    defaultVariants: {\n      variant: "horizontal",\n    },\n  }\n)\n\nfunction McTabs({ ...props }: TabsPrimitive.Root.Props) {\n  return <TabsPrimitive.Root data-slot="tabs" {...props} />\n}\n\nfunction McTabsList({\n  className,\n  variant,\n  ...props\n}: TabsPrimitive.List.Props & VariantProps<typeof McTabsListVariants>) {\n  return (\n    <TabsPrimitive.List\n      data-slot="tabs-list"\n      className={cn(McTabsListVariants({ variant }), className)}\n      {...props}\n    />\n  )\n}\n\nfunction McTabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {\n  return (\n    <TabsPrimitive.Tab\n      data-slot="tabs-trigger"\n      className={cn(\n        "flex flex-col items-center justify-center h-7 w-19.5 px-2 py-1 rounded-md text-[14px] gap-2.5 font-medium text-muted-foreground bg-transparent border border-transparent",\n        "data-active:bg-accent",\n        "data-active:border-t",\n        "data-active:border-border",\n        "data-active:text-accent-foreground",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { McTabs, McTabsList, McTabsTrigger }',
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-button-demo': {
     name: 'mc-button-demo',
     description: 'Demo for MicroClub Button',
@@ -2145,5 +2158,21 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-checkbox-demo.tsx')),
     source:
       'import { McCheckbox } from \'../ui/mc-checkbox\';\n\nexport default function McCheckboxDemo() {\n  return <McCheckbox text="Checkbox" supportText="support Text" />;\n}\n',
+  },
+  'mc-tabs-demo': {
+    name: 'mc-tabs-demo',
+    description: 'Demo for MicroClub Tabs',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-tabs-demo.tsx',
+        content:
+          'import { McTabs, McTabsList, McTabsTrigger } from "../ui/mc-tabs";\n\nexport default function McTabsDemo() {\n  return (\n    <McTabs defaultValue="tab1">\n      <McTabsList>\n        <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>\n        <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>\n        <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>\n      </McTabsList>\n    </McTabs>\n  );\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-tabs-demo.tsx')),
+    source:
+      'import { McTabs, McTabsList, McTabsTrigger } from "../ui/mc-tabs";\n\nexport default function McTabsDemo() {\n  return (\n    <McTabs defaultValue="tab1">\n      <McTabsList>\n        <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>\n        <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>\n        <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>\n      </McTabsList>\n    </McTabs>\n  );\n}\n',
   },
 };
