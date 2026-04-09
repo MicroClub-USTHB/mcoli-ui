@@ -2193,6 +2193,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-switch",
+      "title": "MicroClub Switch",
+      "description": "A switch component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-switch.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }
