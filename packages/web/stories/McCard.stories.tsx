@@ -17,7 +17,7 @@ const meta: Meta<McCardStoryProps> = {
   component: McCard,
   decorators: [
     (Story) => (
-      <div className="max-w-xs">
+      <div className="max-w-xs [&:has(.flex-row:is([data-slot='card']))]:max-w-100">
         <Story />
       </div>
     ),
@@ -27,6 +27,7 @@ const meta: Meta<McCardStoryProps> = {
     description: { control: 'text' },
     primaryAction: { control: 'text' },
     secondaryAction: { control: 'text' },
+    direction: { control: 'inline-radio', options: ['row', 'column'] },
     footerDirection: { control: 'inline-radio', options: ['row', 'column'] },
     footerAlign: { control: 'select', options: ['start', 'end', 'center', 'stretch'] },
   },
@@ -35,8 +36,9 @@ const meta: Meta<McCardStoryProps> = {
     description: 'Supporting copy that explains the card purpose in one or two lines.',
     primaryAction: 'Action',
     secondaryAction: 'Action',
+    direction: 'column',
     footerDirection: 'row',
-    footerAlign: 'stretch',
+    footerAlign: 'end',
   },
 };
 
@@ -49,22 +51,27 @@ export const Playground: Story = {
     description,
     primaryAction,
     secondaryAction,
+    direction,
     footerDirection,
     footerAlign,
     ...cardProps
   }) => (
-    <McCard {...cardProps}>
+    <McCard direction={direction} {...cardProps}>
       <McCardHeader title={title} description={description} />
-      <div className="border border-dashed border-primary/35 p-4 text-sm pb-12">
-        <p>Replace this block with charts, media, forms, or any layout you need.</p>
-      </div>
+      <p className="border border-dashed border-primary/35 p-4 text-sm pb-12">
+        Replace this block with charts, media, forms, or any layout you need.
+      </p>
       <McCardFooter direction={footerDirection} align={footerAlign}>
-        <McButton variant="secondary" size="sm">
-          {secondaryAction}
-        </McButton>
-        <McButton variant="primary" size="sm">
-          {primaryAction}
-        </McButton>
+        {secondaryAction && (
+          <McButton variant="secondary" size="sm">
+            {secondaryAction}
+          </McButton>
+        )}
+        {primaryAction && (
+          <McButton variant="primary" size="sm">
+            {primaryAction}
+          </McButton>
+        )}
       </McCardFooter>
     </McCard>
   ),
@@ -72,11 +79,13 @@ export const Playground: Story = {
 
 export const WithCustomContent: StoryObj<McCardStoryProps & { content: string }> = {
   args: {
-    title: 'Project overview',
-    description: 'Key metrics for this sprint.',
-    primaryAction: 'Save',
-    secondaryAction: 'Cancel',
+    title: 'File Preview',
+    description: 'You are now previewing file: example-10mb.png',
+    primaryAction: 'Download',
+    secondaryAction: '',
     content: 'Content area should be replaced with charts, media, forms, or any layout you need.',
+    footerDirection: 'column',
+    footerAlign: 'stretch',
   },
   render: ({
     title,
@@ -90,16 +99,66 @@ export const WithCustomContent: StoryObj<McCardStoryProps & { content: string }>
   }) => (
     <McCard {...cardProps}>
       <McCardHeader title={title} description={description} />
-      <div className="border border-dashed border-primary/35 p-4 text-sm pb-12">
-        <p>{content}</p>
-      </div>
+      <img
+        src="https://picsum.photos/600/400"
+        alt="Placeholder"
+        className="object-cover overflow-hidden"
+      />
       <McCardFooter direction={footerDirection} align={footerAlign}>
-        <McButton variant="tertiary" size="md">
-          {secondaryAction}
-        </McButton>
-        <McButton variant="primary" size="md">
-          {primaryAction}
-        </McButton>
+        {secondaryAction && (
+          <McButton variant="secondary" size="sm">
+            {secondaryAction}
+          </McButton>
+        )}
+        {primaryAction && (
+          <McButton variant="primary" size="sm">
+            {primaryAction}
+          </McButton>
+        )}
+      </McCardFooter>
+    </McCard>
+  ),
+};
+
+export const RowDirection: StoryObj<McCardStoryProps & { content: string }> = {
+  args: {
+    title: 'User Created',
+    description: 'Create a new user with the details.',
+    primaryAction: 'Done',
+    secondaryAction: '',
+    content: 'Content area should be replaced with charts, media, forms, or any layout you need.',
+    direction: 'row',
+    footerDirection: 'row',
+    footerAlign: 'start',
+  },
+  render: ({
+    title,
+    description,
+    primaryAction,
+    secondaryAction,
+    footerDirection,
+    footerAlign,
+    content,
+    ...cardProps
+  }) => (
+    <McCard {...cardProps}>
+      <img
+        src="https://picsum.photos/400/400"
+        alt="Placeholder"
+        className="object-cover overflow-hidden aspect-square h-14"
+      />
+      <McCardHeader title={title} description={description} />
+      <McCardFooter direction={footerDirection} align={footerAlign}>
+        {secondaryAction && (
+          <McButton variant="secondary" size="sm">
+            {secondaryAction}
+          </McButton>
+        )}
+        {primaryAction && (
+          <McButton variant="primary" size="sm">
+            {primaryAction}
+          </McButton>
+        )}
       </McCardFooter>
     </McCard>
   ),
