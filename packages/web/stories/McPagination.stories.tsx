@@ -1,3 +1,4 @@
+import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import {
   McPagination,
@@ -6,80 +7,74 @@ import {
   McPaginationLink,
   McPaginationPrevious,
   McPaginationNext,
-  McPaginationEllipsis,
+  type McPaginationSize,
 } from '@/registry/ui/mc-pagination';
-import { ArrowRight, Plus, Mail } from 'lucide-react';
-import { PaginationItem } from '@/components/ui/pagination';
 
-const meta: Meta<typeof McPagination> = {
+type McPaginationStoryArgs = {
+  size: McPaginationSize;
+};
+
+const meta: Meta<McPaginationStoryArgs> = {
   title: 'Components/McPagination',
-  component: McPagination,
   argTypes: {
-    variant: {
-      control: 'select',
-      options: ['primary', 'secondary', 'tertiary', 'link'],
-    },
     size: {
       control: 'select',
       options: ['sm', 'md', 'lg', 'xl'],
     },
-    icon: {
-      control: 'select',
-      options: ['none', 'leading', 'trailing', 'dot', 'only'],
-    },
-    destructive: { control: 'boolean' },
-    isLoading: { control: 'boolean' },
-    // disabled: { control: 'boolean' },
   },
   args: {
-    children: 'Pagitnation',
-    variant: 'primary',
     size: 'md',
-    icon: 'none',
-    destructive: false,
-    isLoading: false,
-    // disabled: false,
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof McPagination>;
+type Story = StoryObj<McPaginationStoryArgs>;
 
-// const iconMap = {
-//   None: undefined,
-//   Mail: <Mail />,
-//   ArrowRight: <ArrowRight />,
-//   Plus: <Plus />,
-// };
+function McPaginationPlayground({ size }: McPaginationStoryArgs) {
+  const [activePage, setActivePage] = React.useState(2);
+  const pages = [1, 2, 3];
 
-export const Playground: Story = {
-  args: {
-    variant: 'secondary',
-    size: 'xl',
-  },
+  const selectPage = (page: number) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    setActivePage(page);
+  };
 
-  render: () => (
+  const goToPreviousPage = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    setActivePage((currentPage) => Math.max(1, currentPage - 1));
+  };
+
+  const goToNextPage = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    setActivePage((currentPage) => Math.min(pages.length, currentPage + 1));
+  };
+
+  return (
     <McPagination>
       <McPaginationContent>
         <McPaginationItem>
-          <McPaginationPrevious href="#" />
+          <McPaginationPrevious href="#" paginationSize={size} onClick={goToPreviousPage} />
         </McPaginationItem>
+        {pages.map((page) => (
+          <McPaginationItem key={page}>
+            <McPaginationLink
+              href="#"
+              isActive={activePage === page}
+              paginationSize={size}
+              onClick={selectPage(page)}
+            >
+              {page}
+            </McPaginationLink>
+          </McPaginationItem>
+        ))}
         <McPaginationItem>
-          <McPaginationLink href="#">1</McPaginationLink>
-        </McPaginationItem>
-        <McPaginationItem>
-          <McPaginationLink href="#" isActive>
-            2
-          </McPaginationLink>
-        </McPaginationItem>
-        <McPaginationItem>
-          <McPaginationLink href="#">3</McPaginationLink>
-        </McPaginationItem>
-        <McPaginationItem></McPaginationItem>
-        <McPaginationItem>
-          <McPaginationNext href="#" />
+          <McPaginationNext href="#" paginationSize={size} onClick={goToNextPage} />
         </McPaginationItem>
       </McPaginationContent>
     </McPagination>
-  ),
+  );
+}
+
+export const Playground: Story = {
+  render: ({ size }) => <McPaginationPlayground size={size} />,
 };

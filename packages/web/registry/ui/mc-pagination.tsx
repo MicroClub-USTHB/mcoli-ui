@@ -30,18 +30,47 @@ function McPaginationItem({ ...props }: React.ComponentProps<'li'>) {
   return <li data-slot="pagination-item" {...props} />;
 }
 
+type McPaginationSize = 'sm' | 'md' | 'lg' | 'xl';
+
+const buttonSizeByPaginationSize: Record<McPaginationSize, 'sm' | 'default' | 'lg'> = {
+  sm: 'sm',
+  md: 'default',
+  lg: 'lg',
+  xl: 'lg',
+};
+
+const linkClassByPaginationSize: Record<McPaginationSize, string> = {
+  sm: 'px-3 text-sm',
+  md: 'px-4 text-md',
+  lg: 'px-5 text-base',
+  xl: 'h-10 px-6 text-base',
+};
+
+const iconClassByPaginationSize: Record<McPaginationSize, string> = {
+  sm: 'h-3.5 w-3.5',
+  md: 'h-4 w-4',
+  lg: 'h-4 w-4',
+  xl: 'h-5 w-5',
+};
+
 type PaginationLinkProps = {
   isActive?: boolean;
-} & Pick<React.ComponentProps<typeof Button>, 'size'> &
-  React.ComponentProps<'a'>;
+  paginationSize?: McPaginationSize;
+} & React.ComponentProps<'a'>;
 
-function McPaginationLink({ className, isActive, size = 'icon', ...props }: PaginationLinkProps) {
+function McPaginationLink({
+  className,
+  isActive,
+  paginationSize = 'md',
+  ...props
+}: PaginationLinkProps) {
   return (
     <Button
       variant={isActive ? 'outline' : 'ghost'}
-      size={size}
+      size={buttonSizeByPaginationSize[paginationSize]}
       className={cn(
-        'flex items-center justify-center gap-2 px-4 py-2 text-md font-sans',
+        'flex items-center justify-center gap-2 font-sans',
+        linkClassByPaginationSize[paginationSize],
         isActive && 'rounded-[6px] bg-primary text-md font-sans text-primary-foreground',
         className
       )}
@@ -61,16 +90,20 @@ function McPaginationLink({ className, isActive, size = 'icon', ...props }: Pagi
 function McPaginationPrevious({
   className,
   text = 'Back',
+  paginationSize = 'md',
   ...props
 }: React.ComponentProps<typeof McPaginationLink> & { text?: string }) {
   return (
     <McPaginationLink
       aria-label="Go to previous page"
-      size="default"
+      paginationSize={paginationSize}
       className={cn('pl-1.5!', className)}
       {...props}
     >
-      <ChevronLeftIcon data-icon="inline-start" className="cn-rtl-flip h-4 w-4 shrink-0" />
+      <ChevronLeftIcon
+        data-icon="inline-start"
+        className={cn('cn-rtl-flip shrink-0', iconClassByPaginationSize[paginationSize])}
+      />
       <span className="hidden items-center leading-none sm:inline-flex">{text}</span>
     </McPaginationLink>
   );
@@ -79,17 +112,21 @@ function McPaginationPrevious({
 function McPaginationNext({
   className,
   text = 'Next',
+  paginationSize = 'md',
   ...props
 }: React.ComponentProps<typeof McPaginationLink> & { text?: string }) {
   return (
     <McPaginationLink
       aria-label="Go to next page"
-      size="default"
+      paginationSize={paginationSize}
       className={cn('pr-1.5!', className)}
       {...props}
     >
       <span className="hidden items-center leading-none sm:inline-flex">{text}</span>
-      <ChevronRightIcon data-icon="inline-end" className="cn-rtl-flip h-4 w-4 shrink-0" />
+      <ChevronRightIcon
+        data-icon="inline-end"
+        className={cn('cn-rtl-flip shrink-0', iconClassByPaginationSize[paginationSize])}
+      />
     </McPaginationLink>
   );
 }
@@ -119,4 +156,5 @@ export {
   McPaginationLink,
   McPaginationNext,
   McPaginationPrevious,
+  type McPaginationSize,
 };
