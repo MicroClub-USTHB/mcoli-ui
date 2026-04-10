@@ -16,7 +16,7 @@ function BreadcrumbList({ className, ...props }: React.ComponentProps<'ol'>) {
     <ol
       data-slot="breadcrumb-list"
       className={cn(
-        'flex flex-wrap items-center gap-1.5 text-sm wrap-break-word text-muted-foreground',
+        'flex flex-wrap items-center gap-1.5 paragraph-md font-medium text-muted-foreground',
         className
       )}
       {...props}
@@ -39,7 +39,7 @@ function BreadcrumbLink({ className, render, ...props }: useRender.ComponentProp
     defaultTagName: 'a',
     props: mergeProps<'a'>(
       {
-        className: cn('transition-colors hover:text-foreground', className),
+        className: cn('transition-colors text-muted-foreground hover:text-foreground', className),
       },
       props
     ),
@@ -57,7 +57,7 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<'span'>) {
       role="link"
       aria-disabled="true"
       aria-current="page"
-      className={cn('font-normal text-foreground', className)}
+      className={cn('font-normal paragraph-md font-medium text-foreground', className)}
       {...props}
     />
   );
@@ -69,10 +69,10 @@ function BreadcrumbSeparator({ children, className, ...props }: React.ComponentP
       data-slot="breadcrumb-separator"
       role="presentation"
       aria-hidden="true"
-      className={cn('[&>svg]:size-3.5', className)}
+      className={cn('text-muted-foreground [&>svg]:size-3.5', className)}
       {...props}
     >
-      {children ?? <ChevronRightIcon className="cn-rtl-flip" />}
+      {children ?? <ChevronRightIcon className="cn-rtl-flip translate-y-px" />}
     </li>
   );
 }
@@ -83,7 +83,10 @@ function BreadcrumbEllipsis({ className, ...props }: React.ComponentProps<'span'
       data-slot="breadcrumb-ellipsis"
       role="presentation"
       aria-hidden="true"
-      className={cn('flex size-5 items-center justify-center [&>svg]:size-4', className)}
+      className={cn(
+        'flex size-5 items-center justify-center text-muted-foreground [&>svg]:size-4',
+        className
+      )}
       {...props}
     >
       <MoreHorizontalIcon />
