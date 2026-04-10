@@ -5,13 +5,13 @@ import { ChevronRightIcon, MoreHorizontalIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
-function Breadcrumb({ className, ...props }: React.ComponentProps<'nav'>) {
+function McBreadcrumb({ className, ...props }: React.ComponentProps<'nav'>) {
   return (
     <nav aria-label="breadcrumb" data-slot="breadcrumb" className={cn(className)} {...props} />
   );
 }
 
-function BreadcrumbList({ className, ...props }: React.ComponentProps<'ol'>) {
+function McBreadcrumbList({ className, ...props }: React.ComponentProps<'ol'>) {
   return (
     <ol
       data-slot="breadcrumb-list"
@@ -24,7 +24,7 @@ function BreadcrumbList({ className, ...props }: React.ComponentProps<'ol'>) {
   );
 }
 
-function BreadcrumbItem({ className, ...props }: React.ComponentProps<'li'>) {
+function McBreadcrumbItem({ className, ...props }: React.ComponentProps<'li'>) {
   return (
     <li
       data-slot="breadcrumb-item"
@@ -34,7 +34,7 @@ function BreadcrumbItem({ className, ...props }: React.ComponentProps<'li'>) {
   );
 }
 
-function BreadcrumbLink({ className, render, ...props }: useRender.ComponentProps<'a'>) {
+function McBreadcrumbLink({ className, render, ...props }: useRender.ComponentProps<'a'>) {
   return useRender({
     defaultTagName: 'a',
     props: mergeProps<'a'>(
@@ -53,7 +53,7 @@ function BreadcrumbLink({ className, render, ...props }: useRender.ComponentProp
   });
 }
 
-function BreadcrumbPage({ className, ...props }: React.ComponentProps<'span'>) {
+function McBreadcrumbPage({ className, ...props }: React.ComponentProps<'span'>) {
   return (
     <span
       data-slot="breadcrumb-page"
@@ -66,7 +66,7 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<'span'>) {
   );
 }
 
-function BreadcrumbSeparator({ children, className, ...props }: React.ComponentProps<'li'>) {
+function McBreadcrumbSeparator({ children, className, ...props }: React.ComponentProps<'li'>) {
   return (
     <li
       data-slot="breadcrumb-separator"
@@ -80,7 +80,7 @@ function BreadcrumbSeparator({ children, className, ...props }: React.ComponentP
   );
 }
 
-function BreadcrumbEllipsis({ className, ...props }: React.ComponentProps<'span'>) {
+function McBreadcrumbEllipsis({ className, ...props }: React.ComponentProps<'span'>) {
   return (
     <span
       data-slot="breadcrumb-ellipsis"
@@ -99,11 +99,11 @@ function BreadcrumbEllipsis({ className, ...props }: React.ComponentProps<'span'
 }
 
 export {
-  Breadcrumb,
-  BreadcrumbList,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-  BreadcrumbEllipsis,
+  McBreadcrumb,
+  McBreadcrumbList,
+  McBreadcrumbItem,
+  McBreadcrumbLink,
+  McBreadcrumbPage,
+  McBreadcrumbSeparator,
+  McBreadcrumbEllipsis,
 };

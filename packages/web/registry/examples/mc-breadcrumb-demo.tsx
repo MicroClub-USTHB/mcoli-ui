@@ -1,51 +1,51 @@
 import {
-  Breadcrumb,
-  BreadcrumbEllipsis,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
+  McBreadcrumb,
+  McBreadcrumbEllipsis,
+  McBreadcrumbItem,
+  McBreadcrumbLink,
+  McBreadcrumbList,
+  McBreadcrumbPage,
+  McBreadcrumbSeparator,
 } from '../ui/mc-breadcrumb';
 
 export default function McBreadcrumbDemo() {
   return (
     <div className="flex flex-col gap-6">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <McBreadcrumb>
+        <McBreadcrumbList>
+          <McBreadcrumbItem>
+            <McBreadcrumbLink href="/">Home</McBreadcrumbLink>
+          </McBreadcrumbItem>
+          <McBreadcrumbSeparator />
+          <McBreadcrumbItem>
+            <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>
+          </McBreadcrumbItem>
+          <McBreadcrumbSeparator />
+          <McBreadcrumbItem>
+            <McBreadcrumbPage>Breadcrumb</McBreadcrumbPage>
+          </McBreadcrumbItem>
+        </McBreadcrumbList>
+      </McBreadcrumb>
 
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbEllipsis />
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <McBreadcrumb>
+        <McBreadcrumbList>
+          <McBreadcrumbItem>
+            <McBreadcrumbLink href="/">Home</McBreadcrumbLink>
+          </McBreadcrumbItem>
+          <McBreadcrumbSeparator />
+          <McBreadcrumbItem>
+            <McBreadcrumbEllipsis />
+          </McBreadcrumbItem>
+          <McBreadcrumbSeparator />
+          <McBreadcrumbItem>
+            <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>
+          </McBreadcrumbItem>
+          <McBreadcrumbSeparator />
+          <McBreadcrumbItem>
+            <McBreadcrumbPage>Breadcrumb</McBreadcrumbPage>
+          </McBreadcrumbItem>
+        </McBreadcrumbList>
+      </McBreadcrumb>
     </div>
   );
 }

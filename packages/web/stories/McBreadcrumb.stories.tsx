@@ -1,22 +1,22 @@
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import {
-  Breadcrumb,
-  BreadcrumbEllipsis,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
+  McBreadcrumb,
+  McBreadcrumbEllipsis,
+  McBreadcrumbItem,
+  McBreadcrumbLink,
+  McBreadcrumbList,
+  McBreadcrumbPage,
+  McBreadcrumbSeparator,
 } from '@/registry/ui/mc-breadcrumb';
 
-type BreadcrumbStoryArgs = ComponentProps<typeof Breadcrumb> & {
+type BreadcrumbStoryArgs = ComponentProps<typeof McBreadcrumb> & {
   showEllipsis: boolean;
 };
 
 const meta = {
   title: 'Components/McBreadcrumb',
-  component: Breadcrumb,
+  component: McBreadcrumb,
   argTypes: {
     showEllipsis: {
       control: 'boolean',
@@ -32,114 +32,114 @@ type Story = StoryObj<BreadcrumbStoryArgs>;
 
 export const Playground: Story = {
   render: ({ showEllipsis }) => (
-    <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
+    <McBreadcrumb>
+      <McBreadcrumbList>
+        <McBreadcrumbItem>
+          <McBreadcrumbLink href="/">Home</McBreadcrumbLink>
+        </McBreadcrumbItem>
+        <McBreadcrumbSeparator />
         {showEllipsis ? (
           <>
-            <BreadcrumbItem>
-              <BreadcrumbEllipsis />
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
+            <McBreadcrumbItem>
+              <McBreadcrumbEllipsis />
+            </McBreadcrumbItem>
+            <McBreadcrumbSeparator />
           </>
         ) : null}
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
+        <McBreadcrumbItem>
+          <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>
+        </McBreadcrumbItem>
+        <McBreadcrumbSeparator />
+        <McBreadcrumbItem>
+          <McBreadcrumbPage>Breadcrumb</McBreadcrumbPage>
+        </McBreadcrumbItem>
+      </McBreadcrumbList>
+    </McBreadcrumb>
   ),
 };
 
 export const Default: Story = {
   render: () => (
-    <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
+    <McBreadcrumb>
+      <McBreadcrumbList>
+        <McBreadcrumbItem>
+          <McBreadcrumbLink href="/">Home</McBreadcrumbLink>
+        </McBreadcrumbItem>
+        <McBreadcrumbSeparator />
+        <McBreadcrumbItem>
+          <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>
+        </McBreadcrumbItem>
+        <McBreadcrumbSeparator />
+        <McBreadcrumbItem>
+          <McBreadcrumbPage>Breadcrumb</McBreadcrumbPage>
+        </McBreadcrumbItem>
+      </McBreadcrumbList>
+    </McBreadcrumb>
   ),
 };
 
 export const WithEllipsis: Story = {
   render: () => (
-    <Breadcrumb>
-      <BreadcrumbList>
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/">Home</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbEllipsis />
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-        </BreadcrumbItem>
-        <BreadcrumbSeparator />
-        <BreadcrumbItem>
-          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-        </BreadcrumbItem>
-      </BreadcrumbList>
-    </Breadcrumb>
+    <McBreadcrumb>
+      <McBreadcrumbList>
+        <McBreadcrumbItem>
+          <McBreadcrumbLink href="/">Home</McBreadcrumbLink>
+        </McBreadcrumbItem>
+        <McBreadcrumbSeparator />
+        <McBreadcrumbItem>
+          <McBreadcrumbEllipsis />
+        </McBreadcrumbItem>
+        <McBreadcrumbSeparator />
+        <McBreadcrumbItem>
+          <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>
+        </McBreadcrumbItem>
+        <McBreadcrumbSeparator />
+        <McBreadcrumbItem>
+          <McBreadcrumbPage>Breadcrumb</McBreadcrumbPage>
+        </McBreadcrumbItem>
+      </McBreadcrumbList>
+    </McBreadcrumb>
   ),
 };
 
 export const Showcase: Story = {
   render: () => (
     <div className="flex flex-col gap-6">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <McBreadcrumb>
+        <McBreadcrumbList>
+          <McBreadcrumbItem>
+            <McBreadcrumbLink href="/">Home</McBreadcrumbLink>
+          </McBreadcrumbItem>
+          <McBreadcrumbSeparator />
+          <McBreadcrumbItem>
+            <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>
+          </McBreadcrumbItem>
+          <McBreadcrumbSeparator />
+          <McBreadcrumbItem>
+            <McBreadcrumbPage>Breadcrumb</McBreadcrumbPage>
+          </McBreadcrumbItem>
+        </McBreadcrumbList>
+      </McBreadcrumb>
 
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/">Home</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbEllipsis />
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="/components">Components</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <McBreadcrumb>
+        <McBreadcrumbList>
+          <McBreadcrumbItem>
+            <McBreadcrumbLink href="/">Home</McBreadcrumbLink>
+          </McBreadcrumbItem>
+          <McBreadcrumbSeparator />
+          <McBreadcrumbItem>
+            <McBreadcrumbEllipsis />
+          </McBreadcrumbItem>
+          <McBreadcrumbSeparator />
+          <McBreadcrumbItem>
+            <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>
+          </McBreadcrumbItem>
+          <McBreadcrumbSeparator />
+          <McBreadcrumbItem>
+            <McBreadcrumbPage>Breadcrumb</McBreadcrumbPage>
+          </McBreadcrumbItem>
+        </McBreadcrumbList>
+      </McBreadcrumb>
     </div>
   ),
 };
