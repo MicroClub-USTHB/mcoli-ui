@@ -1,9 +1,227 @@
 ---
 title: MC Breadcrumb
-description: A navigation component that shows the user's location in the site.
+description: A navigation aid that shows the current page location in a hierarchy.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-breadcrumb` is a navigation component of the MicroClub UI library. It provides accessible, semantic breadcrumbs with composable building blocks and MicroClub styling via **Tailwind CSS v4**.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-breadcrumb-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-breadcrumb-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-breadcrumb` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-breadcrumb</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-breadcrumb</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-breadcrumb</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-breadcrumb</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">
+    npm install clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="pnpm">
+    pnpm add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="yarn">
+    yarn add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="bun">
+    bun add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-breadcrumb" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  McBreadcrumb,
+  McBreadcrumbItem,
+  McBreadcrumbLink,
+  McBreadcrumbList,
+  McBreadcrumbPage,
+  McBreadcrumbSeparator,
+} from '@/components/ui/mc-breadcrumb';
+
+export default function Example() {
+  return (
+    <McBreadcrumb>
+      <McBreadcrumbList>
+        <McBreadcrumbItem>
+          <McBreadcrumbLink href="/">Home</McBreadcrumbLink>
+        </McBreadcrumbItem>
+        <McBreadcrumbSeparator />
+        <McBreadcrumbItem>
+          <McBreadcrumbPage>Current Page</McBreadcrumbPage>
+        </McBreadcrumbItem>
+      </McBreadcrumbList>
+    </McBreadcrumb>
+  );
+}
+```
+
+## Composition Guide
+
+Use these building blocks together to create a complete breadcrumb.
+
+| Element                 | Role               | Typical Usage                                           |
+| ----------------------- | ------------------ | ------------------------------------------------------- |
+| `McBreadcrumb`          | Navigation wrapper | Root container for the whole breadcrumb                 |
+| `McBreadcrumbList`      | Ordered list       | Holds all breadcrumb items in sequence                  |
+| `McBreadcrumbItem`      | Single step        | Wraps one link, page label, or ellipsis                 |
+| `McBreadcrumbLink`      | Navigable step     | Use for previous or parent levels                       |
+| `McBreadcrumbPage`      | Current location   | Use for the active page (non-clickable)                 |
+| `McBreadcrumbSeparator` | Visual divider     | Separates each item (default chevron or custom content) |
+| `McBreadcrumbEllipsis`  | Collapsed steps    | Replace middle levels when the path is too long         |
+
+## Examples
+
+### Default
+
+```tsx
+<McBreadcrumb>
+  <McBreadcrumbList>
+    <McBreadcrumbItem>
+      <McBreadcrumbLink href="/">Home</McBreadcrumbLink>
+    </McBreadcrumbItem>
+    <McBreadcrumbSeparator />
+    <McBreadcrumbItem>
+      <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>
+    </McBreadcrumbItem>
+    <McBreadcrumbSeparator />
+    <McBreadcrumbItem>
+      <McBreadcrumbPage>Breadcrumb</McBreadcrumbPage>
+    </McBreadcrumbItem>
+  </McBreadcrumbList>
+</McBreadcrumb>
+```
+
+### With Ellipsis
+
+Use `McBreadcrumbEllipsis` to collapse intermediate items in long paths.
+
+```tsx
+<McBreadcrumb>
+  <McBreadcrumbList>
+    <McBreadcrumbItem>
+      <McBreadcrumbLink href="/">Home</McBreadcrumbLink>
+    </McBreadcrumbItem>
+    <McBreadcrumbSeparator />
+    <McBreadcrumbItem>
+      <McBreadcrumbEllipsis />
+    </McBreadcrumbItem>
+    <McBreadcrumbSeparator />
+    <McBreadcrumbItem>
+      <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>
+    </McBreadcrumbItem>
+    <McBreadcrumbSeparator />
+    <McBreadcrumbItem>
+      <McBreadcrumbPage>Breadcrumb</McBreadcrumbPage>
+    </McBreadcrumbItem>
+  </McBreadcrumbList>
+</McBreadcrumb>
+```
+
+### Custom Separator
+
+You can provide custom separator content through `McBreadcrumbSeparator` children.
+
+```tsx
+<McBreadcrumb>
+  <McBreadcrumbList>
+    <McBreadcrumbItem>
+      <McBreadcrumbLink href="/">Home</McBreadcrumbLink>
+    </McBreadcrumbItem>
+    <McBreadcrumbSeparator>/</McBreadcrumbSeparator>
+    <McBreadcrumbItem>
+      <McBreadcrumbPage>Docs</McBreadcrumbPage>
+    </McBreadcrumbItem>
+  </McBreadcrumbList>
+</McBreadcrumb>
+```
+
+## API Reference
+
+### McBreadcrumb
+
+| Prop        | Type                    | Default     | Description                 |
+| ----------- | ----------------------- | ----------- | --------------------------- |
+| `className` | `string`                | `undefined` | Additional CSS classes      |
+| `...props`  | `ComponentProps<'nav'>` | `-`         | Native `<nav />` attributes |
+
+### McBreadcrumbList
+
+| Prop        | Type                   | Default     | Description                |
+| ----------- | ---------------------- | ----------- | -------------------------- |
+| `className` | `string`               | `undefined` | Additional CSS classes     |
+| `...props`  | `ComponentProps<'ol'>` | `-`         | Native `<ol />` attributes |
+
+### McBreadcrumbItem
+
+| Prop        | Type                   | Default     | Description                |
+| ----------- | ---------------------- | ----------- | -------------------------- |
+| `className` | `string`               | `undefined` | Additional CSS classes     |
+| `...props`  | `ComponentProps<'li'>` | `-`         | Native `<li />` attributes |
+
+### McBreadcrumbLink
+
+| Prop        | Type                                        | Default     | Description                                |
+| ----------- | ------------------------------------------- | ----------- | ------------------------------------------ |
+| `className` | `string`                                    | `undefined` | Additional CSS classes                     |
+| `render`    | `ReactElement \| ((props) => ReactElement)` | `undefined` | Polymorphic render prop from Base UI       |
+| `...props`  | `useRender.ComponentProps<'a'>`             | `-`         | Native anchor props + Base UI render props |
+
+### McBreadcrumbPage
+
+| Prop        | Type                     | Default     | Description                  |
+| ----------- | ------------------------ | ----------- | ---------------------------- |
+| `className` | `string`                 | `undefined` | Additional CSS classes       |
+| `...props`  | `ComponentProps<'span'>` | `-`         | Native `<span />` attributes |
+
+### McBreadcrumbSeparator
+
+| Prop        | Type                   | Default            | Description                |
+| ----------- | ---------------------- | ------------------ | -------------------------- |
+| `children`  | `ReactNode`            | `ChevronRightIcon` | Custom separator content   |
+| `className` | `string`               | `undefined`        | Additional CSS classes     |
+| `...props`  | `ComponentProps<'li'>` | `-`                | Native `<li />` attributes |
+
+### McBreadcrumbEllipsis
+
+| Prop        | Type                     | Default     | Description                  |
+| ----------- | ------------------------ | ----------- | ---------------------------- |
+| `className` | `string`                 | `undefined` | Additional CSS classes       |
+| `...props`  | `ComponentProps<'span'>` | `-`         | Native `<span />` attributes |

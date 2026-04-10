@@ -2206,6 +2206,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-breadcrumb",
+      "title": "MicroClub Breadcrumb",
+      "description": "A breadcrumb component for MicroClub UI",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-breadcrumb.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }
