@@ -2,7 +2,7 @@ import * as React from 'react';
 import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
+import { Button } from '@base-ui/react/button';
 
 function McPagination({ className, ...props }: React.ComponentProps<'nav'>) {
   return (
