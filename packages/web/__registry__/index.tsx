@@ -2098,6 +2098,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-switch': {
+    name: 'mc-switch',
+    description: 'A switch component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-switch.tsx',
+        content:
+          "'use client';\n\nimport { Switch as SwitchPrimitive } from '@base-ui/react/switch';\nimport { cn } from '@/lib/utils';\n\nfunction McSwitch({\n  className,\n  size = 'default',\n  ...props\n}: SwitchPrimitive.Root.Props & {\n  size?: 'sm' | 'default';\n}) {\n  return (\n    <SwitchPrimitive.Root\n      data-slot=\"switch\"\n      data-size={size}\n      className={cn(\n        'peer group/switch relative inline-flex shrink-0 items-center border-border bg-input border border-borde',\n        'transition-[background-color,border-color,box-shadow] duration-300 ease-out outline-none',\n        'focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50',\n        'aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20',\n        'dark:aria-invalid:ring-destructive/40',\n        'data-disabled:border-border data-disabled:bg-input/70',\n        'data-checked:bg-primary data-checked:border-border',\n        'data-unchecked:bg-input data-unchecked:border-border',\n        'data-[size=default]:h-18 data-[size=default]:w-33 data-[size=default]:rounded-[42px] data-[size=default]:py-1 data-[size=default]:pl-1 data-[size=default]:pr-4 data-[size=default]:gap-4',\n\n        'data-[size=sm]:h-[18.4px] data-[size=sm]:w-8 data-[size=sm]:rounded-full data-[size=sm]:p-0.5',\n        className\n      )}\n      {...props}\n    >\n      <SwitchPrimitive.Thumb\n        data-slot=\"switch-thumb\"\n        className={cn(\n          'pointer-events-none block rounded-full bg-background ring-0 transition-transform duration-300 ease-out',\n          'dark:data-checked:bg-primary-foreground dark:data-unchecked:bg-foreground',\n          'group-data-[size=default]/switch:size-16',\n          'group-data-[size=default]/switch:data-unchecked:translate-x-0 ',\n          'group-data-[size=default]/switch:data-checked:translate-x-[calc(132px-64px-8px)] border',\n          'group-data-[size=sm]/switch:size-3',\n          'group-data-[size=sm]/switch:data-unchecked:translate-x-0',\n          'group-data-[size=sm]/switch:data-checked:translate-x-[calc(100%-2px)]'\n        )}\n      />\n    </SwitchPrimitive.Root>\n  );\n}\n\nexport { McSwitch };\n",
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-breadcrumb': {
     name: 'mc-breadcrumb',
     description: 'A breadcrumb component for MicroClub UI',
@@ -2158,6 +2171,22 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-checkbox-demo.tsx')),
     source:
       'import { McCheckbox } from \'../ui/mc-checkbox\';\n\nexport default function McCheckboxDemo() {\n  return <McCheckbox text="Checkbox" supportText="support Text" />;\n}\n',
+  },
+  'mc-switch-demo': {
+    name: 'mc-switch-demo',
+    description: 'Demo for MicroClub Switch',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-switch-demo.tsx',
+        content:
+          "import { McSwitch } from '../ui/mc-switch';\n\nexport default function McSwitchDemo() {\n  return <McSwitch></McSwitch>;\n}\n",
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-switch-demo.tsx')),
+    source:
+      "import { McSwitch } from '../ui/mc-switch';\n\nexport default function McSwitchDemo() {\n  return <McSwitch></McSwitch>;\n}\n",
   },
   'mc-breadcrumb-demo': {
     name: 'mc-breadcrumb-demo',

@@ -42,6 +42,19 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-checkbox.json`],
   },
   {
+    name: 'mc-switch-demo',
+    type: 'registry:example',
+    title: 'MicroClub Switch Demo',
+    description: 'Demo for MicroClub Switch',
+    files: [
+      {
+        path: 'examples/mc-switch-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-switch.json`],
+  },
+  {
     name: 'mc-breadcrumb-demo',
     type: 'registry:example',
     title: 'MicroClub Breadcrumb Demo',
