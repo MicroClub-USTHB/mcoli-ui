@@ -55,12 +55,14 @@ const iconClassByPaginationSize: Record<McPaginationSize, string> = {
 
 type PaginationLinkProps = {
   isActive?: boolean;
+  isRounded?: boolean;
   paginationSize?: McPaginationSize;
 } & React.ComponentProps<'a'>;
 
 function McPaginationLink({
   className,
   isActive,
+  isRounded,
   paginationSize = 'md',
   ...props
 }: PaginationLinkProps) {
@@ -69,9 +71,11 @@ function McPaginationLink({
       variant={isActive ? 'outline' : 'ghost'}
       size={buttonSizeByPaginationSize[paginationSize]}
       className={cn(
-        'flex items-center justify-center gap-2 font-sans',
+        'flex items-center  font-dm-sans  font-normal justify-center gap-2 font-sans',
         linkClassByPaginationSize[paginationSize],
-        isActive && 'rounded-[6px] bg-primary text-md font-sans text-primary-foreground',
+        isActive &&
+          'rounded-[6px] bg-primary px-3.5 py-4.5 text-md font-dm-sans h-min-[40px] w-min-[37px] text-primary-foreground',
+        isRounded && 'rounded-full',
         className
       )}
       nativeButton={false}
@@ -90,9 +94,10 @@ function McPaginationLink({
 function McPaginationPrevious({
   className,
   text = 'Back',
+  showText = true,
   paginationSize = 'md',
   ...props
-}: React.ComponentProps<typeof McPaginationLink> & { text?: string }) {
+}: React.ComponentProps<typeof McPaginationLink> & { text?: string; showText?: boolean }) {
   return (
     <McPaginationLink
       aria-label="Go to previous page"
@@ -104,7 +109,11 @@ function McPaginationPrevious({
         data-icon="inline-start"
         className={cn('cn-rtl-flip shrink-0', iconClassByPaginationSize[paginationSize])}
       />
-      <span className="hidden items-center leading-none sm:inline-flex">{text}</span>
+      {showText && text && (
+        <span className="hidden items-center leading-none font-dm-sans font-normal sm:inline-flex">
+          {text}
+        </span>
+      )}
     </McPaginationLink>
   );
 }
@@ -112,9 +121,10 @@ function McPaginationPrevious({
 function McPaginationNext({
   className,
   text = 'Next',
+  showText = true,
   paginationSize = 'md',
   ...props
-}: React.ComponentProps<typeof McPaginationLink> & { text?: string }) {
+}: React.ComponentProps<typeof McPaginationLink> & { text?: string; showText?: boolean }) {
   return (
     <McPaginationLink
       aria-label="Go to next page"
@@ -122,7 +132,11 @@ function McPaginationNext({
       className={cn('pr-1.5!', className)}
       {...props}
     >
-      <span className="hidden items-center leading-none sm:inline-flex">{text}</span>
+      {showText && text && (
+        <span className="hidden items-center leading-none font-dm-sans font-normal sm:inline-flex">
+          {text}
+        </span>
+      )}
       <ChevronRightIcon
         data-icon="inline-end"
         className={cn('cn-rtl-flip shrink-0', iconClassByPaginationSize[paginationSize])}

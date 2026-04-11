@@ -12,6 +12,8 @@ import {
 
 type McPaginationStoryArgs = {
   size: McPaginationSize;
+  isRounded: boolean;
+  showText: boolean;
 };
 
 const meta: Meta<McPaginationStoryArgs> = {
@@ -21,16 +23,24 @@ const meta: Meta<McPaginationStoryArgs> = {
       control: 'select',
       options: ['sm', 'md', 'lg', 'xl'],
     },
+    isRounded: {
+      control: 'boolean',
+    },
+    showText: {
+      control: 'boolean',
+    },
   },
   args: {
     size: 'md',
+    isRounded: false,
+    showText: true,
   },
 };
 
 export default meta;
 type Story = StoryObj<McPaginationStoryArgs>;
 
-function McPaginationPlayground({ size }: McPaginationStoryArgs) {
+function McPaginationPlayground({ size, isRounded, showText }: McPaginationStoryArgs) {
   const [activePage, setActivePage] = React.useState(2);
   const pages = [1, 2, 3];
 
@@ -53,13 +63,20 @@ function McPaginationPlayground({ size }: McPaginationStoryArgs) {
     <McPagination>
       <McPaginationContent>
         <McPaginationItem>
-          <McPaginationPrevious href="#" paginationSize={size} onClick={goToPreviousPage} />
+          <McPaginationPrevious
+            href="#"
+            paginationSize={size}
+            isRounded={isRounded}
+            showText={showText}
+            onClick={goToPreviousPage}
+          />
         </McPaginationItem>
         {pages.map((page) => (
           <McPaginationItem key={page}>
             <McPaginationLink
               href="#"
               isActive={activePage === page}
+              isRounded={isRounded}
               paginationSize={size}
               onClick={selectPage(page)}
             >
@@ -68,7 +85,13 @@ function McPaginationPlayground({ size }: McPaginationStoryArgs) {
           </McPaginationItem>
         ))}
         <McPaginationItem>
-          <McPaginationNext href="#" paginationSize={size} onClick={goToNextPage} />
+          <McPaginationNext
+            href="#"
+            paginationSize={size}
+            isRounded={isRounded}
+            showText={showText}
+            onClick={goToNextPage}
+          />
         </McPaginationItem>
       </McPaginationContent>
     </McPagination>
@@ -76,5 +99,7 @@ function McPaginationPlayground({ size }: McPaginationStoryArgs) {
 }
 
 export const Playground: Story = {
-  render: ({ size }) => <McPaginationPlayground size={size} />,
+  render: ({ size, isRounded, showText }) => (
+    <McPaginationPlayground size={size} isRounded={isRounded} showText={showText} />
+  ),
 };
