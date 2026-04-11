@@ -2098,6 +2098,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-card': {
+    name: 'mc-card',
+    description: 'A card layout with header, body, and footer regions for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-card.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\nconst McCardDirectionContext = React.createContext<{ direction: 'row' | 'column' } | null>(null);\n\nconst cardVariants = cva(\n  'flex gap-4 rounded-lg border border-border bg-card p-4 text-card-foreground shadow-sm w-full',\n  {\n    variants: {\n      direction: {\n        row: 'flex-row',\n        column: 'flex-col',\n      },\n    },\n    defaultVariants: {\n      direction: 'column',\n    },\n  }\n);\n\nfunction McCard({\n  className,\n  direction = 'column',\n  children,\n  ...props\n}: React.ComponentProps<'div'> & { direction?: 'row' | 'column' }) {\n  return (\n    <McCardDirectionContext.Provider value={{ direction }}>\n      <div data-slot=\"card\" className={cn(cardVariants({ direction }), className)} {...props}>\n        {children}\n      </div>\n    </McCardDirectionContext.Provider>\n  );\n}\n\nexport interface McCardHeaderProps extends React.ComponentProps<'div'> {\n  title: string;\n  description?: string;\n}\n\nfunction McCardHeader({ className, title, description, ...props }: McCardHeaderProps) {\n  return (\n    <div data-slot=\"card-header\" className={cn('flex flex-col gap-1', className)} {...props}>\n      <h3 className=\"text-xl font-bold leading-normal tracking-normal\">{title}</h3>\n      {description && <p className=\"text-xs font-normal\">{description}</p>}\n    </div>\n  );\n}\n\nconst footerVariants = cva('flex gap-2', {\n  variants: {\n    cardDirection: {\n      row: 'self-stretch ms-auto',\n      column: '',\n    },\n    direction: {\n      row: 'flex-row',\n      column: 'flex-col',\n    },\n    align: {\n      start: '',\n      end: '',\n      center: '',\n      stretch: '',\n    },\n  },\n  compoundVariants: [\n    // cardDirection: column — matches previous footer-only (direction × align) behavior\n    {\n      cardDirection: 'column',\n      direction: 'row',\n      align: 'start',\n      className: 'items-center justify-start [&>*]:shrink-0 [&>*]:grow-0',\n    },\n    {\n      cardDirection: 'column',\n      direction: 'row',\n      align: 'end',\n      className: 'items-center justify-end [&>*]:shrink-0 [&>*]:grow-0',\n    },\n    {\n      cardDirection: 'column',\n      direction: 'row',\n      align: 'center',\n      className: 'items-center justify-center [&>*]:shrink-0 [&>*]:grow-0',\n    },\n    {\n      cardDirection: 'column',\n      direction: 'row',\n      align: 'stretch',\n      className: 'items-center justify-stretch *:min-w-0 *:flex-1',\n    },\n    {\n      cardDirection: 'column',\n      direction: 'column',\n      align: 'start',\n      className: 'items-start justify-start [&>*]:shrink-0 [&>*]:grow-0',\n    },\n    {\n      cardDirection: 'column',\n      direction: 'column',\n      align: 'end',\n      className: 'items-end justify-start [&>*]:shrink-0 [&>*]:grow-0',\n    },\n    {\n      cardDirection: 'column',\n      direction: 'column',\n      align: 'center',\n      className: 'items-center justify-start [&>*]:shrink-0 [&>*]:grow-0',\n    },\n    {\n      cardDirection: 'column',\n      direction: 'column',\n      align: 'stretch',\n      className: 'items-stretch justify-start *:min-h-0 *:flex-1',\n    },\n    // cardDirection: row — horizontal card; footer sits beside header/body, align controls vertical position\n    // footer direction: row → children horizontal, align maps to cross-axis (items-*)\n    {\n      cardDirection: 'row',\n      direction: 'row',\n      align: 'start',\n      className: 'items-start [&>*]:shrink-0 [&>*]:grow-0',\n    },\n    {\n      cardDirection: 'row',\n      direction: 'row',\n      align: 'end',\n      className: 'items-end [&>*]:shrink-0 [&>*]:grow-0',\n    },\n    {\n      cardDirection: 'row',\n      direction: 'row',\n      align: 'center',\n      className: 'items-center [&>*]:shrink-0 [&>*]:grow-0',\n    },\n    {\n      cardDirection: 'row',\n      direction: 'row',\n      align: 'stretch',\n      className: 'items-stretch *:min-w-0 *:flex-1',\n    },\n    // footer direction: column → children vertical, align maps to main-axis (justify-*)\n    {\n      cardDirection: 'row',\n      direction: 'column',\n      align: 'start',\n      className: 'justify-start [&>*]:shrink-0 [&>*]:grow-0',\n    },\n    {\n      cardDirection: 'row',\n      direction: 'column',\n      align: 'end',\n      className: 'justify-end [&>*]:shrink-0 [&>*]:grow-0',\n    },\n    {\n      cardDirection: 'row',\n      direction: 'column',\n      align: 'center',\n      className: 'justify-center [&>*]:shrink-0 [&>*]:grow-0',\n    },\n    {\n      cardDirection: 'row',\n      direction: 'column',\n      align: 'stretch',\n      className: 'items-stretch justify-start *:min-h-0 *:flex-1',\n    },\n  ],\n  defaultVariants: {\n    cardDirection: 'column',\n    direction: 'row',\n    align: 'stretch',\n  },\n});\n\nexport interface McCardFooterProps\n  extends React.ComponentProps<'div'>, VariantProps<typeof footerVariants> {}\n\nfunction McCardFooter({\n  className,\n  direction,\n  align,\n  cardDirection: cardDirectionProp,\n  ...props\n}: McCardFooterProps) {\n  const ctx = React.useContext(McCardDirectionContext);\n  const cardDirection = cardDirectionProp ?? ctx?.direction ?? 'column';\n\n  return (\n    <div\n      data-slot=\"card-footer\"\n      className={cn(footerVariants({ cardDirection, direction, align }), className)}\n      {...props}\n    />\n  );\n}\n\nexport { McCard, McCardHeader, McCardFooter, cardVariants, footerVariants };\n",
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-button-demo': {
     name: 'mc-button-demo',
     description: 'Demo for MicroClub Button',
@@ -2129,6 +2142,22 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-input-otp-demo.tsx')),
     source:
       "import {\n  McInputOtp,\n  McInputOtpGroup,\n  McInputOtpSeparator,\n  McInputOtpSlot,\n} from '../ui/mc-input-otp';\nexport default function McInputOtpDemo() {\n  return (\n    <McInputOtp maxLength={6}>\n      <McInputOtpGroup>\n        <McInputOtpSlot index={0} />\n        <McInputOtpSlot index={1} />\n        <McInputOtpSlot index={2} />\n      </McInputOtpGroup>\n      <McInputOtpSeparator />\n      <McInputOtpGroup>\n        <McInputOtpSlot index={3} />\n        <McInputOtpSlot index={4} />\n        <McInputOtpSlot index={5} />\n      </McInputOtpGroup>\n    </McInputOtp>\n  );\n}\n",
+  },
+  'mc-card-demo': {
+    name: 'mc-card-demo',
+    description: 'Demo for MicroClub Card',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-card-demo.tsx',
+        content:
+          'import { McButton } from \'../ui/mc-button\';\nimport { McCard, McCardHeader, McCardFooter } from \'../ui/mc-card\';\n\nexport default function McCardDemo() {\n  return (\n    <McCard className="max-w-sm">\n      <McCardHeader\n        title="Card Title"\n        description="This is a brief description of the card content."\n      />\n      <McCardFooter align="end">\n        <McButton variant="secondary">Cancel</McButton>\n        <McButton>Confirm</McButton>\n      </McCardFooter>\n    </McCard>\n  );\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-card-demo.tsx')),
+    source:
+      'import { McButton } from \'../ui/mc-button\';\nimport { McCard, McCardHeader, McCardFooter } from \'../ui/mc-card\';\n\nexport default function McCardDemo() {\n  return (\n    <McCard className="max-w-sm">\n      <McCardHeader\n        title="Card Title"\n        description="This is a brief description of the card content."\n      />\n      <McCardFooter align="end">\n        <McButton variant="secondary">Cancel</McButton>\n        <McButton>Confirm</McButton>\n      </McCardFooter>\n    </McCard>\n  );\n}\n',
   },
   'mc-checkbox-demo': {
     name: 'mc-checkbox-demo',

@@ -1,9 +1,166 @@
 ---
 title: MC Card
-description: A flexible container for grouping related content.
+description: A flexible container for grouping related content with header and footer regions.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-card` is a layout component of the MicroClub UI library. Built with **class-variance-authority**, it provides a flexible card container that supports both vertical and horizontal layouts with configurable footer alignment.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-card-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-card-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-card` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-card</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-card</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-card</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-card</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install clsx tailwind-merge class-variance-authority</Tab>
+  <Tab value="pnpm">pnpm add clsx tailwind-merge class-variance-authority</Tab>
+  <Tab value="yarn">yarn add clsx tailwind-merge class-variance-authority</Tab>
+  <Tab value="bun">bun add clsx tailwind-merge class-variance-authority</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-card" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McCard, McCardHeader, McCardFooter } from '@/components/ui/mc-card';
+
+export default function Example() {
+  return (
+    <McCard>
+      <McCardHeader title="Card Title" description="A short description." />
+      <McCardFooter>
+        <button>Action</button>
+      </McCardFooter>
+    </McCard>
+  );
+}
+```
+
+## Examples
+
+### Column Direction (Default)
+
+```tsx
+<McCard>
+  <McCardHeader title="Notifications" description="Manage your notification preferences." />
+  <McCardFooter align="end">
+    <McButton variant="secondary">Cancel</McButton>
+    <McButton>Save</McButton>
+  </McCardFooter>
+</McCard>
+```
+
+### Row Direction
+
+```tsx
+<McCard direction="row">
+  <McCardHeader title="Horizontal Card" description="Content flows left to right." />
+  <McCardFooter align="center">
+    <McButton>Action</McButton>
+  </McCardFooter>
+</McCard>
+```
+
+### Footer Alignment
+
+Control how footer children are positioned with the `align` prop.
+
+```tsx
+<McCard>
+  <McCardHeader title="Start Aligned" />
+  <McCardFooter align="start">
+    <McButton>Left</McButton>
+  </McCardFooter>
+</McCard>
+
+<McCard>
+  <McCardHeader title="Stretch" />
+  <McCardFooter align="stretch">
+    <McButton variant="secondary">Cancel</McButton>
+    <McButton>Confirm</McButton>
+  </McCardFooter>
+</McCard>
+```
+
+### Footer Direction
+
+The footer can independently control its children layout direction.
+
+```tsx
+<McCard>
+  <McCardHeader title="Stacked Footer" />
+  <McCardFooter direction="column" align="stretch">
+    <McButton>Primary Action</McButton>
+    <McButton variant="secondary">Secondary Action</McButton>
+  </McCardFooter>
+</McCard>
+```
+
+## API Reference
+
+### McCard
+
+| Prop        | Type                | Default     | Description                      |
+| ----------- | ------------------- | ----------- | -------------------------------- |
+| `direction` | `"row" \| "column"` | `"column"`  | The layout direction of the card |
+| `className` | `string`            | `undefined` | Additional CSS classes           |
+
+All standard `div` props are supported.
+
+### McCardHeader
+
+| Prop          | Type     | Default     | Description                          |
+| ------------- | -------- | ----------- | ------------------------------------ |
+| `title`       | `string` | —           | The heading text (required)          |
+| `description` | `string` | `undefined` | Optional description below the title |
+| `className`   | `string` | `undefined` | Additional CSS classes               |
+
+All standard `div` props are supported.
+
+### McCardFooter
+
+| Prop            | Type                                        | Default      | Description                                    |
+| --------------- | ------------------------------------------- | ------------ | ---------------------------------------------- |
+| `direction`     | `"row" \| "column"`                         | `"row"`      | Layout direction of footer children            |
+| `align`         | `"start" \| "end" \| "center" \| "stretch"` | `"stretch"`  | Alignment of footer children                   |
+| `cardDirection` | `"row" \| "column"`                         | from context | Overrides the card direction read from context |
+| `className`     | `string`                                    | `undefined`  | Additional CSS classes                         |
+
+All standard `div` props are supported.
