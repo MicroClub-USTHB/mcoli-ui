@@ -192,7 +192,7 @@ function McPaginationLink({
         'flex items-center  font-dm-sans  font-normal justify-center gap-2 font-sans',
         linkClassByPaginationSize[paginationSize],
         isActive &&
-          'rounded-[6px] bg-primary px-3.5 py-4.5 text-md font-dm-sans h-min-[40px] w-min-[37px] text-primary-foreground',
+          'rounded-[6px] bg-primary px-3.5 py-4.5 text-md font-dm-sans h-min-[40px] w-min-[37px] pointer-events-none cursor-default text-primary-foreground hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground active:ring-0',
         isRounded && 'rounded-full',
         className
       )}
@@ -251,7 +251,7 @@ function McPaginationNext({
       {...props}
     >
       {showText && text && (
-        <span className="hidden items-center leading-none font-dm-sans font-normal sm:inline-flex">
+        <span className="hidden items-center leading-none font-dm-sans paragraph-md font-normal sm:inline-flex">
           {text}
         </span>
       )}
