@@ -7,9 +7,6 @@ import { Index } from '@/__registry__';
 export const ComponentPreview: React.FC<{ name: string }> = ({ name }) => {
   const Preview = React.useMemo(() => {
     const Component = Index[name]?.component;
-    if (!Component) {
-      return null;
-    }
     return <Component />;
   }, [name]);
   return (

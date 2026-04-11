@@ -23,11 +23,7 @@
     ]
   },
   "devDependencies": {
-    "@storybook/react": "^10.3.5",
-    "eslint": "^9",
-    "husky": "^9.1.7",
-    "lint-staged": "^16.4.0",
-    "prettier": "^3.8.1",
-    "typescript": "^5.7.2"
+    "@storybook/nextjs": "^10.3.5",
+    "husky": "^9.1.7"
   }
 }
