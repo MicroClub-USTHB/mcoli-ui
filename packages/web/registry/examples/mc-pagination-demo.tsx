@@ -9,7 +9,7 @@ import {
   McPaginationPrevious,
 } from '@/registry/ui/mc-pagination';
 
-function McPaginationComponentDemo() {
+export default function McPaginationComponentDemo() {
   const [activePage, setActivePage] = React.useState(2);
   const pages = [1, 2, 3];
 
