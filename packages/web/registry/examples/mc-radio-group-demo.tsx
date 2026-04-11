@@ -1,20 +1,14 @@
-import { RadioGroup, RadioGroupItem } from '../ui/mc-radio-group';
+import { McRadioGroup, McRadioGroupItem } from '../ui/mc-radio-group';
 
-export function RadioGroupDemo() {
+export default function RadioGroupDemo() {
   return (
-    <RadioGroup defaultValue="comfortable" className="w-fit">
-      <div className="flex items-center gap-3">
-        <RadioGroupItem value="default" id="r1" />
-        <label htmlFor="r1">Default</label>
-      </div>
-      <div className="flex items-center gap-3">
-        <RadioGroupItem value="comfortable" id="r2" />
-        <label htmlFor="r2">Comfortable</label>
-      </div>
-      <div className="flex items-center gap-3">
-        <RadioGroupItem value="compact" id="r3" />
-        <label htmlFor="r3">Compact</label>
-      </div>
-    </RadioGroup>
+    <McRadioGroup defaultValue="remember">
+      <McRadioGroupItem
+        value="remember"
+        id="r1"
+        text="Remember me"
+        supportText="Save my login details for next time."
+      />
+    </McRadioGroup>
   );
 }
