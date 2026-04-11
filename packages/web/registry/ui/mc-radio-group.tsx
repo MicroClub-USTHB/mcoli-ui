@@ -1,11 +1,69 @@
 'use client';
 
+import * as React from 'react';
 import { Radio as RadioPrimitive } from '@base-ui/react/radio';
 import { RadioGroup as RadioGroupPrimitive } from '@base-ui/react/radio-group';
+import { cva, type VariantProps } from 'class-variance-authority';
 
 import { cn } from '@/lib/utils';
 
-function RadioGroup({ className, ...props }: RadioGroupPrimitive.Props) {
+const radioGroupVariants = cva(
+  'peer relative flex shrink-0 items-center justify-center rounded-full border transition-colors outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:opacity-50',
+  {
+    variants: {
+      size: {
+        sm: 'size-4 [&_[data-slot=radio-group-indicator]>span]:size-2',
+        md: 'size-5 [&_[data-slot=radio-group-indicator]>span]:size-2.5',
+      },
+    },
+    defaultVariants: {
+      size: 'sm',
+    },
+  }
+);
+
+const radioGroupItemVariants = cva('inline-flex', {
+  variants: {
+    size: {
+      sm: 'gap-2',
+      md: 'gap-3',
+    },
+  },
+  defaultVariants: {
+    size: 'sm',
+  },
+});
+
+const textVariants = cva('font-medium transition-colors', {
+  variants: {
+    size: {
+      sm: 'text-sm',
+      md: 'text-base',
+    },
+    disabled: {
+      true: 'text-muted-foreground',
+      false: 'text-foreground',
+    },
+  },
+  defaultVariants: {
+    size: 'sm',
+    disabled: false,
+  },
+});
+
+const supportTextVariants = cva('font-regular', {
+  variants: {
+    size: {
+      sm: 'text-sm',
+      md: 'text-base',
+    },
+  },
+  defaultVariants: {
+    size: 'sm',
+  },
+});
+
+function McRadioGroup({ className, ...props }: RadioGroupPrimitive.Props) {
   return (
     <RadioGroupPrimitive
       data-slot="radio-group"
@@ -15,24 +73,80 @@ function RadioGroup({ className, ...props }: RadioGroupPrimitive.Props) {
   );
 }
 
-function RadioGroupItem({ className, ...props }: RadioPrimitive.Root.Props) {
+export interface McRadioGroupItemProps
+  extends RadioPrimitive.Root.Props, VariantProps<typeof radioGroupVariants> {
+  text?: string;
+  supportText?: string;
+}
+
+function McRadioGroupItem({
+  className,
+  size = 'sm',
+  text,
+  supportText,
+  id,
+  disabled,
+  value,
+  ...props
+}: McRadioGroupItemProps) {
+  const radioId = React.useId();
+  const finalId = id ?? radioId;
+  const labelId = text ? `${finalId}-label` : undefined;
+  const descriptionId = supportText ? `${finalId}-description` : undefined;
+
   return (
-    <RadioPrimitive.Root
-      data-slot="radio-group-item"
+    <label
+      htmlFor={finalId}
       className={cn(
-        'group/radio-group-item peer relative flex aspect-square size-4 shrink-0 rounded-full border border-input outline-none after:absolute after:-inset-x-3 after:-inset-y-2 focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 aria-invalid:aria-checked:border-primary dark:bg-input/30 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 data-checked:border-primary data-checked:bg-primary data-checked:text-primary-foreground dark:data-checked:bg-primary',
+        radioGroupItemVariants({ size }),
+        supportText ? 'items-start' : 'items-center',
+        disabled ? 'cursor-not-allowed' : 'cursor-pointer',
         className
       )}
-      {...props}
     >
-      <RadioPrimitive.Indicator
-        data-slot="radio-group-indicator"
-        className="flex size-4 items-center justify-center"
+      <RadioPrimitive.Root
+        id={finalId}
+        data-slot="radio-group-item"
+        className={cn(
+          radioGroupVariants({ size }),
+          'self-start mt-0.5',
+          'bg-primary-foreground border-muted-foreground',
+          'hover:border-primary',
+          'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring',
+          'focus-within:outline-none focus-within:ring-4 focus-within:ring-ring',
+          'data-disabled:border-muted-foreground data-disabled:hover:border-muted-foreground',
+          'data-checked:border-primary'
+        )}
+        disabled={disabled}
+        value={value}
+        aria-labelledby={labelId}
+        aria-describedby={descriptionId}
+        {...props}
       >
-        <span className="absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary-foreground" />
-      </RadioPrimitive.Indicator>
-    </RadioPrimitive.Root>
+        <RadioPrimitive.Indicator
+          data-slot="radio-group-indicator"
+          className="flex size-4 items-center justify-center"
+        >
+          <span className="absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary" />
+        </RadioPrimitive.Indicator>
+      </RadioPrimitive.Root>
+
+      {(text || supportText) && (
+        <span className={cn('flex flex-col', size === 'sm' ? 'gap-0' : 'gap-0.5')}>
+          {text && (
+            <span id={labelId} className={textVariants({ size, disabled: !!disabled })}>
+              {text}
+            </span>
+          )}
+          {supportText && (
+            <span id={descriptionId} className={supportTextVariants({ size })}>
+              {supportText}
+            </span>
+          )}
+        </span>
+      )}
+    </label>
   );
 }
 
-export { RadioGroup, RadioGroupItem };
+export { McRadioGroup, McRadioGroupItem };
