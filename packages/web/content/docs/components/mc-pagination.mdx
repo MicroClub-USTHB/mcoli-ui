@@ -71,9 +71,11 @@ project.
 ## Usage
 
 ```tsx
+import * as React from 'react';
 import {
   McPagination,
   McPaginationContent,
+  McPaginationEllipsis,
   McPaginationItem,
   McPaginationLink,
   McPaginationNext,
@@ -81,22 +83,42 @@ import {
 } from '@/components/ui/mc-pagination';
 
 export default function Example() {
+  const [activePage, setActivePage] = React.useState(2);
+  const pages = [1, 2, 3];
+
+  const selectPage = (page: number) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    setActivePage(page);
+  };
+
+  const goToPreviousPage = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    setActivePage((currentPage) => Math.max(1, currentPage - 1));
+  };
+
+  const goToNextPage = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    event.preventDefault();
+    setActivePage((currentPage) => Math.min(pages.length, currentPage + 1));
+  };
+
   return (
     <McPagination>
       <McPaginationContent>
         <McPaginationItem>
-          <McPaginationPrevious href="#" />
+          <McPaginationPrevious href="#" onClick={goToPreviousPage} />
+        </McPaginationItem>
+        {pages.map((page) => (
+          <McPaginationItem key={page}>
+            <McPaginationLink href="#" isActive={activePage === page} onClick={selectPage(page)}>
+              {page}
+            </McPaginationLink>
+          </McPaginationItem>
+        ))}
+        <McPaginationItem>
+          <McPaginationEllipsis />
         </McPaginationItem>
         <McPaginationItem>
-          <McPaginationLink href="#" isActive>
-            1
-          </McPaginationLink>
-        </McPaginationItem>
-        <McPaginationItem>
-          <McPaginationLink href="#">2</McPaginationLink>
-        </McPaginationItem>
-        <McPaginationItem>
-          <McPaginationNext href="#" />
+          <McPaginationNext href="#" onClick={goToNextPage} />
         </McPaginationItem>
       </McPaginationContent>
     </McPagination>
@@ -143,18 +165,6 @@ Hide the labels and keep only the directional icons by setting `showText` to `fa
 <McPaginationNext href="#" showText={false} />
 ```
 
-### Sizes
-
-Adjust spacing and icon scale with `paginationSize`.
-
-```tsx
-<McPaginationPrevious href="#" paginationSize="sm" />
-<McPaginationLink href="#" paginationSize="md">
-  1
-</McPaginationLink>
-<McPaginationNext href="#" paginationSize="lg" />
-```
-
 ### Rounded Mode
 
 Enable fully rounded pagination controls with `isRounded`.
@@ -193,22 +203,20 @@ Use the ellipsis item to indicate skipped pages in longer ranges.
 
 ### McPaginationLink Props
 
-| Prop             | Type                           | Default     | Description                        |
-| ---------------- | ------------------------------ | ----------- | ---------------------------------- |
-| `isActive`       | `boolean`                      | `false`     | Marks the link as the current page |
-| `isRounded`      | `boolean`                      | `false`     | Applies fully rounded pill styling |
-| `paginationSize` | `"sm" \| "md" \| "lg" \| "xl"` | `"md"`      | Controls the size variant          |
-| `className`      | `string`                       | `undefined` | Additional CSS classes             |
+| Prop        | Type      | Default     | Description                        |
+| ----------- | --------- | ----------- | ---------------------------------- |
+| `isActive`  | `boolean` | `false`     | Marks the link as the current page |
+| `isRounded` | `boolean` | `false`     | Applies fully rounded pill styling |
+| `className` | `string`  | `undefined` | Additional CSS classes             |
 
 ### McPaginationPrevious and McPaginationNext Props
 
-| Prop             | Type                           | Default              | Description                                   |
-| ---------------- | ------------------------------ | -------------------- | --------------------------------------------- |
-| `text`           | `string`                       | `"Back"` or `"Next"` | Label shown beside the icon on larger screens |
-| `showText`       | `boolean`                      | `true`               | Toggles label visibility for icon-only mode   |
-| `isRounded`      | `boolean`                      | `false`              | Applies fully rounded pill styling            |
-| `paginationSize` | `"sm" \| "md" \| "lg" \| "xl"` | `"md"`               | Controls the size variant                     |
-| `className`      | `string`                       | `undefined`          | Additional CSS classes                        |
+| Prop        | Type      | Default              | Description                                   |
+| ----------- | --------- | -------------------- | --------------------------------------------- |
+| `text`      | `string`  | `"Back"` or `"Next"` | Label shown beside the icon on larger screens |
+| `showText`  | `boolean` | `true`               | Toggles label visibility for icon-only mode   |
+| `isRounded` | `boolean` | `false`              | Applies fully rounded pill styling            |
+| `className` | `string`  | `undefined`          | Additional CSS classes                        |
 
 ### McPaginationEllipsis Props
 

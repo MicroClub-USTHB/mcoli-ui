@@ -7,11 +7,9 @@ import {
   McPaginationLink,
   McPaginationPrevious,
   McPaginationNext,
-  type McPaginationSize,
 } from '@/registry/ui/mc-pagination';
 
 type McPaginationStoryArgs = {
-  size: McPaginationSize;
   isRounded: boolean;
   showText: boolean;
 };
@@ -19,10 +17,6 @@ type McPaginationStoryArgs = {
 const meta: Meta<McPaginationStoryArgs> = {
   title: 'Components/McPagination',
   argTypes: {
-    size: {
-      control: 'select',
-      options: ['sm', 'md', 'lg', 'xl'],
-    },
     isRounded: {
       control: 'boolean',
     },
@@ -31,7 +25,6 @@ const meta: Meta<McPaginationStoryArgs> = {
     },
   },
   args: {
-    size: 'md',
     isRounded: false,
     showText: true,
   },
@@ -40,7 +33,7 @@ const meta: Meta<McPaginationStoryArgs> = {
 export default meta;
 type Story = StoryObj<McPaginationStoryArgs>;
 
-function McPaginationPlayground({ size, isRounded, showText }: McPaginationStoryArgs) {
+function McPaginationPlayground({ isRounded, showText }: McPaginationStoryArgs) {
   const [activePage, setActivePage] = React.useState(2);
   const pages = [1, 2, 3];
 
@@ -65,7 +58,6 @@ function McPaginationPlayground({ size, isRounded, showText }: McPaginationStory
         <McPaginationItem>
           <McPaginationPrevious
             href="#"
-            paginationSize={size}
             isRounded={isRounded}
             showText={showText}
             onClick={goToPreviousPage}
@@ -77,7 +69,6 @@ function McPaginationPlayground({ size, isRounded, showText }: McPaginationStory
               href="#"
               isActive={activePage === page}
               isRounded={isRounded}
-              paginationSize={size}
               onClick={selectPage(page)}
             >
               {page}
@@ -87,7 +78,6 @@ function McPaginationPlayground({ size, isRounded, showText }: McPaginationStory
         <McPaginationItem>
           <McPaginationNext
             href="#"
-            paginationSize={size}
             isRounded={isRounded}
             showText={showText}
             onClick={goToNextPage}
@@ -99,7 +89,7 @@ function McPaginationPlayground({ size, isRounded, showText }: McPaginationStory
 }
 
 export const Playground: Story = {
-  render: ({ size, isRounded, showText }) => (
-    <McPaginationPlayground size={size} isRounded={isRounded} showText={showText} />
+  render: ({ isRounded, showText }) => (
+    <McPaginationPlayground isRounded={isRounded} showText={showText} />
   ),
 };
