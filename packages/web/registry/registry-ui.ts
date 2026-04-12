@@ -66,4 +66,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react', 'lucide-react'],
   },
+  {
+    name: 'mc-radio-group',
+    type: 'registry:component',
+    title: 'MicroClub Radio Group',
+    description: 'A radio group component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-radio-group.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
