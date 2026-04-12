@@ -189,10 +189,10 @@ function McPaginationLink({
       variant={isActive ? 'outline' : 'ghost'}
       size={buttonSizeByPaginationSize[paginationSize]}
       className={cn(
-        'flex items-center  font-dm-sans  font-normal justify-center gap-2 font-sans',
+        'flex items-center  font-dm-sans paragraph-md font-normal justify-center gap-2 font-sans',
         linkClassByPaginationSize[paginationSize],
         isActive &&
-          'rounded-[6px] bg-primary px-3.5 py-4.5 text-md font-dm-sans h-min-[40px] w-min-[37px] pointer-events-none cursor-default text-primary-foreground hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground active:ring-0',
+          'rounded-[6px] bg-primary px-4 py-2 text-md font-dm-sans h-min-[40px] w-min-[37px] pointer-events-none cursor-default text-primary-foreground hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground active:ring-0',
         isRounded && 'rounded-full',
         className
       )}
