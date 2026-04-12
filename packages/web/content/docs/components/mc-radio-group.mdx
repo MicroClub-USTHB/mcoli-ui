@@ -1,9 +1,164 @@
 ---
 title: MC Radio Group
-description: A set of radio buttons for selecting one option from a group.
+description: A set of radio buttons for selecting one option from multiple mutually exclusive choices.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-radio-group` is a core form control of the MicroClub UI library. Built on the **@base-ui/react** radio group primitive, it provides accessible state handling and keyboard interactions while keeping MicroClub styling and theme tokens.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-radio-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-radio-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-radio-group` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-radio-group</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-radio-group</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-radio-group</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-radio-group</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install clsx tailwind-merge @base-ui/react class-variance-authority</Tab>
+  <Tab value="pnpm">pnpm add clsx tailwind-merge @base-ui/react class-variance-authority</Tab>
+  <Tab value="yarn">yarn add clsx tailwind-merge @base-ui/react class-variance-authority</Tab>
+  <Tab value="bun">bun add clsx tailwind-merge @base-ui/react class-variance-authority</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-radio-group" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McRadioGroup, McRadioGroupItem } from '@/components/ui/mc-radio-group';
+
+export default function Example() {
+  return (
+    <McRadioGroup defaultValue="remember">
+      <McRadioGroupItem
+        value="remember"
+        id="r1"
+        text="Remember me"
+        supportText="Save my login details for next time."
+      />
+    </McRadioGroup>
+  );
+}
+```
+
+## Examples
+
+### Sizes
+
+```tsx
+<McRadioGroup defaultValue="sm">
+  <McRadioGroupItem value="sm" id="s1" size="sm" text="Remember me" />
+  <McRadioGroupItem value="md" id="s2" size="md" text="Remember me" />
+</McRadioGroup>
+```
+
+### With Support Text
+
+```tsx
+<McRadioGroup defaultValue="option1">
+  <McRadioGroupItem
+    value="option1"
+    id="r1"
+    text="Remember me"
+    supportText="Save my login details for next time."
+  />
+  <McRadioGroupItem
+    value="option2"
+    id="r2"
+    text="Remember me"
+    supportText="Save my login details for next time."
+  />
+</McRadioGroup>
+```
+
+### States
+
+```tsx
+<McRadioGroup defaultValue="checked">
+  <McRadioGroupItem value="unchecked" id="r1" text="Unchecked" />
+  <McRadioGroupItem value="checked" id="r2" text="Checked" />
+  <McRadioGroupItem value="disabled" id="r3" text="Disabled" disabled />
+  <McRadioGroupItem value="disabled-checked" id="r4" text="Disabled checked" disabled />
+</McRadioGroup>
+```
+
+### Controlled
+
+Manage the selected value programmatically with `value` and `onValueChange`.
+
+```tsx
+import { useState } from 'react';
+import { McRadioGroup, McRadioGroupItem } from '@/components/ui/mc-radio-group';
+
+export default function Example() {
+  const [value, setValue] = useState('option1');
+
+  return (
+    <McRadioGroup value={value} onValueChange={setValue}>
+      <McRadioGroupItem value="option1" id="r1" text="Option 1" />
+      <McRadioGroupItem value="option2" id="r2" text="Option 2" />
+      <McRadioGroupItem value="option3" id="r3" text="Option 3" />
+    </McRadioGroup>
+  );
+}
+```
+
+## API Reference
+
+### McRadioGroup Props
+
+| Prop            | Type                      | Default     | Description                           |
+| --------------- | ------------------------- | ----------- | ------------------------------------- |
+| `value`         | `string`                  | `undefined` | The controlled selected value         |
+| `onValueChange` | `(value: string) => void` | `undefined` | Callback when selection changes       |
+| `defaultValue`  | `string`                  | `undefined` | The initial selected value            |
+| `disabled`      | `boolean`                 | `false`     | Disables all radio items in the group |
+| `className`     | `string`                  | `undefined` | Additional CSS classes for the group  |
+
+### McRadioGroupItem Props
+
+| Prop          | Type           | Default     | Description                                       |
+| ------------- | -------------- | ----------- | ------------------------------------------------- |
+| `value`       | `string`       | `undefined` | The value associated with this radio item         |
+| `size`        | `"sm" \| "md"` | `"sm"`      | The radio button size                             |
+| `text`        | `string`       | `undefined` | Main label displayed next to the radio button     |
+| `supportText` | `string`       | `undefined` | Secondary helper text under the main label        |
+| `disabled`    | `boolean`      | `false`     | Disables interactions and applies disabled styles |
+| `id`          | `string`       | `undefined` | Custom ID for the radio input                     |
+| `className`   | `string`       | `undefined` | Additional CSS classes for the radio root         |
+
+All other props from `@base-ui/react/radio` are supported.
