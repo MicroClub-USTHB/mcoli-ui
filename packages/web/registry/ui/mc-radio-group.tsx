@@ -57,9 +57,14 @@ const supportTextVariants = cva('font-regular', {
       sm: 'text-sm',
       md: 'text-base',
     },
+    disabled: {
+      true: 'text-muted-foreground',
+      false: 'text-foreground',
+    },
   },
   defaultVariants: {
     size: 'sm',
+    disabled: false,
   },
 });
 
@@ -139,7 +144,10 @@ function McRadioGroupItem({
             </span>
           )}
           {supportText && (
-            <span id={descriptionId} className={supportTextVariants({ size })}>
+            <span
+              id={descriptionId}
+              className={supportTextVariants({ size, disabled: !!disabled })}
+            >
               {supportText}
             </span>
           )}
