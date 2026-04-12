@@ -41,6 +41,32 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-radio-group',
+    type: 'registry:component',
+    title: 'MicroClub Radio Group',
+    description: 'A radio group component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-radio-group.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-switch',
+    type: 'registry:component',
+    title: 'MicroClub Switch',
+    description: 'A switch component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-switch.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
     name: 'mc-tabs',
     type: 'registry:component',
     title: 'MicroClub Tabs',
@@ -52,5 +78,18 @@ export const ui: Registry['items'] = [
       },
     ],
     dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-breadcrumb',
+    type: 'registry:component',
+    title: 'MicroClub Breadcrumb',
+    description: 'A breadcrumb component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-breadcrumb.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react', 'lucide-react'],
   },
 ];

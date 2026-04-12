@@ -2098,6 +2098,32 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-radio-group': {
+    name: 'mc-radio-group',
+    description: 'A radio group component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-radio-group.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport { Radio as RadioPrimitive } from '@base-ui/react/radio';\nimport { RadioGroup as RadioGroupPrimitive } from '@base-ui/react/radio-group';\nimport { cva, type VariantProps } from 'class-variance-authority';\n\nimport { cn } from '@/lib/utils';\n\nconst radioGroupVariants = cva(\n  'peer relative flex shrink-0 items-center justify-center rounded-full border transition-colors outline-none disabled:cursor-not-allowed disabled:pointer-events-none disabled:opacity-50',\n  {\n    variants: {\n      size: {\n        sm: 'size-4 [&_[data-slot=radio-group-indicator]>span]:size-2',\n        md: 'size-5 [&_[data-slot=radio-group-indicator]>span]:size-2.5',\n      },\n    },\n    defaultVariants: {\n      size: 'sm',\n    },\n  }\n);\n\nconst radioGroupItemVariants = cva('inline-flex', {\n  variants: {\n    size: {\n      sm: 'gap-2',\n      md: 'gap-3',\n    },\n  },\n  defaultVariants: {\n    size: 'sm',\n  },\n});\n\nconst textVariants = cva('font-medium transition-colors', {\n  variants: {\n    size: {\n      sm: 'text-sm',\n      md: 'text-base',\n    },\n    disabled: {\n      true: 'text-muted-foreground',\n      false: 'text-foreground',\n    },\n  },\n  defaultVariants: {\n    size: 'sm',\n    disabled: false,\n  },\n});\n\nconst supportTextVariants = cva('font-regular', {\n  variants: {\n    size: {\n      sm: 'text-sm',\n      md: 'text-base',\n    },\n    disabled: {\n      true: 'text-muted-foreground',\n      false: 'text-foreground',\n    },\n  },\n  defaultVariants: {\n    size: 'sm',\n    disabled: false,\n  },\n});\n\nfunction McRadioGroup({ className, ...props }: RadioGroupPrimitive.Props) {\n  return (\n    <RadioGroupPrimitive\n      data-slot=\"radio-group\"\n      className={cn('grid w-full gap-2', className)}\n      {...props}\n    />\n  );\n}\n\nexport interface McRadioGroupItemProps\n  extends RadioPrimitive.Root.Props, VariantProps<typeof radioGroupVariants> {\n  text?: string;\n  supportText?: string;\n}\n\nfunction McRadioGroupItem({\n  className,\n  size = 'sm',\n  text,\n  supportText,\n  id,\n  disabled,\n  value,\n  ...props\n}: McRadioGroupItemProps) {\n  const radioId = React.useId();\n  const finalId = id ?? radioId;\n  const labelId = text ? `${finalId}-label` : undefined;\n  const descriptionId = supportText ? `${finalId}-description` : undefined;\n\n  return (\n    <label\n      htmlFor={finalId}\n      className={cn(\n        radioGroupItemVariants({ size }),\n        supportText ? 'items-start' : 'items-center',\n        disabled ? 'cursor-not-allowed' : 'cursor-pointer',\n        className\n      )}\n    >\n      <RadioPrimitive.Root\n        id={finalId}\n        data-slot=\"radio-group-item\"\n        className={cn(\n          radioGroupVariants({ size }),\n          'self-start mt-0.5',\n          'bg-primary-foreground border-muted-foreground',\n          'hover:border-primary',\n          'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring',\n          'focus-within:outline-none focus-within:ring-4 focus-within:ring-ring',\n          'data-disabled:border-muted-foreground data-disabled:hover:border-muted-foreground',\n          'data-checked:border-primary'\n        )}\n        disabled={disabled}\n        value={value}\n        aria-labelledby={labelId}\n        aria-describedby={descriptionId}\n        {...props}\n      >\n        <RadioPrimitive.Indicator\n          data-slot=\"radio-group-indicator\"\n          className=\"flex size-4 items-center justify-center\"\n        >\n          <span className=\"absolute top-1/2 left-1/2 size-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary\" />\n        </RadioPrimitive.Indicator>\n      </RadioPrimitive.Root>\n\n      {(text || supportText) && (\n        <span className={cn('flex flex-col', size === 'sm' ? 'gap-0' : 'gap-0.5')}>\n          {text && (\n            <span id={labelId} className={textVariants({ size, disabled: !!disabled })}>\n              {text}\n            </span>\n          )}\n          {supportText && (\n            <span\n              id={descriptionId}\n              className={supportTextVariants({ size, disabled: !!disabled })}\n            >\n              {supportText}\n            </span>\n          )}\n        </span>\n      )}\n    </label>\n  );\n}\n\nexport { McRadioGroup, McRadioGroupItem };\n",
+        type: 'registry:component',
+      },
+    ],
+  },
+  'mc-switch': {
+    name: 'mc-switch',
+    description: 'A switch component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-switch.tsx',
+        content:
+          "'use client';\n\nimport { Switch as SwitchPrimitive } from '@base-ui/react/switch';\nimport { cn } from '@/lib/utils';\n\nfunction McSwitch({\n  className,\n  size = 'default',\n  ...props\n}: SwitchPrimitive.Root.Props & {\n  size?: 'sm' | 'default';\n}) {\n  return (\n    <SwitchPrimitive.Root\n      data-slot=\"switch\"\n      data-size={size}\n      className={cn(\n        'peer group/switch relative inline-flex shrink-0 items-center bg-input ring-1 ring-inset ring-border',\n        'transition-[background-color,ring-color,box-shadow] duration-300 ease-out outline-none',\n        'focus-visible:ring-ring focus-visible:ring-offset-2',\n        'aria-invalid:ring-destructive aria-invalid:ring-offset-2',\n        'dark:aria-invalid:ring-destructive/40',\n        'data-disabled:bg-input/70 data-disabled:opacity-50',\n        'data-checked:bg-primary data-checked:ring-transparent',\n        'data-unchecked:bg-input data-unchecked:ring-border',\n        'data-[size=default]:h-7 data-[size=default]:w-12 data-[size=default]:rounded-full data-[size=default]:p-1',\n        'data-[size=sm]:h-4 data-[size=sm]:w-7 data-[size=sm]:rounded-full data-[size=sm]:p-[2px]',\n        className\n      )}\n      {...props}\n    >\n      <SwitchPrimitive.Thumb\n        data-slot=\"switch-thumb\"\n        className={cn(\n          'pointer-events-none block rounded-full bg-background ring-1 ring-inset ring-border transition-transform duration-300 ease-out',\n          'dark:data-checked:bg-primary-foreground dark:data-unchecked:bg-foreground',\n          'group-data-[size=default]/switch:size-5',\n          'group-data-[size=default]/switch:data-unchecked:translate-x-0',\n          'group-data-[size=default]/switch:data-checked:translate-x-5',\n          'group-data-[size=sm]/switch:size-3',\n          'group-data-[size=sm]/switch:data-unchecked:translate-x-0',\n          'group-data-[size=sm]/switch:data-checked:translate-x-3'\n        )}\n      />\n    </SwitchPrimitive.Root>\n  );\n}\n\nexport { McSwitch };\n",
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-tabs': {
     name: 'mc-tabs',
     description: 'A tabs component for MicroClub UI',
@@ -2106,7 +2132,20 @@ export const Index: Record<string, any> = {
       {
         path: 'registry/ui/mc-tabs.tsx',
         content:
-          '"use client"\n\nimport { Tabs as TabsPrimitive } from "@base-ui/react/tabs"\nimport { cva, type VariantProps } from "class-variance-authority"\nimport { cn } from "@/lib/utils"\n\nconst McTabsListVariants = cva(\n  "flex bg-muted rounded-lg p-[3px] size-fit",\n  {\n    variants: {\n      variant: {\n        horizontal: "flex-row",\n        vertical: "flex-col",\n      },\n    },\n    defaultVariants: {\n      variant: "horizontal",\n    },\n  }\n)\n\nfunction McTabs({ ...props }: TabsPrimitive.Root.Props) {\n  return <TabsPrimitive.Root data-slot="tabs" {...props} />\n}\n\nfunction McTabsList({\n  className,\n  variant,\n  ...props\n}: TabsPrimitive.List.Props & VariantProps<typeof McTabsListVariants>) {\n  return (\n    <TabsPrimitive.List\n      data-slot="tabs-list"\n      className={cn(McTabsListVariants({ variant }), className)}\n      {...props}\n    />\n  )\n}\n\nfunction McTabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {\n  return (\n    <TabsPrimitive.Tab\n      data-slot="tabs-trigger"\n      className={cn(\n        "flex flex-col items-center justify-center h-7 w-19.5 px-2 py-1 rounded-md text-[14px] gap-2.5 font-medium text-muted-foreground bg-transparent border border-transparent",\n        "data-active:bg-accent",\n        "data-active:border-t",\n        "data-active:border-border",\n        "data-active:text-accent-foreground",\n        className\n      )}\n      {...props}\n    />\n  )\n}\n\nexport { McTabs, McTabsList, McTabsTrigger }',
+          "'use client';\n\nimport { Tabs as TabsPrimitive } from '@base-ui/react/tabs';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { cn } from '@/lib/utils';\n\nconst McTabsListVariants = cva('flex bg-muted rounded-lg p-[3px] size-fit', {\n  variants: {\n    variant: {\n      horizontal: 'flex-row',\n      vertical: 'flex-col',\n    },\n  },\n  defaultVariants: {\n    variant: 'horizontal',\n  },\n});\n\nfunction McTabs({ ...props }: TabsPrimitive.Root.Props) {\n  return <TabsPrimitive.Root data-slot=\"tabs\" {...props} />;\n}\n\nfunction McTabsList({\n  className,\n  variant,\n  ...props\n}: TabsPrimitive.List.Props & VariantProps<typeof McTabsListVariants>) {\n  return (\n    <TabsPrimitive.List\n      data-slot=\"tabs-list\"\n      className={cn(McTabsListVariants({ variant }), className)}\n      {...props}\n    />\n  );\n}\n\nfunction McTabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {\n  return (\n    <TabsPrimitive.Tab\n      data-slot=\"tabs-trigger\"\n      className={cn(\n        'flex flex-col items-center justify-center h-7 w-19.5 px-2 py-1 rounded-md text-[14px] gap-2.5 font-medium text-muted-foreground bg-transparent border border-transparent',\n        'data-active:bg-accent',\n        'data-active:border-t',\n        'data-active:border-border',\n        'data-active:text-accent-foreground',\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { McTabs, McTabsList, McTabsTrigger };\n",
+        type: 'registry:component',
+      },
+    ],
+  },
+  'mc-breadcrumb': {
+    name: 'mc-breadcrumb',
+    description: 'A breadcrumb component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-breadcrumb.tsx',
+        content:
+          "import * as React from 'react';\nimport { mergeProps } from '@base-ui/react/merge-props';\nimport { useRender } from '@base-ui/react/use-render';\nimport { ChevronRightIcon, MoreHorizontalIcon } from 'lucide-react';\n\nimport { cn } from '@/lib/utils';\n\nfunction McBreadcrumb({ className, ...props }: React.ComponentProps<'nav'>) {\n  return (\n    <nav aria-label=\"breadcrumb\" data-slot=\"breadcrumb\" className={cn(className)} {...props} />\n  );\n}\n\nfunction McBreadcrumbList({ className, ...props }: React.ComponentProps<'ol'>) {\n  return (\n    <ol\n      data-slot=\"breadcrumb-list\"\n      className={cn(\n        'm-0 list-none border-0 p-0 flex flex-wrap items-center gap-1.5 paragraph-md font-medium text-muted-foreground',\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction McBreadcrumbItem({ className, ...props }: React.ComponentProps<'li'>) {\n  return (\n    <li\n      data-slot=\"breadcrumb-item\"\n      className={cn('inline-flex items-center gap-1', className)}\n      {...props}\n    />\n  );\n}\n\nfunction McBreadcrumbLink({ className, render, ...props }: useRender.ComponentProps<'a'>) {\n  return useRender({\n    defaultTagName: 'a',\n    props: mergeProps<'a'>(\n      {\n        className: cn(\n          'no-underline transition-colors text-muted-foreground hover:text-foreground hover:no-underline',\n          className\n        ),\n      },\n      props\n    ),\n    render,\n    state: {\n      slot: 'breadcrumb-link',\n    },\n  });\n}\n\nfunction McBreadcrumbPage({ className, ...props }: React.ComponentProps<'span'>) {\n  return (\n    <span\n      data-slot=\"breadcrumb-page\"\n      role=\"link\"\n      aria-disabled=\"true\"\n      aria-current=\"page\"\n      className={cn('font-normal paragraph-md font-medium text-foreground', className)}\n      {...props}\n    />\n  );\n}\n\nfunction McBreadcrumbSeparator({ children, className, ...props }: React.ComponentProps<'li'>) {\n  return (\n    <li\n      data-slot=\"breadcrumb-separator\"\n      role=\"presentation\"\n      aria-hidden=\"true\"\n      className={cn('text-muted-foreground [&>svg]:size-3.5', className)}\n      {...props}\n    >\n      {children ?? <ChevronRightIcon className=\"cn-rtl-flip translate-y-px\" />}\n    </li>\n  );\n}\n\nfunction McBreadcrumbEllipsis({ className, ...props }: React.ComponentProps<'span'>) {\n  return (\n    <span\n      data-slot=\"breadcrumb-ellipsis\"\n      role=\"presentation\"\n      aria-hidden=\"true\"\n      className={cn(\n        'flex size-5 items-center justify-center text-muted-foreground [&>svg]:size-4',\n        className\n      )}\n      {...props}\n    >\n      <MoreHorizontalIcon />\n      <span className=\"sr-only\">More</span>\n    </span>\n  );\n}\n\nexport {\n  McBreadcrumb,\n  McBreadcrumbList,\n  McBreadcrumbItem,\n  McBreadcrumbLink,\n  McBreadcrumbPage,\n  McBreadcrumbSeparator,\n  McBreadcrumbEllipsis,\n};\n",
         type: 'registry:component',
       },
     ],
@@ -2159,6 +2198,38 @@ export const Index: Record<string, any> = {
     source:
       'import { McCheckbox } from \'../ui/mc-checkbox\';\n\nexport default function McCheckboxDemo() {\n  return <McCheckbox text="Checkbox" supportText="support Text" />;\n}\n',
   },
+  'mc-radio-demo': {
+    name: 'mc-radio-demo',
+    description: 'Demo for MicroClub Radio',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-radio-group-demo.tsx',
+        content:
+          'import { McRadioGroup, McRadioGroupItem } from \'../ui/mc-radio-group\';\n\nexport default function RadioGroupDemo() {\n  return (\n    <McRadioGroup defaultValue="remember">\n      <McRadioGroupItem\n        value="remember"\n        id="r1"\n        text="Remember me"\n        supportText="Save my login details for next time."\n      />\n    </McRadioGroup>\n  );\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-radio-group-demo.tsx')),
+    source:
+      'import { McRadioGroup, McRadioGroupItem } from \'../ui/mc-radio-group\';\n\nexport default function RadioGroupDemo() {\n  return (\n    <McRadioGroup defaultValue="remember">\n      <McRadioGroupItem\n        value="remember"\n        id="r1"\n        text="Remember me"\n        supportText="Save my login details for next time."\n      />\n    </McRadioGroup>\n  );\n}\n',
+  },
+  'mc-switch-demo': {
+    name: 'mc-switch-demo',
+    description: 'Demo for MicroClub Switch',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-switch-demo.tsx',
+        content:
+          "import { McSwitch } from '../ui/mc-switch';\n\nexport default function McSwitchDemo() {\n  return <McSwitch></McSwitch>;\n}\n",
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-switch-demo.tsx')),
+    source:
+      "import { McSwitch } from '../ui/mc-switch';\n\nexport default function McSwitchDemo() {\n  return <McSwitch></McSwitch>;\n}\n",
+  },
   'mc-tabs-demo': {
     name: 'mc-tabs-demo',
     description: 'Demo for MicroClub Tabs',
@@ -2167,12 +2238,28 @@ export const Index: Record<string, any> = {
       {
         path: 'registry/examples/mc-tabs-demo.tsx',
         content:
-          'import { McTabs, McTabsList, McTabsTrigger } from "../ui/mc-tabs";\n\nexport default function McTabsDemo() {\n  return (\n    <McTabs defaultValue="tab1">\n      <McTabsList>\n        <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>\n        <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>\n        <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>\n      </McTabsList>\n    </McTabs>\n  );\n}\n',
+          'import { McTabs, McTabsList, McTabsTrigger } from \'../ui/mc-tabs\';\n\nexport default function McTabsDemo() {\n  return (\n    <McTabs defaultValue="tab1">\n      <McTabsList>\n        <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>\n        <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>\n        <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>\n      </McTabsList>\n    </McTabs>\n  );\n}\n',
         type: 'registry:example',
       },
     ],
     component: React.lazy(() => import('@/registry/examples/mc-tabs-demo.tsx')),
     source:
-      'import { McTabs, McTabsList, McTabsTrigger } from "../ui/mc-tabs";\n\nexport default function McTabsDemo() {\n  return (\n    <McTabs defaultValue="tab1">\n      <McTabsList>\n        <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>\n        <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>\n        <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>\n      </McTabsList>\n    </McTabs>\n  );\n}\n',
+      'import { McTabs, McTabsList, McTabsTrigger } from \'../ui/mc-tabs\';\n\nexport default function McTabsDemo() {\n  return (\n    <McTabs defaultValue="tab1">\n      <McTabsList>\n        <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>\n        <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>\n        <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>\n      </McTabsList>\n    </McTabs>\n  );\n}\n',
+  },
+  'mc-breadcrumb-demo': {
+    name: 'mc-breadcrumb-demo',
+    description: 'Demo for MicroClub Breadcrumb',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-breadcrumb-demo.tsx',
+        content:
+          'import {\n  McBreadcrumb,\n  McBreadcrumbEllipsis,\n  McBreadcrumbItem,\n  McBreadcrumbLink,\n  McBreadcrumbList,\n  McBreadcrumbPage,\n  McBreadcrumbSeparator,\n} from \'../ui/mc-breadcrumb\';\n\nexport default function McBreadcrumbDemo() {\n  return (\n    <div className="flex flex-col gap-6">\n      <McBreadcrumb>\n        <McBreadcrumbList>\n          <McBreadcrumbItem>\n            <McBreadcrumbLink href="/">Home</McBreadcrumbLink>\n          </McBreadcrumbItem>\n          <McBreadcrumbSeparator />\n          <McBreadcrumbItem>\n            <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>\n          </McBreadcrumbItem>\n          <McBreadcrumbSeparator />\n          <McBreadcrumbItem>\n            <McBreadcrumbPage>Breadcrumb</McBreadcrumbPage>\n          </McBreadcrumbItem>\n        </McBreadcrumbList>\n      </McBreadcrumb>\n\n      <McBreadcrumb>\n        <McBreadcrumbList>\n          <McBreadcrumbItem>\n            <McBreadcrumbLink href="/">Home</McBreadcrumbLink>\n          </McBreadcrumbItem>\n          <McBreadcrumbSeparator />\n          <McBreadcrumbItem>\n            <McBreadcrumbEllipsis />\n          </McBreadcrumbItem>\n          <McBreadcrumbSeparator />\n          <McBreadcrumbItem>\n            <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>\n          </McBreadcrumbItem>\n          <McBreadcrumbSeparator />\n          <McBreadcrumbItem>\n            <McBreadcrumbPage>Breadcrumb</McBreadcrumbPage>\n          </McBreadcrumbItem>\n        </McBreadcrumbList>\n      </McBreadcrumb>\n    </div>\n  );\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-breadcrumb-demo.tsx')),
+    source:
+      'import {\n  McBreadcrumb,\n  McBreadcrumbEllipsis,\n  McBreadcrumbItem,\n  McBreadcrumbLink,\n  McBreadcrumbList,\n  McBreadcrumbPage,\n  McBreadcrumbSeparator,\n} from \'../ui/mc-breadcrumb\';\n\nexport default function McBreadcrumbDemo() {\n  return (\n    <div className="flex flex-col gap-6">\n      <McBreadcrumb>\n        <McBreadcrumbList>\n          <McBreadcrumbItem>\n            <McBreadcrumbLink href="/">Home</McBreadcrumbLink>\n          </McBreadcrumbItem>\n          <McBreadcrumbSeparator />\n          <McBreadcrumbItem>\n            <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>\n          </McBreadcrumbItem>\n          <McBreadcrumbSeparator />\n          <McBreadcrumbItem>\n            <McBreadcrumbPage>Breadcrumb</McBreadcrumbPage>\n          </McBreadcrumbItem>\n        </McBreadcrumbList>\n      </McBreadcrumb>\n\n      <McBreadcrumb>\n        <McBreadcrumbList>\n          <McBreadcrumbItem>\n            <McBreadcrumbLink href="/">Home</McBreadcrumbLink>\n          </McBreadcrumbItem>\n          <McBreadcrumbSeparator />\n          <McBreadcrumbItem>\n            <McBreadcrumbEllipsis />\n          </McBreadcrumbItem>\n          <McBreadcrumbSeparator />\n          <McBreadcrumbItem>\n            <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>\n          </McBreadcrumbItem>\n          <McBreadcrumbSeparator />\n          <McBreadcrumbItem>\n            <McBreadcrumbPage>Breadcrumb</McBreadcrumbPage>\n          </McBreadcrumbItem>\n        </McBreadcrumbList>\n      </McBreadcrumb>\n    </div>\n  );\n}\n',
   },
 };
