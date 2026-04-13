@@ -118,4 +118,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+  {
+    name: 'mc-sidebar',
+    type: 'registry:component',
+    title: 'MicroClub Sidebar',
+    description: 'A sidebar component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-sidebar.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
