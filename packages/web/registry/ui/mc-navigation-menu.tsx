@@ -70,7 +70,7 @@ function McNavigationMenuTrigger({
         navigationMenuTriggerStyle(),
         'group',
         className,
-        'data-popup-open:text-accent-foreground'
+        'text-foreground  data-popup-open:text-accent-foreground paragraph-sm text-medium'
       )}
       {...props}
     >
