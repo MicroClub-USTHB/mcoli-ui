@@ -1,6 +1,6 @@
 import * as React from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import { McCard, McCardFooter, McCardHeader } from '@/registry/ui/mc-card';
+import { McCard, McCardContent, McCardFooter, McCardHeader } from '@/registry/ui/mc-card';
 import { McButton } from '@/registry/ui/mc-button';
 
 type McCardStoryProps = React.ComponentProps<typeof McCard> & {
@@ -58,9 +58,11 @@ export const Playground: Story = {
   }) => (
     <McCard direction={direction} {...cardProps}>
       <McCardHeader title={title} description={description} />
-      <p className="border border-dashed border-primary/35 p-4 text-sm pb-12">
-        Replace this block with charts, media, forms, or any layout you need.
-      </p>
+      <McCardContent>
+        <p className="border border-dashed border-primary/35 p-4 text-sm pb-12">
+          Replace this block with charts, media, forms, or any layout you need.
+        </p>
+      </McCardContent>
       <McCardFooter direction={footerDirection} align={footerAlign}>
         {secondaryAction && (
           <McButton variant="secondary" size="sm">
@@ -99,11 +101,13 @@ export const WithCustomContent: StoryObj<McCardStoryProps & { content: string }>
   }) => (
     <McCard {...cardProps}>
       <McCardHeader title={title} description={description} />
-      <img
-        src="https://picsum.photos/600/400"
-        alt="Placeholder"
-        className="object-cover overflow-hidden"
-      />
+      <McCardContent>
+        <img
+          src="https://picsum.photos/600/400"
+          alt="Placeholder"
+          className="object-cover overflow-hidden"
+        />
+      </McCardContent>
       <McCardFooter direction={footerDirection} align={footerAlign}>
         {secondaryAction && (
           <McButton variant="secondary" size="sm">
@@ -142,11 +146,13 @@ export const RowDirection: StoryObj<McCardStoryProps & { content: string }> = {
     ...cardProps
   }) => (
     <McCard {...cardProps}>
-      <img
-        src="https://picsum.photos/400/400"
-        alt="Placeholder"
-        className="object-cover overflow-hidden aspect-square h-14"
-      />
+      <McCardContent>
+        <img
+          src="https://picsum.photos/400/400"
+          alt="Placeholder"
+          className="object-cover overflow-hidden aspect-square h-14"
+        />
+      </McCardContent>
       <McCardHeader title={title} description={description} />
       <McCardFooter direction={footerDirection} align={footerAlign}>
         {secondaryAction && (

@@ -59,12 +59,15 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 ## Usage
 
 ```tsx
-import { McCard, McCardHeader, McCardFooter } from '@/components/ui/mc-card';
+import { McCard, McCardContent, McCardHeader, McCardFooter } from '@/components/ui/mc-card';
 
 export default function Example() {
   return (
     <McCard>
       <McCardHeader title="Card Title" description="A short description." />
+      <McCardContent>
+        <p>Card content goes here.</p>
+      </McCardContent>
       <McCardFooter>
         <button>Action</button>
       </McCardFooter>
@@ -80,6 +83,9 @@ export default function Example() {
 ```tsx
 <McCard>
   <McCardHeader title="Notifications" description="Manage your notification preferences." />
+  <McCardContent>
+    <p>Your notification settings and preferences go here.</p>
+  </McCardContent>
   <McCardFooter align="end">
     <McButton variant="secondary">Cancel</McButton>
     <McButton>Save</McButton>
@@ -92,6 +98,9 @@ export default function Example() {
 ```tsx
 <McCard direction="row">
   <McCardHeader title="Horizontal Card" description="Content flows left to right." />
+  <McCardContent>
+    <p>Additional content here.</p>
+  </McCardContent>
   <McCardFooter align="center">
     <McButton>Action</McButton>
   </McCardFooter>
@@ -162,5 +171,13 @@ All standard `div` props are supported.
 | `align`         | `"start" \| "end" \| "center" \| "stretch"` | `"stretch"`  | Alignment of footer children                   |
 | `cardDirection` | `"row" \| "column"`                         | from context | Overrides the card direction read from context |
 | `className`     | `string`                                    | `undefined`  | Additional CSS classes                         |
+
+All standard `div` props are supported.
+
+### McCardContent
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
 
 All standard `div` props are supported.
