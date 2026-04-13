@@ -42,6 +42,19 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-checkbox.json`],
   },
   {
+    name: 'mc-radio-demo',
+    type: 'registry:example',
+    title: 'MicroClub Radio Demo',
+    description: 'Demo for MicroClub Radio',
+    files: [
+      {
+        path: 'examples/mc-radio-group-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-radio-group.json`],
+  },
+  {
     name: 'mc-switch-demo',
     type: 'registry:example',
     title: 'MicroClub Switch Demo',
@@ -55,6 +68,19 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-switch.json`],
   },
   {
+    name: 'mc-tabs-demo',
+    type: 'registry:example',
+    title: 'MicroClub Tabs Demo',
+    description: 'Demo for MicroClub Tabs',
+    files: [
+      {
+        path: 'examples/mc-tabs-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-tabs.json`],
+  },
+  {
     name: 'mc-breadcrumb-demo',
     type: 'registry:example',
     title: 'MicroClub Breadcrumb Demo',
@@ -66,18 +92,5 @@ export const examples: Registry['items'] = [
       },
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-breadcrumb.json`],
-  },
-  {
-    name: 'mc-radio-demo',
-    type: 'registry:example',
-    title: 'MicroClub Radio Demo',
-    description: 'Demo for MicroClub Radio',
-    files: [
-      {
-        path: 'examples/mc-radio-group-demo.tsx',
-        type: 'registry:example',
-      },
-    ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-radio-group.json`],
   },
 ];

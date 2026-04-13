@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mc-tabs",
+  "title": "MicroClub Tabs",
+  "description": "A tabs component for MicroClub UI",
+  "dependencies": ["@base-ui/react"],
+  "files": [
+    {
+      "path": "registry/ui/mc-tabs.tsx",
+      "content": "'use client';\n\nimport { Tabs as TabsPrimitive } from '@base-ui/react/tabs';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { cn } from '@/lib/utils';\n\nconst McTabsListVariants = cva('flex bg-muted rounded-lg p-[3px] size-fit', {\n  variants: {\n    variant: {\n      horizontal: 'flex-row',\n      vertical: 'flex-col',\n    },\n  },\n  defaultVariants: {\n    variant: 'horizontal',\n  },\n});\n\nfunction McTabs({ ...props }: TabsPrimitive.Root.Props) {\n  return <TabsPrimitive.Root data-slot=\"tabs\" {...props} />;\n}\n\nfunction McTabsList({\n  className,\n  variant,\n  ...props\n}: TabsPrimitive.List.Props & VariantProps<typeof McTabsListVariants>) {\n  return (\n    <TabsPrimitive.List\n      data-slot=\"tabs-list\"\n      className={cn(McTabsListVariants({ variant }), className)}\n      {...props}\n    />\n  );\n}\n\nfunction McTabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {\n  return (\n    <TabsPrimitive.Tab\n      data-slot=\"tabs-trigger\"\n      className={cn(\n        'flex flex-col items-center justify-center h-7 w-19.5 px-2 py-1 rounded-md text-[14px] gap-2.5 font-medium text-muted-foreground bg-transparent border border-transparent',\n        'data-active:bg-accent',\n        'data-active:border-t',\n        'data-active:border-border',\n        'data-active:text-accent-foreground',\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { McTabs, McTabsList, McTabsTrigger };\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}
