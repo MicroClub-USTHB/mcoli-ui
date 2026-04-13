@@ -5,31 +5,32 @@ const meta: Meta<typeof McTabs> = {
   title: 'Components/McTabs',
   component: McTabs,
   tags: ['autodocs'],
+  argTypes: {
+    orientation: {
+      control: { type: 'radio' },
+      options: ['horizontal', 'vertical'],
+    },
+  },
 };
 
 export default meta;
+
 type Story = StoryObj<typeof McTabs>;
 
-export const HorizontalTabs: Story = {
-  render: () => (
-    <McTabs defaultValue="tab1">
-      <McTabsList>
-        <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>
-        <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>
-        <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>
-      </McTabsList>
-    </McTabs>
-  ),
-};
+export const Playground: Story = {
+  args: {
+    orientation: 'horizontal',
+  },
+  render: (args) => {
+    const isVertical = args.orientation === 'vertical';
 
-export const VerticalTabs: Story = {
-  render: () => (
-    <McTabs defaultValue="tab1">
-      <McTabsList variant="vertical">
-        <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>
-        <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>
-        <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>
-      </McTabsList>
-    </McTabs>
-  ),
+    return (
+      <McTabs defaultValue="tab1">
+        <McTabsList variant={isVertical ? 'vertical' : undefined}>
+          <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>
+          <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>
+        </McTabsList>
+      </McTabs>
+    );
+  },
 };

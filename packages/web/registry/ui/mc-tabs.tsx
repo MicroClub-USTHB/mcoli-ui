@@ -39,10 +39,9 @@ function McTabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
     <TabsPrimitive.Tab
       data-slot="tabs-trigger"
       className={cn(
-        'flex flex-col items-center justify-center h-7 w-19.5 px-2 py-1 rounded-md text-[14px] gap-2.5 font-medium text-muted-foreground bg-transparent border border-transparent',
+        'flex flex-col items-center justify-center min-h-7 min-w-19.5 px-2 py-1 rounded-md text-[14px] gap-2.5 paragraph-sm font-medium text-muted-foreground bg-transparent',
         'data-active:bg-accent',
-        'data-active:border-t',
-        'data-active:border-border',
+        'data-active:ring-1 data-active:ring-inset data-active:ring-border',
         'data-active:text-accent-foreground',
         className
       )}
