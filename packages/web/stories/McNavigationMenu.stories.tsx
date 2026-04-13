@@ -3,15 +3,15 @@ import type { Meta, StoryObj } from '@storybook/nextjs';
 import Link from 'next/link';
 import { CircleAlertIcon, CircleCheckIcon, CircleDashedIcon } from 'lucide-react';
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
+  McNavigationMenu,
+  McNavigationMenuContent,
+  McNavigationMenuItem,
+  McNavigationMenuLink,
+  McNavigationMenuList,
+  McNavigationMenuTrigger,
 } from '@/registry/ui/mc-navigation-menu';
 
-type NavigationMenuStoryArgs = ComponentProps<typeof NavigationMenu>;
+type NavigationMenuStoryArgs = ComponentProps<typeof McNavigationMenu>;
 type MenuComponent = {
   title: string;
   href: string;
@@ -56,7 +56,7 @@ const components: MenuComponent[] = [
 
 const meta = {
   title: 'Components/McNavigationMenu',
-  component: NavigationMenu,
+  component: McNavigationMenu,
   parameters: {
     layout: 'centered',
   },
@@ -68,11 +68,11 @@ type Story = StoryObj<NavigationMenuStoryArgs>;
 function renderNavigationMenu(args: NavigationMenuStoryArgs) {
   return (
     <div className="flex w-full justify-center pt-8 pb-56">
-      <NavigationMenu {...args}>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-            <NavigationMenuContent>
+      <McNavigationMenu {...args}>
+        <McNavigationMenuList>
+          <McNavigationMenuItem>
+            <McNavigationMenuTrigger>Getting started</McNavigationMenuTrigger>
+            <McNavigationMenuContent>
               <ul className="w-96">
                 <ListItem href="/docs" title="Introduction">
                   Re-usable components built with Tailwind CSS.
@@ -84,12 +84,12 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
                   Styles for headings, paragraphs, and lists.
                 </ListItem>
               </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
+            </McNavigationMenuContent>
+          </McNavigationMenuItem>
 
-          <NavigationMenuItem className="hidden md:flex">
-            <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-            <NavigationMenuContent>
+          <McNavigationMenuItem className="hidden md:flex">
+            <McNavigationMenuTrigger>Components</McNavigationMenuTrigger>
+            <McNavigationMenuContent>
               <ul className="grid w-100 gap-2 md:w-125 md:grid-cols-2 lg:w-150">
                 {components.map((component) => (
                   <ListItem key={component.title} title={component.title} href={component.href}>
@@ -97,15 +97,15 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
                   </ListItem>
                 ))}
               </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
+            </McNavigationMenuContent>
+          </McNavigationMenuItem>
 
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
-            <NavigationMenuContent>
+          <McNavigationMenuItem>
+            <McNavigationMenuTrigger>With Icon</McNavigationMenuTrigger>
+            <McNavigationMenuContent>
               <ul className="grid w-50">
                 <li>
-                  <NavigationMenuLink
+                  <McNavigationMenuLink
                     render={
                       <Link href="#" className="flex-row items-center gap-2">
                         <CircleAlertIcon />
@@ -113,7 +113,7 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
                       </Link>
                     }
                   />
-                  <NavigationMenuLink
+                  <McNavigationMenuLink
                     render={
                       <Link href="#" className="flex-row items-center gap-2">
                         <CircleDashedIcon />
@@ -121,7 +121,7 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
                       </Link>
                     }
                   />
-                  <NavigationMenuLink
+                  <McNavigationMenuLink
                     render={
                       <Link href="#" className="flex-row items-center gap-2">
                         <CircleCheckIcon />
@@ -131,12 +131,12 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
                   />
                 </li>
               </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
+            </McNavigationMenuContent>
+          </McNavigationMenuItem>
 
-          <NavigationMenuItem className="hidden md:flex">
-            <NavigationMenuTrigger>List</NavigationMenuTrigger>
-            <NavigationMenuContent>
+          <McNavigationMenuItem className="hidden md:flex">
+            <McNavigationMenuTrigger>List</McNavigationMenuTrigger>
+            <McNavigationMenuContent>
               <ul className="grid w-100 gap-2 md:w-125 md:grid-cols-2 lg:w-150">
                 {components.map((component) => (
                   <ListItem key={component.title} title={component.title} href={component.href}>
@@ -144,11 +144,11 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
                   </ListItem>
                 ))}
               </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem className="hidden md:flex">
-            <NavigationMenuTrigger>Simple</NavigationMenuTrigger>
-            <NavigationMenuContent>
+            </McNavigationMenuContent>
+          </McNavigationMenuItem>
+          <McNavigationMenuItem className="hidden md:flex">
+            <McNavigationMenuTrigger>Simple</McNavigationMenuTrigger>
+            <McNavigationMenuContent>
               <ul className="grid w-100 gap-2 md:w-125 md:grid-cols-2 lg:w-150">
                 {components.map((component) => (
                   <ListItem key={component.title} title={component.title} href={component.href}>
@@ -156,11 +156,11 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
                   </ListItem>
                 ))}
               </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem className="hidden md:flex">
-            <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
-            <NavigationMenuContent>
+            </McNavigationMenuContent>
+          </McNavigationMenuItem>
+          <McNavigationMenuItem className="hidden md:flex">
+            <McNavigationMenuTrigger>With Icon</McNavigationMenuTrigger>
+            <McNavigationMenuContent>
               <ul className="grid w-100 gap-2 md:w-125 md:grid-cols-2 lg:w-150">
                 {components.map((component) => (
                   <ListItem key={component.title} title={component.title} href={component.href}>
@@ -168,10 +168,10 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
                   </ListItem>
                 ))}
               </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+            </McNavigationMenuContent>
+          </McNavigationMenuItem>
+        </McNavigationMenuList>
+      </McNavigationMenu>
     </div>
   );
 }
@@ -192,7 +192,7 @@ function ListItem({
 }: ComponentPropsWithoutRef<'li'> & { href: string }) {
   return (
     <li {...props}>
-      <NavigationMenuLink
+      <McNavigationMenuLink
         render={
           <Link href={href}>
             <div className="flex flex-col gap-1 text-sm">

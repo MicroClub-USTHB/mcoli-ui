@@ -5,12 +5,11 @@ import Link from 'next/link';
 import { CircleAlertIcon, CircleCheckIcon, CircleDashedIcon } from 'lucide-react';
 
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
+  McNavigationMenuContent,
+  McNavigationMenuItem,
+  McNavigationMenuLink,
+  McNavigationMenuList,
+  McNavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from '../ui/mc-navigation-menu';
 
@@ -53,11 +52,11 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function NavigationMenuDemo() {
   return (
-    <NavigationMenu>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
-          <NavigationMenuContent>
+    <McNavigationMenuContent className="w-max">
+      <McNavigationMenuList>
+        <McNavigationMenuItem>
+          <McNavigationMenuTrigger>Getting started</McNavigationMenuTrigger>
+          <McNavigationMenuContent>
             <ul className="w-96">
               <ListItem href="/docs" title="Introduction">
                 Re-usable components built with Tailwind CSS.
@@ -69,11 +68,11 @@ export function NavigationMenuDemo() {
                 Styles for headings, paragraphs, lists...etc
               </ListItem>
             </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem className="hidden md:flex">
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
-          <NavigationMenuContent>
+          </McNavigationMenuContent>
+        </McNavigationMenuItem>
+        <McNavigationMenuItem className="hidden md:flex">
+          <McNavigationMenuTrigger>Components</McNavigationMenuTrigger>
+          <McNavigationMenuContent>
             <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
               {components.map((component) => (
                 <ListItem key={component.title} title={component.title} href={component.href}>
@@ -81,14 +80,14 @@ export function NavigationMenuDemo() {
                 </ListItem>
               ))}
             </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>With Icon</NavigationMenuTrigger>
-          <NavigationMenuContent>
+          </McNavigationMenuContent>
+        </McNavigationMenuItem>
+        <McNavigationMenuItem>
+          <McNavigationMenuTrigger>With Icon</McNavigationMenuTrigger>
+          <McNavigationMenuContent>
             <ul className="grid w-[200px]">
               <li>
-                <NavigationMenuLink
+                <McNavigationMenuLink
                   render={
                     <Link href="#" className="flex-row items-center gap-2">
                       <CircleAlertIcon />
@@ -96,7 +95,7 @@ export function NavigationMenuDemo() {
                     </Link>
                   }
                 />
-                <NavigationMenuLink
+                <McNavigationMenuLink
                   render={
                     <Link href="#" className="flex-row items-center gap-2">
                       <CircleDashedIcon />
@@ -104,7 +103,7 @@ export function NavigationMenuDemo() {
                     </Link>
                   }
                 />
-                <NavigationMenuLink
+                <McNavigationMenuLink
                   render={
                     <Link href="#" className="flex-row items-center gap-2">
                       <CircleCheckIcon />
@@ -114,16 +113,16 @@ export function NavigationMenuDemo() {
                 />
               </li>
             </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuLink
+          </McNavigationMenuContent>
+        </McNavigationMenuItem>
+        <McNavigationMenuItem>
+          <McNavigationMenuLink
             className={navigationMenuTriggerStyle()}
             render={<Link href="/docs">Docs</Link>}
           />
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+        </McNavigationMenuItem>
+      </McNavigationMenuList>
+    </McNavigationMenuContent>
   );
 }
 
@@ -135,7 +134,7 @@ function ListItem({
 }: React.ComponentPropsWithoutRef<'li'> & { href: string }) {
   return (
     <li {...props}>
-      <NavigationMenuLink
+      <McNavigationMenuLink
         render={
           <Link href={href}>
             <div className="flex flex-col gap-1 text-sm">

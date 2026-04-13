@@ -4,7 +4,7 @@ import { ChevronDownIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
-function NavigationMenu({
+function McNavigationMenu({
   align = 'start',
   className,
   children,
@@ -20,12 +20,12 @@ function NavigationMenu({
       {...props}
     >
       {children}
-      <NavigationMenuPositioner align={align} />
+      <McNavigationMenuPositioner align={align} />
     </NavigationMenuPrimitive.Root>
   );
 }
 
-function NavigationMenuList({
+function McNavigationMenuList({
   className,
   ...props
 }: React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.List>) {
@@ -41,7 +41,7 @@ function NavigationMenuList({
   );
 }
 
-function NavigationMenuItem({
+function McNavigationMenuItem({
   className,
   ...props
 }: React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.Item>) {
@@ -58,7 +58,7 @@ const navigationMenuTriggerStyle = cva(
   'group/navigation-menu-trigger inline-flex h-9 w-max items-center justify-center   paragraph-sans font-medium transition-all outline-none  focus:border-border focus-visible:bg-accent focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-popup-open:bg-accent    data-popup-open:hover:bg-accent   data-open:bg-accent/50 data-open:hover:bg-accent data-open:focus:bg-accent   hover:border-border data-popup-open:border-4 data-popup-open:border-border data-open:border-4 data-open:border-border data-popup-open:hover:border-4  data-popup-open:hover:bg-accent px-4 py-2 rounded-md'
 );
 
-function NavigationMenuTrigger({
+function McNavigationMenuTrigger({
   className,
   children,
   ...props
@@ -83,7 +83,7 @@ function NavigationMenuTrigger({
   );
 }
 
-function NavigationMenuContent({ className, ...props }: NavigationMenuPrimitive.Content.Props) {
+function McNavigationMenuContent({ className, ...props }: NavigationMenuPrimitive.Content.Props) {
   return (
     <NavigationMenuPrimitive.Content
       data-slot="navigation-menu-content"
@@ -96,7 +96,7 @@ function NavigationMenuContent({ className, ...props }: NavigationMenuPrimitive.
   );
 }
 
-function NavigationMenuPositioner({
+function McNavigationMenuPositioner({
   className,
   side = 'bottom',
   sideOffset = 8,
@@ -125,7 +125,7 @@ function NavigationMenuPositioner({
   );
 }
 
-function NavigationMenuLink({ className, ...props }: NavigationMenuPrimitive.Link.Props) {
+function McNavigationMenuLink({ className, ...props }: NavigationMenuPrimitive.Link.Props) {
   return (
     <NavigationMenuPrimitive.Link
       data-slot="navigation-menu-link"
@@ -138,7 +138,7 @@ function NavigationMenuLink({ className, ...props }: NavigationMenuPrimitive.Lin
   );
 }
 
-function NavigationMenuIndicator({
+function McNavigationMenuIndicator({
   className,
   ...props
 }: React.ComponentPropsWithRef<typeof NavigationMenuPrimitive.Icon>) {
@@ -157,13 +157,13 @@ function NavigationMenuIndicator({
 }
 
 export {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
+  McNavigationMenu,
+  McNavigationMenuContent,
+  McNavigationMenuIndicator,
+  McNavigationMenuItem,
+  McNavigationMenuLink,
+  McNavigationMenuList,
+  McNavigationMenuTrigger,
   navigationMenuTriggerStyle,
-  NavigationMenuPositioner,
+  McNavigationMenuPositioner,
 };
