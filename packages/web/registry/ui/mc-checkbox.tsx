@@ -89,6 +89,7 @@ function McCheckbox({
         data-slot="checkbox"
         className={cn(
           checkboxVariants({ size }),
+          'self-start mt-0.5',
           'bg-primary-foreground border-muted-foreground',
           'hover:border-primary',
           'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring',
