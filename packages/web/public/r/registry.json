@@ -2195,6 +2195,19 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-card",
+      "title": "MicroClub Card",
+      "description": "A card layout with header, body, and footer regions for MicroClub UI",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "registry/ui/mc-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-radio-group",
       "title": "MicroClub Radio Group",
       "description": "A radio group component for MicroClub UI",

@@ -41,6 +41,19 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-card',
+    type: 'registry:component',
+    title: 'MicroClub Card',
+    description: 'A card layout with header, body, and footer regions for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-card.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['class-variance-authority'],
+  },
+  {
     name: 'mc-radio-group',
     type: 'registry:component',
     title: 'MicroClub Radio Group',
