@@ -2206,6 +2206,71 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-radio-group",
+      "title": "MicroClub Radio Group",
+      "description": "A radio group component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-radio-group.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-switch",
+      "title": "MicroClub Switch",
+      "description": "A switch component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-switch.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-tabs",
+      "title": "MicroClub Tabs",
+      "description": "A tabs component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-tabs.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-breadcrumb",
+      "title": "MicroClub Breadcrumb",
+      "description": "A breadcrumb component for MicroClub UI",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-breadcrumb.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-pagination",
+      "title": "MicroClub Pagination",
+      "description": "A pagination component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-pagination.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }

@@ -1,9 +1,115 @@
 ---
-title: MC Tabs
+title: Mc-Tabs
 description: A component for organizing content into tabs.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-tabs` collection is a flexible tab navigation primitive for MicroClub UI. Built on the **@base-ui/react** tabs primitive, it delivers accessible focus behavior and clean MicroClub styling through Tailwind CSS.
+
+Use `mc-tabs` when you need a polished tabbed interface with horizontal or vertical layout options.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-tabs-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-tabs-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-tabs` components directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-tabs</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-tabs</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-tabs</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-tabs</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install clsx tailwind-merge @base-ui/react class-variance-authority</Tab>
+  <Tab value="pnpm">pnpm add clsx tailwind-merge @base-ui/react class-variance-authority</Tab>
+  <Tab value="yarn">yarn add clsx tailwind-merge @base-ui/react class-variance-authority</Tab>
+  <Tab value="bun">bun add clsx tailwind-merge @base-ui/react class-variance-authority</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-tabs" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McTabs, McTabsList, McTabsTrigger } from '@/components/ui/mc-tabs';
+
+export default function Example() {
+  return (
+    <McTabs defaultValue="tab1">
+      <McTabsList>
+        <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>
+        <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>
+        <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>
+      </McTabsList>
+    </McTabs>
+  );
+}
+```
+
+## Examples
+
+### Horizontal Tabs
+
+```tsx
+<McTabs defaultValue="tab1">
+  <McTabsList>
+    <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>
+    <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>
+    <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>
+  </McTabsList>
+</McTabs>
+```
+
+### Vertical Tabs
+
+```tsx
+<McTabs defaultValue="tab1">
+  <McTabsList variant="vertical">
+    <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>
+    <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>
+    <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>
+  </McTabsList>
+</McTabs>
+```
+
+## API Reference
+
+### Props
+
+| Prop            | Type                         | Default        | Description                             |
+| --------------- | ---------------------------- | -------------- | --------------------------------------- |
+| `variant`       | `"horizontal" \| "vertical"` | `"horizontal"` | Layout for the tab list                 |
+| `defaultValue`  | `string`                     | `undefined`    | Initial tab value for uncontrolled mode |
+| `value`         | `string`                     | `undefined`    | Controlled selected tab value           |
+| `onValueChange` | `(value: string) => void`    | `undefined`    | Callback when the active tab changes    |
+| `className`     | `string`                     | `undefined`    | Additional CSS classes                  |
+
+All other props from `@base-ui/react/tabs` are supported.

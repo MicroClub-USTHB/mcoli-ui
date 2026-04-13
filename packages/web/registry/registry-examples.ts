@@ -29,6 +29,19 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-input-otp.json`],
   },
   {
+    name: 'mc-checkbox-demo',
+    type: 'registry:example',
+    title: 'MicroClub Checkbox Demo',
+    description: 'Demo for MicroClub Checkbox',
+    files: [
+      {
+        path: 'examples/mc-checkbox-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-checkbox.json`],
+  },
+  {
     name: 'mc-card-demo',
     type: 'registry:example',
     title: 'MicroClub Card Demo',
@@ -42,16 +55,68 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-card.json`],
   },
   {
-    name: 'mc-checkbox-demo',
+    name: 'mc-radio-demo',
     type: 'registry:example',
-    title: 'MicroClub Checkbox Demo',
-    description: 'Demo for MicroClub Checkbox',
+    title: 'MicroClub Radio Demo',
+    description: 'Demo for MicroClub Radio',
     files: [
       {
-        path: 'examples/mc-checkbox-demo.tsx',
+        path: 'examples/mc-radio-group-demo.tsx',
         type: 'registry:example',
       },
     ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-checkbox.json`],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-radio-group.json`],
+  },
+  {
+    name: 'mc-switch-demo',
+    type: 'registry:example',
+    title: 'MicroClub Switch Demo',
+    description: 'Demo for MicroClub Switch',
+    files: [
+      {
+        path: 'examples/mc-switch-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-switch.json`],
+  },
+  {
+    name: 'mc-tabs-demo',
+    type: 'registry:example',
+    title: 'MicroClub Tabs Demo',
+    description: 'Demo for MicroClub Tabs',
+    files: [
+      {
+        path: 'examples/mc-tabs-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-tabs.json`],
+  },
+  {
+    name: 'mc-breadcrumb-demo',
+    type: 'registry:example',
+    title: 'MicroClub Breadcrumb Demo',
+    description: 'Demo for MicroClub Breadcrumb',
+    files: [
+      {
+        path: 'examples/mc-breadcrumb-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-breadcrumb.json`],
+  },
+  {
+    name: 'mc-pagination-demo',
+    type: 'registry:example',
+    title: 'MicroClub Pagination Demo',
+    description: 'Demo for MicroClub Pagination',
+    files: [
+      {
+        path: 'examples/mc-pagination-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-pagination.json`],
   },
 ];
