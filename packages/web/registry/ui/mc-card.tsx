@@ -199,10 +199,10 @@ function McCardFooter({
   );
 }
 
-export interface McCardContentProps extends React.ComponentProps<'div'> {}
+export type McCardContentProps = React.ComponentProps<'div'>;
 
 function McCardContent({ className, ...props }: McCardContentProps) {
   return <div data-slot="card-content" className={cn(className)} {...props} />;
 }
 
-export { McCard, McCardHeader, McCardFooter, McCardContent, cardVariants, footerVariants };
+export { McCard, McCardHeader, McCardFooter, McCardContent };
