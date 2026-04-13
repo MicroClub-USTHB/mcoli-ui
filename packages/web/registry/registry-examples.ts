@@ -93,4 +93,17 @@ export const examples: Registry['items'] = [
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-breadcrumb.json`],
   },
+  {
+    name: 'mc-pagination-demo',
+    type: 'registry:example',
+    title: 'MicroClub Pagination Demo',
+    description: 'Demo for MicroClub Pagination',
+    files: [
+      {
+        path: 'examples/mc-pagination-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-pagination.json`],
+  },
 ];

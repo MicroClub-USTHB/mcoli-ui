@@ -2245,6 +2245,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-pagination",
+      "title": "MicroClub Pagination",
+      "description": "A pagination component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-pagination.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }
