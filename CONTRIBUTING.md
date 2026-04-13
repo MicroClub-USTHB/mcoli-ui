@@ -216,16 +216,16 @@ When adding a new item, you will create/edit these files:
 | `mc-textarea`        | ✅           |           |
 | `mc-input-otp`       | ✅           | ✅        |
 | `mc-checkbox`        | ✅           | ✅        |
-| `mc-radio-group`     | ✅           |           |
-| `mc-card`            | ✅           |           |
+| `mc-radio-group`     | ✅           | ✅        |
+| `mc-card`            | ✅           | ✅        |
 | `mc-select`          | ✅           |           |
 | `mc-combobox`        | ✅           |           |
 | `mc-switch`          | ✅           | ✅        |
 | `mc-navigation-menu` | ✅           |           |
 | `mc-sidebar`         | ✅           |           |
-| `mc-tabs`            | ✅           |           |
+| `mc-tabs`            | ✅           | ✅        |
 | `mc-breadcrumb`      | ✅           | ✅        |
-| `mc-pagination`      | ✅           |           |
+| `mc-pagination`      | ✅           | ✅        |
 | `mc-dialog`          |              |           |
 | `mc-alert-dialog`    |              |           |
 | `mc-alert`           |              |           |
