@@ -3,7 +3,210 @@ title: MC Navigation Menu
 description: A navigation menu component for site-wide navigation.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-navigation-menu` is a flexible navigation system for top-level site structure and grouped
+links. It is built on the **@base-ui/react** navigation menu primitives, then styled with
+**Tailwind CSS v4** and utility variants from **class-variance-authority**.
+
+As part of the MicroClub UI library, this component is designed for direct adoption in your
+codebase, so you can fully customize layout density, trigger styles, and content composition.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-navigation-menu-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-navigation-menu-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-navigation-menu` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-navigation-menu</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-navigation-menu</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-navigation-menu</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-navigation-menu</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">
+    npm install clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="pnpm">
+    pnpm add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="yarn">
+    yarn add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="bun">
+    bun add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-navigation-menu" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` helper is available, and confirm `next/link` is used where you render
+links inside menu content.
+
+</Steps>
+
+## Usage
+
+```tsx
+import Link from 'next/link';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from '@/components/ui/mc-navigation-menu';
+
+export default function Example() {
+  return (
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Docs</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="w-80">
+              <li>
+                <NavigationMenuLink render={<Link href="/docs/introduction">Introduction</Link>} />
+              </li>
+              <li>
+                <NavigationMenuLink render={<Link href="/docs/installation">Installation</Link>} />
+              </li>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  );
+}
+```
+
+## Examples
+
+### Basic Trigger and Content
+
+```tsx
+<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <ul className="w-96">
+          <li>
+            <NavigationMenuLink render={<Link href="/docs">Introduction</Link>} />
+          </li>
+          <li>
+            <NavigationMenuLink render={<Link href="/docs/installation">Installation</Link>} />
+          </li>
+        </ul>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>
+```
+
+### Grid Layout for Rich Menus
+
+```tsx
+<NavigationMenuContent>
+  <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+    {components.map((item) => (
+      <li key={item.title}>
+        <NavigationMenuLink render={<Link href={item.href}>{item.title}</Link>} />
+      </li>
+    ))}
+  </ul>
+</NavigationMenuContent>
+```
+
+### Icon-Based Menu Links
+
+```tsx
+import { CircleAlertIcon, CircleCheckIcon, CircleDashedIcon } from 'lucide-react';
+
+<NavigationMenuContent>
+  <ul className="grid w-[200px]">
+    <li>
+      <NavigationMenuLink
+        render={
+          <Link href="#" className="flex-row items-center gap-2">
+            <CircleAlertIcon />
+            Backlog
+          </Link>
+        }
+      />
+      <NavigationMenuLink
+        render={
+          <Link href="#" className="flex-row items-center gap-2">
+            <CircleDashedIcon />
+            To Do
+          </Link>
+        }
+      />
+      <NavigationMenuLink
+        render={
+          <Link href="#" className="flex-row items-center gap-2">
+            <CircleCheckIcon />
+            Done
+          </Link>
+        }
+      />
+    </li>
+  </ul>
+</NavigationMenuContent>;
+```
+
+### Direct Link Styled as a Trigger
+
+```tsx
+import { navigationMenuTriggerStyle } from '@/components/ui/mc-navigation-menu';
+
+<NavigationMenuItem>
+  <NavigationMenuLink
+    className={navigationMenuTriggerStyle()}
+    render={<Link href="/docs">Docs</Link>}
+  />
+</NavigationMenuItem>;
+```
+
+## API Reference
+
+### Components and Utilities
+
+| Export                       | Type             | Default                                                               | Description                                                                  |
+| ---------------------------- | ---------------- | --------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `NavigationMenu`             | `Root component` | `align="start"`                                                       | Main container that renders the menu root and a default positioner.          |
+| `NavigationMenuList`         | `Component`      | `undefined`                                                           | Wraps top-level menu items in a horizontal list container.                   |
+| `NavigationMenuItem`         | `Component`      | `undefined`                                                           | Represents one trigger/content pair or standalone navigation node.           |
+| `NavigationMenuTrigger`      | `Component`      | `undefined`                                                           | Interactive trigger that opens content and includes a rotating chevron icon. |
+| `NavigationMenuContent`      | `Component`      | `undefined`                                                           | Popup content region with open/close and directional motion styles.          |
+| `NavigationMenuLink`         | `Component`      | `undefined`                                                           | Styled link primitive that supports Base UI polymorphic `render` usage.      |
+| `NavigationMenuPositioner`   | `Component`      | `side="bottom"`, `sideOffset={8}`, `align="start"`, `alignOffset={0}` | Controls popup placement and viewport sizing behavior.                       |
+| `NavigationMenuIndicator`    | `Component`      | `undefined`                                                           | Optional indicator icon for the active menu item.                            |
+| `navigationMenuTriggerStyle` | `CVA utility`    | `undefined`                                                           | Utility function returning trigger class names for reuse on custom links.    |
+
+All other compatible props from `@base-ui/react/navigation-menu` primitives are supported on each
+corresponding wrapper component.
