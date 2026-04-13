@@ -3,26 +3,6 @@ import { ChevronLeftIcon, ChevronRightIcon, MoreHorizontalIcon } from 'lucide-re
 
 import { cn } from '@/lib/utils';
 import { Button as ButtonPrimitive } from '@base-ui/react/button';
-import { cva, VariantProps } from 'class-variance-authority';
-
-const buttonVariants = cva(
-  'group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0'
-);
-
-export interface McButtonProps
-  extends Omit<ButtonPrimitive.Props, 'icon'>, Omit<VariantProps<typeof buttonVariants>, 'icon'> {
-  iconDefinition?: React.ReactNode;
-
-  isLoading?: boolean;
-}
-
-function McButton({
-  className,
-
-  ...props
-}: McButtonProps) {
-  return <ButtonPrimitive className={cn(buttonVariants({ className }))} {...props} />;
-}
 
 function McPagination({ className, ...props }: React.ComponentProps<'nav'>) {
   return (
@@ -63,9 +43,9 @@ function McPaginationLink({
   ...props
 }: PaginationLinkProps) {
   return (
-    <McButton
+    <ButtonPrimitive
       className={cn(
-        'flex items-center  rounded-[6px] px-4 py-2   hover:bg-secondary paragraph-md font-normal justify-center gap-2 font-sans',
+        'group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding whitespace-nowrap transition-all outline-none select-none disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 flex items-center rounded-[6px] px-4 py-2 hover:bg-secondary paragraph-md font-normal justify-center gap-2 font-sans',
 
         isActive &&
           'rounded-[6px] bg-primary px-4 py-2 text-md font-dm-sans h-min-[40px] w-min-[37px] pointer-events-none cursor-default text-primary-foreground hover:bg-primary hover:text-primary-foreground active:bg-primary active:text-primary-foreground active:ring-0',
