@@ -119,4 +119,18 @@ export const examples: Registry['items'] = [
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-pagination.json`],
   },
+
+  {
+    name: 'mc-navigation-menu-demo',
+    type: 'registry:example',
+    title: 'MicroClub Navigation Menu Demo',
+    description: 'Demo for MicroClub Navigation Menu',
+    files: [
+      {
+        path: 'examples/mc-navigation-menu-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-navigation-menu.json`],
+  },
 ];
