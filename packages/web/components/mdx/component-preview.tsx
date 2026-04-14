@@ -10,7 +10,7 @@ export const ComponentPreview: React.FC<{ name: string }> = ({ name }) => {
     return <Component />;
   }, [name]);
   return (
-    <div className="flex items-center justify-center bg-card rounded-lg border h-64 font-dm-sans">
+    <div className="flex items-center justify-center bg-card rounded-lg border min-h-64 p-4 font-dm-sans not-prose">
       <React.Suspense
         fallback={
           <div className="text-muted-foreground flex items-center justify-center text-sm">
