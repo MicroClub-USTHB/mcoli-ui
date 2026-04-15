@@ -1,30 +1,38 @@
 'use client';
 
+import * as React from 'react';
 import {
   Combobox,
+  ComboboxTrigger,
+  ComboboxSearch,
   ComboboxContent,
-  ComboboxEmpty,
-  ComboboxInput,
-  ComboboxItem,
   ComboboxList,
+  ComboboxItem,
 } from '@/registry/ui/mc-combobox';
 
-const frameworks = ['Next.js', 'SvelteKit', 'Nuxt.js', 'Remix', 'Astro'] as const;
+const frameworks = ['Next.js', 'SvelteKit', 'Nuxt.js', 'Remix'] as const;
 
-export function ComboboxBasic() {
+export default function ComboboxDemo() {
+  const [selectedValue, setSelectedValue] = React.useState('select a framework');
   return (
-    <Combobox items={frameworks}>
-      <ComboboxInput placeholder="Select a framework" />
-      <ComboboxContent>
-        <ComboboxEmpty>No items found.</ComboboxEmpty>
-        <ComboboxList>
-          {(item) => (
-            <ComboboxItem key={item} value={item}>
-              {item}
-            </ComboboxItem>
-          )}
-        </ComboboxList>
-      </ComboboxContent>
-    </Combobox>
+    <div className="flex items-start justify-start mb-50">
+      <Combobox
+        items={frameworks}
+        value={selectedValue}
+        onValueChange={(val) => setSelectedValue(val as string)}
+      >
+        <ComboboxTrigger className="shadow-sm border-slate-200" />
+        <ComboboxContent>
+          <ComboboxSearch placeholder="Search framework..." />
+          <ComboboxList>
+            {(item: string) => (
+              <ComboboxItem key={item} value={item}>
+                {item}
+              </ComboboxItem>
+            )}
+          </ComboboxList>
+        </ComboboxContent>
+      </Combobox>
+    </div>
   );
 }
