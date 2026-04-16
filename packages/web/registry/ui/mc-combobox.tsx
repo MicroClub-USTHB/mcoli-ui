@@ -1,6 +1,5 @@
 'use client';
 
-import * as React from 'react';
 import { Combobox as ComboboxPrimitive } from '@base-ui/react';
 import { CheckIcon, ChevronsUpDown, SearchIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
@@ -13,7 +12,6 @@ function ComboboxValue({ ...props }: ComboboxPrimitive.Value.Props) {
 
 function ComboboxTrigger({
   className,
-  children,
   placeholder,
   ...props
 }: ComboboxPrimitive.Trigger.Props & { placeholder?: string }) {
@@ -21,7 +19,7 @@ function ComboboxTrigger({
     <ComboboxPrimitive.Trigger
       data-slot="combobox-trigger"
       className={cn(
-        'min-w-50 min-h-9 px-3 py-2 rounded-md ring-1 ring-inset ring-border shadow-[0_1px_2px_0_#0000001A] flex justify-between font-dm-sans items-center text-foreground',
+        'min-w-50 min-h-9 px-3 py-2 rounded-md ring-1 ring-inset ring-border shadow-xs flex justify-between items-center bg-input text-foreground paragraph-sm font-medium',
         className
       )}
       {...props}
@@ -42,7 +40,7 @@ function ComboboxSearch({
       <SearchIcon className="text-muted-foreground size-4" />
       <ComboboxPrimitive.Input
         className={cn(
-          'flex h-10 w-full rounded-md bg-transparent py-3 text-base outline-none placeholder:text-muted-foreground',
+          'flex h-10 w-full rounded-md bg-transparent py-3 outline-none paragraph-sm placeholder:text-muted-foreground',
           className
         )}
         placeholder={placeholder}
@@ -71,7 +69,7 @@ function ComboboxContent({
         <ComboboxPrimitive.Popup
           data-slot="combobox-content"
           className={cn(
-            'w-[var(--anchor-width)] flex flex-col rounded-md ring-1 ring-inset ring-border bg-card-background shadow-[0_4px_6px_-1px_#0000001A]',
+            'w-[var(--anchor-width)] flex flex-col rounded-md ring-1 ring-inset ring-border bg-card-background shadow-md',
             className
           )}
           {...props}
@@ -96,7 +94,7 @@ function ComboboxItem({ className, children, ...props }: ComboboxPrimitive.Item.
     <ComboboxPrimitive.Item
       data-slot="combobox-item"
       className={cn(
-        'relative flex w-full rounded py-1.5 px-2 gap-2 justify-between font-dm-sans items-center',
+        'relative flex w-full rounded py-1.5 px-2 gap-2 justify-between paragraph-sm items-center',
         'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
         className
       )}
