@@ -118,7 +118,19 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
-
+  {
+    name: 'mc-combobox',
+    type: 'registry:component',
+    title: 'MicroClub Combobox',
+    description: 'A searchable dropdown with autocomplete functionality for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-combobox.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
   {
     name: 'mc-navigation-menu',
     type: 'registry:component',
