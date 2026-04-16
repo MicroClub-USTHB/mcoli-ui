@@ -2271,6 +2271,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-navigation-menu",
+      "title": "MicroClub Navigation Menu",
+      "description": "A navigation menu component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-navigation-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }
