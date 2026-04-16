@@ -21,35 +21,35 @@ type MenuComponent = {
 const components: MenuComponent[] = [
   {
     title: 'Alert Dialog',
-    href: '/docs/primitives/alert-dialog',
+    href: '#alert-dialog',
     description:
       'A modal dialog that interrupts the user with important content and expects a response.',
   },
   {
     title: 'Hover Card',
-    href: '/docs/primitives/hover-card',
+    href: '#hover-card',
     description: 'For sighted users to preview content available behind a link.',
   },
   {
     title: 'Progress',
-    href: '/docs/primitives/progress',
+    href: '#progress',
     description:
       'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
   },
   {
     title: 'Scroll-area',
-    href: '/docs/primitives/scroll-area',
+    href: '#scroll-area',
     description: 'Visually or semantically separates content.',
   },
   {
     title: 'Tabs',
-    href: '/docs/primitives/tabs',
+    href: '#tabs',
     description:
       'A set of layered sections of content known as tab panels that are displayed one at a time.',
   },
   {
     title: 'Tooltip',
-    href: '/docs/primitives/tooltip',
+    href: '#tooltip',
     description: 'A popup that displays information related to an element on focus or hover.',
   },
 ];
@@ -195,9 +195,9 @@ function ListItem({
       <McNavigationMenuLink
         render={
           <Link href={href}>
-            <div className="flex flex-col gap-1 text-sm">
-              <div className="leading-none font-medium">{title}</div>
-              <div className="line-clamp-2 text-muted-foreground">{children}</div>
+            <div className="flex flex-col gap-1">
+              <p className="font-medium text-card-foreground">{title}</p>
+              <p className="line-clamp-2 text-muted-foreground">{children}</p>
             </div>
           </Link>
         }
