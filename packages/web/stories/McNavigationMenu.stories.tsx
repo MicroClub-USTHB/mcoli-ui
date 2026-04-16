@@ -1,4 +1,3 @@
-import type { ComponentProps, ComponentPropsWithoutRef } from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import Link from 'next/link';
 import { CircleAlertIcon, CircleCheckIcon, CircleDashedIcon } from 'lucide-react';
@@ -11,63 +10,27 @@ import {
   McNavigationMenuTrigger,
 } from '@/registry/ui/mc-navigation-menu';
 
-type NavigationMenuStoryArgs = ComponentProps<typeof McNavigationMenu>;
-type MenuComponent = {
-  title: string;
-  href: string;
-  description: string;
-};
-
-const components: MenuComponent[] = [
-  {
-    title: 'Alert Dialog',
-    href: '#alert-dialog',
-    description:
-      'A modal dialog that interrupts the user with important content and expects a response.',
-  },
-  {
-    title: 'Hover Card',
-    href: '#hover-card',
-    description: 'For sighted users to preview content available behind a link.',
-  },
-  {
-    title: 'Progress',
-    href: '#progress',
-    description:
-      'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
-  },
-  {
-    title: 'Scroll-area',
-    href: '#scroll-area',
-    description: 'Visually or semantically separates content.',
-  },
-  {
-    title: 'Tabs',
-    href: '#tabs',
-    description:
-      'A set of layered sections of content known as tab panels that are displayed one at a time.',
-  },
-  {
-    title: 'Tooltip',
-    href: '#tooltip',
-    description: 'A popup that displays information related to an element on focus or hover.',
-  },
-];
-
-const meta = {
+const meta: Meta<typeof McNavigationMenu> = {
   title: 'Components/McNavigationMenu',
   component: McNavigationMenu,
-  parameters: {
-    layout: 'centered',
+  argTypes: {
+    align: {
+      control: 'select',
+      options: ['start', 'center', 'end'],
+      description: 'Controls the alignment of the popup content',
+    },
   },
-} satisfies Meta<NavigationMenuStoryArgs>;
+  args: {
+    align: 'start',
+  },
+};
 
 export default meta;
-type Story = StoryObj<NavigationMenuStoryArgs>;
+type Story = StoryObj<typeof McNavigationMenu>;
 
-function renderNavigationMenu(args: NavigationMenuStoryArgs) {
-  return (
-    <div className="flex w-full justify-center pt-8 pb-56">
+export const Playground: Story = {
+  render: (args) => (
+    <div className="flex w-full justify-center py-10">
       <McNavigationMenu {...args}>
         <McNavigationMenuList>
           <McNavigationMenuItem>
@@ -86,11 +49,10 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
               </ul>
             </McNavigationMenuContent>
           </McNavigationMenuItem>
-
-          <McNavigationMenuItem className="hidden md:flex">
+          <McNavigationMenuItem>
             <McNavigationMenuTrigger>Components</McNavigationMenuTrigger>
             <McNavigationMenuContent>
-              <ul className="grid w-100 gap-2 md:w-125 md:grid-cols-2 lg:w-150">
+              <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                 {components.map((component) => (
                   <ListItem key={component.title} title={component.title} href={component.href}>
                     {component.description}
@@ -99,15 +61,14 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
               </ul>
             </McNavigationMenuContent>
           </McNavigationMenuItem>
-
           <McNavigationMenuItem>
-            <McNavigationMenuTrigger>With Icon</McNavigationMenuTrigger>
+            <McNavigationMenuTrigger>Status</McNavigationMenuTrigger>
             <McNavigationMenuContent>
-              <ul className="grid w-50">
+              <ul className="w-[200px]">
                 <li>
                   <McNavigationMenuLink
                     render={
-                      <Link href="#" className="flex-row items-center gap-2">
+                      <Link href="#" className="flex items-center gap-2">
                         <CircleAlertIcon />
                         Backlog
                       </Link>
@@ -115,7 +76,7 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
                   />
                   <McNavigationMenuLink
                     render={
-                      <Link href="#" className="flex-row items-center gap-2">
+                      <Link href="#" className="flex items-center gap-2">
                         <CircleDashedIcon />
                         To Do
                       </Link>
@@ -123,7 +84,7 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
                   />
                   <McNavigationMenuLink
                     render={
-                      <Link href="#" className="flex-row items-center gap-2">
+                      <Link href="#" className="flex items-center gap-2">
                         <CircleCheckIcon />
                         Done
                       </Link>
@@ -133,35 +94,45 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
               </ul>
             </McNavigationMenuContent>
           </McNavigationMenuItem>
+        </McNavigationMenuList>
+      </McNavigationMenu>
+    </div>
+  ),
+};
 
-          <McNavigationMenuItem className="hidden md:flex">
-            <McNavigationMenuTrigger>List</McNavigationMenuTrigger>
+export const BasicTrigger: Story = {
+  render: (args) => (
+    <div className="flex w-full justify-center py-10">
+      <McNavigationMenu {...args}>
+        <McNavigationMenuList>
+          <McNavigationMenuItem>
+            <McNavigationMenuTrigger>Docs</McNavigationMenuTrigger>
             <McNavigationMenuContent>
-              <ul className="grid w-100 gap-2 md:w-125 md:grid-cols-2 lg:w-150">
-                {components.map((component) => (
-                  <ListItem key={component.title} title={component.title} href={component.href}>
-                    {component.description}
-                  </ListItem>
-                ))}
+              <ul className="w-80">
+                <ListItem href="/docs/introduction" title="Introduction">
+                  Getting started with MicroClub UI
+                </ListItem>
+                <ListItem href="/docs/installation" title="Installation">
+                  Step-by-step setup guide
+                </ListItem>
               </ul>
             </McNavigationMenuContent>
           </McNavigationMenuItem>
-          <McNavigationMenuItem className="hidden md:flex">
-            <McNavigationMenuTrigger>Simple</McNavigationMenuTrigger>
+        </McNavigationMenuList>
+      </McNavigationMenu>
+    </div>
+  ),
+};
+
+export const GridLayout: Story = {
+  render: (args) => (
+    <div className="flex w-full justify-center py-10">
+      <McNavigationMenu {...args}>
+        <McNavigationMenuList>
+          <McNavigationMenuItem>
+            <McNavigationMenuTrigger>Components</McNavigationMenuTrigger>
             <McNavigationMenuContent>
-              <ul className="grid w-100 gap-2 md:w-125 md:grid-cols-2 lg:w-150">
-                {components.map((component) => (
-                  <ListItem key={component.title} title={component.title} href={component.href}>
-                    {component.description}
-                  </ListItem>
-                ))}
-              </ul>
-            </McNavigationMenuContent>
-          </McNavigationMenuItem>
-          <McNavigationMenuItem className="hidden md:flex">
-            <McNavigationMenuTrigger>With Icon</McNavigationMenuTrigger>
-            <McNavigationMenuContent>
-              <ul className="grid w-100 gap-2 md:w-125 md:grid-cols-2 lg:w-150">
+              <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                 {components.map((component) => (
                   <ListItem key={component.title} title={component.title} href={component.href}>
                     {component.description}
@@ -173,25 +144,97 @@ function renderNavigationMenu(args: NavigationMenuStoryArgs) {
         </McNavigationMenuList>
       </McNavigationMenu>
     </div>
-  );
-}
-
-export const Playground: Story = {
-  args: {
-    align: 'end',
-  },
-
-  render: renderNavigationMenu,
+  ),
 };
+
+export const WithIcons: Story = {
+  render: (args) => (
+    <div className="flex w-full justify-center py-10">
+      <McNavigationMenu {...args}>
+        <McNavigationMenuList>
+          <McNavigationMenuItem>
+            <McNavigationMenuTrigger>Status</McNavigationMenuTrigger>
+            <McNavigationMenuContent>
+              <ul className="w-[200px]">
+                <li className="flex flex-col gap-1">
+                  <McNavigationMenuLink
+                    render={
+                      <Link href="#" className="flex items-center gap-2">
+                        <CircleAlertIcon />
+                        Backlog
+                      </Link>
+                    }
+                  />
+                  <McNavigationMenuLink
+                    render={
+                      <Link href="#" className="flex items-center gap-2">
+                        <CircleDashedIcon />
+                        To Do
+                      </Link>
+                    }
+                  />
+                  <McNavigationMenuLink
+                    render={
+                      <Link href="#" className="flex items-center gap-2">
+                        <CircleCheckIcon />
+                        Done
+                      </Link>
+                    }
+                  />
+                </li>
+              </ul>
+            </McNavigationMenuContent>
+          </McNavigationMenuItem>
+        </McNavigationMenuList>
+      </McNavigationMenu>
+    </div>
+  ),
+};
+
+const components = [
+  {
+    title: 'Alert Dialog',
+    href: '#alert-dialog',
+    description: 'A modal dialog that interrupts the user with important content.',
+  },
+  {
+    title: 'Hover Card',
+    href: '#hover-card',
+    description: 'For sighted users to preview content available behind a link.',
+  },
+  {
+    title: 'Progress',
+    href: '#progress',
+    description: 'Displays an indicator showing the completion progress of a task.',
+  },
+  {
+    title: 'Scroll-area',
+    href: '#scroll-area',
+    description: 'Visually or semantically separates content.',
+  },
+  {
+    title: 'Tabs',
+    href: '#tabs',
+    description: 'A set of layered sections of content known as tab panels.',
+  },
+  {
+    title: 'Tooltip',
+    href: '#tooltip',
+    description: 'A popup that displays information on focus or hover.',
+  },
+];
 
 function ListItem({
   title,
   children,
   href,
-  ...props
-}: ComponentPropsWithoutRef<'li'> & { href: string }) {
+}: {
+  title: string;
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
-    <li {...props}>
+    <li>
       <McNavigationMenuLink
         render={
           <Link href={href}>
