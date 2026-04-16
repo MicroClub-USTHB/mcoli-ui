@@ -59,7 +59,14 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 ## Usage
 
 ```tsx
-import { Combobox, ComboboxTrigger, ComboboxContent, ComboboxList, ComboboxItem } from '@/components/ui/mc-combobox';
+import {
+  Combobox,
+  ComboboxTrigger,
+  ComboboxContent,
+  ComboboxSearch,
+  ComboboxList,
+  ComboboxItem,
+} from '@/components/ui/mc-combobox';
 
 const frameworks = ['Next.js', 'SvelteKit', 'Nuxt.js', 'Remix', 'Astro'];
 
@@ -70,7 +77,7 @@ export default function Example() {
     <Combobox items={frameworks} value={value} onValueChange={setValue}>
       <ComboboxTrigger />
       <ComboboxContent>
-      <>
+        <ComboboxSearch placeholder="Search framework..." />
         <ComboboxList>
           {(item) => (
             <ComboboxItem key={item} value={item}>
@@ -106,22 +113,19 @@ export default function Example() {
 
 ## API Reference
 
-### Combobox (Root)
-
-The root component that manages the combobox state.
+### Props
 
 | Prop            | Type                 | Default | Description                 |
 | --------------- | -------------------- | ------- | --------------------------- |
 | `items`         | `T[]`                | -       | Array of items to display   |
 | `value`         | `T`                  | -       | Currently selected value    |
 | `onValueChange` | `(value: T) => void` | -       | Callback when value changes |
+| `className`     | `string`             | -       | Additional CSS classes      |
 | `children`      | `ReactNode`          | -       | Child components            |
 
 All other props from `@base-ui/react/combobox` are supported.
 
 ### ComboboxTrigger
-
-The button that opens the dropdown.
 
 | Prop          | Type        | Default     | Description                    |
 | ------------- | ----------- | ----------- | ------------------------------ |
@@ -129,20 +133,20 @@ The button that opens the dropdown.
 | `placeholder` | `string`    | `undefined` | Placeholder text for the value |
 | `children`    | `ReactNode` | `undefined` | Custom trigger content         |
 
+All other props from `@base-ui/react/combobox` are supported.
+
 ### ComboboxContent
 
-The dropdown container.
+| Prop         | Type                           | Default     | Description            |
+| ------------ | ------------------------------ | ----------- | ---------------------- |
+| `className`  | `string`                       | `undefined` | Additional CSS classes |
+| `side`       | `"top" \| "bottom"`            | `"bottom"`  | Position side          |
+| `sideOffset` | `number`                       | `8`         | Offset from trigger    |
+| `align`      | `"start" \| "center" \| "end"` | `"start"`   | Alignment              |
 
-| Prop         | Type                         | Default     | Description            |
-| ------------ | ---------------------------- | ----------- | ---------------------- |
-| `className`  | `string`                     | `undefined` | Additional CSS classes |
-| `side`       | `"top" \| "bottom" \| ...`   | `"bottom"`  | Position side          |
-| `sideOffset` | `number`                     | `8`         | Offset from trigger    |
-| `align`      | `"start" \| "center" \| ...` | `"start"`   | Alignment              |
+All other props from `@base-ui/react/combobox` are supported.
 
 ### ComboboxSearch
-
-The search input within the dropdown.
 
 | Prop          | Type     | Default     | Description            |
 | ------------- | -------- | ----------- | ---------------------- |
@@ -151,27 +155,14 @@ The search input within the dropdown.
 
 ### ComboboxList
 
-The scrollable list container.
-
-| Prop        | Type        | Default     | Description            |
-| ----------- | ----------- | ----------- | ---------------------- |
-| `className` | `string`    | `undefined` | Additional CSS classes |
-| `children`  | `ReactNode` | -           | List items             |
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
 
 ### ComboboxItem
-
-Individual selectable items.
 
 | Prop        | Type        | Default     | Description            |
 | ----------- | ----------- | ----------- | ---------------------- |
 | `className` | `string`    | `undefined` | Additional CSS classes |
 | `value`     | `string`    | -           | Value of the item      |
 | `children`  | `ReactNode` | -           | Item content           |
-
-### ComboboxValue
-
-Displays the selected value in the trigger.
-
-| Prop          | Type     | Default     | Description               |
-| ------------- | -------- | ----------- | ------------------------- |
-| `placeholder` | `string` | `undefined` | Placeholder when no value |
