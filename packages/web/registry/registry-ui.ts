@@ -131,4 +131,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+  {
+    name: 'mc-navigation-menu',
+    type: 'registry:component',
+    title: 'MicroClub Navigation Menu',
+    description: 'A navigation menu component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-navigation-menu.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
