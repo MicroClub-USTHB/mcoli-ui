@@ -66,7 +66,7 @@ function McSelectTrigger({
   variant = 'default',
   leadingIcon,
   leadingAvatar,
-  dotColor = 'bg-green-500',
+  dotColor,
   children,
   ...props
 }: McSelectTriggerProps) {
@@ -123,7 +123,7 @@ function McSelectTrigger({
       )}
 
       {variant === 'dot-leading' && (
-        <span className={cn('dot size-2 shrink-0 rounded-full', dotColor)} />
+        <span className="dot size-2 shrink-0 rounded-full bg-green-500" />
       )}
 
       {children}
@@ -279,7 +279,7 @@ function McSelectItem({
       )}
 
       {/* Leading dot */}
-      {dotColor && <span className={cn('dot size-2 shrink-0 rounded-full', dotColor)} />}
+      {dotColor && <span className="dot size-2 shrink-0 rounded-full bg-green-500" />}
 
       <SelectPrimitive.ItemText
         className={cn(

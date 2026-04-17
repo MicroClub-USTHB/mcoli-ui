@@ -11,8 +11,7 @@ import {
   McSelectTrigger,
   McSelectValue,
 } from '../registry/ui/mc-select';
-
-// ─── Data ────────────────────────────────────────────────────────────────────
+import React from 'react';
 
 const TEAM_MEMBERS = [
   {
@@ -56,8 +55,6 @@ function Avatar({ src, alt }: { src: string; alt: string }) {
   return <img src={src} alt={alt} className="size-5 rounded-full object-cover" />;
 }
 
-// ─── Meta ────────────────────────────────────────────────────────────────────
-
 const meta: Meta<{ showLabel: boolean }> = {
   title: 'Components/McSelect',
   parameters: {
@@ -85,131 +82,203 @@ const meta: Meta<{ showLabel: boolean }> = {
 export default meta;
 type Story = StoryObj<{ showLabel: boolean }>;
 
-// ─── Stories ─────────────────────────────────────────────────────────────────
-
 export const Default: Story = {
-  render: ({ showLabel }) => (
-    <div>
-      {showLabel && <McSelectLabel>Team member</McSelectLabel>}
-      <McSelect>
-        <McSelectTrigger variant="default">
-          <McSelectValue placeholder="Select team member" />
-        </McSelectTrigger>
-        <McSelectContent>
-          <McSelectGroup>
-            <McSelectGroupLabel>Team members</McSelectGroupLabel>
-            {TEAM_MEMBERS.map((m) => (
-              <McSelectItem key={m.value} value={m.value}>
-                {m.name}
-              </McSelectItem>
-            ))}
-          </McSelectGroup>
-        </McSelectContent>
-      </McSelect>
-    </div>
-  ),
+  render: ({ showLabel }) => {
+    const [value, setValue] = React.useState<string | null>(null);
+
+    const selected = TEAM_MEMBERS.find((m) => m.value === value);
+
+    return (
+      <div>
+        {showLabel && <McSelectLabel>Team member</McSelectLabel>}
+
+        <McSelect value={value} onValueChange={setValue}>
+          <McSelectTrigger variant="default">
+            {!selected ? (
+              <McSelectValue placeholder="Select team member" />
+            ) : (
+              <div className="flex items-center gap-2">
+                <span className="font-medium">{selected.name}</span>
+                {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
+              </div>
+            )}
+          </McSelectTrigger>
+
+          <McSelectContent>
+            <McSelectGroup>
+              <McSelectGroupLabel>Team members</McSelectGroupLabel>
+
+              {TEAM_MEMBERS.map((m) => (
+                <McSelectItem key={m.value} value={m.value}>
+                  {m.name}
+                </McSelectItem>
+              ))}
+            </McSelectGroup>
+          </McSelectContent>
+        </McSelect>
+      </div>
+    );
+  },
 };
 
 export const IconLeading: Story = {
-  render: ({ showLabel }) => (
-    <div>
-      {showLabel && <McSelectLabel>Team member</McSelectLabel>}
-      <McSelect>
-        <McSelectTrigger variant="icon-leading" leadingIcon={<UserIcon />}>
-          <McSelectValue placeholder="Select team member" />
-        </McSelectTrigger>
-        <McSelectContent>
-          <McSelectGroup>
-            <McSelectGroupLabel>Team members</McSelectGroupLabel>
-            {TEAM_MEMBERS.map((m) => (
-              <McSelectItem key={m.value} value={m.value} leadingIcon={<UserIcon />}>
-                {m.name}
-              </McSelectItem>
-            ))}
-          </McSelectGroup>
-        </McSelectContent>
-      </McSelect>
-    </div>
-  ),
+  render: ({ showLabel }) => {
+    const [value, setValue] = React.useState<string | null>(null);
+
+    const selected = TEAM_MEMBERS.find((m) => m.value === value);
+
+    return (
+      <div>
+        {showLabel && <McSelectLabel>Team member</McSelectLabel>}
+        <McSelect value={value} onValueChange={setValue}>
+          <McSelectTrigger variant="icon-leading" leadingIcon={<UserIcon />}>
+            {!selected ? (
+              <McSelectValue placeholder="Select team member" />
+            ) : (
+              <div className="flex items-center gap-2">
+                <span className="font-medium">{selected.name}</span>
+                {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
+              </div>
+            )}
+          </McSelectTrigger>
+          <McSelectContent>
+            <McSelectGroup>
+              <McSelectGroupLabel>Team members</McSelectGroupLabel>
+              {TEAM_MEMBERS.map((m) => (
+                <McSelectItem key={m.value} value={m.value} leadingIcon={<UserIcon />}>
+                  {m.name}
+                </McSelectItem>
+              ))}
+            </McSelectGroup>
+          </McSelectContent>
+        </McSelect>
+      </div>
+    );
+  },
 };
 
 export const AvatarLeading: Story = {
-  render: ({ showLabel }) => (
-    <div>
-      {showLabel && <McSelectLabel>Team member</McSelectLabel>}
-      <McSelect>
-        <McSelectTrigger
-          variant="avatar-leading"
-          leadingAvatar={<Avatar src={TEAM_MEMBERS[0].avatar} alt={TEAM_MEMBERS[0].name} />}
-        >
-          <McSelectValue placeholder="Select team member" />
-        </McSelectTrigger>
-        <McSelectContent>
-          <McSelectGroup>
-            <McSelectGroupLabel>Team members</McSelectGroupLabel>
-            {TEAM_MEMBERS.map((m) => (
-              <McSelectItem
-                key={m.value}
-                value={m.value}
-                leadingAvatar={<Avatar src={m.avatar} alt={m.name} />}
-                supportingText={m.username}
-              >
-                {m.name}
-              </McSelectItem>
-            ))}
-          </McSelectGroup>
-        </McSelectContent>
-      </McSelect>
-    </div>
-  ),
+  render: ({ showLabel }) => {
+    const [value, setValue] = React.useState<string | null>(null);
+
+    const selected = TEAM_MEMBERS.find((m) => m.value === value);
+
+    return (
+      <div>
+        {showLabel && <McSelectLabel>Team member</McSelectLabel>}
+        <McSelect value={value} onValueChange={setValue}>
+          <McSelectTrigger
+            variant="avatar-leading"
+            leadingAvatar={
+              selected ? (
+                <Avatar src={selected.avatar} alt={selected.name} />
+              ) : (
+                <UserIcon className="size-4 text-muted-foreground" />
+              )
+            }
+          >
+            {!selected ? (
+              <McSelectValue placeholder="Select team member" />
+            ) : (
+              <div className="flex items-center gap-2">
+                <span className="font-medium">{selected.name}</span>
+                {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
+              </div>
+            )}
+          </McSelectTrigger>
+          <McSelectContent>
+            <McSelectGroup>
+              <McSelectGroupLabel>Team members</McSelectGroupLabel>
+              {TEAM_MEMBERS.map((m) => (
+                <McSelectItem
+                  key={m.value}
+                  value={m.value}
+                  leadingAvatar={<Avatar src={m.avatar} alt={m.name} />}
+                  supportingText={m.username}
+                >
+                  {m.name}
+                </McSelectItem>
+              ))}
+            </McSelectGroup>
+          </McSelectContent>
+        </McSelect>
+      </div>
+    );
+  },
 };
 
 export const DotLeading: Story = {
-  render: ({ showLabel }) => (
-    <div>
-      {showLabel && <McSelectLabel>Team member</McSelectLabel>}
-      <McSelect>
-        <McSelectTrigger variant="dot-leading" dotColor="bg-green-500">
-          <McSelectValue placeholder="Select team member" />
-        </McSelectTrigger>
-        <McSelectContent>
-          <McSelectGroup>
-            <McSelectGroupLabel>Team members</McSelectGroupLabel>
-            {TEAM_MEMBERS.map((m) => (
-              <McSelectItem
-                key={m.value}
-                value={m.value}
-                dotColor={m.online ? 'bg-green-500' : 'bg-gray-300'}
-              >
-                {m.name}
-              </McSelectItem>
-            ))}
-          </McSelectGroup>
-        </McSelectContent>
-      </McSelect>
-    </div>
-  ),
+  render: ({ showLabel }) => {
+    const [value, setValue] = React.useState<string | null>(null);
+    const selected = TEAM_MEMBERS.find((m) => m.value === value);
+
+    return (
+      <div>
+        {showLabel && <McSelectLabel>Status</McSelectLabel>}
+
+        <McSelect value={value} onValueChange={setValue}>
+          <McSelectTrigger variant="dot-leading" dotColor="bg-green-500">
+            {!selected ? (
+              <McSelectValue placeholder="Select status" />
+            ) : (
+              <div className="flex items-center gap-2">
+                <span className="font-medium">{selected.name}</span>
+                {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
+              </div>
+            )}
+          </McSelectTrigger>
+
+          <McSelectContent>
+            <McSelectGroup>
+              <McSelectGroupLabel>Status</McSelectGroupLabel>
+
+              {TEAM_MEMBERS.map((m) => (
+                <McSelectItem key={m.value} value={m.value} dotColor="bg-green-500">
+                  {m.name}
+                </McSelectItem>
+              ))}
+            </McSelectGroup>
+          </McSelectContent>
+        </McSelect>
+      </div>
+    );
+  },
 };
 
 export const Search: Story = {
-  render: ({ showLabel }) => (
-    <div>
-      {showLabel && <McSelectLabel>Search</McSelectLabel>}
-      <McSelect>
-        <McSelectTrigger variant="search">
-          <McSelectValue placeholder="Search" />
-        </McSelectTrigger>
-        <McSelectContent>
-          <McSelectGroup>
-            <McSelectGroupLabel>Team members</McSelectGroupLabel>
-            {TEAM_MEMBERS.map((m) => (
-              <McSelectItem key={m.value} value={m.value} supportingText={m.username}>
-                {m.name}
-              </McSelectItem>
-            ))}
-          </McSelectGroup>
-        </McSelectContent>
-      </McSelect>
-    </div>
-  ),
+  render: ({ showLabel }) => {
+    const [value, setValue] = React.useState<string | null>(null);
+    const selected = TEAM_MEMBERS.find((m) => m.value === value);
+
+    return (
+      <div>
+        {showLabel && <McSelectLabel>Search</McSelectLabel>}
+
+        <McSelect value={value} onValueChange={setValue}>
+          <McSelectTrigger variant="search">
+            {!selected ? (
+              <McSelectValue placeholder="Search member" />
+            ) : (
+              <div className="flex items-center gap-2">
+                <span className="font-medium">{selected.name}</span>
+                {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
+              </div>
+            )}
+          </McSelectTrigger>
+
+          <McSelectContent>
+            <McSelectGroup>
+              <McSelectGroupLabel>Team members</McSelectGroupLabel>
+
+              {TEAM_MEMBERS.map((m) => (
+                <McSelectItem key={m.value} value={m.value} supportingText={m.username}>
+                  {m.name}
+                </McSelectItem>
+              ))}
+            </McSelectGroup>
+          </McSelectContent>
+        </McSelect>
+      </div>
+    );
+  },
 };
