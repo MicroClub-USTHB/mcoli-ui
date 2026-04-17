@@ -279,7 +279,7 @@ export const RightSideAndMinimal: Story = {
       variant="floating"
       collapsible="icon"
       defaultOpen
-      showTriggerButton={false}
+      showTriggerButton
     />
   ),
 };
