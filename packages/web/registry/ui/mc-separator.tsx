@@ -8,7 +8,12 @@ type McSeparatorProps = SeparatorPrimitive.Props & {
   minimized?: boolean;
 };
 
-function McSeparator({ className, orientation, minimized = false, ...props }: McSeparatorProps) {
+export default function McSeparator({
+  className,
+  orientation,
+  minimized = false,
+  ...props
+}: McSeparatorProps) {
   return (
     <div className="data-horizontal:py-4 data-vertical:mr-4">
       <SeparatorPrimitive
