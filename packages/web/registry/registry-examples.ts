@@ -145,4 +145,17 @@ export const examples: Registry['items'] = [
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-navigation-menu.json`],
   },
+  {
+    name: 'mc-separator-demo',
+    type: 'registry:example',
+    title: 'MicroClub Separator Demo',
+    description: 'Demo for MicroClub Separator',
+    files: [
+      {
+        path: 'examples/mc-separator-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-separator.json`],
+  },
 ];

@@ -144,4 +144,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+  {
+    name: 'mc-separator',
+    type: 'registry:component',
+    title: 'MicroClub Separator',
+    description: 'A separator component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-separator.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
