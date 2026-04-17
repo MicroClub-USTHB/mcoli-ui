@@ -6,6 +6,8 @@ import { CheckIcon, ChevronDownIcon, ChevronUpIcon, SearchIcon } from 'lucide-re
 
 import { cn } from '@/lib/utils';
 
+// ─── Types ───────────────────────────────────────────────────────────────────
+
 export type McSelectVariant =
   | 'default'
   | 'icon-leading'
@@ -13,7 +15,11 @@ export type McSelectVariant =
   | 'dot-leading'
   | 'search';
 
+// ─── Root ────────────────────────────────────────────────────────────────────
+
 const McSelect = SelectPrimitive.Root;
+
+// ─── Group ───────────────────────────────────────────────────────────────────
 
 function McSelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
   return (
@@ -25,6 +31,8 @@ function McSelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
   );
 }
 
+// ─── Value ───────────────────────────────────────────────────────────────────
+
 function McSelectValue({ className, ...props }: SelectPrimitive.Value.Props) {
   return (
     <SelectPrimitive.Value
@@ -35,12 +43,14 @@ function McSelectValue({ className, ...props }: SelectPrimitive.Value.Props) {
   );
 }
 
+// ─── Trigger label (above the trigger) ───────────────────────────────────────
+
 function McSelectLabel({ className, children }: { className?: string; children: React.ReactNode }) {
   return (
     <label
       className={cn(
-        'mb-1.5 block text-sm font-medium leading-5',
-        'text-muted-foreground',
+        'mb-[6px] block text-sm font-medium leading-5',
+        'text-[var(--Muted-Foreground,#54588B)]',
         className
       )}
     >
@@ -49,14 +59,16 @@ function McSelectLabel({ className, children }: { className?: string; children: 
   );
 }
 
+// ─── Trigger ─────────────────────────────────────────────────────────────────
+
 interface McSelectTriggerProps extends SelectPrimitive.Trigger.Props {
   size?: 'sm' | 'default';
   variant?: McSelectVariant;
-
+  /** Used with variant="icon-leading": a lucide / custom icon element */
   leadingIcon?: React.ReactNode;
-
+  /** Used with variant="avatar-leading": <img> or <span> element */
   leadingAvatar?: React.ReactNode;
-
+  /** Used with variant="dot-leading": any tailwind color class, e.g. "bg-green-500" */
   dotColor?: string;
 }
 
@@ -78,41 +90,56 @@ function McSelectTrigger({
       data-size={size}
       data-variant={variant}
       className={cn(
-        'flex w-80 items-center gap-2 rounded-lg outline-none select-none',
-        'px-3.5 py-2.5 text-sm whitespace-nowrap',
+        // ── Base layout ──────────────────────────────────────────────────────
+        'flex w-[320px] items-center gap-2 rounded-lg outline-none select-none',
+        'px-[14px] py-[10px] text-sm whitespace-nowrap',
         'transition-all duration-150',
 
+        // ── Colours ──────────────────────────────────────────────────────────
         isSearch
           ? [
               'bg-transparent border-none shadow-none',
-              'border border-border',
-              'shadow-sm',
-              'bg-input',
+              'border border-[var(--border,#E6E9FF)]',
+              'shadow-[0px_1px_2px_0px_#0A0D120D]',
+              'bg-[var(--input,#F9FAFF)]',
             ]
-          : ['bg-input', 'border border-border', 'shadow-sm'],
+          : [
+              'bg-[var(--input,#F9FAFF)]',
+              'border border-[var(--border,#E6E9FF)]',
+              'shadow-[0px_1px_2px_0px_#0A0D120D]',
+            ],
 
-        'data-placeholder:text-muted-foreground',
+        // ── Placeholder ───────────────────────────────────────────────────────
+        'data-placeholder:text-[var(--Muted-Foreground,#54588B)]',
 
-        'data-popup-open:border-ring',
-        'data-popup-open:ring-4 data-popup-open:ring-ring',
-        'focus-visible:border-ring',
-        'focus-visible:ring-4 focus-visible:ring-ring',
+        // ── Open / Focused ────────────────────────────────────────────────────
+        'data-popup-open:border-[var(--ring,#D9DDFF)]',
+        'data-popup-open:shadow-[0px_0px_0px_4px_var(--ring,#D9DDFF)]',
+        'focus-visible:border-[var(--ring,#D9DDFF)]',
+        'focus-visible:shadow-[0px_0px_0px_4px_var(--ring,#D9DDFF)]',
 
+        // ── Disabled / Invalid ────────────────────────────────────────────────
         'disabled:cursor-not-allowed disabled:opacity-50',
-        'aria-invalid:border-destructive aria-invalid:ring-4 aria-invalid:ring-destructive',
+        'aria-invalid:border-destructive aria-invalid:shadow-[0px_0px_0px_4px_var(--destructive)]',
 
+        // ── Sizes ─────────────────────────────────────────────────────────────
         'data-[size=default]:h-11',
-        'data-[size=sm]:h-9 data-[size=sm]:rounded-md data-[size=sm]:px-3 data-[size=sm]:py-1.5',
+        'data-[size=sm]:h-9 data-[size=sm]:rounded-md data-[size=sm]:px-3 data-[size=sm]:py-[6px]',
 
+        // ── SVG defaults ──────────────────────────────────────────────────────
         "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
 
+        // ── Value slot ────────────────────────────────────────────────────────
         '*:data-[slot=select-value]:flex *:data-[slot=select-value]:flex-1 *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-2',
 
         className
       )}
       {...props}
     >
-      {variant === 'search' && <SearchIcon className="size-4 shrink-0 text-muted-foreground" />}
+      {/* ── Leading slot by variant ─────────────────────────────────────────── */}
+      {variant === 'search' && (
+        <SearchIcon className="size-4 shrink-0 text-[var(--Muted-Foreground,#54588B)]" />
+      )}
 
       {variant === 'icon-leading' && leadingIcon && <McSelectIcons>{leadingIcon}</McSelectIcons>}
 
@@ -126,14 +153,16 @@ function McSelectTrigger({
         <span className={cn('dot size-2 shrink-0 rounded-full', dotColor)} />
       )}
 
+      {/* ── Value ─────────────────────────────────────────────────────────── */}
       {children}
 
+      {/* ── Trailing chevron (hidden for search) ──────────────────────────── */}
       {!isSearch && (
         <SelectPrimitive.Icon
           render={
             <ChevronDownIcon
               className={cn(
-                'ml-auto size-4 shrink-0 text-muted-foreground',
+                'ml-auto size-4 shrink-0 text-[var(--Muted-Foreground,#54588B)]',
                 'transition-transform duration-200',
                 'data-popup-open:rotate-180'
               )}
@@ -145,13 +174,15 @@ function McSelectTrigger({
   );
 }
 
+// ─── Icons wrapper ────────────────────────────────────────────────────────────
+
 function McSelectIcons({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) {
   return (
     <span
       data-slot="select-icons"
       className={cn(
         'pointer-events-none flex shrink-0 items-center justify-center',
-        'text-muted-foreground',
+        'text-[var(--Muted-Foreground,#54588B)]',
         '[&_svg]:size-4 [&_svg]:shrink-0',
         '[&_.dot]:size-2 [&_.dot]:rounded-full',
         className
@@ -160,6 +191,8 @@ function McSelectIcons({ className, ...props }: React.HTMLAttributes<HTMLSpanEle
     />
   );
 }
+
+// ─── Content / Popup ─────────────────────────────────────────────────────────
 
 function McSelectContent({
   className,
@@ -190,11 +223,11 @@ function McSelectContent({
       >
         <SelectPrimitive.Popup
           className={cn(
-            'relative z-50 w-80 h-80',
-            'rounded-lg',
-            'bg-card',
-            'border border-border',
-            'shadow-lg',
+            'relative z-50 w-[320px] h-[320px]',
+            'rounded-[8px]',
+            'bg-[var(--card-background,#FFFFFF)]',
+            'border border-[var(--border,#E6E9FF)]',
+            'shadow-[0px_10px_15px_-3px_#0000001A]',
             'overflow-hidden',
             'data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95',
             'data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95',
@@ -206,7 +239,7 @@ function McSelectContent({
           <McSelectScrollUpButton />
           <SelectPrimitive.List
             className={cn(
-              'p-1.5 h-full overflow-y-auto',
+              'p-[6px] h-full overflow-y-auto',
               scrollbar
                 ? '[&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border'
                 : '[&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'
@@ -221,18 +254,22 @@ function McSelectContent({
   );
 }
 
+// ─── Group Label ─────────────────────────────────────────────────────────────
+
 function McSelectGroupLabel({ className, ...props }: SelectPrimitive.GroupLabel.Props) {
   return (
     <SelectPrimitive.GroupLabel
       data-slot="select-label"
       className={cn(
-        'px-2 py-1.5 text-xs font-medium text-muted-foreground tracking-wide',
+        'px-2 py-1.5 text-xs font-medium text-[var(--Muted-Foreground,#54588B)] tracking-wide',
         className
       )}
       {...props}
     />
   );
 }
+
+// ─── Item ─────────────────────────────────────────────────────────────────────
 
 function McSelectItem({
   className,
@@ -258,7 +295,7 @@ function McSelectItem({
         'focus:bg-accent focus:text-accent-foreground',
         'data-selected:text-primary',
         'data-disabled:pointer-events-none data-disabled:opacity-50',
-        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg]:text-muted-foreground",
+        "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg]:text-[var(--Muted-Foreground,#54588B)]",
         '[&_.dot]:size-2 [&_.dot]:rounded-full [&_.dot]:shrink-0',
         className
       )}
@@ -266,7 +303,7 @@ function McSelectItem({
     >
       {/* Leading icon */}
       {leadingIcon && (
-        <span className="pointer-events-none flex size-4 shrink-0 items-center justify-center text-muted-foreground">
+        <span className="pointer-events-none flex size-4 shrink-0 items-center justify-center text-[var(--Muted-Foreground,#54588B)]">
           {leadingIcon}
         </span>
       )}
@@ -289,7 +326,9 @@ function McSelectItem({
       >
         <span className="text-sm font-medium leading-5">{children}</span>
         {supportingText && (
-          <span className="text-xs text-muted-foreground leading-4">{supportingText}</span>
+          <span className="text-xs text-[var(--Muted-Foreground,#54588B)] leading-4">
+            {supportingText}
+          </span>
         )}
       </SelectPrimitive.ItemText>
 
@@ -304,6 +343,8 @@ function McSelectItem({
   );
 }
 
+// ─── Separator ────────────────────────────────────────────────────────────────
+
 function McSelectSeparator({ className, ...props }: SelectPrimitive.Separator.Props) {
   return (
     <SelectPrimitive.Separator
@@ -313,6 +354,8 @@ function McSelectSeparator({ className, ...props }: SelectPrimitive.Separator.Pr
     />
   );
 }
+
+// ─── Scroll buttons ───────────────────────────────────────────────────────────
 
 function McSelectScrollUpButton({
   className,
@@ -349,6 +392,8 @@ function McSelectScrollDownButton({
     </SelectPrimitive.ScrollDownArrow>
   );
 }
+
+// ─── Exports ─────────────────────────────────────────────────────────────────
 
 export {
   McSelect,

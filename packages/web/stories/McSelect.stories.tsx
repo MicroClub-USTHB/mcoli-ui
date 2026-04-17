@@ -1,115 +1,215 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
+import { UserIcon } from 'lucide-react';
+
 import {
   McSelect,
   McSelectContent,
   McSelectGroup,
-  McSelectIcons,
+  McSelectGroupLabel,
   McSelectItem,
   McSelectLabel,
-  McSelectSeparator,
   McSelectTrigger,
   McSelectValue,
-} from '@/registry/ui/mc-select';
-import { GlobeIcon, FlagIcon, MapPinIcon, BuildingIcon } from 'lucide-react';
+} from '../registry/ui/mc-select';
 
-const meta: Meta<typeof McSelectTrigger> = {
+// ─── Data ────────────────────────────────────────────────────────────────────
+
+const TEAM_MEMBERS = [
+  {
+    value: 'olivia',
+    name: 'Olivia Rhye',
+    username: '@olivia',
+    avatar: 'https://i.pravatar.cc/32?img=47',
+    online: true,
+  },
+  {
+    value: 'phoenix',
+    name: 'Phoenix Baker',
+    username: '@phoenix',
+    avatar: 'https://i.pravatar.cc/32?img=12',
+    online: false,
+  },
+  {
+    value: 'lana',
+    name: 'Lana Steiner',
+    username: '@lana',
+    avatar: 'https://i.pravatar.cc/32?img=5',
+    online: true,
+  },
+  {
+    value: 'demi',
+    name: 'Demi Wilkinson',
+    username: '@demi',
+    avatar: 'https://i.pravatar.cc/32?img=9',
+    online: false,
+  },
+  {
+    value: 'candice',
+    name: 'Candice Wu',
+    username: '@candice',
+    avatar: 'https://i.pravatar.cc/32?img=23',
+    online: true,
+  },
+];
+
+function Avatar({ src, alt }: { src: string; alt: string }) {
+  return <img src={src} alt={alt} className="size-5 rounded-full object-cover" />;
+}
+
+// ─── Meta ────────────────────────────────────────────────────────────────────
+
+const meta: Meta<{ showLabel: boolean }> = {
   title: 'Components/McSelect',
-  component: McSelectTrigger,
-  tags: ['autodocs'],
-  argTypes: {
-    size: {
-      control: 'radio',
-      options: ['default', 'sm'],
+  parameters: {
+    docs: {
+      description: {
+        component:
+          'A styled select component built on @base-ui-components/react/select. Supports five variants: `default`, `icon-leading`, `avatar-leading`, `dot-leading`, and `search`.',
+      },
     },
   },
+  // ← Ici on déclare le control global showLabel
+  argTypes: {
+    showLabel: {
+      control: 'boolean',
+      description: 'Affiche ou masque le label au-dessus du trigger',
+      defaultValue: false,
+    },
+  },
+  args: {
+    showLabel: false,
+  },
+  tags: ['autodocs'],
 };
 
 export default meta;
-type Story = StoryObj<typeof McSelectTrigger>;
+type Story = StoryObj<{ showLabel: boolean }>;
+
+// ─── Stories ─────────────────────────────────────────────────────────────────
 
 export const Default: Story = {
-  render: (args) => (
-    <McSelect>
-      <McSelectTrigger {...args}>
-        <McSelectValue placeholder="Select a fruit..." />
-      </McSelectTrigger>
-      <McSelectContent>
-        <McSelectGroup>
-          <McSelectLabel>Fruits</McSelectLabel>
-          <McSelectItem value="apple">Apple</McSelectItem>
-          <McSelectItem value="banana">Banana</McSelectItem>
-          <McSelectItem value="orange">Orange</McSelectItem>
-        </McSelectGroup>
-        <McSelectSeparator />
-        <McSelectGroup>
-          <McSelectLabel>Vegetables</McSelectLabel>
-          <McSelectItem value="carrot">Carrot</McSelectItem>
-          <McSelectItem value="potato">Potato</McSelectItem>
-          <McSelectItem value="tomato">Tomato</McSelectItem>
-        </McSelectGroup>
-      </McSelectContent>
-    </McSelect>
+  render: ({ showLabel }) => (
+    <div>
+      {showLabel && <McSelectLabel>Team member</McSelectLabel>}
+      <McSelect>
+        <McSelectTrigger variant="default">
+          <McSelectValue placeholder="Select team member" />
+        </McSelectTrigger>
+        <McSelectContent>
+          <McSelectGroup>
+            <McSelectGroupLabel>Team members</McSelectGroupLabel>
+            {TEAM_MEMBERS.map((m) => (
+              <McSelectItem key={m.value} value={m.value}>
+                {m.name}
+              </McSelectItem>
+            ))}
+          </McSelectGroup>
+        </McSelectContent>
+      </McSelect>
+    </div>
   ),
 };
 
-export const WithIcons: Story = {
-  render: (args) => (
-    <McSelect>
-      <McSelectTrigger {...args}>
-        <McSelectIcons>
-          <GlobeIcon />
-        </McSelectIcons>
-        <McSelectValue placeholder="Select a country..." />
-      </McSelectTrigger>
-      <McSelectContent>
-        <McSelectGroup>
-          <McSelectLabel>Europe</McSelectLabel>
-          <McSelectItem value="france">France</McSelectItem>
-          <McSelectItem value="germany">Germany</McSelectItem>
-          <McSelectItem value="spain">Spain</McSelectItem>
-        </McSelectGroup>
-        <McSelectSeparator />
-        <McSelectGroup>
-          <McSelectLabel>Africa</McSelectLabel>
-          <McSelectItem value="algeria">Algeria</McSelectItem>
-          <McSelectItem value="morocco">Morocco</McSelectItem>
-          <McSelectItem value="egypt">Egypt</McSelectItem>
-        </McSelectGroup>
-      </McSelectContent>
-    </McSelect>
+export const IconLeading: Story = {
+  render: ({ showLabel }) => (
+    <div>
+      {showLabel && <McSelectLabel>Team member</McSelectLabel>}
+      <McSelect>
+        <McSelectTrigger variant="icon-leading" leadingIcon={<UserIcon />}>
+          <McSelectValue placeholder="Select team member" />
+        </McSelectTrigger>
+        <McSelectContent>
+          <McSelectGroup>
+            <McSelectGroupLabel>Team members</McSelectGroupLabel>
+            {TEAM_MEMBERS.map((m) => (
+              <McSelectItem key={m.value} value={m.value} leadingIcon={<UserIcon />}>
+                {m.name}
+              </McSelectItem>
+            ))}
+          </McSelectGroup>
+        </McSelectContent>
+      </McSelect>
+    </div>
   ),
 };
 
-export const Small: Story = {
-  args: { size: 'sm' },
-  render: (args) => (
-    <McSelect>
-      <McSelectTrigger {...args}>
-        <McSelectValue placeholder="Select..." />
-      </McSelectTrigger>
-      <McSelectContent>
-        <McSelectGroup>
-          <McSelectLabel>Options</McSelectLabel>
-          <McSelectItem value="one">Option One</McSelectItem>
-          <McSelectItem value="two">Option Two</McSelectItem>
-          <McSelectItem value="three">Option Three</McSelectItem>
-        </McSelectGroup>
-      </McSelectContent>
-    </McSelect>
+export const AvatarLeading: Story = {
+  render: ({ showLabel }) => (
+    <div>
+      {showLabel && <McSelectLabel>Team member</McSelectLabel>}
+      <McSelect>
+        <McSelectTrigger
+          variant="avatar-leading"
+          leadingAvatar={<Avatar src={TEAM_MEMBERS[0].avatar} alt={TEAM_MEMBERS[0].name} />}
+        >
+          <McSelectValue placeholder="Select team member" />
+        </McSelectTrigger>
+        <McSelectContent>
+          <McSelectGroup>
+            <McSelectGroupLabel>Team members</McSelectGroupLabel>
+            {TEAM_MEMBERS.map((m) => (
+              <McSelectItem
+                key={m.value}
+                value={m.value}
+                leadingAvatar={<Avatar src={m.avatar} alt={m.name} />}
+                supportingText={m.username}
+              >
+                {m.name}
+              </McSelectItem>
+            ))}
+          </McSelectGroup>
+        </McSelectContent>
+      </McSelect>
+    </div>
   ),
 };
 
-export const Disabled: Story = {
-  render: (args) => (
-    <McSelect disabled>
-      <McSelectTrigger {...args}>
-        <McSelectValue placeholder="Disabled select..." />
-      </McSelectTrigger>
-      <McSelectContent>
-        <McSelectGroup>
-          <McSelectItem value="one">Option One</McSelectItem>
-        </McSelectGroup>
-      </McSelectContent>
-    </McSelect>
+export const DotLeading: Story = {
+  render: ({ showLabel }) => (
+    <div>
+      {showLabel && <McSelectLabel>Team member</McSelectLabel>}
+      <McSelect>
+        <McSelectTrigger variant="dot-leading" dotColor="bg-green-500">
+          <McSelectValue placeholder="Select team member" />
+        </McSelectTrigger>
+        <McSelectContent>
+          <McSelectGroup>
+            <McSelectGroupLabel>Team members</McSelectGroupLabel>
+            {TEAM_MEMBERS.map((m) => (
+              <McSelectItem
+                key={m.value}
+                value={m.value}
+                dotColor={m.online ? 'bg-green-500' : 'bg-gray-300'}
+              >
+                {m.name}
+              </McSelectItem>
+            ))}
+          </McSelectGroup>
+        </McSelectContent>
+      </McSelect>
+    </div>
+  ),
+};
+
+export const Search: Story = {
+  render: ({ showLabel }) => (
+    <div>
+      {showLabel && <McSelectLabel>Search</McSelectLabel>}
+      <McSelect>
+        <McSelectTrigger variant="search">
+          <McSelectValue placeholder="Search" />
+        </McSelectTrigger>
+        <McSelectContent>
+          <McSelectGroup>
+            <McSelectGroupLabel>Team members</McSelectGroupLabel>
+            {TEAM_MEMBERS.map((m) => (
+              <McSelectItem key={m.value} value={m.value} supportingText={m.username}>
+                {m.name}
+              </McSelectItem>
+            ))}
+          </McSelectGroup>
+        </McSelectContent>
+      </McSelect>
+    </div>
   ),
 };
