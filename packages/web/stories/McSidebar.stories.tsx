@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import { BookOpen, Briefcase, ChevronsUpDown, Settings, Sparkles } from 'lucide-react';
+import { BookOpen, Briefcase, ChevronsUpDown, Settings, Sparkles, User } from 'lucide-react';
 import MCLogo from '@/components/MCLogo';
 import {
   McSidebar,
@@ -187,23 +187,33 @@ function SidebarScenarioContent({ args }: { args: SidebarStoryArgs }) {
         <McSidebarSeparator />
         <McSidebarFooter>
           <div className="flex items-center justify-between rounded-md px-1 py-1 hover:bg-sidebar-accent group-data-[collapsible=icon]:justify-center">
-            <div className="min-w-0">
-              <p className="truncate text-sm font-medium text-sidebar-foreground">micro@club.dev</p>
-              <p className="truncate text-xs text-muted-foreground">Admin workspace</p>
+            <div className="flex min-w-0 items-center gap-2">
+              <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sidebar-accent text-sidebar-foreground">
+                <User className="h-4 w-4" />
+              </div>
+              <div className="min-w-0 group-data-[collapsible=icon]:hidden">
+                <p className="truncate text-sm font-medium text-sidebar-foreground">
+                  micro@club.dev
+                </p>
+                <p className="truncate text-xs text-muted-foreground">Admin workspace</p>
+              </div>
             </div>
           </div>
         </McSidebarFooter>
         {canToggleSidebar ? <McSidebarRail /> : null}
       </McSidebar>
 
-      <McSidebarInset className="p-6 pt-8">
-        <div className="space-y-2">
-          <p className="text-sm text-muted-foreground">Story Scenario</p>
-          <h2 className="text-2xl font-semibold text-foreground">McSidebar</h2>
+      <McSidebarInset className="flex min-h-0 flex-col p-0">
+        <div className="sticky top-0 z-10 border-b border-border bg-background/95 px-6 pt-8 pb-4 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+          <div className="space-y-2">
+            <p className="text-sm text-muted-foreground">Story Scenario</p>
+            <h2 className="text-2xl font-semibold text-foreground">McSidebar</h2>
+          </div>
+        </div>
+        <div className="flex-1 overflow-auto px-6 py-6">
           <p className="text-sm text-muted-foreground">
             Utilise les controls Storybook pour tester les variantes, le mode de collapse, les
-            badges, actions et sohhbnbbnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn hhhjjshjs shhhshbsb
-            hhhsbxjjiicjjnx hhxxhhx us-menus.
+            badges, actions et sous-menus.
           </p>
         </div>
       </McSidebarInset>

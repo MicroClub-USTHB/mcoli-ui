@@ -171,7 +171,6 @@ function McSidebar({
         data-side={side}
         className={cn(
           'fixed top-5 z-10 hidden h-[calc(100svh-40px)] w-(--sidebar-width) transition-[left,right,width] duration-200 ease-linear data-[side=left]:left-5 data-[side=left]:group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)] data-[side=right]:right-0 data-[side=right]:group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)] md:flex',
-          'group-data-[side=left]:border-r group-data-[side=right]:border-l',
           'group-data-[collapsible=icon]:w-(--sidebar-width-icon)',
           className
         )}
@@ -181,7 +180,7 @@ function McSidebar({
           data-sidebar="sidebar"
           data-slot="sidebar-inner"
           className={cn(
-            'flex size-full flex-col rounded-lg border border-sidebar-border bg-sidebar',
+            'flex size-full min-h-0 flex-col overflow-hidden rounded-lg border border-sidebar-border bg-sidebar',
             'group-data-[variant=floating]:shadow-lg group-data-[variant=floating]:shadow-sidebar/10',
             'group-data-[variant=inset]:bg-sidebar/95 group-data-[variant=inset]:backdrop-blur-sm'
           )}
@@ -260,7 +259,10 @@ function McSidebarHeader({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="sidebar-header"
       data-sidebar="header"
-      className={cn('flex flex-col gap-2 p-2 group-data-[collapsible=icon]:p-1', className)}
+      className={cn(
+        'shrink-0 flex flex-col gap-2 p-2 group-data-[collapsible=icon]:p-1',
+        className
+      )}
       {...props}
     />
   );
@@ -271,7 +273,10 @@ function McSidebarFooter({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="sidebar-footer"
       data-sidebar="footer"
-      className={cn('flex flex-col gap-2 p-2 group-data-[collapsible=icon]:p-1', className)}
+      className={cn(
+        'shrink-0 flex flex-col gap-2 p-2 group-data-[collapsible=icon]:p-1',
+        className
+      )}
       {...props}
     />
   );
@@ -297,7 +302,7 @@ function McSidebarContent({ className, ...props }: React.ComponentProps<'div'>) 
       data-slot="sidebar-content"
       data-sidebar="content"
       className={cn(
-        'no-scrollbar flex min-h-0 flex-1 flex-col gap-0 overflow-auto group-data-[collapsible=icon]:overflow-hidden',
+        'no-scrollbar flex min-h-0 flex-1 flex-col gap-0 overflow-x-hidden overflow-y-auto overscroll-contain group-data-[collapsible=icon]:overflow-hidden',
         className
       )}
       {...props}
