@@ -63,17 +63,23 @@ function SidebarTriggerButton() {
 }
 
 function SidebarDemoContent() {
+  const { state } = useSidebar();
+  const isCollapsed = state === 'collapsed';
+  const insetPaddingLeft = isCollapsed
+    ? 'calc(var(--sidebar-width-icon) + 3.5rem)'
+    : 'calc(var(--sidebar-width) + 3.5rem)';
+
   return (
-    <div className="relative flex h-full min-h-0 w-full rounded-xl bg-background [&_[data-slot=sidebar-gap]]:hidden overflow-visible">
+    <div className="relative isolate flex h-full min-h-0 w-full rounded-xl bg-background [&_[data-slot=sidebar-gap]]:hidden overflow-hidden [transform:translateZ(0)]">
       <SidebarTriggerButton />
       <McSidebar
         side="left"
         variant="sidebar"
         collapsible="icon"
-        className="!absolute !top-0 !left-0 !flex !h-full !w-[var(--sidebar-width)] group-data-[collapsible=icon]:!w-[var(--sidebar-width-icon)] [&_[data-slot=sidebar-container]]:!h-[24rem]"
+        className="!absolute !top-0 !left-0 !flex !h-full !w-[var(--sidebar-width)] group-data-[collapsible=icon]:!w-[var(--sidebar-width-icon)] [&_[data-slot=sidebar-container]]:!absolute [&_[data-slot=sidebar-container]]:!top-0 [&_[data-slot=sidebar-container]]:!left-0 [&_[data-slot=sidebar-container]]:!h-[24rem] [&_[data-slot=sidebar-container]]:!z-0"
       >
-        <McSidebarHeader className="gap-2 p-2">
-          <div className="flex items-center justify-between rounded-md px-1 py-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:pt-4 group-data-[collapsible=icon]:pb-1">
+        <McSidebarHeader className="gap-0.5 p-2">
+          <div className="flex items-center justify-between rounded-md px-1 py-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:pt-1 group-data-[collapsible=icon]:pb-1">
             <div className="flex items-center gap-2">
               <MCLogo size={34} className="shrink-0 text-sidebar-foreground" />
               <div className="group-data-[collapsible=icon]:hidden gap-0.5">
@@ -86,10 +92,10 @@ function SidebarDemoContent() {
         </McSidebarHeader>
 
         <McSidebarContent>
-          <McSidebarGroup className="p-1.5 group-data-[collapsible=icon]:p-1">
-            <McSidebarGroupLabel className="h-6 px-1.5 text-[11px]">Platform</McSidebarGroupLabel>
+          <McSidebarGroup className="p-2 group-data-[collapsible=icon]:p-1">
+            <McSidebarGroupLabel className="h-4 px-1.5 text-[11px]">Platform</McSidebarGroupLabel>
             <McSidebarGroupContent className="h-auto">
-              <McSidebarMenu className="gap-0.5">
+              <McSidebarMenu className="gap-0.2">
                 {platformItems.map((item, index) => {
                   const Icon = item.icon;
                   const withChildren = index === 0;
@@ -109,7 +115,7 @@ function SidebarDemoContent() {
                           <McSidebarMenuSubItem>
                             <McSidebarMenuSubButton
                               href="#"
-                              className="h-6 px-1.5 no-underline hover:no-underline"
+                              className="h-8 px-1.5 no-underline hover:no-underline"
                             >
                               History
                             </McSidebarMenuSubButton>
@@ -140,7 +146,7 @@ function SidebarDemoContent() {
           </McSidebarGroup>
         </McSidebarContent>
 
-        <McSidebarFooter className="mt-auto mb-6 gap-0 border-t border-sidebar-border p-2">
+        <McSidebarFooter className="mt-auto mb-0.5 gap-0 border-t border-sidebar-border p-2">
           <div className="flex w-full max-w-full items-center gap-2 rounded-md px-1 py-1 hover:bg-sidebar-accent group-data-[collapsible=icon]:justify-center">
             <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-sidebar-accent text-sidebar-foreground">
               <User className="h-4 w-4" />
@@ -149,22 +155,21 @@ function SidebarDemoContent() {
               <p className="truncate text-sm font-medium text-sidebar-foreground">micro@club.dev</p>
               <p className="text-xs text-muted-foreground">Admin workspace</p>
             </div>
-            <p className="hidden text-xs font-medium text-sidebar-foreground group-data-[collapsible=icon]:block">
-              Admin
-            </p>
           </div>
         </McSidebarFooter>
 
         <McSidebarRail />
       </McSidebar>
 
-      <McSidebarInset className="flex min-h-0 flex-1 flex-col pl-[calc(var(--sidebar-width)+3.5rem)] group-data-[state=collapsed]/sidebar-wrapper:pl-[calc(var(--sidebar-width-icon)+3.5rem)]">
+      <McSidebarInset
+        className="flex min-h-0 flex-1 flex-col transition-[padding-left] duration-200 ease-linear"
+        style={{ paddingLeft: insetPaddingLeft } as React.CSSProperties}
+      >
         <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-background/95 px-4 pt-4 pb-3 backdrop-blur supports-[backdrop-filter]:bg-background/80">
           <div className="space-y-0">
             <p className="text-sm text-muted-foreground">Preview</p>
             <div className="flex items-center gap-2">
               <h3 className="text-xl font-semibold text-foreground">McSidebar</h3>
-              <ChevronsUpDown className="size-4 text-muted-foreground" />
             </div>
           </div>
         </div>
@@ -173,17 +178,6 @@ function SidebarDemoContent() {
             Demo synchronise avec la story pour montrer le header, le contenu et le footer dans la
             preview de la documentation.
           </p>
-        </div>
-        <div className="mt-auto shrink-0 border-t border-border bg-background/95 px-4 py-3 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-          <div className="flex items-center justify-between gap-3">
-            <p className="truncate text-xs text-muted-foreground">Footer preview</p>
-            <button
-              type="button"
-              className="inline-flex items-center rounded-full border border-border bg-card px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-accent"
-            >
-              Action
-            </button>
-          </div>
         </div>
       </McSidebarInset>
     </div>
