@@ -2271,6 +2271,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-sidebar",
+      "title": "MicroClub Sidebar",
+      "description": "A sidebar component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-sidebar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }
