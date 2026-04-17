@@ -219,36 +219,36 @@ When adding a new item, you will create/edit these files:
 | `mc-radio-group`     | ✅           | ✅        |
 | `mc-card`            | ✅           | ✅        |
 | `mc-select`          | ✅           |           |
-| `mc-combobox`        | ✅           |           |
+| `mc-combobox`        | ✅           | ✅        |
 | `mc-switch`          | ✅           | ✅        |
-| `mc-navigation-menu` | ✅           |           |
+| `mc-navigation-menu` | ✅           | ✅        |
 | `mc-sidebar`         | ✅           |           |
 | `mc-tabs`            | ✅           | ✅        |
 | `mc-breadcrumb`      | ✅           | ✅        |
 | `mc-pagination`      | ✅           | ✅        |
-| `mc-dialog`          |              |           |
-| `mc-alert-dialog`    |              |           |
-| `mc-alert`           |              |           |
-| `mc-sonner`          |              |           |
-| `mc-tooltip`         |              |           |
-| `mc-popover`         |              |           |
-| `mc-dropdown-menu`   |              |           |
-| `mc-context-menu`    |              |           |
-| `mc-data-table`      |              |           |
-| `mc-accordion`       |              |           |
-| `mc-collapsible`     |              |           |
-| `mc-separator`       |              |           |
-| `mc-progress`        |              |           |
-| `mc-calendar`        |              |           |
-| `mc-scrollarea`      |              |           |
-| `mc-skeleton`        |              |           |
-| `mc-badge`           |              |           |
-| `mc-tag`             |              |           |
-| `mc-avatar`          |              |           |
-| `mc-drawer`          |              |           |
-| `mc-hover-card`      |              |           |
-| `mc-slider`          |              |           |
-| `mc-carousel`        |              |           |
+| `mc-dialog`          | ✅           |           |
+| `mc-alert-dialog`    | ✅           |           |
+| `mc-alert`           | ✅           |           |
+| `mc-sonner`          | ✅           |           |
+| `mc-tooltip`         | ✅           |           |
+| `mc-popover`         | ✅           |           |
+| `mc-dropdown-menu`   | ✅           |           |
+| `mc-context-menu`    | ✅           |           |
+| `mc-data-table`      | ✅           |           |
+| `mc-accordion`       | ✅           |           |
+| `mc-collapsible`     | ✅           |           |
+| `mc-separator`       | ✅           |           |
+| `mc-progress`        | ✅           |           |
+| `mc-calendar`        | ✅           |           |
+| `mc-scrollarea`      | ✅           |           |
+| `mc-skeleton`        | ✅           |           |
+| `mc-badge`           | ✅           |           |
+| `mc-tag`             | ✅           |           |
+| `mc-avatar`          | ✅           |           |
+| `mc-drawer`          | ✅           |           |
+| `mc-hover-card`      | ✅           |           |
+| `mc-slider`          | ✅           |           |
+| `mc-carousel`        | ✅           |           |
 
 # Important Notes
 

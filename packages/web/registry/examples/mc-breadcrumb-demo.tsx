@@ -14,11 +14,11 @@ export default function McBreadcrumbDemo() {
       <McBreadcrumb>
         <McBreadcrumbList>
           <McBreadcrumbItem>
-            <McBreadcrumbLink href="/">Home</McBreadcrumbLink>
+            <McBreadcrumbLink href="#home">Home</McBreadcrumbLink>
           </McBreadcrumbItem>
           <McBreadcrumbSeparator />
           <McBreadcrumbItem>
-            <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>
+            <McBreadcrumbLink href="#components">Components</McBreadcrumbLink>
           </McBreadcrumbItem>
           <McBreadcrumbSeparator />
           <McBreadcrumbItem>
@@ -30,7 +30,7 @@ export default function McBreadcrumbDemo() {
       <McBreadcrumb>
         <McBreadcrumbList>
           <McBreadcrumbItem>
-            <McBreadcrumbLink href="/">Home</McBreadcrumbLink>
+            <McBreadcrumbLink href="#home">Home</McBreadcrumbLink>
           </McBreadcrumbItem>
           <McBreadcrumbSeparator />
           <McBreadcrumbItem>
@@ -38,7 +38,7 @@ export default function McBreadcrumbDemo() {
           </McBreadcrumbItem>
           <McBreadcrumbSeparator />
           <McBreadcrumbItem>
-            <McBreadcrumbLink href="/components">Components</McBreadcrumbLink>
+            <McBreadcrumbLink href="#components">Components</McBreadcrumbLink>
           </McBreadcrumbItem>
           <McBreadcrumbSeparator />
           <McBreadcrumbItem>

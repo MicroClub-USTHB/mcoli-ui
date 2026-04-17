@@ -2284,6 +2284,32 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-combobox",
+      "title": "MicroClub Combobox",
+      "description": "A searchable dropdown with autocomplete functionality for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-combobox.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-navigation-menu",
+      "title": "MicroClub Navigation Menu",
+      "description": "A navigation menu component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-navigation-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }
