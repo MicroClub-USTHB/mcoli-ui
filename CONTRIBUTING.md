@@ -243,7 +243,6 @@ When adding a new item, you will create/edit these files:
 | `mc-scrollarea`      | ✅           |           |
 | `mc-skeleton`        | ✅           |           |
 | `mc-badge`           | ✅           |           |
-| `mc-tag`             | ✅           |           |
 | `mc-avatar`          | ✅           |           |
 | `mc-drawer`          | ✅           |           |
 | `mc-hover-card`      | ✅           |           |
