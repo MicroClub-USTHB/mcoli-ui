@@ -6,9 +6,9 @@ import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
-const Select = SelectPrimitive.Root;
+const McSelect = SelectPrimitive.Root;
 
-function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
+function McSelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
   return (
     <SelectPrimitive.Group
       data-slot="select-group"
@@ -18,7 +18,7 @@ function SelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
   );
 }
 
-function SelectValue({ className, ...props }: SelectPrimitive.Value.Props) {
+function McSelectValue({ className, ...props }: SelectPrimitive.Value.Props) {
   return (
     <SelectPrimitive.Value
       data-slot="select-value"
@@ -28,7 +28,7 @@ function SelectValue({ className, ...props }: SelectPrimitive.Value.Props) {
   );
 }
 
-function SelectTrigger({
+function McSelectTrigger({
   className,
   size = 'default',
   children,
@@ -53,8 +53,19 @@ function SelectTrigger({
     </SelectPrimitive.Trigger>
   );
 }
-
-function SelectContent({
+function McSelectIcons({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>) {
+  return (
+    <span
+      data-slot="select-icons"
+      className={cn(
+        'pointer-events-none flex shrink-0 items-center justify-center text-muted-foreground [&_svg]:size-4 [&_svg]:shrink-0',
+        className
+      )}
+      {...props}
+    />
+  );
+}
+function McSelectContent({
   className,
   children,
   side = 'bottom',
@@ -96,7 +107,7 @@ function SelectContent({
   );
 }
 
-function SelectLabel({ className, ...props }: SelectPrimitive.GroupLabel.Props) {
+function McSelectLabel({ className, ...props }: SelectPrimitive.GroupLabel.Props) {
   return (
     <SelectPrimitive.GroupLabel
       data-slot="select-label"
@@ -106,7 +117,7 @@ function SelectLabel({ className, ...props }: SelectPrimitive.GroupLabel.Props) 
   );
 }
 
-function SelectItem({ className, children, ...props }: SelectPrimitive.Item.Props) {
+function McSelectItem({ className, children, ...props }: SelectPrimitive.Item.Props) {
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
@@ -130,7 +141,7 @@ function SelectItem({ className, children, ...props }: SelectPrimitive.Item.Prop
   );
 }
 
-function SelectSeparator({ className, ...props }: SelectPrimitive.Separator.Props) {
+function McSelectSeparator({ className, ...props }: SelectPrimitive.Separator.Props) {
   return (
     <SelectPrimitive.Separator
       data-slot="select-separator"
@@ -140,7 +151,7 @@ function SelectSeparator({ className, ...props }: SelectPrimitive.Separator.Prop
   );
 }
 
-function SelectScrollUpButton({
+function McSelectScrollUpButton({
   className,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.ScrollUpArrow>) {
@@ -158,7 +169,7 @@ function SelectScrollUpButton({
   );
 }
 
-function SelectScrollDownButton({
+function McSelectScrollDownButton({
   className,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.ScrollDownArrow>) {
@@ -177,14 +188,15 @@ function SelectScrollDownButton({
 }
 
 export {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectScrollDownButton,
-  SelectScrollUpButton,
-  SelectSeparator,
-  SelectTrigger,
-  SelectValue,
+  McSelect,
+  McSelectContent,
+  McSelectGroup,
+  McSelectItem,
+  McSelectLabel,
+  McSelectScrollDownButton,
+  McSelectScrollUpButton,
+  McSelectSeparator,
+  McSelectTrigger,
+  McSelectValue,
+  McSelectIcons,
 };
