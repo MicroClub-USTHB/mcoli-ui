@@ -98,9 +98,9 @@ function McSelectContent({
           )}
           {...props}
         >
-          <SelectScrollUpButton />
+          <McSelectScrollUpButton />
           <SelectPrimitive.List>{children}</SelectPrimitive.List>
-          <SelectScrollDownButton />
+          <McSelectScrollDownButton />
         </SelectPrimitive.Popup>
       </SelectPrimitive.Positioner>
     </SelectPrimitive.Portal>
