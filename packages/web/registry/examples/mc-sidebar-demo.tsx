@@ -76,13 +76,13 @@ function SidebarDemoContent() {
         side="left"
         variant="sidebar"
         collapsible="icon"
-        className="!absolute !top-0 !left-0 !flex !h-full !w-[var(--sidebar-width)] group-data-[collapsible=icon]:!w-[var(--sidebar-width-icon)] [&_[data-slot=sidebar-container]]:!absolute [&_[data-slot=sidebar-container]]:!top-0 [&_[data-slot=sidebar-container]]:!left-0 [&_[data-slot=sidebar-container]]:!h-[24rem] [&_[data-slot=sidebar-container]]:!z-0"
+        className="!absolute !top-0 gap-4 !left-0 !flex !h-full !w-[var(--sidebar-width)] group-data-[collapsible=icon]:!w-[var(--sidebar-width-icon)] [&_[data-slot=sidebar-container]]:!absolute [&_[data-slot=sidebar-container]]:!top-0 [&_[data-slot=sidebar-container]]:!left-0 [&_[data-slot=sidebar-container]]:!h-[24rem] [&_[data-slot=sidebar-container]]:!z-0"
       >
-        <McSidebarHeader className="gap-0.5 p-2">
-          <div className="flex items-center justify-between rounded-md px-1 py-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:pt-1 group-data-[collapsible=icon]:pb-1">
+        <McSidebarHeader className="gap-2 p-2">
+          <div className="flex items-center justify-between rounded-md px-1 py-1 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:pt-1 group-data-[collapsible=icon]:pb-2">
             <div className="flex items-center gap-2">
               <MCLogo size={34} className="shrink-0 text-sidebar-foreground" />
-              <div className="group-data-[collapsible=icon]:hidden gap-0.5">
+              <div className="group-data-[collapsible=icon]:hidden gap-1">
                 <p className="text-sm font-semibold text-sidebar-foreground">Micro Club</p>
                 <p className="text-xs text-muted-foreground">Scientific club</p>
               </div>
@@ -92,10 +92,10 @@ function SidebarDemoContent() {
         </McSidebarHeader>
 
         <McSidebarContent>
-          <McSidebarGroup className="p-2 group-data-[collapsible=icon]:p-1">
-            <McSidebarGroupLabel className="h-4 px-1.5 text-[11px]">Platform</McSidebarGroupLabel>
+          <McSidebarGroup className="p-2 group-data-[collapsible=icon]:p-1 gap-6">
+            <McSidebarGroupLabel className="h-4 px-1.5 text-sm">Platform</McSidebarGroupLabel>
             <McSidebarGroupContent className="h-auto">
-              <McSidebarMenu className="gap-0.2">
+              <McSidebarMenu className="gap-2">
                 {platformItems.map((item, index) => {
                   const Icon = item.icon;
                   const withChildren = index === 0;
@@ -107,15 +107,15 @@ function SidebarDemoContent() {
                       icon={Icon}
                       tooltip={item.label}
                       defaultOpen={withChildren}
-                      triggerClassName="h-7 p-1.5"
-                      contentClassName="mx-2 mt-0.5 gap-0.5 px-1.5 py-0"
+                      triggerClassName="h-7 p-2"
+                      contentClassName="mx-2 mt-0.5 gap-2 px-1.5 py-0"
                     >
                       {withChildren ? (
                         <>
                           <McSidebarMenuSubItem>
                             <McSidebarMenuSubButton
                               href="#"
-                              className="h-8 px-1.5 no-underline hover:no-underline"
+                              className="px-1.5 no-underline hover:no-underline"
                             >
                               History
                             </McSidebarMenuSubButton>
@@ -123,7 +123,7 @@ function SidebarDemoContent() {
                           <McSidebarMenuSubItem>
                             <McSidebarMenuSubButton
                               href="#"
-                              className="h-6 px-1.5 no-underline hover:no-underline"
+                              className="px-1.5 no-underline hover:no-underline"
                             >
                               Starred
                             </McSidebarMenuSubButton>
@@ -131,7 +131,7 @@ function SidebarDemoContent() {
                           <McSidebarMenuSubItem>
                             <McSidebarMenuSubButton
                               href="#"
-                              className="h-6 px-1.5 no-underline hover:no-underline"
+                              className="px-1.5 no-underline hover:no-underline"
                             >
                               Settings
                             </McSidebarMenuSubButton>
