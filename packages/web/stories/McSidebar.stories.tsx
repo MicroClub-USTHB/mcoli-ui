@@ -1,5 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import { BookOpen, Briefcase, ChevronsUpDown, Settings, Sparkles, User } from 'lucide-react';
+import {
+  Bot,
+  BookOpen,
+  ChevronRight,
+  ChevronsUpDown,
+  CircleDashed,
+  Compass,
+  Grid2x2,
+  MoreHorizontal,
+  SlidersHorizontal,
+  SquareTerminal,
+  User,
+} from 'lucide-react';
 import MCLogo from '@/components/MCLogo';
 import {
   McSidebar,
@@ -9,14 +21,14 @@ import {
   McSidebarGroupContent,
   McSidebarGroupLabel,
   McSidebarHeader,
-  McSidebarInset,
   McSidebarCollapsible,
   McSidebarMenu,
+  McSidebarMenuButton,
+  McSidebarMenuItem,
   McSidebarMenuSubButton,
   McSidebarMenuSubItem,
   McSidebarTrigger,
   McSidebarRail,
-  McSidebarSeparator,
   SidebarProvider,
   useSidebar,
 } from '@/registry/ui/mc-sidebar';
@@ -69,10 +81,17 @@ export default meta;
 type Story = StoryObj<SidebarStoryArgs>;
 
 const platformItems = [
-  { label: 'Playground', icon: Sparkles },
-  { label: 'Models', icon: Briefcase },
+  { label: 'Playground', icon: SquareTerminal },
+  { label: 'Models', icon: Bot },
   { label: 'Documentation', icon: BookOpen },
-  { label: 'API Reference', icon: Settings },
+  { label: 'Settings', icon: SlidersHorizontal },
+];
+
+const projectItems = [
+  { label: 'Design Engineering', icon: Grid2x2 },
+  { label: 'Sales & Marketing', icon: CircleDashed },
+  { label: 'Travel', icon: Compass },
+  { label: 'More', icon: MoreHorizontal },
 ];
 
 function SidebarScenario(args: SidebarStoryArgs) {
@@ -81,7 +100,7 @@ function SidebarScenario(args: SidebarStoryArgs) {
       defaultOpen={args.defaultOpen}
       style={
         {
-          '--sidebar-width': '300px',
+          '--sidebar-width': '255px',
           width: '100dvw',
         } as React.CSSProperties
       }
@@ -100,10 +119,15 @@ function SidebarScenarioContent({ args }: { args: SidebarStoryArgs }) {
       className={`relative flex min-h-[44rem] w-full overflow-hidden rounded-xl bg-background ${args.side === 'right' ? 'flex-row-reverse' : ''}`}
     >
       {args.showTriggerButton && canToggleSidebar ? (
-        <SidebarTriggerButton side={args.side} />
+        <SidebarTriggerButton side={args.side} collapsible={args.collapsible} />
       ) : null}
 
-      <McSidebar side={args.side} variant={args.variant} collapsible={args.collapsible}>
+      <McSidebar
+        side={args.side}
+        variant={args.variant}
+        collapsible={args.collapsible}
+        className="z-20"
+      >
         <McSidebarHeader className="gap-2 p-3">
           {args.showTriggerButton ? (
             <div className="flex items-center justify-between rounded-md px-1 py-1 group-data-[collapsible=icon]:justify-center">
@@ -148,43 +172,80 @@ function SidebarScenarioContent({ args }: { args: SidebarStoryArgs }) {
 
         <McSidebarContent>
           <McSidebarGroup>
-            <McSidebarGroupLabel>Platform</McSidebarGroupLabel>
+            <McSidebarGroupLabel className="font-sans font-normal not-italic text-sx leading-5 tracking-normal">
+              Platform
+            </McSidebarGroupLabel>
             <McSidebarGroupContent className="h-auto">
               <McSidebarMenu>
-                {platformItems.map((item, index) => {
+                <McSidebarCollapsible
+                  label={platformItems[0].label}
+                  icon={platformItems[0].icon}
+                  tooltip={platformItems[0].label}
+                  defaultOpen
+                  triggerClassName="font-sans font-normal not-italic text-sm leading-5 tracking-normal"
+                >
+                  <McSidebarMenuSubItem>
+                    <McSidebarMenuSubButton className="font-sans font-normal not-italic text-sm leading-5 tracking-normal">
+                      History
+                    </McSidebarMenuSubButton>
+                  </McSidebarMenuSubItem>
+                  <McSidebarMenuSubItem>
+                    <McSidebarMenuSubButton className="font-sans font-normal not-italic text-sm leading-5 tracking-normal">
+                      Starred
+                    </McSidebarMenuSubButton>
+                  </McSidebarMenuSubItem>
+                  <McSidebarMenuSubItem>
+                    <McSidebarMenuSubButton className="font-sans font-normal not-italic text-sm leading-5 tracking-normal">
+                      Settings
+                    </McSidebarMenuSubButton>
+                  </McSidebarMenuSubItem>
+                </McSidebarCollapsible>
+
+                {platformItems.slice(1).map((item) => {
                   const Icon = item.icon;
-                  const withChildren = index === 0;
 
                   return (
-                    <McSidebarCollapsible
-                      key={item.label}
-                      label={item.label}
-                      icon={Icon}
-                      tooltip={item.label}
-                      defaultOpen={withChildren}
-                    >
-                      {withChildren ? (
-                        <>
-                          <McSidebarMenuSubItem>
-                            <McSidebarMenuSubButton isActive>History</McSidebarMenuSubButton>
-                          </McSidebarMenuSubItem>
-                          <McSidebarMenuSubItem>
-                            <McSidebarMenuSubButton>Starred</McSidebarMenuSubButton>
-                          </McSidebarMenuSubItem>
-                          <McSidebarMenuSubItem>
-                            <McSidebarMenuSubButton>Settings</McSidebarMenuSubButton>
-                          </McSidebarMenuSubItem>
-                        </>
-                      ) : null}
-                    </McSidebarCollapsible>
+                    <McSidebarMenuItem key={item.label}>
+                      <McSidebarMenuButton className="justify-between font-sans font-normal not-italic text-sm leading-5 tracking-normal">
+                        <span className="flex items-center gap-2">
+                          <Icon />
+                          <span>{item.label}</span>
+                        </span>
+                        <ChevronRight className="h-4 w-4 shrink-0 group-data-[collapsible=icon]:hidden" />
+                      </McSidebarMenuButton>
+                    </McSidebarMenuItem>
                   );
                 })}
               </McSidebarMenu>
             </McSidebarGroupContent>
           </McSidebarGroup>
+
+          {[0, 1].map((groupIndex) => (
+            <McSidebarGroup key={groupIndex}>
+              <McSidebarGroupLabel className="font-sans font-normal not-italic text-xs leading-5 tracking-normal">
+                Projects
+              </McSidebarGroupLabel>
+              <McSidebarGroupContent className="h-auto">
+                <McSidebarMenu>
+                  {projectItems.map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <McSidebarCollapsible
+                        key={`${groupIndex}-${item.label}`}
+                        label={item.label}
+                        icon={Icon}
+                        tooltip={item.label}
+                        triggerClassName="font-sans font-normal not-italic text-sm leading-5 tracking-normal"
+                      />
+                    );
+                  })}
+                </McSidebarMenu>
+              </McSidebarGroupContent>
+            </McSidebarGroup>
+          ))}
         </McSidebarContent>
 
-        <McSidebarSeparator />
         <McSidebarFooter>
           <div className="flex items-center justify-between rounded-md px-1 py-1 hover:bg-sidebar-accent group-data-[collapsible=icon]:justify-center">
             <div className="flex min-w-0 items-center gap-2">
@@ -198,87 +259,17 @@ function SidebarScenarioContent({ args }: { args: SidebarStoryArgs }) {
                 <p className="truncate text-xs text-muted-foreground">Admin workspace</p>
               </div>
             </div>
+            <ChevronsUpDown className="h-4 w-4 shrink-0 text-sidebar-foreground group-data-[collapsible=icon]:hidden" />
           </div>
         </McSidebarFooter>
         {canToggleSidebar ? <McSidebarRail /> : null}
       </McSidebar>
-
-      <McSidebarInset className="flex min-h-0 flex-col p-0">
-        <div className="sticky top-0 z-10 border-b border-border bg-background/95 px-6 pt-8 pb-4 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-          <div className="space-y-2">
-            <p className="text-sm text-muted-foreground">Story Scenario</p>
-            <h2 className="text-2xl font-semibold text-foreground">McSidebar</h2>
-          </div>
-        </div>
-        <div className="flex-1 overflow-auto px-6 py-6">
-          <p className="text-sm text-muted-foreground">
-            Utilise les controls Storybook pour tester les variantes, le mode de collapse, les
-            badges, actions et sous-menus.
-          </p>
-        </div>
-      </McSidebarInset>
     </div>
   );
 }
 
 export const Playground: Story = {
   render: (args) => <SidebarScenario {...args} />,
-};
-
-export const SidebarVariants: Story = {
-  render: () => (
-    <div className="grid gap-6">
-      <SidebarScenario
-        side="left"
-        variant="sidebar"
-        collapsible="icon"
-        defaultOpen
-        showTriggerButton
-      />
-      <SidebarScenario
-        side="left"
-        variant="floating"
-        collapsible="icon"
-        defaultOpen
-        showTriggerButton
-      />
-      <SidebarScenario
-        side="left"
-        variant="inset"
-        collapsible="icon"
-        defaultOpen
-        showTriggerButton
-      />
-    </div>
-  ),
-};
-
-export const CollapseModes: Story = {
-  render: () => (
-    <div className="grid gap-6">
-      <SidebarScenario
-        side="left"
-        variant="sidebar"
-        collapsible="icon"
-        defaultOpen
-        showTriggerButton
-      />
-      <SidebarScenario
-        side="left"
-        variant="sidebar"
-        collapsible="offcanvas"
-        defaultOpen
-        showTriggerButton
-      />
-      <SidebarScenario
-        side="left"
-        variant="sidebar"
-        collapsible="none"
-        defaultOpen
-        showTriggerButton={false}
-      />
-    </div>
-  ),
 };
 
 export const RightSideAndMinimal: Story = {
@@ -311,10 +302,21 @@ export const WithoutTriggerButton: Story = {
   render: (args) => <SidebarScenario {...args} />,
 };
 
-function SidebarTriggerButton({ side }: { side: SidebarStoryArgs['side'] }) {
+function SidebarTriggerButton({
+  side,
+  collapsible,
+}: {
+  side: SidebarStoryArgs['side'];
+  collapsible: SidebarStoryArgs['collapsible'];
+}) {
   const { state } = useSidebar();
   const offsetProperty = side === 'right' ? 'right' : 'left';
-  const baseWidth = state === 'collapsed' ? 'var(--sidebar-width-icon)' : 'var(--sidebar-width)';
+  const baseWidth =
+    state === 'collapsed'
+      ? collapsible === 'offcanvas'
+        ? '0px'
+        : 'var(--sidebar-width-icon)'
+      : 'var(--sidebar-width)';
   const offsetValue = side === 'left' ? `calc(${baseWidth} + 26px )` : `calc(${baseWidth} + 26px)`;
 
   return (
