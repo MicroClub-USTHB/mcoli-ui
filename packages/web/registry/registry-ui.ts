@@ -144,4 +144,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+  {
+    name: 'mc-skeleton',
+    type: 'registry:component',
+    title: 'MicroClub Skeleton',
+    description: 'A skeleton component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-skeleton.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
