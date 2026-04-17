@@ -12,13 +12,13 @@ const meta = {
       control: { type: 'radio' },
       options: ['horizontal', 'vertical'],
     },
-    minimized: {
-      control: { type: 'boolean' },
+    size: {
+      control: { type: 'number' },
     },
   },
   args: {
     orientation: 'horizontal',
-    minimized: false,
+    size: 2,
   },
   tags: ['autodocs'],
 } satisfies Meta<SeparatorStoryArgs>;
@@ -27,21 +27,18 @@ export default meta;
 type Story = StoryObj<SeparatorStoryArgs>;
 
 export const Playground: Story = {
-  render: (args) => {
-    const isVertical = args.orientation === 'vertical';
+  args: {
+    size: 10,
+    orientation: 'vertical',
+  },
 
-    return (
-      <div className="flex h-56 items-center justify-center p-6">
-        <div className={isVertical ? 'h-36' : 'w-72'}>
-          <McSeparator {...args} className={isVertical ? 'h-full' : 'w-full'} />
-        </div>
-      </div>
-    );
+  render: (args) => {
+    return <McSeparator {...args} />;
   },
 };
 
 export const Showcase: Story = {
-  render: () => (
+  render: (args) => (
     <div className="mx-auto w-full max-w-5xl rounded-2xl border border-border bg-surface p-6 sm:p-8">
       <div className="space-y-5 text-foreground">
         <div className="space-y-1">
@@ -49,13 +46,13 @@ export const Showcase: Story = {
           <h3 className="text-2xl font-semibold">Separator</h3>
         </div>
 
-        <McSeparator className="w-full" />
+        <McSeparator {...args} className="w-full" />
 
         <div className="flex flex-wrap items-center text-2xl">
           <span className="font-medium">Bloc</span>
-          <McSeparator orientation="vertical" minimized />
+          <McSeparator {...args} orientation="vertical" />
           <span className="font-medium">Bloc</span>
-          <McSeparator orientation="vertical" minimized />
+          <McSeparator {...args} orientation="vertical" />
           <span className="font-medium">Bloc</span>
         </div>
       </div>

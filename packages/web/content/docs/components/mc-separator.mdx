@@ -10,6 +10,7 @@ It is built on top of **@base-ui/react** separator primitives and styled with Mi
 tokens.
 
 Use it for section dividers, grouped inline content, menus, and split layouts.
+It also supports a `size` prop to control separator length.
 
 ## Preview
 
@@ -80,16 +81,16 @@ export default function Example() {
 
 ```tsx
 <div className="flex h-8 items-center">
-  <span>Bloc</span>
-  <McSeparator orientation="vertical" minimized />
-  <span>Bloc</span>
+  <span>Block</span>
+  <McSeparator orientation="vertical" size={100} />
+  <span>Block</span>
 </div>
 ```
 
-### Minimized Variant
+### Custom Size
 
 ```tsx
-<McSeparator minimized />
+<McSeparator size={200} />
 ```
 
 ### Content Split Layout
@@ -109,7 +110,7 @@ export default function Example() {
 | Prop          | Type                         | Default                        | Description                                 |
 | ------------- | ---------------------------- | ------------------------------ | ------------------------------------------- |
 | `orientation` | `"horizontal" \| "vertical"` | Base UI default (`horizontal`) | Direction of the separator line             |
-| `minimized`   | `boolean`                    | `false`                        | Uses compact separator dimensions           |
+| `size`        | `number`                     | `undefined`                    | Separator length in pixels                  |
 | `className`   | `string`                     | `undefined`                    | Additional classes for custom sizing/states |
 
 All other props from `@base-ui/react/separator` are supported.
