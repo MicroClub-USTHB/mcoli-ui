@@ -2,7 +2,18 @@
 
 import { useState } from 'react';
 
-import { BookOpen, Briefcase, ChevronsUpDown, Settings, Sparkles, User } from 'lucide-react';
+import {
+  BookOpen,
+  Briefcase,
+  CircleDashed,
+  Compass,
+  ChevronsUpDown,
+  Grid2x2,
+  MoreHorizontal,
+  Settings,
+  Sparkles,
+  User,
+} from 'lucide-react';
 import MCLogo from '@/components/MCLogo';
 import {
   McSidebar,
@@ -28,6 +39,13 @@ const platformItems = [
   { label: 'Models', icon: Briefcase },
   { label: 'Documentation', icon: BookOpen },
   { label: 'API Reference', icon: Settings },
+];
+
+const projectItems = [
+  { label: 'Design Engineering', icon: Grid2x2 },
+  { label: 'Sales & Marketing', icon: CircleDashed },
+  { label: 'Travel', icon: Compass },
+  { label: 'More', icon: MoreHorizontal },
 ];
 
 export default function McSidebarDemo() {
@@ -144,6 +162,32 @@ function SidebarDemoContent() {
               </McSidebarMenu>
             </McSidebarGroupContent>
           </McSidebarGroup>
+
+          {[0].map((groupIndex) => (
+            <McSidebarGroup
+              key={groupIndex}
+              className="p-2 group-data-[collapsible=icon]:p-1 gap-6"
+            >
+              <McSidebarGroupLabel className="h-4 px-1.5 text-sm">Projects</McSidebarGroupLabel>
+              <McSidebarGroupContent className="h-auto">
+                <McSidebarMenu className="gap-2">
+                  {projectItems.map((item) => {
+                    const Icon = item.icon;
+
+                    return (
+                      <McSidebarCollapsible
+                        key={`${groupIndex}-${item.label}`}
+                        label={item.label}
+                        icon={Icon}
+                        tooltip={item.label}
+                        triggerClassName="h-7 p-2"
+                      />
+                    );
+                  })}
+                </McSidebarMenu>
+              </McSidebarGroupContent>
+            </McSidebarGroup>
+          ))}
         </McSidebarContent>
 
         <McSidebarFooter className="mt-auto mb-0.5 gap-0 border-t border-sidebar-border p-2">
