@@ -1,9 +1,100 @@
 ---
 title: MC Select
-description: A dropdown component for selecting one option from a list.
+description: A flexible and accessible select component with rich content support.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-select` is a powerful and composable dropdown component built on top of **@base-ui/react/select**. It supports advanced UI patterns like icons, avatars, supporting text, and custom triggers while maintaining full accessibility.
+
+Designed for the MicroClub UI system, it provides a **fully customizable structure**, allowing you to control both behavior and rendering.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-select-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-select-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-select` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-select</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-select</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-select</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-select</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">
+    npm install clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="pnpm">
+    pnpm add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="yarn">
+    yarn add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="bun">
+    bun add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+</Tabs>
+
+<Step>Copy the component source</Step>
+
+<ComponentSource name="mc-select" />
+
+<Step>Adjust imports</Step>
+
+Ensure your utility functions like `cn` from `@/lib/utils` are correctly configured.
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  McSelect,
+  McSelectContent,
+  McSelectGroup,
+  McSelectGroupLabel,
+  McSelectItem,
+  McSelectLabel,
+  McSelectTrigger,
+  McSelectValue,
+} from '@/components/ui/mc-select';
+
+export default function Example() {
+  return (
+    <McSelect defaultValue="designer">
+      <McSelectLabel>Role</McSelectLabel>
+      <McSelectTrigger>
+        <McSelectValue placeholder="Select a role" />
+      </McSelectTrigger>
+
+      <McSelectContent>
+        <McSelectGroup>
+          <McSelectGroupLabel>Team roles</McSelectGroupLabel>
+
+          <McSelectItem value="designer">Designer</McSelectItem>
+          <McSelectItem value="developer">Developer</McSelectItem>
+        </McSelectGroup>
+      </McSelectContent>
+    </McSelect>
+  );
+}
+```
