@@ -145,4 +145,17 @@ export const examples: Registry['items'] = [
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-navigation-menu.json`],
   },
+  {
+    name: 'mc-scrollarea-demo',
+    type: 'registry:example',
+    title: 'MicroClub Scroll Area Demo',
+    description: 'Demo for MicroClub Scroll Area',
+    files: [
+      {
+        path: 'examples/mc-scrollarea-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-scrollarea.json`],
+  },
 ];

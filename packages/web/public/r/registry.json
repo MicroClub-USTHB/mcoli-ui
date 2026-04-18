@@ -2297,6 +2297,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-scrollarea",
+      "title": "MicroClub Scroll Area",
+      "description": "A scroll area component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-scrollarea.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }

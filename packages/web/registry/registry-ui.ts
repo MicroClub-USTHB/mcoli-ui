@@ -144,4 +144,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+  {
+    name: 'mc-scrollarea',
+    type: 'registry:component',
+    title: 'MicroClub Scroll Area',
+    description: 'A scroll area component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-scrollarea.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
