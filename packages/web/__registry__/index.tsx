@@ -2202,6 +2202,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-skeleton': {
+    name: 'mc-skeleton',
+    description: 'A skeleton component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-skeleton.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\n\ntype McSkeletonProps = {\n  width?: number;\n  height?: number;\n  rectangle?: boolean;\n} & React.ComponentProps<'div'>;\n\nfunction McSkeleton({ className, rectangle, width, height, ...props }: McSkeletonProps) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      style={{\n        width,\n        height,\n        ...(height === width ? { marginRight: 16 } : { marginBottom: 8 }),\n      }}\n      className={cn('animate-pulse bg-muted', rectangle ? 'rounded-md' : 'rounded-full', className)}\n      {...props}\n    />\n  );\n}\n\nexport { McSkeleton };\n",
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-button-demo': {
     name: 'mc-button-demo',
     description: 'Demo for MicroClub Button',
@@ -2377,5 +2390,21 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-navigation-menu-demo.tsx')),
     source:
       "'use client';\n\nimport * as React from 'react';\nimport Link from 'next/link';\nimport { CircleAlertIcon, CircleCheckIcon, CircleDashedIcon } from 'lucide-react';\n\nimport {\n  McNavigationMenu,\n  McNavigationMenuContent,\n  McNavigationMenuItem,\n  McNavigationMenuLink,\n  McNavigationMenuList,\n  McNavigationMenuTrigger,\n  navigationMenuTriggerStyle,\n} from '../ui/mc-navigation-menu';\n\nconst components: { title: string; href: string; description: string }[] = [\n  {\n    title: 'Alert Dialog',\n    href: '#alert-dialog',\n    description:\n      'A modal dialog that interrupts the user with important content and expects a response.',\n  },\n  {\n    title: 'Hover Card',\n    href: '#hover-card',\n    description: 'For sighted users to preview content available behind a link.',\n  },\n  {\n    title: 'Progress',\n    href: '#progress',\n    description:\n      'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',\n  },\n  {\n    title: 'Scroll-area',\n    href: '#scroll-area',\n    description: 'Visually or semantically separates content.',\n  },\n  {\n    title: 'Tabs',\n    href: '#tabs',\n    description:\n      'A set of layered sections of content—known as tab panels—that are displayed one at a time.',\n  },\n  {\n    title: 'Tooltip',\n    href: '#tooltip',\n    description:\n      'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',\n  },\n];\n\nexport default function NavigationMenuDemo() {\n  return (\n    <div className=\"w-full flex justify-center py-10\">\n      <McNavigationMenu>\n        <McNavigationMenuList>\n          <McNavigationMenuItem>\n            <McNavigationMenuTrigger>Getting started</McNavigationMenuTrigger>\n            <McNavigationMenuContent>\n              <ul className=\"w-96\">\n                <ListItem href=\"#docs\" title=\"Introduction\">\n                  Re-usable components built with Tailwind CSS.\n                </ListItem>\n                <ListItem href=\"#installation\" title=\"Installation\">\n                  How to install dependencies and structure your app.\n                </ListItem>\n                <ListItem href=\"#typography\" title=\"Typography\">\n                  Styles for headings, paragraphs, lists...etc\n                </ListItem>\n              </ul>\n            </McNavigationMenuContent>\n          </McNavigationMenuItem>\n          <McNavigationMenuItem className=\"hidden md:flex\">\n            <McNavigationMenuTrigger>Components</McNavigationMenuTrigger>\n            <McNavigationMenuContent>\n              <ul className=\"grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]\">\n                {components.map((component) => (\n                  <ListItem key={component.title} title={component.title} href={component.href}>\n                    {component.description}\n                  </ListItem>\n                ))}\n              </ul>\n            </McNavigationMenuContent>\n          </McNavigationMenuItem>\n          <McNavigationMenuItem>\n            <McNavigationMenuTrigger>With Icon</McNavigationMenuTrigger>\n            <McNavigationMenuContent>\n              <ul className=\"grid w-[200px]\">\n                <li>\n                  <McNavigationMenuLink\n                    render={\n                      <Link href=\"#\" className=\"flex items-center gap-2\">\n                        <CircleAlertIcon />\n                        Backlog\n                      </Link>\n                    }\n                  />\n                  <McNavigationMenuLink\n                    render={\n                      <Link href=\"#\" className=\"flex items-center gap-2\">\n                        <CircleDashedIcon />\n                        To Do\n                      </Link>\n                    }\n                  />\n                  <McNavigationMenuLink\n                    render={\n                      <Link href=\"#\" className=\"flex items-center gap-2\">\n                        <CircleCheckIcon />\n                        Done\n                      </Link>\n                    }\n                  />\n                </li>\n              </ul>\n            </McNavigationMenuContent>\n          </McNavigationMenuItem>\n          <McNavigationMenuItem>\n            <McNavigationMenuLink\n              className={navigationMenuTriggerStyle()}\n              render={<Link href=\"#docs\">Docs</Link>}\n            />\n          </McNavigationMenuItem>\n        </McNavigationMenuList>\n      </McNavigationMenu>\n    </div>\n  );\n}\n\nfunction ListItem({\n  title,\n  children,\n  href,\n  ...props\n}: React.ComponentPropsWithoutRef<'li'> & { href: string }) {\n  return (\n    <li {...props}>\n      <McNavigationMenuLink\n        render={\n          <Link href={href}>\n            <div className=\"flex flex-col gap-1 text-sm\">\n              <div className=\"leading-none font-medium\">{title}</div>\n              <div className=\"line-clamp-2 text-muted-foreground\">{children}</div>\n            </div>\n          </Link>\n        }\n      />\n    </li>\n  );\n}\n",
+  },
+  'mc-skeleton-demo': {
+    name: 'mc-skeleton-demo',
+    description: 'Demo for MicroClub Skeleton',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-skeleton-demo.tsx',
+        content:
+          'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport function McSkeletonDemo() {\n  return (\n    <div className="flex items-center gap-4">\n      <McSkeleton className="h-12 w-12 rounded-full" />\n      <div className="space-y-2">\n        <McSkeleton className="h-4 w-[250px]" />\n        <McSkeleton className="h-4 w-[200px]" />\n      </div>\n    </div>\n  );\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-skeleton-demo.tsx')),
+    source:
+      'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport function McSkeletonDemo() {\n  return (\n    <div className="flex items-center gap-4">\n      <McSkeleton className="h-12 w-12 rounded-full" />\n      <div className="space-y-2">\n        <McSkeleton className="h-4 w-[250px]" />\n        <McSkeleton className="h-4 w-[200px]" />\n      </div>\n    </div>\n  );\n}\n',
   },
 };

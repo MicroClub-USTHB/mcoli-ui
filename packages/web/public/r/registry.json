@@ -2297,6 +2297,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-skeleton",
+      "title": "MicroClub Skeleton",
+      "description": "A skeleton component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-skeleton.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }
