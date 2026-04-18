@@ -1,6 +1,11 @@
 import { cn } from '@/lib/utils';
 
-function McSkeleton({ className, ...props }: React.ComponentProps<'div'>) {
+function McSkeleton({
+  className,
+  mode,
+
+  ...props
+}: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="skeleton"

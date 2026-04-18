@@ -20,6 +20,10 @@ export default meta;
 type Story = StoryObj<SkeletonStoryArgs>;
 
 export const Playground: Story = {
+  args: {
+    className: 'Kjjhj\n',
+  },
+
   render: (args) => (
     <div className="flex items-center justify-center p-6">
       <McSkeleton {...args} className="h-12 w-48" />
@@ -28,35 +32,7 @@ export const Playground: Story = {
 };
 
 export const Shapes: Story = {
-  render: () => (
-    <div className="space-y-6 p-6">
-      <div className="space-y-2">
-        <p className="text-sm font-medium text-muted-foreground">Line</p>
-        <McSkeleton className="h-4 w-full" />
-        <McSkeleton className="h-4 w-4/5" />
-      </div>
-
-      <div className="space-y-2">
-        <p className="text-sm font-medium text-muted-foreground">Heading</p>
-        <McSkeleton className="h-8 w-3/4" />
-      </div>
-
-      <div className="space-y-2">
-        <p className="text-sm font-medium text-muted-foreground">Avatar</p>
-        <McSkeleton className="h-12 w-12 rounded-full" />
-      </div>
-
-      <div className="space-y-2">
-        <p className="text-sm font-medium text-muted-foreground">Image Block</p>
-        <McSkeleton className="h-40 w-full" />
-      </div>
-
-      <div className="space-y-2">
-        <p className="text-sm font-medium text-muted-foreground">Button</p>
-        <McSkeleton className="h-10 w-32" />
-      </div>
-    </div>
-  ),
+  render: () => <McSkeleton></McSkeleton>,
 };
 
 export const CardPreview: Story = {
