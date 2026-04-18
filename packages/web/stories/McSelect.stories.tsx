@@ -235,11 +235,11 @@ export const DotLeading: Story = {
   render: ({ showLabel, scrollLabel }) => {
     const [value, setValue] = React.useState<string | null>(null);
     const selected = TEAM_MEMBERS.find((m) => m.value === value);
+    const dotColor = selected?.online ? 'bg-green-500' : 'bg-slate-300';
 
     return (
       <div>
         {showLabel && <McSelectLabel>Status</McSelectLabel>}
-        const dotColor = selected?.online ? 'bg-green-500' : 'bg-slate-300';
         <McSelect value={value} onValueChange={setValue}>
           <McSelectTrigger variant="dot-leading" dotColor={dotColor}>
             <McSelectValue placeholder="Select status">
