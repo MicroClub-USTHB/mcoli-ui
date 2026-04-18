@@ -46,6 +46,13 @@ const TEAM_MEMBERS = [
   },
 ];
 
+const MANY_TEAM_MEMBERS = Array.from({ length: 28 }, (_, index) => ({
+  value: `member-${index + 1}`,
+  name: `Member ${index + 1}`,
+  username: `@member${index + 1}`,
+  online: index % 2 === 0,
+}));
+
 const AVATAR_BACKGROUNDS = ['#FDE68A', '#BFDBFE', '#DDD6FE', '#FBCFE8', '#BBF7D0'];
 
 function Avatar({ name }: { name: string }) {
@@ -68,7 +75,7 @@ function Avatar({ name }: { name: string }) {
   );
 }
 
-const meta: Meta<{ showLabel: boolean; scrollLabel: boolean }> = {
+const meta: Meta<{ showLabel: boolean }> = {
   title: 'Components/McSelect',
   parameters: {
     docs: {
@@ -85,24 +92,18 @@ const meta: Meta<{ showLabel: boolean; scrollLabel: boolean }> = {
       description: 'Affiche ou masque le label au-dessus du trigger',
       defaultValue: false,
     },
-    scrollLabel: {
-      control: 'boolean',
-      description: 'Affiche la barre de défilement dans le menu',
-      defaultValue: false,
-    },
   },
   args: {
     showLabel: false,
-    scrollLabel: false,
   },
   tags: ['autodocs'],
 };
 
 export default meta;
-type Story = StoryObj<{ showLabel: boolean; scrollLabel: boolean }>;
+type Story = StoryObj<{ showLabel: boolean }>;
 
 export const Default: Story = {
-  render: ({ showLabel, scrollLabel }) => {
+  render: ({ showLabel }) => {
     const [value, setValue] = React.useState<string | null>(null);
 
     const selected = TEAM_MEMBERS.find((m) => m.value === value);
@@ -123,7 +124,7 @@ export const Default: Story = {
             </McSelectValue>
           </McSelectTrigger>
 
-          <McSelectContent scrollbar={scrollLabel}>
+          <McSelectContent>
             <McSelectGroup>
               {TEAM_MEMBERS.map((m) => (
                 <McSelectItem
@@ -142,8 +143,48 @@ export const Default: Story = {
   },
 };
 
+export const ManyOptions: Story = {
+  render: ({ showLabel }) => {
+    const [value, setValue] = React.useState<string | null>(null);
+    const selected = MANY_TEAM_MEMBERS.find((m) => m.value === value);
+
+    return (
+      <div>
+        {showLabel && <McSelectLabel>Team member</McSelectLabel>}
+
+        <McSelect value={value} onValueChange={setValue}>
+          <McSelectTrigger variant="default">
+            <McSelectValue placeholder="Choose a team member">
+              {selected ? (
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">{selected.name}</span>
+                  {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
+                </div>
+              ) : null}
+            </McSelectValue>
+          </McSelectTrigger>
+
+          <McSelectContent scrollbar>
+            <McSelectGroup>
+              {MANY_TEAM_MEMBERS.map((m) => (
+                <McSelectItem
+                  key={m.value}
+                  value={m.value}
+                  supportingText={showLabel ? m.username : undefined}
+                >
+                  {m.name}
+                </McSelectItem>
+              ))}
+            </McSelectGroup>
+          </McSelectContent>
+        </McSelect>
+      </div>
+    );
+  },
+};
+
 export const IconLeading: Story = {
-  render: ({ showLabel, scrollLabel }) => {
+  render: ({ showLabel }) => {
     const [value, setValue] = React.useState<string | null>(null);
 
     const selected = TEAM_MEMBERS.find((m) => m.value === value);
@@ -162,7 +203,7 @@ export const IconLeading: Story = {
               ) : null}
             </McSelectValue>
           </McSelectTrigger>
-          <McSelectContent scrollbar={scrollLabel}>
+          <McSelectContent>
             <McSelectGroup>
               {TEAM_MEMBERS.map((m) => (
                 <McSelectItem
@@ -183,7 +224,7 @@ export const IconLeading: Story = {
 };
 
 export const AvatarLeading: Story = {
-  render: ({ showLabel, scrollLabel }) => {
+  render: ({ showLabel }) => {
     const [value, setValue] = React.useState<string | null>(null);
 
     const selected = TEAM_MEMBERS.find((m) => m.value === value);
@@ -211,7 +252,7 @@ export const AvatarLeading: Story = {
               ) : null}
             </McSelectValue>
           </McSelectTrigger>
-          <McSelectContent scrollbar={scrollLabel}>
+          <McSelectContent>
             <McSelectGroup>
               {TEAM_MEMBERS.map((m) => (
                 <McSelectItem
@@ -232,7 +273,7 @@ export const AvatarLeading: Story = {
 };
 
 export const DotLeading: Story = {
-  render: ({ showLabel, scrollLabel }) => {
+  render: ({ showLabel }) => {
     const [value, setValue] = React.useState<string | null>(null);
     const selected = TEAM_MEMBERS.find((m) => m.value === value);
     const dotColor = selected?.online ? 'bg-green-500' : 'bg-slate-300';
@@ -252,7 +293,7 @@ export const DotLeading: Story = {
             </McSelectValue>
           </McSelectTrigger>
 
-          <McSelectContent scrollbar={scrollLabel}>
+          <McSelectContent>
             <McSelectGroup>
               <McSelectGroupLabel>Status</McSelectGroupLabel>
 
@@ -275,7 +316,7 @@ export const DotLeading: Story = {
 };
 
 export const Search: Story = {
-  render: ({ showLabel, scrollLabel }) => {
+  render: ({ showLabel }) => {
     const [value, setValue] = React.useState<string | null>(null);
     const selected = TEAM_MEMBERS.find((m) => m.value === value);
 
@@ -295,7 +336,7 @@ export const Search: Story = {
             </McSelectValue>
           </McSelectTrigger>
 
-          <McSelectContent scrollbar={scrollLabel}>
+          <McSelectContent>
             <McSelectGroup>
               {TEAM_MEMBERS.map((m) => (
                 <McSelectItem

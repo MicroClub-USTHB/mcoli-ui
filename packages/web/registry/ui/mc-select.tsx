@@ -198,19 +198,17 @@ function McSelectContent({
           )}
           {...props}
         >
-          <McSelectScrollUpButton />
           <SelectPrimitive.List
             className={cn(
               'p-0 h-full overflow-y-auto',
               scrollbar && 'overflow-x-auto',
               scrollbar
-                ? '[&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:min-h-[50%] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border'
+                ? 'pr-2 [&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar]:h-[312px] [&::-webkit-scrollbar]:opacity-100 [&::-webkit-scrollbar-thumb]:w-[16px] [&::-webkit-scrollbar-thumb]:h-[320px] [&::-webkit-scrollbar-thumb]:p-[4px] [&::-webkit-scrollbar-thumb]:gap-[10px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border [&::-webkit-scrollbar-thumb]:opacity-100'
                 : '[&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'
             )}
           >
             {children}
           </SelectPrimitive.List>
-          <McSelectScrollDownButton />
         </SelectPrimitive.Popup>
       </SelectPrimitive.Positioner>
     </SelectPrimitive.Portal>
@@ -341,7 +339,7 @@ function McSelectScrollDownButton({
     <SelectPrimitive.ScrollDownArrow
       data-slot="select-scroll-down-button"
       className={cn(
-        "bottom-0 z-10 flex w-full cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4",
+        "bottom-0 z-10 flex w-full cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4 bg-accent-red-50 ",
         className
       )}
       {...props}
