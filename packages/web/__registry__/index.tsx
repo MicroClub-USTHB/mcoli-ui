@@ -2399,12 +2399,12 @@ export const Index: Record<string, any> = {
       {
         path: 'registry/examples/mc-skeleton-demo.tsx',
         content:
-          'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport function McSkeletonDemo() {\n  return (\n    <div className="flex items-center gap-4">\n      <McSkeleton className="h-12 w-12 rounded-full" />\n      <div className="space-y-2">\n        <McSkeleton className="h-4 w-[250px]" />\n        <McSkeleton className="h-4 w-[200px]" />\n      </div>\n    </div>\n  );\n}\n',
+          'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport function McSkeletonDemo() {\n  return (\n    <div className="flex items-center justify-center p-6">\n      <div className="w-full max-w-sm space-y-4">\n        {Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="flex gap-3">\n            <McSkeleton className="h-12 w-12 shrink-0 rounded-full" />\n            <div className="flex-1 space-y-2">\n              <McSkeleton className="h-4 w-3/4" />\n              <McSkeleton className="h-3 w-full" />\n              <McSkeleton className="h-3 w-2/3" />\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n',
         type: 'registry:example',
       },
     ],
     component: React.lazy(() => import('@/registry/examples/mc-skeleton-demo.tsx')),
     source:
-      'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport function McSkeletonDemo() {\n  return (\n    <div className="flex items-center gap-4">\n      <McSkeleton className="h-12 w-12 rounded-full" />\n      <div className="space-y-2">\n        <McSkeleton className="h-4 w-[250px]" />\n        <McSkeleton className="h-4 w-[200px]" />\n      </div>\n    </div>\n  );\n}\n',
+      'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport function McSkeletonDemo() {\n  return (\n    <div className="flex items-center justify-center p-6">\n      <div className="w-full max-w-sm space-y-4">\n        {Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="flex gap-3">\n            <McSkeleton className="h-12 w-12 shrink-0 rounded-full" />\n            <div className="flex-1 space-y-2">\n              <McSkeleton className="h-4 w-3/4" />\n              <McSkeleton className="h-3 w-full" />\n              <McSkeleton className="h-3 w-2/3" />\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n',
   },
 };
