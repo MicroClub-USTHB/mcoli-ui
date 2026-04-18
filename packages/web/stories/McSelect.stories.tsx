@@ -112,8 +112,6 @@ export const Default: Story = {
 
           <McSelectContent scrollbar={scrollLabel}>
             <McSelectGroup>
-              <McSelectGroupLabel>Team members</McSelectGroupLabel>
-
               {TEAM_MEMBERS.map((m) => (
                 <McSelectItem
                   key={m.value}
@@ -153,7 +151,6 @@ export const IconLeading: Story = {
           </McSelectTrigger>
           <McSelectContent scrollbar={scrollLabel}>
             <McSelectGroup>
-              <McSelectGroupLabel>Team members</McSelectGroupLabel>
               {TEAM_MEMBERS.map((m) => (
                 <McSelectItem
                   key={m.value}
@@ -203,7 +200,6 @@ export const AvatarLeading: Story = {
           </McSelectTrigger>
           <McSelectContent scrollbar={scrollLabel}>
             <McSelectGroup>
-              <McSelectGroupLabel>Team members</McSelectGroupLabel>
               {TEAM_MEMBERS.map((m) => (
                 <McSelectItem
                   key={m.value}
@@ -288,8 +284,6 @@ export const Search: Story = {
 
           <McSelectContent scrollbar={scrollLabel}>
             <McSelectGroup>
-              <McSelectGroupLabel>Team members</McSelectGroupLabel>
-
               {TEAM_MEMBERS.map((m) => (
                 <McSelectItem
                   key={m.value}
