@@ -1,15 +1,21 @@
 import { cn } from '@/lib/utils';
 
-function McSkeleton({
-  className,
-  mode,
+type McSkeletonProps = {
+  width?: number;
+  height?: number;
+  rectangle?: boolean;
+} & React.ComponentProps<'div'>;
 
-  ...props
-}: React.ComponentProps<'div'>) {
+function McSkeleton({ className, rectangle, width, height, ...props }: McSkeletonProps) {
   return (
     <div
       data-slot="skeleton"
-      className={cn('animate-pulse rounded-md bg-muted', className)}
+      style={{
+        width,
+        height,
+        ...(height === width ? { marginRight: 16 } : { marginBottom: 8 }),
+      }}
+      className={cn('animate-pulse bg-muted', rectangle ? 'rounded-md' : 'rounded-full', className)}
       {...props}
     />
   );
