@@ -18,41 +18,54 @@ const TEAM_MEMBERS = [
     value: 'olivia',
     name: 'Olivia Rhye',
     username: '@olivia',
-    avatar: 'https://i.pravatar.cc/32?img=47',
     online: true,
   },
   {
     value: 'phoenix',
     name: 'Phoenix Baker',
     username: '@phoenix',
-    avatar: 'https://i.pravatar.cc/32?img=12',
     online: false,
   },
   {
     value: 'lana',
     name: 'Lana Steiner',
     username: '@lana',
-    avatar: 'https://i.pravatar.cc/32?img=5',
     online: true,
   },
   {
     value: 'demi',
     name: 'Demi Wilkinson',
     username: '@demi',
-    avatar: 'https://i.pravatar.cc/32?img=9',
     online: false,
   },
   {
     value: 'candice',
     name: 'Candice Wu',
     username: '@candice',
-    avatar: 'https://i.pravatar.cc/32?img=23',
     online: true,
   },
 ];
 
-function Avatar({ src, alt }: { src: string; alt: string }) {
-  return <img src={src} alt={alt} className="size-5 rounded-full object-cover" />;
+const AVATAR_BACKGROUNDS = ['#FDE68A', '#BFDBFE', '#DDD6FE', '#FBCFE8', '#BBF7D0'];
+
+function Avatar({ name }: { name: string }) {
+  const initials = name
+    .split(' ')
+    .map((part) => part[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+  const backgroundColor = AVATAR_BACKGROUNDS[name.length % AVATAR_BACKGROUNDS.length];
+
+  return (
+    <span
+      aria-label={name}
+      className="flex size-5 items-center justify-center rounded-full text-[10px] font-semibold text-slate-700"
+      style={{ backgroundColor }}
+    >
+      {initials}
+    </span>
+  );
 }
 
 const meta: Meta<{ showLabel: boolean; scrollLabel: boolean }> = {
@@ -65,7 +78,7 @@ const meta: Meta<{ showLabel: boolean; scrollLabel: boolean }> = {
       },
     },
   },
-  // ← Ici on déclare les controls globaux showLabel et scrollLabel
+
   argTypes: {
     showLabel: {
       control: 'boolean',
@@ -183,7 +196,7 @@ export const AvatarLeading: Story = {
             variant="avatar-leading"
             leadingAvatar={
               selected ? (
-                <Avatar src={selected.avatar} alt={selected.name} />
+                <Avatar name={selected.name} />
               ) : (
                 <UserIcon className="size-4 text-muted-foreground" />
               )
@@ -204,7 +217,7 @@ export const AvatarLeading: Story = {
                 <McSelectItem
                   key={m.value}
                   value={m.value}
-                  leadingAvatar={<Avatar src={m.avatar} alt={m.name} />}
+                  leadingAvatar={<Avatar name={m.name} />}
                   supportingText={showLabel ? m.username : undefined}
                 >
                   {m.name}
@@ -226,9 +239,9 @@ export const DotLeading: Story = {
     return (
       <div>
         {showLabel && <McSelectLabel>Status</McSelectLabel>}
-
+        const dotColor = selected?.online ? 'bg-green-500' : 'bg-slate-300';
         <McSelect value={value} onValueChange={setValue}>
-          <McSelectTrigger variant="dot-leading" dotColor="bg-green-500">
+          <McSelectTrigger variant="dot-leading" dotColor={dotColor}>
             <McSelectValue placeholder="Select status">
               {selected ? (
                 <div className="flex items-center gap-2">
@@ -247,7 +260,7 @@ export const DotLeading: Story = {
                 <McSelectItem
                   key={m.value}
                   value={m.value}
-                  dotColor="bg-green-500"
+                  dotColor={m.online ? 'bg-green-500' : 'bg-slate-300'}
                   supportingText={showLabel ? m.username : undefined}
                 >
                   {m.name}
