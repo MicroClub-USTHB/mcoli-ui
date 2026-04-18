@@ -203,7 +203,7 @@ function McSelectContent({
               'p-0 h-full overflow-y-auto',
               scrollbar && 'overflow-x-auto',
               scrollbar
-                ? 'pr-2 [&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar]:h-[312px] [&::-webkit-scrollbar]:opacity-100 [&::-webkit-scrollbar-thumb]:w-[16px] [&::-webkit-scrollbar-thumb]:h-[320px] [&::-webkit-scrollbar-thumb]:p-[4px] [&::-webkit-scrollbar-thumb]:gap-[10px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border [&::-webkit-scrollbar-thumb]:opacity-100'
+                ? 'pr-2 [&::-webkit-scrollbar]:w-[8px] [&::-webkit-scrollbar]:h-[312px] [&::-webkit-scrollbar]:opacity-100 [&::-webkit-scrollbar-thumb]:w-[16px] [&::-webkit-scrollbar-thumb]:h-[320px] [&::-webkit-scrollbar-thumb]:p-[4px] [&::-webkit-scrollbar-thumb]:gap-[10px] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border mr-1 [&::-webkit-scrollbar-thumb]:opacity-100'
                 : '[&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'
             )}
           >
