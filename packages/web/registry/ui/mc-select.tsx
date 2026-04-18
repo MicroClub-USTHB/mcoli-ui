@@ -19,7 +19,7 @@ function McSelectGroup({ className, ...props }: SelectPrimitive.Group.Props) {
   return (
     <SelectPrimitive.Group
       data-slot="select-group"
-      className={cn('scroll-my-1 p-1', className)}
+      className={cn('scroll-my-1', className)}
       {...props}
     />
   );
@@ -83,12 +83,7 @@ function McSelectTrigger({
         'transition-all duration-150',
 
         isSearch
-          ? [
-              'bg-transparent border-none shadow-none',
-              'border border-border',
-              'shadow-sm',
-              'bg-input',
-            ]
+          ? ['bg-input', 'border border-border', 'shadow-sm']
           : ['bg-input', 'border border-border', 'shadow-sm'],
 
         'data-placeholder:text-muted-foreground',
@@ -206,9 +201,10 @@ function McSelectContent({
           <McSelectScrollUpButton />
           <SelectPrimitive.List
             className={cn(
-              'p-1.5 h-full overflow-y-auto',
+              'p-0 h-full overflow-y-auto',
+              scrollbar && 'overflow-x-auto',
               scrollbar
-                ? '[&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border'
+                ? '[&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:min-h-[50%] [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-border'
                 : '[&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]'
             )}
           >
@@ -252,11 +248,15 @@ function McSelectItem({
     <SelectPrimitive.Item
       data-slot="select-item"
       className={cn(
-        'relative flex w-full cursor-default items-center gap-2',
-        'rounded-md px-2 py-2.5 text-sm outline-none select-none',
+        'group relative flex w-full cursor-default items-center gap-2',
+        'rounded-none px-2 py-2.5 text-sm outline-none select-none',
         'transition-colors duration-100',
-        'focus:bg-accent focus:text-accent-foreground',
-        'data-selected:text-primary',
+        'data-highlighted:bg-accent data-highlighted:text-accent-foreground',
+        'data-highlighted=true:bg-accent data-highlighted=true:text-accent-foreground',
+        'data-selected:bg-accent data-selected:text-accent-foreground',
+        'data-selected=true:bg-accent data-selected=true:text-accent-foreground',
+        'data-[state=checked]:bg-accent data-[state=checked]:text-accent-foreground',
+        'data-[state=checked=true]:bg-accent data-[state=checked=true]:text-accent-foreground',
         'data-disabled:pointer-events-none data-disabled:opacity-50',
         "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 [&_svg]:text-muted-foreground",
         '[&_.dot]:size-2 [&_.dot]:rounded-full [&_.dot]:shrink-0',
@@ -283,19 +283,23 @@ function McSelectItem({
 
       <SelectPrimitive.ItemText
         className={cn(
-          'flex flex-1 whitespace-nowrap',
-          supportingText ? 'flex-col items-start gap-0' : 'flex-row items-center gap-2'
+          'flex flex-1 min-w-0 whitespace-nowrap',
+          supportingText ? 'flex-row items-center gap-1' : 'flex-row items-center gap-2'
         )}
       >
-        <span className="text-sm font-medium leading-5">{children}</span>
+        <span className="text-sm font-medium leading-5 truncate group-data-highlighted:text-accent-foreground group-data-highlighted=true:text-accent-foreground group-data-selected:text-accent-foreground group-data-selected=true:text-accent-foreground group-data-[state=checked]:text-accent-foreground group-data-[state=checked=true]:text-accent-foreground">
+          {children}
+        </span>
         {supportingText && (
-          <span className="text-xs text-muted-foreground leading-4">{supportingText}</span>
+          <span className="text-xs text-muted-foreground leading-4 truncate group-data-highlighted:text-accent-foreground group-data-highlighted=true:text-accent-foreground group-data-selected:text-accent-foreground group-data-selected=true:text-accent-foreground group-data-[state=checked]:text-accent-foreground group-data-[state=checked=true]:text-accent-foreground">
+            {supportingText}
+          </span>
         )}
       </SelectPrimitive.ItemText>
 
       <SelectPrimitive.ItemIndicator
         render={
-          <span className="pointer-events-none flex size-4 shrink-0 items-center justify-center text-primary">
+          <span className="pointer-events-none flex size-4 shrink-0 items-center justify-center text-accent-foreground">
             <CheckIcon className="size-4" />
           </span>
         }
@@ -308,7 +312,7 @@ function McSelectSeparator({ className, ...props }: SelectPrimitive.Separator.Pr
   return (
     <SelectPrimitive.Separator
       data-slot="select-separator"
-      className={cn('pointer-events-none -mx-1 my-1 h-px bg-border', className)}
+      className={cn('pointer-events-none mx-0 my-1 h-px bg-border', className)}
       {...props}
     />
   );

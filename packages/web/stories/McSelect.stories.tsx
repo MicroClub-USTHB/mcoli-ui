@@ -55,7 +55,7 @@ function Avatar({ src, alt }: { src: string; alt: string }) {
   return <img src={src} alt={alt} className="size-5 rounded-full object-cover" />;
 }
 
-const meta: Meta<{ showLabel: boolean }> = {
+const meta: Meta<{ showLabel: boolean; scrollLabel: boolean }> = {
   title: 'Components/McSelect',
   parameters: {
     docs: {
@@ -65,25 +65,31 @@ const meta: Meta<{ showLabel: boolean }> = {
       },
     },
   },
-  // ← Ici on déclare le control global showLabel
+  // ← Ici on déclare les controls globaux showLabel et scrollLabel
   argTypes: {
     showLabel: {
       control: 'boolean',
       description: 'Affiche ou masque le label au-dessus du trigger',
       defaultValue: false,
     },
+    scrollLabel: {
+      control: 'boolean',
+      description: 'Affiche la barre de défilement dans le menu',
+      defaultValue: false,
+    },
   },
   args: {
     showLabel: false,
+    scrollLabel: false,
   },
   tags: ['autodocs'],
 };
 
 export default meta;
-type Story = StoryObj<{ showLabel: boolean }>;
+type Story = StoryObj<{ showLabel: boolean; scrollLabel: boolean }>;
 
 export const Default: Story = {
-  render: ({ showLabel }) => {
+  render: ({ showLabel, scrollLabel }) => {
     const [value, setValue] = React.useState<string | null>(null);
 
     const selected = TEAM_MEMBERS.find((m) => m.value === value);
@@ -94,22 +100,26 @@ export const Default: Story = {
 
         <McSelect value={value} onValueChange={setValue}>
           <McSelectTrigger variant="default">
-            {!selected ? (
-              <McSelectValue placeholder="Select team member" />
-            ) : (
-              <div className="flex items-center gap-2">
-                <span className="font-medium">{selected.name}</span>
-                {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
-              </div>
-            )}
+            <McSelectValue placeholder="Select team member">
+              {selected ? (
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">{selected.name}</span>
+                  {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
+                </div>
+              ) : null}
+            </McSelectValue>
           </McSelectTrigger>
 
-          <McSelectContent>
+          <McSelectContent scrollbar={scrollLabel}>
             <McSelectGroup>
               <McSelectGroupLabel>Team members</McSelectGroupLabel>
 
               {TEAM_MEMBERS.map((m) => (
-                <McSelectItem key={m.value} value={m.value}>
+                <McSelectItem
+                  key={m.value}
+                  value={m.value}
+                  supportingText={showLabel ? m.username : undefined}
+                >
                   {m.name}
                 </McSelectItem>
               ))}
@@ -122,7 +132,7 @@ export const Default: Story = {
 };
 
 export const IconLeading: Story = {
-  render: ({ showLabel }) => {
+  render: ({ showLabel, scrollLabel }) => {
     const [value, setValue] = React.useState<string | null>(null);
 
     const selected = TEAM_MEMBERS.find((m) => m.value === value);
@@ -132,20 +142,25 @@ export const IconLeading: Story = {
         {showLabel && <McSelectLabel>Team member</McSelectLabel>}
         <McSelect value={value} onValueChange={setValue}>
           <McSelectTrigger variant="icon-leading" leadingIcon={<UserIcon />}>
-            {!selected ? (
-              <McSelectValue placeholder="Select team member" />
-            ) : (
-              <div className="flex items-center gap-2">
-                <span className="font-medium">{selected.name}</span>
-                {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
-              </div>
-            )}
+            <McSelectValue placeholder="Select team member">
+              {selected ? (
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">{selected.name}</span>
+                  {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
+                </div>
+              ) : null}
+            </McSelectValue>
           </McSelectTrigger>
-          <McSelectContent>
+          <McSelectContent scrollbar={scrollLabel}>
             <McSelectGroup>
               <McSelectGroupLabel>Team members</McSelectGroupLabel>
               {TEAM_MEMBERS.map((m) => (
-                <McSelectItem key={m.value} value={m.value} leadingIcon={<UserIcon />}>
+                <McSelectItem
+                  key={m.value}
+                  value={m.value}
+                  leadingIcon={<UserIcon />}
+                  supportingText={showLabel ? m.username : undefined}
+                >
                   {m.name}
                 </McSelectItem>
               ))}
@@ -158,7 +173,7 @@ export const IconLeading: Story = {
 };
 
 export const AvatarLeading: Story = {
-  render: ({ showLabel }) => {
+  render: ({ showLabel, scrollLabel }) => {
     const [value, setValue] = React.useState<string | null>(null);
 
     const selected = TEAM_MEMBERS.find((m) => m.value === value);
@@ -177,16 +192,16 @@ export const AvatarLeading: Story = {
               )
             }
           >
-            {!selected ? (
-              <McSelectValue placeholder="Select team member" />
-            ) : (
-              <div className="flex items-center gap-2">
-                <span className="font-medium">{selected.name}</span>
-                {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
-              </div>
-            )}
+            <McSelectValue placeholder="Select team member">
+              {selected ? (
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">{selected.name}</span>
+                  {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
+                </div>
+              ) : null}
+            </McSelectValue>
           </McSelectTrigger>
-          <McSelectContent>
+          <McSelectContent scrollbar={scrollLabel}>
             <McSelectGroup>
               <McSelectGroupLabel>Team members</McSelectGroupLabel>
               {TEAM_MEMBERS.map((m) => (
@@ -194,7 +209,7 @@ export const AvatarLeading: Story = {
                   key={m.value}
                   value={m.value}
                   leadingAvatar={<Avatar src={m.avatar} alt={m.name} />}
-                  supportingText={m.username}
+                  supportingText={showLabel ? m.username : undefined}
                 >
                   {m.name}
                 </McSelectItem>
@@ -208,7 +223,7 @@ export const AvatarLeading: Story = {
 };
 
 export const DotLeading: Story = {
-  render: ({ showLabel }) => {
+  render: ({ showLabel, scrollLabel }) => {
     const [value, setValue] = React.useState<string | null>(null);
     const selected = TEAM_MEMBERS.find((m) => m.value === value);
 
@@ -218,22 +233,27 @@ export const DotLeading: Story = {
 
         <McSelect value={value} onValueChange={setValue}>
           <McSelectTrigger variant="dot-leading" dotColor="bg-green-500">
-            {!selected ? (
-              <McSelectValue placeholder="Select status" />
-            ) : (
-              <div className="flex items-center gap-2">
-                <span className="font-medium">{selected.name}</span>
-                {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
-              </div>
-            )}
+            <McSelectValue placeholder="Select status">
+              {selected ? (
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">{selected.name}</span>
+                  {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
+                </div>
+              ) : null}
+            </McSelectValue>
           </McSelectTrigger>
 
-          <McSelectContent>
+          <McSelectContent scrollbar={scrollLabel}>
             <McSelectGroup>
               <McSelectGroupLabel>Status</McSelectGroupLabel>
 
               {TEAM_MEMBERS.map((m) => (
-                <McSelectItem key={m.value} value={m.value} dotColor="bg-green-500">
+                <McSelectItem
+                  key={m.value}
+                  value={m.value}
+                  dotColor="bg-green-500"
+                  supportingText={showLabel ? m.username : undefined}
+                >
                   {m.name}
                 </McSelectItem>
               ))}
@@ -246,7 +266,7 @@ export const DotLeading: Story = {
 };
 
 export const Search: Story = {
-  render: ({ showLabel }) => {
+  render: ({ showLabel, scrollLabel }) => {
     const [value, setValue] = React.useState<string | null>(null);
     const selected = TEAM_MEMBERS.find((m) => m.value === value);
 
@@ -256,22 +276,26 @@ export const Search: Story = {
 
         <McSelect value={value} onValueChange={setValue}>
           <McSelectTrigger variant="search">
-            {!selected ? (
-              <McSelectValue placeholder="Search member" />
-            ) : (
-              <div className="flex items-center gap-2">
-                <span className="font-medium">{selected.name}</span>
-                {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
-              </div>
-            )}
+            <McSelectValue placeholder="Search member">
+              {selected ? (
+                <div className="flex items-center gap-2">
+                  <span className="font-medium">{selected.name}</span>
+                  {showLabel && <span className="text-muted-foreground">{selected.username}</span>}
+                </div>
+              ) : null}
+            </McSelectValue>
           </McSelectTrigger>
 
-          <McSelectContent>
+          <McSelectContent scrollbar={scrollLabel}>
             <McSelectGroup>
               <McSelectGroupLabel>Team members</McSelectGroupLabel>
 
               {TEAM_MEMBERS.map((m) => (
-                <McSelectItem key={m.value} value={m.value} supportingText={m.username}>
+                <McSelectItem
+                  key={m.value}
+                  value={m.value}
+                  supportingText={showLabel ? m.username : undefined}
+                >
                   {m.name}
                 </McSelectItem>
               ))}
