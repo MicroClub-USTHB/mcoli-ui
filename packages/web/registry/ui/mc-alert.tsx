@@ -17,7 +17,7 @@ const variantStyles: Record<AlertVariant, string> = {
   success:
     'border border-success rounded-lg w-fit max-w-[719px] pt-[12px] pb-[14px] pl-[12px] pr-[12px]',
   default: 'border border-border rounded-lg w-fit max-w-[719px] pl-4 pr-3 py-3',
-  destructive: 'border border-destructive rounded-lg w-fit max-w-[719px] px-4 py-3',
+  destructive: 'border border-destructive rounded-lg w-fit max-w-[719px] pl-11 pr-4 py-3',
 };
 
 const titleStyles: Record<AlertVariant, string> = {
@@ -39,8 +39,8 @@ const iconMap: Record<AlertVariant, React.ReactNode> = {
 };
 
 const iconGap: Record<AlertVariant, string> = {
-  success: 'gap-3',
-  default: 'gap-3',
+  success: 'gap-1',
+  default: 'gap-0',
   destructive: 'gap-3',
 };
 
