@@ -5,9 +5,10 @@ export default function TooltipDemo() {
   return (
     <Tooltip>
       <TooltipTrigger render={<Button variant="outline">Hover</Button>} />
-      <TooltipContent>
-        <p>Add to library</p>
-      </TooltipContent>
+      <TooltipContent
+        title="Lovely tooltip title"
+        desc="There are a lot of things you can do in space."
+      />
     </Tooltip>
   );
 }

@@ -2297,6 +2297,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-tooltip",
+      "title": "MicroClub Tooltip",
+      "description": "A tooltip component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-tooltip.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }
