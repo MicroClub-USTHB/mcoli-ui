@@ -2297,6 +2297,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-alert",
+      "title": "MicroClub Mc Alert",
+      "description": "A Alert component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-alert.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }

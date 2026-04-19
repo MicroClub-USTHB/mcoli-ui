@@ -144,4 +144,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+  {
+    name: 'mc-alert',
+    type: 'registry:component',
+    title: 'MicroClub Mc Alert',
+    description: 'A Alert component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-alert.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
