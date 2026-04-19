@@ -1,60 +1,75 @@
-import * as React from 'react';
-import { cva, type VariantProps } from 'class-variance-authority';
+'use client';
 
+import * as React from 'react';
+import { CircleAlert, CircleCheck, Trash2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const alertVariants = cva(
-  'relative grid w-full grid-cols-[0_1fr] items-start gap-y-0.5 rounded-lg border px-4 py-3 text-sm has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] has-[>svg]:gap-x-3 [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current',
-  {
-    variants: {
-      variant: {
-        default: 'bg-card text-card-foreground',
-        destructive:
-          'bg-card text-destructive *:data-[slot=alert-description]:text-destructive/90 [&>svg]:text-current',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-    },
-  }
-);
+type AlertVariant = 'success' | 'default' | 'destructive';
 
-function Alert({
-  className,
-  variant,
-  ...props
-}: React.ComponentProps<'div'> & VariantProps<typeof alertVariants>) {
+interface McAlertProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant: AlertVariant;
+  title: string;
+  description?: string;
+  items?: string[];
+}
+
+const variantStyles: Record<AlertVariant, string> = {
+  success:
+    'border border-success rounded-lg h-[74px] w-[719px] pt-[12px] pb-[14px] pl-[12px] pr-[12px]',
+  default: 'border border-border rounded-lg h-[48px] w-[719px] px-4 py-3',
+  destructive: 'border border-destructive rounded-lg h-[134px] w-[719px] px-4 py-3',
+};
+
+const titleStyles: Record<AlertVariant, string> = {
+  success: 'text-success font-medium text-base leading-6',
+  default: 'text-foreground font-medium text-base leading-6',
+  destructive: 'text-destructive font-medium text-base leading-6',
+};
+
+const descStyles: Record<AlertVariant, string> = {
+  success: 'text-success font-normal text-sm leading-5',
+  default: 'text-muted-foreground font-normal text-sm leading-5',
+  destructive: 'text-destructive font-normal text-sm leading-5',
+};
+
+const iconMap: Record<AlertVariant, React.ReactNode> = {
+  success: <CircleCheck className="size-4 shrink-0 stroke-2 text-success" />,
+  default: <Trash2 className="size-4 shrink-0 stroke-2 text-foreground" />,
+  destructive: <CircleAlert className="size-4 shrink-0 stroke-2 text-destructive" />,
+};
+
+const iconGap: Record<AlertVariant, string> = {
+  success: 'gap-3',
+  default: 'gap-3',
+  destructive: 'gap-3',
+};
+
+function McAlert({ variant, title, description, items, className, ...props }: McAlertProps) {
   return (
     <div
-      data-slot="alert"
+      data-slot="mc-alert"
+      data-variant={variant}
+      className={cn(variantStyles[variant], className)}
       role="alert"
-      className={cn(alertVariants({ variant }), className)}
       {...props}
-    />
-  );
-}
+    >
+      <div className={cn('flex items-center', iconGap[variant])}>
+        {iconMap[variant]}
+        <span className={titleStyles[variant]}>{title}</span>
+      </div>
 
-function AlertTitle({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div
-      data-slot="alert-title"
-      className={cn('col-start-2 line-clamp-1 min-h-4 font-medium tracking-tight', className)}
-      {...props}
-    />
-  );
-}
+      {description && <p className={cn('mt-0.5 pl-5', descStyles[variant])}>{description}</p>}
 
-function AlertDescription({ className, ...props }: React.ComponentProps<'div'>) {
-  return (
-    <div
-      data-slot="alert-description"
-      className={cn(
-        'col-start-2 grid justify-items-start gap-1 text-sm text-muted-foreground [&_p]:leading-relaxed',
-        className
+      {items && items.length > 0 && (
+        <ul className={cn('mt-0.5 pl-8 list-disc', descStyles[variant])}>
+          {items.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
       )}
-      {...props}
-    />
+    </div>
   );
 }
 
-export { Alert, AlertTitle, AlertDescription };
+export { McAlert };
+export type { McAlertProps, AlertVariant };
