@@ -14,14 +14,15 @@ interface McAlertProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const variantStyles: Record<AlertVariant, string> = {
-  success: 'border border-success rounded-lg max-w-[719px] pt-[12px] pb-[14px] pl-[12px] pr-[12px]',
-  default: 'border border-border rounded-lg max-w-[719px] pl-4 pr-3 py-3',
-  destructive: 'border border-destructive rounded-lg max-w-[719px] px-4 py-3',
+  success:
+    'border border-success rounded-lg w-fit max-w-[719px] pt-[12px] pb-[14px] pl-[12px] pr-[12px]',
+  default: 'border border-border rounded-lg w-fit max-w-[719px] pl-4 pr-3 py-3',
+  destructive: 'border border-destructive rounded-lg w-fit max-w-[719px] px-4 py-3',
 };
 
 const titleStyles: Record<AlertVariant, string> = {
   success: 'text-success font-medium text-base leading-6',
-  default: 'text-foreground font-medium text-base leading-6',
+  default: 'text-card-foreground font-medium text-base leading-6',
   destructive: 'text-destructive font-medium text-base leading-6',
 };
 
@@ -33,7 +34,7 @@ const descStyles: Record<AlertVariant, string> = {
 
 const iconMap: Record<AlertVariant, React.ReactNode> = {
   success: <CircleCheck className="size-4 shrink-0 stroke-2 text-success" />,
-  default: <Trash2 className="size-4 shrink-0 stroke-2 text-foreground" />,
+  default: <Trash2 className="size-4 shrink-0 stroke-2 text-card-foreground" />,
   destructive: <CircleAlert className="size-4 shrink-0 stroke-2 text-destructive" />,
 };
 
