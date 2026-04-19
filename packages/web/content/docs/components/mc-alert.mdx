@@ -1,9 +1,126 @@
 ---
 title: MC Alert
-description: A component for displaying important messages.
+description: A contextual feedback component for user notifications.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-alert` is a core component of the MicroClub UI library. Built with native React and styled via **Tailwind CSS v4**, it delivers clear, accessible feedback messages across three semantic variants — success, default, and destructive.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-alert-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-alert-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-alert` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-alert</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-alert</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-alert</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-alert</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install clsx tailwind-merge lucide-react</Tab>
+  <Tab value="pnpm">pnpm add clsx tailwind-merge lucide-react</Tab>
+  <Tab value="yarn">yarn add clsx tailwind-merge lucide-react</Tab>
+  <Tab value="bun">bun add clsx tailwind-merge lucide-react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-alert" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McAlert } from '@/components/ui/mc-alert';
+
+export default function Example() {
+  return (
+    <McAlert
+      variant="success"
+      title="Success! Your changes have been saved"
+      description="This is an alert with icon, title and description."
+    />
+  );
+}
+```
+
+## Examples
+
+### Variants
+
+```tsx
+<McAlert variant="success" title="Success! Your changes have been saved" />
+<McAlert variant="default" title="This Alert has a title and an icon. No description." />
+<McAlert variant="destructive" title="Unable to process your payment." />
+```
+
+### With Description
+
+```tsx
+<McAlert
+  variant="success"
+  title="Success! Your changes have been saved"
+  description="This is an alert with icon, title and description."
+/>
+```
+
+### With Bullet List
+
+The `items` prop renders a bullet list below the description. Designed for the `destructive` variant but supported by all.
+
+```tsx
+<McAlert
+  variant="destructive"
+  title="Unable to process your payment."
+  description="Please verify your billing information and try again."
+  items={['Check your card details', 'Ensure sufficient funds', 'Verify billing address']}
+/>
+```
+
+### Default (No Description)
+
+```tsx
+<McAlert variant="default" title="This Alert has a title and an icon. No description." />
+```
+
+## API Reference
+
+### Props
+
+| Prop          | Type                                      | Default     | Description                                        |
+| ------------- | ----------------------------------------- | ----------- | -------------------------------------------------- |
+| `variant`     | `"success" \| "default" \| "destructive"` | —           | The semantic style of the alert                    |
+| `title`       | `string`                                  | —           | The heading text of the alert                      |
+| `description` | `string`                                  | `undefined` | Supporting body text displayed below the title     |
+| `items`       | `string[]`                                | `undefined` | Bullet list items rendered below the description   |
+| `className`   | `string`                                  | `undefined` | Additional CSS classes applied to the root element |
+
+All standard `HTMLDivElement` props are supported.
