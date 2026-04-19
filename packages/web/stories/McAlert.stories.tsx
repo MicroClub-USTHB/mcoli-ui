@@ -8,9 +8,6 @@ const meta: Meta<typeof McAlert> = {
   parameters: {
     layout: 'padded',
   },
-  argTypes: {
-    variant: { control: false },
-  },
 };
 
 export default meta;

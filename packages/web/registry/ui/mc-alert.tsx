@@ -14,10 +14,9 @@ interface McAlertProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const variantStyles: Record<AlertVariant, string> = {
-  success:
-    'border border-success rounded-lg h-[74px] w-[719px] pt-[12px] pb-[14px] pl-[12px] pr-[12px]',
-  default: 'border border-border rounded-lg h-[48px] w-[719px] px-4 py-3',
-  destructive: 'border border-destructive rounded-lg h-[134px] w-[719px] px-4 py-3',
+  success: 'border border-success rounded-lg w-[719px] pt-[12px] pb-[14px] pl-[12px] pr-[12px]',
+  default: 'border border-border rounded-lg w-[719px] px-4 py-3',
+  destructive: 'border border-destructive rounded-lg w-[719px] px-4 py-3',
 };
 
 const titleStyles: Record<AlertVariant, string> = {
