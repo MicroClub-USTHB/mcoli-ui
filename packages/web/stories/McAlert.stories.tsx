@@ -6,7 +6,7 @@ const meta: Meta<typeof McAlert> = {
   component: McAlert,
   tags: ['autodocs'],
   parameters: {
-    layout: 'padded',
+    layout: 'fullscreen',
   },
 };
 
@@ -24,7 +24,7 @@ export const Success: Story = {
 export const Default: Story = {
   args: {
     variant: 'default',
-    title: 'This alert has a title and an icon. No description.',
+    title: 'This Alert has a title and an icon. No description.',
   },
 };
 
@@ -32,7 +32,12 @@ export const Destructive: Story = {
   args: {
     variant: 'destructive',
     title: 'Unable to process your payment.',
-    description: 'Please verify your billing information and try again.',
-    items: ['Check your card details', 'Ensure sufficient funds', 'Verify billing address'],
+    description:
+      'Please verify your billing information and try again.Please verify your billing information and try again.',
+    items: [
+      'Check your card details and ensure they are correct',
+      'Ensure sufficient funds are available in your account',
+      'Verify billing address ',
+    ],
   },
 };
