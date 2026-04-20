@@ -33,10 +33,6 @@ export const Destructive: Story = {
     variant: 'destructive',
     title: 'Unable to process your payment.',
     description: 'Please verify your billing information and try again.',
-    items: [
-      'Check your card details and ensure they are correct',
-      'Ensure sufficient funds are available in your account',
-      'Verify billing address ',
-    ],
+    items: ['Check your card details', 'Ensure sufficient funds', 'Verify billing address'],
   },
 };
