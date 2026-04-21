@@ -158,4 +158,17 @@ export const examples: Registry['items'] = [
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-navigation-menu.json`],
   },
+  {
+    name: 'mc-popover-demo',
+    type: 'registry:example',
+    title: 'MicroClub Popover  Demo',
+    description: 'Demo for MicroClub Popover',
+    files: [
+      {
+        path: 'examples/mc-popover-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-navigation-menu.json`],
+  },
 ];
