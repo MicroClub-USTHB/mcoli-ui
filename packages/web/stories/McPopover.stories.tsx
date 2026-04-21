@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import { McButton } from '@/registry/ui/mc-button';
+import { McInput } from '@/components/ui/mc-input';
 import {
   Popover,
   PopoverContent,
@@ -45,10 +46,35 @@ export const Test: Story = {
           </McButton>
         }
       />
-      <PopoverHeader>
-        <PopoverTitle>Dimensions</PopoverTitle>
-        <PopoverDescription>Set the dimensions for the layer.</PopoverDescription>
-      </PopoverHeader>
+      <PopoverContent>
+        <PopoverHeader>
+          <PopoverTitle>Dimensions</PopoverTitle>
+          <PopoverDescription>Set the dimensions for the layer.</PopoverDescription>
+        </PopoverHeader>
+
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center gap-2">
+            <label htmlFor="width" className="w-1/2 text-sm font-medium">
+              Width
+            </label>
+            <input
+              id="width"
+              defaultValue="100%"
+              className="w-full rounded-md border border-gray-300 bg-white px-3 py-1 text-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-gray-400"
+            />
+          </div>
+          <div className="flex items-center gap-2">
+            <label htmlFor="height" className="w-1/2 text-sm font-medium">
+              Height
+            </label>
+            <input
+              id="width"
+              defaultValue="100%"
+              className="w-full rounded-md border border-gray-300 bg-white px-3 py-1 text-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-gray-400"
+            />
+          </div>
+        </div>
+      </PopoverContent>
     </Popover>
   ),
 };
