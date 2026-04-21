@@ -15,6 +15,19 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-input',
+    type: 'registry:component',
+    title: 'MicroClub Input',
+    description: 'An input component with field integration and addon support for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-input.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
     name: 'mc-input-otp',
     type: 'registry:component',
     title: 'MicroClub Input OTP',

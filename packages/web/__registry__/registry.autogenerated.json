@@ -2169,6 +2169,19 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-input",
+      "title": "MicroClub Input",
+      "description": "An input component with field integration and addon support for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-input.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-input-otp",
       "title": "MicroClub Input OTP",
       "description": "An OTP input component for MicroClub UI",
