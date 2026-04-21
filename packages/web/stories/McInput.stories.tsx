@@ -96,6 +96,7 @@ export const Playground: Story = {
     label: 'Email',
     description: 'This is a hint text to help user.',
     placeholder: 'olivia@untitledui.com',
+    addonStart: <img src="https://i.ibb.co/84Mh2nPm/cib-edh.jpg" alt="cib edh" className="h-6" />,
   },
 };
 

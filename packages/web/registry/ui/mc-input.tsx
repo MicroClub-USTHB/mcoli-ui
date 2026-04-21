@@ -113,10 +113,10 @@ function McInput({
               data-align="start"
               className={cn(
                 // group/addon — lets attached buttons detect start/end via group-data-[align]/addon
-                // :has(>…:not([data-attached]):first-child):pl-2 — tighten for inline buttons at edge;
-                //   :not([data-attached]) avoids outspecifying the flush rule due to :first-child specificity
-                // has-data-attached:pl-0, items-stretch — flush + full-height for attached buttons
-                'group/addon flex shrink-0 items-center gap-2 pl-3.5 text-sm text-muted-foreground select-none [&:has(>[data-slot=input-button]:not([data-attached]):first-child)]:pl-2 has-data-attached:items-stretch has-data-attached:pl-0',
+                // :has(>svg:first-child):pl-3.5 — widen padding only when the edge element is an icon
+                // has-data-attached:pl-0 — flush for attached buttons (attribute selector beats type selector)
+                // has-data-attached:items-stretch — let attached button fill full height
+                'group/addon flex shrink-0 items-center gap-2 pl-2 text-sm text-muted-foreground select-none [&:has(>svg:first-child)]:pl-3.5 has-data-attached:items-stretch has-data-attached:pl-0',
                 "[&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0"
               )}
             >
@@ -147,8 +147,8 @@ function McInput({
               data-slot="input-addon"
               data-align="end"
               className={cn(
-                // Same as addonStart above, mirrored (pl → pr, first-child → last-child)
-                'group/addon flex shrink-0 items-center gap-2 pr-3.5 text-sm text-muted-foreground select-none [&:has(>[data-slot=input-button]:not([data-attached]):last-child)]:pr-2 has-data-attached:items-stretch has-data-attached:pr-0',
+                // Same as addonStart, mirrored (pl → pr, first-child → last-child)
+                'group/addon flex shrink-0 items-center gap-2 pr-2 text-sm text-muted-foreground select-none [&:has(>svg:last-child)]:pr-3.5 has-data-attached:items-stretch has-data-attached:pr-0',
                 "[&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0"
               )}
             >
