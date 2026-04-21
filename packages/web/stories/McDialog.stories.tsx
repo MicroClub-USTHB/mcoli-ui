@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
+  McDialog,
+  McDialogClose,
+  McDialogContent,
+  McDialogDescription,
+  McDialogFooter,
+  McDialogHeader,
+  McDialogTitle,
+  McDialogTrigger,
 } from '@/registry/ui/mc-dialog';
 import { McButton } from '@/registry/ui/mc-button';
 
@@ -21,19 +21,19 @@ type McDialogStoryProps = {
 function McDialogStory({ title, description, showCloseButton, showFooter }: McDialogStoryProps) {
   return (
     <div className="flex min-h-80 items-center justify-center">
-      <Dialog>
-        <DialogTrigger
+      <McDialog>
+        <McDialogTrigger
           render={
             <McButton variant="primary" size="md">
               Open dialog
             </McButton>
           }
         />
-        <DialogContent className="gap-6" showCloseButton={showCloseButton}>
-          <DialogHeader className="gap-2.5">
-            <DialogTitle>{title}</DialogTitle>
-            <DialogDescription>{description}</DialogDescription>
-          </DialogHeader>
+        <McDialogContent className="gap-6" showCloseButton={showCloseButton}>
+          <McDialogHeader className="gap-2.5">
+            <McDialogTitle>{title}</McDialogTitle>
+            <McDialogDescription>{description}</McDialogDescription>
+          </McDialogHeader>
 
           <form className="grid gap-5" onSubmit={(event) => event.preventDefault()}>
             <div className="grid gap-2.5">
@@ -66,25 +66,25 @@ function McDialogStory({ title, description, showCloseButton, showFooter }: McDi
           </form>
 
           {showFooter && (
-            <DialogFooter showCloseButton={false}>
-              <DialogClose
+            <McDialogFooter showCloseButton={false}>
+              <McDialogClose
                 render={
                   <McButton variant="secondary" size="md">
                     Cancel
                   </McButton>
                 }
               />
-              <DialogClose
+              <McDialogClose
                 render={
                   <McButton variant="primary" size="md">
                     Save changes
                   </McButton>
                 }
               />
-            </DialogFooter>
+            </McDialogFooter>
           )}
-        </DialogContent>
-      </Dialog>
+        </McDialogContent>
+      </McDialog>
     </div>
   );
 }

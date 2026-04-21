@@ -1,33 +1,33 @@
 import { McButton } from '../ui/mc-button';
 import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
+  McDialog,
+  McDialogClose,
+  McDialogContent,
+  McDialogDescription,
+  McDialogFooter,
+  McDialogHeader,
+  McDialogTitle,
+  McDialogTrigger,
 } from '@/registry/ui/mc-dialog';
 
 export default function McDialogDemo() {
   return (
     <div className="flex min-h-72 items-center justify-center py-6">
-      <Dialog>
-        <DialogTrigger
+      <McDialog>
+        <McDialogTrigger
           render={
             <McButton variant="primary" size="md">
               Open dialog
             </McButton>
           }
         />
-        <DialogContent className="gap-6">
-          <DialogHeader className="gap-2.5">
-            <DialogTitle>Edit profile</DialogTitle>
-            <DialogDescription>
+        <McDialogContent className="gap-6">
+          <McDialogHeader className="gap-2.5">
+            <McDialogTitle>Edit profile</McDialogTitle>
+            <McDialogDescription>
               Make changes to your profile here. Click save when you&apos;re done.
-            </DialogDescription>
-          </DialogHeader>
+            </McDialogDescription>
+          </McDialogHeader>
 
           <form className="grid gap-5" onSubmit={(event) => event.preventDefault()}>
             <div className="grid gap-2.5">
@@ -59,24 +59,24 @@ export default function McDialogDemo() {
             </div>
           </form>
 
-          <DialogFooter showCloseButton={false}>
-            <DialogClose
+          <McDialogFooter showCloseButton={false}>
+            <McDialogClose
               render={
                 <McButton variant="secondary" size="md">
                   Cancel
                 </McButton>
               }
             />
-            <DialogClose
+            <McDialogClose
               render={
                 <McButton variant="primary" size="md">
                   Save changes
                 </McButton>
               }
             />
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+          </McDialogFooter>
+        </McDialogContent>
+      </McDialog>
     </div>
   );
 }
