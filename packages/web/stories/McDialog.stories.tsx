@@ -18,28 +18,8 @@ type McDialogStoryProps = {
   showFooter: boolean;
 };
 
-const meta: Meta = {
-  title: 'Components/McDialog',
-  component: Dialog,
-  argTypes: {
-    title: { control: 'text' },
-    description: { control: 'text' },
-    showCloseButton: { control: 'boolean' },
-    showFooter: { control: 'boolean' },
-  },
-  args: {
-    title: 'Edit profile',
-    description: "Make changes to your profile here. Click save when you're done.",
-    showCloseButton: true,
-    showFooter: true,
-  },
-};
-
-export default meta;
-type Story = StoryObj<McDialogStoryProps>;
-
-export const Playground: Story = {
-  render: ({ title, description, showCloseButton, showFooter }) => (
+function McDialogStory({ title, description, showCloseButton, showFooter }: McDialogStoryProps) {
+  return (
     <div className="flex min-h-80 items-center justify-center">
       <Dialog>
         <DialogTrigger
@@ -106,8 +86,31 @@ export const Playground: Story = {
         </DialogContent>
       </Dialog>
     </div>
-  ),
+  );
+}
+
+const meta: Meta<McDialogStoryProps> = {
+  title: 'Components/McDialog',
+  component: McDialogStory,
+  render: (args) => <McDialogStory {...args} />,
+  argTypes: {
+    title: { control: 'text' },
+    description: { control: 'text' },
+    showCloseButton: { control: 'boolean' },
+    showFooter: { control: 'boolean' },
+  },
+  args: {
+    title: 'Edit profile',
+    description: "Make changes to your profile here. Click save when you're done.",
+    showCloseButton: true,
+    showFooter: true,
+  },
 };
+
+export default meta;
+type Story = StoryObj<McDialogStoryProps>;
+
+export const Playground: Story = {};
 
 export const WithoutTopCloseButton: Story = {
   args: {
@@ -118,12 +121,5 @@ export const WithoutTopCloseButton: Story = {
 export const WithoutFooter: Story = {
   args: {
     showFooter: false,
-  },
-};
-
-export const LongDescription: Story = {
-  args: {
-    description:
-      'Use this modal when you need focused attention from users before they continue. Keep primary actions clear and include an escape route when possible.',
   },
 };
