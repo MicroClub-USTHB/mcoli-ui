@@ -45,9 +45,10 @@ export const Test: Story = {
           </McButton>
         }
       />
-      <PopoverContent align="center" className="w-40">
-        Dimens
-      </PopoverContent>
+      <PopoverHeader>
+        <PopoverTitle>Dimensions</PopoverTitle>
+        <PopoverDescription>Set the dimensions for the layer.</PopoverDescription>
+      </PopoverHeader>
     </Popover>
   ),
 };
