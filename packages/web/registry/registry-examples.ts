@@ -16,6 +16,32 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-button.json`],
   },
   {
+    name: 'mc-input-demo',
+    type: 'registry:example',
+    title: 'MicroClub Input Demo',
+    description: 'Demo for MicroClub Input',
+    files: [
+      {
+        path: 'examples/mc-input-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-input.json`],
+  },
+  {
+    name: 'mc-textarea-demo',
+    type: 'registry:example',
+    title: 'MicroClub Textarea Demo',
+    description: 'Demo for MicroClub Textarea',
+    files: [
+      {
+        path: 'examples/mc-textarea-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-textarea.json`],
+  },
+  {
     name: 'mc-input-otp-demo',
     type: 'registry:example',
     title: 'MicroClub Input OTP Demo',

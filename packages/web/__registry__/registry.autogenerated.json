@@ -2182,6 +2182,19 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-textarea",
+      "title": "MicroClub Textarea",
+      "description": "A multi-line text input with field integration and block addons for MicroClub UI",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/mc-textarea.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-input-otp",
       "title": "MicroClub Input OTP",
       "description": "An OTP input component for MicroClub UI",

@@ -28,6 +28,19 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-textarea',
+    type: 'registry:component',
+    title: 'MicroClub Textarea',
+    description: 'A multi-line text input with field integration and block addons for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-textarea.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: [],
+  },
+  {
     name: 'mc-input-otp',
     type: 'registry:component',
     title: 'MicroClub Input OTP',
