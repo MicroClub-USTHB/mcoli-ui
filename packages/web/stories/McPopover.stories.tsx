@@ -38,7 +38,6 @@ export const Test: Story = {
         bg-background
         shadow-sm
         transition-all duration-300 ease-out
-        hover:bg-accent
         active:scale-95
       "
           >
