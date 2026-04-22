@@ -37,11 +37,21 @@ export const Test: Story = {
         border border-border
         bg-background
         shadow-sm
-        transition-all duration-300 ease-out
-        active:scale-95
+        transition-all
+        duration-300
+        font-sans
+        text-sm
+        font-semibold
+        leading-5
+        text-center
+        text-foreground
+        ease-out
+        hover:bg-accent/50
+        data-[state=open]:bg-background
+        data-[state=open]:shadow-sm
       "
           >
-            Popover
+            Popover Here
           </button>
         }
       />
