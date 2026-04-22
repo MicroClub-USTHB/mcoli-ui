@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import { McButton } from '@/registry/ui/mc-button';
 
 import {
   Popover,
@@ -9,7 +8,6 @@ import {
   PopoverTitle,
   PopoverTrigger,
 } from '@/registry/ui/mc-popover';
-import { AlignCenter } from 'lucide-react';
 
 const meta: Meta<typeof PopoverContent> = {
   title: 'Components/McPopover',
@@ -23,28 +21,29 @@ const meta: Meta<typeof PopoverContent> = {
 export default meta;
 type Story = StoryObj<typeof PopoverContent>;
 
-export const TitleOnly: Story = {
-  name: 'Property 1="title-only"',
-  render: () => (
-    <Popover>
-      <PopoverTrigger render={<McButton variant="primary">Info</McButton>} />
-      <PopoverContent>
-        <PopoverHeader>
-          <PopoverTitle>Title only, no description.</PopoverTitle>
-        </PopoverHeader>
-      </PopoverContent>
-    </Popover>
-  ),
-};
 export const Test: Story = {
   name: 'Property 1="title-only"',
   render: () => (
     <Popover>
       <PopoverTrigger
         render={
-          <McButton variant="secondary" size="md">
+          <button
+            className="
+        flex items-center justify-center
+        h-9
+        px-6 py-2
+        gap-2.5
+        rounded-lg
+        border border-border
+        bg-background
+        shadow-sm
+        transition-all duration-300 ease-out
+        hover:bg-accent
+        active:scale-95
+      "
+          >
             Popover
-          </McButton>
+          </button>
         }
       />
       <PopoverContent>
