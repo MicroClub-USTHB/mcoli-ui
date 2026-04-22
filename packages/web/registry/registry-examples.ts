@@ -169,6 +169,6 @@ export const examples: Registry['items'] = [
         type: 'registry:example',
       },
     ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-navigation-menu.json`],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-popover.json`, `${REGISTRY_URL}/r/mc-button.json`],
   },
 ];
