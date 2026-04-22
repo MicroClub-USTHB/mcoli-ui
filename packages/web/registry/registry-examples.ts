@@ -145,4 +145,17 @@ export const examples: Registry['items'] = [
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-navigation-menu.json`],
   },
+  {
+    name: 'mc-context-menu-demo',
+    type: 'registry:example',
+    title: 'MicroClub Context Menu Demo',
+    description: 'Demo for MicroClub Context Menu',
+    files: [
+      {
+        path: 'examples/mc-context-menu-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-context-menu.json`],
+  },
 ];
