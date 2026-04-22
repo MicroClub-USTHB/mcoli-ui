@@ -73,6 +73,8 @@ function McInput({
         data-slot="input-group"
         data-error={hasError || undefined}
         data-disabled={disabled || undefined}
+        data-has-top={!!addonTop || undefined}
+        data-has-bottom={!!addonBottom || undefined}
         role="group"
         onClick={handleGroupClick}
         className={cn(
@@ -236,6 +238,9 @@ function McInputButton({
           'h-full px-4 bg-primary text-primary-foreground hover:bg-primary/90 border-border',
           'group-data-[align=end]/addon:rounded-l-none group-data-[align=end]/addon:rounded-r-[calc(0.5rem-1px)] group-data-[align=end]/addon:border-l',
           'group-data-[align=start]/addon:rounded-r-none group-data-[align=start]/addon:rounded-l-[calc(0.5rem-1px)] group-data-[align=start]/addon:border-r',
+          // Flatten corners adjacent to block addons (addonTop / addonBottom)
+          '[[data-has-top]_[data-align]_&]:rounded-tl-none [[data-has-top]_[data-align]_&]:rounded-tr-none',
+          '[[data-has-bottom]_[data-align]_&]:rounded-bl-none [[data-has-bottom]_[data-align]_&]:rounded-br-none',
         ],
 
         className
