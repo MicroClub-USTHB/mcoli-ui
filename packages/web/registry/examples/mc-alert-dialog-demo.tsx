@@ -11,7 +11,7 @@ import {
 } from '@/registry/ui/mc-alert-dialog';
 import { Button } from '@/components/ui/button';
 
-export function AlertDialogDemo() {
+export default function AlertDialogDemo() {
   return (
     <AlertDialog>
       <AlertDialogTrigger render={<Button variant="outline">Show Dialog</Button>} />
