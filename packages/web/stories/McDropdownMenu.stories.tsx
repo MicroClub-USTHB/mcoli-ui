@@ -3,28 +3,28 @@ import * as React from 'react';
 
 import { Button } from '@/components/ui/button';
 import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuPortal,
-  DropdownMenuSeparator,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuTrigger,
+  McDropdownMenu,
+  McDropdownMenuCheckboxItem,
+  McDropdownMenuContent,
+  McDropdownMenuGroup,
+  McDropdownMenuItem,
+  McDropdownMenuLabel,
+  McDropdownMenuPortal,
+  McDropdownMenuSeparator,
+  McDropdownMenuSub,
+  McDropdownMenuSubContent,
+  McDropdownMenuSubTrigger,
+  McDropdownMenuTrigger,
 } from '@/registry/ui/mc-dropdown-menu';
 
-type DropdownStoryArgs = React.ComponentProps<typeof DropdownMenu> & {
+type DropdownStoryArgs = React.ComponentProps<typeof McDropdownMenu> & {
   align?: 'start' | 'center' | 'end';
   side?: 'top' | 'right' | 'bottom' | 'left';
 };
 
 const meta = {
   title: 'Components/McDropdownMenu',
-  component: DropdownMenu,
+  component: McDropdownMenu,
   tags: ['autodocs'],
   argTypes: {
     open: {
@@ -64,41 +64,41 @@ function AccountMenu({
 }) {
   return (
     <div className="flex min-h-[260px] items-start justify-center py-10">
-      <DropdownMenu open={open}>
-        <DropdownMenuTrigger
+      <McDropdownMenu open={open}>
+        <McDropdownMenuTrigger
           render={
             <Button className="w-17 h-10 active:primary shadow-[0_0_0_4px_muted]" variant="outline">
               Open
             </Button>
           }
         />
-        <DropdownMenuContent className="w-56" align={align} side={side}>
-          <DropdownMenuGroup className="h-auto">
-            <DropdownMenuLabel>My Account</DropdownMenuLabel>
-            <DropdownMenuItem>Profile</DropdownMenuItem>
-            <DropdownMenuItem>Settings</DropdownMenuItem>
-          </DropdownMenuGroup>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup className="h-auto">
-            <DropdownMenuItem>Team</DropdownMenuItem>
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  <DropdownMenuItem>Email</DropdownMenuItem>
-                  <DropdownMenuItem>Message</DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>More...</DropdownMenuItem>
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
-          </DropdownMenuGroup>
-          <DropdownMenuSeparator />
-          <DropdownMenuGroup className="h-auto">
-            <DropdownMenuItem variant="destructive">Log out</DropdownMenuItem>
-          </DropdownMenuGroup>
-        </DropdownMenuContent>
-      </DropdownMenu>
+        <McDropdownMenuContent className="w-56" align={align} side={side}>
+          <McDropdownMenuGroup className="h-auto">
+            <McDropdownMenuLabel>My Account</McDropdownMenuLabel>
+            <McDropdownMenuItem>Profile</McDropdownMenuItem>
+            <McDropdownMenuItem>Settings</McDropdownMenuItem>
+          </McDropdownMenuGroup>
+          <McDropdownMenuSeparator />
+          <McDropdownMenuGroup className="h-auto">
+            <McDropdownMenuItem>Team</McDropdownMenuItem>
+            <McDropdownMenuSub>
+              <McDropdownMenuSubTrigger>Invite users</McDropdownMenuSubTrigger>
+              <McDropdownMenuPortal>
+                <McDropdownMenuSubContent>
+                  <McDropdownMenuItem>Email</McDropdownMenuItem>
+                  <McDropdownMenuItem>Message</McDropdownMenuItem>
+                  <McDropdownMenuSeparator />
+                  <McDropdownMenuItem>More...</McDropdownMenuItem>
+                </McDropdownMenuSubContent>
+              </McDropdownMenuPortal>
+            </McDropdownMenuSub>
+          </McDropdownMenuGroup>
+          <McDropdownMenuSeparator />
+          <McDropdownMenuGroup className="h-auto">
+            <McDropdownMenuItem variant="destructive">Log out</McDropdownMenuItem>
+          </McDropdownMenuGroup>
+        </McDropdownMenuContent>
+      </McDropdownMenu>
     </div>
   );
 }
@@ -110,33 +110,39 @@ function PreferencesMenu({ open }: { open?: boolean }) {
 
   return (
     <div className="flex min-h-[260px] items-start justify-center py-10">
-      <DropdownMenu open={open}>
-        <DropdownMenuTrigger render={<Button variant="outline">Open</Button>} />
-        <DropdownMenuContent className="w-56" align="end">
-          <DropdownMenuGroup className="h-auto">
-            <DropdownMenuLabel>Preferences</DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuCheckboxItem
+      <McDropdownMenu open={open}>
+        <McDropdownMenuTrigger
+          render={
+            <Button className="w-17 h-10 active:primary shadow-[0_0_0_4px_muted]" variant="outline">
+              Open
+            </Button>
+          }
+        />
+        <McDropdownMenuContent className="w-56" align="end">
+          <McDropdownMenuGroup className="h-auto">
+            <McDropdownMenuLabel>Preferences</McDropdownMenuLabel>
+            <McDropdownMenuSeparator />
+            <McDropdownMenuCheckboxItem
               checked={statusBar}
               onCheckedChange={(checked) => setStatusBar(Boolean(checked))}
             >
               Status Bar
-            </DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem
+            </McDropdownMenuCheckboxItem>
+            <McDropdownMenuCheckboxItem
               checked={activityBar}
               onCheckedChange={(checked) => setActivityBar(Boolean(checked))}
             >
               Activity bar
-            </DropdownMenuCheckboxItem>
-            <DropdownMenuCheckboxItem
+            </McDropdownMenuCheckboxItem>
+            <McDropdownMenuCheckboxItem
               checked={Panel}
               onCheckedChange={(checked) => setPanel(Boolean(checked))}
             >
               Panel
-            </DropdownMenuCheckboxItem>
-          </DropdownMenuGroup>
-        </DropdownMenuContent>
-      </DropdownMenu>
+            </McDropdownMenuCheckboxItem>
+          </McDropdownMenuGroup>
+        </McDropdownMenuContent>
+      </McDropdownMenu>
     </div>
   );
 }

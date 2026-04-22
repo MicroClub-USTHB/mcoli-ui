@@ -2297,6 +2297,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-dropdown-menu",
+      "title": "MicroClub Dropdown Menu",
+      "description": "A dropdown menu component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-dropdown-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }
