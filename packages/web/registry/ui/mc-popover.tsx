@@ -13,8 +13,7 @@ function PopoverContent({
   align = 'center',
   alignOffset = 0,
   side = 'bottom',
-  sideOffset = 4,
-  style,
+  sideOffset = 23,
   ...props
 }: PopoverPrimitive.Popup.Props &
   Pick<PopoverPrimitive.Positioner.Props, 'align' | 'alignOffset' | 'side' | 'sideOffset'>) {
@@ -30,14 +29,9 @@ function PopoverContent({
         <PopoverPrimitive.Popup
           data-slot="popover-content"
           className={cn(
-            'z-50 flex h-[268px] w-[276px] origin-(--transform-origin) flex-col gap-[13px] rounded-lg p-4 text-sm text-card-foreground outline-hidden duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95',
+            'z-50 flex h-[268px] w-[276px] origin-(--transform-origin) flex-col gap-[13px] rounded-lg bg-card p-4 text-sm text-card-foreground shadow-sm outline-hidden duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95',
             className
           )}
-          style={{
-            background: 'var(--card, #FFFFFF)',
-            boxShadow: '0px 4px 12px -4px #00000014',
-            ...style,
-          }}
           {...props}
         />
       </PopoverPrimitive.Positioner>

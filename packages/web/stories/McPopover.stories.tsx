@@ -9,12 +9,15 @@ import {
   PopoverTitle,
   PopoverTrigger,
 } from '@/registry/ui/mc-popover';
+import { AlignCenter } from 'lucide-react';
 
 const meta: Meta<typeof PopoverContent> = {
   title: 'Components/McPopover',
   component: PopoverContent,
   tags: ['autodocs'],
-  parameters: {},
+  parameters: {
+    layout: 'centered',
+  },
 };
 
 export default meta;
