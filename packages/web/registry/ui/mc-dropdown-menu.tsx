@@ -6,19 +6,19 @@ import { CheckIcon, ChevronRightIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
-function DropdownMenu({ ...props }: MenuPrimitive.Root.Props) {
+function McDropdownMenu({ ...props }: MenuPrimitive.Root.Props) {
   return <MenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
 }
 
-function DropdownMenuPortal({ ...props }: MenuPrimitive.Portal.Props) {
+function McDropdownMenuPortal({ ...props }: MenuPrimitive.Portal.Props) {
   return <MenuPrimitive.Portal data-slot="dropdown-menu-portal" {...props} />;
 }
 
-function DropdownMenuTrigger({ ...props }: MenuPrimitive.Trigger.Props) {
+function McDropdownMenuTrigger({ ...props }: MenuPrimitive.Trigger.Props) {
   return <MenuPrimitive.Trigger data-slot="dropdown-menu-trigger" {...props} />;
 }
 
-function DropdownMenuContent({
+function McDropdownMenuContent({
   align = 'start',
   alignOffset = 0,
   side = 'bottom',
@@ -49,7 +49,7 @@ function DropdownMenuContent({
   );
 }
 
-function DropdownMenuGroup({
+function McDropdownMenuGroup({
   className,
   ...props
 }: MenuPrimitive.Group.Props & { className?: string }) {
@@ -62,7 +62,7 @@ function DropdownMenuGroup({
   );
 }
 
-function DropdownMenuLabel({
+function McDropdownMenuLabel({
   className,
   inset,
   ...props
@@ -82,7 +82,7 @@ function DropdownMenuLabel({
   );
 }
 
-function DropdownMenuItem({
+function McDropdownMenuItem({
   className,
   inset,
   variant = 'default',
@@ -105,11 +105,11 @@ function DropdownMenuItem({
   );
 }
 
-function DropdownMenuSub({ ...props }: MenuPrimitive.SubmenuRoot.Props) {
+function McDropdownMenuSub({ ...props }: MenuPrimitive.SubmenuRoot.Props) {
   return <MenuPrimitive.SubmenuRoot data-slot="dropdown-menu-sub" {...props} />;
 }
 
-function DropdownMenuSubTrigger({
+function McDropdownMenuSubTrigger({
   className,
   inset,
   children,
@@ -133,16 +133,16 @@ function DropdownMenuSubTrigger({
   );
 }
 
-function DropdownMenuSubContent({
+function McDropdownMenuSubContent({
   align = 'start',
   alignOffset = -3,
   side = 'right',
   sideOffset = 0,
   className,
   ...props
-}: React.ComponentProps<typeof DropdownMenuContent>) {
+}: React.ComponentProps<typeof McDropdownMenuContent>) {
   return (
-    <DropdownMenuContent
+    <McDropdownMenuContent
       data-slot="dropdown-menu-sub-content"
       className={cn(
         'w-auto min-w-[96px] rounded-lg bg-popover p-1 text-popover-foreground shadow-lg ring-1 ring-foreground/10 duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95',
@@ -157,7 +157,7 @@ function DropdownMenuSubContent({
   );
 }
 
-function DropdownMenuCheckboxItem({
+function McDropdownMenuCheckboxItem({
   className,
   children,
   checked,
@@ -177,24 +177,24 @@ function DropdownMenuCheckboxItem({
       checked={checked}
       {...props}
     >
-      <span className="truncate">{children}</span>
       <span
-        className="pointer-events-none ml-auto flex items-center justify-center"
+        className="pointer-events-none mr-2 flex items-center justify-center w-4"
         data-slot="dropdown-menu-checkbox-item-indicator"
       >
         <MenuPrimitive.CheckboxItemIndicator>
           <CheckIcon />
         </MenuPrimitive.CheckboxItemIndicator>
       </span>
+      <span className="truncate">{children}</span>
     </MenuPrimitive.CheckboxItem>
   );
 }
 
-function DropdownMenuRadioGroup({ ...props }: MenuPrimitive.RadioGroup.Props) {
+function McDropdownMenuRadioGroup({ ...props }: MenuPrimitive.RadioGroup.Props) {
   return <MenuPrimitive.RadioGroup data-slot="dropdown-menu-radio-group" {...props} />;
 }
 
-function DropdownMenuRadioItem({
+function McDropdownMenuRadioItem({
   className,
   children,
   inset,
@@ -207,25 +207,25 @@ function DropdownMenuRadioItem({
       data-slot="dropdown-menu-radio-item"
       data-inset={inset}
       className={cn(
-        "relative flex cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "relative flex cursor-default items-center gap-1.5 rounded-md py-1 pl-1.5 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
     >
       <span
-        className="pointer-events-none absolute right-2 flex items-center justify-center"
+        className="pointer-events-none flex items-center justify-center"
         data-slot="dropdown-menu-radio-item-indicator"
       >
         <MenuPrimitive.RadioItemIndicator>
           <CheckIcon />
         </MenuPrimitive.RadioItemIndicator>
       </span>
-      {children}
+      <span>{children}</span>
     </MenuPrimitive.RadioItem>
   );
 }
 
-function DropdownMenuSeparator({ className, ...props }: MenuPrimitive.Separator.Props) {
+function McDropdownMenuSeparator({ className, ...props }: MenuPrimitive.Separator.Props) {
   return (
     <MenuPrimitive.Separator
       data-slot="dropdown-menu-separator"
@@ -235,7 +235,7 @@ function DropdownMenuSeparator({ className, ...props }: MenuPrimitive.Separator.
   );
 }
 
-function DropdownMenuShortcut({ className, ...props }: React.ComponentProps<'span'>) {
+function McDropdownMenuShortcut({ className, ...props }: React.ComponentProps<'span'>) {
   return (
     <span
       data-slot="dropdown-menu-shortcut"
@@ -249,19 +249,19 @@ function DropdownMenuShortcut({ className, ...props }: React.ComponentProps<'spa
 }
 
 export {
-  DropdownMenu,
-  DropdownMenuPortal,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuLabel,
-  DropdownMenuItem,
-  DropdownMenuCheckboxItem,
-  DropdownMenuRadioGroup,
-  DropdownMenuRadioItem,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubTrigger,
-  DropdownMenuSubContent,
+  McDropdownMenu,
+  McDropdownMenuPortal,
+  McDropdownMenuTrigger,
+  McDropdownMenuContent,
+  McDropdownMenuGroup,
+  McDropdownMenuLabel,
+  McDropdownMenuItem,
+  McDropdownMenuCheckboxItem,
+  McDropdownMenuRadioGroup,
+  McDropdownMenuRadioItem,
+  McDropdownMenuSeparator,
+  McDropdownMenuShortcut,
+  McDropdownMenuSub,
+  McDropdownMenuSubTrigger,
+  McDropdownMenuSubContent,
 };
