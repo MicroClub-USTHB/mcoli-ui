@@ -67,7 +67,10 @@ function AccountMenu({
       <McDropdownMenu open={open}>
         <McDropdownMenuTrigger
           render={
-            <Button className="w-17 h-10 active:primary shadow-[0_0_0_4px_muted]" variant="outline">
+            <Button
+              className="w-17 h-10 aria-expanded:shadow-[0_0_0_4px_var(--muted)] aria-expanded:text-primary"
+              variant="outline"
+            >
               Open
             </Button>
           }
@@ -95,7 +98,7 @@ function AccountMenu({
           </McDropdownMenuGroup>
           <McDropdownMenuSeparator />
           <McDropdownMenuGroup className="h-auto">
-            <McDropdownMenuItem variant="destructive">Log out</McDropdownMenuItem>
+            <McDropdownMenuItem>Log out</McDropdownMenuItem>
           </McDropdownMenuGroup>
         </McDropdownMenuContent>
       </McDropdownMenu>
@@ -148,9 +151,7 @@ function PreferencesMenu({ open }: { open?: boolean }) {
 }
 
 export const Playground: Story = {
-  render: (args: DropdownStoryArgs) => (
-    <AccountMenu open={args.open} align={args.align} side={args.side} />
-  ),
+  render: (args: DropdownStoryArgs) => <AccountMenu align={args.align} side={args.side} />,
 };
 
 export const WithSubmenu: Story = {

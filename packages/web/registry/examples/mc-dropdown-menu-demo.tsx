@@ -18,7 +18,16 @@ import {
 export default function McDropdownMenuDemo() {
   return (
     <McDropdownMenu>
-      <McDropdownMenuTrigger render={<Button variant="outline">Open</Button>} />
+      <McDropdownMenuTrigger
+        render={
+          <Button
+            className="w-17 h-10 aria-expanded:shadow-[0_0_0_4px_var(--muted)] aria-expanded:text-primary"
+            variant="outline"
+          >
+            Open
+          </Button>
+        }
+      />
       <McDropdownMenuContent className="w-56">
         <McDropdownMenuGroup className="h-auto">
           <McDropdownMenuLabel>My Account</McDropdownMenuLabel>
