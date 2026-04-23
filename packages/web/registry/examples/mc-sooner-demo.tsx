@@ -1,8 +1,10 @@
 'use client';
 
-import { toast } from 'sonner';
+import { toast } from '../ui/mc-sonner';
 
 import { Button } from '@/components/ui/button';
+
+import { McSonner } from '../ui/mc-sonner';
 
 export function SonnerDemo() {
   return (
