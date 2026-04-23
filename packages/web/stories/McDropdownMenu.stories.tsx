@@ -106,7 +106,15 @@ function AccountMenu({
   );
 }
 
-function PreferencesMenu({ open }: { open?: boolean }) {
+function PreferencesMenu({
+  open,
+  align = 'start',
+  side = 'bottom',
+}: {
+  open?: boolean;
+  align?: 'start' | 'center' | 'end';
+  side?: 'top' | 'right' | 'bottom' | 'left';
+}) {
   const [statusBar, setStatusBar] = React.useState(true);
   const [activityBar, setActivityBar] = React.useState(false);
   const [Panel, setPanel] = React.useState(false);
@@ -121,7 +129,7 @@ function PreferencesMenu({ open }: { open?: boolean }) {
             </Button>
           }
         />
-        <McDropdownMenuContent className="w-56" align="end">
+        <McDropdownMenuContent className="w-56" align={align} side={side}>
           <McDropdownMenuGroup className="h-auto">
             <McDropdownMenuLabel>Preferences</McDropdownMenuLabel>
             <McDropdownMenuSeparator />

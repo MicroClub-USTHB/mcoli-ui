@@ -171,7 +171,7 @@ function McDropdownMenuCheckboxItem({
       data-slot="dropdown-menu-checkbox-item"
       data-inset={inset}
       className={cn(
-        'relative flex w-[216px] h-8 cursor-default items-center gap-2 rounded-sm bg-muted px-2 py-1.5 font-sans text-sm leading-5 font-normal text-muted-foreground outline-hidden select-none focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4',
+        'relative flex w-[216px] h-8 cursor-default items-center gap-2 rounded-sm px-2 py-1.5 font-sans text-sm leading-5 font-normal text-muted-foreground outline-hidden select-none focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4',
         className
       )}
       checked={checked}
