@@ -184,4 +184,17 @@ export const examples: Registry['items'] = [
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-select.json`],
   },
+  {
+    name: 'mc-accordion-demo',
+    type: 'registry:example',
+    title: 'MicroClub Accordion Demo',
+    description: 'Demo for MicroClub Accordion',
+    files: [
+      {
+        path: 'examples/mc-accordion-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-accordion.json`],
+  },
 ];

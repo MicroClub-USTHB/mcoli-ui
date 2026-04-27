@@ -183,4 +183,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+  {
+    name: 'mc-accordion',
+    type: 'registry:component',
+    title: 'MicroClub Accordion',
+    description: 'An accordion component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-accordion.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
