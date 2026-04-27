@@ -3,6 +3,8 @@
   "description": "Explore all available UI components",
   "pages": [
     "mc-button",
+    "mc-input",
+    "mc-textarea",
     "mc-input-otp",
     "mc-checkbox",
     "mc-radio-group",
@@ -14,8 +16,6 @@
     "mc-breadcrumb",
     "mc-pagination",
     "---Coming Soon---",
-    "mc-input",
-    "mc-textarea",
     "mc-select",
     "mc-sidebar",
     "mc-dialog",
