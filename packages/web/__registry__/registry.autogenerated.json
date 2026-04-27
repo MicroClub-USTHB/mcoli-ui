@@ -2169,6 +2169,32 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-input",
+      "title": "MicroClub Input",
+      "description": "An input component with field integration and addon support for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-input.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-textarea",
+      "title": "MicroClub Textarea",
+      "description": "A multi-line text input with field integration and block addons for MicroClub UI",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/mc-textarea.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-input-otp",
       "title": "MicroClub Input OTP",
       "description": "An OTP input component for MicroClub UI",
@@ -2267,6 +2293,19 @@
       "files": [
         {
           "path": "registry/ui/mc-pagination.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-combobox",
+      "title": "MicroClub Combobox",
+      "description": "A searchable dropdown with autocomplete functionality for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-combobox.tsx",
           "type": "registry:component"
         }
       ],
