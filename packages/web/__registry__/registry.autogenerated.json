@@ -2323,6 +2323,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-select",
+      "title": "MicroClub Selector",
+      "description": "A Selector component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-select.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }

@@ -170,4 +170,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+  {
+    name: 'mc-select',
+    type: 'registry:component',
+    title: 'MicroClub Selector',
+    description: 'A Selector component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-select.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
