@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
+  McAccordion,
+  McAccordionContent,
+  McAccordionItem,
+  McAccordionTrigger,
 } from '@/registry/ui/mc-accordion';
 
 const items = [
@@ -32,9 +32,9 @@ const items = [
   },
 ];
 
-const meta: Meta<typeof Accordion> = {
+const meta: Meta<typeof McAccordion> = {
   title: 'Components/McAccordion',
-  component: Accordion,
+  component: McAccordion,
   tags: ['autodocs'],
   args: {
     defaultValue: ['product'],
@@ -43,22 +43,22 @@ const meta: Meta<typeof Accordion> = {
 
 export default meta;
 
-type Story = StoryObj<typeof Accordion>;
+type Story = StoryObj<typeof McAccordion>;
 
 export const Playground: Story = {
   render: (args) => (
-    <Accordion {...args} className="max-w-lg">
+    <McAccordion {...args} className="max-w-lg">
       {items.map((item) => (
-        <AccordionItem key={item.value} value={item.value}>
-          <AccordionTrigger>{item.title}</AccordionTrigger>
-          <AccordionContent>
+        <McAccordionItem key={item.value} value={item.value}>
+          <McAccordionTrigger>{item.title}</McAccordionTrigger>
+          <McAccordionContent>
             {item.content.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
-          </AccordionContent>
-        </AccordionItem>
+          </McAccordionContent>
+        </McAccordionItem>
       ))}
-    </Accordion>
+    </McAccordion>
   ),
 };
 
@@ -67,17 +67,17 @@ export const AllCollapsed: Story = {
     defaultValue: undefined,
   },
   render: (args) => (
-    <Accordion {...args} className="max-w-lg">
+    <McAccordion {...args} className="max-w-lg">
       {items.map((item) => (
-        <AccordionItem key={item.value} value={item.value}>
-          <AccordionTrigger>{item.title}</AccordionTrigger>
-          <AccordionContent>
+        <McAccordionItem key={item.value} value={item.value}>
+          <McAccordionTrigger>{item.title}</McAccordionTrigger>
+          <McAccordionContent>
             {item.content.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
-          </AccordionContent>
-        </AccordionItem>
+          </McAccordionContent>
+        </McAccordionItem>
       ))}
-    </Accordion>
+    </McAccordion>
   ),
 };

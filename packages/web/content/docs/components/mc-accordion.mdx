@@ -60,22 +60,21 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 
 ```tsx
 import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from '@/components/ui/mc-accordion';
+  McAccordion,
+  McAccordionContent,
+  McAccordionItem,
+  McAccordionTrigger,
+} from '@/registry/ui/mc-accordion';
 
-export default function Example() {
   return (
-    <Accordion defaultValue={['product']} className="w-full max-w-[503px]">
-      <AccordionItem value="product">
-        <AccordionTrigger>Product Information</AccordionTrigger>
-        <AccordionContent>
-          <p>Our flagship product combines cutting-edge technology with sleek design.</p>
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+    <McAccordion defaultValue={['product']} className="w-full max-w-[503px]">
+      <McAccordionItem value="product">
+        <McAccordionTrigger>Product Information</McAccordionTrigger>
+        <McAccordionContent>
+          <p>Our flagship product combine cutting-edge technology with sleek design.</p>
+        </McAccordionContent>
+      </McAccordionItem>
+    </McAccordion>
   );
 }
 ```
@@ -85,30 +84,30 @@ export default function Example() {
 ### Basic Accordion
 
 ```tsx
-<Accordion defaultValue={['product']} className="w-full max-w-[503px]">
-  <AccordionItem value="product">
-    <AccordionTrigger>Product Information</AccordionTrigger>
-    <AccordionContent>
-      <p>Our flagship product combines cutting-edge technology with sleek design.</p>
+<McAccordion defaultValue={['product']} className="w-full max-w-[503px]">
+  <McAccordionItem value="product">
+    <McAccordionTrigger>Product Information</McAccordionTrigger>
+    <McAccordionContent>
+      <p>Our flagship product combine cutting-edge technology with sleek design.</p>
       <p>Key features include advanced processing capabilities and an intuitive interface.</p>
-    </AccordionContent>
-  </AccordionItem>
+    </McAccordionContent>
+  </McAccordionItem>
 
-  <AccordionItem value="shipping">
-    <AccordionTrigger>Shipping Details</AccordionTrigger>
-    <AccordionContent>
+  <McAccordionItem value="shipping">
+    <McAccordionTrigger>Shipping Details</McAccordionTrigger>
+    <McAccordionContent>
       <p>We offer standard, express, and overnight shipping.</p>
       <p>Free international shipping is available over the minimum order amount.</p>
-    </AccordionContent>
-  </AccordionItem>
+    </McAccordionContent>
+  </McAccordionItem>
 
-  <AccordionItem value="returns">
-    <AccordionTrigger>Return Policy</AccordionTrigger>
-    <AccordionContent>
+  <McAccordionItem value="returns">
+    <McAccordionTrigger>Return Policy</McAccordionTrigger>
+    <McAccordionContent>
       <p>Returns are accepted within 30 days when items are unused and in original packaging.</p>
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
+    </McAccordionContent>
+  </McAccordionItem>
+</McAccordion>
 ```
 
 ### Width Control
@@ -116,7 +115,7 @@ export default function Example() {
 The accordion already accepts `className`, so width is usually controlled from the parent with Tailwind utilities.
 
 ```tsx
-<Accordion className="w-full max-w-[503px]">...</Accordion>
+<McAccordion className="w-full max-w-[503px]">...</McAccordion>
 ```
 
 Use `w-[503px]` for a fixed width, or `w-full max-w-[503px]` for a responsive layout that still respects the Figma width.
@@ -126,14 +125,14 @@ Use `w-[503px]` for a fixed width, or `w-full max-w-[503px]` for a responsive la
 When trigger labels are long, keep the chevron separated from the text so content wraps cleanly instead of sliding underneath the icon.
 
 ```tsx
-<AccordionItem value="faq">
-  <AccordionTrigger>
+<McAccordionItem value="faq">
+  <McAccordionTrigger>
     What happens if my accordion title is much longer than a single line?
-  </AccordionTrigger>
-  <AccordionContent>
+  </McAccordionTrigger>
+  <McAccordionContent>
     <p>The trigger text should wrap naturally while the chevron keeps its own space.</p>
-  </AccordionContent>
-</AccordionItem>
+  </McAccordionContent>
+</McAccordionItem>
 ```
 
 ### Multiple Paragraphs
@@ -141,11 +140,11 @@ When trigger labels are long, keep the chevron separated from the text so conten
 `AccordionContent` works well with stacked content such as paragraphs, links, and lists.
 
 ```tsx
-<AccordionContent>
+<McAccordionContent>
   <p>First paragraph of supporting information.</p>
   <p>Second paragraph with more details.</p>
   <a href="#learn-more">Learn more</a>
-</AccordionContent>
+</McAccordionContent>
 ```
 
 ## API Reference

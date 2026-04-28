@@ -3,7 +3,7 @@ import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
-function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
+function McAccordion({ className, ...props }: AccordionPrimitive.Root.Props) {
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
@@ -13,7 +13,7 @@ function Accordion({ className, ...props }: AccordionPrimitive.Root.Props) {
   );
 }
 
-function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
+function McAccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
@@ -23,7 +23,7 @@ function AccordionItem({ className, ...props }: AccordionPrimitive.Item.Props) {
   );
 }
 
-function AccordionTrigger({ className, children, ...props }: AccordionPrimitive.Trigger.Props) {
+function McAccordionTrigger({ className, children, ...props }: AccordionPrimitive.Trigger.Props) {
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
@@ -48,7 +48,7 @@ function AccordionTrigger({ className, children, ...props }: AccordionPrimitive.
   );
 }
 
-function AccordionContent({ className, children, ...props }: AccordionPrimitive.Panel.Props) {
+function McAccordionContent({ className, children, ...props }: AccordionPrimitive.Panel.Props) {
   return (
     <AccordionPrimitive.Panel
       data-slot="accordion-content"
@@ -67,4 +67,4 @@ function AccordionContent({ className, children, ...props }: AccordionPrimitive.
   );
 }
 
-export { Accordion, AccordionItem, AccordionTrigger, AccordionContent };
+export { McAccordion, McAccordionItem, McAccordionTrigger, McAccordionContent };
