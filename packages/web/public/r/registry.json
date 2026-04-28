@@ -2336,6 +2336,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-accordion",
+      "title": "MicroClub Accordion",
+      "description": "An accordion component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-accordion.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }
