@@ -3,7 +3,201 @@ title: MC Sidebar
 description: A sidebar navigation component.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-sidebar` is a layout and navigation system for MicroClub UI. It provides a complete sidebar architecture with provider state, collapsible behavior, grouped menus, nested navigation, and a content inset area.
+
+Built as part of the MicroClub library, this component is designed for **instant deployment into your codebase**, while keeping full control over styling, structure, and interactions.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <div>
+      <ComponentPreview name="mc-sidebar-demo" />
+    </div>
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-sidebar-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-sidebar` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-sidebar</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-sidebar</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-sidebar</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-sidebar</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">
+    npm install clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="pnpm">
+    pnpm add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="yarn">
+    yarn add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="bun">
+    bun add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-sidebar" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` (or equivalent classname helper) and component import aliases are correctly configured.
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  SidebarProvider,
+  McSidebar,
+  McSidebarContent,
+  McSidebarInset,
+} from '@/components/ui/mc-sidebar';
+
+export default function Example() {
+  return (
+    <SidebarProvider>
+      <McSidebar>
+        <McSidebarContent>{/* sidebar items */}</McSidebarContent>
+      </McSidebar>
+      <McSidebarInset>{/* page content */}</McSidebarInset>
+    </SidebarProvider>
+  );
+}
+```
+
+## Examples
+
+### Basic Layout
+
+```tsx
+<SidebarProvider defaultOpen>
+  <McSidebar>
+    <McSidebarHeader>{/* header items */}</McSidebarHeader>
+    <McSidebarContent>{/* menu groups */}</McSidebarContent>
+    <McSidebarFooter>{/* footer items */}</McSidebarFooter>
+  </McSidebar>
+  <McSidebarInset>{/* main content */}</McSidebarInset>
+</SidebarProvider>
+```
+
+### Variants
+
+```tsx
+<McSidebar variant="sidebar" />
+<McSidebar variant="floating" />
+<McSidebar variant="inset" />
+```
+
+### Collapsible Modes
+
+```tsx
+<McSidebar collapsible="icon" />
+<McSidebar collapsible="offcanvas" />
+<McSidebar collapsible="none" />
+```
+
+### Controlled Open State
+
+Manage sidebar visibility programmatically with `open` and `onOpenChange` on `SidebarProvider`.
+
+```tsx
+import { useState } from 'react';
+import { SidebarProvider, McSidebar } from '@/components/ui/mc-sidebar';
+
+export default function Example() {
+  const [open, setOpen] = useState(true);
+
+  return (
+    <SidebarProvider open={open} onOpenChange={setOpen}>
+      <McSidebar />
+    </SidebarProvider>
+  );
+}
+```
+
+### Nested Navigation with Collapsible Items
+
+```tsx
+<McSidebarMenu>
+  <McSidebarCollapsible label="Projects" tooltip="Projects">
+    <McSidebarMenuSubItem>
+      <McSidebarMenuSubButton href="#">Backlog</McSidebarMenuSubButton>
+    </McSidebarMenuSubItem>
+    <McSidebarMenuSubItem>
+      <McSidebarMenuSubButton href="#">Sprints</McSidebarMenuSubButton>
+    </McSidebarMenuSubItem>
+  </McSidebarCollapsible>
+</McSidebarMenu>
+```
+
+## API Reference
+
+### `SidebarProvider` Props
+
+| Prop           | Type                      | Default     | Description                               |
+| -------------- | ------------------------- | ----------- | ----------------------------------------- |
+| `defaultOpen`  | `boolean`                 | `true`      | Initial open state for uncontrolled usage |
+| `open`         | `boolean`                 | `undefined` | Controlled open state                     |
+| `onOpenChange` | `(open: boolean) => void` | `undefined` | Callback fired when open state changes    |
+| `className`    | `string`                  | `undefined` | Additional classes for sidebar wrapper    |
+| `children`     | `React.ReactNode`         | `undefined` | Sidebar and inset content                 |
+
+Also supports standard `div` props.
+
+### `McSidebar` Props
+
+| Prop          | Type                                 | Default     | Description                              |
+| ------------- | ------------------------------------ | ----------- | ---------------------------------------- |
+| `side`        | `"left" \| "right"`                  | `"left"`    | Sidebar side placement                   |
+| `variant`     | `"sidebar" \| "floating" \| "inset"` | `"sidebar"` | Visual style variant                     |
+| `collapsible` | `"offcanvas" \| "icon" \| "none"`    | `"icon"`    | Collapse behavior mode                   |
+| `className`   | `string`                             | `undefined` | Additional classes for sidebar container |
+| `children`    | `React.ReactNode`                    | `undefined` | Sidebar internal content                 |
+
+Also supports standard `div` props.
+
+### `McSidebarCollapsible` Props
+
+| Prop               | Type                                          | Default     | Description                                   |
+| ------------------ | --------------------------------------------- | ----------- | --------------------------------------------- |
+| `label`            | `React.ReactNode`                             | required    | Label content displayed in the trigger        |
+| `icon`             | `React.ComponentType<{ className?: string }>` | `undefined` | Optional icon displayed before the label      |
+| `tooltip`          | `string`                                      | `undefined` | Tooltip label when sidebar is collapsed       |
+| `defaultOpen`      | `boolean`                                     | `false`     | Initial open state for uncontrolled usage     |
+| `open`             | `boolean`                                     | `undefined` | Controlled open state                         |
+| `onOpenChange`     | `(open: boolean) => void`                     | `undefined` | Callback fired when collapsible state changes |
+| `triggerClassName` | `string`                                      | `undefined` | Extra classes for the trigger button          |
+| `contentClassName` | `string`                                      | `undefined` | Extra classes for nested content container    |
+| `chevronClassName` | `string`                                      | `undefined` | Extra classes for chevron icon                |
+| `children`         | `React.ReactNode`                             | `undefined` | Nested menu items rendered when expanded      |
+
+Also supports standard `li` props (except `children` is managed by the component API).
+
+### Related Building Blocks
+
+The following primitives are also exported and can be composed for advanced sidebars:
+
+`McSidebarTrigger`, `McSidebarRail`, `McSidebarHeader`, `McSidebarContent`, `McSidebarFooter`, `McSidebarSeparator`, `McSidebarGroup`, `McSidebarGroupLabel`, `McSidebarGroupAction`, `McSidebarGroupContent`, `McSidebarMenu`, `McSidebarMenuItem`, `McSidebarMenuButton`, `McSidebarMenuBadge`, `McSidebarMenuAction`, `McSidebarMenuSub`, `McSidebarMenuSubItem`, `McSidebarMenuSubButton`, `McSidebarInset`, `useSidebar`.

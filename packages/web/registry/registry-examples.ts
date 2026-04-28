@@ -146,6 +146,19 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-pagination.json`],
   },
   {
+    name: 'mc-sidebar-demo',
+    type: 'registry:example',
+    title: 'MicroClub Sidebar Demo',
+    description: 'Demo for MicroClub Sidebar',
+    files: [
+      {
+        path: 'examples/mc-sidebar-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-sidebar.json`],
+  },
+  {
     name: 'mc-combobox-demo',
     type: 'registry:example',
     title: 'MicroClub Combobox Demo',
