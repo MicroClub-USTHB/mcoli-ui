@@ -153,6 +153,92 @@ export default function Example() {
 </McSidebarMenu>
 ```
 
+### Sidebar Menu Button Variants
+
+The `McSidebarMenuButton` supports different visual variants for various use cases.
+
+```tsx
+<McSidebarMenuButton variant="default">Default Style</McSidebarMenuButton>
+
+<McSidebarMenuButton variant="outline" className="mt-2">
+  Outline Style
+</McSidebarMenuButton>
+```
+
+### Sidebar Menu Button Sizes
+
+Choose the appropriate size for your menu items.
+
+```tsx
+<McSidebarMenuButton size="sm">Small</McSidebarMenuButton>
+<McSidebarMenuButton size="default">Default</McSidebarMenuButton>
+<McSidebarMenuButton size="lg" className="mt-2">Large</McSidebarMenuButton>
+```
+
+### Active State
+
+Use `isActive` prop to highlight the currently active menu item.
+
+```tsx
+<McSidebarMenuButton isActive>Active Item</McSidebarMenuButton>
+
+<McSidebarMenuButton>Regular Item</McSidebarMenuButton>
+```
+
+### Sidebar Trigger
+
+A button component to toggle the sidebar open/closed state.
+
+```tsx
+<McSidebarTrigger />
+```
+
+### Sidebar Rail
+
+A thin rail component that provides an alternative way to toggle the sidebar.
+
+```tsx
+<McSidebarRail />
+```
+
+### Sidebar with Groups
+
+Organize menu items using groups with labels.
+
+```tsx
+<McSidebarGroup>
+  <McSidebarGroupLabel>Navigation</McSidebarGroupLabel>
+  <McSidebarMenu>
+    <McSidebarMenuItem>
+      <McSidebarMenuButton>Dashboard</McSidebarMenuButton>
+    </McSidebarMenuItem>
+    <McSidebarMenuItem>
+      <McSidebarMenuButton>Settings</McSidebarMenuButton>
+    </McSidebarMenuItem>
+  </McSidebarMenu>
+</McSidebarGroup>
+```
+
+### Sidebar with Badges
+
+Display badges or counts on menu items.
+
+```tsx
+<McSidebarMenuItem>
+  <McSidebarMenuButton>Notifications</McSidebarMenuButton>
+  <McSidebarMenuBadge>5</McSidebarMenuBadge>
+</McSidebarMenuItem>
+```
+
+### Sidebar with Skeleton Loading
+
+Show loading state while content is being fetched.
+
+```tsx
+<McSidebarMenuSkeleton showIcon />
+<McSidebarMenuSkeleton />
+```
+
 ## API Reference
 
 ### `SidebarProvider` Props
@@ -196,8 +282,186 @@ Also supports standard `div` props.
 
 Also supports standard `li` props (except `children` is managed by the component API).
 
-### Related Building Blocks
+### `McSidebarMenuButton` Props
 
-The following primitives are also exported and can be composed for advanced sidebars:
+| Prop        | Type                                                   | Default     | Description                                  |
+| ----------- | ------------------------------------------------------ | ----------- | -------------------------------------------- |
+| `isActive`  | `boolean`                                              | `false`     | Whether the button is currently active       |
+| `variant`   | `"default" \| "outline"`                               | `"default"` | Visual style variant                         |
+| `size`      | `"default" \| "sm" \| "lg"`                            | `"default"` | Size of the menu button                      |
+| `tooltip`   | `string \| React.HTMLAttributes<HTMLButtonElement>`    | `undefined` | Tooltip to display when sidebar is collapsed |
+| `className` | `string`                                               | `undefined` | Additional CSS classes                       |
+| `render`    | `ReactElement \| ((props: HTMLProps) => ReactElement)` | `undefined` | Polymorphic render prop                      |
 
-`McSidebarTrigger`, `McSidebarRail`, `McSidebarHeader`, `McSidebarContent`, `McSidebarFooter`, `McSidebarSeparator`, `McSidebarGroup`, `McSidebarGroupLabel`, `McSidebarGroupAction`, `McSidebarGroupContent`, `McSidebarMenu`, `McSidebarMenuItem`, `McSidebarMenuButton`, `McSidebarMenuBadge`, `McSidebarMenuAction`, `McSidebarMenuSub`, `McSidebarMenuSubItem`, `McSidebarMenuSubButton`, `McSidebarInset`, `useSidebar`.
+Also supports standard `button` props.
+
+### `McSidebarMenuAction` Props
+
+| Prop          | Type                                                   | Default     | Description                                |
+| ------------- | ------------------------------------------------------ | ----------- | ------------------------------------------ |
+| `showOnHover` | `boolean`                                              | `false`     | Whether to show the action button on hover |
+| `className`   | `string`                                               | `undefined` | Additional CSS classes                     |
+| `render`      | `ReactElement \| ((props: HTMLProps) => ReactElement)` | `undefined` | Polymorphic render prop                    |
+
+Also supports standard `button` props.
+
+### `McSidebarMenuSubButton` Props
+
+| Prop        | Type                                                   | Default     | Description                      |
+| ----------- | ------------------------------------------------------ | ----------- | -------------------------------- |
+| `size`      | `"sm" \| "md"`                                         | `"md"`      | Size of the sub-button           |
+| `isActive`  | `boolean`                                              | `false`     | Whether the sub-button is active |
+| `className` | `string`                                               | `undefined` | Additional CSS classes           |
+| `render`    | `ReactElement \| ((props: HTMLProps) => ReactElement)` | `undefined` | Polymorphic render prop          |
+
+Also supports standard `a` props.
+
+### `McSidebarGroupLabel` Props
+
+| Prop        | Type                                                   | Default     | Description             |
+| ----------- | ------------------------------------------------------ | ----------- | ----------------------- |
+| `className` | `string`                                               | `undefined` | Additional CSS classes  |
+| `render`    | `ReactElement \| ((props: HTMLProps) => ReactElement)` | `undefined` | Polymorphic render prop |
+
+Also supports standard `div` props.
+
+### `McSidebarGroupAction` Props
+
+| Prop        | Type                                                   | Default     | Description             |
+| ----------- | ------------------------------------------------------ | ----------- | ----------------------- |
+| `className` | `string`                                               | `undefined` | Additional CSS classes  |
+| `render`    | `ReactElement \| ((props: HTMLProps) => ReactElement)` | `undefined` | Polymorphic render prop |
+
+Also supports standard `button` props.
+
+### `McSidebarTrigger` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports props from `McButton`.
+
+### `McSidebarRail` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `button` props.
+
+### `McSidebarHeader` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `div` props.
+
+### `McSidebarFooter` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `div` props.
+
+### `McSidebarContent` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `div` props.
+
+### `McSidebarGroup` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `div` props.
+
+### `McSidebarGroupContent` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `div` props.
+
+### `McSidebarMenu` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `ul` props.
+
+### `McSidebarMenuItem` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `li` props.
+
+### `McSidebarMenuSub` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `ul` props.
+
+### `McSidebarMenuSubItem` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `li` props.
+
+### `McSidebarSeparator` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `div` props.
+
+### `McSidebarMenuBadge` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `div` props.
+
+### `McSidebarMenuSkeleton` Props
+
+| Prop        | Type      | Default     | Description                    |
+| ----------- | --------- | ----------- | ------------------------------ |
+| `showIcon`  | `boolean` | `false`     | Whether to show a loading icon |
+| `className` | `string`  | `undefined` | Additional CSS classes         |
+
+Also supports standard `div` props.
+
+### `McSidebarInset` Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `main` props.
+
+### `useSidebar` Hook
+
+A hook to access the sidebar context state and controls.
+
+| Return Value    | Type                        | Description                 |
+| --------------- | --------------------------- | --------------------------- |
+| `state`         | `"expanded" \| "collapsed"` | Current sidebar state       |
+| `open`          | `boolean`                   | Whether the sidebar is open |
+| `setOpen`       | `(open: boolean) => void`   | Function to set open state  |
+| `toggleSidebar` | `() => void`                | Function to toggle sidebar  |

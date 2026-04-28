@@ -222,7 +222,7 @@ When adding a new item, you will create/edit these files:
 | `mc-combobox`        | ✅           | ✅        |
 | `mc-switch`          | ✅           | ✅        |
 | `mc-navigation-menu` | ✅           | ✅        |
-| `mc-sidebar`         | ✅           |           |
+| `mc-sidebar`         | ✅           | ✅        |
 | `mc-tabs`            | ✅           | ✅        |
 | `mc-breadcrumb`      | ✅           | ✅        |
 | `mc-pagination`      | ✅           | ✅        |
