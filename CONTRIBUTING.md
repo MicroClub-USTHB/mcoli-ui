@@ -218,7 +218,7 @@ When adding a new item, you will create/edit these files:
 | `mc-checkbox`        | ✅           | ✅        |
 | `mc-radio-group`     | ✅           | ✅        |
 | `mc-card`            | ✅           | ✅        |
-| `mc-select`          | ✅           |           |
+| `mc-select`          | ✅           | ✅        |
 | `mc-combobox`        | ✅           | ✅        |
 | `mc-switch`          | ✅           | ✅        |
 | `mc-navigation-menu` | ✅           | ✅        |
