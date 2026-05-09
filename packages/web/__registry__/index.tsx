@@ -2293,6 +2293,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-tooltip': {
+    name: 'mc-tooltip',
+    description: 'A tooltip component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-tooltip.tsx',
+        content:
+          '\'use client\';\n\nimport { Tooltip as TooltipPrimitive } from \'@base-ui/react/tooltip\';\n\nimport { cn } from \'@/lib/utils\';\n\nfunction TooltipProvider({ delay = 0, ...props }: TooltipPrimitive.Provider.Props) {\n  return <TooltipPrimitive.Provider data-slot="tooltip-provider" delay={delay} {...props} />;\n}\n\nfunction Tooltip({ ...props }: TooltipPrimitive.Root.Props) {\n  return <TooltipPrimitive.Root data-slot="tooltip" {...props} />;\n}\n\nfunction TooltipTrigger({ ...props }: TooltipPrimitive.Trigger.Props) {\n  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;\n}\n\nfunction TooltipContent({\n  className,\n  side = \'top\',\n  sideOffset = 4,\n  align = \'center\',\n  alignOffset = 0,\n  children,\n  title,\n  desc,\n  ...props\n}: TooltipPrimitive.Popup.Props &\n  Pick<TooltipPrimitive.Positioner.Props, \'align\' | \'alignOffset\' | \'side\' | \'sideOffset\'> & {\n    desc?: string;\n    ttitle?: string;\n  }) {\n  return (\n    <TooltipPrimitive.Portal>\n      <TooltipPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n        className="isolate z-50"\n      >\n        <TooltipPrimitive.Popup\n          data-slot="tooltip-content"\n          className={cn(\n            \'z-50 inline-flex h-fit max-w-58  origin-(--transform-origin) items-center  rounded-sm bg-card-background  gap-2 shadow-[0px_1px_4px_0px_#E6E9FF] data-[side=bottom]:mt-1.5 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:mr-1.5 data-[side=left]:slide-in-from-right-2 data-[side=right]:ml-1.5 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[side=top]:mb-1.5 **:data-[slot=kbd]:relative **:data-[slot=kbd]:isolate **:data-[slot=kbd]:z-50 **:data-[slot=kbd]:rounded-sm data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95\',\n            className\n          )}\n          {...props}\n        >\n          <div className=" flex flex-col gap-2 p-4 text-wrap">\n            {title && <p className=" text-foreground text-xs/semi-bold] text-wrap">{title}</p>}\n            {desc && (\n              <p className="text-muted-foreground  font-dm-sans font-normal text-[12px] leading-4.5 tracking-[0] align-middle wrap-anywhere">\n                {desc}\n              </p>\n            )}\n          </div>\n          {children}\n          <TooltipPrimitive.Arrow className="z-50 size-4  translate-y-[calc(-50%-2px)]   rounded-xs bg-card-background   data-[side=bottom]:top-0.5  data-[side=inline-end]:top-1/2! data-[side=inline-end]:-left-1 data-[side=inline-end]:-translate-y-1/2 data-[side=inline-start]:top-1/2! data-[side=inline-start]:-right-1 data-[side=inline-start]:-translate-y-1/2 data-[side=left]:rotate-90 data-[side=left]:top-1.5 data-[side=left]:-right-1.5 data-[side=left]:-translate-y-1/2 data-[side=right]:-rotate-90 data-[side=right]:top-1/2 data-[side=right]:-left-[6.80px] data-[side=right]:-translate-y-1/2 data-[side=top]:rotate-180 data-[side=top]:-bottom-4">\n            <svg width="21" height="18" viewBox="0 0 12 6" className="  fill-background">\n              <path d="M0 6L6 0L12 6H0Z" />\n            </svg>\n          </TooltipPrimitive.Arrow>\n        </TooltipPrimitive.Popup>\n      </TooltipPrimitive.Positioner>\n    </TooltipPrimitive.Portal>\n  );\n}\n\nexport { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };\n',
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-button-demo': {
     name: 'mc-button-demo',
     description: 'Demo for MicroClub Button',
@@ -2580,5 +2593,21 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-skeleton-demo.tsx')),
     source:
       'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport default function McSkeletonDemo() {\n  return (\n    <div className="flex items-center justify-center p-6">\n      <div className="w-full max-w-sm space-y-4">\n        {Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="flex gap-3">\n            <McSkeleton className="h-12 w-12 shrink-0 rounded-full" />\n            <div className="flex-1 space-y-2">\n              <McSkeleton className="h-4 w-3/4" />\n              <McSkeleton className="h-3 w-full" />\n              <McSkeleton className="h-3 w-2/3" />\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n',
+  },
+  'mc-tooltip-demo': {
+    name: 'mc-tooltip-demo',
+    description: 'Demo for MicroClub Tooltip',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-tooltip-demo.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport { Tooltip, TooltipContent, TooltipTrigger } from \'../ui/mc-tooltip\';\n\nexport default function TooltipDemo() {\n  return (\n    <Tooltip>\n      <TooltipTrigger render={<Button variant="outline">Hover</Button>} />\n      <TooltipContent\n        title="Lovely tooltip title"\n        desc="There are a lot of things you can do in space."\n      />\n    </Tooltip>\n  );\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-tooltip-demo.tsx')),
+    source:
+      'import { Button } from \'@/components/ui/button\';\nimport { Tooltip, TooltipContent, TooltipTrigger } from \'../ui/mc-tooltip\';\n\nexport default function TooltipDemo() {\n  return (\n    <Tooltip>\n      <TooltipTrigger render={<Button variant="outline">Hover</Button>} />\n      <TooltipContent\n        title="Lovely tooltip title"\n        desc="There are a lot of things you can do in space."\n      />\n    </Tooltip>\n  );\n}\n',
   },
 };

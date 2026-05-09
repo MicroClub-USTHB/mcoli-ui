@@ -230,7 +230,7 @@ When adding a new item, you will create/edit these files:
 | `mc-alert-dialog`    | ✅           |           |
 | `mc-alert`           | ✅           |           |
 | `mc-sonner`          | ✅           |           |
-| `mc-tooltip`         | ✅           |           |
+| `mc-tooltip`         | ✅           | ✅        |
 | `mc-popover`         | ✅           |           |
 | `mc-dropdown-menu`   | ✅           |           |
 | `mc-context-menu`    | ✅           |           |
