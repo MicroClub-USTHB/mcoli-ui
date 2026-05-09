@@ -68,19 +68,6 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-checkbox.json`],
   },
   {
-    name: 'mc-card-demo',
-    type: 'registry:example',
-    title: 'MicroClub Card Demo',
-    description: 'Demo for MicroClub Card',
-    files: [
-      {
-        path: 'examples/mc-card-demo.tsx',
-        type: 'registry:example',
-      },
-    ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-card.json`],
-  },
-  {
     name: 'mc-radio-demo',
     type: 'registry:example',
     title: 'MicroClub Radio Demo',
@@ -94,6 +81,45 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-radio-group.json`],
   },
   {
+    name: 'mc-card-demo',
+    type: 'registry:example',
+    title: 'MicroClub Card Demo',
+    description: 'Demo for MicroClub Card',
+    files: [
+      {
+        path: 'examples/mc-card-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-card.json`],
+  },
+  {
+    name: 'mc-select-demo',
+    type: 'registry:example',
+    title: 'MicroClub Selector Demo',
+    description: 'Demo for MicroClub Selector',
+    files: [
+      {
+        path: 'examples/mc-select-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-select.json`],
+  },
+  {
+    name: 'mc-combobox-demo',
+    type: 'registry:example',
+    title: 'MicroClub Combobox Demo',
+    description: 'Demo for MicroClub Combobox',
+    files: [
+      {
+        path: 'examples/mc-combobox-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-combobox.json`],
+  },
+  {
     name: 'mc-switch-demo',
     type: 'registry:example',
     title: 'MicroClub Switch Demo',
@@ -105,6 +131,32 @@ export const examples: Registry['items'] = [
       },
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-switch.json`],
+  },
+  {
+    name: 'mc-navigation-menu-demo',
+    type: 'registry:example',
+    title: 'MicroClub Navigation Menu Demo',
+    description: 'Demo for MicroClub Navigation Menu',
+    files: [
+      {
+        path: 'examples/mc-navigation-menu-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-navigation-menu.json`],
+  },
+  {
+    name: 'mc-sidebar-demo',
+    type: 'registry:example',
+    title: 'MicroClub Sidebar Demo',
+    description: 'Demo for MicroClub Sidebar',
+    files: [
+      {
+        path: 'examples/mc-sidebar-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-sidebar.json`],
   },
   {
     name: 'mc-tabs-demo',
@@ -146,55 +198,16 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-pagination.json`],
   },
   {
-    name: 'mc-sidebar-demo',
+    name: 'mc-separator-demo',
     type: 'registry:example',
-    title: 'MicroClub Sidebar Demo',
-    description: 'Demo for MicroClub Sidebar',
+    title: 'MicroClub Separator Demo',
+    description: 'Demo for MicroClub Separator',
     files: [
       {
-        path: 'examples/mc-sidebar-demo.tsx',
+        path: 'examples/mc-separator-demo.tsx',
         type: 'registry:example',
       },
     ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-sidebar.json`],
-  },
-  {
-    name: 'mc-combobox-demo',
-    type: 'registry:example',
-    title: 'MicroClub Combobox Demo',
-    description: 'Demo for MicroClub Combobox',
-    files: [
-      {
-        path: 'examples/mc-combobox-demo.tsx',
-        type: 'registry:example',
-      },
-    ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-combobox.json`],
-  },
-  {
-    name: 'mc-navigation-menu-demo',
-    type: 'registry:example',
-    title: 'MicroClub Navigation Menu Demo',
-    description: 'Demo for MicroClub Navigation Menu',
-    files: [
-      {
-        path: 'examples/mc-navigation-menu-demo.tsx',
-        type: 'registry:example',
-      },
-    ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-navigation-menu.json`],
-  },
-  {
-    name: 'mc-select-demo',
-    type: 'registry:example',
-    title: 'MicroClub Selector Demo',
-    description: 'Demo for MicroClub Selector',
-    files: [
-      {
-        path: 'examples/mc-select-demo.tsx',
-        type: 'registry:example',
-      },
-    ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-select.json`],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-separator.json`],
   },
 ];

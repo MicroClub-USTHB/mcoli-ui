@@ -67,19 +67,6 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
-    name: 'mc-card',
-    type: 'registry:component',
-    title: 'MicroClub Card',
-    description: 'A card layout with header, body, and footer regions for MicroClub UI',
-    files: [
-      {
-        path: 'ui/mc-card.tsx',
-        type: 'registry:component',
-      },
-    ],
-    dependencies: ['class-variance-authority'],
-  },
-  {
     name: 'mc-radio-group',
     type: 'registry:component',
     title: 'MicroClub Radio Group',
@@ -93,6 +80,45 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-card',
+    type: 'registry:component',
+    title: 'MicroClub Card',
+    description: 'A card layout with header, body, and footer regions for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-card.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['class-variance-authority'],
+  },
+  {
+    name: 'mc-select',
+    type: 'registry:component',
+    title: 'MicroClub Selector',
+    description: 'A Selector component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-select.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-combobox',
+    type: 'registry:component',
+    title: 'MicroClub Combobox',
+    description: 'A searchable dropdown with autocomplete functionality for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-combobox.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
     name: 'mc-switch',
     type: 'registry:component',
     title: 'MicroClub Switch',
@@ -100,6 +126,32 @@ export const ui: Registry['items'] = [
     files: [
       {
         path: 'ui/mc-switch.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-navigation-menu',
+    type: 'registry:component',
+    title: 'MicroClub Navigation Menu',
+    description: 'A navigation menu component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-navigation-menu.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-sidebar',
+    type: 'registry:component',
+    title: 'MicroClub Sidebar',
+    description: 'A sidebar component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-sidebar.tsx',
         type: 'registry:component',
       },
     ],
@@ -145,52 +197,13 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
-    name: 'mc-sidebar',
+    name: 'mc-separator',
     type: 'registry:component',
-    title: 'MicroClub Sidebar',
-    description: 'A sidebar component for MicroClub UI',
+    title: 'MicroClub Separator',
+    description: 'A separator component for MicroClub UI',
     files: [
       {
-        path: 'ui/mc-sidebar.tsx',
-        type: 'registry:component',
-      },
-    ],
-    dependencies: ['@base-ui/react'],
-  },
-  {
-    name: 'mc-combobox',
-    type: 'registry:component',
-    title: 'MicroClub Combobox',
-    description: 'A searchable dropdown with autocomplete functionality for MicroClub UI',
-    files: [
-      {
-        path: 'ui/mc-combobox.tsx',
-        type: 'registry:component',
-      },
-    ],
-    dependencies: ['@base-ui/react'],
-  },
-  {
-    name: 'mc-navigation-menu',
-    type: 'registry:component',
-    title: 'MicroClub Navigation Menu',
-    description: 'A navigation menu component for MicroClub UI',
-    files: [
-      {
-        path: 'ui/mc-navigation-menu.tsx',
-        type: 'registry:component',
-      },
-    ],
-    dependencies: ['@base-ui/react'],
-  },
-  {
-    name: 'mc-select',
-    type: 'registry:component',
-    title: 'MicroClub Selector',
-    description: 'A Selector component for MicroClub UI',
-    files: [
-      {
-        path: 'ui/mc-select.tsx',
+        path: 'ui/mc-separator.tsx',
         type: 'registry:component',
       },
     ],

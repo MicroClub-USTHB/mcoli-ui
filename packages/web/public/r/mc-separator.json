@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mc-separator",
+  "title": "MicroClub Separator",
+  "description": "A separator component for MicroClub UI",
+  "dependencies": ["@base-ui/react"],
+  "files": [
+    {
+      "path": "registry/ui/mc-separator.tsx",
+      "content": "'use client';\n\nimport { Separator as SeparatorPrimitive } from '@base-ui/react/separator';\n\nimport { cn } from '@/lib/utils';\n\ntype McSeparatorProps = SeparatorPrimitive.Props & {\n  size?: number;\n};\n\nexport default function McSeparator({ className, orientation, size, ...props }: McSeparatorProps) {\n  return (\n    <div className=\"data-horizontal:py-4 data-vertical:mr-4 w-fit\">\n      <SeparatorPrimitive\n        data-slot=\"separator\"\n        orientation={orientation}\n        style={{\n          width: size ? `${size}px` : undefined,\n        }}\n        className={cn('shrink-0 border border-border data-vertical:rotate-90', className)}\n        {...props}\n      />\n    </div>\n  );\n}\n\nexport { McSeparator };\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}
