@@ -2280,6 +2280,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-scrollarea': {
+    name: 'mc-scrollarea',
+    description: 'A scroll area component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-scrollarea.tsx',
+        content:
+          '\'use client\';\n\nimport * as React from \'react\';\nimport { ScrollArea as ScrollAreaPrimitive } from \'@base-ui/react/scroll-area\';\n\nimport { cn } from \'@/lib/utils\';\n\nfunction ScrollArea({\n  className,\n  children,\n  title,\n  desc,\n  ...props\n}: ScrollAreaPrimitive.Root.Props & { title?: string; desc?: string[] }) {\n  return (\n    <ScrollAreaPrimitive.Root\n      data-slot="scroll-area"\n      className={cn(\'relative  rounded-md ring-1 ring-inset ring-border bg-background\', className)}\n      {...props}\n    >\n      <ScrollAreaPrimitive.Viewport data-slot="scroll-area-viewport" className=" size-full">\n        {title && (\n          <div className=" mb-4 mt-4 ml-4 gap-2.5 size-fit">\n            <p className=" font-dm-sans text-4 text-foreground text-normal">{title}</p>\n          </div>\n        )}\n        {desc && (\n          <div className="mx-4  flex flex-col gap-2.5 size-fit">\n            {desc.map((line, i) => (\n              <div key={i} className="px-1.5 py-3.5 border-b-px border-b h-fit min-w-39.5">\n                <p className="">{line}</p>\n              </div>\n            ))}\n          </div>\n        )}\n        {children}\n      </ScrollAreaPrimitive.Viewport>\n      <ScrollBar />\n      <ScrollAreaPrimitive.Corner />\n    </ScrollAreaPrimitive.Root>\n  );\n}\n\nfunction ScrollBar({\n  className,\n  orientation = \'vertical\',\n  ...props\n}: ScrollAreaPrimitive.Scrollbar.Props) {\n  return (\n    <ScrollAreaPrimitive.Scrollbar\n      data-slot="scroll-area-scrollbar"\n      data-orientation={orientation}\n      orientation={orientation}\n      className={cn(\n        \'flex touch-none p-px transition-colors select-none \' +\n          \' data-horizontal:h-2.5 data-horizontal:flex-col data-horizontal:border-t data-horizontal:border-t-transparent data-horizontal:my-2 data-horizontal:ml-3\' +\n          \' data-vertical:h-full data-vertical:w-2.5 data-vertical:border-l data-vertical:border-l-transparent\',\n        className\n      )}\n      {...props}\n    >\n      <ScrollAreaPrimitive.Thumb\n        data-slot="scroll-area-thumb"\n        className="relative flex-1 rounded-full bg-border"\n      />\n    </ScrollAreaPrimitive.Scrollbar>\n  );\n}\n\nexport { ScrollArea, ScrollBar };\n',
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-button-demo': {
     name: 'mc-button-demo',
     description: 'Demo for MicroClub Button',
@@ -2551,5 +2564,21 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-skeleton-demo.tsx')),
     source:
       'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport default function McSkeletonDemo() {\n  return (\n    <div className="flex items-center justify-center p-6">\n      <div className="w-full max-w-sm space-y-4">\n        {Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="flex gap-3">\n            <McSkeleton className="h-12 w-12 shrink-0 rounded-full" />\n            <div className="flex-1 space-y-2">\n              <McSkeleton className="h-4 w-3/4" />\n              <McSkeleton className="h-3 w-full" />\n              <McSkeleton className="h-3 w-2/3" />\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n',
+  },
+  'mc-scrollarea-demo': {
+    name: 'mc-scrollarea-demo',
+    description: 'Demo for MicroClub Scroll Area',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-scrollarea-demo.tsx',
+        content:
+          'import { ScrollArea } from \'@/registry/ui/mc-scrollarea\';\n\nconst tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);\n\nexport default function ScrollAreaDemo() {\n  return <ScrollArea className="h-72 w-48" title="Tags" desc={tags}></ScrollArea>;\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-scrollarea-demo.tsx')),
+    source:
+      'import { ScrollArea } from \'@/registry/ui/mc-scrollarea\';\n\nconst tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);\n\nexport default function ScrollAreaDemo() {\n  return <ScrollArea className="h-72 w-48" title="Tags" desc={tags}></ScrollArea>;\n}\n',
   },
 };
