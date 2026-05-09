@@ -198,6 +198,32 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-pagination.json`],
   },
   {
+    name: 'mc-alert-demo',
+    type: 'registry:example',
+    title: 'MicroClub Alert Demo',
+    description: 'Demo for MicroClub Alert',
+    files: [
+      {
+        path: 'examples/mc-alert-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-alert.json`],
+  },
+  {
+    name: 'mc-tooltip-demo',
+    type: 'registry:example',
+    title: 'MicroClub Tooltip Demo',
+    description: 'Demo for MicroClub Tooltip',
+    files: [
+      {
+        path: 'examples/mc-tooltip-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-tooltip.json`],
+  },
+  {
     name: 'mc-separator-demo',
     type: 'registry:example',
     title: 'MicroClub Separator Demo',
@@ -236,18 +262,5 @@ export const examples: Registry['items'] = [
       },
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-skeleton.json`],
-  },
-  {
-    name: 'mc-tooltip-demo',
-    type: 'registry:example',
-    title: 'MicroClub Tooltip Demo',
-    description: 'Demo for MicroClub Tooltip',
-    files: [
-      {
-        path: 'examples/mc-tooltip-demo.tsx',
-        type: 'registry:example',
-      },
-    ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-tooltip.json`],
   },
 ];

@@ -228,7 +228,7 @@ When adding a new item, you will create/edit these files:
 | `mc-pagination`      | ✅           | ✅        |
 | `mc-dialog`          | ✅           |           |
 | `mc-alert-dialog`    | ✅           |           |
-| `mc-alert`           | ✅           |           |
+| `mc-alert`           | ✅           | ✅        |
 | `mc-sonner`          | ✅           |           |
 | `mc-tooltip`         | ✅           | ✅        |
 | `mc-popover`         | ✅           |           |
