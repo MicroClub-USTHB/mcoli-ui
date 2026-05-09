@@ -8,16 +8,27 @@ type McSeparatorProps = SeparatorPrimitive.Props & {
   size?: number;
 };
 
-export default function McSeparator({ className, orientation, size, ...props }: McSeparatorProps) {
+export default function McSeparator({
+  className,
+  orientation = 'horizontal',
+  size,
+  ...props
+}: McSeparatorProps) {
+  const isVertical = orientation === 'vertical';
+
   return (
-    <div className="data-horizontal:py-4 data-vertical:mr-4 w-fit">
+    <div className={cn('w-fit', isVertical ? 'h-full' : 'w-full')}>
       <SeparatorPrimitive
         data-slot="separator"
         orientation={orientation}
         style={{
-          width: size ? `${size}px` : undefined,
+          [isVertical ? 'height' : 'width']: size ? `${size}px` : undefined,
         }}
-        className={cn('shrink-0 border border-border data-vertical:rotate-90', className)}
+        className={cn(
+          'shrink-0 border border-border',
+          isVertical ? 'w-[1px]' : 'h-[1px]',
+          className
+        )}
         {...props}
       />
     </div>

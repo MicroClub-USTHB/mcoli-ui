@@ -1,10 +1,7 @@
-import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import { McSeparator } from '@/registry/ui/mc-separator';
 
-type SeparatorStoryArgs = ComponentProps<typeof McSeparator>;
-
-const meta = {
+const meta: Meta<typeof McSeparator> = {
   title: 'Components/McSeparator',
   component: McSeparator,
   argTypes: {
@@ -18,27 +15,44 @@ const meta = {
   },
   args: {
     orientation: 'horizontal',
-    size: 2,
   },
   tags: ['autodocs'],
-} satisfies Meta<SeparatorStoryArgs>;
+};
 
 export default meta;
-type Story = StoryObj<SeparatorStoryArgs>;
+type Story = StoryObj<typeof McSeparator>;
 
 export const Playground: Story = {
   args: {
-    size: 10,
-    orientation: 'vertical',
-  },
-
-  render: (args) => {
-    return <McSeparator {...args} />;
+    orientation: 'horizontal',
+    size: 100,
   },
 };
 
+export const Horizontal: Story = {
+  render: () => (
+    <div className="w-full space-y-4">
+      <McSeparator />
+      <McSeparator size={200} />
+      <McSeparator size={300} />
+    </div>
+  ),
+};
+
+export const Vertical: Story = {
+  render: () => (
+    <div className="flex h-32 items-center gap-4">
+      <span>First</span>
+      <McSeparator orientation="vertical" size={24} />
+      <span>Second</span>
+      <McSeparator orientation="vertical" size={32} />
+      <span>Third</span>
+    </div>
+  ),
+};
+
 export const Showcase: Story = {
-  render: (args) => (
+  render: () => (
     <div className="mx-auto w-full max-w-5xl rounded-2xl border border-border bg-surface p-6 sm:p-8">
       <div className="space-y-5 text-foreground">
         <div className="space-y-1">
@@ -46,13 +60,13 @@ export const Showcase: Story = {
           <h3 className="text-2xl font-semibold">Separator</h3>
         </div>
 
-        <McSeparator {...args} className="w-full" />
+        <McSeparator className="w-full" />
 
-        <div className="flex flex-wrap items-center text-2xl">
+        <div className="flex items-center gap-2 text-2xl">
           <span className="font-medium">Bloc</span>
-          <McSeparator {...args} orientation="vertical" />
+          <McSeparator orientation="vertical" size={24} />
           <span className="font-medium">Bloc</span>
-          <McSeparator {...args} orientation="vertical" />
+          <McSeparator orientation="vertical" size={24} />
           <span className="font-medium">Bloc</span>
         </div>
       </div>
