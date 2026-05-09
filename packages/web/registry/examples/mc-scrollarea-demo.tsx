@@ -1,8 +1,4 @@
-import * as React from 'react';
-import Image from 'next/image';
-
-import { ScrollArea, ScrollBar } from '@/registry/ui/mc-scrollarea';
-import { Separator } from '@base-ui/react/separator';
+import { ScrollArea } from '@/registry/ui/mc-scrollarea';
 
 const tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
 
