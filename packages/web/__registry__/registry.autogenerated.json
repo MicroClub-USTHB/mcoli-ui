@@ -2169,6 +2169,32 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-input",
+      "title": "MicroClub Input",
+      "description": "An input component with field integration and addon support for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-input.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-textarea",
+      "title": "MicroClub Textarea",
+      "description": "A multi-line text input with field integration and block addons for MicroClub UI",
+      "dependencies": [],
+      "files": [
+        {
+          "path": "registry/ui/mc-textarea.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-input-otp",
       "title": "MicroClub Input OTP",
       "description": "An OTP input component for MicroClub UI",
@@ -2195,19 +2221,6 @@
       "type": "registry:component"
     },
     {
-      "name": "mc-card",
-      "title": "MicroClub Card",
-      "description": "A card layout with header, body, and footer regions for MicroClub UI",
-      "dependencies": ["class-variance-authority"],
-      "files": [
-        {
-          "path": "registry/ui/mc-card.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "type": "registry:component"
-    },
-    {
       "name": "mc-radio-group",
       "title": "MicroClub Radio Group",
       "description": "A radio group component for MicroClub UI",
@@ -2221,6 +2234,45 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-card",
+      "title": "MicroClub Card",
+      "description": "A card layout with header, body, and footer regions for MicroClub UI",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "registry/ui/mc-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-select",
+      "title": "MicroClub Selector",
+      "description": "A Selector component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-select.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-combobox",
+      "title": "MicroClub Combobox",
+      "description": "A searchable dropdown with autocomplete functionality for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-combobox.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-switch",
       "title": "MicroClub Switch",
       "description": "A switch component for MicroClub UI",
@@ -2228,6 +2280,32 @@
       "files": [
         {
           "path": "registry/ui/mc-switch.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-navigation-menu",
+      "title": "MicroClub Navigation Menu",
+      "description": "A navigation menu component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-navigation-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-sidebar",
+      "title": "MicroClub Sidebar",
+      "description": "A sidebar component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-sidebar.tsx",
           "type": "registry:component"
         }
       ],
@@ -2273,26 +2351,26 @@
       "type": "registry:component"
     },
     {
-      "name": "mc-combobox",
-      "title": "MicroClub Combobox",
-      "description": "A searchable dropdown with autocomplete functionality for MicroClub UI",
+      "name": "mc-separator",
+      "title": "MicroClub Separator",
+      "description": "A separator component for MicroClub UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
-          "path": "registry/ui/mc-combobox.tsx",
+          "path": "registry/ui/mc-separator.tsx",
           "type": "registry:component"
         }
       ],
       "type": "registry:component"
     },
     {
-      "name": "mc-navigation-menu",
-      "title": "MicroClub Navigation Menu",
-      "description": "A navigation menu component for MicroClub UI",
+      "name": "mc-skeleton",
+      "title": "MicroClub Skeleton",
+      "description": "A skeleton component for MicroClub UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
-          "path": "registry/ui/mc-navigation-menu.tsx",
+          "path": "registry/ui/mc-skeleton.tsx",
           "type": "registry:component"
         }
       ],

@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "dev": "pnpm --filter @mcoli/web dev",
-    "build": "pnpm --filter @mcoli/web build",
+    "build": "pnpm --filter @mcoli/web build && prettier --write .",
     "start": "pnpm --filter @mcoli/web start",
     "lint": "pnpm --filter @mcoli/web lint",
     "typecheck": "pnpm --filter @mcoli/web typecheck",

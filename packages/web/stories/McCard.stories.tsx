@@ -12,6 +12,22 @@ type McCardStoryProps = React.ComponentProps<typeof McCard> & {
   footerAlign: 'start' | 'end' | 'center' | 'stretch';
 };
 
+function MediaPlaceholder({ label, className }: { label: string; className?: string }) {
+  return (
+    <div
+      aria-label={label}
+      className={[
+        'flex items-center justify-center overflow-hidden rounded-md border border-dashed border-primary/25 bg-gradient-to-br from-primary/10 via-background to-secondary/20 text-xs font-medium tracking-wide text-muted-foreground uppercase',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      <span>{label}</span>
+    </div>
+  );
+}
+
 const meta: Meta<McCardStoryProps> = {
   title: 'Components/McCard',
   component: McCard,
@@ -79,13 +95,12 @@ export const Playground: Story = {
   ),
 };
 
-export const WithCustomContent: StoryObj<McCardStoryProps & { content: string }> = {
+export const WithCustomContent: StoryObj<McCardStoryProps> = {
   args: {
     title: 'File Preview',
     description: 'You are now previewing file: example-10mb.png',
     primaryAction: 'Download',
     secondaryAction: '',
-    content: 'Content area should be replaced with charts, media, forms, or any layout you need.',
     footerDirection: 'column',
     footerAlign: 'stretch',
   },
@@ -96,17 +111,12 @@ export const WithCustomContent: StoryObj<McCardStoryProps & { content: string }>
     secondaryAction,
     footerDirection,
     footerAlign,
-    content,
     ...cardProps
   }) => (
     <McCard {...cardProps}>
       <McCardHeader title={title} description={description} />
       <McCardContent>
-        <img
-          src="https://picsum.photos/600/400"
-          alt="Placeholder"
-          className="object-cover overflow-hidden"
-        />
+        <MediaPlaceholder label="Preview Image" className="aspect-[3/2] w-full" />
       </McCardContent>
       <McCardFooter direction={footerDirection} align={footerAlign}>
         {secondaryAction && (
@@ -124,13 +134,12 @@ export const WithCustomContent: StoryObj<McCardStoryProps & { content: string }>
   ),
 };
 
-export const RowDirection: StoryObj<McCardStoryProps & { content: string }> = {
+export const RowDirection: StoryObj<McCardStoryProps> = {
   args: {
     title: 'User Created',
     description: 'Create a new user with the details.',
     primaryAction: 'Done',
     secondaryAction: '',
-    content: 'Content area should be replaced with charts, media, forms, or any layout you need.',
     direction: 'row',
     footerDirection: 'row',
     footerAlign: 'start',
@@ -142,16 +151,11 @@ export const RowDirection: StoryObj<McCardStoryProps & { content: string }> = {
     secondaryAction,
     footerDirection,
     footerAlign,
-    content,
     ...cardProps
   }) => (
     <McCard {...cardProps}>
       <McCardContent>
-        <img
-          src="https://picsum.photos/400/400"
-          alt="Placeholder"
-          className="object-cover overflow-hidden aspect-square h-14"
-        />
+        <MediaPlaceholder label="Avatar" className="aspect-square h-14 w-14 shrink-0" />
       </McCardContent>
       <McCardHeader title={title} description={description} />
       <McCardFooter direction={footerDirection} align={footerAlign}>
