@@ -2267,6 +2267,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-skeleton': {
+    name: 'mc-skeleton',
+    description: 'A skeleton component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-skeleton.tsx',
+        content:
+          "import { cn } from '@/lib/utils';\n\ntype McSkeletonProps = {\n  width?: number;\n  height?: number;\n  rectangle?: boolean;\n} & React.ComponentProps<'div'>;\n\nfunction McSkeleton({ className, rectangle, width, height, ...props }: McSkeletonProps) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      style={{\n        width,\n        height,\n        ...(height === width ? { marginRight: 16 } : { marginBottom: 8 }),\n      }}\n      className={cn('animate-pulse bg-muted', rectangle ? 'rounded-md' : 'rounded-full', className)}\n      {...props}\n    />\n  );\n}\n\nexport { McSkeleton };\n",
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-button-demo': {
     name: 'mc-button-demo',
     description: 'Demo for MicroClub Button',
@@ -2522,5 +2535,21 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-separator-demo.tsx')),
     source:
       'import { McSeparator } from \'../ui/mc-separator\';\n\nexport default function McSeparatorDemo() {\n  return (\n    <div className="flex max-w-sm flex-col gap-4 text-sm">\n      <div className="flex flex-col gap-1.5">\n        <div className="leading-none font-medium">MicroClub UI</div>\n        <div className="text-muted-foreground">A simple content block separated by a divider.</div>\n      </div>\n      <McSeparator />\n      <div>Separators help create visual rhythm and improve scannability in dense interfaces.</div>\n    </div>\n  );\n}\n',
+  },
+  'mc-skeleton-demo': {
+    name: 'mc-skeleton-demo',
+    description: 'Demo for MicroClub Skeleton',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-skeleton-demo.tsx',
+        content:
+          'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport default function McSkeletonDemo() {\n  return (\n    <div className="flex items-center justify-center p-6">\n      <div className="w-full max-w-sm space-y-4">\n        {Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="flex gap-3">\n            <McSkeleton className="h-12 w-12 shrink-0 rounded-full" />\n            <div className="flex-1 space-y-2">\n              <McSkeleton className="h-4 w-3/4" />\n              <McSkeleton className="h-3 w-full" />\n              <McSkeleton className="h-3 w-2/3" />\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-skeleton-demo.tsx')),
+    source:
+      'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport default function McSkeletonDemo() {\n  return (\n    <div className="flex items-center justify-center p-6">\n      <div className="w-full max-w-sm space-y-4">\n        {Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="flex gap-3">\n            <McSkeleton className="h-12 w-12 shrink-0 rounded-full" />\n            <div className="flex-1 space-y-2">\n              <McSkeleton className="h-4 w-3/4" />\n              <McSkeleton className="h-3 w-full" />\n              <McSkeleton className="h-3 w-2/3" />\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n',
   },
 };
