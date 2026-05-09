@@ -2254,6 +2254,32 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-alert': {
+    name: 'mc-alert',
+    description: 'A alert component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-alert.tsx',
+        content:
+          "'use client';\n\nimport * as React from 'react';\nimport { CircleAlert, CircleCheck, Popcorn } from 'lucide-react';\nimport { cn } from '@/lib/utils';\n\ntype AlertVariant = 'success' | 'default' | 'destructive';\n\ninterface McAlertProps extends React.HTMLAttributes<HTMLDivElement> {\n  variant: AlertVariant;\n  title: string;\n  description?: string;\n  items?: string[];\n}\n\nconst variantStyles: Record<AlertVariant, string> = {\n  success:\n    'border border-success rounded-lg w-fit max-w-[719px] pt-[12px] pb-[14px] pl-[12px] pr-[12px]',\n  default: 'border border-border rounded-lg w-fit max-w-[719px] pl-[16px] pr-3 py-3',\n  destructive: 'border border-destructive rounded-lg w-fit max-w-[719px] pl-[16px] pr-4 py-3',\n};\n\nconst titleStyles: Record<AlertVariant, string> = {\n  success: 'text-success font-medium text-base leading-6',\n  default: 'text-card-foreground font-medium text-base leading-6',\n  destructive: 'text-destructive font-medium text-base leading-6',\n};\n\nconst descStyles: Record<AlertVariant, string> = {\n  success: 'text-success font-normal text-sm leading-5',\n  default: 'text-muted-foreground font-normal text-sm leading-5',\n  destructive: 'text-destructive font-normal text-sm leading-5',\n};\n\nconst iconMap: Record<AlertVariant, React.ReactNode> = {\n  success: <CircleCheck className=\"size-4 shrink-0 stroke-2 text-success\" />,\n  default: <Popcorn className=\"size-4 shrink-0 stroke-2 text-card-foreground\" />,\n  destructive: <CircleAlert className=\"size-4 shrink-0 stroke-2 text-destructive\" />,\n};\n\nconst iconGap: Record<AlertVariant, string> = {\n  success: 'gap-1',\n  default: 'gap-3',\n  destructive: 'gap-3',\n};\n\nfunction McAlert({ variant, title, description, items, className, ...props }: McAlertProps) {\n  const hasSupportingContent = !!description || !!items?.length;\n\n  return (\n    <div\n      data-slot=\"mc-alert\"\n      data-variant={variant}\n      className={cn(variantStyles[variant], className)}\n      role=\"alert\"\n      {...props}\n    >\n      <div\n        className={cn(\n          'flex',\n          hasSupportingContent ? 'items-start' : 'items-center',\n          iconGap[variant]\n        )}\n      >\n        <div className={cn('shrink-0', hasSupportingContent && 'pt-1')}>{iconMap[variant]}</div>\n        <div className=\"min-w-0\">\n          <span className={cn('block', titleStyles[variant])}>{title}</span>\n\n          {description && <p className={cn('mt-0.5', descStyles[variant])}>{description}</p>}\n\n          {items && items.length > 0 && (\n            <ul className={cn('mt-0.5 list-disc pl-6', descStyles[variant])}>\n              {items.map((item, i) => (\n                <li key={i}>{item}</li>\n              ))}\n            </ul>\n          )}\n        </div>\n      </div>\n    </div>\n  );\n}\n\nexport { McAlert };\nexport type { McAlertProps, AlertVariant };\n",
+        type: 'registry:component',
+      },
+    ],
+  },
+  'mc-tooltip': {
+    name: 'mc-tooltip',
+    description: 'A tooltip component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-tooltip.tsx',
+        content:
+          '\'use client\';\n\nimport { Tooltip as TooltipPrimitive } from \'@base-ui/react/tooltip\';\n\nimport { cn } from \'@/lib/utils\';\n\nfunction TooltipProvider({ delay = 0, ...props }: TooltipPrimitive.Provider.Props) {\n  return <TooltipPrimitive.Provider data-slot="tooltip-provider" delay={delay} {...props} />;\n}\n\nfunction Tooltip({ ...props }: TooltipPrimitive.Root.Props) {\n  return <TooltipPrimitive.Root data-slot="tooltip" {...props} />;\n}\n\nfunction TooltipTrigger({ ...props }: TooltipPrimitive.Trigger.Props) {\n  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;\n}\n\nfunction TooltipContent({\n  className,\n  side = \'top\',\n  sideOffset = 4,\n  align = \'center\',\n  alignOffset = 0,\n  children,\n  title,\n  desc,\n  ...props\n}: TooltipPrimitive.Popup.Props &\n  Pick<TooltipPrimitive.Positioner.Props, \'align\' | \'alignOffset\' | \'side\' | \'sideOffset\'> & {\n    desc?: string;\n    ttitle?: string;\n  }) {\n  return (\n    <TooltipPrimitive.Portal>\n      <TooltipPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n        className="isolate z-50"\n      >\n        <TooltipPrimitive.Popup\n          data-slot="tooltip-content"\n          className={cn(\n            \'z-50 inline-flex h-fit max-w-58  origin-(--transform-origin) items-center  rounded-sm bg-card-background  gap-2 shadow-[0px_1px_4px_0px_#E6E9FF] data-[side=bottom]:mt-1.5 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:mr-1.5 data-[side=left]:slide-in-from-right-2 data-[side=right]:ml-1.5 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[side=top]:mb-1.5 **:data-[slot=kbd]:relative **:data-[slot=kbd]:isolate **:data-[slot=kbd]:z-50 **:data-[slot=kbd]:rounded-sm data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95\',\n            className\n          )}\n          {...props}\n        >\n          <div className=" flex flex-col gap-2 p-4 text-wrap">\n            {title && <p className=" text-foreground text-xs/semi-bold] text-wrap">{title}</p>}\n            {desc && (\n              <p className="text-muted-foreground  font-dm-sans font-normal text-[12px] leading-4.5 tracking-[0] align-middle wrap-anywhere">\n                {desc}\n              </p>\n            )}\n          </div>\n          {children}\n          <TooltipPrimitive.Arrow className="z-50 size-4  translate-y-[calc(-50%-2px)]   rounded-xs bg-card-background   data-[side=bottom]:top-0.5  data-[side=inline-end]:top-1/2! data-[side=inline-end]:-left-1 data-[side=inline-end]:-translate-y-1/2 data-[side=inline-start]:top-1/2! data-[side=inline-start]:-right-1 data-[side=inline-start]:-translate-y-1/2 data-[side=left]:rotate-90 data-[side=left]:top-1.5 data-[side=left]:-right-1.5 data-[side=left]:-translate-y-1/2 data-[side=right]:-rotate-90 data-[side=right]:top-1/2 data-[side=right]:-left-[6.80px] data-[side=right]:-translate-y-1/2 data-[side=top]:rotate-180 data-[side=top]:-bottom-4">\n            <svg width="21" height="18" viewBox="0 0 12 6" className="  fill-background">\n              <path d="M0 6L6 0L12 6H0Z" />\n            </svg>\n          </TooltipPrimitive.Arrow>\n        </TooltipPrimitive.Popup>\n      </TooltipPrimitive.Positioner>\n    </TooltipPrimitive.Portal>\n  );\n}\n\nexport { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };\n',
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-separator': {
     name: 'mc-separator',
     description: 'A separator component for MicroClub UI',
@@ -2289,32 +2315,6 @@ export const Index: Record<string, any> = {
         path: 'registry/ui/mc-skeleton.tsx',
         content:
           "import { cn } from '@/lib/utils';\n\ntype McSkeletonProps = {\n  width?: number;\n  height?: number;\n  rectangle?: boolean;\n} & React.ComponentProps<'div'>;\n\nfunction McSkeleton({ className, rectangle, width, height, ...props }: McSkeletonProps) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      style={{\n        width,\n        height,\n        ...(height === width ? { marginRight: 16 } : { marginBottom: 8 }),\n      }}\n      className={cn('animate-pulse bg-muted', rectangle ? 'rounded-md' : 'rounded-full', className)}\n      {...props}\n    />\n  );\n}\n\nexport { McSkeleton };\n",
-        type: 'registry:component',
-      },
-    ],
-  },
-  'mc-tooltip': {
-    name: 'mc-tooltip',
-    description: 'A tooltip component for MicroClub UI',
-    type: 'registry:component',
-    files: [
-      {
-        path: 'registry/ui/mc-tooltip.tsx',
-        content:
-          '\'use client\';\n\nimport { Tooltip as TooltipPrimitive } from \'@base-ui/react/tooltip\';\n\nimport { cn } from \'@/lib/utils\';\n\nfunction TooltipProvider({ delay = 0, ...props }: TooltipPrimitive.Provider.Props) {\n  return <TooltipPrimitive.Provider data-slot="tooltip-provider" delay={delay} {...props} />;\n}\n\nfunction Tooltip({ ...props }: TooltipPrimitive.Root.Props) {\n  return <TooltipPrimitive.Root data-slot="tooltip" {...props} />;\n}\n\nfunction TooltipTrigger({ ...props }: TooltipPrimitive.Trigger.Props) {\n  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;\n}\n\nfunction TooltipContent({\n  className,\n  side = \'top\',\n  sideOffset = 4,\n  align = \'center\',\n  alignOffset = 0,\n  children,\n  title,\n  desc,\n  ...props\n}: TooltipPrimitive.Popup.Props &\n  Pick<TooltipPrimitive.Positioner.Props, \'align\' | \'alignOffset\' | \'side\' | \'sideOffset\'> & {\n    desc?: string;\n    ttitle?: string;\n  }) {\n  return (\n    <TooltipPrimitive.Portal>\n      <TooltipPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n        className="isolate z-50"\n      >\n        <TooltipPrimitive.Popup\n          data-slot="tooltip-content"\n          className={cn(\n            \'z-50 inline-flex h-fit max-w-58  origin-(--transform-origin) items-center  rounded-sm bg-card-background  gap-2 shadow-[0px_1px_4px_0px_#E6E9FF] data-[side=bottom]:mt-1.5 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:mr-1.5 data-[side=left]:slide-in-from-right-2 data-[side=right]:ml-1.5 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-[side=top]:mb-1.5 **:data-[slot=kbd]:relative **:data-[slot=kbd]:isolate **:data-[slot=kbd]:z-50 **:data-[slot=kbd]:rounded-sm data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95\',\n            className\n          )}\n          {...props}\n        >\n          <div className=" flex flex-col gap-2 p-4 text-wrap">\n            {title && <p className=" text-foreground text-xs/semi-bold] text-wrap">{title}</p>}\n            {desc && (\n              <p className="text-muted-foreground  font-dm-sans font-normal text-[12px] leading-4.5 tracking-[0] align-middle wrap-anywhere">\n                {desc}\n              </p>\n            )}\n          </div>\n          {children}\n          <TooltipPrimitive.Arrow className="z-50 size-4  translate-y-[calc(-50%-2px)]   rounded-xs bg-card-background   data-[side=bottom]:top-0.5  data-[side=inline-end]:top-1/2! data-[side=inline-end]:-left-1 data-[side=inline-end]:-translate-y-1/2 data-[side=inline-start]:top-1/2! data-[side=inline-start]:-right-1 data-[side=inline-start]:-translate-y-1/2 data-[side=left]:rotate-90 data-[side=left]:top-1.5 data-[side=left]:-right-1.5 data-[side=left]:-translate-y-1/2 data-[side=right]:-rotate-90 data-[side=right]:top-1/2 data-[side=right]:-left-[6.80px] data-[side=right]:-translate-y-1/2 data-[side=top]:rotate-180 data-[side=top]:-bottom-4">\n            <svg width="21" height="18" viewBox="0 0 12 6" className="  fill-background">\n              <path d="M0 6L6 0L12 6H0Z" />\n            </svg>\n          </TooltipPrimitive.Arrow>\n        </TooltipPrimitive.Popup>\n      </TooltipPrimitive.Positioner>\n    </TooltipPrimitive.Portal>\n  );\n}\n\nexport { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider };\n',
-        type: 'registry:component',
-      },
-    ],
-  },
-  'mc-alert': {
-    name: 'mc-alert',
-    description: 'A Alert component for MicroClub UI',
-    type: 'registry:component',
-    files: [
-      {
-        path: 'registry/ui/mc-alert.tsx',
-        content:
-          "'use client';\n\nimport * as React from 'react';\nimport { CircleAlert, CircleCheck, Popcorn } from 'lucide-react';\nimport { cn } from '@/lib/utils';\n\ntype AlertVariant = 'success' | 'default' | 'destructive';\n\ninterface McAlertProps extends React.HTMLAttributes<HTMLDivElement> {\n  variant: AlertVariant;\n  title: string;\n  description?: string;\n  items?: string[];\n}\n\nconst variantStyles: Record<AlertVariant, string> = {\n  success:\n    'border border-success rounded-lg w-fit max-w-[719px] pt-[12px] pb-[14px] pl-[12px] pr-[12px]',\n  default: 'border border-border rounded-lg w-fit max-w-[719px] pl-[16px] pr-3 py-3',\n  destructive: 'border border-destructive rounded-lg w-fit max-w-[719px] pl-[16px] pr-4 py-3',\n};\n\nconst titleStyles: Record<AlertVariant, string> = {\n  success: 'text-success font-medium text-base leading-6',\n  default: 'text-card-foreground font-medium text-base leading-6',\n  destructive: 'text-destructive font-medium text-base leading-6',\n};\n\nconst descStyles: Record<AlertVariant, string> = {\n  success: 'text-success font-normal text-sm leading-5',\n  default: 'text-muted-foreground font-normal text-sm leading-5',\n  destructive: 'text-destructive font-normal text-sm leading-5',\n};\n\nconst iconMap: Record<AlertVariant, React.ReactNode> = {\n  success: <CircleCheck className=\"size-4 shrink-0 stroke-2 text-success\" />,\n  default: <Popcorn className=\"size-4 shrink-0 stroke-2 text-card-foreground\" />,\n  destructive: <CircleAlert className=\"size-4 shrink-0 stroke-2 text-destructive\" />,\n};\n\nconst iconGap: Record<AlertVariant, string> = {\n  success: 'gap-1',\n  default: 'gap-3',\n  destructive: 'gap-3',\n};\n\nfunction McAlert({ variant, title, description, items, className, ...props }: McAlertProps) {\n  const hasSupportingContent = !!description || !!items?.length;\n\n  return (\n    <div\n      data-slot=\"mc-alert\"\n      data-variant={variant}\n      className={cn(variantStyles[variant], className)}\n      role=\"alert\"\n      {...props}\n    >\n      <div\n        className={cn(\n          'flex',\n          hasSupportingContent ? 'items-start' : 'items-center',\n          iconGap[variant]\n        )}\n      >\n        <div className={cn('shrink-0', hasSupportingContent && 'pt-1')}>{iconMap[variant]}</div>\n        <div className=\"min-w-0\">\n          <span className={cn('block', titleStyles[variant])}>{title}</span>\n\n          {description && <p className={cn('mt-0.5', descStyles[variant])}>{description}</p>}\n\n          {items && items.length > 0 && (\n            <ul className={cn('mt-0.5 list-disc pl-6', descStyles[variant])}>\n              {items.map((item, i) => (\n                <li key={i}>{item}</li>\n              ))}\n            </ul>\n          )}\n        </div>\n      </div>\n    </div>\n  );\n}\n\nexport { McAlert };\nexport type { McAlertProps, AlertVariant };\n",
         type: 'registry:component',
       },
     ],
@@ -2559,6 +2559,38 @@ export const Index: Record<string, any> = {
     source:
       'import * as React from \'react\';\nimport {\n  McPagination,\n  McPaginationContent,\n  McPaginationEllipsis,\n  McPaginationItem,\n  McPaginationLink,\n  McPaginationNext,\n  McPaginationPrevious,\n} from \'@/registry/ui/mc-pagination\';\n\nexport default function McPaginationComponentDemo() {\n  const [activePage, setActivePage] = React.useState(2);\n  const pages = [1, 2, 3];\n\n  const selectPage = (page: number) => (event: React.MouseEvent<HTMLAnchorElement>) => {\n    event.preventDefault();\n    setActivePage(page);\n  };\n\n  const goToPreviousPage = (event: React.MouseEvent<HTMLAnchorElement>) => {\n    event.preventDefault();\n    setActivePage((currentPage) => Math.max(1, currentPage - 1));\n  };\n\n  const goToNextPage = (event: React.MouseEvent<HTMLAnchorElement>) => {\n    event.preventDefault();\n    setActivePage((currentPage) => Math.min(pages.length, currentPage + 1));\n  };\n\n  return (\n    <McPagination>\n      <McPaginationContent>\n        <McPaginationItem>\n          <McPaginationPrevious href="#" onClick={goToPreviousPage} />\n        </McPaginationItem>\n        {pages.map((page) => (\n          <McPaginationItem key={page}>\n            <McPaginationLink href="#" isActive={activePage === page} onClick={selectPage(page)}>\n              {page}\n            </McPaginationLink>\n          </McPaginationItem>\n        ))}\n        <McPaginationItem>\n          <McPaginationEllipsis />\n        </McPaginationItem>\n        <McPaginationItem>\n          <McPaginationNext href="#" onClick={goToNextPage} />\n        </McPaginationItem>\n      </McPaginationContent>\n    </McPagination>\n  );\n}\n',
   },
+  'mc-alert-demo': {
+    name: 'mc-alert-demo',
+    description: 'Demo for MicroClub Alert',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-alert-demo.tsx',
+        content:
+          '\'use client\';\n\nimport { McAlert } from \'@/registry/ui/mc-alert\';\n\nexport default function McAlertDemo() {\n  return (\n    <div className="p-8 space-y-4">\n      <h1 className="text-2xl font-bold mb-6">McAlert Component Demo</h1>\n\n      <McAlert\n        variant="success"\n        title="Success! Your changes have been saved"\n        description="This is an alert with icon, title and description."\n      />\n\n      <McAlert variant="default" title="This alert has a title and an icon. No description." />\n\n      <McAlert\n        variant="destructive"\n        title="Unable to process your payment."\n        description="Please verify your billing information and try again."\n        items={[\'Check your card details\', \'Ensure sufficient funds\', \'Verify billing address\']}\n      />\n\n      <McAlert\n        variant="success"\n        title="Long content example to demonstrate responsive width"\n        description="This is a very long description that should cause the alert width to expand up to the maximum of 719px before the height increases. The component will grow with the content length."\n      />\n    </div>\n  );\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-alert-demo.tsx')),
+    source:
+      '\'use client\';\n\nimport { McAlert } from \'@/registry/ui/mc-alert\';\n\nexport default function McAlertDemo() {\n  return (\n    <div className="p-8 space-y-4">\n      <h1 className="text-2xl font-bold mb-6">McAlert Component Demo</h1>\n\n      <McAlert\n        variant="success"\n        title="Success! Your changes have been saved"\n        description="This is an alert with icon, title and description."\n      />\n\n      <McAlert variant="default" title="This alert has a title and an icon. No description." />\n\n      <McAlert\n        variant="destructive"\n        title="Unable to process your payment."\n        description="Please verify your billing information and try again."\n        items={[\'Check your card details\', \'Ensure sufficient funds\', \'Verify billing address\']}\n      />\n\n      <McAlert\n        variant="success"\n        title="Long content example to demonstrate responsive width"\n        description="This is a very long description that should cause the alert width to expand up to the maximum of 719px before the height increases. The component will grow with the content length."\n      />\n    </div>\n  );\n}\n',
+  },
+  'mc-tooltip-demo': {
+    name: 'mc-tooltip-demo',
+    description: 'Demo for MicroClub Tooltip',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-tooltip-demo.tsx',
+        content:
+          'import { Button } from \'@/components/ui/button\';\nimport { Tooltip, TooltipContent, TooltipTrigger } from \'../ui/mc-tooltip\';\n\nexport default function TooltipDemo() {\n  return (\n    <Tooltip>\n      <TooltipTrigger render={<Button variant="outline">Hover</Button>} />\n      <TooltipContent\n        title="Lovely tooltip title"\n        desc="There are a lot of things you can do in space."\n      />\n    </Tooltip>\n  );\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-tooltip-demo.tsx')),
+    source:
+      'import { Button } from \'@/components/ui/button\';\nimport { Tooltip, TooltipContent, TooltipTrigger } from \'../ui/mc-tooltip\';\n\nexport default function TooltipDemo() {\n  return (\n    <Tooltip>\n      <TooltipTrigger render={<Button variant="outline">Hover</Button>} />\n      <TooltipContent\n        title="Lovely tooltip title"\n        desc="There are a lot of things you can do in space."\n      />\n    </Tooltip>\n  );\n}\n',
+  },
   'mc-separator-demo': {
     name: 'mc-separator-demo',
     description: 'Demo for MicroClub Separator',
@@ -2606,37 +2638,5 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-skeleton-demo.tsx')),
     source:
       'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport default function McSkeletonDemo() {\n  return (\n    <div className="flex items-center justify-center p-6">\n      <div className="w-full max-w-sm space-y-4">\n        {Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="flex gap-3">\n            <McSkeleton className="h-12 w-12 shrink-0 rounded-full" />\n            <div className="flex-1 space-y-2">\n              <McSkeleton className="h-4 w-3/4" />\n              <McSkeleton className="h-3 w-full" />\n              <McSkeleton className="h-3 w-2/3" />\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n',
-  },
-  'mc-tooltip-demo': {
-    name: 'mc-tooltip-demo',
-    description: 'Demo for MicroClub Tooltip',
-    type: 'registry:example',
-    files: [
-      {
-        path: 'registry/examples/mc-tooltip-demo.tsx',
-        content:
-          'import { Button } from \'@/components/ui/button\';\nimport { Tooltip, TooltipContent, TooltipTrigger } from \'../ui/mc-tooltip\';\n\nexport default function TooltipDemo() {\n  return (\n    <Tooltip>\n      <TooltipTrigger render={<Button variant="outline">Hover</Button>} />\n      <TooltipContent\n        title="Lovely tooltip title"\n        desc="There are a lot of things you can do in space."\n      />\n    </Tooltip>\n  );\n}\n',
-        type: 'registry:example',
-      },
-    ],
-    component: React.lazy(() => import('@/registry/examples/mc-tooltip-demo.tsx')),
-    source:
-      'import { Button } from \'@/components/ui/button\';\nimport { Tooltip, TooltipContent, TooltipTrigger } from \'../ui/mc-tooltip\';\n\nexport default function TooltipDemo() {\n  return (\n    <Tooltip>\n      <TooltipTrigger render={<Button variant="outline">Hover</Button>} />\n      <TooltipContent\n        title="Lovely tooltip title"\n        desc="There are a lot of things you can do in space."\n      />\n    </Tooltip>\n  );\n}\n',
-  },
-  'mc-alert-demo': {
-    name: 'mc-alert-demo',
-    description: 'Demo for MicroClub Alert',
-    type: 'registry:example',
-    files: [
-      {
-        path: 'registry/examples/mc-alert-demo.tsx',
-        content:
-          '\'use client\';\n\nimport { McAlert } from \'@/registry/ui/mc-alert\';\n\nexport default function McAlertDemo() {\n  return (\n    <div className="p-8 space-y-4">\n      <h1 className="text-2xl font-bold mb-6">McAlert Component Demo</h1>\n\n      <McAlert\n        variant="success"\n        title="Success! Your changes have been saved"\n        description="This is an alert with icon, title and description."\n      />\n\n      <McAlert variant="default" title="This alert has a title and an icon. No description." />\n\n      <McAlert\n        variant="destructive"\n        title="Unable to process your payment."\n        description="Please verify your billing information and try again."\n        items={[\'Check your card details\', \'Ensure sufficient funds\', \'Verify billing address\']}\n      />\n\n      <McAlert\n        variant="success"\n        title="Long content example to demonstrate responsive width"\n        description="This is a very long description that should cause the alert width to expand up to the maximum of 719px before the height increases. The component will grow with the content length."\n      />\n    </div>\n  );\n}\n',
-        type: 'registry:example',
-      },
-    ],
-    component: React.lazy(() => import('@/registry/examples/mc-alert-demo.tsx')),
-    source:
-      '\'use client\';\n\nimport { McAlert } from \'@/registry/ui/mc-alert\';\n\nexport default function McAlertDemo() {\n  return (\n    <div className="p-8 space-y-4">\n      <h1 className="text-2xl font-bold mb-6">McAlert Component Demo</h1>\n\n      <McAlert\n        variant="success"\n        title="Success! Your changes have been saved"\n        description="This is an alert with icon, title and description."\n      />\n\n      <McAlert variant="default" title="This alert has a title and an icon. No description." />\n\n      <McAlert\n        variant="destructive"\n        title="Unable to process your payment."\n        description="Please verify your billing information and try again."\n        items={[\'Check your card details\', \'Ensure sufficient funds\', \'Verify billing address\']}\n      />\n\n      <McAlert\n        variant="success"\n        title="Long content example to demonstrate responsive width"\n        description="This is a very long description that should cause the alert width to expand up to the maximum of 719px before the height increases. The component will grow with the content length."\n      />\n    </div>\n  );\n}\n',
   },
 };
