@@ -2364,19 +2364,6 @@
       "type": "registry:component"
     },
     {
-      "name": "mc-skeleton",
-      "title": "MicroClub Skeleton",
-      "description": "A skeleton component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
-      "files": [
-        {
-          "path": "registry/ui/mc-skeleton.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "type": "registry:component"
-    },
-    {
       "name": "mc-scrollarea",
       "title": "MicroClub Scroll Area",
       "description": "A scroll area component for MicroClub UI",
@@ -2384,6 +2371,19 @@
       "files": [
         {
           "path": "registry/ui/mc-scrollarea.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-skeleton",
+      "title": "MicroClub Skeleton",
+      "description": "A skeleton component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-skeleton.tsx",
           "type": "registry:component"
         }
       ],

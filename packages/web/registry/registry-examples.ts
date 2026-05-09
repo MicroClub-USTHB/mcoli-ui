@@ -212,19 +212,6 @@ export const examples: Registry['items'] = [
   },
 
   {
-    name: 'mc-skeleton-demo',
-    type: 'registry:example',
-    title: 'MicroClub Skeleton Demo',
-    description: 'Demo for MicroClub Skeleton',
-    files: [
-      {
-        path: 'examples/mc-skeleton-demo.tsx',
-        type: 'registry:example',
-      },
-    ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-skeleton.json`],
-  },
-  {
     name: 'mc-scrollarea-demo',
     type: 'registry:example',
     title: 'MicroClub Scroll Area Demo',
@@ -236,5 +223,18 @@ export const examples: Registry['items'] = [
       },
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-scrollarea.json`],
+  },
+  {
+    name: 'mc-skeleton-demo',
+    type: 'registry:example',
+    title: 'MicroClub Skeleton Demo',
+    description: 'Demo for MicroClub Skeleton',
+    files: [
+      {
+        path: 'examples/mc-skeleton-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-skeleton.json`],
   },
 ];
