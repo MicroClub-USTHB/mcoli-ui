@@ -1,9 +1,175 @@
 ---
 title: MC Input
-description: A text field for user input.
+description: A single-component text input with field integration, addon slots, and error handling.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-input` is a single-component text input for the MicroClub UI library. Built on the **@base-ui/react** input primitive, it provides a production-ready field with label, description, error handling, and four addon slots out of the box.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-input-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-input-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-input` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-input</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-input</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-input</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-input</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install clsx tailwind-merge @base-ui/react</Tab>
+  <Tab value="pnpm">pnpm add clsx tailwind-merge @base-ui/react</Tab>
+  <Tab value="yarn">yarn add clsx tailwind-merge @base-ui/react</Tab>
+  <Tab value="bun">bun add clsx tailwind-merge @base-ui/react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-input" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McInput } from '@/components/ui/mc-input';
+
+export default function Example() {
+  return <McInput label="Email" placeholder="olivia@example.com" />;
+}
+```
+
+## Examples
+
+### With Description
+
+```tsx
+<McInput
+  label="Email"
+  description="We'll never share your email."
+  placeholder="olivia@example.com"
+/>
+```
+
+### Error State
+
+The `error` prop controls both the visual state and the message. When present, it replaces the description.
+
+```tsx
+<McInput
+  label="Email"
+  error="Please enter a valid email address."
+  placeholder="olivia@example.com"
+/>
+```
+
+### Icon Addons
+
+```tsx
+import { Search, Mail } from 'lucide-react';
+
+<McInput label="Search" addonStart={<Search />} placeholder="Search..." />
+<McInput label="Email" addonStart={<Mail />} placeholder="olivia@example.com" />
+```
+
+### Text Addons
+
+```tsx
+<McInput label="Price" addonStart="$" addonEnd="USD" placeholder="0.00" type="number" />
+<McInput label="Website" addonStart="https://" addonEnd=".com" placeholder="yoursite" />
+```
+
+### McInputButton
+
+`McInputButton` is purpose-built for input addon slots. It has four variants:
+
+- **ghost** — transparent, for icon toggles
+- **outline** — bordered, for secondary actions
+- **filled** — solid background, for primary actions
+- **attached** — full-height, shares the input border, auto-detects start/end position
+
+```tsx
+import { McInput, McInputButton } from '@/components/ui/mc-input';
+import { Search } from 'lucide-react';
+
+<McInput
+  label="Search"
+  addonStart={<Search />}
+  addonEnd={<McInputButton variant="attached">Search</McInputButton>}
+  placeholder="Search anything..."
+/>;
+```
+
+### Block Addons
+
+Use `addonTop` and `addonBottom` for toolbars, counters, and status bars.
+
+```tsx
+<McInput
+  label="Amount"
+  addonTop={
+    <div className="flex w-full items-center justify-between">
+      <span className="text-xs font-medium">Balance: $1,234.56</span>
+      <button className="text-xs font-medium text-primary hover:underline">Max</button>
+    </div>
+  }
+  addonStart={<DollarSign />}
+  placeholder="0.00"
+  type="number"
+/>
+```
+
+## API Reference
+
+### McInput Props
+
+| Prop          | Type        | Default     | Description                                                |
+| ------------- | ----------- | ----------- | ---------------------------------------------------------- |
+| `label`       | `ReactNode` | `undefined` | Label rendered above the input                             |
+| `description` | `ReactNode` | `undefined` | Help text below the input. Hidden when `error` is present. |
+| `error`       | `ReactNode` | `undefined` | Error message below the input. `true` = red border only.   |
+| `addonStart`  | `ReactNode` | `undefined` | Inline-start addon (icons, text, dropdowns)                |
+| `addonEnd`    | `ReactNode` | `undefined` | Inline-end addon (buttons, badges, spinners)               |
+| `addonTop`    | `ReactNode` | `undefined` | Block-start addon (toolbar, controls above the input)      |
+| `addonBottom` | `ReactNode` | `undefined` | Block-end addon (character count, status bar below)        |
+| `disabled`    | `boolean`   | `false`     | Disables interactions and applies disabled styles          |
+| `required`    | `boolean`   | `false`     | Marks the input as required                                |
+| `className`   | `string`    | `undefined` | Additional CSS classes for the root element                |
+
+All standard HTML input attributes are also supported.
+
+### McInputButton Props
+
+| Prop        | Type                                             | Default     | Description                                                |
+| ----------- | ------------------------------------------------ | ----------- | ---------------------------------------------------------- |
+| `variant`   | `"ghost" \| "outline" \| "filled" \| "attached"` | `"ghost"`   | Visual style. `attached` goes flush with the input border. |
+| `className` | `string`                                         | `undefined` | Additional CSS classes                                     |
+
+All standard HTML button attributes are also supported.

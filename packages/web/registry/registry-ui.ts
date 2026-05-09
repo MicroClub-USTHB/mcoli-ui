@@ -15,6 +15,32 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-input',
+    type: 'registry:component',
+    title: 'MicroClub Input',
+    description: 'An input component with field integration and addon support for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-input.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-textarea',
+    type: 'registry:component',
+    title: 'MicroClub Textarea',
+    description: 'A multi-line text input with field integration and block addons for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-textarea.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: [],
+  },
+  {
     name: 'mc-input-otp',
     type: 'registry:component',
     title: 'MicroClub Input OTP',
@@ -41,19 +67,6 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
-    name: 'mc-card',
-    type: 'registry:component',
-    title: 'MicroClub Card',
-    description: 'A card layout with header, body, and footer regions for MicroClub UI',
-    files: [
-      {
-        path: 'ui/mc-card.tsx',
-        type: 'registry:component',
-      },
-    ],
-    dependencies: ['class-variance-authority'],
-  },
-  {
     name: 'mc-radio-group',
     type: 'registry:component',
     title: 'MicroClub Radio Group',
@@ -67,6 +80,45 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-card',
+    type: 'registry:component',
+    title: 'MicroClub Card',
+    description: 'A card layout with header, body, and footer regions for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-card.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['class-variance-authority'],
+  },
+  {
+    name: 'mc-select',
+    type: 'registry:component',
+    title: 'MicroClub Selector',
+    description: 'A Selector component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-select.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-combobox',
+    type: 'registry:component',
+    title: 'MicroClub Combobox',
+    description: 'A searchable dropdown with autocomplete functionality for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-combobox.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
     name: 'mc-switch',
     type: 'registry:component',
     title: 'MicroClub Switch',
@@ -74,6 +126,32 @@ export const ui: Registry['items'] = [
     files: [
       {
         path: 'ui/mc-switch.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-navigation-menu',
+    type: 'registry:component',
+    title: 'MicroClub Navigation Menu',
+    description: 'A navigation menu component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-navigation-menu.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-sidebar',
+    type: 'registry:component',
+    title: 'MicroClub Sidebar',
+    description: 'A sidebar component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-sidebar.tsx',
         type: 'registry:component',
       },
     ],
@@ -119,26 +197,52 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
-    name: 'mc-combobox',
+    name: 'mc-separator',
     type: 'registry:component',
-    title: 'MicroClub Combobox',
-    description: 'A searchable dropdown with autocomplete functionality for MicroClub UI',
+    title: 'MicroClub Separator',
+    description: 'A separator component for MicroClub UI',
     files: [
       {
-        path: 'ui/mc-combobox.tsx',
+        path: 'ui/mc-separator.tsx',
         type: 'registry:component',
       },
     ],
     dependencies: ['@base-ui/react'],
   },
   {
-    name: 'mc-navigation-menu',
+    name: 'mc-scrollarea',
     type: 'registry:component',
-    title: 'MicroClub Navigation Menu',
-    description: 'A navigation menu component for MicroClub UI',
+    title: 'MicroClub Scroll Area',
+    description: 'A scroll area component for MicroClub UI',
     files: [
       {
-        path: 'ui/mc-navigation-menu.tsx',
+        path: 'ui/mc-scrollarea.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-skeleton',
+    type: 'registry:component',
+    title: 'MicroClub Skeleton',
+    description: 'A skeleton component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-skeleton.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-tooltip',
+    type: 'registry:component',
+    title: 'MicroClub Tooltip',
+    description: 'A tooltip component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-tooltip.tsx',
         type: 'registry:component',
       },
     ],
