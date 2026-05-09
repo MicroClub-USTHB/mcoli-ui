@@ -5,12 +5,9 @@ description: A loading placeholder component.
 
 ## Overview
 
-`mc-skeleton` is a lightweight loading placeholder for content that is still being fetched or
-rendered. It uses a simple animated surface so you can reserve layout space without showing final
-content too early.
+`mc-skeleton` is a lightweight loading placeholder for content that is still being fetched or rendered. It uses a simple animated surface so you can reserve layout space without showing final content too early.
 
-The component supports direct sizing through `width` and `height`, plus a `rectangle` flag for
-switching between rounded and rectangular shapes.
+The component supports direct sizing through `width` and `height`, plus a `rectangle` flag for switching between rounded and rectangular shapes.
 
 ## Preview
 
@@ -23,12 +20,48 @@ switching between rounded and rectangular shapes.
   </Tab>
 </Tabs>
 
+## Add to Your Project
+
+Deploy `mc-skeleton` directly into your `components/ui` folder:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-skeleton</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-skeleton</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-skeleton</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-skeleton</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual installation:
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install clsx tailwind-merge</Tab>
+  <Tab value="pnpm">pnpm add clsx tailwind-merge</Tab>
+  <Tab value="yarn">yarn add clsx tailwind-merge</Tab>
+  <Tab value="bun">bun add clsx tailwind-merge</Tab>
+</Tabs>
+
+<Step>Copy component source</Step>
+
+<ComponentSource name="mc-skeleton" />
+
+<Step>Adjust utility imports</Step>
+
+Ensure `@/lib/utils` (or your local classname helper) is correctly mapped.
+
+</Steps>
+
 ## Usage
 
 ```tsx
-import { McSkeleton } from '@/registry/ui/mc-skeleton';
+import { McSkeleton } from '@/components/ui/mc-skeleton';
 
-export function Example() {
+export default function Example() {
   return <McSkeleton width={160} height={16} rectangle />;
 }
 ```
@@ -65,9 +98,3 @@ export function Example() {
 | `className` | `string`  | `undefined` | Additional Tailwind classes.                                  |
 
 All other props from `React.ComponentProps<'div'>` are supported.
-
-## Notes
-
-- Use the component to reserve space while content loads.
-- If you need a different visual shape, pass `rectangle` or override the radius with `className`.
-- The component is intended for static placeholders, not interactive elements.
