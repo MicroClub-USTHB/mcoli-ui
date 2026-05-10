@@ -261,4 +261,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+  {
+    name: 'mc-avatar',
+    type: 'registry:component',
+    title: 'MicroClub Avatar',
+    description: 'A avatar component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-avatar.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
