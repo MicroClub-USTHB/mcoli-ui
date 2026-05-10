@@ -3,7 +3,356 @@ title: MC Select
 description: A dropdown component for selecting one option from a list.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-select` is a core component of the MicroClub UI library. Built on the **@base-ui/react** select primitive, it combines world-class accessibility with MicroClub's signature styling via **Tailwind CSS v4**.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-select-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-select-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-select` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-select</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-select</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-select</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-select</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">
+    npm install clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="pnpm">
+    pnpm add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="yarn">
+    yarn add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="bun">
+    bun add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-select" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  McSelect,
+  McSelectContent,
+  McSelectGroup,
+  McSelectGroupLabel,
+  McSelectItem,
+  McSelectLabel,
+  McSelectTrigger,
+  McSelectValue,
+} from '@/components/ui/mc-select';
+
+export default function Example() {
+  return (
+    <McSelect defaultValue="designer">
+      <McSelectLabel>Role</McSelectLabel>
+      <McSelectTrigger>
+        <McSelectValue placeholder="Select a role" />
+      </McSelectTrigger>
+
+      <McSelectContent>
+        <McSelectGroup>
+          <McSelectGroupLabel>Team roles</McSelectGroupLabel>
+
+          <McSelectItem value="designer">Designer</McSelectItem>
+          <McSelectItem value="developer">Developer</McSelectItem>
+        </McSelectGroup>
+      </McSelectContent>
+    </McSelect>
+  );
+}
+```
+
+## Examples
+
+### Variants
+
+The select trigger supports multiple variants for different use cases.
+
+```tsx
+<McSelect defaultValue="designer">
+  <McSelectTrigger variant="default">
+    <McSelectValue placeholder="Select a role" />
+  </McSelectTrigger>
+  <McSelectContent>
+    <McSelectItem value="designer">Designer</McSelectItem>
+    <McSelectItem value="developer">Developer</McSelectItem>
+  </McSelectContent>
+</McSelect>
+```
+
+### With Icon Leading
+
+Use the `icon-leading` variant to display an icon before the value.
+
+```tsx
+import { User } from 'lucide-react';
+
+<McSelect defaultValue="designer">
+  <McSelectTrigger variant="icon-leading" leadingIcon={<User />}>
+    <McSelectValue placeholder="Select a role" />
+  </McSelectTrigger>
+  <McSelectContent>
+    <McSelectItem value="designer">Designer</McSelectItem>
+    <McSelectItem value="developer">Developer</McSelectItem>
+  </McSelectContent>
+</McSelect>;
+```
+
+### With Avatar Leading
+
+Use the `avatar-leading` variant to display an avatar before the value.
+
+```tsx
+import { Avatar } from 'lucide-react';
+
+<McSelect defaultValue="designer">
+  <McSelectTrigger variant="avatar-leading" leadingAvatar={<Avatar />}>
+    <McSelectValue placeholder="Select a role" />
+  </McSelectTrigger>
+  <McSelectContent>
+    <McSelectItem value="designer">Designer</McSelectItem>
+    <McSelectItem value="developer">Developer</McSelectItem>
+  </McSelectContent>
+</McSelect>;
+```
+
+### With Dot Leading
+
+Use the `dot-leading` variant to display a colored dot before the value.
+
+```tsx
+<McSelect defaultValue="online">
+  <McSelectTrigger variant="dot-leading" dotColor="bg-green-500">
+    <McSelectValue placeholder="Select status" />
+  </McSelectTrigger>
+  <McSelectContent>
+    <McSelectItem value="online">Online</McSelectItem>
+    <McSelectItem value="away">Away</McSelectItem>
+    <McSelectItem value="offline">Offline</McSelectItem>
+  </McSelectContent>
+</McSelect>
+```
+
+### Search Variant
+
+The `search` variant is optimized for search input scenarios.
+
+```tsx
+<McSelect defaultValue="designer">
+  <McSelectTrigger variant="search">
+    <McSelectValue placeholder="Search roles..." />
+  </McSelectTrigger>
+  <McSelectContent>
+    <McSelectItem value="designer">Designer</McSelectItem>
+    <McSelectItem value="developer">Developer</McSelectItem>
+    <McSelectItem value="manager">Manager</McSelectItem>
+  </McSelectContent>
+</McSelect>
+```
+
+### With Supporting Text
+
+Add supporting text below each item for additional context.
+
+```tsx
+<McSelect defaultValue="designer">
+  <McSelectTrigger>
+    <McSelectValue placeholder="Select a role" />
+  </McSelectTrigger>
+  <McSelectContent>
+    <McSelectItem value="designer" supportingText="Creative">
+      Designer
+    </McSelectItem>
+    <McSelectItem value="developer" supportingText="Technical">
+      Developer
+    </McSelectItem>
+    <McSelectItem value="manager" supportingText="Leadership">
+      Manager
+    </McSelectItem>
+  </McSelectContent>
+</McSelect>
+```
+
+### Sizes
+
+Choose between `default` and `sm` sizes.
+
+```tsx
+<McSelect defaultValue="designer">
+  <McSelectTrigger size="default">
+    <McSelectValue placeholder="Default size" />
+  </McSelectTrigger>
+  <McSelectContent>
+    <McSelectItem value="designer">Designer</McSelectItem>
+  </McSelectContent>
+</McSelect>
+
+<McSelect defaultValue="designer">
+  <McSelectTrigger size="sm">
+    <McSelectValue placeholder="Small size" />
+  </McSelectTrigger>
+  <McSelectContent>
+    <McSelectItem value="designer">Designer</McSelectItem>
+  </McSelectContent>
+</McSelect>
+```
+
+### Disabled Item
+
+Selected items are automatically disabled to prevent re-selection.
+
+```tsx
+<McSelect defaultValue="designer">
+  <McSelectTrigger>
+    <McSelectValue placeholder="Select a role" />
+  </McSelectTrigger>
+  <McSelectContent>
+    <McSelectItem value="designer">Designer (current)</McSelectItem>
+    <McSelectItem value="developer">Developer</McSelectItem>
+    <McSelectItem value="manager">Manager</McSelectItem>
+  </McSelectContent>
+</McSelect>
+```
+
+### With Separator
+
+Group items with a separator for visual separation.
+
+```tsx
+<McSelect defaultValue="designer">
+  <McSelectTrigger>
+    <McSelectValue placeholder="Select a role" />
+  </McSelectTrigger>
+  <McSelectContent>
+    <McSelectGroup>
+      <McSelectGroupLabel>Team roles</McSelectGroupLabel>
+      <McSelectItem value="designer">Designer</McSelectItem>
+      <McSelectItem value="developer">Developer</McSelectItem>
+    </McSelectGroup>
+    <McSelectSeparator />
+    <McSelectGroup>
+      <McSelectGroupLabel>Lead roles</McSelectGroupLabel>
+      <McSelectItem value="manager">Manager</McSelectItem>
+      <McSelectItem value="director">Director</McSelectItem>
+    </McSelectGroup>
+  </McSelectContent>
+</McSelect>
+```
+
+## API Reference
+
+### McSelect Props
+
+| Prop            | Type                      | Default     | Description                   |
+| --------------- | ------------------------- | ----------- | ----------------------------- |
+| `defaultValue`  | `string`                  | `undefined` | The default selected value    |
+| `value`         | `string`                  | `undefined` | The controlled selected value |
+| `onValueChange` | `(value: string) => void` | `undefined` | Callback when value changes   |
+| `className`     | `string`                  | `undefined` | Additional CSS classes        |
+
+All other props from `@base-ui/react/select` are supported.
+
+### McSelectTrigger Props
+
+| Prop            | Type                                                                           | Default     | Description                                         |
+| --------------- | ------------------------------------------------------------------------------ | ----------- | --------------------------------------------------- |
+| `size`          | `"sm" \| "default"`                                                            | `"default"` | The size of the trigger                             |
+| `variant`       | `"default" \| "icon-leading" \| "avatar-leading" \| "dot-leading" \| "search"` | `"default"` | The visual variant                                  |
+| `leadingIcon`   | `ReactNode`                                                                    | `undefined` | Icon to display (for `icon-leading` variant)        |
+| `leadingAvatar` | `ReactNode`                                                                    | `undefined` | Avatar to display (for `avatar-leading` variant)    |
+| `dotColor`      | `string`                                                                       | `undefined` | Color class for the dot (for `dot-leading` variant) |
+| `className`     | `string`                                                                       | `undefined` | Additional CSS classes                              |
+
+All other props from `@base-ui/react/select` are supported.
+
+### McSelectContent Props
+
+| Prop                   | Type                           | Default     | Description                                 |
+| ---------------------- | ------------------------------ | ----------- | ------------------------------------------- |
+| `side`                 | `"top" \| "bottom"`            | `"bottom"`  | The side to open the popup from             |
+| `sideOffset`           | `number`                       | `8`         | The offset in pixels from the trigger       |
+| `align`                | `"start" \| "center" \| "end"` | `"center"`  | The alignment of the popup                  |
+| `alignOffset`          | `number`                       | `0`         | The offset in pixels from the alignment     |
+| `alignItemWithTrigger` | `boolean`                      | `true`      | Whether to align the popup with the trigger |
+| `scrollbar`            | `boolean`                      | `false`     | Whether to show the scrollbar               |
+| `className`            | `string`                       | `undefined` | Additional CSS classes                      |
+
+All other props from `@base-ui/react/select` are supported.
+
+### McSelectItem Props
+
+| Prop             | Type        | Default     | Description                                |
+| ---------------- | ----------- | ----------- | ------------------------------------------ |
+| `value`          | `string`    | -           | The value of the item                      |
+| `supportingText` | `string`    | `undefined` | Supporting text to display below the label |
+| `leadingIcon`    | `ReactNode` | `undefined` | Icon to display before the label           |
+| `leadingAvatar`  | `ReactNode` | `undefined` | Avatar to display before the label         |
+| `dotColor`       | `string`    | `undefined` | Color class for the dot                    |
+| `className`      | `string`    | `undefined` | Additional CSS classes                     |
+
+The selected item is automatically styled with a blue background and becomes non-clickable.
+
+All other props from `@base-ui/react/select` are supported.
+
+### McSelectGroupLabel Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+### McSelectLabel Props
+
+| Prop        | Type        | Default     | Description            |
+| ----------- | ----------- | ----------- | ---------------------- |
+| `className` | `string`    | `undefined` | Additional CSS classes |
+| `children`  | `ReactNode` | -           | Label content          |
+
+### McSelectValue Props
+
+| Prop          | Type     | Default     | Description                 |
+| ------------- | -------- | ----------- | --------------------------- |
+| `placeholder` | `string` | `undefined` | Placeholder text when empty |
+| `className`   | `string` | `undefined` | Additional CSS classes      |
+
+### McSelectSeparator Props
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |

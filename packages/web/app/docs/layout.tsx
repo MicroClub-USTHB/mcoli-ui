@@ -15,11 +15,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           </div>
         ),
         transparentMode: 'top',
-        children: (
-          <div className="mr-1">
+        children: [
+          <div key="theme-switcher" className="mr-1">
             <ThemeSwitcher />
-          </div>
-        ),
+          </div>,
+        ],
       }}
     >
       {children}

@@ -3,7 +3,164 @@ title: MC Tooltip
 description: A popup that displays information on hover or focus.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-tooltip` is a core component of the MicroClub UI library. Built on the **@base-ui/react** tooltip primitive, it combines world-class accessibility with MicroClub's signature styling via **Tailwind CSS v4**.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-tooltip-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-tooltip-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-tooltip` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-tooltip</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-tooltip</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-tooltip</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-tooltip</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install clsx tailwind-merge @base-ui/react</Tab>
+  <Tab value="pnpm">pnpm add clsx tailwind-merge @base-ui/react</Tab>
+  <Tab value="yarn">yarn add clsx tailwind-merge @base-ui/react</Tab>
+  <Tab value="bun">bun add clsx tailwind-merge @base-ui/react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-tooltip" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from '@/components/ui/mc-tooltip';
+
+export default function Example() {
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger>
+          <button>Hover me</button>
+        </TooltipTrigger>
+        <TooltipContent title="Tooltip Title" desc="This is a description." />
+      </Tooltip>
+    </TooltipProvider>
+  );
+}
+```
+
+## Examples
+
+### Basic Tooltip
+
+```tsx
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger>
+      <button className="px-4 py-2 bg-blue-500 text-white rounded">Hover me</button>
+    </TooltipTrigger>
+    <TooltipContent title="Hello" desc="This is a basic tooltip." />
+  </Tooltip>
+</TooltipProvider>
+```
+
+### Positioning
+
+```tsx
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger>
+      <button className="px-4 py-2 bg-green-500 text-white rounded">Top</button>
+    </TooltipTrigger>
+    <TooltipContent side="top" title="Top Tooltip" />
+  </Tooltip>
+  <Tooltip>
+    <TooltipTrigger>
+      <button className="px-4 py-2 bg-red-500 text-white rounded">Bottom</button>
+    </TooltipTrigger>
+    <TooltipContent side="bottom" title="Bottom Tooltip" />
+  </Tooltip>
+</TooltipProvider>
+```
+
+### With Custom Content
+
+```tsx
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger>
+      <button className="px-4 py-2 bg-purple-500 text-white rounded">Custom</button>
+    </TooltipTrigger>
+    <TooltipContent>
+      <div className="text-center">
+        <p className="font-semibold">Custom Content</p>
+        <p>You can put anything here!</p>
+      </div>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>
+```
+
+## API Reference
+
+### TooltipProvider Props
+
+| Prop    | Type     | Default | Description                        |
+| ------- | -------- | ------- | ---------------------------------- |
+| `delay` | `number` | `0`     | Delay in ms before showing tooltip |
+
+All other props from `@base-ui/react/tooltip/provider` are supported.
+
+### Tooltip Props
+
+All props from `@base-ui/react/tooltip/root` are supported.
+
+### TooltipTrigger Props
+
+All props from `@base-ui/react/tooltip/trigger` are supported.
+
+### TooltipContent Props
+
+| Prop          | Type                                     | Default     | Description                                     |
+| ------------- | ---------------------------------------- | ----------- | ----------------------------------------------- |
+| `className`   | `string`                                 | `undefined` | Additional CSS classes                          |
+| `side`        | `"top" \| "bottom" \| "left" \| "right"` | `"top"`     | The side of the trigger to position the tooltip |
+| `sideOffset`  | `number`                                 | `4`         | The offset from the trigger                     |
+| `align`       | `"start" \| "center" \| "end"`           | `"center"`  | The alignment of the tooltip                    |
+| `alignOffset` | `number`                                 | `0`         | The offset for alignment                        |
+| `title`       | `string`                                 | `undefined` | The title text of the tooltip                   |
+| `desc`        | `string`                                 | `undefined` | The description text of the tooltip             |
+| `children`    | `ReactNode`                              | `undefined` | Custom content for the tooltip                  |
+
+All other props from `@base-ui/react/tooltip/popup` and `@base-ui/react/tooltip/positioner` are supported.
