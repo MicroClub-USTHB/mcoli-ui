@@ -1,9 +1,105 @@
 ---
-title: MC Pagination
-description: A component for navigating between pages of content.
----
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## title: MC Pagination
+
+description: A navigation component for divided content.
+
+## Overview
+
+The `mc-pagination` is a high-performance navigation component designed for the MicroClub UI library. It allows users to navigate through large sets of data by breaking them into discrete pages, built with **Tailwind CSS v4** for modern styling and maximum performance.
+
+## Preview
+
+<Tabs 'code']} items="{['preview',">
+
+## Add to Your Project
+
+Install the `mc-pagination` component using the MicroClub CLI:
+
+<Tabs 'bun']} 'pnpm', 'yarn', items="{['npm',">
+npx mcoli-ui@latest add mc-pagination
+pnpm dlx mcoli-ui@latest add mc-pagination
+yarn dlx mcoli-ui@latest add mc-pagination
+bunx mcoli-ui@latest add mc-pagination
+
+### Manual Setup
+
+1. **:**
+   Install dependencies
+
+2. **:**
+   Copy the source code
+
+3. **:**
+   Configure paths
+
+## Usage
+
+The `mc-pagination` is a controlled component. You must manage the `page` state in your parent component.
+
+```tsx
+import { useState } from 'react';
+import { McPagination } from '@/components/ui/mc-pagination';
+
+export default function PaginationExample() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const total = 10;
+
+  return (
+    <McPagination
+      page={currentPage}
+      totalPages={total}
+      onPageChange={(page) => setCurrentPage(page)}
+      nextMcButtonLabel="Next"
+      previousMcButtonLabel="Previous"
+    />
+  );
+}
+```
+
+## Examples
+
+### Custom Labels
+
+You can localize or customize the text for the navigation buttons.
+
+```tsx
+<McPagination
+  page={1}
+  totalPages={5}
+  onPageChange={handlePage}
+  nextMcButtonLabel="Suivant"
+  previousMcButtonLabel="Précédent"
+/>
+```
+
+### State Management with Objects
+
+If your state manages multiple values (e.g., items per page), you can update it as follows:
+
+```tsx
+const [{ page, totalPages }, setPagination] = useState({
+  page: 1,
+  totalPages: 7,
+});
+
+// In render
+<McPagination
+  page={page}
+  totalPages={totalPages}
+  onPageChange={(newPage) => setPagination((prev) => ({ ...prev, page: newPage }))}
+/>;
+```
+
+## API Reference
+
+### Props
+
+| Prop                    | Type                     | Default      | Description                                       |
+| ----------------------- | ------------------------ | ------------ | ------------------------------------------------- |
+| `page`                  | `number`                 | `1`          | The currently active page index.                  |
+| `totalPages`            | `number`                 | `required`   | The total number of pages to display.             |
+| `onPageChange`          | `(page: number) => void` | `required`   | Event handler called when a new page is selected. |
+| `nextMcButtonLabel`     | `string`                 | `"Next"`     | The text displayed on the "Next" button.          |
+| `previousMcButtonLabel` | `string`                 | `"Previous"` | The text displayed on the "Previous" button.      |
+| `className`             | `string`                 | `undefined`  | Custom classes for the outer container.           |
