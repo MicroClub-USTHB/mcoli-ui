@@ -198,6 +198,19 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-pagination.json`],
   },
   {
+    name: 'mc-dialog-demo',
+    type: 'registry:example',
+    title: 'MicroClub Dialog Demo',
+    description: 'Demo for MicroClub Dialog',
+    files: [
+      {
+        path: 'examples/mc-dialog-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-dialog.json`],
+  },
+  {
     name: 'mc-alert-demo',
     type: 'registry:example',
     title: 'MicroClub Alert Demo',

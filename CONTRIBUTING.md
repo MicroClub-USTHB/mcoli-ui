@@ -226,7 +226,7 @@ When adding a new item, you will create/edit these files:
 | `mc-tabs`            | ✅           | ✅        |
 | `mc-breadcrumb`      | ✅           | ✅        |
 | `mc-pagination`      | ✅           | ✅        |
-| `mc-dialog`          | ✅           |           |
+| `mc-dialog`          | ✅           | ✅        |
 | `mc-alert-dialog`    | ✅           |           |
 | `mc-alert`           | ✅           | ✅        |
 | `mc-sonner`          | ✅           |           |
