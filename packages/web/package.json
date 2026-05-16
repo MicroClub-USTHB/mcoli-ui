@@ -20,7 +20,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "postinstall": "fumadocs-mdx",
-    "storybook": "storybook dev -p 6006",
+    "storybook": "storybook dev -p 6006 --no-open",
     "build-storybook": "storybook build"
   },
   "dependencies": {
