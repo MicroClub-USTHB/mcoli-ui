@@ -231,7 +231,7 @@ When adding a new item, you will create/edit these files:
 | `mc-alert`           | ✅           | ✅        |
 | `mc-sonner`          | ✅           |           |
 | `mc-tooltip`         | ✅           | ✅        |
-| `mc-popover`         | ✅           |           |
+| `mc-popover`         | ✅           | ✅        |
 | `mc-dropdown-menu`   | ✅           |           |
 | `mc-context-menu`    | ✅           |           |
 | `mc-data-table`      | ✅           |           |

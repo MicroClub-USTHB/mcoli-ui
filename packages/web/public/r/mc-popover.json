@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-popover",
-  "title": "MicroClub Mc Popover",
-  "description": "A Popover component for MicroClub UI",
+  "title": "MicroClub Popover",
+  "description": "A popover component for MicroClub UI",
   "dependencies": ["@base-ui/react"],
   "files": [
     {
