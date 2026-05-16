@@ -212,36 +212,36 @@ When adding a new item, you will create/edit these files:
 | Component            | Design State | Dev State |
 | -------------------- | ------------ | --------- |
 | `mc-button`          | ✅           | ✅        |
-| `mc-input`           | ✅           |           |
-| `mc-textarea`        | ✅           |           |
+| `mc-input`           | ✅           | ✅        |
+| `mc-textarea`        | ✅           | ✅        |
 | `mc-input-otp`       | ✅           | ✅        |
 | `mc-checkbox`        | ✅           | ✅        |
 | `mc-radio-group`     | ✅           | ✅        |
 | `mc-card`            | ✅           | ✅        |
-| `mc-select`          | ✅           |           |
+| `mc-select`          | ✅           | ✅        |
 | `mc-combobox`        | ✅           | ✅        |
 | `mc-switch`          | ✅           | ✅        |
 | `mc-navigation-menu` | ✅           | ✅        |
-| `mc-sidebar`         | ✅           |           |
+| `mc-sidebar`         | ✅           | ✅        |
 | `mc-tabs`            | ✅           | ✅        |
 | `mc-breadcrumb`      | ✅           | ✅        |
 | `mc-pagination`      | ✅           | ✅        |
-| `mc-dialog`          | ✅           |           |
+| `mc-dialog`          | ✅           | ✅        |
 | `mc-alert-dialog`    | ✅           |           |
-| `mc-alert`           | ✅           |           |
+| `mc-alert`           | ✅           | ✅        |
 | `mc-sonner`          | ✅           |           |
-| `mc-tooltip`         | ✅           |           |
-| `mc-popover`         | ✅           |           |
+| `mc-tooltip`         | ✅           | ✅        |
+| `mc-popover`         | ✅           | ✅        |
 | `mc-dropdown-menu`   | ✅           |           |
 | `mc-context-menu`    | ✅           |           |
 | `mc-data-table`      | ✅           |           |
 | `mc-accordion`       | ✅           |           |
 | `mc-collapsible`     | ✅           |           |
-| `mc-separator`       | ✅           |           |
+| `mc-separator`       | ✅           | ✅        |
 | `mc-progress`        | ✅           |           |
 | `mc-calendar`        | ✅           |           |
-| `mc-scrollarea`      | ✅           |           |
-| `mc-skeleton`        | ✅           |           |
+| `mc-scrollarea`      | ✅           | ✅        |
+| `mc-skeleton`        | ✅           | ✅        |
 | `mc-badge`           | ✅           |           |
 | `mc-avatar`          | ✅           |           |
 | `mc-drawer`          | ✅           |           |
