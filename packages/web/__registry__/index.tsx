@@ -2332,6 +2332,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-popover': {
+    name: 'mc-popover',
+    description: 'A popover component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-popover.tsx',
+        content:
+          "'use client';\nimport * as React from 'react';\nimport { Popover as PopoverPrimitive } from '@base-ui/react/popover';\nimport { cn } from '@/lib/utils';\nfunction Popover({ ...props }: PopoverPrimitive.Root.Props) {\n  return <PopoverPrimitive.Root data-slot=\"popover\" {...props} />;\n}\nfunction PopoverTrigger({ ...props }: PopoverPrimitive.Trigger.Props) {\n  return <PopoverPrimitive.Trigger data-slot=\"popover-trigger\" {...props} />;\n}\nfunction PopoverContent({\n  className,\n  align = 'center',\n  alignOffset = 0,\n  side = 'bottom',\n  sideOffset = 23,\n  ...props\n}: PopoverPrimitive.Popup.Props &\n  Pick<PopoverPrimitive.Positioner.Props, 'align' | 'alignOffset' | 'side' | 'sideOffset'>) {\n  return (\n    <PopoverPrimitive.Portal>\n      <PopoverPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n        className=\"isolate z-50\"\n      >\n        <PopoverPrimitive.Popup\n          data-slot=\"popover-content\"\n          className={cn(\n            'z-50 flex h-[268px] w-[276px] origin-(--transform-origin) flex-col gap-[13px] rounded-lg bg-card p-4 text-sm text-card-foreground shadow-sm outline-hidden duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95',\n            className\n          )}\n          {...props}\n        />\n      </PopoverPrimitive.Positioner>\n    </PopoverPrimitive.Portal>\n  );\n}\n\nfunction PopoverHeader({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"popover-header\"\n      className={cn('flex flex-col gap-[9px] text-sm', className)}\n      {...props}\n    />\n  );\n}\n\nfunction PopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props) {\n  return (\n    <PopoverPrimitive.Title\n      data-slot=\"popover-title\"\n      className={cn(\n        'font-plus-jakarta-sans text-left text-[20px] leading-[30px] font-medium tracking-[0] text-card-foreground',\n        className\n      )}\n      {...props}\n    />\n  );\n}\nfunction PopoverDescription({ className, ...props }: PopoverPrimitive.Description.Props) {\n  return (\n    <PopoverPrimitive.Description\n      data-slot=\"popover-description\"\n      className={cn(\n        'font-dm-sans text-left text-[14px] leading-[20px] font-normal tracking-[0] text-muted-foreground',\n        className\n      )}\n      {...props}\n    />\n  );\n}\nexport { Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger };\n",
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-button-demo': {
     name: 'mc-button-demo',
     description: 'Demo for MicroClub Button',
@@ -2667,5 +2680,21 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-skeleton-demo.tsx')),
     source:
       'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport default function McSkeletonDemo() {\n  return (\n    <div className="flex items-center justify-center p-6">\n      <div className="w-full max-w-sm space-y-4">\n        {Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="flex gap-3">\n            <McSkeleton className="h-12 w-12 shrink-0 rounded-full" />\n            <div className="flex-1 space-y-2">\n              <McSkeleton className="h-4 w-3/4" />\n              <McSkeleton className="h-3 w-full" />\n              <McSkeleton className="h-3 w-2/3" />\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n',
+  },
+  'mc-popover-demo': {
+    name: 'mc-popover-demo',
+    description: 'Demo for MicroClub Popover',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-popover-demo.tsx',
+        content:
+          "import { McButton } from '../ui/mc-button';\nimport {\n  Popover,\n  PopoverContent,\n  PopoverDescription,\n  PopoverHeader,\n  PopoverTitle,\n  PopoverTrigger,\n} from '../ui/mc-popover';\n\nconst fields = [\n  { id: 'width', label: 'Width' },\n  { id: 'height', label: 'Height' },\n  { id: 'depth', label: 'Depth' },\n  { id: 'offset', label: 'Offset' },\n] as const;\n\nexport default function McPopoverDemo() {\n  return (\n    <div className=\"relative -top-4 flex justify-center py-10\">\n      <Popover>\n        <PopoverTrigger\n          render={\n            <McButton variant=\"secondary\" size=\"md\">\n              Popover\n            </McButton>\n          }\n        />\n        <PopoverContent>\n          <PopoverHeader className=\"mb-4\">\n            <PopoverTitle>Dimensions</PopoverTitle>\n            <PopoverDescription>Set the dimensions for the layer.</PopoverDescription>\n          </PopoverHeader>\n\n          <div className=\"flex flex-col gap-2 pl-4\">\n            {fields.map((field) => (\n              <div key={field.id} className=\"flex items-center gap-2\">\n                <label\n                  htmlFor={field.id}\n                  className=\"w-1/2 text-sm font-medium text-card-foreground\"\n                >\n                  {field.label}\n                </label>\n                <input\n                  id={field.id}\n                  defaultValue=\"100%\"\n                  className=\"h-8 w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 py-1 text-base text-foreground shadow-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 md:text-sm\"\n                />\n              </div>\n            ))}\n          </div>\n        </PopoverContent>\n      </Popover>\n    </div>\n  );\n}\n",
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-popover-demo.tsx')),
+    source:
+      "import { McButton } from '../ui/mc-button';\nimport {\n  Popover,\n  PopoverContent,\n  PopoverDescription,\n  PopoverHeader,\n  PopoverTitle,\n  PopoverTrigger,\n} from '../ui/mc-popover';\n\nconst fields = [\n  { id: 'width', label: 'Width' },\n  { id: 'height', label: 'Height' },\n  { id: 'depth', label: 'Depth' },\n  { id: 'offset', label: 'Offset' },\n] as const;\n\nexport default function McPopoverDemo() {\n  return (\n    <div className=\"relative -top-4 flex justify-center py-10\">\n      <Popover>\n        <PopoverTrigger\n          render={\n            <McButton variant=\"secondary\" size=\"md\">\n              Popover\n            </McButton>\n          }\n        />\n        <PopoverContent>\n          <PopoverHeader className=\"mb-4\">\n            <PopoverTitle>Dimensions</PopoverTitle>\n            <PopoverDescription>Set the dimensions for the layer.</PopoverDescription>\n          </PopoverHeader>\n\n          <div className=\"flex flex-col gap-2 pl-4\">\n            {fields.map((field) => (\n              <div key={field.id} className=\"flex items-center gap-2\">\n                <label\n                  htmlFor={field.id}\n                  className=\"w-1/2 text-sm font-medium text-card-foreground\"\n                >\n                  {field.label}\n                </label>\n                <input\n                  id={field.id}\n                  defaultValue=\"100%\"\n                  className=\"h-8 w-full min-w-0 rounded-lg border border-input bg-transparent px-2.5 py-1 text-base text-foreground shadow-sm transition-colors outline-none placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 md:text-sm\"\n                />\n              </div>\n            ))}\n          </div>\n        </PopoverContent>\n      </Popover>\n    </div>\n  );\n}\n",
   },
 };

@@ -274,4 +274,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+  {
+    name: 'mc-popover',
+    type: 'registry:component',
+    title: 'MicroClub Popover',
+    description: 'A popover component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-popover.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];

@@ -2427,6 +2427,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-popover",
+      "title": "MicroClub Popover",
+      "description": "A popover component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-popover.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }
