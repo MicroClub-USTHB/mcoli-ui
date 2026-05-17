@@ -211,6 +211,19 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-dialog.json`],
   },
   {
+    name: 'mc-alert-dialog-demo',
+    type: 'registry:example',
+    title: 'MicroClub Alert Dialog Demo',
+    description: 'Demo for MicroClub Alert Dialog',
+    files: [
+      {
+        path: 'examples/mc-alert-dialog-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-alert-dialog.json`],
+  },
+  {
     name: 'mc-alert-demo',
     type: 'registry:example',
     title: 'MicroClub Alert Demo',
@@ -288,5 +301,18 @@ export const examples: Registry['items'] = [
       },
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-popover.json`, `${REGISTRY_URL}/r/mc-button.json`],
+  },
+  {
+    name: 'mc-alert-dialog-demo',
+    type: 'registry:example',
+    title: 'MicroClub Alert Dialog Demo',
+    description: 'Demo for MicroClub Alert Dialog',
+    files: [
+      {
+        path: 'examples/mc-alert-dialog-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-alert-dialog.json`],
   },
 ];
