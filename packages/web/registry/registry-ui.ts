@@ -210,6 +210,19 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-alert-dialog',
+    type: 'registry:component',
+    title: 'MicroClub Alert Dialog',
+    description: 'A alert dialog component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-alert-dialog.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
     name: 'mc-alert',
     type: 'registry:component',
     title: 'MicroClub Alert',
