@@ -6,7 +6,7 @@ import {
   PopoverHeader,
   PopoverTitle,
   PopoverTrigger,
-} from '@/components/ui/popover';
+} from '@/registry/ui/mc-popover';
 
 export function PopoverBasic() {
   return (
