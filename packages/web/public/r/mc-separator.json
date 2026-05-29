@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mc-separator",
+  "title": "MicroClub Separator",
+  "description": "A separator component for MicroClub UI",
+  "dependencies": ["@base-ui/react"],
+  "files": [
+    {
+      "path": "registry/ui/mc-separator.tsx",
+      "content": "'use client';\n\nimport { Separator as SeparatorPrimitive } from '@base-ui/react/separator';\n\nimport { cn } from '@/lib/utils';\n\ntype McSeparatorProps = SeparatorPrimitive.Props & {\n  size?: number;\n};\n\nexport default function McSeparator({\n  className,\n  orientation = 'horizontal',\n  size,\n  ...props\n}: McSeparatorProps) {\n  const isVertical = orientation === 'vertical';\n\n  return (\n    <div className={cn('w-fit', isVertical ? 'h-full' : 'w-full')}>\n      <SeparatorPrimitive\n        data-slot=\"separator\"\n        orientation={orientation}\n        style={{\n          [isVertical ? 'height' : 'width']: size ? `${size}px` : undefined,\n        }}\n        className={cn(\n          'shrink-0 border border-border',\n          isVertical ? 'w-[1px]' : 'h-[1px]',\n          className\n        )}\n        {...props}\n      />\n    </div>\n  );\n}\n\nexport { McSeparator };\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}
