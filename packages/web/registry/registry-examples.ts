@@ -315,4 +315,17 @@ export const examples: Registry['items'] = [
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-alert-dialog.json`],
   },
+  {
+    name: 'mc-badge-demo',
+    type: 'registry:example',
+    title: 'MicroClub Badge Demo',
+    description: 'Demo for MicroClub Badge',
+    files: [
+      {
+        path: 'examples/mc-badge-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-badge.json`],
+  },
 ];
