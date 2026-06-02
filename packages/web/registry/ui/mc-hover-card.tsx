@@ -18,7 +18,7 @@ function HoverCardContent({
   sideOffset = 4,
   align = 'center',
   alignOffset = 4,
-  textAlign = 'center',
+  textAlign = 'start',
   imageSrc = null,
   imageposition = 'top',
   title,
@@ -43,12 +43,18 @@ function HoverCardContent({
         sideOffset={sideOffset}
         className="isolate z-50 w-76 origin-(--transform-origin) rounded-lg bg-card p-4 text-sm text-popover-foreground shadow-md ring-inset  ring-1 ring-border flex flex-col "
       >
-        <div className="flex flex-col gap-4">
-          {imageSrc && <img src={imageSrc} alt="Profile" className={`w-full object-cover `} />}
-          <div className="flex flex-col gap-1">
-            {title && <h4 className="font-semibold">{title}</h4>}
-            {subtitle && <p className="text-sm text-muted-foreground">{subtitle}</p>}
-            {description && <p className="text-sm text-muted-foreground">{description}</p>}
+        <div className={`${imageposition === 'top' ? 'flex-col' : 'flex-col-reverse'} flex gap-4`}>
+          {imageSrc && <img src={imageSrc} alt="Profile" className={`w-full    `} />}
+          <div
+            className={`${textAlign === 'start' ? 'items-start' : 'items-center'} flex flex-col gap-2`}
+          >
+            {title && <h4 className="font-semibold text-card-foreground">{title}</h4>}
+            <div
+              className={`${textAlign === 'start' ? 'items-start' : 'text-center'} flex flex-col`}
+            >
+              {subtitle && <p className=" font-regular text-card-foreground">{subtitle}</p>}
+              {description && <p className="font-regular text-card-foreground">{description}</p>}
+            </div>
           </div>
         </div>
 

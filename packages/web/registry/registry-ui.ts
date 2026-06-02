@@ -313,4 +313,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+  {
+    name: 'mc-hover-card',
+    type: 'registry:component',
+    title: 'MicroClub Hover Card',
+    description: 'A hover card component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-hover-card.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];

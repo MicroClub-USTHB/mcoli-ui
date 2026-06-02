@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/registry/ui/mc_hover-hard';
+import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/registry/ui/mc-hover-card';
 
 type DemoProps = {
   side?: 'top' | 'bottom' | 'left' | 'right';
@@ -29,7 +29,8 @@ function ProfileHoverCard({
           align={align}
           sideOffset={sideOffset}
           alignOffset={alignOffset}
-          imageSrc="https://images.unsplash.com/photo-1520209759809-a9bcb6cb3241?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW1nfGVufDB8fDB8fHww"
+          textAlign="start"
+          imageSrc="https://cdn-imgix.headout.com/media/images/c9db3cea62133b6a6bb70597326b4a34-388-dubai-img-worlds-of-adventure-tickets-01.jpg?auto=compress%2Cformat&w=1222.3999999999999&h=687.6&q=90&ar=16%3A9&crop=faces&fit=crop"
           title="John Doe"
           subtitle="Software Engineer"
           description="John is a software engineer with 5 years of experience in web development. He loves working with React and TypeScript."
