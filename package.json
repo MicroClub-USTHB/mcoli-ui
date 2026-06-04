@@ -23,6 +23,7 @@
     ]
   },
   "devDependencies": {
+    "@storybook/react": "^10.4.2",
     "eslint": "^9",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
