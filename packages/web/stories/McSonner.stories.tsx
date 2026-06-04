@@ -37,7 +37,7 @@ const meta: Meta<ToastStoryArgs> = {
   },
   decorators: [
     (Story) => (
-      <div className="p-12 flex flex-col items-center justify-center min-h-[250px]">
+      <div className="p-12 flex flex-col items-center justify-center h-screen w-screen">
         <Story />
         <McSonner />
       </div>
@@ -54,7 +54,7 @@ export const Playground: Story = {
       const toastOptions = {
         description: args.supportText,
         action: args.hasAction
-          ? { label: 'undo and hatrick', onClick: () => console.log('Undo clicked') }
+          ? { label: 'undo', onClick: () => console.log('Undo clicked') }
           : undefined,
       };
 
@@ -77,7 +77,7 @@ export const Playground: Story = {
     return (
       <button
         onClick={triggerToast}
-        className="px-5 py-2.5 bg-primary hover:bg-primary/90 text-red-800 rounded-lg text-sm font-medium transition-all shadow-sm"
+        className="px-10 py-3.5 text-lg bg-primary hover:bg-primary/90 text-background rounded-lg  font-medium transition-all shadow-sm"
       >
         click
       </button>
