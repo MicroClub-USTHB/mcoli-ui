@@ -8,16 +8,19 @@ type ToasterProps = React.ComponentProps<typeof SonnerComponent>;
 const McSonner = ({ ...props }: ToasterProps) => {
   return (
     <SonnerComponent
-      className="toaster group"
-      position="bottom-right"
+      className=""
+      position="top-center"
       toastOptions={{
+        unstyled: true,
         classNames: {
           toast:
-            'w-97.5 min-h-18.5 flex items-center justify-between gap-1.5 p-4 border rounded-lg shadow-xs ',
+            'w-97.5 min-h-18.5 bg-background flex items-center justify-between gap-1.5 p-4 border-[1px] rounded-lg shadow-xs ',
           content: 'w-full h-full flex flex-col items-start justify-center gap-0.5',
-          title: 'text-sm text-foreground max-w-66.5',
-          description: 'text-sm text-muted-foreground max-w-66.5',
-          actionButton: 'min-w-15.5 max-w-21.5 rounded-lg bg-primary',
+          title: 'text-sm font-medium tracking-normal leading-5 text-card-foreground  max-w-66.5',
+          description:
+            'text-sm font-normal tracking-normal leading-5 text-muted-foreground max-w-66.5',
+          actionButton:
+            'flex items-center justify-center bg-primary text-background text-sm py-2 px-3.5  min-w-15.5 max-w-21.5 min-h-9 rounded-[8px] shadow-xs',
           icon: 'text-slate-600 shrink-0 h-5 w-5',
         },
       }}

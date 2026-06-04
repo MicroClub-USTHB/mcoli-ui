@@ -54,7 +54,7 @@ export const Playground: Story = {
       const toastOptions = {
         description: args.supportText,
         action: args.hasAction
-          ? { label: 'undo', onClick: () => console.log('Undo clicked') }
+          ? { label: 'undo and hatrick', onClick: () => console.log('Undo clicked') }
           : undefined,
       };
 
@@ -77,7 +77,7 @@ export const Playground: Story = {
     return (
       <button
         onClick={triggerToast}
-        className="px-5 py-2.5 bg-blue-700 hover:bg-blue-800 text-white rounded-lg text-sm font-medium transition-all shadow-sm"
+        className="px-5 py-2.5 bg-primary hover:bg-primary/90 text-red-800 rounded-lg text-sm font-medium transition-all shadow-sm"
       >
         click
       </button>
