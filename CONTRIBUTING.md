@@ -235,7 +235,7 @@ When adding a new item, you will create/edit these files:
 | `mc-dropdown-menu`   | ✅           | ✅        |
 | `mc-context-menu`    | ✅           |           |
 | `mc-data-table`      | ✅           |           |
-| `mc-accordion`       | ✅           |           |
+| `mc-accordion`       | ✅           | ✅        |
 | `mc-collapsible`     | ✅           |           |
 | `mc-separator`       | ✅           | ✅        |
 | `mc-progress`        | ✅           |           |
@@ -243,9 +243,9 @@ When adding a new item, you will create/edit these files:
 | `mc-scrollarea`      | ✅           | ✅        |
 | `mc-skeleton`        | ✅           | ✅        |
 | `mc-badge`           | ✅           |           |
-| `mc-avatar`          | ✅           |           |
+| `mc-avatar`          | ✅           | ✅        |
 | `mc-drawer`          | ✅           |           |
-| `mc-hover-card`      | ✅           |           |
+| `mc-hover-card`      | ✅           | ✅        |
 | `mc-slider`          | ✅           |           |
 | `mc-carousel`        | ✅           |           |
 

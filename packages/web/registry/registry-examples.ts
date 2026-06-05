@@ -250,6 +250,32 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-tooltip.json`],
   },
   {
+    name: 'mc-popover-demo',
+    type: 'registry:example',
+    title: 'MicroClub Popover  Demo',
+    description: 'Demo for MicroClub Popover',
+    files: [
+      {
+        path: 'examples/mc-popover-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-popover.json`, `${REGISTRY_URL}/r/mc-button.json`],
+  },
+  {
+    name: 'mc-accordion-demo',
+    type: 'registry:example',
+    title: 'MicroClub Accordion Demo',
+    description: 'Demo for MicroClub Accordion',
+    files: [
+      {
+        path: 'examples/mc-accordion-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-accordion.json`],
+  },
+  {
     name: 'mc-separator-demo',
     type: 'registry:example',
     title: 'MicroClub Separator Demo',
@@ -290,29 +316,29 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-skeleton.json`],
   },
   {
-    name: 'mc-popover-demo',
+    name: 'mc-avatar-demo',
     type: 'registry:example',
-    title: 'MicroClub Popover  Demo',
-    description: 'Demo for MicroClub Popover',
+    title: 'MicroClub Avatar Demo',
+    description: 'Demo for MicroClub Avatar',
     files: [
       {
-        path: 'examples/mc-popover-demo.tsx',
+        path: 'examples/mc-avatar-demo.tsx',
         type: 'registry:example',
       },
     ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-popover.json`, `${REGISTRY_URL}/r/mc-button.json`],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-avatar.json`],
   },
   {
-    name: 'mc-dropdown-menu-demo',
+    name: 'mc-hover-card-demo',
     type: 'registry:example',
-    title: 'MicroClub Dropdown Menu Demo',
-    description: 'Demo for MicroClub Dropdown Menu',
+    title: 'MicroClub Hover Card Demo',
+    description: 'Demo for MicroClub Hover Card',
     files: [
       {
-        path: 'examples/mc-dropdown-menu-demo.tsx',
+        path: 'examples/mc-hover-card-demo.tsx',
         type: 'registry:example',
       },
     ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-dropdown-menu.json`],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-hover-card.json`],
   },
 ];

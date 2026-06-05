@@ -1,18 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider,
+  McTooltip,
+  McTooltipTrigger,
+  McTooltipContent,
+  McTooltipProvider,
 } from '../registry/ui/mc-tooltip';
 
-type TooltipStoryArgs = {
+type McTooltipStoryArgs = {
   side: 'top' | 'bottom' | 'left' | 'right';
   align: 'start' | 'center' | 'end';
 };
 
-const meta: Meta<TooltipStoryArgs> = {
-  title: 'Components/Tooltip',
+const meta: Meta<McTooltipStoryArgs> = {
+  title: 'Components/McTooltip',
   argTypes: {
     side: {
       control: 'select',
@@ -26,7 +26,7 @@ const meta: Meta<TooltipStoryArgs> = {
 };
 
 export default meta;
-type Story = StoryObj<TooltipStoryArgs>;
+type Story = StoryObj<McTooltipStoryArgs>;
 
 function Box({ label }: { label: string }) {
   return (
@@ -37,7 +37,7 @@ function Box({ label }: { label: string }) {
 }
 
 const Wrapper = ({ children }: { children: React.ReactNode }) => (
-  <TooltipProvider delay={0}>{children}</TooltipProvider>
+  <McTooltipProvider delay={0}>{children}</McTooltipProvider>
 );
 
 export const Playground: Story = {
@@ -48,17 +48,17 @@ export const Playground: Story = {
   render: ({ side, align }) => (
     <div className="relative h-64 flex items-center justify-center">
       <Wrapper>
-        <Tooltip>
-          <TooltipTrigger>
+        <McTooltip>
+          <McTooltipTrigger>
             <Box label="Hover me" />
-          </TooltipTrigger>
-          <TooltipContent
+          </McTooltipTrigger>
+          <McTooltipContent
             side={side}
             align={align}
             title="Lovely tooltip title"
             desc="There are a lot of things you can do in space."
           />
-        </Tooltip>
+        </McTooltip>
       </Wrapper>
     </div>
   ),

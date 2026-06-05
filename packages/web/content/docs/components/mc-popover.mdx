@@ -97,25 +97,25 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 
 ```tsx
 import {
-  Popover,
-  PopoverTrigger,
-  PopoverContent,
-  PopoverHeader,
-  PopoverTitle,
-  PopoverDescription,
+  McPopover,
+  McPopoverTrigger,
+  McPopoverContent,
+  McPopoverHeader,
+  McPopoverTitle,
+  McPopoverDescription,
 } from '@/components/ui/mc-popover';
 
 export default function Example() {
   return (
-    <Popover>
-      <PopoverTrigger>Open</PopoverTrigger>
-      <PopoverContent>
-        <PopoverHeader>
-          <PopoverTitle>Title</PopoverTitle>
-          <PopoverDescription>Description goes here.</PopoverDescription>
-        </PopoverHeader>
-      </PopoverContent>
-    </Popover>
+    <McPopover>
+      <McPopoverTrigger>Open</McPopoverTrigger>
+      <McPopoverContent>
+        <McPopoverHeader>
+          <McPopoverTitle>Title</McPopoverTitle>
+          <McPopoverDescription>Description goes here.</McPopoverDescription>
+        </McPopoverHeader>
+      </McPopoverContent>
+    </McPopover>
   );
 }
 ```
@@ -125,95 +125,95 @@ export default function Example() {
 ### Side Placement
 
 ```tsx
-<Popover>
-  <PopoverTrigger>Top</PopoverTrigger>
-  <PopoverContent side="top">
-    <PopoverHeader>
-      <PopoverTitle>Top Popover</PopoverTitle>
-    </PopoverHeader>
-  </PopoverContent>
-</Popover>
+<McPopover>
+  <McPopoverTrigger>Top</McPopoverTrigger>
+  <McPopoverContent side="top">
+    <McPopoverHeader>
+      <McPopoverTitle>Top McPopover</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
 
-<Popover>
-  <PopoverTrigger>Right</PopoverTrigger>
-  <PopoverContent side="right">
-    <PopoverHeader>
-      <PopoverTitle>Right Popover</PopoverTitle>
-    </PopoverHeader>
-  </PopoverContent>
-</Popover>
+<McPopover>
+  <McPopoverTrigger>Right</McPopoverTrigger>
+  <McPopoverContent side="right">
+    <McPopoverHeader>
+      <McPopoverTitle>Right McPopover</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
 
-<Popover>
-  <PopoverTrigger>Bottom</PopoverTrigger>
-  <PopoverContent side="bottom">
-    <PopoverHeader>
-      <PopoverTitle>Bottom Popover</PopoverTitle>
-    </PopoverHeader>
-  </PopoverContent>
-</Popover>
+<McPopover>
+  <McPopoverTrigger>Bottom</McPopoverTrigger>
+  <McPopoverContent side="bottom">
+    <McPopoverHeader>
+      <McPopoverTitle>Bottom McPopover</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
 
-<Popover>
-  <PopoverTrigger>Left</PopoverTrigger>
-  <PopoverContent side="left">
-    <PopoverHeader>
-      <PopoverTitle>Left Popover</PopoverTitle>
-    </PopoverHeader>
-  </PopoverContent>
-</Popover>
+<McPopover>
+  <McPopoverTrigger>Left</McPopoverTrigger>
+  <McPopoverContent side="left">
+    <McPopoverHeader>
+      <McPopoverTitle>Left McPopover</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
 ```
 
 ### Alignment
 
 ```tsx
-<Popover>
-  <PopoverTrigger>Start</PopoverTrigger>
-  <PopoverContent align="start">
-    <PopoverHeader>
-      <PopoverTitle>Aligned Start</PopoverTitle>
-    </PopoverHeader>
-  </PopoverContent>
-</Popover>
+<McPopover>
+  <McPopoverTrigger>Start</McPopoverTrigger>
+  <McPopoverContent align="start">
+    <McPopoverHeader>
+      <McPopoverTitle>Aligned Start</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
 
-<Popover>
-  <PopoverTrigger>Center</PopoverTrigger>
-  <PopoverContent align="center">
-    <PopoverHeader>
-      <PopoverTitle>Aligned Center</PopoverTitle>
-    </PopoverHeader>
-  </PopoverContent>
-</Popover>
+<McPopover>
+  <McPopoverTrigger>Center</McPopoverTrigger>
+  <McPopoverContent align="center">
+    <McPopoverHeader>
+      <McPopoverTitle>Aligned Center</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
 
-<Popover>
-  <PopoverTrigger>End</PopoverTrigger>
-  <PopoverContent align="end">
-    <PopoverHeader>
-      <PopoverTitle>Aligned End</PopoverTitle>
-    </PopoverHeader>
-  </PopoverContent>
-</Popover>
+<McPopover>
+  <McPopoverTrigger>End</McPopoverTrigger>
+  <McPopoverContent align="end">
+    <McPopoverHeader>
+      <McPopoverTitle>Aligned End</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
 ```
 
 ### With Custom Content
 
 ```tsx
-<Popover>
-  <PopoverTrigger>Settings</PopoverTrigger>
-  <PopoverContent>
-    <PopoverHeader>
-      <PopoverTitle>Settings</PopoverTitle>
-      <PopoverDescription>Manage your preferences.</PopoverDescription>
-    </PopoverHeader>
+<McPopover>
+  <McPopoverTrigger>Settings</McPopoverTrigger>
+  <McPopoverContent>
+    <McPopoverHeader>
+      <McPopoverTitle>Settings</McPopoverTitle>
+      <McPopoverDescription>Manage your preferences.</McPopoverDescription>
+    </McPopoverHeader>
     <div className="flex flex-col gap-2">
       <McButton variant="secondary">Save Changes</McButton>
       <McButton variant="tertiary">Reset</McButton>
     </div>
-  </PopoverContent>
-</Popover>
+  </McPopoverContent>
+</McPopover>
 ```
 
 ## API Reference
 
-### Popover
+### McPopover
 
 The root component that manages open/close state.
 
@@ -223,13 +223,13 @@ The root component that manages open/close state.
 | `open`         | `boolean`                 | `undefined` | Controlled open state                  |
 | `onOpenChange` | `(open: boolean) => void` | `undefined` | Callback fired when open state changes |
 
-### PopoverTrigger
+### McPopoverTrigger
 
 The element that toggles the popover. Renders a `<button>` by default.
 
 All props from `@base-ui/react/popover` `Trigger` are supported.
 
-### PopoverContent
+### McPopoverContent
 
 The floating panel that appears when the popover is open.
 
@@ -243,7 +243,7 @@ The floating panel that appears when the popover is open.
 
 All other props from `@base-ui/react/popover` `Popup` are supported.
 
-### PopoverHeader
+### McPopoverHeader
 
 A layout wrapper for the title and description.
 
@@ -251,7 +251,7 @@ A layout wrapper for the title and description.
 | ----------- | -------- | ----------- | ---------------------- |
 | `className` | `string` | `undefined` | Additional CSS classes |
 
-### PopoverTitle
+### McPopoverTitle
 
 The accessible title of the popover.
 
@@ -259,7 +259,7 @@ The accessible title of the popover.
 | ----------- | -------- | ----------- | ---------------------- |
 | `className` | `string` | `undefined` | Additional CSS classes |
 
-### PopoverDescription
+### McPopoverDescription
 
 The accessible description of the popover.
 

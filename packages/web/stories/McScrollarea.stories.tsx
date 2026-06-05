@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import ScrollAreaDemo from '../registry/examples/mc-scrollarea-demo';
+import McScrollAreaDemo from '../registry/examples/mc-scrollarea-demo';
 
 const meta: Meta = {
-  title: 'Components/ScrollArea',
+  title: 'Components/McScrollArea',
   parameters: {
     layout: 'centered',
   },
@@ -15,5 +15,5 @@ type Story = StoryObj;
 
 export const Vertical: Story = {
   name: 'Vertical Scroll',
-  render: () => <ScrollAreaDemo />,
+  render: () => <McScrollAreaDemo />,
 };

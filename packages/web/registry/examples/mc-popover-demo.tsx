@@ -1,11 +1,11 @@
 import { McButton } from '../ui/mc-button';
 import {
-  Popover,
-  PopoverContent,
-  PopoverDescription,
-  PopoverHeader,
-  PopoverTitle,
-  PopoverTrigger,
+  McPopover,
+  McPopoverContent,
+  McPopoverDescription,
+  McPopoverHeader,
+  McPopoverTitle,
+  McPopoverTrigger,
 } from '../ui/mc-popover';
 
 const fields = [
@@ -17,20 +17,20 @@ const fields = [
 
 export default function McPopoverDemo() {
   return (
-    <div className="relative -top-4 flex justify-center py-10">
-      <Popover>
-        <PopoverTrigger
+    <div className="relative -top-4 py-10">
+      <McPopover>
+        <McPopoverTrigger
           render={
             <McButton variant="secondary" size="md">
               Popover
             </McButton>
           }
         />
-        <PopoverContent>
-          <PopoverHeader className="mb-4">
-            <PopoverTitle>Dimensions</PopoverTitle>
-            <PopoverDescription>Set the dimensions for the layer.</PopoverDescription>
-          </PopoverHeader>
+        <McPopoverContent>
+          <McPopoverHeader className="mb-4">
+            <McPopoverTitle>Dimensions</McPopoverTitle>
+            <McPopoverDescription>Set the dimensions for the layer.</McPopoverDescription>
+          </McPopoverHeader>
 
           <div className="flex flex-col gap-2 pl-4">
             {fields.map((field) => (
@@ -49,8 +49,8 @@ export default function McPopoverDemo() {
               </div>
             ))}
           </div>
-        </PopoverContent>
-      </Popover>
+        </McPopoverContent>
+      </McPopover>
     </div>
   );
 }
