@@ -7,7 +7,6 @@ import {
   AvatarGroupCount,
   AvatarImage,
 } from '@/registry/ui/mc-avatar';
-import AvatarDemo from '@/registry/examples/mc-avatar-demo';
 
 const meta = {
   title: 'Components/Avatar',
@@ -24,7 +23,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   render: () => (
     <Avatar>
-      <AvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
+      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),
@@ -33,7 +32,7 @@ export const Default: Story = {
 export const WithBadge: Story = {
   render: () => (
     <Avatar size="2xl">
-      <AvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
+      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
       <AvatarFallback>ER</AvatarFallback>
       <AvatarBadge></AvatarBadge>
     </Avatar>
@@ -43,7 +42,7 @@ export const WithBadge: Story = {
 export const WithImageBadge: Story = {
   render: () => (
     <Avatar size="2xl">
-      <AvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
+      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
       <AvatarFallback>ER</AvatarFallback>
       <AvatarBadge>
         <img src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
@@ -55,7 +54,7 @@ export const WithImageBadge: Story = {
 export const ExtraSmall: Story = {
   render: () => (
     <Avatar size="xs">
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),
@@ -64,7 +63,7 @@ export const ExtraSmall: Story = {
 export const Small: Story = {
   render: () => (
     <Avatar size="sm">
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),
@@ -73,7 +72,7 @@ export const Small: Story = {
 export const Medium: Story = {
   render: () => (
     <Avatar size="md">
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),
@@ -82,7 +81,7 @@ export const Medium: Story = {
 export const Large: Story = {
   render: () => (
     <Avatar size="lg">
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),
@@ -91,16 +90,16 @@ export const Large: Story = {
 export const ExtraLarge: Story = {
   render: () => (
     <Avatar size="xl">
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),
 };
 
-export const doubleLarge: Story = {
+export const DoubleLarge: Story = {
   render: () => (
     <Avatar size="2xl">
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
   ),
@@ -110,7 +109,7 @@ export const Group: Story = {
   render: () => (
     <AvatarGroup>
       <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+        <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
       <Avatar>
@@ -124,8 +123,4 @@ export const Group: Story = {
       <AvatarGroupCount>+3</AvatarGroupCount>
     </AvatarGroup>
   ),
-};
-
-export const Demo: Story = {
-  render: () => <AvatarDemo />,
 };

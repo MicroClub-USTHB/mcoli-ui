@@ -11,7 +11,7 @@ export default function AvatarDemo() {
   return (
     <div className="flex flex-row flex-wrap items-center justify-center gap-6 md:gap-12">
       <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" className="grayscale" />
+        <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
         <AvatarFallback>CN</AvatarFallback>
       </Avatar>
       <Avatar>
@@ -21,7 +21,7 @@ export default function AvatarDemo() {
       </Avatar>
       <AvatarGroup className="grayscale">
         <Avatar>
-          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+          <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
         <Avatar>
