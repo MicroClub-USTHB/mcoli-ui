@@ -1,39 +1,39 @@
 import {
-  Avatar,
-  AvatarBadge,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarGroupCount,
-  AvatarImage,
+  McAvatar,
+  McAvatarBadge,
+  McAvatarFallback,
+  McAvatarGroup,
+  McAvatarGroupCount,
+  McAvatarImage,
 } from '@/registry/ui/mc-avatar';
 
 export default function AvatarDemo() {
   return (
     <div className="flex flex-row flex-wrap items-center justify-center gap-6 md:gap-12">
-      <Avatar>
-        <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
-      <Avatar>
-        <AvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
-        <AvatarFallback>ER</AvatarFallback>
-        <AvatarBadge className="bg-green-600 dark:bg-green-800" />
-      </Avatar>
-      <AvatarGroup className="grayscale">
-        <Avatar>
-          <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
-        <Avatar>
-          <AvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
-          <AvatarFallback>LR</AvatarFallback>
-        </Avatar>
-        <Avatar>
-          <AvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
-          <AvatarFallback>ER</AvatarFallback>
-        </Avatar>
-        <AvatarGroupCount>+3</AvatarGroupCount>
-      </AvatarGroup>
+      <McAvatar>
+        <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+        <McAvatarFallback>CN</McAvatarFallback>
+      </McAvatar>
+      <McAvatar>
+        <McAvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
+        <McAvatarFallback>ER</McAvatarFallback>
+        <McAvatarBadge className="bg-green-600 dark:bg-green-800" />
+      </McAvatar>
+      <McAvatarGroup className="grayscale">
+        <McAvatar>
+          <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+          <McAvatarFallback>CN</McAvatarFallback>
+        </McAvatar>
+        <McAvatar>
+          <McAvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
+          <McAvatarFallback>LR</McAvatarFallback>
+        </McAvatar>
+        <McAvatar>
+          <McAvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
+          <McAvatarFallback>ER</McAvatarFallback>
+        </McAvatar>
+        <McAvatarGroupCount>+3</McAvatarGroupCount>
+      </McAvatarGroup>
     </div>
   );
 }

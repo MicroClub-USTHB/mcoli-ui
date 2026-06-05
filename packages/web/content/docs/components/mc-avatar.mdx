@@ -60,20 +60,20 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 
 ```tsx
 import {
-  Avatar,
-  AvatarImage,
-  AvatarFallback,
-  AvatarBadge,
-  AvatarGroup,
-  AvatarGroupCount,
+  McAvatar,
+  McAvatarImage,
+  McAvatarFallback,
+  McAvatarBadge,
+  McAvatarGroup,
+  McAvatarGroupCount,
 } from '@/components/ui/mc-avatar';
 
 export default function Example() {
   return (
-    <Avatar>
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
+    <McAvatar>
+      <McAvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <McAvatarFallback>CN</McAvatarFallback>
+    </McAvatar>
   );
 }
 ```
@@ -83,69 +83,69 @@ export default function Example() {
 ### Size Variants
 
 ```tsx
-<Avatar size="xs">
-  <AvatarFallback>XS</AvatarFallback>
-</Avatar>
-<Avatar size="md">
-  <AvatarFallback>MD</AvatarFallback>
-</Avatar>
-<Avatar size="2xl">
-  <AvatarFallback>2XL</AvatarFallback>
-</Avatar>
+<McAvatar size="xs">
+  <McAvatarFallback>XS</McAvatarFallback>
+</McAvatar>
+<McAvatar size="md">
+  <McAvatarFallback>MD</McAvatarFallback>
+</McAvatar>
+<McAvatar size="2xl">
+  <McAvatarFallback>2XL</McAvatarFallback>
+</McAvatar>
 ```
 
 ### Image + Fallback
 
-Use `AvatarImage` for the user photo and `AvatarFallback` for initials or a placeholder when the image fails to load.
+Use `McAvatarImage` for the user photo and `McAvatarFallback` for initials or a placeholder when the image fails to load.
 
 ```tsx
-<Avatar>
-  <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-  <AvatarFallback>CN</AvatarFallback>
-</Avatar>
+<McAvatar>
+  <McAvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+  <McAvatarFallback>CN</McAvatarFallback>
+</McAvatar>
 ```
 
 ### Badge Overlay
 
-`AvatarBadge` is a small status or presence indicator that scales with the avatar size.
+`McAvatarBadge` is a small status or presence indicator that scales with the avatar size.
 
 ```tsx
-<Avatar>
-  <AvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
-  <AvatarFallback>ER</AvatarFallback>
-  <AvatarBadge className="bg-green-600 dark:bg-green-800" />
-</Avatar>
+<McAvatar>
+  <McAvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
+  <McAvatarFallback>ER</McAvatarFallback>
+  <McAvatarBadge className="bg-green-600 dark:bg-green-800" />
+</McAvatar>
 ```
 
 ### Avatar Groups
 
-Group related avatars with `AvatarGroup`. Use `AvatarGroupCount` to represent extra members.
+Group related avatars with `McAvatarGroup`. Use `McAvatarGroupCount` to represent extra members.
 
 ```tsx
-<AvatarGroup>
-  <Avatar>
-    <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-    <AvatarFallback>CN</AvatarFallback>
-  </Avatar>
-  <Avatar>
-    <AvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
-    <AvatarFallback>LR</AvatarFallback>
-  </Avatar>
-  <AvatarGroupCount>+3</AvatarGroupCount>
-</AvatarGroup>
+<McAvatarGroup>
+  <McAvatar>
+    <McAvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+    <McAvatarFallback>CN</McAvatarFallback>
+  </McAvatar>
+  <McAvatar>
+    <McAvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
+    <McAvatarFallback>LR</McAvatarFallback>
+  </McAvatar>
+  <McAvatarGroupCount>+3</McAvatarGroupCount>
+</McAvatarGroup>
 ```
 
 ## API Reference
 
-### Avatar Props
+### McAvatar Props
 
-| Prop        | Type                                             | Default     | Description                                                      |
-| ----------- | ------------------------------------------------ | ----------- | ---------------------------------------------------------------- |
-| `size`      | `"default" "xs" "sm" "md" "lg" "xl" "2xl"` | `"default"` | Controls avatar dimensions and badge scaling                     |
-| `className` | `string`                                         | `undefined` | Additional CSS classes for the root avatar wrapper               |
-| `children`  | `ReactNode`                                      | `undefined` | Avatar slots like `AvatarImage`, `AvatarFallback`, `AvatarBadge` |
+| Prop        | Type                                       | Default     | Description                                                            |
+| ----------- | ------------------------------------------ | ----------- | ---------------------------------------------------------------------- |
+| `size`      | `"default" "xs" "sm" "md" "lg" "xl" "2xl"` | `"default"` | Controls avatar dimensions and badge scaling                           |
+| `className` | `string`                                   | `undefined` | Additional CSS classes for the root avatar wrapper                     |
+| `children`  | `ReactNode`                                | `undefined` | Avatar slots like `McAvatarImage`, `McAvatarFallback`, `McAvatarBadge` |
 
-### AvatarImage Props
+### McAvatarImage Props
 
 | Prop        | Type     | Default     | Description                          |
 | ----------- | -------- | ----------- | ------------------------------------ |
@@ -153,25 +153,25 @@ Group related avatars with `AvatarGroup`. Use `AvatarGroupCount` to represent ex
 | `alt`       | `string` | `undefined` | Accessible alt text for the image    |
 | `className` | `string` | `undefined` | Additional CSS classes for the image |
 
-### AvatarFallback Props
+### McAvatarFallback Props
 
 | Prop        | Type     | Default     | Description                              |
 | ----------- | -------- | ----------- | ---------------------------------------- |
 | `className` | `string` | `undefined` | Additional CSS classes for fallback view |
 
-### AvatarBadge Props
+### McAvatarBadge Props
 
 | Prop        | Type     | Default     | Description                          |
 | ----------- | -------- | ----------- | ------------------------------------ |
 | `className` | `string` | `undefined` | Additional CSS classes for the badge |
 
-### AvatarGroup Props
+### McAvatarGroup Props
 
 | Prop        | Type     | Default     | Description                          |
 | ----------- | -------- | ----------- | ------------------------------------ |
 | `className` | `string` | `undefined` | Additional CSS classes for the group |
 
-### AvatarGroupCount Props
+### McAvatarGroupCount Props
 
 | Prop        | Type     | Default     | Description                                   |
 | ----------- | -------- | ----------- | --------------------------------------------- |

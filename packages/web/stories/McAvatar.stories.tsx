@@ -1,126 +1,126 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import {
-  Avatar,
-  AvatarBadge,
-  AvatarFallback,
-  AvatarGroup,
-  AvatarGroupCount,
-  AvatarImage,
+  McAvatar,
+  McAvatarBadge,
+  McAvatarFallback,
+  McAvatarGroup,
+  McAvatarGroupCount,
+  McAvatarImage,
 } from '@/registry/ui/mc-avatar';
 
 const meta = {
   title: 'Components/Avatar',
-  component: Avatar,
+  component: McAvatar,
   parameters: {
     layout: 'centered',
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof Avatar>;
+} satisfies Meta<typeof McAvatar>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Avatar>
-      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
+    <McAvatar>
+      <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+      <McAvatarFallback>CN</McAvatarFallback>
+    </McAvatar>
   ),
 };
 
 export const WithBadge: Story = {
   render: () => (
-    <Avatar size="2xl">
-      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
-      <AvatarFallback>ER</AvatarFallback>
-      <AvatarBadge></AvatarBadge>
-    </Avatar>
+    <McAvatar size="2xl">
+      <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+      <McAvatarFallback>ER</McAvatarFallback>
+      <McAvatarBadge></McAvatarBadge>
+    </McAvatar>
   ),
 };
 
 export const WithImageBadge: Story = {
   render: () => (
-    <Avatar size="2xl">
-      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
-      <AvatarFallback>ER</AvatarFallback>
-      <AvatarBadge>
+    <McAvatar size="2xl">
+      <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+      <McAvatarFallback>ER</McAvatarFallback>
+      <McAvatarBadge>
         <img src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
-      </AvatarBadge>
-    </Avatar>
+      </McAvatarBadge>
+    </McAvatar>
   ),
 };
 
 export const ExtraSmall: Story = {
   render: () => (
-    <Avatar size="xs">
-      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
+    <McAvatar size="xs">
+      <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+      <McAvatarFallback>CN</McAvatarFallback>
+    </McAvatar>
   ),
 };
 
 export const Small: Story = {
   render: () => (
-    <Avatar size="sm">
-      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
+    <McAvatar size="sm">
+      <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+      <McAvatarFallback>CN</McAvatarFallback>
+    </McAvatar>
   ),
 };
 
 export const Medium: Story = {
   render: () => (
-    <Avatar size="md">
-      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
+    <McAvatar size="md">
+      <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+      <McAvatarFallback>CN</McAvatarFallback>
+    </McAvatar>
   ),
 };
 
 export const Large: Story = {
   render: () => (
-    <Avatar size="lg">
-      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
+    <McAvatar size="lg">
+      <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+      <McAvatarFallback>CN</McAvatarFallback>
+    </McAvatar>
   ),
 };
 
 export const ExtraLarge: Story = {
   render: () => (
-    <Avatar size="xl">
-      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
+    <McAvatar size="xl">
+      <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+      <McAvatarFallback>CN</McAvatarFallback>
+    </McAvatar>
   ),
 };
 
 export const DoubleLarge: Story = {
   render: () => (
-    <Avatar size="2xl">
-      <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
+    <McAvatar size="2xl">
+      <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+      <McAvatarFallback>CN</McAvatarFallback>
+    </McAvatar>
   ),
 };
 
 export const Group: Story = {
   render: () => (
-    <AvatarGroup>
-      <Avatar>
-        <AvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
-      <Avatar>
-        <AvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
-        <AvatarFallback>ML</AvatarFallback>
-      </Avatar>
-      <Avatar>
-        <AvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
-        <AvatarFallback>ER</AvatarFallback>
-      </Avatar>
-      <AvatarGroupCount>+3</AvatarGroupCount>
-    </AvatarGroup>
+    <McAvatarGroup>
+      <McAvatar>
+        <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+        <McAvatarFallback>CN</McAvatarFallback>
+      </McAvatar>
+      <McAvatar>
+        <McAvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
+        <McAvatarFallback>ML</McAvatarFallback>
+      </McAvatar>
+      <McAvatar>
+        <McAvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
+        <McAvatarFallback>ER</McAvatarFallback>
+      </McAvatar>
+      <McAvatarGroupCount>+3</McAvatarGroupCount>
+    </McAvatarGroup>
   ),
 };
