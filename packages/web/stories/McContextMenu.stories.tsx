@@ -26,10 +26,10 @@ function McContextMenuStory({ disabledReload, showShortcuts }: McContextMenuStor
   return (
     <div className="flex min-h-80 items-center justify-center p-10">
       <ContextMenu>
-        <ContextMenuTrigger className="flex h-40 w-72 items-center justify-center rounded-lg border border-dashed border-border bg-card px-6 text-center text-sm leading-5 text-muted-foreground">
+        <ContextMenuTrigger className="flex min-h-36 w-full max-w-72 items-center justify-center rounded-md border border-dashed border-border bg-card px-6 text-center text-sm leading-5 text-foreground">
           Right click this area
         </ContextMenuTrigger>
-        <ContextMenuContent className="w-56">
+        <ContextMenuContent>
           <ContextMenuGroup>
             <ContextMenuLabel>Navigation</ContextMenuLabel>
             <ContextMenuItem>
@@ -64,12 +64,14 @@ function McContextMenuStory({ disabledReload, showShortcuts }: McContextMenuStor
 
           <ContextMenuSeparator />
 
-          <ContextMenuRadioGroup value="comfortable">
+          <ContextMenuGroup>
             <ContextMenuLabel inset>Density</ContextMenuLabel>
-            <ContextMenuRadioItem value="compact">Compact</ContextMenuRadioItem>
-            <ContextMenuRadioItem value="comfortable">Comfortable</ContextMenuRadioItem>
-            <ContextMenuRadioItem value="spacious">Spacious</ContextMenuRadioItem>
-          </ContextMenuRadioGroup>
+            <ContextMenuRadioGroup value="comfortable">
+              <ContextMenuRadioItem value="compact">Compact</ContextMenuRadioItem>
+              <ContextMenuRadioItem value="comfortable">Comfortable</ContextMenuRadioItem>
+              <ContextMenuRadioItem value="spacious">Spacious</ContextMenuRadioItem>
+            </ContextMenuRadioGroup>
+          </ContextMenuGroup>
         </ContextMenuContent>
       </ContextMenu>
     </div>
