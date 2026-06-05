@@ -13,12 +13,12 @@ export const ComponentPreview: React.FC<{ name: string }> = ({ name }) => {
     <div className="flex items-center justify-center min-h-64 font-dm-sans not-prose -m-4! bg-card p-4">
       <React.Suspense
         fallback={
-          <div className="text-muted-foreground flex items-center justify-center text-sm">
+          <div className="text-muted-foreground flex min-h-64 items-center justify-center text-sm">
             Loading...
           </div>
         }
       >
-        {Preview}
+        <div className="w-full">{Preview}</div>
       </React.Suspense>
     </div>
   );

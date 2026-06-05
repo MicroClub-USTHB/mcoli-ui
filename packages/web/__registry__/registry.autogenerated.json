@@ -2221,19 +2221,6 @@
       "type": "registry:component"
     },
     {
-      "name": "mc-card",
-      "title": "MicroClub Card",
-      "description": "A card layout with header, body, and footer regions for MicroClub UI",
-      "dependencies": ["class-variance-authority"],
-      "files": [
-        {
-          "path": "registry/ui/mc-card.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "type": "registry:component"
-    },
-    {
       "name": "mc-radio-group",
       "title": "MicroClub Radio Group",
       "description": "A radio group component for MicroClub UI",
@@ -2247,6 +2234,45 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-card",
+      "title": "MicroClub Card",
+      "description": "A card layout with header, body, and footer regions for MicroClub UI",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "registry/ui/mc-card.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-select",
+      "title": "MicroClub Selector",
+      "description": "A Selector component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-select.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-combobox",
+      "title": "MicroClub Combobox",
+      "description": "A searchable dropdown with autocomplete functionality for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-combobox.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-switch",
       "title": "MicroClub Switch",
       "description": "A switch component for MicroClub UI",
@@ -2254,6 +2280,32 @@
       "files": [
         {
           "path": "registry/ui/mc-switch.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-navigation-menu",
+      "title": "MicroClub Navigation Menu",
+      "description": "A navigation menu component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-navigation-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-sidebar",
+      "title": "MicroClub Sidebar",
+      "description": "A sidebar component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-sidebar.tsx",
           "type": "registry:component"
         }
       ],
@@ -2299,39 +2351,117 @@
       "type": "registry:component"
     },
     {
-      "name": "mc-combobox",
-      "title": "MicroClub Combobox",
-      "description": "A searchable dropdown with autocomplete functionality for MicroClub UI",
+      "name": "mc-dialog",
+      "title": "MicroClub Dialog",
+      "description": "A dialog component for MicroClub UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
-          "path": "registry/ui/mc-combobox.tsx",
+          "path": "registry/ui/mc-dialog.tsx",
           "type": "registry:component"
         }
       ],
       "type": "registry:component"
     },
     {
-      "name": "mc-navigation-menu",
-      "title": "MicroClub Navigation Menu",
-      "description": "A navigation menu component for MicroClub UI",
+      "name": "mc-alert-dialog",
+      "title": "MicroClub Alert Dialog",
+      "description": "A alert dialog component for MicroClub UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
-          "path": "registry/ui/mc-navigation-menu.tsx",
+          "path": "registry/ui/mc-alert-dialog.tsx",
           "type": "registry:component"
         }
       ],
       "type": "registry:component"
     },
     {
-      "name": "mc-select",
-      "title": "MicroClub Selector",
-      "description": "A Selector component for MicroClub UI",
+      "name": "mc-alert",
+      "title": "MicroClub Alert",
+      "description": "A alert component for MicroClub UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
-          "path": "registry/ui/mc-select.tsx",
+          "path": "registry/ui/mc-alert.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-tooltip",
+      "title": "MicroClub Tooltip",
+      "description": "A tooltip component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-tooltip.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-separator",
+      "title": "MicroClub Separator",
+      "description": "A separator component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-separator.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-scrollarea",
+      "title": "MicroClub Scroll Area",
+      "description": "A scroll area component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-scrollarea.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-skeleton",
+      "title": "MicroClub Skeleton",
+      "description": "A skeleton component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-skeleton.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-popover",
+      "title": "MicroClub Popover",
+      "description": "A popover component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-popover.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-alert-dialog",
+      "title": "MicroClub Alert Dialog",
+      "description": "An Alert dialog component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-alert-dialog.tsx",
           "type": "registry:component"
         }
       ],
