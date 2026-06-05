@@ -1,14 +1,14 @@
 import { Button } from '@/components/ui/button';
-import { Tooltip, TooltipContent, TooltipTrigger } from '../ui/mc-tooltip';
+import { McTooltip, McTooltipContent, McTooltipTrigger } from '../ui/mc-tooltip';
 
-export default function TooltipDemo() {
+export default function McTooltipDemo() {
   return (
-    <Tooltip>
-      <TooltipTrigger render={<Button variant="outline">Hover</Button>} />
-      <TooltipContent
+    <McTooltip>
+      <McTooltipTrigger render={<Button variant="outline">Hover</Button>} />
+      <McTooltipContent
         title="Lovely tooltip title"
         desc="There are a lot of things you can do in space."
       />
-    </Tooltip>
+    </McTooltip>
   );
 }

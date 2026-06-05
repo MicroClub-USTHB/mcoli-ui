@@ -2,46 +2,46 @@ import type { Meta, StoryObj } from '@storybook/nextjs';
 import * as React from 'react';
 
 import {
-  Combobox,
-  ComboboxTrigger,
-  ComboboxSearch,
-  ComboboxContent,
-  ComboboxList,
-  ComboboxItem,
+  McCombobox,
+  McComboboxTrigger,
+  McComboboxSearch,
+  McComboboxContent,
+  McComboboxList,
+  McComboboxItem,
 } from '@/registry/ui/mc-combobox';
 
 const frameworks = ['Next.js', 'SvelteKit', 'Nuxt.js', 'Remix', 'Astro'] as const;
 
 type Story = StoryObj<typeof meta>;
 
-const meta: Meta<typeof Combobox> = {
-  title: 'Components/Combobox',
-  component: Combobox,
+const meta: Meta<typeof McCombobox> = {
+  title: 'Components/McCombobox',
+  component: McCombobox,
   tags: ['autodocs'],
 };
 
 export default meta;
 
-function ComboboxDemo() {
+function McComboboxDemo() {
   const [value, setValue] = React.useState('select a framework');
 
   return (
-    <Combobox items={frameworks} value={value} onValueChange={(val) => setValue(val as string)}>
-      <ComboboxTrigger className="shadow-sm border-slate-200" />
-      <ComboboxContent>
-        <ComboboxSearch placeholder="Search framework..." />
-        <ComboboxList>
+    <McCombobox items={frameworks} value={value} onValueChange={(val) => setValue(val as string)}>
+      <McComboboxTrigger className="shadow-sm border-slate-200" />
+      <McComboboxContent>
+        <McComboboxSearch placeholder="Search framework..." />
+        <McComboboxList>
           {(item: string) => (
-            <ComboboxItem key={item} value={item}>
+            <McComboboxItem key={item} value={item}>
               {item}
-            </ComboboxItem>
+            </McComboboxItem>
           )}
-        </ComboboxList>
-      </ComboboxContent>
-    </Combobox>
+        </McComboboxList>
+      </McComboboxContent>
+    </McCombobox>
   );
 }
 
 export const Default: Story = {
-  render: () => <ComboboxDemo />,
+  render: () => <McComboboxDemo />,
 };

@@ -249,6 +249,32 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-popover',
+    type: 'registry:component',
+    title: 'MicroClub Popover',
+    description: 'A popover component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-popover.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-accordion',
+    type: 'registry:component',
+    title: 'MicroClub Accordion',
+    description: 'An accordion component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-accordion.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
     name: 'mc-separator',
     type: 'registry:component',
     title: 'MicroClub Separator',
@@ -288,26 +314,26 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
-    name: 'mc-popover',
+    name: 'mc-avatar',
     type: 'registry:component',
-    title: 'MicroClub Popover',
-    description: 'A popover component for MicroClub UI',
+    title: 'MicroClub Avatar',
+    description: 'A avatar component for MicroClub UI',
     files: [
       {
-        path: 'ui/mc-popover.tsx',
+        path: 'ui/mc-avatar.tsx',
         type: 'registry:component',
       },
     ],
     dependencies: ['@base-ui/react'],
   },
   {
-    name: 'mc-alert-dialog',
+    name: 'mc-hover-card',
     type: 'registry:component',
-    title: 'MicroClub Alert Dialog',
-    description: 'An Alert dialog component for MicroClub UI',
+    title: 'MicroClub Hover Card',
+    description: 'A hover card component for MicroClub UI',
     files: [
       {
-        path: 'ui/mc-alert-dialog.tsx',
+        path: 'ui/mc-hover-card.tsx',
         type: 'registry:component',
       },
     ],
@@ -324,6 +350,6 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'lucide-react'],
   },
 ];

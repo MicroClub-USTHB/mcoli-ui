@@ -60,81 +60,81 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 
 ```tsx
 import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider,
+  McTooltip,
+  McTooltipTrigger,
+  McTooltipContent,
+  McTooltipProvider,
 } from '@/components/ui/mc-tooltip';
 
 export default function Example() {
   return (
-    <TooltipProvider>
-      <Tooltip>
-        <TooltipTrigger>
+    <McTooltipProvider>
+      <McTooltip>
+        <McTooltipTrigger>
           <button>Hover me</button>
-        </TooltipTrigger>
-        <TooltipContent title="Tooltip Title" desc="This is a description." />
-      </Tooltip>
-    </TooltipProvider>
+        </McTooltipTrigger>
+        <McTooltipContent title="McTooltip Title" desc="This is a description." />
+      </McTooltip>
+    </McTooltipProvider>
   );
 }
 ```
 
 ## Examples
 
-### Basic Tooltip
+### Basic McTooltip
 
 ```tsx
-<TooltipProvider>
-  <Tooltip>
-    <TooltipTrigger>
+<McTooltipProvider>
+  <McTooltip>
+    <McTooltipTrigger>
       <button className="px-4 py-2 bg-blue-500 text-white rounded">Hover me</button>
-    </TooltipTrigger>
-    <TooltipContent title="Hello" desc="This is a basic tooltip." />
-  </Tooltip>
-</TooltipProvider>
+    </McTooltipTrigger>
+    <McTooltipContent title="Hello" desc="This is a basic tooltip." />
+  </McTooltip>
+</McTooltipProvider>
 ```
 
 ### Positioning
 
 ```tsx
-<TooltipProvider>
-  <Tooltip>
-    <TooltipTrigger>
+<McTooltipProvider>
+  <McTooltip>
+    <McTooltipTrigger>
       <button className="px-4 py-2 bg-green-500 text-white rounded">Top</button>
-    </TooltipTrigger>
-    <TooltipContent side="top" title="Top Tooltip" />
-  </Tooltip>
-  <Tooltip>
-    <TooltipTrigger>
+    </McTooltipTrigger>
+    <McTooltipContent side="top" title="Top McTooltip" />
+  </McTooltip>
+  <McTooltip>
+    <McTooltipTrigger>
       <button className="px-4 py-2 bg-red-500 text-white rounded">Bottom</button>
-    </TooltipTrigger>
-    <TooltipContent side="bottom" title="Bottom Tooltip" />
-  </Tooltip>
-</TooltipProvider>
+    </McTooltipTrigger>
+    <McTooltipContent side="bottom" title="Bottom McTooltip" />
+  </McTooltip>
+</McTooltipProvider>
 ```
 
 ### With Custom Content
 
 ```tsx
-<TooltipProvider>
-  <Tooltip>
-    <TooltipTrigger>
+<McTooltipProvider>
+  <McTooltip>
+    <McTooltipTrigger>
       <button className="px-4 py-2 bg-purple-500 text-white rounded">Custom</button>
-    </TooltipTrigger>
-    <TooltipContent>
+    </McTooltipTrigger>
+    <McTooltipContent>
       <div className="text-center">
         <p className="font-semibold">Custom Content</p>
         <p>You can put anything here!</p>
       </div>
-    </TooltipContent>
-  </Tooltip>
-</TooltipProvider>
+    </McTooltipContent>
+  </McTooltip>
+</McTooltipProvider>
 ```
 
 ## API Reference
 
-### TooltipProvider Props
+### McTooltipProvider Props
 
 | Prop    | Type     | Default | Description                        |
 | ------- | -------- | ------- | ---------------------------------- |
@@ -142,15 +142,15 @@ export default function Example() {
 
 All other props from `@base-ui/react/tooltip/provider` are supported.
 
-### Tooltip Props
+### McTooltip Props
 
 All props from `@base-ui/react/tooltip/root` are supported.
 
-### TooltipTrigger Props
+### McTooltipTrigger Props
 
 All props from `@base-ui/react/tooltip/trigger` are supported.
 
-### TooltipContent Props
+### McTooltipContent Props
 
 | Prop          | Type                                     | Default     | Description                                     |
 | ------------- | ---------------------------------------- | ----------- | ----------------------------------------------- |

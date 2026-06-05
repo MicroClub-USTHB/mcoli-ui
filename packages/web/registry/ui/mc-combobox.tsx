@@ -4,13 +4,13 @@ import { Combobox as ComboboxPrimitive } from '@base-ui/react';
 import { CheckIcon, ChevronsUpDown, SearchIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
-const Combobox = ComboboxPrimitive.Root;
+const McCombobox = ComboboxPrimitive.Root;
 
-function ComboboxValue({ ...props }: ComboboxPrimitive.Value.Props) {
+function McComboboxValue({ ...props }: ComboboxPrimitive.Value.Props) {
   return <ComboboxPrimitive.Value data-slot="combobox-value" {...props} />;
 }
 
-function ComboboxTrigger({
+function McComboboxTrigger({
   className,
   placeholder,
   ...props
@@ -24,13 +24,13 @@ function ComboboxTrigger({
       )}
       {...props}
     >
-      <ComboboxValue placeholder={placeholder} />
+      <McComboboxValue placeholder={placeholder} />
       <ChevronsUpDown className="size-4 text-foreground" />
     </ComboboxPrimitive.Trigger>
   );
 }
 
-function ComboboxSearch({
+function McComboboxSearch({
   className,
   placeholder,
   ...props
@@ -50,7 +50,7 @@ function ComboboxSearch({
   );
 }
 
-function ComboboxContent({
+function McComboboxContent({
   className,
   side = 'bottom',
   sideOffset = 8,
@@ -79,7 +79,7 @@ function ComboboxContent({
   );
 }
 
-function ComboboxList({ className, ...props }: ComboboxPrimitive.List.Props) {
+function McComboboxList({ className, ...props }: ComboboxPrimitive.List.Props) {
   return (
     <ComboboxPrimitive.List
       data-slot="combobox-list"
@@ -89,7 +89,7 @@ function ComboboxList({ className, ...props }: ComboboxPrimitive.List.Props) {
   );
 }
 
-function ComboboxItem({ className, children, ...props }: ComboboxPrimitive.Item.Props) {
+function McComboboxItem({ className, children, ...props }: ComboboxPrimitive.Item.Props) {
   return (
     <ComboboxPrimitive.Item
       data-slot="combobox-item"
@@ -109,11 +109,11 @@ function ComboboxItem({ className, children, ...props }: ComboboxPrimitive.Item.
 }
 
 export {
-  Combobox,
-  ComboboxTrigger,
-  ComboboxSearch,
-  ComboboxContent,
-  ComboboxList,
-  ComboboxItem,
-  ComboboxValue,
+  McCombobox,
+  McComboboxTrigger,
+  McComboboxSearch,
+  McComboboxContent,
+  McComboboxList,
+  McComboboxItem,
+  McComboboxValue,
 };

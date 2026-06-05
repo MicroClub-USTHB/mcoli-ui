@@ -2,23 +2,23 @@
 
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import {
-  AlertDialog,
-  AlertDialogTrigger,
-  AlertDialogContent,
-  AlertDialogHeader,
-  AlertDialogFooter,
-  AlertDialogTitle,
-  AlertDialogDescription,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogMedia,
+  McAlertDialog,
+  McAlertDialogTrigger,
+  McAlertDialogContent,
+  McAlertDialogHeader,
+  McAlertDialogFooter,
+  McAlertDialogTitle,
+  McAlertDialogDescription,
+  McAlertDialogAction,
+  McAlertDialogCancel,
+  McAlertDialogMedia,
 } from '@/registry/ui/mc-alert-dialog';
 import { Button } from '@/components/ui/button';
 import { TrashIcon } from 'lucide-react';
 
-const meta: Meta<typeof AlertDialog> = {
-  title: 'Components/AlertDialog',
-  component: AlertDialog,
+const meta: Meta<typeof McAlertDialog> = {
+  title: 'Components/McAlertDialog',
+  component: McAlertDialog,
   parameters: {
     layout: 'centered',
   },
@@ -26,101 +26,101 @@ const meta: Meta<typeof AlertDialog> = {
 
 export default meta;
 
-type Story = StoryObj<typeof AlertDialog>;
+type Story = StoryObj<typeof McAlertDialog>;
 
 export const Default: Story = {
   render: () => (
-    <AlertDialog>
-      <AlertDialogTrigger>
+    <McAlertDialog>
+      <McAlertDialogTrigger>
         <Button>Open Dialog</Button>
-      </AlertDialogTrigger>
+      </McAlertDialogTrigger>
 
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Delete item</AlertDialogTitle>
-          <AlertDialogDescription>
+      <McAlertDialogContent>
+        <McAlertDialogHeader>
+          <McAlertDialogTitle>Delete item</McAlertDialogTitle>
+          <McAlertDialogDescription>
             This action cannot be undone. This will permanently delete your item.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
+          </McAlertDialogDescription>
+        </McAlertDialogHeader>
 
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Delete</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+        <McAlertDialogFooter>
+          <McAlertDialogCancel>Cancel</McAlertDialogCancel>
+          <McAlertDialogAction>Delete</McAlertDialogAction>
+        </McAlertDialogFooter>
+      </McAlertDialogContent>
+    </McAlertDialog>
   ),
 };
 
 export const WithMedia: Story = {
   render: () => (
-    <AlertDialog>
-      <AlertDialogTrigger>
+    <McAlertDialog>
+      <McAlertDialogTrigger>
         <Button variant="destructive">Delete</Button>
-      </AlertDialogTrigger>
+      </McAlertDialogTrigger>
 
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle media icon={<TrashIcon />}>
+      <McAlertDialogContent>
+        <McAlertDialogHeader>
+          <McAlertDialogTitle media icon={<TrashIcon />}>
             Delete account
-          </AlertDialogTitle>
-          <AlertDialogDescription>
+          </McAlertDialogTitle>
+          <McAlertDialogDescription>
             Deleting your account is permanent. All your data will be removed and cannot be
             recovered.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
+          </McAlertDialogDescription>
+        </McAlertDialogHeader>
 
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Confirm</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+        <McAlertDialogFooter>
+          <McAlertDialogCancel>Cancel</McAlertDialogCancel>
+          <McAlertDialogAction>Confirm</McAlertDialogAction>
+        </McAlertDialogFooter>
+      </McAlertDialogContent>
+    </McAlertDialog>
   ),
 };
 
 export const SmallSize: Story = {
   render: () => (
-    <AlertDialog>
-      <AlertDialogTrigger>
+    <McAlertDialog>
+      <McAlertDialogTrigger>
         <Button variant="outline">Open Small Dialog</Button>
-      </AlertDialogTrigger>
+      </McAlertDialogTrigger>
 
-      <AlertDialogContent size="sm">
-        <AlertDialogHeader>
-          <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-          <AlertDialogDescription>This is a compact alert dialog.</AlertDialogDescription>
-        </AlertDialogHeader>
+      <McAlertDialogContent size="sm">
+        <McAlertDialogHeader>
+          <McAlertDialogTitle>Are you sure?</McAlertDialogTitle>
+          <McAlertDialogDescription>This is a compact alert dialog.</McAlertDialogDescription>
+        </McAlertDialogHeader>
 
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+        <McAlertDialogFooter>
+          <McAlertDialogCancel>Cancel</McAlertDialogCancel>
+          <McAlertDialogAction>Continue</McAlertDialogAction>
+        </McAlertDialogFooter>
+      </McAlertDialogContent>
+    </McAlertDialog>
   ),
 };
 
 export const LongContent: Story = {
   render: () => (
-    <AlertDialog>
-      <AlertDialogTrigger>
+    <McAlertDialog>
+      <McAlertDialogTrigger>
         <Button>Open Long Content</Button>
-      </AlertDialogTrigger>
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Terms and Conditions</AlertDialogTitle>
-          <AlertDialogDescription>
+      </McAlertDialogTrigger>
+      <McAlertDialogContent>
+        <McAlertDialogHeader>
+          <McAlertDialogTitle>Terms and Conditions</McAlertDialogTitle>
+          <McAlertDialogDescription>
             By continuing, you agree to our terms and conditions. Please read them carefully before
             proceeding. This dialog demonstrates how longer text behaves within the layout.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
+          </McAlertDialogDescription>
+        </McAlertDialogHeader>
 
-        <AlertDialogFooter>
-          <AlertDialogCancel>Decline</AlertDialogCancel>
-          <AlertDialogAction>Accept</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+        <McAlertDialogFooter>
+          <McAlertDialogCancel>Decline</McAlertDialogCancel>
+          <McAlertDialogAction>Accept</McAlertDialogAction>
+        </McAlertDialogFooter>
+      </McAlertDialogContent>
+    </McAlertDialog>
   ),
 };

@@ -1,17 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
 import {
-  Popover,
-  PopoverContent,
-  PopoverDescription,
-  PopoverHeader,
-  PopoverTitle,
-  PopoverTrigger,
+  McPopover,
+  McPopoverContent,
+  McPopoverDescription,
+  McPopoverHeader,
+  McPopoverTitle,
+  McPopoverTrigger,
 } from '@/registry/ui/mc-popover';
 
-const meta: Meta<typeof PopoverContent> = {
+const meta: Meta<typeof McPopoverContent> = {
   title: 'Components/McPopover',
-  component: PopoverContent,
+  component: McPopoverContent,
   tags: ['autodocs'],
   parameters: {
     layout: 'centered',
@@ -19,13 +19,13 @@ const meta: Meta<typeof PopoverContent> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof PopoverContent>;
+type Story = StoryObj<typeof McPopoverContent>;
 
 export const Test: Story = {
   name: 'Property 1="title-only"',
   render: () => (
-    <Popover>
-      <PopoverTrigger
+    <McPopover>
+      <McPopoverTrigger
         render={
           <button
             className="
@@ -51,15 +51,15 @@ export const Test: Story = {
         data-[state=open]:shadow-sm
       "
           >
-            Popover Here
+            McPopover Here
           </button>
         }
       />
-      <PopoverContent>
-        <PopoverHeader className="mb-4">
-          <PopoverTitle>Dimensions</PopoverTitle>
-          <PopoverDescription>Set the dimensions for the layer.</PopoverDescription>
-        </PopoverHeader>
+      <McPopoverContent>
+        <McPopoverHeader className="mb-4">
+          <McPopoverTitle>Dimensions</McPopoverTitle>
+          <McPopoverDescription>Set the dimensions for the layer.</McPopoverDescription>
+        </McPopoverHeader>
 
         <div className="flex flex-col gap-2 pl-4">
           <div className="flex items-center gap-2">
@@ -103,7 +103,7 @@ export const Test: Story = {
             />
           </div>
         </div>
-      </PopoverContent>
-    </Popover>
+      </McPopoverContent>
+    </McPopover>
   ),
 };

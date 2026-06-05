@@ -59,13 +59,13 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 ## Usage
 
 ```tsx
-import { ScrollArea, ScrollBar } from '@/components/ui/mc-scrollarea';
+import { McScrollArea, McScrollBar } from '@/components/ui/mc-scrollarea';
 
 export default function Example() {
   return (
-    <ScrollArea className="h-72 w-48">
+    <McScrollArea className="h-72 w-48">
       <div>Content that scrolls</div>
-    </ScrollArea>
+    </McScrollArea>
   );
 }
 ```
@@ -75,24 +75,24 @@ export default function Example() {
 ### Vertical Scrolling
 
 ```tsx
-<ScrollArea className="h-72 w-48">
+<McScrollArea className="h-72 w-48">
   <div className="p-4">
     <p>Long content here...</p>
   </div>
-</ScrollArea>
+</McScrollArea>
 ```
 
 ### Horizontal Scrolling
 
 ```tsx
-<ScrollArea className="w-96 rounded-md border whitespace-nowrap">
+<McScrollArea className="w-96 rounded-md border whitespace-nowrap">
   <div className="flex w-max space-x-4 p-4">
     <div>Item 1</div>
     <div>Item 2</div>
     <div>Item 3</div>
   </div>
-  <ScrollBar orientation="horizontal" />
-</ScrollArea>
+  <McScrollBar orientation="horizontal" />
+</McScrollArea>
 ```
 
 ### With Title and Description
@@ -100,14 +100,14 @@ export default function Example() {
 ```tsx
 const tags = ['tag1', 'tag2', 'tag3'];
 
-<ScrollArea className="h-72 w-48" title="Tags" desc={tags}>
+<McScrollArea className="h-72 w-48" title="Tags" desc={tags}>
   <div>Additional content</div>
-</ScrollArea>;
+</McScrollArea>;
 ```
 
 ## API Reference
 
-### ScrollArea Props
+### McScrollArea Props
 
 | Prop        | Type        | Default | Description                         |
 | ----------- | ----------- | ------- | ----------------------------------- |
@@ -118,7 +118,7 @@ const tags = ['tag1', 'tag2', 'tag3'];
 
 All other props from `@base-ui/react/scroll-area/Root` are supported.
 
-### ScrollBar Props
+### McScrollBar Props
 
 | Prop          | Type                         | Default      | Description                      |
 | ------------- | ---------------------------- | ------------ | -------------------------------- |
