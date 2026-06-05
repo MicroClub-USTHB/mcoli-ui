@@ -235,7 +235,7 @@ When adding a new item, you will create/edit these files:
 | `mc-dropdown-menu`   | ✅           |           |
 | `mc-context-menu`    | ✅           |           |
 | `mc-data-table`      | ✅           |           |
-| `mc-accordion`       | ✅           |           |
+| `mc-accordion`       | ✅           | ✅        |
 | `mc-collapsible`     | ✅           |           |
 | `mc-separator`       | ✅           | ✅        |
 | `mc-progress`        | ✅           |           |

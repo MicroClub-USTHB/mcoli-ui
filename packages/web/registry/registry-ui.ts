@@ -301,13 +301,13 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
-    name: 'mc-alert-dialog',
+    name: 'mc-accordion',
     type: 'registry:component',
-    title: 'MicroClub Alert Dialog',
-    description: 'An Alert dialog component for MicroClub UI',
+    title: 'MicroClub Accordion',
+    description: 'An accordion component for MicroClub UI',
     files: [
       {
-        path: 'ui/mc-alert-dialog.tsx',
+        path: 'ui/mc-accordion.tsx',
         type: 'registry:component',
       },
     ],
