@@ -315,4 +315,17 @@ export const examples: Registry['items'] = [
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-accordion.json`],
   },
+  {
+    name: 'mc-avatar-demo',
+    type: 'registry:example',
+    title: 'MicroClub Avatar Demo',
+    description: 'Demo for MicroClub Avatar',
+    files: [
+      {
+        path: 'examples/mc-avatar-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-avatar.json`],
+  },
 ];
