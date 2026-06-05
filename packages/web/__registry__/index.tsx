@@ -2384,6 +2384,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-hover-card': {
+    name: 'mc-hover-card',
+    description: 'A hover card component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-hover-card.tsx',
+        content:
+          "'use client';\n\nimport { PreviewCard as PreviewCardPrimitive } from '@base-ui/react/preview-card';\n\nimport { cn } from '@/lib/utils';\n\nfunction McHoverCard({ ...props }: PreviewCardPrimitive.Root.Props) {\n  return <PreviewCardPrimitive.Root data-slot=\"hover-card\" {...props} />;\n}\n\nfunction McHoverCardTrigger({ ...props }: PreviewCardPrimitive.Trigger.Props) {\n  return <PreviewCardPrimitive.Trigger data-slot=\"hover-card-trigger\" {...props} />;\n}\n\nfunction McHoverCardContent({\n  className,\n  side = 'bottom',\n  sideOffset = 4,\n  align = 'center',\n  alignOffset = 4,\n  textAlign = 'start',\n  imageSrc = null,\n  imageposition = 'top',\n  title,\n  subtitle,\n  description,\n  ...props\n}: PreviewCardPrimitive.Popup.Props &\n  Pick<PreviewCardPrimitive.Positioner.Props, 'align' | 'alignOffset' | 'side' | 'sideOffset'> & {\n    textAlign?: 'start' | 'center';\n    imageSrc?: string | null;\n    imageposition?: 'top' | 'bottom';\n    title?: string;\n    subtitle?: string;\n    description?: string;\n  }) {\n  return (\n    <PreviewCardPrimitive.Portal data-slot=\"hover-card-portal\">\n      <PreviewCardPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n        className=\"isolate z-50 w-76 origin-(--transform-origin) rounded-lg bg-card p-4 text-sm text-popover-foreground shadow-md ring-inset  ring-1 ring-border flex flex-col \"\n      >\n        <div className={`${imageposition === 'top' ? 'flex-col' : 'flex-col-reverse'} flex gap-4`}>\n          {imageSrc && <img src={imageSrc} alt=\"Profile\" className={`w-full    `} />}\n          <div\n            className={`${textAlign === 'start' ? 'items-start' : 'items-center'} flex flex-col gap-2`}\n          >\n            {title && <h4 className=\"font-semibold text-card-foreground\">{title}</h4>}\n            <div\n              className={`${textAlign === 'start' ? 'items-start' : 'text-center'} flex flex-col`}\n            >\n              {subtitle && <p className=\" font-regular text-card-foreground\">{subtitle}</p>}\n              {description && <p className=\"font-regular text-card-foreground\">{description}</p>}\n            </div>\n          </div>\n        </div>\n\n        <PreviewCardPrimitive.Popup\n          data-slot=\"hover-card-content\"\n          className={cn(\n            ' outline-hidden duration-100   ',\n            ' data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 ',\n            ' data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ',\n            ' data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 ',\n            'data-closed:zoom-out-95 gap-4',\n            className\n          )}\n          {...props}\n        />\n      </PreviewCardPrimitive.Positioner>\n    </PreviewCardPrimitive.Portal>\n  );\n}\n\nexport { McHoverCard, McHoverCardTrigger, McHoverCardContent };\n",
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-button-demo': {
     name: 'mc-button-demo',
     description: 'Demo for MicroClub Button',
@@ -2783,5 +2796,21 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-avatar-demo.tsx')),
     source:
       'import {\n  McAvatar,\n  McAvatarBadge,\n  McAvatarFallback,\n  McAvatarGroup,\n  McAvatarGroupCount,\n  McAvatarImage,\n} from \'@/registry/ui/mc-avatar\';\n\nexport default function AvatarDemo() {\n  return (\n    <div className="flex flex-row flex-wrap items-center justify-center gap-6 md:gap-12">\n      <McAvatar>\n        <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />\n        <McAvatarFallback>CN</McAvatarFallback>\n      </McAvatar>\n      <McAvatar>\n        <McAvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />\n        <McAvatarFallback>ER</McAvatarFallback>\n        <McAvatarBadge className="bg-green-600 dark:bg-green-800" />\n      </McAvatar>\n      <McAvatarGroup className="grayscale">\n        <McAvatar>\n          <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />\n          <McAvatarFallback>CN</McAvatarFallback>\n        </McAvatar>\n        <McAvatar>\n          <McAvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />\n          <McAvatarFallback>LR</McAvatarFallback>\n        </McAvatar>\n        <McAvatar>\n          <McAvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />\n          <McAvatarFallback>ER</McAvatarFallback>\n        </McAvatar>\n        <McAvatarGroupCount>+3</McAvatarGroupCount>\n      </McAvatarGroup>\n    </div>\n  );\n}\n',
+  },
+  'mc-hover-card-demo': {
+    name: 'mc-hover-card-demo',
+    description: 'Demo for MicroClub Hover Card',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-hover-card-demo.tsx',
+        content:
+          'import { McHoverCard, McHoverCardContent, McHoverCardTrigger } from \'../ui/mc-hover-card\';\n\nexport default function McHoverCardDemo() {\n  return (\n    <div className="flex h-100 items-center justify-center">\n      <McHoverCard>\n        <McHoverCardTrigger>\n          <button type="button" className="cursor-pointer rounded-full">\n            hover me\n          </button>\n        </McHoverCardTrigger>\n        <McHoverCardContent\n          textAlign="start"\n          title="John Doe"\n          subtitle="Software Engineer"\n          description="John is a software engineer with 5 years of experience in web development. He loves working with React and TypeScript."\n        />\n      </McHoverCard>\n    </div>\n  );\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-hover-card-demo.tsx')),
+    source:
+      'import { McHoverCard, McHoverCardContent, McHoverCardTrigger } from \'../ui/mc-hover-card\';\n\nexport default function McHoverCardDemo() {\n  return (\n    <div className="flex h-100 items-center justify-center">\n      <McHoverCard>\n        <McHoverCardTrigger>\n          <button type="button" className="cursor-pointer rounded-full">\n            hover me\n          </button>\n        </McHoverCardTrigger>\n        <McHoverCardContent\n          textAlign="start"\n          title="John Doe"\n          subtitle="Software Engineer"\n          description="John is a software engineer with 5 years of experience in web development. He loves working with React and TypeScript."\n        />\n      </McHoverCard>\n    </div>\n  );\n}\n',
   },
 };

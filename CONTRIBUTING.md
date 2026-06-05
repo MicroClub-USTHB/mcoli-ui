@@ -245,7 +245,7 @@ When adding a new item, you will create/edit these files:
 | `mc-badge`           | ✅           |           |
 | `mc-avatar`          | ✅           | ✅        |
 | `mc-drawer`          | ✅           |           |
-| `mc-hover-card`      | ✅           |           |
+| `mc-hover-card`      | ✅           | ✅        |
 | `mc-slider`          | ✅           |           |
 | `mc-carousel`        | ✅           |           |
 
