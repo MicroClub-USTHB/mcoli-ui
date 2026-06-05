@@ -301,13 +301,39 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
-    name: 'mc-alert-dialog',
+    name: 'mc-accordion',
     type: 'registry:component',
-    title: 'MicroClub Alert Dialog',
-    description: 'An Alert dialog component for MicroClub UI',
+    title: 'MicroClub Accordion',
+    description: 'An accordion component for MicroClub UI',
     files: [
       {
-        path: 'ui/mc-alert-dialog.tsx',
+        path: 'ui/mc-accordion.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-avatar',
+    type: 'registry:component',
+    title: 'MicroClub Avatar',
+    description: 'A avatar component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-avatar.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-hover-card',
+    type: 'registry:component',
+    title: 'MicroClub Hover Card',
+    description: 'A hover card component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-hover-card.tsx',
         type: 'registry:component',
       },
     ],

@@ -303,17 +303,43 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-popover.json`, `${REGISTRY_URL}/r/mc-button.json`],
   },
   {
-    name: 'mc-alert-dialog-demo',
+    name: 'mc-accordion-demo',
     type: 'registry:example',
-    title: 'MicroClub Alert Dialog Demo',
-    description: 'Demo for MicroClub Alert Dialog',
+    title: 'MicroClub Accordion Demo',
+    description: 'Demo for MicroClub Accordion',
     files: [
       {
-        path: 'examples/mc-alert-dialog-demo.tsx',
+        path: 'examples/mc-accordion-demo.tsx',
         type: 'registry:example',
       },
     ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-alert-dialog.json`],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-accordion.json`],
+  },
+  {
+    name: 'mc-avatar-demo',
+    type: 'registry:example',
+    title: 'MicroClub Avatar Demo',
+    description: 'Demo for MicroClub Avatar',
+    files: [
+      {
+        path: 'examples/mc-avatar-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-avatar.json`],
+  },
+  {
+    name: 'mc-hover-card-demo',
+    type: 'registry:example',
+    title: 'MicroClub Hover Card Demo',
+    description: 'Demo for MicroClub Hover Card',
+    files: [
+      {
+        path: 'examples/mc-hover-card-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-hover-card.json`],
   },
   {
     name: 'mc-badge-demo',

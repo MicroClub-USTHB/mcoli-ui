@@ -3,7 +3,151 @@ title: MC Hover Card
 description: A card that appears on hover with additional information.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-hover-card` is a lightweight, hover-triggered card component in the MicroClub UI library. Built on the **@base-ui/react** preview-card primitive, it delivers accessible hover interactions with a flexible card layout and image/content support.
+
+This component is designed for seamless integration into your codebase, with customizable alignment, offset, and content props.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-hover-card-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-hover-card-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-hover-card` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-hover-card</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-hover-card</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-hover-card</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-hover-card</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install @base-ui/react</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react</Tab>
+  <Tab value="yarn">yarn add @base-ui/react</Tab>
+  <Tab value="bun">bun add @base-ui/react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-hover-card" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McHoverCard, McHoverCardTrigger, McHoverCardContent } from '@/components/ui/mc-hover-card';
+
+export default function Example() {
+  return (
+    <McHoverCard>
+      <McHoverCardTrigger>
+        <button type="button">Hover me</button>
+      </McHoverCardTrigger>
+      <McHoverCardContent
+        title="John Doe"
+        subtitle="Software Engineer"
+        description="John is a software engineer with 5 years of experience in web development. He loves working with React and TypeScript."
+        imageSrc="https://cdn-imgix.headout.com/media/images/c9db3cea62133b6a6bb70597326b4a34-388-dubai-img-worlds-of-adventure-tickets-01.jpg?auto=compress%2Cformat&w=1222.3999999999999&h=687.6&q=90&ar=16%3A9&crop=faces&fit=crop"
+      />
+    </McHoverCard>
+  );
+}
+```
+
+## Examples
+
+### Image Top
+
+```tsx
+<McHoverCard>
+  <McHoverCardTrigger>
+    <button type="button">Hover me</button>
+  </McHoverCardTrigger>
+  <McHoverCardContent
+    textAlign="start"
+    imageSrc="https://cdn-imgix.headout.com/media/images/c9db3cea62133b6a6bb70597326b4a34-388-dubai-img-worlds-of-adventure-tickets-01.jpg?auto=compress%2Cformat&w=1222.3999999999999&h=687.6&q=90&ar=16%3A9&crop=faces&fit=crop"
+    title="John Doe"
+    subtitle="Software Engineer"
+    description="John is a software engineer with 5 years of experience in web development. He loves working with React and TypeScript."
+  />
+</McHoverCard>
+```
+
+### Bottom Image
+
+```tsx
+<McHoverCard>
+  <McHoverCardTrigger>
+    <button type="button">Hover me</button>
+  </McHoverCardTrigger>
+  <McHoverCardContent
+    imageposition="bottom"
+    textAlign="center"
+    title="Profile"
+    subtitle="Designer"
+    description="A bold hover card with the image placed below the content and centered text alignment."
+  />
+</McHoverCard>
+```
+
+### Side Placement
+
+```tsx
+<McHoverCard>
+  <McHoverCardTrigger>
+    <button type="button">Hover me</button>
+  </McHoverCardTrigger>
+  <McHoverCardContent side="right" sideOffset={8} align="start" alignOffset={8}>
+    <div className="space-y-2">
+      <h4 className="font-semibold">Details</h4>
+      <p className="text-sm">
+        Use `side`, `sideOffset`, `align`, and `alignOffset` to control the hover card position.
+      </p>
+    </div>
+  </McHoverCardContent>
+</McHoverCard>
+```
+
+## API Reference
+
+### Props
+
+| Prop            | Type                                                                       | Default     | Description                                             |
+| --------------- | -------------------------------------------------------------------------- | ----------- | ------------------------------------------------------- |
+| `title`         | `string`                                                                   | `undefined` | Main heading displayed inside the hover card            |
+| `subtitle`      | `string`                                                                   | `undefined` | Secondary line of text below the title                  |
+| `description`   | `string`                                                                   | `undefined` | Body text shown inside the card                         |
+| `imageSrc`      | `string \| null`                                                           | `null`      | Optional image URL shown above or below the content     |
+| `imageposition` | `"top" \| "bottom"`                                                        | `"top"`     | Position of the image relative to the text content      |
+| `textAlign`     | `"start" \| "center"`                                                      | `"start"`   | Text alignment for title, subtitle, and description     |
+| `side`          | `"top" \| "right" \| "bottom" \| "left" \| "inline-start" \| "inline-end"` | `"bottom"`  | Side where the hover card appears                       |
+| `sideOffset`    | `number`                                                                   | `4`         | Offset distance from the trigger on the specified side  |
+| `align`         | `"start" \| "center" \| "end"`                                             | `"center"`  | Alignment of the hover card relative to the trigger     |
+| `alignOffset`   | `number`                                                                   | `4`         | Offset distance along the alignment axis                |
+| `className`     | `string`                                                                   | `undefined` | Additional CSS classes passed to the hover card content |
+
+All other props from `@base-ui/react/preview-card` are supported.

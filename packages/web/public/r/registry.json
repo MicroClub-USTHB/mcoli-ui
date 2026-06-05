@@ -2455,13 +2455,39 @@
       "type": "registry:component"
     },
     {
-      "name": "mc-alert-dialog",
-      "title": "MicroClub Alert Dialog",
-      "description": "An Alert dialog component for MicroClub UI",
+      "name": "mc-accordion",
+      "title": "MicroClub Accordion",
+      "description": "An accordion component for MicroClub UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
-          "path": "registry/ui/mc-alert-dialog.tsx",
+          "path": "registry/ui/mc-accordion.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-avatar",
+      "title": "MicroClub Avatar",
+      "description": "A avatar component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-avatar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-hover-card",
+      "title": "MicroClub Hover Card",
+      "description": "A hover card component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-hover-card.tsx",
           "type": "registry:component"
         }
       ],
