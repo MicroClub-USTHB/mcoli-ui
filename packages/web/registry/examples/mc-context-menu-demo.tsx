@@ -2,7 +2,6 @@ import {
   ContextMenu,
   ContextMenuCheckboxItem,
   ContextMenuContent,
-  ContextMenuGroup,
   ContextMenuItem,
   ContextMenuLabel,
   ContextMenuRadioGroup,
@@ -18,22 +17,20 @@ import {
 export default function McContextMenuDemo() {
   return (
     <ContextMenu>
-      <ContextMenuTrigger className="flex min-h-36 w-full max-w-72 items-center justify-center rounded-md border border-dashed border-border bg-card text-sm text-foreground">
+      <ContextMenuTrigger className="flex h-40 w-72 items-center justify-center rounded-lg border border-dashed border-border bg-card text-sm text-muted-foreground">
         Right click here
       </ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuGroup>
-          <ContextMenuLabel>Actions</ContextMenuLabel>
-          <ContextMenuItem>
-            Back
-            <ContextMenuShortcut>Alt+Left</ContextMenuShortcut>
-          </ContextMenuItem>
-          <ContextMenuItem>
-            Forward
-            <ContextMenuShortcut>Alt+Right</ContextMenuShortcut>
-          </ContextMenuItem>
-          <ContextMenuItem disabled>Reload</ContextMenuItem>
-        </ContextMenuGroup>
+      <ContextMenuContent className="w-56">
+        <ContextMenuLabel>Actions</ContextMenuLabel>
+        <ContextMenuItem>
+          Back
+          <ContextMenuShortcut>Alt+Left</ContextMenuShortcut>
+        </ContextMenuItem>
+        <ContextMenuItem>
+          Forward
+          <ContextMenuShortcut>Alt+Right</ContextMenuShortcut>
+        </ContextMenuItem>
+        <ContextMenuItem disabled>Reload</ContextMenuItem>
         <ContextMenuSub>
           <ContextMenuSubTrigger>More tools</ContextMenuSubTrigger>
           <ContextMenuSubContent>
@@ -46,13 +43,11 @@ export default function McContextMenuDemo() {
         <ContextMenuCheckboxItem checked>Show bookmarks</ContextMenuCheckboxItem>
         <ContextMenuCheckboxItem>Show full URLs</ContextMenuCheckboxItem>
         <ContextMenuSeparator />
-        <ContextMenuGroup>
+        <ContextMenuRadioGroup value="comfortable">
           <ContextMenuLabel inset>Density</ContextMenuLabel>
-          <ContextMenuRadioGroup value="comfortable">
-            <ContextMenuRadioItem value="compact">Compact</ContextMenuRadioItem>
-            <ContextMenuRadioItem value="comfortable">Comfortable</ContextMenuRadioItem>
-          </ContextMenuRadioGroup>
-        </ContextMenuGroup>
+          <ContextMenuRadioItem value="compact">Compact</ContextMenuRadioItem>
+          <ContextMenuRadioItem value="comfortable">Comfortable</ContextMenuRadioItem>
+        </ContextMenuRadioGroup>
       </ContextMenuContent>
     </ContextMenu>
   );

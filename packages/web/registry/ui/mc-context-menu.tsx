@@ -6,11 +6,6 @@ import { CheckIcon, ChevronRightIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
-const CONTEXT_MENU_ALIGN = 'start';
-const CONTEXT_MENU_ALIGN_OFFSET = 4;
-const CONTEXT_MENU_SIDE = 'right';
-const CONTEXT_MENU_SIDE_OFFSET = 0;
-
 function ContextMenu({ ...props }: ContextMenuPrimitive.Root.Props) {
   return <ContextMenuPrimitive.Root data-slot="context-menu" {...props} />;
 }
@@ -31,10 +26,10 @@ function ContextMenuTrigger({ className, ...props }: ContextMenuPrimitive.Trigge
 
 function ContextMenuContent({
   className,
-  align = CONTEXT_MENU_ALIGN,
-  alignOffset = CONTEXT_MENU_ALIGN_OFFSET,
-  side = CONTEXT_MENU_SIDE,
-  sideOffset = CONTEXT_MENU_SIDE_OFFSET,
+  align = 'start',
+  alignOffset = 4,
+  side = 'right',
+  sideOffset = 0,
   ...props
 }: ContextMenuPrimitive.Popup.Props &
   Pick<ContextMenuPrimitive.Positioner.Props, 'align' | 'alignOffset' | 'side' | 'sideOffset'>) {
@@ -135,16 +130,12 @@ function ContextMenuSubTrigger({
   );
 }
 
-function ContextMenuSubContent({
-  className,
-  side = CONTEXT_MENU_SIDE,
-  ...props
-}: React.ComponentProps<typeof ContextMenuContent>) {
+function ContextMenuSubContent({ ...props }: React.ComponentProps<typeof ContextMenuContent>) {
   return (
     <ContextMenuContent
       data-slot="context-menu-sub-content"
-      className={cn('shadow-lg', className)}
-      side={side}
+      className="shadow-lg"
+      side="right"
       {...props}
     />
   );
