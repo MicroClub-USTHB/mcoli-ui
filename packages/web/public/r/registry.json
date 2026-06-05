@@ -2455,19 +2455,6 @@
       "type": "registry:component"
     },
     {
-      "name": "mc-alert-dialog",
-      "title": "MicroClub Alert Dialog",
-      "description": "An Alert dialog component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
-      "files": [
-        {
-          "path": "registry/ui/mc-alert-dialog.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "type": "registry:component"
-    },
-    {
       "name": "mc-dropdown-menu",
       "title": "MicroClub Dropdown Menu",
       "description": "A dropdown menu component for MicroClub UI",

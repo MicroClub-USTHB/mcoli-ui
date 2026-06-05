@@ -232,7 +232,7 @@ When adding a new item, you will create/edit these files:
 | `mc-sonner`          | ✅           |           |
 | `mc-tooltip`         | ✅           | ✅        |
 | `mc-popover`         | ✅           | ✅        |
-| `mc-dropdown-menu`   | ✅           |           |
+| `mc-dropdown-menu`   | ✅           | ✅        |
 | `mc-context-menu`    | ✅           |           |
 | `mc-data-table`      | ✅           |           |
 | `mc-accordion`       | ✅           |           |
