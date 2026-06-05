@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '@/registry/ui/mc-hover-card';
+import { McHoverCard, McHoverCardContent, McHoverCardTrigger } from '@/registry/ui/mc-hover-card';
 
 type DemoProps = {
   side?: 'top' | 'bottom' | 'left' | 'right';
@@ -17,14 +17,14 @@ function ProfileHoverCard({
 }: DemoProps) {
   return (
     <div className="flex h-100 items-center justify-center">
-      <HoverCard>
-        <HoverCardTrigger>
+      <McHoverCard>
+        <McHoverCardTrigger>
           <button type="button" className="cursor-pointer rounded-full">
             hover me
           </button>
-        </HoverCardTrigger>
+        </McHoverCardTrigger>
 
-        <HoverCardContent
+        <McHoverCardContent
           side={side}
           align={align}
           sideOffset={sideOffset}
@@ -34,8 +34,8 @@ function ProfileHoverCard({
           title="John Doe"
           subtitle="Software Engineer"
           description="John is a software engineer with 5 years of experience in web development. He loves working with React and TypeScript."
-        ></HoverCardContent>
-      </HoverCard>
+        ></McHoverCardContent>
+      </McHoverCard>
     </div>
   );
 }

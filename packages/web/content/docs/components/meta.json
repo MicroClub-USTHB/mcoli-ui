@@ -26,6 +26,7 @@
     "mc-skeleton",
     "mc-popover",
     "mc-accordion",
+    "mc-hover-card",
     "---Coming Soon---",
     "mc-sonner",
     "mc-dropdown-menu",
@@ -37,7 +38,6 @@
     "mc-badge",
     "mc-avatar",
     "mc-drawer",
-    "mc-hover-card",
     "mc-slider",
     "mc-carousel"
   ]

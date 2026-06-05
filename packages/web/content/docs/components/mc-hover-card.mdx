@@ -59,21 +59,21 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 ## Usage
 
 ```tsx
-import { HoverCard, HoverCardTrigger, HoverCardContent } from '@/components/ui/mc-hover-card';
+import { McHoverCard, McHoverCardTrigger, McHoverCardContent } from '@/components/ui/mc-hover-card';
 
 export default function Example() {
   return (
-    <HoverCard>
-      <HoverCardTrigger>
+    <McHoverCard>
+      <McHoverCardTrigger>
         <button type="button">Hover me</button>
-      </HoverCardTrigger>
-      <HoverCardContent
+      </McHoverCardTrigger>
+      <McHoverCardContent
         title="John Doe"
         subtitle="Software Engineer"
         description="John is a software engineer with 5 years of experience in web development. He loves working with React and TypeScript."
         imageSrc="https://cdn-imgix.headout.com/media/images/c9db3cea62133b6a6bb70597326b4a34-388-dubai-img-worlds-of-adventure-tickets-01.jpg?auto=compress%2Cformat&w=1222.3999999999999&h=687.6&q=90&ar=16%3A9&crop=faces&fit=crop"
       />
-    </HoverCard>
+    </McHoverCard>
   );
 }
 ```
@@ -83,53 +83,53 @@ export default function Example() {
 ### Image Top
 
 ```tsx
-<HoverCard>
-  <HoverCardTrigger>
+<McHoverCard>
+  <McHoverCardTrigger>
     <button type="button">Hover me</button>
-  </HoverCardTrigger>
-  <HoverCardContent
+  </McHoverCardTrigger>
+  <McHoverCardContent
     textAlign="start"
     imageSrc="https://cdn-imgix.headout.com/media/images/c9db3cea62133b6a6bb70597326b4a34-388-dubai-img-worlds-of-adventure-tickets-01.jpg?auto=compress%2Cformat&w=1222.3999999999999&h=687.6&q=90&ar=16%3A9&crop=faces&fit=crop"
     title="John Doe"
     subtitle="Software Engineer"
     description="John is a software engineer with 5 years of experience in web development. He loves working with React and TypeScript."
   />
-</HoverCard>
+</McHoverCard>
 ```
 
 ### Bottom Image
 
 ```tsx
-<HoverCard>
-  <HoverCardTrigger>
+<McHoverCard>
+  <McHoverCardTrigger>
     <button type="button">Hover me</button>
-  </HoverCardTrigger>
-  <HoverCardContent
+  </McHoverCardTrigger>
+  <McHoverCardContent
     imageposition="bottom"
     textAlign="center"
     title="Profile"
     subtitle="Designer"
     description="A bold hover card with the image placed below the content and centered text alignment."
   />
-</HoverCard>
+</McHoverCard>
 ```
 
 ### Side Placement
 
 ```tsx
-<HoverCard>
-  <HoverCardTrigger>
+<McHoverCard>
+  <McHoverCardTrigger>
     <button type="button">Hover me</button>
-  </HoverCardTrigger>
-  <HoverCardContent side="right" sideOffset={8} align="start" alignOffset={8}>
+  </McHoverCardTrigger>
+  <McHoverCardContent side="right" sideOffset={8} align="start" alignOffset={8}>
     <div className="space-y-2">
       <h4 className="font-semibold">Details</h4>
       <p className="text-sm">
         Use `side`, `sideOffset`, `align`, and `alignOffset` to control the hover card position.
       </p>
     </div>
-  </HoverCardContent>
-</HoverCard>
+  </McHoverCardContent>
+</McHoverCard>
 ```
 
 ## API Reference

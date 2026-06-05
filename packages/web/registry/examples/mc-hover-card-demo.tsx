@@ -1,24 +1,21 @@
-import React from 'react';
-import { HoverCard, HoverCardContent, HoverCardTrigger } from '../ui/mc-hover-card';
+import { McHoverCard, McHoverCardContent, McHoverCardTrigger } from '../ui/mc-hover-card';
 
-const HoverCardDemo = () => {
+export default function McHoverCardDemo() {
   return (
     <div className="flex h-100 items-center justify-center">
-      <HoverCard>
-        <HoverCardTrigger>
+      <McHoverCard>
+        <McHoverCardTrigger>
           <button type="button" className="cursor-pointer rounded-full">
             hover me
           </button>
-        </HoverCardTrigger>
-        <HoverCardContent
+        </McHoverCardTrigger>
+        <McHoverCardContent
           textAlign="start"
           title="John Doe"
           subtitle="Software Engineer"
           description="John is a software engineer with 5 years of experience in web development. He loves working with React and TypeScript."
-        ></HoverCardContent>
-      </HoverCard>
+        />
+      </McHoverCard>
     </div>
   );
-};
-
-export default HoverCardDemo;
+}
