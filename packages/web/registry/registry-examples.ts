@@ -198,6 +198,32 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-pagination.json`],
   },
   {
+    name: 'mc-dialog-demo',
+    type: 'registry:example',
+    title: 'MicroClub Dialog Demo',
+    description: 'Demo for MicroClub Dialog',
+    files: [
+      {
+        path: 'examples/mc-dialog-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-dialog.json`],
+  },
+  {
+    name: 'mc-alert-dialog-demo',
+    type: 'registry:example',
+    title: 'MicroClub Alert Dialog Demo',
+    description: 'Demo for MicroClub Alert Dialog',
+    files: [
+      {
+        path: 'examples/mc-alert-dialog-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-alert-dialog.json`],
+  },
+  {
     name: 'mc-alert-demo',
     type: 'registry:example',
     title: 'MicroClub Alert Demo',
@@ -262,6 +288,32 @@ export const examples: Registry['items'] = [
       },
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-skeleton.json`],
+  },
+  {
+    name: 'mc-popover-demo',
+    type: 'registry:example',
+    title: 'MicroClub Popover  Demo',
+    description: 'Demo for MicroClub Popover',
+    files: [
+      {
+        path: 'examples/mc-popover-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-popover.json`, `${REGISTRY_URL}/r/mc-button.json`],
+  },
+  {
+    name: 'mc-accordion-demo',
+    type: 'registry:example',
+    title: 'MicroClub Accordion Demo',
+    description: 'Demo for MicroClub Accordion',
+    files: [
+      {
+        path: 'examples/mc-accordion-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-accordion.json`],
   },
   {
     name: 'mc-avatar-demo',

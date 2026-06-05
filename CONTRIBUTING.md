@@ -226,16 +226,16 @@ When adding a new item, you will create/edit these files:
 | `mc-tabs`            | ✅           | ✅        |
 | `mc-breadcrumb`      | ✅           | ✅        |
 | `mc-pagination`      | ✅           | ✅        |
-| `mc-dialog`          | ✅           |           |
-| `mc-alert-dialog`    | ✅           |           |
+| `mc-dialog`          | ✅           | ✅        |
+| `mc-alert-dialog`    | ✅           | ✅        |
 | `mc-alert`           | ✅           | ✅        |
 | `mc-sonner`          | ✅           |           |
 | `mc-tooltip`         | ✅           | ✅        |
-| `mc-popover`         | ✅           |           |
+| `mc-popover`         | ✅           | ✅        |
 | `mc-dropdown-menu`   | ✅           |           |
 | `mc-context-menu`    | ✅           |           |
 | `mc-data-table`      | ✅           |           |
-| `mc-accordion`       | ✅           |           |
+| `mc-accordion`       | ✅           | ✅        |
 | `mc-collapsible`     | ✅           |           |
 | `mc-separator`       | ✅           | ✅        |
 | `mc-progress`        | ✅           |           |
@@ -243,7 +243,7 @@ When adding a new item, you will create/edit these files:
 | `mc-scrollarea`      | ✅           | ✅        |
 | `mc-skeleton`        | ✅           | ✅        |
 | `mc-badge`           | ✅           |           |
-| `mc-avatar`          | ✅           |           |
+| `mc-avatar`          | ✅           | ✅        |
 | `mc-drawer`          | ✅           |           |
 | `mc-hover-card`      | ✅           |           |
 | `mc-slider`          | ✅           |           |

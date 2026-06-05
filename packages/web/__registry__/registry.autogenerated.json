@@ -2351,6 +2351,32 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-dialog",
+      "title": "MicroClub Dialog",
+      "description": "A dialog component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-dialog.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-alert-dialog",
+      "title": "MicroClub Alert Dialog",
+      "description": "A alert dialog component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-alert-dialog.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-alert",
       "title": "MicroClub Alert",
       "description": "A alert component for MicroClub UI",
@@ -2410,6 +2436,32 @@
       "files": [
         {
           "path": "registry/ui/mc-skeleton.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-popover",
+      "title": "MicroClub Popover",
+      "description": "A popover component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-popover.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-accordion",
+      "title": "MicroClub Accordion",
+      "description": "An accordion component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-accordion.tsx",
           "type": "registry:component"
         }
       ],
