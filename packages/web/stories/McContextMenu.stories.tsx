@@ -64,12 +64,14 @@ function McContextMenuStory({ disabledReload, showShortcuts }: McContextMenuStor
 
           <ContextMenuSeparator />
 
-          <ContextMenuRadioGroup value="comfortable">
+          <ContextMenuGroup>
             <ContextMenuLabel inset>Density</ContextMenuLabel>
-            <ContextMenuRadioItem value="compact">Compact</ContextMenuRadioItem>
-            <ContextMenuRadioItem value="comfortable">Comfortable</ContextMenuRadioItem>
-            <ContextMenuRadioItem value="spacious">Spacious</ContextMenuRadioItem>
-          </ContextMenuRadioGroup>
+            <ContextMenuRadioGroup value="comfortable">
+              <ContextMenuRadioItem value="compact">Compact</ContextMenuRadioItem>
+              <ContextMenuRadioItem value="comfortable">Comfortable</ContextMenuRadioItem>
+              <ContextMenuRadioItem value="spacious">Spacious</ContextMenuRadioItem>
+            </ContextMenuRadioGroup>
+          </ContextMenuGroup>
         </ContextMenuContent>
       </ContextMenu>
     </div>

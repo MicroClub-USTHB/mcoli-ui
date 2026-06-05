@@ -2,6 +2,7 @@ import {
   ContextMenu,
   ContextMenuCheckboxItem,
   ContextMenuContent,
+  ContextMenuGroup,
   ContextMenuItem,
   ContextMenuLabel,
   ContextMenuRadioGroup,
@@ -21,16 +22,18 @@ export default function McContextMenuDemo() {
         Right click here
       </ContextMenuTrigger>
       <ContextMenuContent className="w-56">
-        <ContextMenuLabel>Actions</ContextMenuLabel>
-        <ContextMenuItem>
-          Back
-          <ContextMenuShortcut>Alt+Left</ContextMenuShortcut>
-        </ContextMenuItem>
-        <ContextMenuItem>
-          Forward
-          <ContextMenuShortcut>Alt+Right</ContextMenuShortcut>
-        </ContextMenuItem>
-        <ContextMenuItem disabled>Reload</ContextMenuItem>
+        <ContextMenuGroup>
+          <ContextMenuLabel>Actions</ContextMenuLabel>
+          <ContextMenuItem>
+            Back
+            <ContextMenuShortcut>Alt+Left</ContextMenuShortcut>
+          </ContextMenuItem>
+          <ContextMenuItem>
+            Forward
+            <ContextMenuShortcut>Alt+Right</ContextMenuShortcut>
+          </ContextMenuItem>
+          <ContextMenuItem disabled>Reload</ContextMenuItem>
+        </ContextMenuGroup>
         <ContextMenuSub>
           <ContextMenuSubTrigger>More tools</ContextMenuSubTrigger>
           <ContextMenuSubContent>
@@ -43,11 +46,13 @@ export default function McContextMenuDemo() {
         <ContextMenuCheckboxItem checked>Show bookmarks</ContextMenuCheckboxItem>
         <ContextMenuCheckboxItem>Show full URLs</ContextMenuCheckboxItem>
         <ContextMenuSeparator />
-        <ContextMenuRadioGroup value="comfortable">
+        <ContextMenuGroup>
           <ContextMenuLabel inset>Density</ContextMenuLabel>
-          <ContextMenuRadioItem value="compact">Compact</ContextMenuRadioItem>
-          <ContextMenuRadioItem value="comfortable">Comfortable</ContextMenuRadioItem>
-        </ContextMenuRadioGroup>
+          <ContextMenuRadioGroup value="comfortable">
+            <ContextMenuRadioItem value="compact">Compact</ContextMenuRadioItem>
+            <ContextMenuRadioItem value="comfortable">Comfortable</ContextMenuRadioItem>
+          </ContextMenuRadioGroup>
+        </ContextMenuGroup>
       </ContextMenuContent>
     </ContextMenu>
   );
