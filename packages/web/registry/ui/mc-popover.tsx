@@ -2,13 +2,13 @@
 import * as React from 'react';
 import { Popover as PopoverPrimitive } from '@base-ui/react/popover';
 import { cn } from '@/lib/utils';
-function Popover({ ...props }: PopoverPrimitive.Root.Props) {
+function McPopover({ ...props }: PopoverPrimitive.Root.Props) {
   return <PopoverPrimitive.Root data-slot="popover" {...props} />;
 }
-function PopoverTrigger({ ...props }: PopoverPrimitive.Trigger.Props) {
+function McPopoverTrigger({ ...props }: PopoverPrimitive.Trigger.Props) {
   return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />;
 }
-function PopoverContent({
+function McPopoverContent({
   className,
   align = 'center',
   alignOffset = 0,
@@ -39,7 +39,7 @@ function PopoverContent({
   );
 }
 
-function PopoverHeader({ className, ...props }: React.ComponentProps<'div'>) {
+function McPopoverHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="popover-header"
@@ -49,7 +49,7 @@ function PopoverHeader({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
-function PopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props) {
+function McPopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props) {
   return (
     <PopoverPrimitive.Title
       data-slot="popover-title"
@@ -61,7 +61,7 @@ function PopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props) {
     />
   );
 }
-function PopoverDescription({ className, ...props }: PopoverPrimitive.Description.Props) {
+function McPopoverDescription({ className, ...props }: PopoverPrimitive.Description.Props) {
   return (
     <PopoverPrimitive.Description
       data-slot="popover-description"
@@ -73,4 +73,11 @@ function PopoverDescription({ className, ...props }: PopoverPrimitive.Descriptio
     />
   );
 }
-export { Popover, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger };
+export {
+  McPopover,
+  McPopoverContent,
+  McPopoverDescription,
+  McPopoverHeader,
+  McPopoverTitle,
+  McPopoverTrigger,
+};

@@ -2,37 +2,37 @@
 
 import * as React from 'react';
 import {
-  Combobox,
-  ComboboxTrigger,
-  ComboboxSearch,
-  ComboboxContent,
-  ComboboxList,
-  ComboboxItem,
+  McCombobox,
+  McComboboxTrigger,
+  McComboboxSearch,
+  McComboboxContent,
+  McComboboxList,
+  McComboboxItem,
 } from '@/registry/ui/mc-combobox';
 
 const frameworks = ['Next.js', 'SvelteKit', 'Nuxt.js', 'Remix'] as const;
 
-export default function ComboboxDemo() {
+export default function McComboboxDemo() {
   const [selectedValue, setSelectedValue] = React.useState('select a framework');
   return (
     <div className="flex items-start justify-start mb-50">
-      <Combobox
+      <McCombobox
         items={frameworks}
         value={selectedValue}
         onValueChange={(val) => setSelectedValue(val as string)}
       >
-        <ComboboxTrigger className="shadow-sm border-slate-200" />
-        <ComboboxContent>
-          <ComboboxSearch placeholder="Search framework..." />
-          <ComboboxList>
+        <McComboboxTrigger className="shadow-sm border-slate-200" />
+        <McComboboxContent>
+          <McComboboxSearch placeholder="Search framework..." />
+          <McComboboxList>
             {(item: string) => (
-              <ComboboxItem key={item} value={item}>
+              <McComboboxItem key={item} value={item}>
                 {item}
-              </ComboboxItem>
+              </McComboboxItem>
             )}
-          </ComboboxList>
-        </ComboboxContent>
-      </Combobox>
+          </McComboboxList>
+        </McComboboxContent>
+      </McCombobox>
     </div>
   );
 }

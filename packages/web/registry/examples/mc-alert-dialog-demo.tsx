@@ -1,33 +1,33 @@
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
+  McAlertDialog,
+  McAlertDialogAction,
+  McAlertDialogCancel,
+  McAlertDialogContent,
+  McAlertDialogDescription,
+  McAlertDialogFooter,
+  McAlertDialogHeader,
+  McAlertDialogTitle,
+  McAlertDialogTrigger,
 } from '@/registry/ui/mc-alert-dialog';
 import { Button } from '@/components/ui/button';
 
-export default function AlertDialogDemo() {
+export default function McAlertDialogDemo() {
   return (
-    <AlertDialog>
-      <AlertDialogTrigger render={<Button variant="outline">Show Dialog</Button>} />
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-          <AlertDialogDescription>
+    <McAlertDialog>
+      <McAlertDialogTrigger render={<Button variant="outline">Show Dialog</Button>} />
+      <McAlertDialogContent>
+        <McAlertDialogHeader>
+          <McAlertDialogTitle>Are you absolutely sure?</McAlertDialogTitle>
+          <McAlertDialogDescription>
             This action cannot be undone. This will permanently delete your account from our
             servers.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+          </McAlertDialogDescription>
+        </McAlertDialogHeader>
+        <McAlertDialogFooter>
+          <McAlertDialogCancel>Cancel</McAlertDialogCancel>
+          <McAlertDialogAction>Continue</McAlertDialogAction>
+        </McAlertDialogFooter>
+      </McAlertDialogContent>
+    </McAlertDialog>
   );
 }
