@@ -15,7 +15,7 @@ const frameworks = ['Next.js', 'SvelteKit', 'Nuxt.js', 'Remix'] as const;
 export default function McComboboxDemo() {
   const [selectedValue, setSelectedValue] = React.useState('select a framework');
   return (
-    <div className="flex items-start justify-start mb-50">
+    <div className="mb-50">
       <McCombobox
         items={frameworks}
         value={selectedValue}

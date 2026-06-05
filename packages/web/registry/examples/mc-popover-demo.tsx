@@ -17,7 +17,7 @@ const fields = [
 
 export default function McPopoverDemo() {
   return (
-    <div className="relative -top-4 flex justify-center py-10">
+    <div className="relative -top-4 py-10">
       <McPopover>
         <McPopoverTrigger
           render={

@@ -10,7 +10,7 @@ export const ComponentPreview: React.FC<{ name: string }> = ({ name }) => {
     return <Component />;
   }, [name]);
   return (
-    <div className="flex items-center justify-center min-h-64 font-dm-sans not-prose -m-4! bg-card p-4">
+    <div className="flex min-h-64 items-center justify-center font-dm-sans not-prose -m-4! bg-card p-4">
       <React.Suspense
         fallback={
           <div className="text-muted-foreground flex min-h-64 items-center justify-center text-sm">
@@ -18,7 +18,7 @@ export const ComponentPreview: React.FC<{ name: string }> = ({ name }) => {
           </div>
         }
       >
-        <div className="w-full">{Preview}</div>
+        <div className="flex w-full items-center justify-center">{Preview}</div>
       </React.Suspense>
     </div>
   );

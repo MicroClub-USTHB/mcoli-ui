@@ -12,7 +12,7 @@ import {
 
 export default function McDialogDemo() {
   return (
-    <div className="flex min-h-72 items-center justify-center py-6">
+    <div className="py-6">
       <McDialog>
         <McDialogTrigger
           render={
