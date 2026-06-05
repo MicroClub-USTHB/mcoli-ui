@@ -3,7 +3,114 @@ title: MC Separator
 description: A visual divider for grouping content.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-separator` component provides a lightweight visual boundary between related pieces of UI.
+It is built on top of **@base-ui/react** separator primitives and styled with MicroClub design
+tokens.
+
+Use it for section dividers, grouped inline content, menus, and split layouts.
+It also supports a `size` prop to control separator length.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-separator-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-separator-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy `mc-separator` directly into your `components/ui` folder:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-separator</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-separator</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-separator</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-separator</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual installation:
+
+<Steps>
+
+<Step>Install dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install clsx tailwind-merge @base-ui/react</Tab>
+  <Tab value="pnpm">pnpm add clsx tailwind-merge @base-ui/react</Tab>
+  <Tab value="yarn">yarn add clsx tailwind-merge @base-ui/react</Tab>
+  <Tab value="bun">bun add clsx tailwind-merge @base-ui/react</Tab>
+</Tabs>
+
+<Step>Copy component source</Step>
+
+<ComponentSource name="mc-separator" />
+
+<Step>Adjust utility imports</Step>
+
+Ensure `@/lib/utils` (or your local classname helper) is correctly mapped.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McSeparator } from '@/components/ui/mc-separator';
+
+export default function Example() {
+  return (
+    <div className="space-y-4">
+      <p>Section A</p>
+      <McSeparator />
+      <p>Section B</p>
+    </div>
+  );
+}
+```
+
+## Examples
+
+### Vertical Separator
+
+```tsx
+<div className="flex h-8 items-center">
+  <span>Block</span>
+  <McSeparator orientation="vertical" size={100} />
+  <span>Block</span>
+</div>
+```
+
+### Custom Size
+
+```tsx
+<McSeparator size={200} />
+```
+
+### Content Split Layout
+
+```tsx
+<div className="flex h-48 items-stretch">
+  <div className="flex-1">Left content</div>
+  <McSeparator orientation="vertical" className="h-full" />
+  <div className="flex-1">Right content</div>
+</div>
+```
+
+## API Reference
+
+### Props
+
+| Prop          | Type                         | Default                        | Description                                 |
+| ------------- | ---------------------------- | ------------------------------ | ------------------------------------------- |
+| `orientation` | `"horizontal" \| "vertical"` | Base UI default (`horizontal`) | Direction of the separator line             |
+| `size`        | `number`                     | `undefined`                    | Separator length in pixels                  |
+| `className`   | `string`                     | `undefined`                    | Additional classes for custom sizing/states |
+
+All other props from `@base-ui/react/separator` are supported.

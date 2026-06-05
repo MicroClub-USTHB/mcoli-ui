@@ -3,7 +3,216 @@ title: MC Dialog
 description: A modal dialog for important content or interactions.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-dialog` component is a modal surface built on top of **@base-ui/react/dialog** with
+MicroClub UI styling.
+
+It provides a composable API with dedicated slots for trigger, content, header, description,
+footer, and close actions, while keeping accessibility and keyboard interactions handled by Base UI.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-dialog-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-dialog-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-dialog` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-dialog</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-dialog</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-dialog</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-dialog</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">
+    npm install clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="pnpm">
+    pnpm add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="yarn">
+    yarn add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+  <Tab value="bun">
+    bun add clsx tailwind-merge @base-ui/react class-variance-authority lucide-react
+  </Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-dialog" />
+
+<Step>Copy button dependency or replace render usage</Step>
+
+The default close controls inside `DialogContent` and `DialogFooter` use `McButton`.
+If you don't use `mc-button`, replace those `render` props with your own button component.
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` and `@/components/ui/*` aliases are correctly configured.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McButton } from '@/components/ui/mc-button';
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/mc-dialog';
+
+export default function Example() {
+  return (
+    <Dialog>
+      <DialogTrigger
+        render={
+          <McButton variant="primary" size="md">
+            Open dialog
+          </McButton>
+        }
+      />
+
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Edit profile</DialogTitle>
+          <DialogDescription>
+            Make changes to your profile here. Click save when you're done.
+          </DialogDescription>
+        </DialogHeader>
+
+        <DialogFooter showCloseButton={false}>
+          <DialogClose
+            render={
+              <McButton variant="secondary" size="md">
+                Cancel
+              </McButton>
+            }
+          />
+          <DialogClose
+            render={
+              <McButton variant="primary" size="md">
+                Save changes
+              </McButton>
+            }
+          />
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
+```
+
+## Examples
+
+### Basic Dialog
+
+```tsx
+<Dialog>
+  <DialogTrigger render={<McButton>Open dialog</McButton>} />
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Title</DialogTitle>
+      <DialogDescription>Description</DialogDescription>
+    </DialogHeader>
+  </DialogContent>
+</Dialog>
+```
+
+### Hide Top Close Button
+
+```tsx
+<DialogContent showCloseButton={false}>
+  <DialogHeader>
+    <DialogTitle>Custom Header</DialogTitle>
+  </DialogHeader>
+</DialogContent>
+```
+
+### Footer With Action Buttons
+
+```tsx
+<DialogFooter showCloseButton={false}>
+  <DialogClose render={<McButton variant="secondary">Cancel</McButton>} />
+  <DialogClose render={<McButton variant="primary">Save changes</McButton>} />
+</DialogFooter>
+```
+
+## API Reference
+
+### Dialog
+
+| Prop       | Type                         | Default | Description                                 |
+| ---------- | ---------------------------- | ------- | ------------------------------------------- |
+| `...props` | `DialogPrimitive.Root.Props` | -       | All root props from `@base-ui/react/dialog` |
+
+### DialogTrigger
+
+| Prop       | Type                            | Default | Description                      |
+| ---------- | ------------------------------- | ------- | -------------------------------- |
+| `...props` | `DialogPrimitive.Trigger.Props` | -       | Trigger element and interactions |
+
+### DialogContent
+
+| Prop              | Type                          | Default     | Description                               |
+| ----------------- | ----------------------------- | ----------- | ----------------------------------------- |
+| `showCloseButton` | `boolean`                     | `true`      | Shows or hides the top-right close button |
+| `className`       | `string`                      | `undefined` | Additional CSS classes                    |
+| `...props`        | `DialogPrimitive.Popup.Props` | -           | All popup props from Base UI              |
+
+### DialogHeader
+
+| Prop        | Type                          | Default     | Description            |
+| ----------- | ----------------------------- | ----------- | ---------------------- |
+| `className` | `string`                      | `undefined` | Additional CSS classes |
+| `...props`  | `React.ComponentProps<'div'>` | -           | Native div props       |
+
+### DialogFooter
+
+| Prop              | Type                          | Default     | Description                              |
+| ----------------- | ----------------------------- | ----------- | ---------------------------------------- |
+| `showCloseButton` | `boolean`                     | `false`     | Appends a default secondary close button |
+| `className`       | `string`                      | `undefined` | Additional CSS classes                   |
+| `...props`        | `React.ComponentProps<'div'>` | -           | Native div props                         |
+
+### DialogTitle
+
+| Prop        | Type                          | Default     | Description                  |
+| ----------- | ----------------------------- | ----------- | ---------------------------- |
+| `className` | `string`                      | `undefined` | Additional CSS classes       |
+| `...props`  | `DialogPrimitive.Title.Props` | -           | All title props from Base UI |
+
+### DialogDescription
+
+| Prop        | Type                                | Default     | Description                        |
+| ----------- | ----------------------------------- | ----------- | ---------------------------------- |
+| `className` | `string`                            | `undefined` | Additional CSS classes             |
+| `...props`  | `DialogPrimitive.Description.Props` | -           | All description props from Base UI |
+
+### DialogClose, DialogOverlay, DialogPortal
+
+All these helpers forward their corresponding `@base-ui/react/dialog` primitive props directly.
