@@ -18,7 +18,7 @@ export default function McSonnerDemo() {
       >
         Show Simple Toast
       </button>
-      {/* <McSonner /> */}
+      <McSonner />
     </div>
   );
 }

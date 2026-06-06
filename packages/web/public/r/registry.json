@@ -2466,6 +2466,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-sonner",
+      "title": "MicroClub Sonner",
+      "description": "A toast component for MicroClub UI",
+      "dependencies": ["@base-ui/react", "sonner"],
+      "files": [
+        {
+          "path": "registry/ui/mc-sonner.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }

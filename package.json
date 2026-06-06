@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "pnpm --filter @mcoli/web dev",
     "build": "pnpm --filter @mcoli/web build && prettier --write .",
+    "build:registry": "pnpm --filter @mcoli/web build:registry",
     "start": "pnpm --filter @mcoli/web start",
     "lint": "pnpm --filter @mcoli/web lint",
     "typecheck": "pnpm --filter @mcoli/web typecheck",
