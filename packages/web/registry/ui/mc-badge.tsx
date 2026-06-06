@@ -7,7 +7,7 @@ import { cloneElement, isValidElement } from 'react';
 import { cn } from '@/lib/utils';
 
 const McBadgeVariants = cva(
-  'group/badge inline-flex shrink-0 items-center justify-center gap-1 overflow-hidden rounded-[16px] border border-[#E6E9FF] text-xs font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3 [&>svg]:shrink-0 [&>svg]:self-center',
+  'group/badge inline-flex shrink-0 items-center justify-center gap-1 overflow-hidden rounded-[16px] border border-[#E6E9FF] text-xs font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3! [&>svg]:shrink-0 [&>svg]:self-center',
   {
     variants: {
       variant: {
@@ -40,6 +40,10 @@ function McBadge({
   render,
   icon,
   iconPosition = 'start',
+  iconOnly = false,
+  image,
+  imageAlt = '',
+  imagePosition = 'start',
   leadingBadge,
   leadingBadgePosition = 'start',
   leadingBadgeIcon,
@@ -50,6 +54,10 @@ function McBadge({
   VariantProps<typeof McBadgeVariants> & {
     icon?: ReactNode;
     iconPosition?: 'start' | 'end';
+    iconOnly?: boolean;
+    image?: string;
+    imageAlt?: string;
+    imagePosition?: 'start' | 'end';
     leadingBadge?: ReactNode;
     leadingBadgePosition?: 'start' | 'end';
     leadingBadgeIcon?: ReactNode;
@@ -60,6 +68,10 @@ function McBadge({
     lg: 'h-[36px] leading-[26px]',
   } as const;
   const groupChildSize = groupSize === 'md' ? 'groupMd' : 'groupLg';
+
+  const imageEl = image ? (
+    <img src={image} alt={imageAlt} className="size-4 shrink-0 rounded-full object-cover" />
+  ) : null;
 
   const useParentIcon = !leadingBadge || leadingBadgePosition === 'start';
   const rawIcon = useParentIcon ? icon : undefined;
@@ -73,7 +85,7 @@ function McBadge({
       : 'inline-start'
     : undefined;
 
-  const content = parentIcon ? (
+  const contentWithIcon = parentIcon ? (
     iconPosition === 'end' ? (
       <>
         {children}
@@ -87,6 +99,22 @@ function McBadge({
     )
   ) : (
     children
+  );
+
+  const content = imageEl ? (
+    imagePosition === 'end' ? (
+      <>
+        {contentWithIcon}
+        {imageEl}
+      </>
+    ) : (
+      <>
+        {imageEl}
+        {contentWithIcon}
+      </>
+    )
+  ) : (
+    contentWithIcon
   );
 
   const resolvedLeadingBadge = leadingBadge ? (
@@ -128,6 +156,14 @@ function McBadge({
     ? ({ 'data-icon': parentIconPlacement } as Record<string, string>)
     : undefined;
 
+  const iconOnlyClasses = iconOnly ? 'min-w-0 px-1.5' : undefined;
+
+  const imagePaddingClasses = image
+    ? imagePosition === 'start'
+      ? 'pl-[3px]'
+      : 'pr-[3px]'
+    : undefined;
+
   return useRender({
     defaultTagName: 'span',
     props: mergeProps<'span'>(
@@ -135,6 +171,8 @@ function McBadge({
         className: cn(
           McBadgeVariants({ variant, size }),
           leadingBadge ? groupSizeClasses[groupSize] : undefined,
+          iconOnlyClasses,
+          imagePaddingClasses,
           className
         ),
         ...(dataIconProps ?? {}),

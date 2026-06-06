@@ -52,6 +52,12 @@ const meta: Meta<BadgeStoryArgs> = {
     },
     icon: { control: false },
     iconPosition: { control: false },
+    image: { control: 'text' },
+    imageAlt: { control: 'text' },
+    imagePosition: {
+      control: 'select',
+      options: ['start', 'end'],
+    },
     children: { control: 'text' },
   },
   args: {
@@ -62,6 +68,9 @@ const meta: Meta<BadgeStoryArgs> = {
     iconChoice: 'none',
     leadingBadgePosition: 'start',
     groupSize: 'md',
+    image: undefined,
+    imageAlt: '',
+    imagePosition: 'start',
   },
 };
 
@@ -155,5 +164,45 @@ export const WithLeadingBadge: Story = {
         Badge Group
       </McBadge>
     );
+  },
+};
+
+export const WithImage: Story = {
+  parameters: {
+    controls: {
+      exclude: ['iconPlacement', 'iconChoice', 'leadingBadgePosition', 'groupSize'],
+    },
+  },
+  args: {
+    children: 'Label',
+    image: 'https://flagcdn.com/w40/au.png',
+    imageAlt: 'Australia',
+    imagePosition: 'start',
+  },
+  render: (args) => <McBadge {...args} />,
+};
+
+export const WithImageSizes: Story = {
+  parameters: {
+    controls: {
+      exclude: ['iconPlacement', 'iconChoice', 'leadingBadgePosition', 'groupSize', 'size'],
+    },
+  },
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-3">
+      <McBadge {...args} size="sm" imagePosition="start">
+        Small
+      </McBadge>
+      <McBadge {...args} size="md" imagePosition="start">
+        Medium
+      </McBadge>
+      <McBadge {...args} size="lg" imagePosition="start">
+        Large
+      </McBadge>
+    </div>
+  ),
+  args: {
+    image: 'https://flagcdn.com/w40/au.png',
+    imageAlt: 'Australia',
   },
 };

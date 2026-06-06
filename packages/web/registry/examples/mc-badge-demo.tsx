@@ -27,6 +27,10 @@ export default function McBadgeDemo() {
       >
         Feature released
       </McBadge>
+
+      <McBadge image="https://flagcdn.com/w40/au.png" imageAlt="Australia">
+        Label
+      </McBadge>
     </div>
   );
 }
