@@ -9,7 +9,7 @@ import {
 } from '@/registry/ui/mc-avatar';
 
 const meta = {
-  title: 'Components/Avatar',
+  title: 'Components/McAvatar',
   component: McAvatar,
   parameters: {
     layout: 'centered',

@@ -60,12 +60,12 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 
 ```tsx
 import {
-  Combobox,
-  ComboboxTrigger,
-  ComboboxContent,
-  ComboboxSearch,
-  ComboboxList,
-  ComboboxItem,
+  McCombobox,
+  McComboboxTrigger,
+  McComboboxContent,
+  McComboboxSearch,
+  McComboboxList,
+  McComboboxItem,
 } from '@/components/ui/mc-combobox';
 
 const frameworks = ['Next.js', 'SvelteKit', 'Nuxt.js', 'Remix', 'Astro'];
@@ -74,41 +74,41 @@ export default function Example() {
   const [value, setValue] = React.useState('select value');
 
   return (
-    <Combobox items={frameworks} value={value} onValueChange={setValue}>
-      <ComboboxTrigger />
-      <ComboboxContent>
-        <ComboboxSearch placeholder="Search framework..." />
-        <ComboboxList>
+    <McCombobox items={frameworks} value={value} onValueChange={setValue}>
+      <McComboboxTrigger />
+      <McComboboxContent>
+        <McComboboxSearch placeholder="Search framework..." />
+        <McComboboxList>
           {(item) => (
-            <ComboboxItem key={item} value={item}>
+            <McComboboxItem key={item} value={item}>
               {item}
-            </ComboboxItem>
+            </McComboboxItem>
           )}
-        </ComboboxList>
-      </ComboboxContent>
-    </Combobox>
+        </McComboboxList>
+      </McComboboxContent>
+    </McCombobox>
   );
 }
 ```
 
 ## Examples
 
-### Basic Combobox
+### Basic McCombobox
 
 ```tsx
-<Combobox items={frameworks} value={value} onValueChange={setValue}>
-  <ComboboxTrigger />
-  <ComboboxContent>
-    <ComboboxSearch placeholder="Search framework..." />
-    <ComboboxList>
+<McCombobox items={frameworks} value={value} onValueChange={setValue}>
+  <McComboboxTrigger />
+  <McComboboxContent>
+    <McComboboxSearch placeholder="Search framework..." />
+    <McComboboxList>
       {(item) => (
-        <ComboboxItem key={item} value={item}>
+        <McComboboxItem key={item} value={item}>
           {item}
-        </ComboboxItem>
+        </McComboboxItem>
       )}
-    </ComboboxList>
-  </ComboboxContent>
-</Combobox>
+    </McComboboxList>
+  </McComboboxContent>
+</McCombobox>
 ```
 
 ## API Reference
@@ -125,7 +125,7 @@ export default function Example() {
 
 All other props from `@base-ui/react/combobox` are supported.
 
-### ComboboxTrigger
+### McComboboxTrigger
 
 | Prop          | Type        | Default     | Description                    |
 | ------------- | ----------- | ----------- | ------------------------------ |
@@ -135,7 +135,7 @@ All other props from `@base-ui/react/combobox` are supported.
 
 All other props from `@base-ui/react/combobox` are supported.
 
-### ComboboxContent
+### McComboboxContent
 
 | Prop         | Type                           | Default     | Description            |
 | ------------ | ------------------------------ | ----------- | ---------------------- |
@@ -146,20 +146,20 @@ All other props from `@base-ui/react/combobox` are supported.
 
 All other props from `@base-ui/react/combobox` are supported.
 
-### ComboboxSearch
+### McComboboxSearch
 
 | Prop          | Type     | Default     | Description            |
 | ------------- | -------- | ----------- | ---------------------- |
 | `className`   | `string` | `undefined` | Additional CSS classes |
 | `placeholder` | `string` | `undefined` | Placeholder text       |
 
-### ComboboxList
+### McComboboxList
 
 | Prop        | Type     | Default     | Description            |
 | ----------- | -------- | ----------- | ---------------------- |
 | `className` | `string` | `undefined` | Additional CSS classes |
 
-### ComboboxItem
+### McComboboxItem
 
 | Prop        | Type        | Default     | Description            |
 | ----------- | ----------- | ----------- | ---------------------- |

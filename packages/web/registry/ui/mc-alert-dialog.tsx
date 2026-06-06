@@ -6,19 +6,19 @@ import { AlertDialog as AlertDialogPrimitive } from '@base-ui/react/alert-dialog
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
-function AlertDialog({ ...props }: AlertDialogPrimitive.Root.Props) {
+function McAlertDialog({ ...props }: AlertDialogPrimitive.Root.Props) {
   return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />;
 }
 
-function AlertDialogTrigger({ ...props }: AlertDialogPrimitive.Trigger.Props) {
+function McAlertDialogTrigger({ ...props }: AlertDialogPrimitive.Trigger.Props) {
   return <AlertDialogPrimitive.Trigger data-slot="alert-dialog-trigger" {...props} />;
 }
 
-function AlertDialogPortal({ ...props }: AlertDialogPrimitive.Portal.Props) {
+function McAlertDialogPortal({ ...props }: AlertDialogPrimitive.Portal.Props) {
   return <AlertDialogPrimitive.Portal data-slot="alert-dialog-portal" {...props} />;
 }
 
-function AlertDialogOverlay({ className, ...props }: AlertDialogPrimitive.Backdrop.Props) {
+function McAlertDialogOverlay({ className, ...props }: AlertDialogPrimitive.Backdrop.Props) {
   return (
     <AlertDialogPrimitive.Backdrop
       data-slot="alert-dialog-overlay"
@@ -31,7 +31,7 @@ function AlertDialogOverlay({ className, ...props }: AlertDialogPrimitive.Backdr
   );
 }
 
-function AlertDialogContent({
+function McAlertDialogContent({
   className,
   size = 'default',
   ...props
@@ -39,8 +39,8 @@ function AlertDialogContent({
   size?: 'default' | 'sm';
 }) {
   return (
-    <AlertDialogPortal>
-      <AlertDialogOverlay />
+    <McAlertDialogPortal>
+      <McAlertDialogOverlay />
       <AlertDialogPrimitive.Popup
         data-slot="alert-dialog-content"
         data-size={size}
@@ -53,11 +53,11 @@ function AlertDialogContent({
         )}
         {...props}
       />
-    </AlertDialogPortal>
+    </McAlertDialogPortal>
   );
 }
 
-function AlertDialogFooter({ className, ...props }: React.ComponentProps<'div'>) {
+function McAlertDialogFooter({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="alert-dialog-footer"
@@ -72,7 +72,7 @@ function AlertDialogFooter({ className, ...props }: React.ComponentProps<'div'>)
   );
 }
 
-function AlertDialogHeader({ className, ...props }: React.ComponentProps<'div'>) {
+function McAlertDialogHeader({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="alert-dialog-header"
@@ -89,7 +89,7 @@ function AlertDialogHeader({ className, ...props }: React.ComponentProps<'div'>)
   );
 }
 
-function AlertDialogMedia({ className, ...props }: React.ComponentProps<'div'>) {
+function McAlertDialogMedia({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
       data-slot="alert-dialog-media"
@@ -103,7 +103,7 @@ function AlertDialogMedia({ className, ...props }: React.ComponentProps<'div'>) 
   );
 }
 
-function AlertDialogTitle({
+function McAlertDialogTitle({
   className,
   media,
   icon,
@@ -119,7 +119,7 @@ function AlertDialogTitle({
         'group-data-[size=sm]/alert-dialog-content:flex-col'
       )}
     >
-      {media && icon && <AlertDialogMedia className="">{icon}</AlertDialogMedia>}
+      {media && icon && <McAlertDialogMedia className="">{icon}</McAlertDialogMedia>}
       <AlertDialogPrimitive.Title
         data-slot="alert-dialog-title"
         className={cn(
@@ -133,7 +133,7 @@ function AlertDialogTitle({
   );
 }
 
-function AlertDialogDescription({
+function McAlertDialogDescription({
   className,
   ...props
 }: React.ComponentProps<typeof AlertDialogPrimitive.Description>) {
@@ -150,11 +150,11 @@ function AlertDialogDescription({
   );
 }
 
-function AlertDialogAction({ className, ...props }: React.ComponentProps<typeof Button>) {
+function McAlertDialogAction({ className, ...props }: React.ComponentProps<typeof Button>) {
   return <Button data-slot="alert-dialog-action" className={cn(className)} {...props} />;
 }
 
-function AlertDialogCancel({
+function McAlertDialogCancel({
   className,
   variant = 'outline',
   size = 'default',
@@ -172,16 +172,16 @@ function AlertDialogCancel({
 }
 
 export {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogMedia,
-  AlertDialogOverlay,
-  AlertDialogPortal,
-  AlertDialogTitle,
-  AlertDialogTrigger,
+  McAlertDialog,
+  McAlertDialogAction,
+  McAlertDialogCancel,
+  McAlertDialogContent,
+  McAlertDialogDescription,
+  McAlertDialogFooter,
+  McAlertDialogHeader,
+  McAlertDialogMedia,
+  McAlertDialogOverlay,
+  McAlertDialogPortal,
+  McAlertDialogTitle,
+  McAlertDialogTrigger,
 };

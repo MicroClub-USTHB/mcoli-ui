@@ -2,7 +2,7 @@ import { McHoverCard, McHoverCardContent, McHoverCardTrigger } from '../ui/mc-ho
 
 export default function McHoverCardDemo() {
   return (
-    <div className="flex h-100 items-center justify-center">
+    <div>
       <McHoverCard>
         <McHoverCardTrigger>
           <button type="button" className="cursor-pointer rounded-full">

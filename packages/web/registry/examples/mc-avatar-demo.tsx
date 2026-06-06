@@ -9,7 +9,7 @@ import {
 
 export default function AvatarDemo() {
   return (
-    <div className="flex flex-row flex-wrap items-center justify-center gap-6 md:gap-12">
+    <div className="flex flex-row flex-wrap gap-6 md:gap-12">
       <McAvatar>
         <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
         <McAvatarFallback>CN</McAvatarFallback>
