@@ -13,7 +13,7 @@ export default function McSonnerDemo() {
             },
           })
         }
-        className="px-5 py-2.5 bg-slate-900 text-white rounded-lg text-sm font-medium transition-all shadow-sm hover:bg-slate-800"
+        className="px-5 py-2.5 bg-primary text-background rounded-lg text-sm font-medium transition-all shadow-sm cursor-pointer"
       >
         Show Toast
       </button>
