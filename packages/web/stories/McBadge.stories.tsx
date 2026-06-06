@@ -1,7 +1,9 @@
 import type { ComponentProps } from 'react';
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import { ArrowRight, ArrowUp, Dot, X } from 'lucide-react';
+import { ArrowRight, ArrowUp, X } from 'lucide-react';
 import { McBadge } from '@/registry/ui/mc-badge';
+
+const DotIcon = () => <span className="rounded-full bg-current inline-block size-1.5" />;
 
 type IconChoice = 'none' | 'dot' | 'arrowUp' | 'x' | 'arrowRight';
 type IconPlacement = 'none' | 'start' | 'end';
@@ -11,6 +13,14 @@ type BadgeStoryArgs = ComponentProps<typeof McBadge> & {
   leadingBadgePosition?: 'start' | 'end';
   groupSize?: 'md' | 'lg';
 };
+
+const iconMap = {
+  none: undefined,
+  dot: <DotIcon />,
+  arrowUp: <ArrowUp />,
+  x: <X />,
+  arrowRight: <ArrowRight />,
+} as const;
 
 const meta: Meta<BadgeStoryArgs> = {
   title: 'Components/McBadge',
@@ -65,17 +75,8 @@ export const Playground: Story = {
     },
   },
   render: ({ iconChoice, iconPlacement, ...args }) => {
-    const iconMap = {
-      none: undefined,
-      dot: <Dot />,
-      arrowUp: <ArrowUp />,
-      x: <X />,
-      arrowRight: <ArrowRight />,
-    } as const;
-
     const icon = iconMap[iconChoice as keyof typeof iconMap];
     const resolvedIconPosition = iconPlacement === 'none' ? undefined : iconPlacement;
-
     return <McBadge {...args} icon={icon} iconPosition={resolvedIconPosition} />;
   },
 };
@@ -125,17 +126,8 @@ export const WithIcon: Story = {
     iconChoice: 'dot',
   },
   render: ({ iconChoice, iconPlacement, ...args }) => {
-    const iconMap = {
-      none: undefined,
-      dot: <Dot />,
-      arrowUp: <ArrowUp />,
-      x: <X />,
-      arrowRight: <ArrowRight />,
-    } as const;
-
     const icon = iconMap[iconChoice as keyof typeof iconMap];
     const resolvedIconPosition = iconPlacement === 'none' ? undefined : iconPlacement;
-
     return <McBadge {...args} icon={icon} iconPosition={resolvedIconPosition} />;
   },
 };
@@ -147,14 +139,6 @@ export const WithLeadingBadge: Story = {
     },
   },
   render: ({ iconChoice, ...args }) => {
-    const iconMap = {
-      none: undefined,
-      dot: <Dot />,
-      arrowUp: <ArrowUp />,
-      x: <X />,
-      arrowRight: <ArrowRight />,
-    } as const;
-
     const chosenIcon = iconMap[iconChoice as keyof typeof iconMap];
     const parentIcon = args.leadingBadgePosition === 'start' ? chosenIcon : undefined;
     const leadingBadgeIcon = args.leadingBadgePosition === 'end' ? chosenIcon : undefined;

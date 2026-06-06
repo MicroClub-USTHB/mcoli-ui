@@ -7,7 +7,7 @@ import { cloneElement, isValidElement } from 'react';
 import { cn } from '@/lib/utils';
 
 const McBadgeVariants = cva(
-  'group/badge inline-flex shrink-0 items-center justify-center gap-1 overflow-hidden rounded-[16px] border border-[#E6E9FF] text-xs font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3! [&>svg]:shrink-0 [&>svg]:self-center',
+  'group/badge inline-flex shrink-0 items-center justify-center gap-1 overflow-hidden rounded-[16px] border border-[#E6E9FF] text-xs font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3 [&>svg]:shrink-0 [&>svg]:self-center',
   {
     variants: {
       variant: {
@@ -62,7 +62,11 @@ function McBadge({
   const groupChildSize = groupSize === 'md' ? 'groupMd' : 'groupLg';
 
   const useParentIcon = !leadingBadge || leadingBadgePosition === 'start';
-  const parentIcon = useParentIcon ? icon : undefined;
+  const rawIcon = useParentIcon ? icon : undefined;
+  const parentIcon = rawIcon ? (
+    <span className="contents pointer-events-none">{rawIcon}</span>
+  ) : undefined;
+
   const parentIconPlacement = parentIcon
     ? iconPosition === 'end'
       ? 'inline-end'

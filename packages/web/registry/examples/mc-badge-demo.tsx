@@ -1,5 +1,9 @@
-import { ArrowRight, Dot } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { McBadge } from '../ui/mc-badge';
+
+const DotIcon = ({ className }: { className?: string }) => (
+  <span className={`rounded-full bg-current inline-block ${className ?? 'size-1.5'}`} />
+);
 
 export default function McBadgeDemo() {
   return (
@@ -8,7 +12,7 @@ export default function McBadgeDemo() {
       <McBadge variant="secondary">Secondary</McBadge>
       <McBadge variant="destructive">Destructive</McBadge>
       <McBadge variant="outline">Outline</McBadge>
-      <McBadge icon={<Dot />} iconPosition="start">
+      <McBadge icon={<DotIcon className="size-1.5" />} iconPosition="start">
         Status
       </McBadge>
       <McBadge icon={<ArrowRight />} iconPosition="end">
