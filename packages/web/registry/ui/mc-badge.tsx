@@ -7,7 +7,7 @@ import { cloneElement, isValidElement } from 'react';
 import { cn } from '@/lib/utils';
 
 const McBadgeVariants = cva(
-  'group/badge inline-flex shrink-0 items-center justify-center gap-1 overflow-hidden rounded-[16px] border border-[#E6E9FF] text-xs font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:pointer-events-none [&>svg]:size-3! [&>svg]:shrink-0 [&>svg]:self-center',
+  'group/badge inline-flex shrink-0 items-center justify-center gap-1 overflow-hidden rounded-[16px] border border-[#E6E9FF] text-xs font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:size-3 [&>svg]:shrink-0 [&>svg]:self-center',
   {
     variants: {
       variant: {
@@ -17,6 +17,7 @@ const McBadgeVariants = cva(
           'bg-destructive/10 text-destructive focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:focus-visible:ring-destructive/40 [a]:hover:bg-destructive/20',
         outline: 'border-border text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground',
         ghost: 'hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50',
+        leading: 'bg-accent-foreground text-accent',
       },
       size: {
         sm: 'h-[22px] min-w-[47px] px-2 py-0.5 text-sm leading-[18px]',
@@ -76,7 +77,20 @@ function McBadge({
   const useParentIcon = !leadingBadge || leadingBadgePosition === 'start';
   const rawIcon = useParentIcon ? icon : undefined;
   const parentIcon = rawIcon ? (
-    <span className="contents pointer-events-none">{rawIcon}</span>
+    <span style={{ display: 'contents', pointerEvents: 'none' }}>
+      <span
+        style={{
+          width: 12,
+          height: 12,
+          display: 'inline-flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexShrink: 0,
+        }}
+      >
+        {rawIcon}
+      </span>
+    </span>
   ) : undefined;
 
   const parentIconPlacement = parentIcon
@@ -121,13 +135,14 @@ function McBadge({
     isValidElement(leadingBadge) ? (
       cloneElement(leadingBadge as React.ReactElement<Record<string, unknown>>, {
         size: groupChildSize,
+        variant: 'leading', // ← forcé
         icon: leadingBadgePosition === 'end' ? leadingBadgeIcon : undefined,
         iconPosition: 'end',
       })
     ) : (
       <McBadge
         size={groupChildSize}
-        variant="secondary"
+        variant="leading" // ← forcé
         icon={leadingBadgePosition === 'end' ? leadingBadgeIcon : undefined}
         iconPosition="end"
       >
@@ -138,15 +153,15 @@ function McBadge({
 
   const groupedContent = resolvedLeadingBadge ? (
     leadingBadgePosition === 'end' ? (
-      <>
+      <div className="flex items-center gap-3">
         {content}
         {resolvedLeadingBadge}
-      </>
+      </div>
     ) : (
-      <>
+      <div className="flex items-center gap-3">
         {resolvedLeadingBadge}
         {content}
-      </>
+      </div>
     )
   ) : (
     content
@@ -164,6 +179,12 @@ function McBadge({
       : 'pr-[3px]'
     : undefined;
 
+  const groupPaddingClasses = resolvedLeadingBadge
+    ? leadingBadgePosition === 'start'
+      ? 'pl-1 pr-[10px]'
+      : 'pl-[10px] pr-1'
+    : undefined;
+
   return useRender({
     defaultTagName: 'span',
     props: mergeProps<'span'>(
@@ -173,6 +194,7 @@ function McBadge({
           leadingBadge ? groupSizeClasses[groupSize] : undefined,
           iconOnlyClasses,
           imagePaddingClasses,
+          groupPaddingClasses,
           className
         ),
         ...(dataIconProps ?? {}),

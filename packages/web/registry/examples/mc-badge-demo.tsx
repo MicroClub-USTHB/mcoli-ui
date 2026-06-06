@@ -20,12 +20,12 @@ export default function McBadgeDemo() {
       </McBadge>
       <McBadge
         groupSize="md"
-        leadingBadge="New"
+        leadingBadge="New feature"
         leadingBadgePosition="start"
         icon={<ArrowRight />}
         iconPosition="end"
       >
-        Feature released
+        We’ve just released a new feature
       </McBadge>
 
       <McBadge image="https://flagcdn.com/w40/au.png" imageAlt="Australia">
