@@ -60,36 +60,36 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported, 
 
 ```tsx
 import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
+  McAlertDialog,
+  McAlertDialogAction,
+  McAlertDialogCancel,
+  McAlertDialogContent,
+  McAlertDialogDescription,
+  McAlertDialogFooter,
+  McAlertDialogHeader,
+  McAlertDialogTitle,
+  McAlertDialogTrigger,
 } from '@/components/ui/mc-alert-dialog';
 import { Button } from '@/components/ui/button';
 
 export default function Example() {
   return (
-    <AlertDialog>
-      <AlertDialogTrigger render={<Button variant="outline">Show Dialog</Button>} />
-      <AlertDialogContent>
-        <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-          <AlertDialogDescription>
+    <McAlertDialog>
+      <McAlertDialogTrigger render={<Button variant="outline">Show Dialog</Button>} />
+      <McAlertDialogContent>
+        <McAlertDialogHeader>
+          <McAlertDialogTitle>Are you absolutely sure?</McAlertDialogTitle>
+          <McAlertDialogDescription>
             This action cannot be undone. This will permanently delete your account from our
             servers.
-          </AlertDialogDescription>
-        </AlertDialogHeader>
-        <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>Continue</AlertDialogAction>
-        </AlertDialogFooter>
-      </AlertDialogContent>
-    </AlertDialog>
+          </McAlertDialogDescription>
+        </McAlertDialogHeader>
+        <McAlertDialogFooter>
+          <McAlertDialogCancel>Cancel</McAlertDialogCancel>
+          <McAlertDialogAction>Continue</McAlertDialogAction>
+        </McAlertDialogFooter>
+      </McAlertDialogContent>
+    </McAlertDialog>
   );
 }
 ```
@@ -101,7 +101,7 @@ export default function Example() {
 The default dialog size is `"default"`, which renders at `max-w-sm` on larger screens.
 
 ```tsx
-<AlertDialogContent size="default">...</AlertDialogContent>
+<McAlertDialogContent size="default">...</McAlertDialogContent>
 ```
 
 ### Small Size
@@ -109,60 +109,60 @@ The default dialog size is `"default"`, which renders at `max-w-sm` on larger sc
 Use `size="sm"` for compact dialogs. The footer will switch to a two-column grid layout automatically.
 
 ```tsx
-<AlertDialogContent size="sm">...</AlertDialogContent>
+<McAlertDialogContent size="sm">...</McAlertDialogContent>
 ```
 
 ### With Icon / Media
 
-Use `AlertDialogTitle` with the `media` and `icon` props to display an icon alongside the title. This is ideal for warning or destructive dialogs.
+Use `McAlertDialogTitle` with the `media` and `icon` props to display an icon alongside the title. This is ideal for warning or destructive dialogs.
 
 ```tsx
 import { TriangleAlert } from 'lucide-react';
 
-<AlertDialogContent>
-  <AlertDialogHeader>
-    <AlertDialogTitle media icon={<TriangleAlert />}>
+<McAlertDialogContent>
+  <McAlertDialogHeader>
+    <McAlertDialogTitle media icon={<TriangleAlert />}>
       Delete Account
-    </AlertDialogTitle>
-    <AlertDialogDescription>
+    </McAlertDialogTitle>
+    <McAlertDialogDescription>
       This action is permanent and cannot be reversed.
-    </AlertDialogDescription>
-  </AlertDialogHeader>
-  <AlertDialogFooter>
-    <AlertDialogCancel>Cancel</AlertDialogCancel>
-    <AlertDialogAction>Delete</AlertDialogAction>
-  </AlertDialogFooter>
-</AlertDialogContent>;
+    </McAlertDialogDescription>
+  </McAlertDialogHeader>
+  <McAlertDialogFooter>
+    <McAlertDialogCancel>Cancel</McAlertDialogCancel>
+    <McAlertDialogAction>Delete</McAlertDialogAction>
+  </McAlertDialogFooter>
+</McAlertDialogContent>;
 ```
 
 ### Custom Action Variants
 
-`AlertDialogAction` accepts all `Button` props, so you can apply variants for destructive or styled actions.
+`McAlertDialogAction` accepts all `Button` props, so you can apply variants for destructive or styled actions.
 
 ```tsx
-<AlertDialogFooter>
-  <AlertDialogCancel>Cancel</AlertDialogCancel>
-  <AlertDialogAction variant="destructive">Delete permanently</AlertDialogAction>
-</AlertDialogFooter>
+<McAlertDialogFooter>
+  <McAlertDialogCancel>Cancel</McAlertDialogCancel>
+  <McAlertDialogAction variant="destructive">Delete permanently</McAlertDialogAction>
+</McAlertDialogFooter>
 ```
 
 ### Custom Cancel Style
 
-`AlertDialogCancel` defaults to `variant="outline"` and `size="default"`, but both can be overridden.
+`McAlertDialogCancel` defaults to `variant="outline"` and `size="default"`, but both can be overridden.
 
 ```tsx
-<AlertDialogCancel variant="ghost" size="sm">
+<McAlertDialogCancel variant="ghost" size="sm">
   Go back
-</AlertDialogCancel>
+</McAlertDialogCancel>
 ```
 
 ## API Reference
 
-### `AlertDialog`
+### `McAlertDialog`
 
 Root component. Accepts all props from `AlertDialogPrimitive.Root`.
 
-### `AlertDialogTrigger`
+### `McAlertDialogTrigger`
 
 The element that opens the dialog. Use the `render` prop for custom trigger elements.
 
@@ -170,7 +170,7 @@ The element that opens the dialog. Use the `render` prop for custom trigger elem
 | -------- | -------------- | ----------- | ------------------------------------ |
 | `render` | `ReactElement` | `undefined` | Polymorphic render prop from Base UI |
 
-### `AlertDialogContent`
+### `McAlertDialogContent`
 
 The dialog popup container. Rendered inside a portal with an overlay.
 
@@ -179,11 +179,11 @@ The dialog popup container. Rendered inside a portal with an overlay.
 | `size`      | `"default" \| "sm"` | `"default"` | Controls max-width and footer layout |
 | `className` | `string`            | `undefined` | Additional CSS classes               |
 
-### `AlertDialogHeader`
+### `McAlertDialogHeader`
 
 A flex column wrapper for the title and description. Adjusts text alignment responsively based on `size`.
 
-### `AlertDialogTitle`
+### `McAlertDialogTitle`
 
 The dialog heading. Supports an optional icon displayed inline via `media` and `icon` props.
 
@@ -193,15 +193,15 @@ The dialog heading. Supports an optional icon displayed inline via `media` and `
 | `icon`      | `ReactNode` | `undefined` | The icon element to render alongside the title |
 | `className` | `string`    | `undefined` | Additional CSS classes                         |
 
-### `AlertDialogDescription`
+### `McAlertDialogDescription`
 
 Descriptive text beneath the title. Supports inline `<a>` links with automatic underline styling.
 
-### `AlertDialogFooter`
+### `McAlertDialogFooter`
 
 Action button container. Uses `flex-col-reverse` on mobile, `flex-row` on desktop. Switches to a two-column grid when `size="sm"`.
 
-### `AlertDialogAction`
+### `McAlertDialogAction`
 
 The confirm/submit button. Accepts all `Button` component props.
 
@@ -210,7 +210,7 @@ The confirm/submit button. Accepts all `Button` component props.
 | `variant`   | `string` | `"default"` | Button visual style    |
 | `className` | `string` | `undefined` | Additional CSS classes |
 
-### `AlertDialogCancel`
+### `McAlertDialogCancel`
 
 The dismiss button. Uses `AlertDialogPrimitive.Close` with a `Button` rendered via the `render` prop.
 
@@ -220,14 +220,14 @@ The dismiss button. Uses `AlertDialogPrimitive.Close` with a `Button` rendered v
 | `size`      | `string` | `"default"` | Button size            |
 | `className` | `string` | `undefined` | Additional CSS classes |
 
-### `AlertDialogMedia`
+### `McAlertDialogMedia`
 
-A wrapper for icon/media elements inside `AlertDialogTitle`. Handles sizing and grid placement.
+A wrapper for icon/media elements inside `McAlertDialogTitle`. Handles sizing and grid placement.
 
-### `AlertDialogOverlay`
+### `McAlertDialogOverlay`
 
 The backdrop behind the dialog. Supports blur via `backdrop-filter` and fade animations.
 
-### `AlertDialogPortal`
+### `McAlertDialogPortal`
 
-Renders the dialog outside the DOM tree using a portal. Wraps `AlertDialogContent` automatically.
+Renders the dialog outside the DOM tree using a portal. Wraps `McAlertDialogContent` automatically.

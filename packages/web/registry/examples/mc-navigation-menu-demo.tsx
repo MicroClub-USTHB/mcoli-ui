@@ -53,7 +53,7 @@ const components: { title: string; href: string; description: string }[] = [
 
 export default function NavigationMenuDemo() {
   return (
-    <div className="w-full flex justify-center py-10">
+    <div className="w-full py-10">
       <McNavigationMenu>
         <McNavigationMenuList>
           <McNavigationMenuItem>
