@@ -3,7 +3,209 @@ title: MC Dropdown Menu
 description: A menu that appears when triggered by a button click.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-dropdown-menu` component is a flexible action menu for contextual commands, account menus,
+shortcuts, nested actions, and selectable menu items. Built on the **@base-ui/react** menu
+primitive, it provides accessible keyboard navigation, focus management, submenus, and controlled
+open state handling with MicroClub styling and theme tokens.
+
+As part of the MicroClub UI library, it is designed for **instant deployment into your codebase**,
+so you keep full control over the visual language and interactions.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-dropdown-menu-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-dropdown-menu-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy `mc-dropdown-menu` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-dropdown-menu</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-dropdown-menu</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-dropdown-menu</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-dropdown-menu</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install clsx tailwind-merge @base-ui/react lucide-react</Tab>
+  <Tab value="pnpm">pnpm add clsx tailwind-merge @base-ui/react lucide-react</Tab>
+  <Tab value="yarn">yarn add clsx tailwind-merge @base-ui/react lucide-react</Tab>
+  <Tab value="bun">bun add clsx tailwind-merge @base-ui/react lucide-react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-dropdown-menu" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` helper is correctly imported and your trigger component is available.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { Button } from '@/components/ui/button';
+import {
+  McDropdownMenu,
+  McDropdownMenuContent,
+  McDropdownMenuItem,
+  McDropdownMenuTrigger,
+} from '@/components/ui/mc-dropdown-menu';
+
+export default function Example() {
+  return (
+    <McDropdownMenu>
+      <McDropdownMenuTrigger render={<Button variant="outline">Open menu</Button>} />
+      <McDropdownMenuContent>
+        <McDropdownMenuItem>Profile</McDropdownMenuItem>
+        <McDropdownMenuItem>Settings</McDropdownMenuItem>
+      </McDropdownMenuContent>
+    </McDropdownMenu>
+  );
+}
+```
+
+## Examples
+
+### With Label and Shortcuts
+
+```tsx
+<McDropdownMenu>
+  <McDropdownMenuTrigger render={<Button variant="outline">Open</Button>} />
+  <McDropdownMenuContent align="start">
+    <McDropdownMenuGroup>
+      <McDropdownMenuLabel>My Account</McDropdownMenuLabel>
+      <McDropdownMenuItem>
+        Profile
+        <McDropdownMenuShortcut>Ctrl+P</McDropdownMenuShortcut>
+      </McDropdownMenuItem>
+      <McDropdownMenuItem>
+        Settings
+        <McDropdownMenuShortcut>Ctrl+S</McDropdownMenuShortcut>
+      </McDropdownMenuItem>
+    </McDropdownMenuGroup>
+  </McDropdownMenuContent>
+</McDropdownMenu>
+```
+
+### With Submenu
+
+```tsx
+<McDropdownMenu>
+  <McDropdownMenuTrigger render={<Button variant="outline">Invite</Button>} />
+  <McDropdownMenuContent>
+    <McDropdownMenuSub>
+      <McDropdownMenuSubTrigger>Invite users</McDropdownMenuSubTrigger>
+      <McDropdownMenuPortal>
+        <McDropdownMenuSubContent>
+          <McDropdownMenuItem>Email</McDropdownMenuItem>
+          <McDropdownMenuItem>Message</McDropdownMenuItem>
+          <McDropdownMenuItem>Copy link</McDropdownMenuItem>
+        </McDropdownMenuSubContent>
+      </McDropdownMenuPortal>
+    </McDropdownMenuSub>
+  </McDropdownMenuContent>
+</McDropdownMenu>
+```
+
+### Checkbox Items
+
+```tsx
+<McDropdownMenu>
+  <McDropdownMenuTrigger render={<Button variant="outline">Preferences</Button>} />
+  <McDropdownMenuContent align="end">
+    <McDropdownMenuCheckboxItem checked>Notifications</McDropdownMenuCheckboxItem>
+    <McDropdownMenuCheckboxItem>Auto updates</McDropdownMenuCheckboxItem>
+    <McDropdownMenuCheckboxItem disabled>Beta features</McDropdownMenuCheckboxItem>
+  </McDropdownMenuContent>
+</McDropdownMenu>
+```
+
+### Destructive Action
+
+```tsx
+<McDropdownMenuItem variant="destructive">Delete project</McDropdownMenuItem>
+```
+
+## API Reference
+
+### Root Components
+
+| Component               | Description                                     |
+| ----------------------- | ----------------------------------------------- |
+| `McDropdownMenu`        | Root wrapper that manages the menu state        |
+| `McDropdownMenuTrigger` | Element that opens the menu                     |
+| `McDropdownMenuContent` | Main popup container for menu items             |
+| `McDropdownMenuPortal`  | Optional portal wrapper for nested menu content |
+
+### Structure Components
+
+| Component                 | Description                        |
+| ------------------------- | ---------------------------------- |
+| `McDropdownMenuGroup`     | Groups related items together      |
+| `McDropdownMenuLabel`     | Section label inside a menu group  |
+| `McDropdownMenuSeparator` | Visual divider between groups      |
+| `McDropdownMenuShortcut`  | Shortcut hint aligned to the right |
+
+### Item Components
+
+| Component                    | Description                                |
+| ---------------------------- | ------------------------------------------ |
+| `McDropdownMenuItem`         | Standard action item                       |
+| `McDropdownMenuCheckboxItem` | Toggleable checkbox-style item             |
+| `McDropdownMenuRadioGroup`   | Groups radio items into one selectable set |
+| `McDropdownMenuRadioItem`    | Single radio option                        |
+| `McDropdownMenuSub`          | Wrapper for a nested submenu               |
+| `McDropdownMenuSubTrigger`   | Trigger item that opens the submenu        |
+| `McDropdownMenuSubContent`   | Popup content for the submenu              |
+
+### Common Props
+
+#### `McDropdownMenuContent`
+
+| Prop          | Type                                     | Default     | Description                                  |
+| ------------- | ---------------------------------------- | ----------- | -------------------------------------------- |
+| `align`       | `"start" \| "center" \| "end"`           | `"start"`   | Horizontal alignment relative to the trigger |
+| `alignOffset` | `number`                                 | `0`         | Offset applied to the alignment axis         |
+| `side`        | `"top" \| "right" \| "bottom" \| "left"` | `"bottom"`  | Side where the menu opens                    |
+| `sideOffset`  | `number`                                 | `4`         | Offset between the trigger and the popup     |
+| `className`   | `string`                                 | `undefined` | Additional classes for the popup             |
+
+#### `McDropdownMenuItem`
+
+| Prop        | Type                         | Default     | Description                               |
+| ----------- | ---------------------------- | ----------- | ----------------------------------------- |
+| `variant`   | `"default" \| "destructive"` | `"default"` | Visual treatment for the item             |
+| `inset`     | `boolean`                    | `false`     | Adds left indentation for aligned content |
+| `disabled`  | `boolean`                    | `false`     | Disables interaction                      |
+| `className` | `string`                     | `undefined` | Additional classes for the item           |
+
+#### `McDropdownMenuCheckboxItem` and `McDropdownMenuRadioItem`
+
+| Prop        | Type      | Default     | Description                                 |
+| ----------- | --------- | ----------- | ------------------------------------------- |
+| `checked`   | `boolean` | `undefined` | Controlled checked state for checkbox items |
+| `inset`     | `boolean` | `false`     | Adds left indentation                       |
+| `disabled`  | `boolean` | `false`     | Disables interaction                        |
+| `className` | `string`  | `undefined` | Additional classes                          |
+
+All other relevant props from `@base-ui/react/menu` are supported on their matching wrappers.

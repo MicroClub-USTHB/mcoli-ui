@@ -275,6 +275,19 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-dropdown-menu',
+    type: 'registry:component',
+    title: 'MicroClub Dropdown Menu',
+    description: 'A dropdown menu component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-dropdown-menu.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
     name: 'mc-accordion',
     type: 'registry:component',
     title: 'MicroClub Accordion',
