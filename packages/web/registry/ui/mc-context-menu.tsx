@@ -6,15 +6,15 @@ import { CheckIcon, ChevronRightIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
-function ContextMenu({ ...props }: ContextMenuPrimitive.Root.Props) {
+function McContextMenu({ ...props }: ContextMenuPrimitive.Root.Props) {
   return <ContextMenuPrimitive.Root data-slot="context-menu" {...props} />;
 }
 
-function ContextMenuPortal({ ...props }: ContextMenuPrimitive.Portal.Props) {
+function McContextMenuPortal({ ...props }: ContextMenuPrimitive.Portal.Props) {
   return <ContextMenuPrimitive.Portal data-slot="context-menu-portal" {...props} />;
 }
 
-function ContextMenuTrigger({ className, ...props }: ContextMenuPrimitive.Trigger.Props) {
+function McContextMenuTrigger({ className, ...props }: ContextMenuPrimitive.Trigger.Props) {
   return (
     <ContextMenuPrimitive.Trigger
       data-slot="context-menu-trigger"
@@ -24,7 +24,7 @@ function ContextMenuTrigger({ className, ...props }: ContextMenuPrimitive.Trigge
   );
 }
 
-function ContextMenuContent({
+function McContextMenuContent({
   className,
   align = 'start',
   alignOffset = 4,
@@ -55,11 +55,11 @@ function ContextMenuContent({
   );
 }
 
-function ContextMenuGroup({ ...props }: ContextMenuPrimitive.Group.Props) {
+function McContextMenuGroup({ ...props }: ContextMenuPrimitive.Group.Props) {
   return <ContextMenuPrimitive.Group data-slot="context-menu-group" {...props} />;
 }
 
-function ContextMenuLabel({
+function McContextMenuLabel({
   className,
   inset,
   ...props
@@ -79,7 +79,7 @@ function ContextMenuLabel({
   );
 }
 
-function ContextMenuItem({
+function McContextMenuItem({
   className,
   inset,
   variant = 'default',
@@ -102,11 +102,11 @@ function ContextMenuItem({
   );
 }
 
-function ContextMenuSub({ ...props }: ContextMenuPrimitive.SubmenuRoot.Props) {
+function McContextMenuSub({ ...props }: ContextMenuPrimitive.SubmenuRoot.Props) {
   return <ContextMenuPrimitive.SubmenuRoot data-slot="context-menu-sub" {...props} />;
 }
 
-function ContextMenuSubTrigger({
+function McContextMenuSubTrigger({
   className,
   inset,
   children,
@@ -130,9 +130,9 @@ function ContextMenuSubTrigger({
   );
 }
 
-function ContextMenuSubContent({ ...props }: React.ComponentProps<typeof ContextMenuContent>) {
+function McContextMenuSubContent({ ...props }: React.ComponentProps<typeof McContextMenuContent>) {
   return (
-    <ContextMenuContent
+    <McContextMenuContent
       data-slot="context-menu-sub-content"
       className="shadow-lg"
       side="right"
@@ -141,7 +141,7 @@ function ContextMenuSubContent({ ...props }: React.ComponentProps<typeof Context
   );
 }
 
-function ContextMenuCheckboxItem({
+function McContextMenuCheckboxItem({
   className,
   children,
   checked,
@@ -171,11 +171,11 @@ function ContextMenuCheckboxItem({
   );
 }
 
-function ContextMenuRadioGroup({ ...props }: ContextMenuPrimitive.RadioGroup.Props) {
+function McContextMenuRadioGroup({ ...props }: ContextMenuPrimitive.RadioGroup.Props) {
   return <ContextMenuPrimitive.RadioGroup data-slot="context-menu-radio-group" {...props} />;
 }
 
-function ContextMenuRadioItem({
+function McContextMenuRadioItem({
   className,
   children,
   inset,
@@ -203,7 +203,7 @@ function ContextMenuRadioItem({
   );
 }
 
-function ContextMenuSeparator({ className, ...props }: ContextMenuPrimitive.Separator.Props) {
+function McContextMenuSeparator({ className, ...props }: ContextMenuPrimitive.Separator.Props) {
   return (
     <ContextMenuPrimitive.Separator
       data-slot="context-menu-separator"
@@ -213,7 +213,7 @@ function ContextMenuSeparator({ className, ...props }: ContextMenuPrimitive.Sepa
   );
 }
 
-function ContextMenuShortcut({ className, ...props }: React.ComponentProps<'span'>) {
+function McContextMenuShortcut({ className, ...props }: React.ComponentProps<'span'>) {
   return (
     <span
       data-slot="context-menu-shortcut"
@@ -227,19 +227,19 @@ function ContextMenuShortcut({ className, ...props }: React.ComponentProps<'span
 }
 
 export {
-  ContextMenu,
-  ContextMenuTrigger,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuCheckboxItem,
-  ContextMenuRadioItem,
-  ContextMenuLabel,
-  ContextMenuSeparator,
-  ContextMenuShortcut,
-  ContextMenuGroup,
-  ContextMenuPortal,
-  ContextMenuSub,
-  ContextMenuSubContent,
-  ContextMenuSubTrigger,
-  ContextMenuRadioGroup,
+  McContextMenu,
+  McContextMenuTrigger,
+  McContextMenuContent,
+  McContextMenuItem,
+  McContextMenuCheckboxItem,
+  McContextMenuRadioItem,
+  McContextMenuLabel,
+  McContextMenuSeparator,
+  McContextMenuShortcut,
+  McContextMenuGroup,
+  McContextMenuPortal,
+  McContextMenuSub,
+  McContextMenuSubContent,
+  McContextMenuSubTrigger,
+  McContextMenuRadioGroup,
 };

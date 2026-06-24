@@ -1,20 +1,20 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
 import {
-  ContextMenu,
-  ContextMenuCheckboxItem,
-  ContextMenuContent,
-  ContextMenuGroup,
-  ContextMenuItem,
-  ContextMenuLabel,
-  ContextMenuRadioGroup,
-  ContextMenuRadioItem,
-  ContextMenuSeparator,
-  ContextMenuShortcut,
-  ContextMenuSub,
-  ContextMenuSubContent,
-  ContextMenuSubTrigger,
-  ContextMenuTrigger,
+  McContextMenu,
+  McContextMenuCheckboxItem,
+  McContextMenuContent,
+  McContextMenuGroup,
+  McContextMenuItem,
+  McContextMenuLabel,
+  McContextMenuRadioGroup,
+  McContextMenuRadioItem,
+  McContextMenuSeparator,
+  McContextMenuShortcut,
+  McContextMenuSub,
+  McContextMenuSubContent,
+  McContextMenuSubTrigger,
+  McContextMenuTrigger,
 } from '@/registry/ui/mc-context-menu';
 
 type McContextMenuStoryProps = {
@@ -25,55 +25,55 @@ type McContextMenuStoryProps = {
 function McContextMenuStory({ disabledReload, showShortcuts }: McContextMenuStoryProps) {
   return (
     <div className="flex min-h-80 items-center justify-center p-10">
-      <ContextMenu>
-        <ContextMenuTrigger className="flex h-40 w-72 items-center justify-center rounded-lg border border-dashed border-border bg-card px-6 text-center text-sm leading-5 text-muted-foreground">
+      <McContextMenu>
+        <McContextMenuTrigger className="flex h-40 w-72 items-center justify-center rounded-lg border border-dashed border-border bg-card px-6 text-center text-sm leading-5 text-muted-foreground">
           Right click this area
-        </ContextMenuTrigger>
-        <ContextMenuContent className="w-56">
-          <ContextMenuGroup>
-            <ContextMenuLabel>Navigation</ContextMenuLabel>
-            <ContextMenuItem>
+        </McContextMenuTrigger>
+        <McContextMenuContent className="w-56">
+          <McContextMenuGroup>
+            <McContextMenuLabel>Navigation</McContextMenuLabel>
+            <McContextMenuItem>
               Back
-              {showShortcuts && <ContextMenuShortcut>Alt+Left</ContextMenuShortcut>}
-            </ContextMenuItem>
-            <ContextMenuItem>
+              {showShortcuts && <McContextMenuShortcut>Alt+Left</McContextMenuShortcut>}
+            </McContextMenuItem>
+            <McContextMenuItem>
               Forward
-              {showShortcuts && <ContextMenuShortcut>Alt+Right</ContextMenuShortcut>}
-            </ContextMenuItem>
-            <ContextMenuItem disabled={disabledReload}>
+              {showShortcuts && <McContextMenuShortcut>Alt+Right</McContextMenuShortcut>}
+            </McContextMenuItem>
+            <McContextMenuItem disabled={disabledReload}>
               Reload
-              {showShortcuts && <ContextMenuShortcut>Ctrl+R</ContextMenuShortcut>}
-            </ContextMenuItem>
-          </ContextMenuGroup>
+              {showShortcuts && <McContextMenuShortcut>Ctrl+R</McContextMenuShortcut>}
+            </McContextMenuItem>
+          </McContextMenuGroup>
 
-          <ContextMenuSeparator />
+          <McContextMenuSeparator />
 
-          <ContextMenuSub>
-            <ContextMenuSubTrigger>More tools</ContextMenuSubTrigger>
-            <ContextMenuSubContent>
-              <ContextMenuItem>Save page as...</ContextMenuItem>
-              <ContextMenuItem>Create shortcut...</ContextMenuItem>
-              <ContextMenuItem>Developer tools</ContextMenuItem>
-            </ContextMenuSubContent>
-          </ContextMenuSub>
+          <McContextMenuSub>
+            <McContextMenuSubTrigger>More tools</McContextMenuSubTrigger>
+            <McContextMenuSubContent>
+              <McContextMenuItem>Save page as...</McContextMenuItem>
+              <McContextMenuItem>Create shortcut...</McContextMenuItem>
+              <McContextMenuItem>Developer tools</McContextMenuItem>
+            </McContextMenuSubContent>
+          </McContextMenuSub>
 
-          <ContextMenuSeparator />
+          <McContextMenuSeparator />
 
-          <ContextMenuCheckboxItem checked>Show bookmarks bar</ContextMenuCheckboxItem>
-          <ContextMenuCheckboxItem>Show full URLs</ContextMenuCheckboxItem>
+          <McContextMenuCheckboxItem checked>Show bookmarks bar</McContextMenuCheckboxItem>
+          <McContextMenuCheckboxItem>Show full URLs</McContextMenuCheckboxItem>
 
-          <ContextMenuSeparator />
+          <McContextMenuSeparator />
 
-          <ContextMenuGroup>
-            <ContextMenuLabel inset>Density</ContextMenuLabel>
-            <ContextMenuRadioGroup value="comfortable">
-              <ContextMenuRadioItem value="compact">Compact</ContextMenuRadioItem>
-              <ContextMenuRadioItem value="comfortable">Comfortable</ContextMenuRadioItem>
-              <ContextMenuRadioItem value="spacious">Spacious</ContextMenuRadioItem>
-            </ContextMenuRadioGroup>
-          </ContextMenuGroup>
-        </ContextMenuContent>
-      </ContextMenu>
+          <McContextMenuGroup>
+            <McContextMenuLabel inset>Density</McContextMenuLabel>
+            <McContextMenuRadioGroup value="comfortable">
+              <McContextMenuRadioItem value="compact">Compact</McContextMenuRadioItem>
+              <McContextMenuRadioItem value="comfortable">Comfortable</McContextMenuRadioItem>
+              <McContextMenuRadioItem value="spacious">Spacious</McContextMenuRadioItem>
+            </McContextMenuRadioGroup>
+          </McContextMenuGroup>
+        </McContextMenuContent>
+      </McContextMenu>
     </div>
   );
 }

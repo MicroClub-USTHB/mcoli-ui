@@ -1,59 +1,59 @@
 import {
-  ContextMenu,
-  ContextMenuCheckboxItem,
-  ContextMenuContent,
-  ContextMenuGroup,
-  ContextMenuItem,
-  ContextMenuLabel,
-  ContextMenuRadioGroup,
-  ContextMenuRadioItem,
-  ContextMenuSeparator,
-  ContextMenuShortcut,
-  ContextMenuSub,
-  ContextMenuSubContent,
-  ContextMenuSubTrigger,
-  ContextMenuTrigger,
+  McContextMenu,
+  McContextMenuCheckboxItem,
+  McContextMenuContent,
+  McContextMenuGroup,
+  McContextMenuItem,
+  McContextMenuLabel,
+  McContextMenuRadioGroup,
+  McContextMenuRadioItem,
+  McContextMenuSeparator,
+  McContextMenuShortcut,
+  McContextMenuSub,
+  McContextMenuSubContent,
+  McContextMenuSubTrigger,
+  McContextMenuTrigger,
 } from '@/registry/ui/mc-context-menu';
 
 export default function McContextMenuDemo() {
   return (
-    <ContextMenu>
-      <ContextMenuTrigger className="flex h-40 w-72 items-center justify-center rounded-lg border border-dashed border-border bg-card text-sm text-muted-foreground">
+    <McContextMenu>
+      <McContextMenuTrigger className="flex h-40 w-72 items-center justify-center rounded-lg border border-dashed border-border bg-card text-sm text-muted-foreground">
         Right click here
-      </ContextMenuTrigger>
-      <ContextMenuContent className="w-56">
-        <ContextMenuGroup>
-          <ContextMenuLabel>Actions</ContextMenuLabel>
-          <ContextMenuItem>
+      </McContextMenuTrigger>
+      <McContextMenuContent className="w-56">
+        <McContextMenuGroup>
+          <McContextMenuLabel>Actions</McContextMenuLabel>
+          <McContextMenuItem>
             Back
-            <ContextMenuShortcut>Alt+Left</ContextMenuShortcut>
-          </ContextMenuItem>
-          <ContextMenuItem>
+            <McContextMenuShortcut>Alt+Left</McContextMenuShortcut>
+          </McContextMenuItem>
+          <McContextMenuItem>
             Forward
-            <ContextMenuShortcut>Alt+Right</ContextMenuShortcut>
-          </ContextMenuItem>
-          <ContextMenuItem disabled>Reload</ContextMenuItem>
-        </ContextMenuGroup>
-        <ContextMenuSub>
-          <ContextMenuSubTrigger>More tools</ContextMenuSubTrigger>
-          <ContextMenuSubContent>
-            <ContextMenuItem>Save page as...</ContextMenuItem>
-            <ContextMenuItem>Create shortcut...</ContextMenuItem>
-            <ContextMenuItem>Inspect</ContextMenuItem>
-          </ContextMenuSubContent>
-        </ContextMenuSub>
-        <ContextMenuSeparator />
-        <ContextMenuCheckboxItem checked>Show bookmarks</ContextMenuCheckboxItem>
-        <ContextMenuCheckboxItem>Show full URLs</ContextMenuCheckboxItem>
-        <ContextMenuSeparator />
-        <ContextMenuGroup>
-          <ContextMenuLabel inset>Density</ContextMenuLabel>
-          <ContextMenuRadioGroup value="comfortable">
-            <ContextMenuRadioItem value="compact">Compact</ContextMenuRadioItem>
-            <ContextMenuRadioItem value="comfortable">Comfortable</ContextMenuRadioItem>
-          </ContextMenuRadioGroup>
-        </ContextMenuGroup>
-      </ContextMenuContent>
-    </ContextMenu>
+            <McContextMenuShortcut>Alt+Right</McContextMenuShortcut>
+          </McContextMenuItem>
+          <McContextMenuItem disabled>Reload</McContextMenuItem>
+        </McContextMenuGroup>
+        <McContextMenuSub>
+          <McContextMenuSubTrigger>More tools</McContextMenuSubTrigger>
+          <McContextMenuSubContent>
+            <McContextMenuItem>Save page as...</McContextMenuItem>
+            <McContextMenuItem>Create shortcut...</McContextMenuItem>
+            <McContextMenuItem>Inspect</McContextMenuItem>
+          </McContextMenuSubContent>
+        </McContextMenuSub>
+        <McContextMenuSeparator />
+        <McContextMenuCheckboxItem checked>Show bookmarks</McContextMenuCheckboxItem>
+        <McContextMenuCheckboxItem>Show full URLs</McContextMenuCheckboxItem>
+        <McContextMenuSeparator />
+        <McContextMenuGroup>
+          <McContextMenuLabel inset>Density</McContextMenuLabel>
+          <McContextMenuRadioGroup value="comfortable">
+            <McContextMenuRadioItem value="compact">Compact</McContextMenuRadioItem>
+            <McContextMenuRadioItem value="comfortable">Comfortable</McContextMenuRadioItem>
+          </McContextMenuRadioGroup>
+        </McContextMenuGroup>
+      </McContextMenuContent>
+    </McContextMenu>
   );
 }

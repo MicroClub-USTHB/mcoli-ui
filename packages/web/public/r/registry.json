@@ -2442,6 +2442,19 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-context-menu",
+      "title": "MicroClub Context Menu",
+      "description": "A context menu component for MicroClub UI",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-context-menu.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-accordion",
       "title": "MicroClub Accordion",
       "description": "An accordion component for MicroClub UI",
@@ -2527,19 +2540,6 @@
       "files": [
         {
           "path": "registry/ui/mc-hover-card.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "type": "registry:component"
-    },
-    {
-      "name": "mc-context-menu",
-      "title": "MicroClub Context Menu",
-      "description": "A context menu component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "lucide-react"],
-      "files": [
-        {
-          "path": "registry/ui/mc-context-menu.tsx",
           "type": "registry:component"
         }
       ],

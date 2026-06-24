@@ -60,22 +60,22 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 
 ```tsx
 import {
-  ContextMenu,
-  ContextMenuContent,
-  ContextMenuItem,
-  ContextMenuTrigger,
+  McContextMenu,
+  McContextMenuContent,
+  McContextMenuItem,
+  McContextMenuTrigger,
 } from '@/components/ui/mc-context-menu';
 
 export default function Example() {
   return (
-    <ContextMenu>
-      <ContextMenuTrigger>Right click here</ContextMenuTrigger>
-      <ContextMenuContent>
-        <ContextMenuItem>Back</ContextMenuItem>
-        <ContextMenuItem>Forward</ContextMenuItem>
-        <ContextMenuItem>Reload</ContextMenuItem>
-      </ContextMenuContent>
-    </ContextMenu>
+    <McContextMenu>
+      <McContextMenuTrigger>Right click here</McContextMenuTrigger>
+      <McContextMenuContent>
+        <McContextMenuItem>Back</McContextMenuItem>
+        <McContextMenuItem>Forward</McContextMenuItem>
+        <McContextMenuItem>Reload</McContextMenuItem>
+      </McContextMenuContent>
+    </McContextMenu>
   );
 }
 ```
@@ -85,76 +85,76 @@ export default function Example() {
 ### With Groups and Labels
 
 ```tsx
-<ContextMenu>
-  <ContextMenuTrigger>Right click here</ContextMenuTrigger>
-  <ContextMenuContent>
-    <ContextMenuGroup>
-      <ContextMenuLabel>Actions</ContextMenuLabel>
-      <ContextMenuItem>Back</ContextMenuItem>
-      <ContextMenuItem>Forward</ContextMenuItem>
-      <ContextMenuItem disabled>Reload</ContextMenuItem>
-    </ContextMenuGroup>
-  </ContextMenuContent>
-</ContextMenu>
+<McContextMenu>
+  <McContextMenuTrigger>Right click here</McContextMenuTrigger>
+  <McContextMenuContent>
+    <McContextMenuGroup>
+      <McContextMenuLabel>Actions</McContextMenuLabel>
+      <McContextMenuItem>Back</McContextMenuItem>
+      <McContextMenuItem>Forward</McContextMenuItem>
+      <McContextMenuItem disabled>Reload</McContextMenuItem>
+    </McContextMenuGroup>
+  </McContextMenuContent>
+</McContextMenu>
 ```
 
 ### With Shortcuts
 
 ```tsx
-<ContextMenuItem>
+<McContextMenuItem>
   Back
-  <ContextMenuShortcut>Alt+Left</ContextMenuShortcut>
-</ContextMenuItem>
+  <McContextMenuShortcut>Alt+Left</McContextMenuShortcut>
+</McContextMenuItem>
 ```
 
 ### With Checkbox Items
 
 ```tsx
-<ContextMenuCheckboxItem checked>Show bookmarks</ContextMenuCheckboxItem>
-<ContextMenuCheckboxItem>Show full URLs</ContextMenuCheckboxItem>
+<McContextMenuCheckboxItem checked>Show bookmarks</McContextMenuCheckboxItem>
+<McContextMenuCheckboxItem>Show full URLs</McContextMenuCheckboxItem>
 ```
 
 ### With Radio Items
 
 ```tsx
-<ContextMenuGroup>
-  <ContextMenuLabel inset>Density</ContextMenuLabel>
-  <ContextMenuRadioGroup value="comfortable">
-    <ContextMenuRadioItem value="compact">Compact</ContextMenuRadioItem>
-    <ContextMenuRadioItem value="comfortable">Comfortable</ContextMenuRadioItem>
-    <ContextMenuRadioItem value="spacious">Spacious</ContextMenuRadioItem>
-  </ContextMenuRadioGroup>
-</ContextMenuGroup>
+<McContextMenuGroup>
+  <McContextMenuLabel inset>Density</McContextMenuLabel>
+  <McContextMenuRadioGroup value="comfortable">
+    <McContextMenuRadioItem value="compact">Compact</McContextMenuRadioItem>
+    <McContextMenuRadioItem value="comfortable">Comfortable</McContextMenuRadioItem>
+    <McContextMenuRadioItem value="spacious">Spacious</McContextMenuRadioItem>
+  </McContextMenuRadioGroup>
+</McContextMenuGroup>
 ```
 
 ### With Submenus
 
 ```tsx
-<ContextMenuSub>
-  <ContextMenuSubTrigger>More tools</ContextMenuSubTrigger>
-  <ContextMenuSubContent>
-    <ContextMenuItem>Save page as...</ContextMenuItem>
-    <ContextMenuItem>Create shortcut...</ContextMenuItem>
-    <ContextMenuItem>Inspect</ContextMenuItem>
-  </ContextMenuSubContent>
-</ContextMenuSub>
+<McContextMenuSub>
+  <McContextMenuSubTrigger>More tools</McContextMenuSubTrigger>
+  <McContextMenuSubContent>
+    <McContextMenuItem>Save page as...</McContextMenuItem>
+    <McContextMenuItem>Create shortcut...</McContextMenuItem>
+    <McContextMenuItem>Inspect</McContextMenuItem>
+  </McContextMenuSubContent>
+</McContextMenuSub>
 ```
 
 ## API Reference
 
-### ContextMenu
+### McContextMenu
 
 The root component that manages context menu state.
 
 All props from `@base-ui/react/context-menu` `Root` are supported.
 
-### ContextMenuTrigger
+### McContextMenuTrigger
 
 The element that opens the context menu on right-click or long press.
 
 All props from `@base-ui/react/context-menu` `Trigger` are supported.
 
-### ContextMenuContent
+### McContextMenuContent
 
 The floating menu panel.
 
@@ -168,7 +168,7 @@ The floating menu panel.
 
 All other props from `@base-ui/react/context-menu` `Popup` are supported.
 
-### ContextMenuItem
+### McContextMenuItem
 
 An actionable menu item.
 
@@ -181,24 +181,24 @@ An actionable menu item.
 
 All other props from `@base-ui/react/context-menu` `Item` are supported.
 
-### ContextMenuLabel
+### McContextMenuLabel
 
 A label for a menu group.
 
-`ContextMenuLabel` must be used inside `ContextMenuGroup`.
+`McContextMenuLabel` must be used inside `McContextMenuGroup`.
 
 | Prop        | Type      | Default     | Description                     |
 | ----------- | --------- | ----------- | ------------------------------- |
 | `inset`     | `boolean` | `undefined` | Adds left padding for alignment |
 | `className` | `string`  | `undefined` | Additional CSS classes          |
 
-### ContextMenuGroup
+### McContextMenuGroup
 
 Groups related menu items and labels.
 
 All props from `@base-ui/react/context-menu` `Group` are supported.
 
-### ContextMenuCheckboxItem
+### McContextMenuCheckboxItem
 
 A checkable menu item.
 
@@ -208,15 +208,15 @@ A checkable menu item.
 | `inset`     | `boolean` | `undefined` | Adds alignment padding |
 | `className` | `string`  | `undefined` | Additional CSS classes |
 
-### ContextMenuRadioGroup
+### McContextMenuRadioGroup
 
 Groups mutually exclusive radio menu items.
 
 All props from `@base-ui/react/context-menu` `RadioGroup` are supported.
 
-### ContextMenuRadioItem
+### McContextMenuRadioItem
 
-A selectable radio item inside `ContextMenuRadioGroup`.
+A selectable radio item inside `McContextMenuRadioGroup`.
 
 | Prop        | Type      | Default     | Description            |
 | ----------- | --------- | ----------- | ---------------------- |
@@ -224,13 +224,13 @@ A selectable radio item inside `ContextMenuRadioGroup`.
 | `inset`     | `boolean` | `undefined` | Adds alignment padding |
 | `className` | `string`  | `undefined` | Additional CSS classes |
 
-### ContextMenuSub
+### McContextMenuSub
 
 The root component for a nested submenu.
 
 All props from `@base-ui/react/context-menu` `SubmenuRoot` are supported.
 
-### ContextMenuSubTrigger
+### McContextMenuSubTrigger
 
 The item that opens a nested submenu.
 
@@ -239,19 +239,19 @@ The item that opens a nested submenu.
 | `inset`     | `boolean` | `undefined` | Adds left padding for alignment |
 | `className` | `string`  | `undefined` | Additional CSS classes          |
 
-### ContextMenuSubContent
+### McContextMenuSubContent
 
 The floating panel for a submenu.
 
-All props from `ContextMenuContent` are supported.
+All props from `McContextMenuContent` are supported.
 
-### ContextMenuSeparator
+### McContextMenuSeparator
 
 A visual separator between menu sections.
 
 All props from `@base-ui/react/context-menu` `Separator` are supported.
 
-### ContextMenuShortcut
+### McContextMenuShortcut
 
 Displays shortcut text aligned to the end of a menu item.
 
