@@ -2293,6 +2293,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-sonner': {
+    name: 'mc-sonner',
+    description: 'A toast component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-sonner.tsx',
+        content:
+          "'use client';\n\nimport { Toaster as SonnerComponent, toast as rawToast } from 'sonner';\nimport { CheckCircle2, AlertCircle } from 'lucide-react';\n\ntype ToasterProps = React.ComponentProps<typeof SonnerComponent>;\n\nconst toastIcons = {\n  success: <CheckCircle2 className=\"text-muted-foreground shrink-0 h-3.5 w-3.5\" />,\n  warning: <AlertCircle className=\"text-muted-foreground shrink-0 h-3.5 w-3.5\" />,\n  error: <AlertCircle className=\"text-muted-foreground  shrink-0 h-3.5 w-3.5\" />,\n};\n\ninterface ToastOptions {\n  description?: string;\n  action?: {\n    label: string;\n    onClick: () => void;\n  };\n}\n\nconst mcToastCustom = (\n  message: string,\n  variant?: 'success' | 'warning' | 'error',\n  options?: ToastOptions\n) => {\n  const Icon = variant ? toastIcons[variant] : null;\n\n  return rawToast(\n    <div className=\"w-full h-full flex flex-col items-start justify-center gap-0.5\">\n      <div className=\"flex items-center gap-1.5 w-full max-w-66.5\">\n        {Icon}\n        <span className=\"text-sm font-medium tracking-normal leading-5 text-card-foreground\">\n          {message}\n        </span>\n      </div>\n\n      {options?.description && (\n        <p className=\"text-sm font-normal tracking-normal leading-5 text-muted-foreground max-w-66.5\">\n          {options.description}\n        </p>\n      )}\n    </div>,\n    {\n      action: options?.action,\n    }\n  );\n};\n\nexport const toast = Object.assign(\n  (message: string, options?: ToastOptions) => mcToastCustom(message, undefined, options),\n  {\n    success: (message: string, options?: ToastOptions) =>\n      mcToastCustom(message, 'success', options),\n    warning: (message: string, options?: ToastOptions) =>\n      mcToastCustom(message, 'warning', options),\n    error: (message: string, options?: ToastOptions) => mcToastCustom(message, 'error', options),\n  }\n);\n\nconst McSonner = ({ ...props }: ToasterProps) => {\n  return (\n    <SonnerComponent\n      className=\"\"\n      position=\"top-center\"\n      toastOptions={{\n        unstyled: true,\n        classNames: {\n          toast:\n            'w-97.5 min-h-18.5 bg-background flex items-center justify-between gap-1.5 p-4 border-[1px] rounded-lg shadow-xs border-border',\n          actionButton:\n            'flex items-center justify-center bg-primary text-background text-sm py-2 px-3.5 min-w-15.5 max-w-21.5 min-h-9 rounded-[8px] shadow-xs shrink-0 cursor-pointer',\n        },\n      }}\n      {...props}\n    />\n  );\n};\n\nexport default McSonner;\n",
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-tooltip': {
     name: 'mc-tooltip',
     description: 'A tooltip component for MicroClub UI',
@@ -2367,6 +2380,19 @@ export const Index: Record<string, any> = {
         path: 'registry/ui/mc-skeleton.tsx',
         content:
           "import { cn } from '@/lib/utils';\n\ntype McSkeletonProps = {\n  width?: number;\n  height?: number;\n  rectangle?: boolean;\n} & React.ComponentProps<'div'>;\n\nfunction McSkeleton({ className, rectangle, width, height, ...props }: McSkeletonProps) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      style={{\n        width,\n        height,\n        ...(height === width ? { marginRight: 16 } : { marginBottom: 8 }),\n      }}\n      className={cn('animate-pulse bg-muted', rectangle ? 'rounded-md' : 'rounded-full', className)}\n      {...props}\n    />\n  );\n}\n\nexport { McSkeleton };\n",
+        type: 'registry:component',
+      },
+    ],
+  },
+  'mc-badge': {
+    name: 'mc-badge',
+    description: 'A badge component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-badge.tsx',
+        content:
+          "import { mergeProps } from '@base-ui/react/merge-props';\nimport { useRender } from '@base-ui/react/use-render';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport type { ReactNode } from 'react';\nimport { cloneElement, isValidElement } from 'react';\n\nimport { cn } from '@/lib/utils';\n\nconst McBadgeVariants = cva(\n  'group/badge inline-flex shrink-0 items-center justify-center gap-1 overflow-hidden rounded-[16px] border border-[#E6E9FF] text-xs font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:size-3 [&>svg]:shrink-0 [&>svg]:self-center',\n  {\n    variants: {\n      variant: {\n        default: 'bg-primary-foreground text-primary [a]:hover:bg-primary-foreground/80',\n        secondary: 'bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80',\n        destructive:\n          'bg-destructive/10 text-destructive focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:focus-visible:ring-destructive/40 [a]:hover:bg-destructive/20',\n        outline: 'border-border text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground',\n        ghost: 'hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50',\n        leading: 'bg-accent-foreground text-accent',\n      },\n      size: {\n        sm: 'h-[22px] min-w-[47px] px-2 py-0.5 text-sm leading-[18px]',\n        md: 'h-[24px] min-w-[56px] px-[10px] py-0.5 text-sm leading-[20px]',\n        lg: 'h-[32px] min-w-[65px] px-3 py-1 text-sm leading-[24px]',\n        groupMd: 'h-[22px] min-w-[47px] px-2 py-0.5 text-sm leading-[18px]',\n        groupLg: 'h-[28px] min-w-[56px] px-[10px] py-1 text-sm leading-[20px]',\n      },\n    },\n    defaultVariants: {\n      variant: 'default',\n      size: 'sm',\n    },\n  }\n);\n\nfunction McBadge({\n  className,\n  variant = 'default',\n  size = 'sm',\n  render,\n  icon,\n  iconPosition = 'start',\n  iconOnly = false,\n  image,\n  imageAlt = '',\n  imagePosition = 'start',\n  leadingBadge,\n  leadingBadgePosition = 'start',\n  leadingBadgeIcon,\n  groupSize = 'md',\n  children,\n  ...props\n}: useRender.ComponentProps<'span'> &\n  VariantProps<typeof McBadgeVariants> & {\n    icon?: ReactNode;\n    iconPosition?: 'start' | 'end';\n    iconOnly?: boolean;\n    image?: string;\n    imageAlt?: string;\n    imagePosition?: 'start' | 'end';\n    leadingBadge?: ReactNode;\n    leadingBadgePosition?: 'start' | 'end';\n    leadingBadgeIcon?: ReactNode;\n    groupSize?: 'md' | 'lg';\n  }) {\n  const groupSizeClasses = {\n    md: 'h-[30px] leading-[22px]',\n    lg: 'h-[36px] leading-[26px]',\n  } as const;\n  const groupChildSize = groupSize === 'md' ? 'groupMd' : 'groupLg';\n\n  const imageEl = image ? (\n    <img src={image} alt={imageAlt} className=\"size-4 shrink-0 rounded-full object-cover\" />\n  ) : null;\n\n  const useParentIcon = !leadingBadge || leadingBadgePosition === 'start';\n  const rawIcon = useParentIcon ? icon : undefined;\n  const parentIcon = rawIcon ? (\n    <span style={{ display: 'contents', pointerEvents: 'none' }}>\n      <span\n        style={{\n          width: 12,\n          height: 12,\n          display: 'inline-flex',\n          alignItems: 'center',\n          justifyContent: 'center',\n          flexShrink: 0,\n        }}\n      >\n        {rawIcon}\n      </span>\n    </span>\n  ) : undefined;\n\n  const parentIconPlacement = parentIcon\n    ? iconPosition === 'end'\n      ? 'inline-end'\n      : 'inline-start'\n    : undefined;\n\n  const contentWithIcon = parentIcon ? (\n    iconPosition === 'end' ? (\n      <>\n        {children}\n        {parentIcon}\n      </>\n    ) : (\n      <>\n        {parentIcon}\n        {children}\n      </>\n    )\n  ) : (\n    children\n  );\n\n  const content = imageEl ? (\n    imagePosition === 'end' ? (\n      <>\n        {contentWithIcon}\n        {imageEl}\n      </>\n    ) : (\n      <>\n        {imageEl}\n        {contentWithIcon}\n      </>\n    )\n  ) : (\n    contentWithIcon\n  );\n\n  const resolvedLeadingBadge = leadingBadge ? (\n    isValidElement(leadingBadge) ? (\n      cloneElement(leadingBadge as React.ReactElement<Record<string, unknown>>, {\n        size: groupChildSize,\n        variant: 'leading', // ← forcé\n        icon: leadingBadgePosition === 'end' ? leadingBadgeIcon : undefined,\n        iconPosition: 'end',\n      })\n    ) : (\n      <McBadge\n        size={groupChildSize}\n        variant=\"leading\" // ← forcé\n        icon={leadingBadgePosition === 'end' ? leadingBadgeIcon : undefined}\n        iconPosition=\"end\"\n      >\n        {leadingBadge}\n      </McBadge>\n    )\n  ) : null;\n\n  const groupedContent = resolvedLeadingBadge ? (\n    leadingBadgePosition === 'end' ? (\n      <div className=\"flex items-center gap-3\">\n        {content}\n        {resolvedLeadingBadge}\n      </div>\n    ) : (\n      <div className=\"flex items-center gap-3\">\n        {resolvedLeadingBadge}\n        {content}\n      </div>\n    )\n  ) : (\n    content\n  );\n\n  const dataIconProps = parentIconPlacement\n    ? ({ 'data-icon': parentIconPlacement } as Record<string, string>)\n    : undefined;\n\n  const iconOnlyClasses = iconOnly ? 'min-w-0 px-1.5' : undefined;\n\n  const imagePaddingClasses = image\n    ? imagePosition === 'start'\n      ? 'pl-[3px]'\n      : 'pr-[3px]'\n    : undefined;\n\n  const groupPaddingClasses = resolvedLeadingBadge\n    ? leadingBadgePosition === 'start'\n      ? 'pl-1 pr-[10px]'\n      : 'pl-[10px] pr-1'\n    : undefined;\n\n  return useRender({\n    defaultTagName: 'span',\n    props: mergeProps<'span'>(\n      {\n        className: cn(\n          McBadgeVariants({ variant, size }),\n          leadingBadge ? groupSizeClasses[groupSize] : undefined,\n          iconOnlyClasses,\n          imagePaddingClasses,\n          groupPaddingClasses,\n          className\n        ),\n        ...(dataIconProps ?? {}),\n        children: groupedContent,\n      },\n      props\n    ),\n    render,\n    state: {\n      slot: 'badge',\n      variant,\n      size,\n    },\n  });\n}\n\nexport { McBadge, McBadgeVariants };\n",
         type: 'registry:component',
       },
     ],
@@ -2685,6 +2711,22 @@ export const Index: Record<string, any> = {
     source:
       '\'use client\';\n\nimport { McAlert } from \'@/registry/ui/mc-alert\';\n\nexport default function McAlertDemo() {\n  return (\n    <div className="p-8 space-y-4">\n      <h1 className="text-2xl font-bold mb-6">McAlert Component Demo</h1>\n\n      <McAlert\n        variant="success"\n        title="Success! Your changes have been saved"\n        description="This is an alert with icon, title and description."\n      />\n\n      <McAlert variant="default" title="This alert has a title and an icon. No description." />\n\n      <McAlert\n        variant="destructive"\n        title="Unable to process your payment."\n        description="Please verify your billing information and try again."\n        items={[\'Check your card details\', \'Ensure sufficient funds\', \'Verify billing address\']}\n      />\n\n      <McAlert\n        variant="success"\n        title="Long content example to demonstrate responsive width"\n        description="This is a very long description that should cause the alert width to expand up to the maximum of 719px before the height increases. The component will grow with the content length."\n      />\n    </div>\n  );\n}\n',
   },
+  'mc-sonner-demo': {
+    name: 'mc-sonner-demo',
+    description: 'Demo for MicroClub Sonner',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-sonner-demo.tsx',
+        content:
+          "'use client';\nimport McSonner, { toast } from '../ui/mc-sonner';\nexport default function McSonnerDemo() {\n  return (\n    <div>\n      <button\n        onClick={() =>\n          toast('Event has been created', {\n            description: 'Sunday, December 03, 2023 at 9:00 AM',\n            action: {\n              label: 'undo',\n              onClick: () => console.log('Undo du toast simple cliqué'),\n            },\n          })\n        }\n        className=\"px-5 py-2.5 bg-primary text-background rounded-lg text-sm font-medium transition-all shadow-sm cursor-pointer\"\n      >\n        Show Toast\n      </button>\n      <McSonner />\n    </div>\n  );\n}\n",
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-sonner-demo.tsx')),
+    source:
+      "'use client';\nimport McSonner, { toast } from '../ui/mc-sonner';\nexport default function McSonnerDemo() {\n  return (\n    <div>\n      <button\n        onClick={() =>\n          toast('Event has been created', {\n            description: 'Sunday, December 03, 2023 at 9:00 AM',\n            action: {\n              label: 'undo',\n              onClick: () => console.log('Undo du toast simple cliqué'),\n            },\n          })\n        }\n        className=\"px-5 py-2.5 bg-primary text-background rounded-lg text-sm font-medium transition-all shadow-sm cursor-pointer\"\n      >\n        Show Toast\n      </button>\n      <McSonner />\n    </div>\n  );\n}\n",
+  },
   'mc-tooltip-demo': {
     name: 'mc-tooltip-demo',
     description: 'Demo for MicroClub Tooltip',
@@ -2780,6 +2822,22 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-skeleton-demo.tsx')),
     source:
       'import { McSkeleton } from \'../ui/mc-skeleton\';\r\n\r\nexport default function McSkeletonDemo() {\r\n  return (\r\n    <div className="p-6">\r\n      <div className="w-full max-w-sm space-y-4">\r\n        {Array.from({ length: 3 }).map((_, i) => (\r\n          <div key={i} className="flex gap-3">\r\n            <McSkeleton className="h-12 w-12 shrink-0 rounded-full" />\r\n            <div className="flex-1 space-y-2">\r\n              <McSkeleton className="h-4 w-3/4" />\r\n              <McSkeleton className="h-3 w-full" />\r\n              <McSkeleton className="h-3 w-2/3" />\r\n            </div>\r\n          </div>\r\n        ))}\r\n      </div>\r\n    </div>\r\n  );\r\n}\r\n',
+  },
+  'mc-badge-demo': {
+    name: 'mc-badge-demo',
+    description: 'Demo for MicroClub Badge',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-badge-demo.tsx',
+        content:
+          'import { ArrowRight } from \'lucide-react\';\nimport { McBadge } from \'../ui/mc-badge\';\n\nconst DotIcon = ({ className }: { className?: string }) => (\n  <span className={`rounded-full bg-current inline-block ${className ?? \'size-1.5\'}`} />\n);\n\nexport default function McBadgeDemo() {\n  return (\n    <div className="flex w-full flex-wrap gap-2">\n      <McBadge>Label</McBadge>\n      <McBadge variant="secondary">Secondary</McBadge>\n      <McBadge variant="destructive">Destructive</McBadge>\n      <McBadge variant="outline">Outline</McBadge>\n      <McBadge icon={<DotIcon className="size-1.5" />} iconPosition="start">\n        Status\n      </McBadge>\n      <McBadge icon={<ArrowRight />} iconPosition="end">\n        Learn more\n      </McBadge>\n      <McBadge\n        groupSize="md"\n        leadingBadge="New feature"\n        leadingBadgePosition="start"\n        icon={<ArrowRight />}\n        iconPosition="end"\n      >\n        We’ve just released a new feature\n      </McBadge>\n\n      <McBadge image="https://flagcdn.com/w40/au.png" imageAlt="Australia">\n        Label\n      </McBadge>\n    </div>\n  );\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-badge-demo.tsx')),
+    source:
+      'import { ArrowRight } from \'lucide-react\';\nimport { McBadge } from \'../ui/mc-badge\';\n\nconst DotIcon = ({ className }: { className?: string }) => (\n  <span className={`rounded-full bg-current inline-block ${className ?? \'size-1.5\'}`} />\n);\n\nexport default function McBadgeDemo() {\n  return (\n    <div className="flex w-full flex-wrap gap-2">\n      <McBadge>Label</McBadge>\n      <McBadge variant="secondary">Secondary</McBadge>\n      <McBadge variant="destructive">Destructive</McBadge>\n      <McBadge variant="outline">Outline</McBadge>\n      <McBadge icon={<DotIcon className="size-1.5" />} iconPosition="start">\n        Status\n      </McBadge>\n      <McBadge icon={<ArrowRight />} iconPosition="end">\n        Learn more\n      </McBadge>\n      <McBadge\n        groupSize="md"\n        leadingBadge="New feature"\n        leadingBadgePosition="start"\n        icon={<ArrowRight />}\n        iconPosition="end"\n      >\n        We’ve just released a new feature\n      </McBadge>\n\n      <McBadge image="https://flagcdn.com/w40/au.png" imageAlt="Australia">\n        Label\n      </McBadge>\n    </div>\n  );\n}\n',
   },
   'mc-avatar-demo': {
     name: 'mc-avatar-demo',
