@@ -288,6 +288,19 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-context-menu',
+    type: 'registry:component',
+    title: 'MicroClub Context Menu',
+    description: 'A context menu component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-context-menu.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react', 'lucide-react'],
+  },
+  {
     name: 'mc-accordion',
     type: 'registry:component',
     title: 'MicroClub Accordion',
