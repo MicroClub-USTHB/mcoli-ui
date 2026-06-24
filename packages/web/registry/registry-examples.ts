@@ -237,6 +237,19 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-alert.json`],
   },
   {
+    name: 'mc-sonner-demo',
+    type: 'registry:example',
+    title: 'MicroClub Sonner Demo',
+    description: 'Demo for MicroClub Sonner',
+    files: [
+      {
+        path: 'examples/mc-sonner-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-sonner.json`],
+  },
+  {
     name: 'mc-tooltip-demo',
     type: 'registry:example',
     title: 'MicroClub Tooltip Demo',
@@ -261,6 +274,19 @@ export const examples: Registry['items'] = [
       },
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-popover.json`, `${REGISTRY_URL}/r/mc-button.json`],
+  },
+  {
+    name: 'mc-dropdown-menu-demo',
+    type: 'registry:example',
+    title: 'MicroClub Dropdown Menu Demo',
+    description: 'Demo for MicroClub Dropdown Menu',
+    files: [
+      {
+        path: 'examples/mc-dropdown-menu-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-dropdown-menu.json`],
   },
   {
     name: 'mc-accordion-demo',
@@ -314,6 +340,19 @@ export const examples: Registry['items'] = [
       },
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-skeleton.json`],
+  },
+  {
+    name: 'mc-badge-demo',
+    type: 'registry:example',
+    title: 'MicroClub Badge Demo',
+    description: 'Demo for MicroClub Badge',
+    files: [
+      {
+        path: 'examples/mc-badge-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-badge.json`],
   },
   {
     name: 'mc-avatar-demo',

@@ -229,10 +229,10 @@ When adding a new item, you will create/edit these files:
 | `mc-dialog`          | ✅           | ✅        |
 | `mc-alert-dialog`    | ✅           | ✅        |
 | `mc-alert`           | ✅           | ✅        |
-| `mc-sonner`          | ✅           |           |
+| `mc-sonner`          | ✅           | ✅        |
 | `mc-tooltip`         | ✅           | ✅        |
 | `mc-popover`         | ✅           | ✅        |
-| `mc-dropdown-menu`   | ✅           |           |
+| `mc-dropdown-menu`   | ✅           | ✅        |
 | `mc-context-menu`    | ✅           |           |
 | `mc-data-table`      | ✅           |           |
 | `mc-accordion`       | ✅           | ✅        |
@@ -242,7 +242,7 @@ When adding a new item, you will create/edit these files:
 | `mc-calendar`        | ✅           |           |
 | `mc-scrollarea`      | ✅           | ✅        |
 | `mc-skeleton`        | ✅           | ✅        |
-| `mc-badge`           | ✅           |           |
+| `mc-badge`           | ✅           | ✅        |
 | `mc-avatar`          | ✅           | ✅        |
 | `mc-drawer`          | ✅           |           |
 | `mc-hover-card`      | ✅           | ✅        |

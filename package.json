@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "pnpm --filter @mcoli/web dev",
     "build": "pnpm --filter @mcoli/web build && prettier --write .",
+    "build:registry": "pnpm --filter @mcoli/web build:registry",
     "start": "pnpm --filter @mcoli/web start",
     "lint": "pnpm --filter @mcoli/web lint",
     "typecheck": "pnpm --filter @mcoli/web typecheck",
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "@storybook/nextjs": "^10.4.2",
+    "@storybook/react": "^10.4.2",
     "eslint": "^9",
     "husky": "^9.1.7",
     "lint-staged": "^16.4.0",
@@ -31,6 +33,7 @@
     "typescript": "^5.7.2"
   },
   "dependencies": {
-    "lucide-react": "^1.8.0"
+    "lucide-react": "^1.8.0",
+    "sonner": "^2.0.7"
   }
 }

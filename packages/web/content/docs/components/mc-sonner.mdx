@@ -1,9 +1,423 @@
 ---
 title: MC Sonner
-description: A toast notification component.
+description: An extensible, accessible toast notification system for temporary alerts.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-sonner` is a core feedback component of the MicroClub UI library. Built on top of the powerful **sonner** primitive, it provides sleek, stackable notifications with world-class performance and accessibility, styled natively via **Tailwind CSS v4**.
+
+Unlike standard toast implementations, this component has been custom-architected to seamlessly group icons, titles, and descriptions into a strict typographic hierarchy that perfectly matches MicroClub's Figma specifications. It features four distinct methods for creating toasts: default, success, warning, and error — each with automatic icon rendering and semantic styling.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its layout, states, and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-sonner-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-sonner-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-sonner` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-sonner</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-sonner</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-sonner</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-sonner</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install sonner clsx tailwind-merge lucide-react</Tab>
+  <Tab value="pnpm">pnpm add sonner clsx tailwind-merge lucide-react</Tab>
+  <Tab value="yarn">yarn add sonner clsx tailwind-merge lucide-react</Tab>
+  <Tab value="bun">bun add sonner clsx tailwind-merge lucide-react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-sonner" />
+
+<Step>Add the Toaster to your root layout</Step>
+
+Place the `McSonner` component at the root of your application (typically in your main layout or app component) to ensure toasts can be displayed globally:
+
+```tsx
+import McSonner from '@/components/ui/mc-sonner';
+
+export default function RootLayout() {
+  return (
+    <html>
+      <body>
+        {/* Your content */}
+        <McSonner />
+      </body>
+    </html>
+  );
+}
+```
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { toast } from '@/components/ui/mc-sonner';
+
+export default function Example() {
+  return <button onClick={() => toast('Event has been created')}>Show Toast</button>;
+}
+```
+
+## Examples
+
+### Simple Toast (Default)
+
+A basic notification without any variant styling. Perfect for general information messages.
+
+```tsx
+<button
+  onClick={() =>
+    toast('Event has been created', {
+      description: 'Sunday, December 03, 2023 at 9:00 AM',
+    })
+  }
+>
+  Show Default Toast
+</button>
+```
+
+### Success Toast
+
+Displays a success notification with a checkmark icon. Ideal for confirming successful operations.
+
+```tsx
+<button
+  onClick={() =>
+    toast.success('Changes saved successfully', {
+      description: 'All your modifications have been preserved.',
+    })
+  }
+>
+  Show Success Toast
+</button>
+```
+
+### Warning Toast
+
+Displays a warning notification with an alert icon. Use when you need to alert users about potential issues.
+
+```tsx
+<button
+  onClick={() =>
+    toast.warning('This action cannot be undone', {
+      description: 'Please proceed with caution.',
+    })
+  }
+>
+  Show Warning Toast
+</button>
+```
+
+### Error Toast
+
+Displays an error notification with an alert icon. Perfect for communicating failed operations.
+
+```tsx
+<button
+  onClick={() =>
+    toast.error('Payment processing failed', {
+      description: 'Please check your payment method and try again.',
+    })
+  }
+>
+  Show Error Toast
+</button>
+```
+
+### With Action Button
+
+Add an interactive action button to your toast for undo operations or additional user interactions.
+
+```tsx
+<button
+  onClick={() =>
+    toast('Event has been created', {
+      description: 'Sunday, December 03, 2023 at 9:00 AM',
+      action: {
+        label: 'Undo',
+        onClick: () => console.log('Undo clicked'),
+      },
+    })
+  }
+>
+  Show Toast with Action
+</button>
+```
+
+### Success with Action
+
+Combine success feedback with an action button for enhanced user experience.
+
+```tsx
+<button
+  onClick={() =>
+    toast.success('File uploaded successfully', {
+      description: 'Your document is ready to share.',
+      action: {
+        label: 'View',
+        onClick: () => console.log('View file'),
+      },
+    })
+  }
+>
+  Show Success with Action
+</button>
+```
+
+### Error with Action
+
+Provide users with an option to retry or get help when an error occurs.
+
+```tsx
+<button
+  onClick={() =>
+    toast.error('Connection timeout', {
+      description: 'Unable to reach the server. Please try again.',
+      action: {
+        label: 'Retry',
+        onClick: () => console.log('Retry clicked'),
+      },
+    })
+  }
+>
+  Show Error with Action
+</button>
+```
+
+### Long Description
+
+Toast notifications automatically handle longer descriptions with proper text wrapping and readability.
+
+```tsx
+<button
+  onClick={() =>
+    toast.success('Your account has been updated', {
+      description:
+        'All your profile information has been successfully updated including your name, email, and preferences. These changes are effective immediately.',
+    })
+  }
+>
+  Show Toast with Long Description
+</button>
+```
+
+### Multiple Toasts
+
+Stack multiple toasts to display several notifications at once. They automatically arrange themselves in the configured position.
+
+```tsx
+<button
+  onClick={() => {
+    toast('First notification');
+    toast.success('Second notification');
+    toast.warning('Third notification');
+  }}
+>
+  Show Multiple Toasts
+</button>
+```
+
+### Programmatic Toast
+
+Trigger toasts in response to events, API calls, or user actions from anywhere in your component.
+
+```tsx
+'use client';
+import { toast } from '@/components/ui/mc-sonner';
+import { useState } from 'react';
+
+export default function FormExample() {
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/api/submit', { method: 'POST' });
+      if (response.ok) {
+        toast.success('Form submitted successfully', {
+          description: 'Thank you for your submission.',
+        });
+      } else {
+        toast.error('Submission failed', {
+          description: 'Please try again later.',
+        });
+      }
+    } catch (error) {
+      toast.error('An error occurred', {
+        description: 'Please check your connection and try again.',
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  return <form onSubmit={handleSubmit}>{/* form fields */}</form>;
+}
+```
+
+### Toast in Server Action
+
+Use toasts to provide feedback from Next.js server actions on the client.
+
+```tsx
+'use client';
+import { toast } from '@/components/ui/mc-sonner';
+import { updateUserProfile } from '@/app/actions';
+
+export default function ProfileForm() {
+  const handleUpdate = async (formData) => {
+    try {
+      const result = await updateUserProfile(formData);
+      if (result.success) {
+        toast.success('Profile updated', {
+          description: 'Your changes have been saved.',
+        });
+      } else {
+        toast.error('Update failed', {
+          description: result.error || 'Please try again.',
+        });
+      }
+    } catch (error) {
+      toast.error('Something went wrong', {
+        description: 'An unexpected error occurred.',
+      });
+    }
+  };
+
+  return <form action={handleUpdate}>{/* form fields */}</form>;
+}
+```
+
+## API Reference
+
+### McSonner Component Props
+
+The `McSonner` component accepts all props from the underlying Sonner `Toaster`:
+
+| Prop            | Type                                                                                              | Default        | Description                             |
+| --------------- | ------------------------------------------------------------------------------------------------- | -------------- | --------------------------------------- |
+| `position`      | `"top-left" \| "top-center" \| "top-right" \| "bottom-left" \| "bottom-center" \| "bottom-right"` | `"top-center"` | The position where toasts are displayed |
+| `toastOptions`  | `ToastOptions`                                                                                    | `See below`    | Default options applied to all toasts   |
+| `expand`        | `boolean`                                                                                         | `false`        | Expand toasts on hover                  |
+| `richColors`    | `boolean`                                                                                         | `false`        | Use rich colors for toast variants      |
+| `closeButton`   | `boolean`                                                                                         | `false`        | Show a close button on toasts           |
+| `visibleToasts` | `number`                                                                                          | `3`            | Maximum number of visible toasts        |
+| `gap`           | `number`                                                                                          | `10`           | Gap between toasts in pixels            |
+| `theme`         | `"light" \| "dark" \| "system"`                                                                   | `"system"`     | Color scheme for toasts                 |
+
+### toast() Function
+
+The `toast()` function and its variants return a toast ID for programmatic control.
+
+**Default Toast**:
+
+```tsx
+toast(message: string, options?: ToastOptions): string
+```
+
+**Success Toast**:
+
+```tsx
+toast.success(message: string, options?: ToastOptions): string
+```
+
+**Warning Toast**:
+
+```tsx
+toast.warning(message: string, options?: ToastOptions): string
+```
+
+**Error Toast**:
+
+```tsx
+toast.error(message: string, options?: ToastOptions): string
+```
+
+### ToastOptions
+
+| Prop          | Type                                     | Default     | Description                                  |
+| ------------- | ---------------------------------------- | ----------- | -------------------------------------------- |
+| `description` | `string`                                 | `undefined` | Supporting text displayed below the message  |
+| `action`      | `{ label: string; onClick: () => void }` | `undefined` | Action button with label and click handler   |
+| `duration`    | `number`                                 | `4000`      | Duration in milliseconds before auto-dismiss |
+| `icon`        | `ReactNode`                              | `undefined` | Custom icon (overrides variant icon)         |
+| `closeButton` | `boolean`                                | `false`     | Show a close button on this specific toast   |
+
+## Styling
+
+The `mc-sonner` is pre-configured with MicroClub's design system. The default styling includes:
+
+- **Toast Container**: Bordered card with rounded corners and subtle shadow
+- **Icons**: Automatically rendered based on variant (success, warning, error)
+- **Typography**: Title in medium weight (500) with proper line height and color
+- **Description**: Secondary text with muted color for supporting information
+- **Action Button**: Styled with primary color, full height, and hover effects
+
+All styling is applied via Tailwind CSS v4, making it fully customizable to your needs.
+
+## Accessibility
+
+The `mc-sonner` is built on the accessible Sonner primitive and includes:
+
+- **ARIA Roles**: Proper semantic markup for screen readers
+- **Focus Management**: Keyboard navigation support for action buttons
+- **Motion Preferences**: Respects `prefers-reduced-motion` system setting
+- **Color Contrast**: All text meets WCAG AA standards
+- **Status Announcements**: Screen readers announce toast content
+
+## Best Practices
+
+1. **Keep messages concise**: Toast messages should be brief and scannable
+2. **Use appropriate variants**: Choose success, warning, or error based on the message type
+3. **Limit duration**: 4 seconds is the default duration to avoid overwhelming users
+4. **Provide actionable feedback**: Use descriptions to provide context when needed
+5. **Avoid too many toasts**: Stack only when necessary; avoid notification fatigue
+6. **Include actions for important operations**: Use action buttons for undo or retry
+7. **Auto-dismiss non-critical messages**: Critical errors might warrant longer durations
+
+## Customization
+
+To customize the toast appearance globally, modify the `toastOptions` in the `McSonner` component:
+
+```tsx
+const customOptions = {
+  unstyled: false,
+  classNames: {
+    toast: 'custom-toast-class',
+    actionButton: 'custom-action-button-class',
+  },
+};
+```
+
+For component-level customization, extend the existing Tailwind classes in your project's CSS.

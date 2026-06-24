@@ -2390,6 +2390,19 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-sonner",
+      "title": "MicroClub Sonner",
+      "description": "A toast component for MicroClub UI",
+      "dependencies": ["@base-ui/react", "sonner"],
+      "files": [
+        {
+          "path": "registry/ui/mc-sonner.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-tooltip",
       "title": "MicroClub Tooltip",
       "description": "A tooltip component for MicroClub UI",
@@ -2410,6 +2423,19 @@
       "files": [
         {
           "path": "registry/ui/mc-popover.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-dropdown-menu",
+      "title": "MicroClub Dropdown Menu",
+      "description": "A dropdown menu component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-dropdown-menu.tsx",
           "type": "registry:component"
         }
       ],
@@ -2462,6 +2488,19 @@
       "files": [
         {
           "path": "registry/ui/mc-skeleton.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-badge",
+      "title": "MicroClub Badge",
+      "description": "A badge component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-badge.tsx",
           "type": "registry:component"
         }
       ],
