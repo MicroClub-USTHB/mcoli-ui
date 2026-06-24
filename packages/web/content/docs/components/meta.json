@@ -27,6 +27,7 @@
     "mc-separator",
     "mc-scrollarea",
     "mc-skeleton",
+    "mc-badge",
     "mc-avatar",
     "mc-hover-card",
     "---Coming Soon---",
@@ -36,7 +37,6 @@
     "mc-collapsible",
     "mc-progress",
     "mc-calendar",
-    "mc-badge",
     "mc-drawer",
     "mc-slider",
     "mc-carousel"

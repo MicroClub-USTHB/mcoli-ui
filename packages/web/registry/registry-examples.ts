@@ -329,6 +329,19 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-skeleton.json`],
   },
   {
+    name: 'mc-badge-demo',
+    type: 'registry:example',
+    title: 'MicroClub Badge Demo',
+    description: 'Demo for MicroClub Badge',
+    files: [
+      {
+        path: 'examples/mc-badge-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-badge.json`],
+  },
+  {
     name: 'mc-avatar-demo',
     type: 'registry:example',
     title: 'MicroClub Avatar Demo',
@@ -353,18 +366,5 @@ export const examples: Registry['items'] = [
       },
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-hover-card.json`],
-  },
-  {
-    name: 'mc-badge-demo',
-    type: 'registry:example',
-    title: 'MicroClub Badge Demo',
-    description: 'Demo for MicroClub Badge',
-    files: [
-      {
-        path: 'examples/mc-badge-demo.tsx',
-        type: 'registry:example',
-      },
-    ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-badge.json`],
   },
 ];

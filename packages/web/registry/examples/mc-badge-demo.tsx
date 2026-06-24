@@ -7,7 +7,7 @@ const DotIcon = ({ className }: { className?: string }) => (
 
 export default function McBadgeDemo() {
   return (
-    <div className="flex w-full flex-wrap justify-center gap-2">
+    <div className="flex w-full flex-wrap gap-2">
       <McBadge>Label</McBadge>
       <McBadge variant="secondary">Secondary</McBadge>
       <McBadge variant="destructive">Destructive</McBadge>

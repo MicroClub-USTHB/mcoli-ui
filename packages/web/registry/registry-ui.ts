@@ -327,6 +327,19 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-badge',
+    type: 'registry:component',
+    title: 'MicroClub Badge',
+    description: 'A badge component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-badge.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
     name: 'mc-avatar',
     type: 'registry:component',
     title: 'MicroClub Avatar',
@@ -347,19 +360,6 @@ export const ui: Registry['items'] = [
     files: [
       {
         path: 'ui/mc-hover-card.tsx',
-        type: 'registry:component',
-      },
-    ],
-    dependencies: ['@base-ui/react'],
-  },
-  {
-    name: 'mc-badge',
-    type: 'registry:component',
-    title: 'MicroClub Badge',
-    description: 'A badge component for MicroClub UI',
-    files: [
-      {
-        path: 'ui/mc-badge.tsx',
         type: 'registry:component',
       },
     ],

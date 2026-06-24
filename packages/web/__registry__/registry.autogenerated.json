@@ -2481,6 +2481,19 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-badge",
+      "title": "MicroClub Badge",
+      "description": "A badge component for MicroClub UI",
+      "dependencies": ["@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-badge.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-avatar",
       "title": "MicroClub Avatar",
       "description": "A avatar component for MicroClub UI",
@@ -2501,19 +2514,6 @@
       "files": [
         {
           "path": "registry/ui/mc-hover-card.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "type": "registry:component"
-    },
-    {
-      "name": "mc-badge",
-      "title": "MicroClub Badge",
-      "description": "A badge component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
-      "files": [
-        {
-          "path": "registry/ui/mc-badge.tsx",
           "type": "registry:component"
         }
       ],
