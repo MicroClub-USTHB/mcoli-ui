@@ -236,6 +236,19 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-sonner',
+    type: 'registry:component',
+    title: 'MicroClub Sonner',
+    description: 'A toast component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-sonner.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react', 'sonner'],
+  },
+  {
     name: 'mc-tooltip',
     type: 'registry:component',
     title: 'MicroClub Tooltip',

@@ -2293,6 +2293,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-sonner': {
+    name: 'mc-sonner',
+    description: 'A toast component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-sonner.tsx',
+        content:
+          "'use client';\n\nimport { Toaster as SonnerComponent, toast as rawToast } from 'sonner';\nimport { CheckCircle2, AlertCircle } from 'lucide-react';\n\ntype ToasterProps = React.ComponentProps<typeof SonnerComponent>;\n\nconst toastIcons = {\n  success: <CheckCircle2 className=\"text-muted-foreground shrink-0 h-3.5 w-3.5\" />,\n  warning: <AlertCircle className=\"text-muted-foreground shrink-0 h-3.5 w-3.5\" />,\n  error: <AlertCircle className=\"text-muted-foreground  shrink-0 h-3.5 w-3.5\" />,\n};\n\ninterface ToastOptions {\n  description?: string;\n  action?: {\n    label: string;\n    onClick: () => void;\n  };\n}\n\nconst mcToastCustom = (\n  message: string,\n  variant?: 'success' | 'warning' | 'error',\n  options?: ToastOptions\n) => {\n  const Icon = variant ? toastIcons[variant] : null;\n\n  return rawToast(\n    <div className=\"w-full h-full flex flex-col items-start justify-center gap-0.5\">\n      <div className=\"flex items-center gap-1.5 w-full max-w-66.5\">\n        {Icon}\n        <span className=\"text-sm font-medium tracking-normal leading-5 text-card-foreground\">\n          {message}\n        </span>\n      </div>\n\n      {options?.description && (\n        <p className=\"text-sm font-normal tracking-normal leading-5 text-muted-foreground max-w-66.5\">\n          {options.description}\n        </p>\n      )}\n    </div>,\n    {\n      action: options?.action,\n    }\n  );\n};\n\nexport const toast = Object.assign(\n  (message: string, options?: ToastOptions) => mcToastCustom(message, undefined, options),\n  {\n    success: (message: string, options?: ToastOptions) =>\n      mcToastCustom(message, 'success', options),\n    warning: (message: string, options?: ToastOptions) =>\n      mcToastCustom(message, 'warning', options),\n    error: (message: string, options?: ToastOptions) => mcToastCustom(message, 'error', options),\n  }\n);\n\nconst McSonner = ({ ...props }: ToasterProps) => {\n  return (\n    <SonnerComponent\n      className=\"\"\n      position=\"top-center\"\n      toastOptions={{\n        unstyled: true,\n        classNames: {\n          toast:\n            'w-97.5 min-h-18.5 bg-background flex items-center justify-between gap-1.5 p-4 border-[1px] rounded-lg shadow-xs border-border',\n          actionButton:\n            'flex items-center justify-center bg-primary text-background text-sm py-2 px-3.5 min-w-15.5 max-w-21.5 min-h-9 rounded-[8px] shadow-xs shrink-0 cursor-pointer',\n        },\n      }}\n      {...props}\n    />\n  );\n};\n\nexport default McSonner;\n",
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-tooltip': {
     name: 'mc-tooltip',
     description: 'A tooltip component for MicroClub UI',
@@ -2697,6 +2710,22 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-alert-demo.tsx')),
     source:
       '\'use client\';\n\nimport { McAlert } from \'@/registry/ui/mc-alert\';\n\nexport default function McAlertDemo() {\n  return (\n    <div className="p-8 space-y-4">\n      <h1 className="text-2xl font-bold mb-6">McAlert Component Demo</h1>\n\n      <McAlert\n        variant="success"\n        title="Success! Your changes have been saved"\n        description="This is an alert with icon, title and description."\n      />\n\n      <McAlert variant="default" title="This alert has a title and an icon. No description." />\n\n      <McAlert\n        variant="destructive"\n        title="Unable to process your payment."\n        description="Please verify your billing information and try again."\n        items={[\'Check your card details\', \'Ensure sufficient funds\', \'Verify billing address\']}\n      />\n\n      <McAlert\n        variant="success"\n        title="Long content example to demonstrate responsive width"\n        description="This is a very long description that should cause the alert width to expand up to the maximum of 719px before the height increases. The component will grow with the content length."\n      />\n    </div>\n  );\n}\n',
+  },
+  'mc-sonner-demo': {
+    name: 'mc-sonner-demo',
+    description: 'Demo for MicroClub Sonner',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-sonner-demo.tsx',
+        content:
+          "'use client';\nimport McSonner, { toast } from '../ui/mc-sonner';\nexport default function McSonnerDemo() {\n  return (\n    <div>\n      <button\n        onClick={() =>\n          toast('Event has been created', {\n            description: 'Sunday, December 03, 2023 at 9:00 AM',\n            action: {\n              label: 'undo',\n              onClick: () => console.log('Undo du toast simple cliqué'),\n            },\n          })\n        }\n        className=\"px-5 py-2.5 bg-primary text-background rounded-lg text-sm font-medium transition-all shadow-sm cursor-pointer\"\n      >\n        Show Toast\n      </button>\n      <McSonner />\n    </div>\n  );\n}\n",
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-sonner-demo.tsx')),
+    source:
+      "'use client';\nimport McSonner, { toast } from '../ui/mc-sonner';\nexport default function McSonnerDemo() {\n  return (\n    <div>\n      <button\n        onClick={() =>\n          toast('Event has been created', {\n            description: 'Sunday, December 03, 2023 at 9:00 AM',\n            action: {\n              label: 'undo',\n              onClick: () => console.log('Undo du toast simple cliqué'),\n            },\n          })\n        }\n        className=\"px-5 py-2.5 bg-primary text-background rounded-lg text-sm font-medium transition-all shadow-sm cursor-pointer\"\n      >\n        Show Toast\n      </button>\n      <McSonner />\n    </div>\n  );\n}\n",
   },
   'mc-tooltip-demo': {
     name: 'mc-tooltip-demo',
