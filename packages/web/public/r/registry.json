@@ -2390,6 +2390,19 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-sonner",
+      "title": "MicroClub Sonner",
+      "description": "A toast component for MicroClub UI",
+      "dependencies": ["@base-ui/react", "sonner"],
+      "files": [
+        {
+          "path": "registry/ui/mc-sonner.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-tooltip",
       "title": "MicroClub Tooltip",
       "description": "A tooltip component for MicroClub UI",
@@ -2488,19 +2501,6 @@
       "files": [
         {
           "path": "registry/ui/mc-hover-card.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "type": "registry:component"
-    },
-    {
-      "name": "mc-sonner",
-      "title": "MicroClub Sonner",
-      "description": "A toast component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "sonner"],
-      "files": [
-        {
-          "path": "registry/ui/mc-sonner.tsx",
           "type": "registry:component"
         }
       ],

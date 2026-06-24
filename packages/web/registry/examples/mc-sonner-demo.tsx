@@ -2,7 +2,7 @@
 import McSonner, { toast } from '../ui/mc-sonner';
 export default function McSonnerDemo() {
   return (
-    <div className="p-12 flex flex-col gap-4 items-center justify-center">
+    <div>
       <button
         onClick={() =>
           toast('Event has been created', {
