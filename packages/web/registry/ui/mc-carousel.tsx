@@ -16,6 +16,7 @@ type CarouselProps = {
   opts?: CarouselOptions;
   plugins?: CarouselPlugin;
   orientation?: 'horizontal' | 'vertical';
+  layout?: 'single' | 'multi';
   setApi?: (api: CarouselApi) => void;
 };
 
@@ -26,6 +27,7 @@ type CarouselContextProps = {
   scrollNext: () => void;
   canScrollPrev: boolean;
   canScrollNext: boolean;
+  layout: 'single' | 'multi';
 } & CarouselProps;
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
@@ -42,6 +44,7 @@ function useCarousel() {
 
 function Carousel({
   orientation = 'horizontal',
+  layout = 'single',
   opts,
   setApi,
   plugins,
@@ -52,6 +55,7 @@ function Carousel({
   const [carouselRef, api] = useEmblaCarousel(
     {
       ...opts,
+      align: layout === 'multi' ? 'start' : 'center',
       axis: orientation === 'horizontal' ? 'x' : 'y',
     },
     plugins
@@ -109,6 +113,7 @@ function Carousel({
         api: api,
         opts,
         orientation: orientation || (opts?.axis === 'y' ? 'vertical' : 'horizontal'),
+        layout,
         scrollPrev,
         scrollNext,
         canScrollPrev,
@@ -130,38 +135,46 @@ function Carousel({
 }
 
 interface CarouselContentProps extends React.ComponentProps<'div'> {
-  count?: number; // How many items to generate
-  renderItem?: (index: number) => React.ReactNode; // A function returning custom content per card
+  count?: number;
+  renderItem?: (index: number) => React.ReactNode;
 }
 
-function CarouselContent({
-  className,
-  count = 5, // Fallback default if they don't provide a count
-  renderItem,
-  ...props
-}: CarouselContentProps) {
-  const { carouselRef, orientation } = useCarousel();
+function CarouselContent({ className, count = 5, renderItem, ...props }: CarouselContentProps) {
+  const { carouselRef, orientation, layout } = useCarousel();
 
   return (
-    <div ref={carouselRef} className="overflow-hidden" data-slot="carousel-content">
+    <div ref={carouselRef} className="overflow-hidden py-2" data-slot="carousel-content">
       <div
-        className={cn('flex', orientation === 'horizontal' ? '' : ' flex-col', className)}
+        className={cn(
+          'flex',
+          orientation === 'horizontal' ? '' : 'flex-col',
+          layout === 'multi' ? 'gap-[10px]' : '',
+          className
+        )}
         {...props}
       >
-        {/* Generate items dynamically based on the count prop */}
         {Array.from({ length: count }).map((_, index) => (
           <CarouselItem key={index}>
-            <div className="p-1">
-              <div className="flex aspect-square  mx-0 w-[252.48428344726562px] h-[286.69183349609375px] items-center justify-center text-card-foreground  border-[0.81px] rounded-[9.77px] bg-card-background border-border pt-[19.55px] pb-[19.55px]  ">
-                {/* If the user provided a custom renderItem function, use it.
-                  Otherwise, fall back to displaying the simple number like before.
-                */}
-                {renderItem ? (
-                  renderItem(index)
-                ) : (
-                  <span className="text-4xl font-semibold text-white">{index + 1}</span>
-                )}
-              </div>
+            <div
+              className={cn(
+                'flex items-center justify-center text-card-foreground bg-card-background border-border text-white',
+                layout === 'single' &&
+                  'w-[252.48px] h-[286.69px] border-[0.81px] rounded-[9.77px] pt-[19.55px] pb-[19.55px]',
+                layout === 'multi' && 'w-[117px] h-[157px] border rounded-xl py-6'
+              )}
+            >
+              {renderItem ? (
+                renderItem(index)
+              ) : (
+                <span
+                  className={cn(
+                    'font-semibold text-primary',
+                    layout === 'multi' ? 'text-2xl' : 'text-4xl'
+                  )}
+                >
+                  {index + 1}
+                </span>
+              )}
             </div>
           </CarouselItem>
         ))}
@@ -171,7 +184,7 @@ function CarouselContent({
 }
 
 function CarouselItem({ className, children, ...props }: React.ComponentProps<'div'>) {
-  const { orientation } = useCarousel();
+  const { orientation, layout } = useCarousel();
 
   return (
     <div
@@ -179,8 +192,10 @@ function CarouselItem({ className, children, ...props }: React.ComponentProps<'d
       aria-roledescription="slide"
       data-slot="carousel-item"
       className={cn(
-        'min-w-0  shrink-0 grow-0 basis-full ',
-        orientation === 'horizontal' ? 'pl-5' : 'pt-4',
+        'min-w-0 shrink-0 grow-0',
+        layout === 'multi' ? 'basis-[calc(33.333%-6.667px)] px-1' : 'basis-full',
+        layout === 'single' && orientation === 'horizontal' ? 'px-7' : '',
+        orientation === 'vertical' && 'pt-4',
         className
       )}
     >
@@ -195,7 +210,7 @@ function CarouselPrevious({
   size = 'icon-sm',
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { orientation, scrollPrev, canScrollPrev } = useCarousel();
+  const { orientation, scrollPrev, canScrollPrev, layout } = useCarousel();
 
   return (
     <Button
@@ -203,9 +218,11 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        'absolute touch-manipulation rounded-full',
+        'absolute touch-manipulation rounded-full border-border bg-card-background shadow-sm shadow-shadow',
         orientation === 'horizontal'
-          ? 'inset-y-0 -left-[19.26px] my-auto'
+          ? layout === 'multi'
+            ? 'inset-y-0 -left-10 my-auto'
+            : 'inset-y-0 -left-[19px] my-auto'
           : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
         className
       )}
@@ -225,7 +242,7 @@ function CarouselNext({
   size = 'icon-sm',
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { orientation, scrollNext, canScrollNext } = useCarousel();
+  const { orientation, scrollNext, canScrollNext, layout } = useCarousel();
 
   return (
     <Button
@@ -233,9 +250,11 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        'absolute touch-manipulation rounded-full  border-border bg-card-background  shadow-sm shadow-shadow',
+        'absolute touch-manipulation rounded-full border-border bg-card-background shadow-sm shadow-shadow',
         orientation === 'horizontal'
-          ? 'inset-y-0 -right-[18.26px] my-auto'
+          ? layout === 'multi'
+            ? 'inset-y-0 -right-10 my-auto'
+            : 'inset-y-0 -right-[19px] my-auto'
           : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
         className
       )}
