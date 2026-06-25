@@ -2269,7 +2269,7 @@ export const Index: Record<string, any> = {
   },
   'mc-alert-dialog': {
     name: 'mc-alert-dialog',
-    description: 'A alert dialog component for MicroClub UI',
+    description: 'An alert dialog component for MicroClub UI',
     type: 'registry:component',
     files: [
       {
@@ -2282,7 +2282,7 @@ export const Index: Record<string, any> = {
   },
   'mc-alert': {
     name: 'mc-alert',
-    description: 'A alert component for MicroClub UI',
+    description: 'An alert component for MicroClub UI',
     type: 'registry:component',
     files: [
       {
@@ -2425,7 +2425,7 @@ export const Index: Record<string, any> = {
   },
   'mc-avatar': {
     name: 'mc-avatar',
-    description: 'A avatar component for MicroClub UI',
+    description: 'An avatar component for MicroClub UI',
     type: 'registry:component',
     files: [
       {

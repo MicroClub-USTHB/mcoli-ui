@@ -2248,7 +2248,7 @@
     },
     {
       "name": "mc-select",
-      "title": "MicroClub Selector",
+      "title": "MicroClub Select",
       "description": "A Selector component for MicroClub UI",
       "dependencies": ["@base-ui/react"],
       "files": [
@@ -2366,7 +2366,7 @@
     {
       "name": "mc-alert-dialog",
       "title": "MicroClub Alert Dialog",
-      "description": "A alert dialog component for MicroClub UI",
+      "description": "An alert dialog component for MicroClub UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2379,7 +2379,7 @@
     {
       "name": "mc-alert",
       "title": "MicroClub Alert",
-      "description": "A alert component for MicroClub UI",
+      "description": "An alert component for MicroClub UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2522,7 +2522,7 @@
     {
       "name": "mc-avatar",
       "title": "MicroClub Avatar",
-      "description": "A avatar component for MicroClub UI",
+      "description": "An avatar component for MicroClub UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {

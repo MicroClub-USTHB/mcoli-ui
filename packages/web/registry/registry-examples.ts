@@ -96,7 +96,7 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-select-demo',
     type: 'registry:example',
-    title: 'MicroClub Selector Demo',
+    title: 'MicroClub Select Demo',
     description: 'Demo for MicroClub Selector',
     files: [
       {
@@ -265,7 +265,7 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-popover-demo',
     type: 'registry:example',
-    title: 'MicroClub Popover  Demo',
+    title: 'MicroClub Popover Demo',
     description: 'Demo for MicroClub Popover',
     files: [
       {

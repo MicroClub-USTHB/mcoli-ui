@@ -2,7 +2,7 @@
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-alert",
   "title": "MicroClub Alert",
-  "description": "A alert component for MicroClub UI",
+  "description": "An alert component for MicroClub UI",
   "dependencies": ["@base-ui/react"],
   "files": [
     {

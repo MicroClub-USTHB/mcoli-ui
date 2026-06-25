@@ -95,7 +95,7 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-select',
     type: 'registry:component',
-    title: 'MicroClub Selector',
+    title: 'MicroClub Select',
     description: 'A Selector component for MicroClub UI',
     files: [
       {
@@ -213,7 +213,7 @@ export const ui: Registry['items'] = [
     name: 'mc-alert-dialog',
     type: 'registry:component',
     title: 'MicroClub Alert Dialog',
-    description: 'A alert dialog component for MicroClub UI',
+    description: 'An alert dialog component for MicroClub UI',
     files: [
       {
         path: 'ui/mc-alert-dialog.tsx',
@@ -226,7 +226,7 @@ export const ui: Registry['items'] = [
     name: 'mc-alert',
     type: 'registry:component',
     title: 'MicroClub Alert',
-    description: 'A alert component for MicroClub UI',
+    description: 'An alert component for MicroClub UI',
     files: [
       {
         path: 'ui/mc-alert.tsx',
@@ -369,7 +369,7 @@ export const ui: Registry['items'] = [
     name: 'mc-avatar',
     type: 'registry:component',
     title: 'MicroClub Avatar',
-    description: 'A avatar component for MicroClub UI',
+    description: 'An avatar component for MicroClub UI',
     files: [
       {
         path: 'ui/mc-avatar.tsx',
