@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mc-drawer-card",
+  "title": "MicroClub Drawer",
+  "description": "A drawer component for MicroClub UI",
+  "dependencies": ["@base-ui/react"],
+  "files": [
+    {
+      "path": "registry/ui/mc-drawer.tsx",
+      "content": "",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}
