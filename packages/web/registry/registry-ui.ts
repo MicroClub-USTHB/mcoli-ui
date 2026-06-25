@@ -391,4 +391,18 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+
+  {
+    name: 'mc-carousel',
+    type: 'registry:component',
+    title: 'MicroClub Carousel',
+    description: 'A carousel component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-carousel.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
