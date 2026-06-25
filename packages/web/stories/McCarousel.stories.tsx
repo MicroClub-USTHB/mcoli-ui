@@ -25,20 +25,13 @@ type Story = StoryObj;
 
 export const Playground: Story = {
   render: () => (
-    <McCarousel className="w-full max-w-[12rem] sm:max-w-xs">
-      <CarouselContent>
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index}>
-            <div className="p-1">
-              <div className="flex aspect-square items-center justify-center rounded-lg border p-6">
-                <span className="text-4xl font-semibold">{index + 1}</span>
-              </div>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </McCarousel>
+    <div className="flex w-full items-center justify-center min-h-[400px] py-6">
+      <McCarousel className="w-full max-w-xs relative">
+        {/* Renders exactly 8 cards automatically */}
+        <CarouselContent count={8} />
+        <CarouselPrevious />
+        <CarouselNext />
+      </McCarousel>
+    </div>
   ),
 };

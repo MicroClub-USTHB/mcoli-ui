@@ -129,20 +129,48 @@ function Carousel({
   );
 }
 
-function CarouselContent({ className, ...props }: React.ComponentProps<'div'>) {
+interface CarouselContentProps extends React.ComponentProps<'div'> {
+  count?: number; // How many items to generate
+  renderItem?: (index: number) => React.ReactNode; // A function returning custom content per card
+}
+
+function CarouselContent({
+  className,
+  count = 5, // Fallback default if they don't provide a count
+  renderItem,
+  ...props
+}: CarouselContentProps) {
   const { carouselRef, orientation } = useCarousel();
 
   return (
     <div ref={carouselRef} className="overflow-hidden" data-slot="carousel-content">
       <div
-        className={cn('flex', orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col', className)}
+        className={cn('flex', orientation === 'horizontal' ? '' : ' flex-col', className)}
         {...props}
-      />
+      >
+        {/* Generate items dynamically based on the count prop */}
+        {Array.from({ length: count }).map((_, index) => (
+          <CarouselItem key={index}>
+            <div className="p-1">
+              <div className="flex aspect-square  mx-0 w-[252.48428344726562px] h-[286.69183349609375px] items-center justify-center text-card-foreground  border-[0.81px] rounded-[9.77px] bg-card-background border-border pt-[19.55px] pb-[19.55px]  ">
+                {/* If the user provided a custom renderItem function, use it.
+                  Otherwise, fall back to displaying the simple number like before.
+                */}
+                {renderItem ? (
+                  renderItem(index)
+                ) : (
+                  <span className="text-4xl font-semibold text-white">{index + 1}</span>
+                )}
+              </div>
+            </div>
+          </CarouselItem>
+        ))}
+      </div>
     </div>
   );
 }
 
-function CarouselItem({ className, ...props }: React.ComponentProps<'div'>) {
+function CarouselItem({ className, children, ...props }: React.ComponentProps<'div'>) {
   const { orientation } = useCarousel();
 
   return (
@@ -151,12 +179,13 @@ function CarouselItem({ className, ...props }: React.ComponentProps<'div'>) {
       aria-roledescription="slide"
       data-slot="carousel-item"
       className={cn(
-        'min-w-0 shrink-0 grow-0 basis-full',
-        orientation === 'horizontal' ? 'pl-4' : 'pt-4',
+        'min-w-0  shrink-0 grow-0 basis-full ',
+        orientation === 'horizontal' ? 'pl-5' : 'pt-4',
         className
       )}
-      {...props}
-    />
+    >
+      <div className="p-1">{children}</div>
+    </div>
   );
 }
 
@@ -176,7 +205,7 @@ function CarouselPrevious({
       className={cn(
         'absolute touch-manipulation rounded-full',
         orientation === 'horizontal'
-          ? 'inset-y-0 -left-12 my-auto'
+          ? 'inset-y-0 -left-[19.26px] my-auto'
           : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
         className
       )}
@@ -204,9 +233,9 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        'absolute touch-manipulation rounded-full',
+        'absolute touch-manipulation rounded-full  border-border bg-card-background  shadow-sm shadow-shadow',
         orientation === 'horizontal'
-          ? 'inset-y-0 -right-12 my-auto'
+          ? 'inset-y-0 -right-[18.26px] my-auto'
           : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
         className
       )}
