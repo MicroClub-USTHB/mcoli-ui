@@ -7,7 +7,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '@/components/ui/mc-carousel';
+} from '@/components/ui/carousel';
 
 export function CarouselDemo() {
   return (

@@ -11,6 +11,13 @@ import {
 const meta: Meta = {
   title: 'Components/McCarousel',
   component: McCarousel,
+  decorators: [
+    (Story) => (
+      <div className="flex items-center justify-center p-6">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
