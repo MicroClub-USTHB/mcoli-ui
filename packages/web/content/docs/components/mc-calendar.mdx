@@ -3,7 +3,153 @@ title: MC Calendar
 description: A date picker calendar component.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-calendar` is a flexible date selection component for the MicroClub UI library. It is built on **react-day-picker** and styled with the design tokens and patterns used across the rest of the system.
+
+For simple use cases, `McCalendar` gives you the full calendar UI. For form-style interactions, `McDatePicker` wraps the calendar in a popover trigger and provides a ready-made input-like experience.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-calendar-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-calendar-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-calendar` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-calendar</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-calendar</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-calendar</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-calendar</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">
+    npm install react-day-picker date-fns lucide-react @base-ui/react clsx tailwind-merge
+  </Tab>
+  <Tab value="pnpm">
+    pnpm add react-day-picker date-fns lucide-react @base-ui/react clsx tailwind-merge
+  </Tab>
+  <Tab value="yarn">
+    yarn add react-day-picker date-fns lucide-react @base-ui/react clsx tailwind-merge
+  </Tab>
+  <Tab value="bun">
+    bun add react-day-picker date-fns lucide-react @base-ui/react clsx tailwind-merge
+  </Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-calendar" />
+
+<Step>Copy the example if you want the date picker</Step>
+
+<ComponentSource name="mc-calendar-demo" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils`, `@/components/ui/button`, and `@/registry/ui/mc-popover` paths match your app structure.
+
+</Steps>
+
+## Usage
+
+### Calendar
+
+```tsx
+import { useState } from 'react';
+import { McCalendar } from '@/components/ui/mc-calendar';
+
+export default function Example() {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+
+  return <McCalendar mode="single" selected={date} onSelect={setDate} />;
+}
+```
+
+### Date Picker
+
+```tsx
+import { useState } from 'react';
+import { McDatePicker } from '@/components/ui/mc-calendar';
+
+export default function Example() {
+  const [date, setDate] = useState<Date | undefined>();
+
+  return <McDatePicker label="Submission date" selected={date} onSelect={setDate} />;
+}
+```
+
+## Examples
+
+### Basic Calendar
+
+```tsx
+<McCalendar mode="single" selected={date} onSelect={setDate} />
+```
+
+### Date Picker
+
+Use `McDatePicker` when you want a compact trigger that opens the calendar in a popover.
+
+```tsx
+<McDatePicker label="Submission date" selected={date} onSelect={setDate} />
+```
+
+### Without Outside Days
+
+```tsx
+<McCalendar mode="single" showOutsideDays={false} selected={date} onSelect={setDate} />
+```
+
+### Disabled State
+
+```tsx
+<McCalendar mode="single" disabled selected={date} onSelect={setDate} />
+```
+
+## API Reference
+
+### McCalendar Props
+
+`McCalendar` accepts all props from `react-day-picker` `DayPicker`, plus a few MicroClub-specific options.
+
+| Prop              | Type                                                             | Default     | Description                                        |
+| ----------------- | ---------------------------------------------------------------- | ----------- | -------------------------------------------------- |
+| `showOutsideDays` | `boolean`                                                        | `true`      | Show days from adjacent months                     |
+| `captionLayout`   | `"label" \| "dropdown" \| "dropdown-months" \| "dropdown-years"` | `"label"`   | Controls the month/year caption layout             |
+| `buttonVariant`   | `Button` variant                                                 | `"ghost"`   | Variant used for the previous and next nav buttons |
+| `className`       | `string`                                                         | `undefined` | Additional CSS classes                             |
+
+All other props from `react-day-picker` are supported.
+
+### McDatePicker Props
+
+`McDatePicker` is a convenience wrapper around `McCalendar` and a popover trigger.
+
+| Prop               | Type                    | Default             | Description                               |
+| ------------------ | ----------------------- | ------------------- | ----------------------------------------- |
+| `label`            | `ReactNode`             | `"Submission date"` | Label shown above the trigger             |
+| `placeholder`      | `ReactNode`             | `"Pick a date"`     | Text shown when no date is selected       |
+| `selected`         | `Date`                  | `undefined`         | Currently selected date                   |
+| `onSelect`         | `(date?: Date) => void` | `undefined`         | Fired when a date is selected             |
+| `triggerClassName` | `string`                | `undefined`         | Additional classes for the trigger button |
+| `className`        | `string`                | `undefined`         | Additional classes for the wrapper        |
+
+All remaining calendar props are forwarded to `McCalendar`.
