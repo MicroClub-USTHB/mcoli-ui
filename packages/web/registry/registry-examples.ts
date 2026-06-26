@@ -393,4 +393,17 @@ export const examples: Registry['items'] = [
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-hover-card.json`],
   },
+  {
+    name: 'mc-calendar-demo',
+    type: 'registry:example',
+    title: 'MicroClub Calendar Demo',
+    description: 'Demo for MicroClub Calendar',
+    files: [
+      {
+        path: 'examples/mc-calendar-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-calendar.json`],
+  },
 ];
