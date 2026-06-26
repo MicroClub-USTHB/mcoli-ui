@@ -54,6 +54,7 @@ function Carousel({
 }: React.ComponentProps<'div'> & CarouselProps) {
   const [carouselRef, api] = useEmblaCarousel(
     {
+      containScroll: layout === 'multi' ? 'trimSnaps' : undefined,
       ...opts,
       align: layout === 'multi' ? 'start' : 'center',
       axis: orientation === 'horizontal' ? 'x' : 'y',
@@ -69,12 +70,18 @@ function Carousel({
     setCanScrollNext(api.canScrollNext());
   }, []);
 
+  // Guard against calling into Embla before/while it's reInit-ing —
+  // this is what throws "cannot render when not prepared" if you
+  // click right as a reInit is in flight (e.g. right after mount,
+  // when slide heights were just resolved for the vertical axis).
   const scrollPrev = React.useCallback(() => {
-    api?.scrollPrev();
+    if (!api) return;
+    if (api.canScrollPrev()) api.scrollPrev();
   }, [api]);
 
   const scrollNext = React.useCallback(() => {
-    api?.scrollNext();
+    if (!api) return;
+    if (api.canScrollNext()) api.scrollNext();
   }, [api]);
 
   const handleKeyDown = React.useCallback(
@@ -103,6 +110,7 @@ function Carousel({
 
     return () => {
       api?.off('select', onSelect);
+      api?.off('reInit', onSelect);
     };
   }, [api, onSelect]);
 
@@ -122,7 +130,14 @@ function Carousel({
     >
       <div
         onKeyDownCapture={handleKeyDown}
-        className={cn('relative', className)}
+        className={cn(
+          'relative',
+          // Height must flow all the way down to the embla viewport for
+          // vertical mode, otherwise Embla measures a 0px-tall axis and
+          // its internal engine ends up in a broken "unprepared" state.
+          orientation === 'vertical' && 'flex flex-col h-full',
+          className
+        )}
         role="region"
         aria-roledescription="carousel"
         data-slot="carousel"
@@ -143,11 +158,15 @@ function CarouselContent({ className, count = 5, renderItem, ...props }: Carouse
   const { carouselRef, orientation, layout } = useCarousel();
 
   return (
-    <div ref={carouselRef} className="overflow-hidden py-2" data-slot="carousel-content">
+    <div
+      ref={carouselRef}
+      className={cn('overflow-hidden w-full h-full', orientation === 'vertical' && 'min-h-0')}
+      data-slot="carousel-content"
+    >
       <div
         className={cn(
           'flex',
-          orientation === 'horizontal' ? '' : 'flex-col',
+          orientation === 'horizontal' ? '' : 'flex-col h-full',
           layout === 'multi' ? 'gap-[10px]' : '',
           className
         )}
@@ -161,7 +180,11 @@ function CarouselContent({ className, count = 5, renderItem, ...props }: Carouse
                 layout === 'single' &&
                   'w-[252.48px] h-[286.69px] border-[0.81px] rounded-[9.77px] pt-[19.55px] pb-[19.55px] shadow-[0_0.81px_2.44px_rgba(0,0,0,0.1)]',
                 layout === 'multi' &&
-                  'w-[117px] h-[157px] border rounded-xl py-6 shadow-[0_0.81px_2.44px_rgba(0,0,0,0.1)]'
+                  orientation === 'horizontal' &&
+                  'w-[117px] h-[157px] border rounded-xl py-6 shadow-[0_0.81px_2.44px_rgba(0,0,0,0.1)]',
+                layout === 'multi' &&
+                  orientation === 'vertical' &&
+                  'w-[320px] h-[142px] border rounded-xl py-6 shadow-[0_0.81px_2.44px_rgba(0,0,0,0.1)]'
               )}
             >
               {renderItem ? (
@@ -193,14 +216,23 @@ function CarouselItem({ className, children, ...props }: React.ComponentProps<'d
       aria-roledescription="slide"
       data-slot="carousel-item"
       className={cn(
-        'min-w-0 shrink-0 grow-0',
-        layout === 'multi' ? 'basis-[calc(33.333%-6.667px)] px-1' : 'basis-full',
+        'shrink-0 grow-0',
+        orientation === 'horizontal' ? 'min-w-0' : 'min-h-0',
+        layout === 'multi' ? 'basis-auto' : 'basis-full',
         layout === 'single' && orientation === 'horizontal' ? 'px-7' : '',
-        orientation === 'vertical' && 'pt-4',
         className
       )}
     >
-      <div className="p-1">{children}</div>
+      <div
+        className={cn(
+          // only single-layout horizontal slides get the p-1 wrapper padding;
+          // multi-layout relies on the gap-[10px] on the flex container instead
+          layout === 'single' && orientation === 'horizontal' ? 'p-1' : '',
+          orientation === 'vertical' ? 'py-[5px]' : ''
+        )}
+      >
+        {children}
+      </div>
     </div>
   );
 }
@@ -219,19 +251,26 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        'absolute touch-manipulation w-[34px] h-[34px] p-[10px] rounded-full border border-[#E6E9FF] bg-card-background shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)]',
+        'absolute touch-manipulation w-[34px] h-[34px] p-[10px] rounded-full border border-[#E6E9FF] bg-card-background shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)] z-10',
         orientation === 'horizontal'
           ? layout === 'multi'
             ? 'inset-y-0 -left-10 my-auto'
             : 'inset-y-0 -left-[19px] my-auto'
-          : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
+          : layout === 'multi'
+            ? '-top-10 left-1/2 -translate-x-1/2 rotate-0'
+            : '-top-[19px] left-1/2 -translate-x-1/2 rotate-0',
         className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeftIcon className="cn-rtl-flip" />
+      <ChevronLeftIcon
+        className={cn(
+          'cn-rtl-flip transition-transform',
+          orientation === 'vertical' && 'rotate-90'
+        )}
+      />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -251,19 +290,26 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        'absolute touch-manipulation w-[34px] h-[34px] p-[10px] rounded-full border border-[#E6E9FF] bg-card-background shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)]',
+        'absolute touch-manipulation w-[34px] h-[34px] p-[10px] rounded-full border border-[#E6E9FF] bg-card-background shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)] z-10',
         orientation === 'horizontal'
           ? layout === 'multi'
             ? 'inset-y-0 -right-10 my-auto'
             : 'inset-y-0 -right-[19px] my-auto'
-          : '-bottom-12 left-1/2 -translate-x-1/2 rotate-90',
+          : layout === 'multi'
+            ? '-bottom-10 left-1/2 -translate-x-1/2 rotate-0'
+            : '-bottom-[19px] left-1/2 -translate-x-1/2 rotate-0',
         className
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRightIcon className="cn-rtl-flip" />
+      <ChevronRightIcon
+        className={cn(
+          'cn-rtl-flip transition-transform',
+          orientation === 'vertical' && 'rotate-90'
+        )}
+      />
       <span className="sr-only">Next slide</span>
     </Button>
   );

@@ -38,9 +38,21 @@ export const Playground: Story = {
 
 export const MultiView: Story = {
   render: () => (
-    <div className="flex w-full items-center ml-70 justify-center min-h-[400px] ">
-      <McCarousel layout="multi" className="  w-[450px] mx-auto">
+    <div className="flex w-full items-center justify-center min-h-[300px] py-6 px-12">
+      <McCarousel layout="multi" orientation="horizontal" className="w-full max-w-[395px] relative">
         <CarouselContent count={6} />
+        <CarouselPrevious />
+        <CarouselNext />
+      </McCarousel>
+    </div>
+  ),
+};
+
+export const VerticalMultiView: Story = {
+  render: () => (
+    <div className="flex w-full items-center justify-center min-h-[450px] py-12">
+      <McCarousel orientation="vertical" layout="multi" className="h-[314px] w-[320px] relative">
+        <CarouselContent count={5} />
         <CarouselPrevious />
         <CarouselNext />
       </McCarousel>
