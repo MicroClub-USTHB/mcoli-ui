@@ -219,7 +219,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        'absolute touch-manipulation rounded-full border-border bg-card-background shadow-sm shadow-shadow',
+        'absolute touch-manipulation w-[34px] h-[34px] p-[10px] rounded-full border border-[#E6E9FF] bg-card-background shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)]',
         orientation === 'horizontal'
           ? layout === 'multi'
             ? 'inset-y-0 -left-10 my-auto'
@@ -251,7 +251,7 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        'absolute touch-manipulation rounded-full border-border bg-card-background shadow-sm shadow-shadow',
+        'absolute touch-manipulation w-[34px] h-[34px] p-[10px] rounded-full border border-[#E6E9FF] bg-card-background shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)]',
         orientation === 'horizontal'
           ? layout === 'multi'
             ? 'inset-y-0 -right-10 my-auto'
