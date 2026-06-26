@@ -159,8 +159,9 @@ function CarouselContent({ className, count = 5, renderItem, ...props }: Carouse
               className={cn(
                 'flex items-center justify-center text-card-foreground bg-card-background border-border text-white',
                 layout === 'single' &&
-                  'w-[252.48px] h-[286.69px] border-[0.81px] rounded-[9.77px] pt-[19.55px] pb-[19.55px]',
-                layout === 'multi' && 'w-[117px] h-[157px] border rounded-xl py-6'
+                  'w-[252.48px] h-[286.69px] border-[0.81px] rounded-[9.77px] pt-[19.55px] pb-[19.55px] shadow-[0_0.81px_2.44px_rgba(0,0,0,0.1)]',
+                layout === 'multi' &&
+                  'w-[117px] h-[157px] border rounded-xl py-6 shadow-[0_0.81px_2.44px_rgba(0,0,0,0.1)]'
               )}
             >
               {renderItem ? (
