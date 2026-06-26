@@ -3,7 +3,212 @@ title: MC Drawer
 description: A slide-out panel for navigation or content.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-drawer` component is a responsive slide-out panel for navigation, settings, forms, and
+secondary workflows. It is built on top of **vaul**, with MicroClub styling for overlays, side
+panels, bottom sheets, nav rows, headers, footers, and accessible close controls.
+
+Use it when content should stay close to the current page without taking the user into a full
+route change.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-drawer-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-drawer-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy `mc-drawer` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-drawer</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-drawer</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-drawer</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-drawer</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install vaul clsx tailwind-merge lucide-react</Tab>
+  <Tab value="pnpm">pnpm add vaul clsx tailwind-merge lucide-react</Tab>
+  <Tab value="yarn">yarn add vaul clsx tailwind-merge lucide-react</Tab>
+  <Tab value="bun">bun add vaul clsx tailwind-merge lucide-react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-drawer" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` helper is available and that your Tailwind theme includes the drawer
+tokens used by the component.
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  McDrawer,
+  McDrawerContent,
+  McDrawerDescription,
+  McDrawerHeader,
+  McDrawerTitle,
+  McDrawerTrigger,
+} from '@/components/ui/mc-drawer';
+
+export default function Example() {
+  return (
+    <McDrawer direction="right">
+      <McDrawerTrigger>Open drawer</McDrawerTrigger>
+      <McDrawerContent>
+        <McDrawerHeader>
+          <McDrawerTitle>Settings</McDrawerTitle>
+          <McDrawerDescription>Update your workspace preferences.</McDrawerDescription>
+        </McDrawerHeader>
+      </McDrawerContent>
+    </McDrawer>
+  );
+}
+```
+
+## Examples
+
+### Navigation Drawer
+
+```tsx
+import { Moon } from 'lucide-react';
+import {
+  McDrawer,
+  McDrawerContent,
+  McDrawerNav,
+  McDrawerNavItem,
+  McDrawerTrigger,
+} from '@/components/ui/mc-drawer';
+
+export function NavigationDrawer() {
+  return (
+    <McDrawer direction="right">
+      <McDrawerTrigger>Open navigation</McDrawerTrigger>
+      <McDrawerContent>
+        <McDrawerNav />
+        <div className="flex flex-1 flex-col overflow-y-auto pt-9">
+          <McDrawerNavItem icon={<Moon size={16} />} hasArrow>
+            Account
+          </McDrawerNavItem>
+          <McDrawerNavItem icon={<Moon size={16} />} hasArrow>
+            Settings
+          </McDrawerNavItem>
+        </div>
+      </McDrawerContent>
+    </McDrawer>
+  );
+}
+```
+
+### Bottom Sheet
+
+```tsx
+import {
+  McDrawer,
+  McDrawerClose,
+  McDrawerContent,
+  McDrawerDescription,
+  McDrawerHeader,
+  McDrawerTitle,
+  McDrawerTrigger,
+} from '@/components/ui/mc-drawer';
+
+export function ProfileDrawer() {
+  return (
+    <McDrawer direction="bottom">
+      <McDrawerTrigger>Edit profile</McDrawerTrigger>
+      <McDrawerContent>
+        <div className="flex flex-col gap-6 px-4 py-6">
+          <McDrawerHeader className="gap-2 p-0">
+            <McDrawerTitle>Edit profile</McDrawerTitle>
+            <McDrawerDescription>Save your changes before closing the drawer.</McDrawerDescription>
+          </McDrawerHeader>
+
+          <input
+            type="email"
+            defaultValue="m@example.com"
+            className="w-full rounded-lg border border-border bg-input px-4 py-3 text-sm"
+          />
+
+          <McDrawerClose className="w-full rounded-lg bg-primary py-4 text-sm font-medium text-primary-foreground">
+            Save changes
+          </McDrawerClose>
+        </div>
+      </McDrawerContent>
+    </McDrawer>
+  );
+}
+```
+
+## API Reference
+
+### Root Components
+
+| Component         | Description                                            |
+| ----------------- | ------------------------------------------------------ |
+| `McDrawer`        | Root wrapper that manages drawer state and direction   |
+| `McDrawerTrigger` | Element that opens the drawer                          |
+| `McDrawerContent` | Drawer panel rendered in a portal with overlay support |
+| `McDrawerPortal`  | Portal wrapper from the underlying drawer primitive    |
+| `McDrawerOverlay` | Fixed overlay displayed behind the drawer content      |
+| `McDrawerClose`   | Element that closes the drawer                         |
+
+### Layout Components
+
+| Component             | Description                                      |
+| --------------------- | ------------------------------------------------ |
+| `McDrawerHeader`      | Header region for titles and descriptions        |
+| `McDrawerFooter`      | Footer region for actions                        |
+| `McDrawerTitle`       | Accessible drawer title                          |
+| `McDrawerDescription` | Accessible supporting description                |
+| `McDrawerNav`         | Top navigation row with a built-in close control |
+| `McDrawerNavItem`     | Full-width drawer navigation item                |
+
+### Common Props
+
+#### `McDrawer`
+
+| Prop           | Type                                     | Default     | Description                            |
+| -------------- | ---------------------------------------- | ----------- | -------------------------------------- |
+| `direction`    | `"top" \| "right" \| "bottom" \| "left"` | `"bottom"`  | Side where the drawer opens            |
+| `open`         | `boolean`                                | `undefined` | Controlled open state                  |
+| `onOpenChange` | `(open: boolean) => void`                | `undefined` | Callback fired when open state changes |
+
+#### `McDrawerContent`
+
+| Prop        | Type        | Default     | Description                        |
+| ----------- | ----------- | ----------- | ---------------------------------- |
+| `className` | `string`    | `undefined` | Additional classes for the panel   |
+| `children`  | `ReactNode` | `undefined` | Content rendered inside the drawer |
+
+#### `McDrawerNavItem`
+
+| Prop           | Type        | Default     | Description                               |
+| -------------- | ----------- | ----------- | ----------------------------------------- |
+| `icon`         | `ReactNode` | `undefined` | Optional leading icon                     |
+| `hasArrow`     | `boolean`   | `false`     | Shows a trailing chevron                  |
+| `rightElement` | `ReactNode` | `undefined` | Custom trailing element, such as a switch |
+| `className`    | `string`    | `undefined` | Additional classes for the item           |
+
+All other relevant props from `vaul` are supported on their matching wrappers.

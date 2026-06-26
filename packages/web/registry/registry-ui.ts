@@ -392,7 +392,7 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
-    name: 'mc-drawer-card',
+    name: 'mc-drawer',
     type: 'registry:component',
     title: 'MicroClub Drawer',
     description: 'A drawer component for MicroClub UI',
@@ -402,6 +402,6 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'vaul'],
   },
 ];
