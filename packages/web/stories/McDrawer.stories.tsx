@@ -59,7 +59,7 @@ export function McMcDrawerDesktopWithIcons() {
 export function McMcDrawerDesktopNoIcons() {
   return (
     <McDrawer direction="right">
-      <McTrigger>McDrawer — no icons</McTrigger>
+      <McTrigger>no icons</McTrigger>
 
       <McDrawerContent>
         <McDrawerNav />
@@ -81,7 +81,7 @@ export function McMcDrawerDesktopNoIcons() {
 export function McMcDrawerMobile() {
   return (
     <McDrawer direction="bottom">
-      <McTrigger>McDrawer — mobile</McTrigger>
+      <McTrigger> mobile</McTrigger>
 
       <McDrawerContent>
         <div className="flex flex-col gap-6 px-4 py-6">
