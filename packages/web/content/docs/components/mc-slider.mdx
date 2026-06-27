@@ -1,9 +1,110 @@
 ---
 title: MC Slider
-description: A component for selecting a value from a range.
+description: A flexible slider for selecting a value from a range.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-slider` is a core component of the MicroClub UI library. Built on the **@base-ui/react** slider primitive, it provides an accessible, keyboard-friendly range control with MicroClub's signature styling via **Tailwind CSS v4**.
+
+As part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-slider-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-slider-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-slider` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-slider</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-slider</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-slider</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-slider</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install clsx tailwind-merge @base-ui/react</Tab>
+  <Tab value="pnpm">pnpm add clsx tailwind-merge @base-ui/react</Tab>
+  <Tab value="yarn">yarn add clsx tailwind-merge @base-ui/react</Tab>
+  <Tab value="bun">bun add clsx tailwind-merge @base-ui/react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-slider" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McSlider } from '@/components/ui/mc-slider';
+
+export default function Example() {
+  return <McSlider defaultValue={[50]} max={100} step={1} />;
+}
+```
+
+## Examples
+
+### Basic
+
+```tsx
+<McSlider defaultValue={[40]} max={100} step={1} />
+```
+
+### Range
+
+```tsx
+<McSlider defaultValue={[20, 80]} max={100} step={1} />
+```
+
+### Vertical
+
+```tsx
+<McSlider defaultValue={[60]} max={100} orientation="vertical" className="h-48" />
+```
+
+### Disabled
+
+```tsx
+<McSlider defaultValue={[35]} max={100} disabled />
+```
+
+## API Reference
+
+### Props
+
+| Prop           | Type                         | Default        | Description                     |
+| -------------- | ---------------------------- | -------------- | ------------------------------- |
+| `defaultValue` | `number[]`                   | `undefined`    | Initial value(s) for the slider |
+| `value`        | `number[]`                   | `undefined`    | Controlled value(s)             |
+| `min`          | `number`                     | `0`            | Minimum slider value            |
+| `max`          | `number`                     | `100`          | Maximum slider value            |
+| `step`         | `number`                     | `1`            | Increment step                  |
+| `orientation`  | `"horizontal" \| "vertical"` | `"horizontal"` | Slider orientation              |
+| `disabled`     | `boolean`                    | `false`        | Disables interaction            |
+| `className`    | `string`                     | `undefined`    | Additional CSS classes          |
+
+All other props from `@base-ui/react/slider` are supported.
