@@ -152,7 +152,7 @@ function CarouselItem({ className, children, ...props }: React.ComponentProps<'d
       data-slot="carousel-item"
       className={cn(
         ' shrink-0 grow-0 basis-full',
-        orientation === 'horizontal' ? ' ' : 'pt-4 pb-4',
+        orientation === 'horizontal' ? ' ' : '',
         className
       )}
       {...props}
@@ -160,7 +160,7 @@ function CarouselItem({ className, children, ...props }: React.ComponentProps<'d
       {/* Card shell matching Figma "Wrapper" spec exactly */}
       <div
         data-slot="carousel-item-card"
-        className="flex h-full w-full flex-col items-center justify-center gap-[8.14px] rounded-[9.77px] border border-border bg-card  text-card-foreground shadow"
+        className="flex h-full w-full flex-col items-center justify-center gap-[8.14px] rounded-xl border border-border bg-card  text-card-foreground shadow"
       >
         {children}
       </div>
@@ -185,7 +185,7 @@ function CarouselPrevious({
         'absolute size-8.5 touch-manipulation rounded-full border border-border bg-card p-2.5 shadow-[0px_0.81px_2.44px_0px_rgba(0,0,0,0.1)]',
         orientation === 'horizontal'
           ? 'inset-y-0 -left-12 my-auto'
-          : '-top-12 -right-[-94px] rotate-90',
+          : '-top-12 -right-[-133px] rotate-90',
         className
       )}
       disabled={!canScrollPrev}
@@ -212,10 +212,10 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        'absolute size-[34px] touch-manipulation rounded-full border-[1px] border-border bg-card p-[10px] shadow-[0px_0.81px_2.44px_0px_rgba(0,0,0,0.1)]',
+        'absolute size-[34px] touch-manipulation rounded-full border-[1px] border-border bg-card p-[10px] ',
         orientation === 'horizontal'
           ? 'inset-y-0 -right-12 my-auto'
-          : '-bottom-12 -right-[-94px]   rotate-90',
+          : '-bottom-12 -right-[-133px]   rotate-90',
         className
       )}
       disabled={!canScrollNext}

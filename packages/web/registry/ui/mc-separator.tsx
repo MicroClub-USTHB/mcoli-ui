@@ -135,11 +135,7 @@ function CarouselContent({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div ref={carouselRef} className="overflow-hidden" data-slot="carousel-content">
       <div
-        className={cn(
-          'flex',
-          orientation === 'horizontal' ? '-ml-6 ' : '-mt-4 flex-col',
-          className
-        )}
+        className={cn('flex', orientation === 'horizontal' ? '-ml-6 ' : ' flex-col', className)}
         {...props}
       />
     </div>
@@ -170,7 +166,7 @@ function CarouselItem({
         data-slot="carousel-item-card"
         className={cn(
           'flex h-full w-full flex-col items-center justify-center rounded-[9.77px] border-[0.81px] border-border bg-card text-card-foreground',
-          'gap-[8.14px] py-[19.55px]', // default spec (Demo card)
+          'gap-[8.14px] ', // default spec (Demo card)
           cardClassName // per-variant override, e.g. Size card
         )}
       >
