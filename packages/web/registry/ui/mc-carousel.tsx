@@ -16,7 +16,6 @@ type CarouselProps = {
   opts?: CarouselOptions;
   plugins?: CarouselPlugin;
   orientation?: 'horizontal' | 'vertical';
-  layout?: 'single' | 'multi';
   setApi?: (api: CarouselApi) => void;
 };
 
@@ -27,7 +26,6 @@ type CarouselContextProps = {
   scrollNext: () => void;
   canScrollPrev: boolean;
   canScrollNext: boolean;
-  layout: 'single' | 'multi';
 } & CarouselProps;
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null);
@@ -44,7 +42,6 @@ function useCarousel() {
 
 function Carousel({
   orientation = 'horizontal',
-  layout = 'single',
   opts,
   setApi,
   plugins,
@@ -54,9 +51,7 @@ function Carousel({
 }: React.ComponentProps<'div'> & CarouselProps) {
   const [carouselRef, api] = useEmblaCarousel(
     {
-      containScroll: layout === 'multi' ? 'trimSnaps' : undefined,
       ...opts,
-      align: layout === 'multi' ? 'start' : 'center',
       axis: orientation === 'horizontal' ? 'x' : 'y',
     },
     plugins
@@ -70,18 +65,12 @@ function Carousel({
     setCanScrollNext(api.canScrollNext());
   }, []);
 
-  // Guard against calling into Embla before/while it's reInit-ing —
-  // this is what throws "cannot render when not prepared" if you
-  // click right as a reInit is in flight (e.g. right after mount,
-  // when slide heights were just resolved for the vertical axis).
   const scrollPrev = React.useCallback(() => {
-    if (!api) return;
-    if (api.canScrollPrev()) api.scrollPrev();
+    api?.scrollPrev();
   }, [api]);
 
   const scrollNext = React.useCallback(() => {
-    if (!api) return;
-    if (api.canScrollNext()) api.scrollNext();
+    api?.scrollNext();
   }, [api]);
 
   const handleKeyDown = React.useCallback(
@@ -110,7 +99,6 @@ function Carousel({
 
     return () => {
       api?.off('select', onSelect);
-      api?.off('reInit', onSelect);
     };
   }, [api, onSelect]);
 
@@ -121,7 +109,6 @@ function Carousel({
         api: api,
         opts,
         orientation: orientation || (opts?.axis === 'y' ? 'vertical' : 'horizontal'),
-        layout,
         scrollPrev,
         scrollNext,
         canScrollPrev,
@@ -130,14 +117,7 @@ function Carousel({
     >
       <div
         onKeyDownCapture={handleKeyDown}
-        className={cn(
-          'relative',
-          // Height must flow all the way down to the embla viewport for
-          // vertical mode, otherwise Embla measures a 0px-tall axis and
-          // its internal engine ends up in a broken "unprepared" state.
-          orientation === 'vertical' && 'flex flex-col h-full',
-          className
-        )}
+        className={cn('relative', className)}
         role="region"
         aria-roledescription="carousel"
         data-slot="carousel"
@@ -149,66 +129,21 @@ function Carousel({
   );
 }
 
-interface CarouselContentProps extends React.ComponentProps<'div'> {
-  count?: number;
-  renderItem?: (index: number) => React.ReactNode;
-}
-
-function CarouselContent({ className, count = 5, renderItem, ...props }: CarouselContentProps) {
-  const { carouselRef, orientation, layout } = useCarousel();
+function CarouselContent({ className, ...props }: React.ComponentProps<'div'>) {
+  const { carouselRef, orientation } = useCarousel();
 
   return (
-    <div
-      ref={carouselRef}
-      className={cn('overflow-hidden w-full h-full', orientation === 'vertical' && 'min-h-0')}
-      data-slot="carousel-content"
-    >
+    <div ref={carouselRef} className="overflow-hidden w-[375px]" data-slot="carousel-content">
       <div
-        className={cn(
-          'flex',
-          orientation === 'horizontal' ? '' : 'flex-col h-full',
-          layout === 'multi' ? 'gap-[10px]' : '',
-          className
-        )}
+        className={cn('flex', orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col', className)}
         {...props}
-      >
-        {Array.from({ length: count }).map((_, index) => (
-          <CarouselItem key={index}>
-            <div
-              className={cn(
-                'flex items-center justify-center text-card-foreground bg-card-background border-border text-white',
-                layout === 'single' &&
-                  'w-[252.48px] h-[286.69px] border-[0.81px] rounded-[9.77px] pt-[19.55px] pb-[19.55px] shadow-[0_0.81px_2.44px_rgba(0,0,0,0.1)]',
-                layout === 'multi' &&
-                  orientation === 'horizontal' &&
-                  'w-[117px] h-[157px] border rounded-xl py-6 shadow-[0_0.81px_2.44px_rgba(0,0,0,0.1)]',
-                layout === 'multi' &&
-                  orientation === 'vertical' &&
-                  'w-[320px] h-[142px] border rounded-xl py-6 shadow-[0_0.81px_2.44px_rgba(0,0,0,0.1)]'
-              )}
-            >
-              {renderItem ? (
-                renderItem(index)
-              ) : (
-                <span
-                  className={cn(
-                    'font-semibold text-primary',
-                    layout === 'multi' ? 'text-2xl' : 'text-4xl'
-                  )}
-                >
-                  {index + 1}
-                </span>
-              )}
-            </div>
-          </CarouselItem>
-        ))}
-      </div>
+      />
     </div>
   );
 }
 
 function CarouselItem({ className, children, ...props }: React.ComponentProps<'div'>) {
-  const { orientation, layout } = useCarousel();
+  const { orientation } = useCarousel();
 
   return (
     <div
@@ -216,20 +151,16 @@ function CarouselItem({ className, children, ...props }: React.ComponentProps<'d
       aria-roledescription="slide"
       data-slot="carousel-item"
       className={cn(
-        'shrink-0 grow-0',
-        orientation === 'horizontal' ? 'min-w-0' : 'min-h-0',
-        layout === 'multi' ? 'basis-auto' : 'basis-full',
-        layout === 'single' && orientation === 'horizontal' ? 'px-7' : '',
+        'min-w-0 shrink-0 grow-0 basis-full',
+        orientation === 'horizontal' ? 'pl-4 pr-4' : 'pt-4 pb-4',
         className
       )}
+      {...props}
     >
+      {/* Card shell matching Figma "Wrapper" spec exactly */}
       <div
-        className={cn(
-          // only single-layout horizontal slides get the p-1 wrapper padding;
-          // multi-layout relies on the gap-[10px] on the flex container instead
-          layout === 'single' && orientation === 'horizontal' ? 'p-1' : '',
-          orientation === 'vertical' ? 'py-[5px]' : ''
-        )}
+        data-slot="carousel-item-card"
+        className="flex h-full w-full flex-col items-center justify-center gap-[8.14px] rounded-[9.77px] border border-border bg-card py-[19.55px] text-card-foreground shadow"
       >
         {children}
       </div>
@@ -243,7 +174,7 @@ function CarouselPrevious({
   size = 'icon-sm',
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { orientation, scrollPrev, canScrollPrev, layout } = useCarousel();
+  const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
     <Button
@@ -251,26 +182,17 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        'absolute touch-manipulation w-[34px] h-[34px] p-[10px] rounded-full border border-[#E6E9FF] bg-card-background shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)] z-10',
+        'absolute size-[34px] touch-manipulation rounded-full border-[1px] border-border bg-card p-[10px] shadow-[0px_0.81px_2.44px_0px_rgba(0,0,0,0.1)]',
         orientation === 'horizontal'
-          ? layout === 'multi'
-            ? 'inset-y-0 -left-10 my-auto'
-            : 'inset-y-0 -left-[19px] my-auto'
-          : layout === 'multi'
-            ? '-top-10 left-1/2 -translate-x-1/2 rotate-0'
-            : '-top-[19px] left-1/2 -translate-x-1/2 rotate-0',
+          ? 'inset-y-0 -left-12 my-auto'
+          : '-top-12 -right-[-94px] rotate-90',
         className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeftIcon
-        className={cn(
-          'cn-rtl-flip transition-transform',
-          orientation === 'vertical' && 'rotate-90'
-        )}
-      />
+      <ChevronLeftIcon className="cn-rtl-flip" />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -282,7 +204,7 @@ function CarouselNext({
   size = 'icon-sm',
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { orientation, scrollNext, canScrollNext, layout } = useCarousel();
+  const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
     <Button
@@ -290,26 +212,17 @@ function CarouselNext({
       variant={variant}
       size={size}
       className={cn(
-        'absolute touch-manipulation w-[34px] h-[34px] p-[10px] rounded-full border border-[#E6E9FF] bg-card-background shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)] z-10',
+        'absolute size-[34px] touch-manipulation rounded-full border-[1px] border-border bg-card p-[10px] shadow-[0px_0.81px_2.44px_0px_rgba(0,0,0,0.1)]',
         orientation === 'horizontal'
-          ? layout === 'multi'
-            ? 'inset-y-0 -right-10 my-auto'
-            : 'inset-y-0 -right-[19px] my-auto'
-          : layout === 'multi'
-            ? '-bottom-10 left-1/2 -translate-x-1/2 rotate-0'
-            : '-bottom-[19px] left-1/2 -translate-x-1/2 rotate-0',
+          ? 'inset-y-0 -right-24 my-auto'
+          : '-bottom-12 -right-[-94px]   rotate-90',
         className
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRightIcon
-        className={cn(
-          'cn-rtl-flip transition-transform',
-          orientation === 'vertical' && 'rotate-90'
-        )}
-      />
+      <ChevronRightIcon className="cn-rtl-flip" />
       <span className="sr-only">Next slide</span>
     </Button>
   );
@@ -317,7 +230,7 @@ function CarouselNext({
 
 export {
   type CarouselApi,
-  Carousel as McCarousel,
+  Carousel,
   CarouselContent,
   CarouselItem,
   CarouselPrevious,
