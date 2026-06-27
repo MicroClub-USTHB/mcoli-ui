@@ -26,13 +26,13 @@ export default meta;
 // --- Component 1: Carousel Demo ---
 export function CarouselDemo() {
   return (
-    <Carousel className="w-full max-w-[12rem] sm:max-w-xs">
-      <CarouselContent>
+    <Carousel>
+      <CarouselContent className="max-w-63 ">
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index}>
-            <div className="p-1 ">
+          <CarouselItem key={index} className=" h-71.5  w-63  ">
+            <div className="  ">
               <div className="">
-                <div className="flex aspect-square h-50 items-center justify-center p-5">
+                <div className="flex aspect-square  items-center justify-center ">
                   <span className="text-4xl font-semibold">{index + 1}</span>
                 </div>
               </div>
@@ -49,13 +49,13 @@ export function CarouselDemo() {
 // --- Component 2: Carousel Size ---
 export function CarouselSize() {
   return (
-    <Carousel
-      opts={{ align: 'start' }}
-      className="w-full max-w-[407px]" // exactly fits 3 × 125px cards + 2 × 16px gaps
-    >
+    <Carousel opts={{ align: 'start' }} className="w-full max-w-[383px]">
       <CarouselContent>
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="basis-auto w-[125px] h-[165px]">
+          <CarouselItem
+            key={index}
+            className="basis-auto min-w-[117px] min-h-[157px]  border border-accent-green-50"
+          >
             <span className="text-3xl font-semibold">{index + 1}</span>
           </CarouselItem>
         ))}
@@ -65,7 +65,6 @@ export function CarouselSize() {
     </Carousel>
   );
 }
-
 // --- Component 3: Carousel Orientation ---
 export function CarouselOrientation() {
   return (
@@ -76,10 +75,10 @@ export function CarouselOrientation() {
       orientation="vertical"
       className="w-full max-w-xs"
     >
-      <CarouselContent className="-mt-1 h-[300px]">
+      <CarouselContent className="-mt-1 h-75">
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index} className="basis-1/2 pt-1 ">
-            <div className="p-1">
+            <div className="p-1 ">
               <div>
                 <div className="flex items-center justify-center p-6">
                   <span className="text-3xl font-semibold">{index + 1}</span>

@@ -133,9 +133,9 @@ function CarouselContent({ className, ...props }: React.ComponentProps<'div'>) {
   const { carouselRef, orientation } = useCarousel();
 
   return (
-    <div ref={carouselRef} className="overflow-hidden w-[375px]" data-slot="carousel-content">
+    <div ref={carouselRef} className="overflow-hidden  h-fit " data-slot="carousel-content">
       <div
-        className={cn('flex', orientation === 'horizontal' ? '-ml-4' : '-mt-4 flex-col', className)}
+        className={cn('flex', orientation === 'horizontal' ? '' : '-mt-4 flex-col', className)}
         {...props}
       />
     </div>
@@ -151,8 +151,8 @@ function CarouselItem({ className, children, ...props }: React.ComponentProps<'d
       aria-roledescription="slide"
       data-slot="carousel-item"
       className={cn(
-        'min-w-0 shrink-0 grow-0 basis-full',
-        orientation === 'horizontal' ? 'pl-4 pr-4' : 'pt-4 pb-4',
+        ' shrink-0 grow-0 basis-full',
+        orientation === 'horizontal' ? ' ' : 'pt-4 pb-4',
         className
       )}
       {...props}
@@ -160,7 +160,7 @@ function CarouselItem({ className, children, ...props }: React.ComponentProps<'d
       {/* Card shell matching Figma "Wrapper" spec exactly */}
       <div
         data-slot="carousel-item-card"
-        className="flex h-full w-full flex-col items-center justify-center gap-[8.14px] rounded-[9.77px] border border-border bg-card py-[19.55px] text-card-foreground shadow"
+        className="flex h-full w-full flex-col items-center justify-center gap-[8.14px] rounded-[9.77px] border border-border bg-card  text-card-foreground shadow"
       >
         {children}
       </div>
@@ -182,7 +182,7 @@ function CarouselPrevious({
       variant={variant}
       size={size}
       className={cn(
-        'absolute size-[34px] touch-manipulation rounded-full border-[1px] border-border bg-card p-[10px] shadow-[0px_0.81px_2.44px_0px_rgba(0,0,0,0.1)]',
+        'absolute size-8.5 touch-manipulation rounded-full border border-border bg-card p-2.5 shadow-[0px_0.81px_2.44px_0px_rgba(0,0,0,0.1)]',
         orientation === 'horizontal'
           ? 'inset-y-0 -left-12 my-auto'
           : '-top-12 -right-[-94px] rotate-90',
@@ -214,7 +214,7 @@ function CarouselNext({
       className={cn(
         'absolute size-[34px] touch-manipulation rounded-full border-[1px] border-border bg-card p-[10px] shadow-[0px_0.81px_2.44px_0px_rgba(0,0,0,0.1)]',
         orientation === 'horizontal'
-          ? 'inset-y-0 -right-24 my-auto'
+          ? 'inset-y-0 -right-12 my-auto'
           : '-bottom-12 -right-[-94px]   rotate-90',
         className
       )}
