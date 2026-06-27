@@ -391,4 +391,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
+  {
+    name: 'mc-slider',
+    type: 'registry:component',
+    title: 'MicroClub Slider',
+    description: 'A slider component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-slider.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
 ];
