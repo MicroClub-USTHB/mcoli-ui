@@ -49,13 +49,10 @@ export function CarouselDemo() {
 // --- Component 2: Carousel Size ---
 export function CarouselSize() {
   return (
-    <Carousel opts={{ align: 'start' }} className="w-full max-w-[383px]">
-      <CarouselContent>
+    <Carousel opts={{ align: 'start' }} className="ml-30 max-w-[381px]">
+      <CarouselContent className="gap-2.5">
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem
-            key={index}
-            className="basis-auto min-w-[117px] min-h-[157px]  border border-accent-green-50"
-          >
+          <CarouselItem key={index} className="basis-auto min-w-[117px] min-h-[157px]   ">
             <span className="text-3xl font-semibold">{index + 1}</span>
           </CarouselItem>
         ))}
@@ -73,14 +70,14 @@ export function CarouselOrientation() {
         align: 'start',
       }}
       orientation="vertical"
-      className="w-full max-w-xs"
+      className="w-full "
     >
-      <CarouselContent className="-mt-1 h-75">
+      <CarouselContent className="-mt-1  h-75">
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="basis-1/2 pt-1 ">
-            <div className="p-1 ">
+          <CarouselItem key={index} className="basis-1/2 h-[312px] pt-1 ">
+            <div className=" ">
               <div>
-                <div className="flex items-center justify-center p-6">
+                <div className="flex items-center justify-center    ">
                   <span className="text-3xl font-semibold">{index + 1}</span>
                 </div>
               </div>
