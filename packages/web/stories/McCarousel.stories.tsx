@@ -70,11 +70,11 @@ export function CarouselOrientation() {
         align: 'start',
       }}
       orientation="vertical"
-      className="w-full "
+      className=""
     >
-      <CarouselContent className="h-75">
+      <CarouselContent className="h-[274px] w-78.5 mt-3 mb-3">
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="basis-1/2  pt-1 ">
+          <CarouselItem key={index} className="basis-1/2 border-border  mb-2   ">
             <div className=" ">
               <div>
                 <div className="flex items-center justify-center    ">
