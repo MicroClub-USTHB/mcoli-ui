@@ -185,7 +185,8 @@ function CarouselPrevious({
         'absolute size-8.5 touch-manipulation rounded-full border border-border bg-card p-2.5 shadow-[0px_0.81px_2.44px_0px_rgba(0,0,0,0.1)]',
         orientation === 'horizontal'
           ? 'inset-y-0 -left-12 my-auto'
-          : '-top-12 -right-[-133px] rotate-90',
+          : '-top-12 -right-[-140px] rotate-90',
+
         className
       )}
       disabled={!canScrollPrev}
@@ -215,7 +216,7 @@ function CarouselNext({
         'absolute size-[34px] touch-manipulation rounded-full border-[1px] border-border bg-card p-[10px] ',
         orientation === 'horizontal'
           ? 'inset-y-0 -right-12 my-auto'
-          : '-bottom-12 -right-[-133px]   rotate-90',
+          : '-bottom-12 -right-[-140px]   rotate-90',
         className
       )}
       disabled={!canScrollNext}
