@@ -5,6 +5,8 @@ import {
   McAccordionItem,
   McAccordionTrigger,
 } from '@/registry/ui/mc-accordion';
+import { AccordionRoot } from '@base-ui/react';
+import { JSX } from 'react/jsx-runtime';
 
 const items = [
   {
@@ -46,7 +48,7 @@ export default meta;
 type Story = StoryObj<typeof McAccordion>;
 
 export const Playground: Story = {
-  render: (args) => (
+  render: (args: JSX.IntrinsicAttributes & AccordionRoot.Props<any>) => (
     <McAccordion {...args} className="max-w-lg">
       {items.map((item) => (
         <McAccordionItem key={item.value} value={item.value}>
@@ -66,7 +68,7 @@ export const AllCollapsed: Story = {
   args: {
     defaultValue: undefined,
   },
-  render: (args) => (
+  render: (args: JSX.IntrinsicAttributes & AccordionRoot.Props<any>) => (
     <McAccordion {...args} className="max-w-lg">
       {items.map((item) => (
         <McAccordionItem key={item.value} value={item.value}>
