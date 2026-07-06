@@ -174,7 +174,8 @@
   --color-fd-border: var(--border);
   --color-fd-primary: var(--primary);
   --color-fd-primary-foreground: var(--primary-foreground);
-  --color-fd-secondary: var(--secondary);
+  /* --color-fd-secondary: var(--secondary); */
+  --color-fd-secondary: var(--muted);
   --color-fd-secondary-foreground: var(--secondary-foreground);
   --color-fd-accent: var(--accent);
   --color-fd-accent-foreground: var(--accent-foreground);
@@ -682,7 +683,8 @@
   --chart-3: #2563ef;
   --chart-4: #1a4eda;
   --chart-5: #1f3fad;
-  --sidebar: #f0f0f3;
+  /* --sidebar: #f0f0f3; */
+  --sidebar: #1e293b;
   --sidebar-foreground: #0e0e0f;
   --sidebar-primary: #34d399;
   --sidebar-primary-foreground: #0f172a;

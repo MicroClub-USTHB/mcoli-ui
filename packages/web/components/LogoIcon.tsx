@@ -17,7 +17,7 @@ export default function LogoIcon({ className, size = 32 }: LogoIconProps) {
     >
       <path
         d="M 16 79 V 31 A 22 22 0 0 1 60 31 A 22 22 0 0 1 104 31 V 79 M 60 31 V 79"
-        stroke="currentColor"
+        stroke="var(--foreground)"
         strokeWidth="12"
         strokeLinecap="round"
         strokeLinejoin="round"
