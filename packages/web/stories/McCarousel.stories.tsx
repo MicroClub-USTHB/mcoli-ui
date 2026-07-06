@@ -1,92 +1,42 @@
-// eslint-disable-next-line storybook/no-renderer-packages
 import type { Meta, StoryObj } from '@storybook/nextjs';
-import * as React from 'react';
+
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '../../web/registry/ui/mc-carousel';
+  McCarousel,
+  McCarouselContent,
+  McCarouselItem,
+  McCarouselPrevious,
+  McCarouselNext,
+} from '@/registry/ui/mc-carousel';
 
-// --- Storybook Configuration ---
-const meta: Meta = {
-  title: 'Components/ShadcnCarousels',
-  tags: ['autodocs'],
-  decorators: [
-    (Story) => (
-      <div className="flex w-full items-center justify-center min-h-[400px] p-12 bg-background">
-        <Story />
-      </div>
-    ),
-  ],
+function CarouselDemo() {
+  return (
+    <div className="flex w-full items-center justify-center">
+      <McCarousel className="w-full max-w-xs">
+        <McCarouselContent>
+          {Array.from({ length: 5 }).map((_, index) => (
+            <McCarouselItem key={index}>
+              <div className="flex aspect-square items-center justify-center p-6">
+                <span className="text-4xl font-semibold">{index + 1}</span>
+              </div>
+            </McCarouselItem>
+          ))}
+        </McCarouselContent>
+        <McCarouselPrevious />
+        <McCarouselNext />
+      </McCarousel>
+    </div>
+  );
+}
+
+const meta: Meta<typeof CarouselDemo> = {
+  title: 'Components/McCarousel',
+  component: CarouselDemo,
+  parameters: {
+    layout: 'centered',
+  },
 };
+
 export default meta;
+type Story = StoryObj<typeof CarouselDemo>;
 
-// --- Component 1: Carousel Demo ---
-export function CarouselDemo() {
-  return (
-    <Carousel>
-      <CarouselContent className="max-w-63 ">
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className=" h-71.5  w-63  ">
-            <div className="  ">
-              <div className="">
-                <div className="flex aspect-square  items-center justify-center ">
-                  <span className="text-4xl font-semibold">{index + 1}</span>
-                </div>
-              </div>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
-  );
-}
-
-// --- Component 2: Carousel Size ---
-export function CarouselSize() {
-  return (
-    <Carousel opts={{ align: 'start' }} className="ml-30 max-w-[381px]">
-      <CarouselContent className="gap-2.5">
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="basis-auto min-w-[117px] min-h-[157px]   ">
-            <span className="text-3xl font-semibold">{index + 1}</span>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
-  );
-}
-// --- Component 3: Carousel Orientation ---
-export function CarouselOrientation() {
-  return (
-    <Carousel
-      opts={{
-        align: 'start',
-      }}
-      orientation="vertical"
-      className=""
-    >
-      <CarouselContent className="h-[274px] w-78.5 mt-3 mb-3">
-        {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="basis-1/2 border-border  mb-2   ">
-            <div className=" ">
-              <div>
-                <div className="flex items-center justify-center    ">
-                  <span className="text-3xl font-semibold">{index + 1}</span>
-                </div>
-              </div>
-            </div>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <CarouselPrevious />
-      <CarouselNext />
-    </Carousel>
-  );
-}
+export const Default: Story = {};

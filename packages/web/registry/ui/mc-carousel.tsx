@@ -7,7 +7,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
-type CarouselApi = UseEmblaCarouselType[1];
+type McCarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
 type CarouselOptions = UseCarouselParameters[0];
 type CarouselPlugin = UseCarouselParameters[1];
@@ -16,7 +16,7 @@ type CarouselProps = {
   opts?: CarouselOptions;
   plugins?: CarouselPlugin;
   orientation?: 'horizontal' | 'vertical';
-  setApi?: (api: CarouselApi) => void;
+  setApi?: (api: McCarouselApi) => void;
 };
 
 type CarouselContextProps = {
@@ -28,19 +28,19 @@ type CarouselContextProps = {
   canScrollNext: boolean;
 } & CarouselProps;
 
-const CarouselContext = React.createContext<CarouselContextProps | null>(null);
+const McCarouselContext = React.createContext<CarouselContextProps | null>(null);
 
-function useCarousel() {
-  const context = React.useContext(CarouselContext);
+function useMcCarousel() {
+  const context = React.useContext(McCarouselContext);
 
   if (!context) {
-    throw new Error('useCarousel must be used within a <Carousel />');
+    throw new Error('useMcCarousel must be used within a <McCarousel />');
   }
 
   return context;
 }
 
-function Carousel({
+function McCarousel({
   orientation = 'horizontal',
   opts,
   setApi,
@@ -59,7 +59,7 @@ function Carousel({
   const [canScrollPrev, setCanScrollPrev] = React.useState(false);
   const [canScrollNext, setCanScrollNext] = React.useState(false);
 
-  const onSelect = React.useCallback((api: CarouselApi) => {
+  const onSelect = React.useCallback((api: McCarouselApi) => {
     if (!api) return;
     setCanScrollPrev(api.canScrollPrev());
     setCanScrollNext(api.canScrollNext());
@@ -103,7 +103,7 @@ function Carousel({
   }, [api, onSelect]);
 
   return (
-    <CarouselContext.Provider
+    <McCarouselContext.Provider
       value={{
         carouselRef,
         api: api,
@@ -125,12 +125,12 @@ function Carousel({
       >
         {children}
       </div>
-    </CarouselContext.Provider>
+    </McCarouselContext.Provider>
   );
 }
 
-function CarouselContent({ className, ...props }: React.ComponentProps<'div'>) {
-  const { carouselRef, orientation } = useCarousel();
+function McCarouselContent({ className, ...props }: React.ComponentProps<'div'>) {
+  const { carouselRef, orientation } = useMcCarousel();
 
   return (
     <div ref={carouselRef} className="overflow-hidden   " data-slot="carousel-content">
@@ -142,8 +142,8 @@ function CarouselContent({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
-function CarouselItem({ className, children, ...props }: React.ComponentProps<'div'>) {
-  const { orientation } = useCarousel();
+function McCarouselItem({ className, children, ...props }: React.ComponentProps<'div'>) {
+  const { orientation } = useMcCarousel();
 
   return (
     <div
@@ -168,13 +168,13 @@ function CarouselItem({ className, children, ...props }: React.ComponentProps<'d
   );
 }
 
-function CarouselPrevious({
+function McCarouselPrevious({
   className,
   variant = 'outline',
   size = 'icon-sm',
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { orientation, scrollPrev, canScrollPrev } = useCarousel();
+  const { orientation, scrollPrev, canScrollPrev } = useMcCarousel();
 
   return (
     <Button
@@ -199,13 +199,13 @@ function CarouselPrevious({
   );
 }
 
-function CarouselNext({
+function McCarouselNext({
   className,
   variant = 'outline',
   size = 'icon-sm',
   ...props
 }: React.ComponentProps<typeof Button>) {
-  const { orientation, scrollNext, canScrollNext } = useCarousel();
+  const { orientation, scrollNext, canScrollNext } = useMcCarousel();
 
   return (
     <Button
@@ -230,11 +230,11 @@ function CarouselNext({
 }
 
 export {
-  type CarouselApi,
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
-  useCarousel,
+  type McCarouselApi,
+  McCarousel,
+  McCarouselContent,
+  McCarouselItem,
+  McCarouselPrevious,
+  McCarouselNext,
+  useMcCarousel,
 };

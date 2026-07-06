@@ -416,6 +416,6 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react', 'embla-carousel-react', 'lucide-react'],
+    dependencies: ['embla-carousel-react', 'lucide-react'],
   },
 ];

@@ -33,12 +33,12 @@
     "mc-badge",
     "mc-avatar",
     "mc-hover-card",
+    "mc-carousel",
     "---Coming Soon---",
     "mc-data-table",
     "mc-collapsible",
     "mc-progress",
     "mc-drawer",
-    "mc-slider",
-    "mc-carousel"
+    "mc-slider"
   ]
 }
