@@ -53,79 +53,77 @@ const components: { title: string; href: string; description: string }[] = [
 
 export default function NavigationMenuDemo() {
   return (
-    <div className="w-full py-10">
-      <McNavigationMenu>
-        <McNavigationMenuList>
-          <McNavigationMenuItem>
-            <McNavigationMenuTrigger>Getting started</McNavigationMenuTrigger>
-            <McNavigationMenuContent>
-              <ul className="w-96">
-                <ListItem href="#docs" title="Introduction">
-                  Re-usable components built with Tailwind CSS.
+    <McNavigationMenu>
+      <McNavigationMenuList>
+        <McNavigationMenuItem>
+          <McNavigationMenuTrigger>Getting started</McNavigationMenuTrigger>
+          <McNavigationMenuContent>
+            <ul className="w-96">
+              <ListItem href="#docs" title="Introduction">
+                Re-usable components built with Tailwind CSS.
+              </ListItem>
+              <ListItem href="#installation" title="Installation">
+                How to install dependencies and structure your app.
+              </ListItem>
+              <ListItem href="#typography" title="Typography">
+                Styles for headings, paragraphs, lists...etc
+              </ListItem>
+            </ul>
+          </McNavigationMenuContent>
+        </McNavigationMenuItem>
+        <McNavigationMenuItem className="hidden md:flex">
+          <McNavigationMenuTrigger>Components</McNavigationMenuTrigger>
+          <McNavigationMenuContent>
+            <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {components.map((component) => (
+                <ListItem key={component.title} title={component.title} href={component.href}>
+                  {component.description}
                 </ListItem>
-                <ListItem href="#installation" title="Installation">
-                  How to install dependencies and structure your app.
-                </ListItem>
-                <ListItem href="#typography" title="Typography">
-                  Styles for headings, paragraphs, lists...etc
-                </ListItem>
-              </ul>
-            </McNavigationMenuContent>
-          </McNavigationMenuItem>
-          <McNavigationMenuItem className="hidden md:flex">
-            <McNavigationMenuTrigger>Components</McNavigationMenuTrigger>
-            <McNavigationMenuContent>
-              <ul className="grid w-[400px] gap-2 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                {components.map((component) => (
-                  <ListItem key={component.title} title={component.title} href={component.href}>
-                    {component.description}
-                  </ListItem>
-                ))}
-              </ul>
-            </McNavigationMenuContent>
-          </McNavigationMenuItem>
-          <McNavigationMenuItem>
-            <McNavigationMenuTrigger>With Icon</McNavigationMenuTrigger>
-            <McNavigationMenuContent>
-              <ul className="grid w-[200px]">
-                <li>
-                  <McNavigationMenuLink
-                    render={
-                      <Link href="#" className="flex items-center gap-2">
-                        <CircleAlertIcon />
-                        Backlog
-                      </Link>
-                    }
-                  />
-                  <McNavigationMenuLink
-                    render={
-                      <Link href="#" className="flex items-center gap-2">
-                        <CircleDashedIcon />
-                        To Do
-                      </Link>
-                    }
-                  />
-                  <McNavigationMenuLink
-                    render={
-                      <Link href="#" className="flex items-center gap-2">
-                        <CircleCheckIcon />
-                        Done
-                      </Link>
-                    }
-                  />
-                </li>
-              </ul>
-            </McNavigationMenuContent>
-          </McNavigationMenuItem>
-          <McNavigationMenuItem>
-            <McNavigationMenuLink
-              className={navigationMenuTriggerStyle()}
-              render={<Link href="#docs">Docs</Link>}
-            />
-          </McNavigationMenuItem>
-        </McNavigationMenuList>
-      </McNavigationMenu>
-    </div>
+              ))}
+            </ul>
+          </McNavigationMenuContent>
+        </McNavigationMenuItem>
+        <McNavigationMenuItem>
+          <McNavigationMenuTrigger>With Icon</McNavigationMenuTrigger>
+          <McNavigationMenuContent>
+            <ul className="grid w-[200px]">
+              <li>
+                <McNavigationMenuLink
+                  render={
+                    <Link href="#" className="flex items-center gap-2">
+                      <CircleAlertIcon />
+                      Backlog
+                    </Link>
+                  }
+                />
+                <McNavigationMenuLink
+                  render={
+                    <Link href="#" className="flex items-center gap-2">
+                      <CircleDashedIcon />
+                      To Do
+                    </Link>
+                  }
+                />
+                <McNavigationMenuLink
+                  render={
+                    <Link href="#" className="flex items-center gap-2">
+                      <CircleCheckIcon />
+                      Done
+                    </Link>
+                  }
+                />
+              </li>
+            </ul>
+          </McNavigationMenuContent>
+        </McNavigationMenuItem>
+        <McNavigationMenuItem>
+          <McNavigationMenuLink
+            className={navigationMenuTriggerStyle()}
+            render={<Link href="#docs">Docs</Link>}
+          />
+        </McNavigationMenuItem>
+      </McNavigationMenuList>
+    </McNavigationMenu>
   );
 }
 
