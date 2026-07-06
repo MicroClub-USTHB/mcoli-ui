@@ -2557,6 +2557,19 @@
         }
       ],
       "type": "registry:component"
+    },
+    {
+      "name": "mc-carousel",
+      "title": "MicroClub Carousel",
+      "description": "A carousel component for MicroClub UI",
+      "dependencies": ["embla-carousel-react", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-carousel.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
     }
   ]
 }
