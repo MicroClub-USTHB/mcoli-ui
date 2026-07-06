@@ -43,10 +43,10 @@ If you prefer manual control:
 <Step>Install the core dependencies</Step>
 
 <Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
-  <Tab value="npm">npm install vaul clsx tailwind-merge lucide-react</Tab>
-  <Tab value="pnpm">pnpm add vaul clsx tailwind-merge lucide-react</Tab>
-  <Tab value="yarn">yarn add vaul clsx tailwind-merge lucide-react</Tab>
-  <Tab value="bun">bun add vaul clsx tailwind-merge lucide-react</Tab>
+  <Tab value="npm">npm install vaul</Tab>
+  <Tab value="pnpm">pnpm add vaul</Tab>
+  <Tab value="yarn">yarn add vaul</Tab>
+  <Tab value="bun">bun add vaul</Tab>
 </Tabs>
 
 <Step>Copy the source code</Step>
@@ -55,8 +55,7 @@ If you prefer manual control:
 
 <Step>Adjust import paths</Step>
 
-Ensure your `@/lib/utils` helper is available and that your Tailwind theme includes the drawer
-tokens used by the component.
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 
 </Steps>
 
@@ -98,6 +97,7 @@ import {
   McDrawerContent,
   McDrawerNav,
   McDrawerNavItem,
+  McDrawerTitle,
   McDrawerTrigger,
 } from '@/components/ui/mc-drawer';
 
@@ -106,6 +106,7 @@ export function NavigationDrawer() {
     <McDrawer direction="right">
       <McDrawerTrigger>Open navigation</McDrawerTrigger>
       <McDrawerContent>
+        <McDrawerTitle className="sr-only">Navigation</McDrawerTitle>
         <McDrawerNav />
         <div className="flex flex-1 flex-col overflow-y-auto pt-9">
           <McDrawerNavItem icon={<Moon size={16} />} hasArrow>

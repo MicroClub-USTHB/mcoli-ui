@@ -2546,6 +2546,19 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-drawer",
+      "title": "MicroClub Drawer",
+      "description": "A drawer component for MicroClub UI",
+      "dependencies": ["vaul"],
+      "files": [
+        {
+          "path": "registry/ui/mc-drawer.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-hover-card",
       "title": "MicroClub Hover Card",
       "description": "A hover card component for MicroClub UI",
@@ -2553,19 +2566,6 @@
       "files": [
         {
           "path": "registry/ui/mc-hover-card.tsx",
-          "type": "registry:component"
-        }
-      ],
-      "type": "registry:component"
-    },
-    {
-      "name": "mc-drawer",
-      "title": "MicroClub Drawer",
-      "description": "A drawer component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "vaul"],
-      "files": [
-        {
-          "path": "registry/ui/mc-drawer.tsx",
           "type": "registry:component"
         }
       ],

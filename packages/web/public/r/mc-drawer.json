@@ -3,7 +3,7 @@
   "name": "mc-drawer",
   "title": "MicroClub Drawer",
   "description": "A drawer component for MicroClub UI",
-  "dependencies": ["@base-ui/react", "vaul"],
+  "dependencies": ["vaul"],
   "files": [
     {
       "path": "registry/ui/mc-drawer.tsx",

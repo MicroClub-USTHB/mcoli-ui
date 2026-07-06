@@ -394,19 +394,6 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-avatar.json`],
   },
   {
-    name: 'mc-hover-card-demo',
-    type: 'registry:example',
-    title: 'MicroClub Hover Card Demo',
-    description: 'Demo for MicroClub Hover Card',
-    files: [
-      {
-        path: 'examples/mc-hover-card-demo.tsx',
-        type: 'registry:example',
-      },
-    ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-hover-card.json`],
-  },
-  {
     name: 'mc-drawer-demo',
     type: 'registry:example',
     title: 'MicroClub Drawer Demo',
@@ -418,6 +405,19 @@ export const examples: Registry['items'] = [
       },
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-drawer.json`],
+  },
+  {
+    name: 'mc-hover-card-demo',
+    type: 'registry:example',
+    title: 'MicroClub Hover Card Demo',
+    description: 'Demo for MicroClub Hover Card',
+    files: [
+      {
+        path: 'examples/mc-hover-card-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-hover-card.json`],
   },
   {
     name: 'mc-carousel-demo',

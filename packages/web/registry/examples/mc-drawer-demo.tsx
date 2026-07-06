@@ -11,21 +11,7 @@ import {
   McDrawerNavItem,
   McDrawerTitle,
   McDrawerTrigger,
-} from '@/registry/ui/mc-drawer';
-
-// ─── Shared trigger ───────────────────────────────────────────────────────────
-
-function McTrigger({ children = 'Show drawer' }: { children?: string }) {
-  return (
-    <div className="fixed inset-0 flex items-center justify-center">
-      <McDrawerTrigger className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
-        {children}
-      </McDrawerTrigger>
-    </div>
-  );
-}
-
-// ─── Shared nav items data ────────────────────────────────────────────────────
+} from '../ui/mc-drawer';
 
 const navItems = [
   { label: 'Account', hasArrow: true },
@@ -35,21 +21,18 @@ const navItems = [
   { label: 'Info', hasArrow: true },
 ];
 
-// ─── 1. Desktop — WITH icons (Icons=True) ────────────────────────────────────
-// Items use the shared drawer nav row styles.
-// top spacing uses Tailwind scale and nav items sit flush together
-
-export function McMcDrawerDesktopWithIcons() {
+function DesktopWithIcons() {
   return (
     <McDrawer direction="right">
-      <McTrigger>McDrawer — icons</McTrigger>
+      <McDrawerTrigger className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+        Drawer — icons
+      </McDrawerTrigger>
 
       <McDrawerContent>
+        <McDrawerTitle className="sr-only">Navigation — icons</McDrawerTitle>
         <McDrawerNav />
 
-        {/* Nav list — top gap from the drawer nav, with items flush together */}
         <div className="flex flex-1 flex-col gap-0 overflow-y-auto px-0 pt-9">
-          {/* Dark mode toggle */}
           <McDrawerNavItem icon={<Moon size={16} />} rightElement={<ToggleSwitch />}>
             Dark mode
           </McDrawerNavItem>
@@ -65,14 +48,15 @@ export function McMcDrawerDesktopWithIcons() {
   );
 }
 
-// ─── 2. Desktop — WITHOUT icons (Icons=False) ────────────────────────────────
-
-export function McMcDrawerDesktopNoIcons() {
+function DesktopNoIcons() {
   return (
     <McDrawer direction="right">
-      <McTrigger>McDrawer — no icons</McTrigger>
+      <McDrawerTrigger className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+        Drawer — no icons
+      </McDrawerTrigger>
 
       <McDrawerContent>
+        <McDrawerTitle className="sr-only">Navigation — no icons</McDrawerTitle>
         <McDrawerNav />
 
         <div className="flex flex-1 flex-col gap-0 overflow-y-auto px-0 pt-9">
@@ -89,16 +73,16 @@ export function McMcDrawerDesktopNoIcons() {
   );
 }
 
-// ─── 3. Mobile — bottom sheet (Edit profile) ─────────────────────────────────
-
-export function McMcDrawerMobile() {
+function MobileSheet() {
   return (
     <McDrawer direction="bottom">
-      <McTrigger>McDrawer — mobile</McTrigger>
+      <McDrawerTrigger className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
+        Drawer — mobile
+      </McDrawerTrigger>
 
       <McDrawerContent>
         <div className="flex flex-col gap-6 px-4 py-6">
-          <McDrawerHeader className="p-0 gap-2">
+          <McDrawerHeader className="gap-2 p-0">
             <McDrawerTitle>Edit profile</McDrawerTitle>
             <McDrawerDescription>
               Make changes to your profile here. Click save when you&apos;re done.
@@ -107,11 +91,11 @@ export function McMcDrawerMobile() {
 
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="mc-drawer-email" className="text-sm font-medium text-foreground">
+              <label htmlFor="drawer-email" className="text-sm font-medium text-foreground">
                 Email
               </label>
               <input
-                id="mc-drawer-email"
+                id="drawer-email"
                 type="email"
                 defaultValue="m@example.com"
                 className="w-full rounded-lg border border-border bg-input px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring"
@@ -119,11 +103,11 @@ export function McMcDrawerMobile() {
             </div>
 
             <div className="flex flex-col gap-1.5">
-              <label htmlFor="mc-drawer-username" className="text-sm font-medium text-foreground">
+              <label htmlFor="drawer-username" className="text-sm font-medium text-foreground">
                 Username
               </label>
               <input
-                id="mc-drawer-username"
+                id="drawer-username"
                 type="text"
                 defaultValue="m@example.com"
                 className="w-full rounded-lg border border-border bg-input px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring"
@@ -140,19 +124,16 @@ export function McMcDrawerMobile() {
   );
 }
 
-// ─── Default export — all three variants side by side ─────────────────────────
-
-export default function McMcDrawerDemo() {
+export default function DrawerDemo() {
   return (
-    <div className="flex min-h-screen w-full flex-wrap items-center justify-center gap-4">
-      <McMcDrawerDesktopWithIcons />
-      <McMcDrawerDesktopNoIcons />
-      <McMcDrawerMobile />
+    <div className="flex flex-wrap gap-4">
+      <DesktopWithIcons />
+      <DesktopNoIcons />
+      <MobileSheet />
     </div>
   );
 }
 
-// ─── Toggle switch helper ─────────────────────────────────────────────────────
 function ToggleSwitch() {
   return (
     <div
