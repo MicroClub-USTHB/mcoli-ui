@@ -2152,7 +2152,7 @@ export const Index: Record<string, any> = {
   },
   'mc-select': {
     name: 'mc-select',
-    description: 'A Selector component for MicroClub UI',
+    description: 'A select component for MicroClub UI',
     type: 'registry:component',
     files: [
       {
@@ -2563,7 +2563,7 @@ export const Index: Record<string, any> = {
   },
   'mc-select-demo': {
     name: 'mc-select-demo',
-    description: 'Demo for MicroClub Selector',
+    description: 'Demo for MicroClub Select',
     type: 'registry:example',
     files: [
       {

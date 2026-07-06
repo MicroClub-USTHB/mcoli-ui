@@ -3,7 +3,7 @@
   "name": "mc-alert",
   "title": "MicroClub Alert",
   "description": "An alert component for MicroClub UI",
-  "dependencies": ["@base-ui/react"],
+  "dependencies": ["lucide-react"],
   "files": [
     {
       "path": "registry/ui/mc-alert.tsx",

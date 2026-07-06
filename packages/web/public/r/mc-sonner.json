@@ -3,7 +3,7 @@
   "name": "mc-sonner",
   "title": "MicroClub Sonner",
   "description": "A toast component for MicroClub UI",
-  "dependencies": ["@base-ui/react", "sonner"],
+  "dependencies": ["sonner", "lucide-react"],
   "files": [
     {
       "path": "registry/ui/mc-sonner.tsx",

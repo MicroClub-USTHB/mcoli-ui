@@ -3,7 +3,7 @@
   "name": "mc-combobox",
   "title": "MicroClub Combobox",
   "description": "A searchable dropdown with autocomplete functionality for MicroClub UI",
-  "dependencies": ["@base-ui/react"],
+  "dependencies": ["@base-ui/react", "lucide-react"],
   "files": [
     {
       "path": "registry/ui/mc-combobox.tsx",

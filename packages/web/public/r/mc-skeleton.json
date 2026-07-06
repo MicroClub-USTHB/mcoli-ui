@@ -3,7 +3,7 @@
   "name": "mc-skeleton",
   "title": "MicroClub Skeleton",
   "description": "A skeleton component for MicroClub UI",
-  "dependencies": ["@base-ui/react"],
+  "dependencies": [],
   "files": [
     {
       "path": "registry/ui/mc-skeleton.tsx",
