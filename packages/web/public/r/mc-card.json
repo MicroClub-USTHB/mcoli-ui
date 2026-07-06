@@ -3,7 +3,7 @@
   "name": "mc-card",
   "title": "MicroClub Card",
   "description": "A card layout with header, body, and footer regions for MicroClub UI",
-  "dependencies": ["class-variance-authority"],
+  "dependencies": [],
   "files": [
     {
       "path": "registry/ui/mc-card.tsx",

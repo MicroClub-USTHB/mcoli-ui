@@ -2159,7 +2159,7 @@
       "name": "mc-button",
       "title": "MicroClub Button",
       "description": "A button component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
           "path": "registry/ui/mc-button.tsx",
@@ -2211,7 +2211,7 @@
       "name": "mc-checkbox",
       "title": "MicroClub Checkbox",
       "description": "A checkbox component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
           "path": "registry/ui/mc-checkbox.tsx",
@@ -2237,7 +2237,7 @@
       "name": "mc-card",
       "title": "MicroClub Card",
       "description": "A card layout with header, body, and footer regions for MicroClub UI",
-      "dependencies": ["class-variance-authority"],
+      "dependencies": [],
       "files": [
         {
           "path": "registry/ui/mc-card.tsx",
@@ -2249,8 +2249,8 @@
     {
       "name": "mc-select",
       "title": "MicroClub Select",
-      "description": "A Selector component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "description": "A select component for MicroClub UI",
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
           "path": "registry/ui/mc-select.tsx",
@@ -2263,7 +2263,7 @@
       "name": "mc-combobox",
       "title": "MicroClub Combobox",
       "description": "A searchable dropdown with autocomplete functionality for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
           "path": "registry/ui/mc-combobox.tsx",
@@ -2289,7 +2289,7 @@
       "name": "mc-navigation-menu",
       "title": "MicroClub Navigation Menu",
       "description": "A navigation menu component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
           "path": "registry/ui/mc-navigation-menu.tsx",
@@ -2302,7 +2302,7 @@
       "name": "mc-sidebar",
       "title": "MicroClub Sidebar",
       "description": "A sidebar component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
           "path": "registry/ui/mc-sidebar.tsx",
@@ -2341,7 +2341,7 @@
       "name": "mc-pagination",
       "title": "MicroClub Pagination",
       "description": "A pagination component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
           "path": "registry/ui/mc-pagination.tsx",
@@ -2354,7 +2354,7 @@
       "name": "mc-dialog",
       "title": "MicroClub Dialog",
       "description": "A dialog component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
           "path": "registry/ui/mc-dialog.tsx",
@@ -2380,7 +2380,7 @@
       "name": "mc-alert",
       "title": "MicroClub Alert",
       "description": "An alert component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["lucide-react"],
       "files": [
         {
           "path": "registry/ui/mc-alert.tsx",
@@ -2393,7 +2393,7 @@
       "name": "mc-sonner",
       "title": "MicroClub Sonner",
       "description": "A toast component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "sonner"],
+      "dependencies": ["sonner", "lucide-react"],
       "files": [
         {
           "path": "registry/ui/mc-sonner.tsx",
@@ -2432,7 +2432,7 @@
       "name": "mc-dropdown-menu",
       "title": "MicroClub Dropdown Menu",
       "description": "A dropdown menu component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
           "path": "registry/ui/mc-dropdown-menu.tsx",
@@ -2458,7 +2458,7 @@
       "name": "mc-accordion",
       "title": "MicroClub Accordion",
       "description": "An accordion component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
           "path": "registry/ui/mc-accordion.tsx",
@@ -2481,6 +2481,19 @@
       "type": "registry:component"
     },
     {
+      "name": "mc-calendar",
+      "title": "MicroClub Calendar",
+      "description": "A calendar component for MicroClub UI",
+      "dependencies": ["react-day-picker", "date-fns", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-calendar.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
       "name": "mc-scrollarea",
       "title": "MicroClub Scroll Area",
       "description": "A scroll area component for MicroClub UI",
@@ -2497,7 +2510,7 @@
       "name": "mc-skeleton",
       "title": "MicroClub Skeleton",
       "description": "A skeleton component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": [],
       "files": [
         {
           "path": "registry/ui/mc-skeleton.tsx",
@@ -2546,13 +2559,26 @@
       "type": "registry:component"
     },
     {
-      "name": "mc-drawer-card",
+      "name": "mc-drawer",
       "title": "MicroClub Drawer",
       "description": "A drawer component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["@base-ui/react", "vaul"],
       "files": [
         {
           "path": "registry/ui/mc-drawer.tsx",
+          "type": "registry:component"
+        }
+      ],
+      "type": "registry:component"
+    },
+    {
+      "name": "mc-carousel",
+      "title": "MicroClub Carousel",
+      "description": "A carousel component for MicroClub UI",
+      "dependencies": ["embla-carousel-react", "lucide-react"],
+      "files": [
+        {
+          "path": "registry/ui/mc-carousel.tsx",
           "type": "registry:component"
         }
       ],

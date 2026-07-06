@@ -239,7 +239,7 @@ When adding a new item, you will create/edit these files:
 | `mc-collapsible`     | ✅           |           |
 | `mc-separator`       | ✅           | ✅        |
 | `mc-progress`        | ✅           |           |
-| `mc-calendar`        | ✅           |           |
+| `mc-calendar`        | ✅           | ✅        |
 | `mc-scrollarea`      | ✅           | ✅        |
 | `mc-skeleton`        | ✅           | ✅        |
 | `mc-badge`           | ✅           | ✅        |
@@ -247,7 +247,7 @@ When adding a new item, you will create/edit these files:
 | `mc-drawer`          | ✅           |           |
 | `mc-hover-card`      | ✅           | ✅        |
 | `mc-slider`          | ✅           |           |
-| `mc-carousel`        | ✅           |           |
+| `mc-carousel`        | ✅           | ✅        |
 
 # Important Notes
 
