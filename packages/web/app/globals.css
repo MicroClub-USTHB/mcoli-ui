@@ -685,7 +685,8 @@
   --chart-5: #1f3fad;
   /* --sidebar: #f0f0f3; */
   --sidebar: #1e293b;
-  --sidebar-foreground: #0e0e0f;
+  /* --sidebar-foreground: #0e0e0f; */
+  --sidebar-foreground: #d1d5db;
   --sidebar-primary: #34d399;
   --sidebar-primary-foreground: #0f172a;
   --sidebar-accent: #f0f0f3;
