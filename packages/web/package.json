@@ -40,7 +40,8 @@
     "react-day-picker": "^10.0.1",
     "react-dom": "^19.2.4",
     "sonner": "^2.0.7",
-    "tailwind-merge": "^3.5.0"
+    "tailwind-merge": "^3.5.0",
+    "vaul": "^1.1.2"
   },
   "devDependencies": {
     "@storybook/nextjs": "^10.4.1",

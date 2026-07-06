@@ -392,6 +392,19 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-drawer',
+    type: 'registry:component',
+    title: 'MicroClub Drawer',
+    description: 'A drawer component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-drawer.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['vaul'],
+  },
+  {
     name: 'mc-hover-card',
     type: 'registry:component',
     title: 'MicroClub Hover Card',
@@ -404,7 +417,6 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['@base-ui/react'],
   },
-
   {
     name: 'mc-carousel',
     type: 'registry:component',

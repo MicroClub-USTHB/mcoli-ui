@@ -32,13 +32,13 @@
     "mc-skeleton",
     "mc-badge",
     "mc-avatar",
+    "mc-drawer",
     "mc-hover-card",
     "mc-carousel",
     "---Coming Soon---",
     "mc-data-table",
     "mc-collapsible",
     "mc-progress",
-    "mc-drawer",
     "mc-slider"
   ]
 }

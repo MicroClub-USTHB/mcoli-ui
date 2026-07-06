@@ -200,6 +200,10 @@
   --blur-lg: 7px;
   --blur-xl: 9px;
 
+  --spacing-drawer: 26.6875rem;
+  --spacing-drawer-nav: 4.5rem;
+  --spacing-drawer-item: 4.125rem;
+
   --font-dm-sans: var(--font-dm-sans);
   --font-plus-jakarta-sans: var(--font-plus-jakarta-sans);
   --font-heading: var(--font-sans);
