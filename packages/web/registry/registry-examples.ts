@@ -97,7 +97,7 @@ export const examples: Registry['items'] = [
     name: 'mc-select-demo',
     type: 'registry:example',
     title: 'MicroClub Select Demo',
-    description: 'Demo for MicroClub Selector',
+    description: 'Demo for MicroClub Select',
     files: [
       {
         path: 'examples/mc-select-demo.tsx',
