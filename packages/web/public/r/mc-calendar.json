@@ -3,7 +3,7 @@
   "name": "mc-calendar",
   "title": "MicroClub Calendar",
   "description": "A calendar component for MicroClub UI",
-  "dependencies": ["@base-ui/react"],
+  "dependencies": ["react-day-picker", "date-fns", "lucide-react"],
   "files": [
     {
       "path": "registry/ui/mc-calendar.tsx",
