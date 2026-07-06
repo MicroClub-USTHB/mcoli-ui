@@ -27,6 +27,7 @@
     "mc-context-menu",
     "mc-accordion",
     "mc-separator",
+    "mc-calendar",
     "mc-scrollarea",
     "mc-skeleton",
     "mc-badge",
@@ -36,7 +37,6 @@
     "mc-data-table",
     "mc-collapsible",
     "mc-progress",
-    "mc-calendar",
     "mc-drawer",
     "mc-slider",
     "mc-carousel"

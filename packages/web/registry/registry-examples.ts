@@ -97,7 +97,7 @@ export const examples: Registry['items'] = [
     name: 'mc-select-demo',
     type: 'registry:example',
     title: 'MicroClub Select Demo',
-    description: 'Demo for MicroClub Selector',
+    description: 'Demo for MicroClub Select',
     files: [
       {
         path: 'examples/mc-select-demo.tsx',
@@ -328,6 +328,19 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-separator.json`],
   },
 
+  {
+    name: 'mc-calendar-demo',
+    type: 'registry:example',
+    title: 'MicroClub Calendar Demo',
+    description: 'Demo for MicroClub Calendar',
+    files: [
+      {
+        path: 'examples/mc-calendar-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-calendar.json`],
+  },
   {
     name: 'mc-scrollarea-demo',
     type: 'registry:example',
