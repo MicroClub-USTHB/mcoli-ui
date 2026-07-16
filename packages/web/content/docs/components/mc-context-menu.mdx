@@ -3,7 +3,256 @@ title: MC Context Menu
 description: A menu that appears on right-click or long press.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-context-menu` is a context menu component for MicroClub UI. Built on the **@base-ui/react** context menu primitive, it provides accessible right-click and long-press interactions with MicroClub styling via **Tailwind CSS v4**.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-context-menu-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-context-menu-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-context-menu` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-context-menu</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-context-menu</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-context-menu</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-context-menu</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install @base-ui/react lucide-react</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react lucide-react</Tab>
+  <Tab value="yarn">yarn add @base-ui/react lucide-react</Tab>
+  <Tab value="bun">bun add @base-ui/react lucide-react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-context-menu" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  McContextMenu,
+  McContextMenuContent,
+  McContextMenuItem,
+  McContextMenuTrigger,
+} from '@/components/ui/mc-context-menu';
+
+export default function Example() {
+  return (
+    <McContextMenu>
+      <McContextMenuTrigger>Right click here</McContextMenuTrigger>
+      <McContextMenuContent>
+        <McContextMenuItem>Back</McContextMenuItem>
+        <McContextMenuItem>Forward</McContextMenuItem>
+        <McContextMenuItem>Reload</McContextMenuItem>
+      </McContextMenuContent>
+    </McContextMenu>
+  );
+}
+```
+
+## Examples
+
+### With Groups and Labels
+
+```tsx
+<McContextMenu>
+  <McContextMenuTrigger>Right click here</McContextMenuTrigger>
+  <McContextMenuContent>
+    <McContextMenuGroup>
+      <McContextMenuLabel>Actions</McContextMenuLabel>
+      <McContextMenuItem>Back</McContextMenuItem>
+      <McContextMenuItem>Forward</McContextMenuItem>
+      <McContextMenuItem disabled>Reload</McContextMenuItem>
+    </McContextMenuGroup>
+  </McContextMenuContent>
+</McContextMenu>
+```
+
+### With Shortcuts
+
+```tsx
+<McContextMenuItem>
+  Back
+  <McContextMenuShortcut>Alt+Left</McContextMenuShortcut>
+</McContextMenuItem>
+```
+
+### With Checkbox Items
+
+```tsx
+<McContextMenuCheckboxItem checked>Show bookmarks</McContextMenuCheckboxItem>
+<McContextMenuCheckboxItem>Show full URLs</McContextMenuCheckboxItem>
+```
+
+### With Radio Items
+
+```tsx
+<McContextMenuGroup>
+  <McContextMenuLabel inset>Density</McContextMenuLabel>
+  <McContextMenuRadioGroup value="comfortable">
+    <McContextMenuRadioItem value="compact">Compact</McContextMenuRadioItem>
+    <McContextMenuRadioItem value="comfortable">Comfortable</McContextMenuRadioItem>
+    <McContextMenuRadioItem value="spacious">Spacious</McContextMenuRadioItem>
+  </McContextMenuRadioGroup>
+</McContextMenuGroup>
+```
+
+### With Submenus
+
+```tsx
+<McContextMenuSub>
+  <McContextMenuSubTrigger>More tools</McContextMenuSubTrigger>
+  <McContextMenuSubContent>
+    <McContextMenuItem>Save page as...</McContextMenuItem>
+    <McContextMenuItem>Create shortcut...</McContextMenuItem>
+    <McContextMenuItem>Inspect</McContextMenuItem>
+  </McContextMenuSubContent>
+</McContextMenuSub>
+```
+
+## API Reference
+
+### McContextMenu
+
+The root component that manages context menu state.
+
+All props from `@base-ui/react/context-menu` `Root` are supported.
+
+### McContextMenuTrigger
+
+The element that opens the context menu on right-click or long press.
+
+All props from `@base-ui/react/context-menu` `Trigger` are supported.
+
+### McContextMenuContent
+
+The floating menu panel.
+
+| Prop          | Type                                     | Default     | Description                              |
+| ------------- | ---------------------------------------- | ----------- | ---------------------------------------- |
+| `side`        | `"top" \| "bottom" \| "left" \| "right"` | `"right"`   | Preferred side of the trigger to open on |
+| `sideOffset`  | `number`                                 | `0`         | Distance in px from the trigger          |
+| `align`       | `"start" \| "center" \| "end"`           | `"start"`   | Alignment along the trigger axis         |
+| `alignOffset` | `number`                                 | `4`         | Offset in px along the alignment axis    |
+| `className`   | `string`                                 | `undefined` | Additional CSS classes                   |
+
+All other props from `@base-ui/react/context-menu` `Popup` are supported.
+
+### McContextMenuItem
+
+An actionable menu item.
+
+| Prop        | Type                         | Default     | Description                     |
+| ----------- | ---------------------------- | ----------- | ------------------------------- |
+| `inset`     | `boolean`                    | `undefined` | Adds left padding for alignment |
+| `variant`   | `"default" \| "destructive"` | `"default"` | Visual style for the item       |
+| `className` | `string`                     | `undefined` | Additional CSS classes          |
+| `disabled`  | `boolean`                    | `undefined` | Disables item interaction       |
+
+All other props from `@base-ui/react/context-menu` `Item` are supported.
+
+### McContextMenuLabel
+
+A label for a menu group.
+
+`McContextMenuLabel` must be used inside `McContextMenuGroup`.
+
+| Prop        | Type      | Default     | Description                     |
+| ----------- | --------- | ----------- | ------------------------------- |
+| `inset`     | `boolean` | `undefined` | Adds left padding for alignment |
+| `className` | `string`  | `undefined` | Additional CSS classes          |
+
+### McContextMenuGroup
+
+Groups related menu items and labels.
+
+All props from `@base-ui/react/context-menu` `Group` are supported.
+
+### McContextMenuCheckboxItem
+
+A checkable menu item.
+
+| Prop        | Type      | Default     | Description            |
+| ----------- | --------- | ----------- | ---------------------- |
+| `checked`   | `boolean` | `undefined` | Checked state          |
+| `inset`     | `boolean` | `undefined` | Adds alignment padding |
+| `className` | `string`  | `undefined` | Additional CSS classes |
+
+### McContextMenuRadioGroup
+
+Groups mutually exclusive radio menu items.
+
+All props from `@base-ui/react/context-menu` `RadioGroup` are supported.
+
+### McContextMenuRadioItem
+
+A selectable radio item inside `McContextMenuRadioGroup`.
+
+| Prop        | Type      | Default     | Description            |
+| ----------- | --------- | ----------- | ---------------------- |
+| `value`     | `string`  | Required    | Radio item value       |
+| `inset`     | `boolean` | `undefined` | Adds alignment padding |
+| `className` | `string`  | `undefined` | Additional CSS classes |
+
+### McContextMenuSub
+
+The root component for a nested submenu.
+
+All props from `@base-ui/react/context-menu` `SubmenuRoot` are supported.
+
+### McContextMenuSubTrigger
+
+The item that opens a nested submenu.
+
+| Prop        | Type      | Default     | Description                     |
+| ----------- | --------- | ----------- | ------------------------------- |
+| `inset`     | `boolean` | `undefined` | Adds left padding for alignment |
+| `className` | `string`  | `undefined` | Additional CSS classes          |
+
+### McContextMenuSubContent
+
+The floating panel for a submenu.
+
+All props from `McContextMenuContent` are supported.
+
+### McContextMenuSeparator
+
+A visual separator between menu sections.
+
+All props from `@base-ui/react/context-menu` `Separator` are supported.
+
+### McContextMenuShortcut
+
+Displays shortcut text aligned to the end of a menu item.
+
+All props from `span` are supported.

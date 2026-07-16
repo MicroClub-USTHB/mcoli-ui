@@ -1,0 +1,208 @@
+import type { ComponentProps } from 'react';
+import type { Meta, StoryObj } from '@storybook/nextjs';
+import { ArrowRight, ArrowUp, X } from 'lucide-react';
+import { McBadge } from '@/registry/ui/mc-badge';
+
+const DotIcon = () => <span className="rounded-full bg-current inline-block size-1.5" />;
+
+type IconChoice = 'none' | 'dot' | 'arrowUp' | 'x' | 'arrowRight';
+type IconPlacement = 'none' | 'start' | 'end';
+type BadgeStoryArgs = ComponentProps<typeof McBadge> & {
+  iconChoice?: IconChoice;
+  iconPlacement?: IconPlacement;
+  leadingBadgePosition?: 'start' | 'end';
+  groupSize?: 'md' | 'lg';
+};
+
+const iconMap = {
+  none: undefined,
+  dot: <DotIcon />,
+  arrowUp: <ArrowUp />,
+  x: <X />,
+  arrowRight: <ArrowRight />,
+} as const;
+
+const meta: Meta<BadgeStoryArgs> = {
+  title: 'Components/McBadge',
+  component: McBadge,
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['default', 'secondary', 'destructive', 'outline', 'ghost'],
+    },
+    size: {
+      control: 'select',
+      options: ['sm', 'md', 'lg'],
+    },
+    iconPlacement: {
+      control: 'select',
+      options: ['none', 'start', 'end'],
+    },
+    iconChoice: {
+      control: 'select',
+      options: ['none', 'dot', 'arrowUp', 'x', 'arrowRight'],
+    },
+    leadingBadgePosition: {
+      control: 'select',
+      options: ['start', 'end'],
+    },
+    groupSize: {
+      control: 'select',
+      options: ['md', 'lg'],
+    },
+    icon: { control: false },
+    iconPosition: { control: false },
+    image: { control: 'text' },
+    imageAlt: { control: 'text' },
+    imagePosition: {
+      control: 'select',
+      options: ['start', 'end'],
+    },
+    children: { control: 'text' },
+  },
+  args: {
+    children: 'Badge',
+    variant: 'default',
+    size: 'sm',
+    iconPlacement: 'none',
+    iconChoice: 'none',
+    leadingBadgePosition: 'start',
+    groupSize: 'md',
+    image: undefined,
+    imageAlt: '',
+    imagePosition: 'start',
+  },
+};
+
+export default meta;
+type Story = StoryObj<BadgeStoryArgs>;
+
+export const Playground: Story = {
+  parameters: {
+    controls: {
+      exclude: ['leadingBadgePosition', 'groupSize'],
+    },
+  },
+  render: ({ iconChoice, iconPlacement, ...args }) => {
+    const icon = iconMap[iconChoice as keyof typeof iconMap];
+    const resolvedIconPosition = iconPlacement === 'none' ? undefined : iconPlacement;
+    return <McBadge {...args} icon={icon} iconPosition={resolvedIconPosition} />;
+  },
+};
+
+export const Variants: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-3">
+      <McBadge {...args} variant="default">
+        Default
+      </McBadge>
+      <McBadge {...args} variant="secondary">
+        Secondary
+      </McBadge>
+      <McBadge {...args} variant="destructive">
+        Destructive
+      </McBadge>
+      <McBadge {...args} variant="outline">
+        Outline
+      </McBadge>
+      <McBadge {...args} variant="ghost">
+        Ghost
+      </McBadge>
+    </div>
+  ),
+};
+
+export const Sizes: Story = {
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-3">
+      <McBadge {...args} size="sm">
+        Small
+      </McBadge>
+      <McBadge {...args} size="md">
+        Medium
+      </McBadge>
+      <McBadge {...args} size="lg">
+        Large
+      </McBadge>
+    </div>
+  ),
+};
+
+export const WithIcon: Story = {
+  args: {
+    children: 'Badge',
+    iconPlacement: 'start',
+    iconChoice: 'dot',
+  },
+  render: ({ iconChoice, iconPlacement, ...args }) => {
+    const icon = iconMap[iconChoice as keyof typeof iconMap];
+    const resolvedIconPosition = iconPlacement === 'none' ? undefined : iconPlacement;
+    return <McBadge {...args} icon={icon} iconPosition={resolvedIconPosition} />;
+  },
+};
+
+export const WithLeadingBadge: Story = {
+  parameters: {
+    controls: {
+      exclude: ['iconPlacement', 'size'],
+    },
+  },
+  render: ({ iconChoice, ...args }) => {
+    const chosenIcon = iconMap[iconChoice as keyof typeof iconMap];
+    const parentIcon = args.leadingBadgePosition === 'start' ? chosenIcon : undefined;
+    const leadingBadgeIcon = args.leadingBadgePosition === 'end' ? chosenIcon : undefined;
+
+    return (
+      <McBadge
+        {...args}
+        icon={parentIcon}
+        iconPosition="end"
+        leadingBadge="New"
+        leadingBadgePosition={args.leadingBadgePosition}
+        leadingBadgeIcon={leadingBadgeIcon}
+      >
+        Badge Group
+      </McBadge>
+    );
+  },
+};
+
+export const WithImage: Story = {
+  parameters: {
+    controls: {
+      exclude: ['iconPlacement', 'iconChoice', 'leadingBadgePosition', 'groupSize'],
+    },
+  },
+  args: {
+    children: 'Label',
+    image: 'https://flagcdn.com/w40/au.png',
+    imageAlt: 'Australia',
+    imagePosition: 'start',
+  },
+  render: (args) => <McBadge {...args} />,
+};
+
+export const WithImageSizes: Story = {
+  parameters: {
+    controls: {
+      exclude: ['iconPlacement', 'iconChoice', 'leadingBadgePosition', 'groupSize', 'size'],
+    },
+  },
+  render: (args) => (
+    <div className="flex flex-wrap items-center gap-3">
+      <McBadge {...args} size="sm" imagePosition="start">
+        Small
+      </McBadge>
+      <McBadge {...args} size="md" imagePosition="start">
+        Medium
+      </McBadge>
+      <McBadge {...args} size="lg" imagePosition="start">
+        Large
+      </McBadge>
+    </div>
+  ),
+  args: {
+    image: 'https://flagcdn.com/w40/au.png',
+    imageAlt: 'Australia',
+  },
+};

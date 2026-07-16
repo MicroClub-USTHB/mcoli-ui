@@ -3,7 +3,110 @@ title: MC Switch
 description: A toggle switch for binary on/off states.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-switch` is a core component of the MicroClub UI library. Built on the **@base-ui/react** switch primitive, it combines world-class accessibility with MicroClub's signature styling via **Tailwind CSS v4**.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-switch-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-switch-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-switch` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-switch</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-switch</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-switch</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-switch</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install @base-ui/react</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react</Tab>
+  <Tab value="yarn">yarn add @base-ui/react</Tab>
+  <Tab value="bun">bun add @base-ui/react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-switch" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McSwitch } from '@/components/ui/mc-switch';
+
+export default function Example() {
+  return <McSwitch />;
+}
+```
+
+## Examples
+
+### Sizes
+
+```tsx
+<McSwitch size="sm" />
+<McSwitch size="default" />
+```
+
+### Default Checked
+
+```tsx
+<McSwitch defaultChecked />
+```
+
+### Controlled
+
+```tsx
+const [checked, setChecked] = React.useState(false);
+
+<McSwitch checked={checked} onCheckedChange={setChecked} />;
+```
+
+### States
+
+```tsx
+<McSwitch disabled />
+<McSwitch disabled defaultChecked />
+```
+
+## API Reference
+
+### Props
+
+| Prop              | Type                         | Default     | Description                                   |
+| ----------------- | ---------------------------- | ----------- | --------------------------------------------- |
+| `size`            | `"sm" \| "default"`          | `"default"` | The size of the switch                        |
+| `checked`         | `boolean`                    | `undefined` | Controlled checked state                      |
+| `defaultChecked`  | `boolean`                    | `false`     | Initial checked state when uncontrolled       |
+| `onCheckedChange` | `(checked: boolean) => void` | `undefined` | Callback fired when the checked state changes |
+| `disabled`        | `boolean`                    | `false`     | Disables the switch and prevents interactions |
+| `className`       | `string`                     | `undefined` | Additional CSS classes                        |
+
+All other props from `@base-ui/react/switch` are supported.

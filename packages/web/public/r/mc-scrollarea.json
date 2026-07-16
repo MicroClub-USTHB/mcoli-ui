@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mc-scrollarea",
+  "title": "MicroClub Scroll Area",
+  "description": "A scroll area component for MicroClub UI",
+  "dependencies": ["@base-ui/react"],
+  "files": [
+    {
+      "path": "registry/ui/mc-scrollarea.tsx",
+      "content": "'use client';\n\nimport { ScrollArea as ScrollAreaPrimitive } from '@base-ui/react/scroll-area';\n\nimport { cn } from '@/lib/utils';\n\nfunction McScrollArea({\n  className,\n  children,\n  title,\n  desc,\n  ...props\n}: ScrollAreaPrimitive.Root.Props & { title?: string; desc?: string[] }) {\n  return (\n    <ScrollAreaPrimitive.Root\n      data-slot=\"scroll-area\"\n      className={cn('relative  rounded-md ring-1 ring-inset ring-border bg-background', className)}\n      {...props}\n    >\n      <ScrollAreaPrimitive.Viewport data-slot=\"scroll-area-viewport\" className=\" size-full\">\n        {title && (\n          <div className=\" mb-4 mt-4 ml-4 gap-2.5 size-fit\">\n            <p className=\" font-dm-sans text-4 text-foreground text-normal\">{title}</p>\n          </div>\n        )}\n        {desc && (\n          <div className=\"mx-4  flex flex-col gap-2.5 size-fit\">\n            {desc.map((line, i) => (\n              <div key={i} className=\"px-1.5 py-3.5 border-b-px border-b h-fit min-w-39.5\">\n                <p className=\"\">{line}</p>\n              </div>\n            ))}\n          </div>\n        )}\n        {children}\n      </ScrollAreaPrimitive.Viewport>\n      <McScrollBar />\n      <ScrollAreaPrimitive.Corner />\n    </ScrollAreaPrimitive.Root>\n  );\n}\n\nfunction McScrollBar({\n  className,\n  orientation = 'vertical',\n  ...props\n}: ScrollAreaPrimitive.Scrollbar.Props) {\n  return (\n    <ScrollAreaPrimitive.Scrollbar\n      data-slot=\"scroll-area-scrollbar\"\n      data-orientation={orientation}\n      orientation={orientation}\n      className={cn(\n        'flex touch-none p-px transition-colors select-none ' +\n          ' data-horizontal:h-2.5 data-horizontal:flex-col data-horizontal:border-t data-horizontal:border-t-transparent data-horizontal:my-2 data-horizontal:ml-3' +\n          ' data-vertical:h-full data-vertical:w-2.5 data-vertical:border-l data-vertical:border-l-transparent',\n        className\n      )}\n      {...props}\n    >\n      <ScrollAreaPrimitive.Thumb\n        data-slot=\"scroll-area-thumb\"\n        className=\"relative flex-1 rounded-full bg-border\"\n      />\n    </ScrollAreaPrimitive.Scrollbar>\n  );\n}\n\nexport { McScrollArea, McScrollBar };\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

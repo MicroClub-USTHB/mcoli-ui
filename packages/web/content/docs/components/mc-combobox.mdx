@@ -3,7 +3,166 @@ title: MC Combobox
 description: A searchable dropdown with autocomplete functionality.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-combobox` is a core component of the MicroClub UI library. Built on the **@base-ui/react** combobox primitive, it combines world-class accessibility with MicroClub's signature styling via **Tailwind CSS v4**.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-combobox-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-combobox-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-combobox` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-combobox</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-combobox</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-combobox</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-combobox</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install @base-ui/react lucide-react</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react lucide-react</Tab>
+  <Tab value="yarn">yarn add @base-ui/react lucide-react</Tab>
+  <Tab value="bun">bun add @base-ui/react lucide-react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-combobox" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  McCombobox,
+  McComboboxTrigger,
+  McComboboxContent,
+  McComboboxSearch,
+  McComboboxList,
+  McComboboxItem,
+} from '@/components/ui/mc-combobox';
+
+const frameworks = ['Next.js', 'SvelteKit', 'Nuxt.js', 'Remix', 'Astro'];
+
+export default function Example() {
+  const [value, setValue] = React.useState('select value');
+
+  return (
+    <McCombobox items={frameworks} value={value} onValueChange={setValue}>
+      <McComboboxTrigger />
+      <McComboboxContent>
+        <McComboboxSearch placeholder="Search framework..." />
+        <McComboboxList>
+          {(item) => (
+            <McComboboxItem key={item} value={item}>
+              {item}
+            </McComboboxItem>
+          )}
+        </McComboboxList>
+      </McComboboxContent>
+    </McCombobox>
+  );
+}
+```
+
+## Examples
+
+### Basic McCombobox
+
+```tsx
+<McCombobox items={frameworks} value={value} onValueChange={setValue}>
+  <McComboboxTrigger />
+  <McComboboxContent>
+    <McComboboxSearch placeholder="Search framework..." />
+    <McComboboxList>
+      {(item) => (
+        <McComboboxItem key={item} value={item}>
+          {item}
+        </McComboboxItem>
+      )}
+    </McComboboxList>
+  </McComboboxContent>
+</McCombobox>
+```
+
+## API Reference
+
+### Props
+
+| Prop            | Type                 | Default | Description                 |
+| --------------- | -------------------- | ------- | --------------------------- |
+| `items`         | `T[]`                | -       | Array of items to display   |
+| `value`         | `T`                  | -       | Currently selected value    |
+| `onValueChange` | `(value: T) => void` | -       | Callback when value changes |
+| `className`     | `string`             | -       | Additional CSS classes      |
+| `children`      | `ReactNode`          | -       | Child components            |
+
+All other props from `@base-ui/react/combobox` are supported.
+
+### McComboboxTrigger
+
+| Prop          | Type        | Default     | Description                    |
+| ------------- | ----------- | ----------- | ------------------------------ |
+| `className`   | `string`    | `undefined` | Additional CSS classes         |
+| `placeholder` | `string`    | `undefined` | Placeholder text for the value |
+| `children`    | `ReactNode` | `undefined` | Custom trigger content         |
+
+All other props from `@base-ui/react/combobox` are supported.
+
+### McComboboxContent
+
+| Prop         | Type                           | Default     | Description            |
+| ------------ | ------------------------------ | ----------- | ---------------------- |
+| `className`  | `string`                       | `undefined` | Additional CSS classes |
+| `side`       | `"top" \| "bottom"`            | `"bottom"`  | Position side          |
+| `sideOffset` | `number`                       | `8`         | Offset from trigger    |
+| `align`      | `"start" \| "center" \| "end"` | `"start"`   | Alignment              |
+
+All other props from `@base-ui/react/combobox` are supported.
+
+### McComboboxSearch
+
+| Prop          | Type     | Default     | Description            |
+| ------------- | -------- | ----------- | ---------------------- |
+| `className`   | `string` | `undefined` | Additional CSS classes |
+| `placeholder` | `string` | `undefined` | Placeholder text       |
+
+### McComboboxList
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+### McComboboxItem
+
+| Prop        | Type        | Default     | Description            |
+| ----------- | ----------- | ----------- | ---------------------- |
+| `className` | `string`    | `undefined` | Additional CSS classes |
+| `value`     | `string`    | -           | Value of the item      |
+| `children`  | `ReactNode` | -           | Item content           |

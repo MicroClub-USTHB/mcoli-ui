@@ -174,7 +174,8 @@
   --color-fd-border: var(--border);
   --color-fd-primary: var(--primary);
   --color-fd-primary-foreground: var(--primary-foreground);
-  --color-fd-secondary: var(--secondary);
+  /* --color-fd-secondary: var(--secondary); */
+  --color-fd-secondary: var(--muted);
   --color-fd-secondary-foreground: var(--secondary-foreground);
   --color-fd-accent: var(--accent);
   --color-fd-accent-foreground: var(--accent-foreground);
@@ -198,6 +199,10 @@
   --blur-md: 4px;
   --blur-lg: 7px;
   --blur-xl: 9px;
+
+  --spacing-drawer: 26.6875rem;
+  --spacing-drawer-nav: 4.5rem;
+  --spacing-drawer-item: 4.125rem;
 
   --font-dm-sans: var(--font-dm-sans);
   --font-plus-jakarta-sans: var(--font-plus-jakarta-sans);
@@ -682,8 +687,10 @@
   --chart-3: #2563ef;
   --chart-4: #1a4eda;
   --chart-5: #1f3fad;
-  --sidebar: #f0f0f3;
-  --sidebar-foreground: #0e0e0f;
+  /* --sidebar: #f0f0f3; */
+  --sidebar: #1e293b;
+  /* --sidebar-foreground: #0e0e0f; */
+  --sidebar-foreground: #d1d5db;
   --sidebar-primary: #34d399;
   --sidebar-primary-foreground: #0f172a;
   --sidebar-accent: #f0f0f3;

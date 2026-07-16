@@ -3,7 +3,231 @@ title: MC Alert Dialog
 description: A modal dialog for critical alerts requiring user confirmation.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-alert-dialog` is a modal dialog component from the MicroClub UI library. Built on the **@base-ui/react** alert-dialog primitive, it provides accessible, interruptive dialogs that require user acknowledgment — perfect for confirmations, warnings, and destructive actions.
+
+As part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-alert-dialog-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-alert-dialog-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-alert-dialog` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-alert-dialog</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-alert-dialog</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-alert-dialog</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-alert-dialog</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install @base-ui/react</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react</Tab>
+  <Tab value="yarn">yarn add @base-ui/react</Tab>
+  <Tab value="bun">bun add @base-ui/react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-alert-dialog" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported, and that `@/components/ui/button` points to your `mc-button` (or compatible Button) component.
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  McAlertDialog,
+  McAlertDialogAction,
+  McAlertDialogCancel,
+  McAlertDialogContent,
+  McAlertDialogDescription,
+  McAlertDialogFooter,
+  McAlertDialogHeader,
+  McAlertDialogTitle,
+  McAlertDialogTrigger,
+} from '@/components/ui/mc-alert-dialog';
+import { Button } from '@/components/ui/button';
+
+export default function Example() {
+  return (
+    <McAlertDialog>
+      <McAlertDialogTrigger render={<Button variant="outline">Show Dialog</Button>} />
+      <McAlertDialogContent>
+        <McAlertDialogHeader>
+          <McAlertDialogTitle>Are you absolutely sure?</McAlertDialogTitle>
+          <McAlertDialogDescription>
+            This action cannot be undone. This will permanently delete your account from our
+            servers.
+          </McAlertDialogDescription>
+        </McAlertDialogHeader>
+        <McAlertDialogFooter>
+          <McAlertDialogCancel>Cancel</McAlertDialogCancel>
+          <McAlertDialogAction>Continue</McAlertDialogAction>
+        </McAlertDialogFooter>
+      </McAlertDialogContent>
+    </McAlertDialog>
+  );
+}
+```
+
+## Examples
+
+### Default Size
+
+The default dialog size is `"default"`, which renders at `max-w-sm` on larger screens.
+
+```tsx
+<McAlertDialogContent size="default">...</McAlertDialogContent>
+```
+
+### Small Size
+
+Use `size="sm"` for compact dialogs. The footer will switch to a two-column grid layout automatically.
+
+```tsx
+<McAlertDialogContent size="sm">...</McAlertDialogContent>
+```
+
+### With Icon / Media
+
+Use `McAlertDialogTitle` with the `media` and `icon` props to display an icon alongside the title. This is ideal for warning or destructive dialogs.
+
+```tsx
+import { TriangleAlert } from 'lucide-react';
+
+<McAlertDialogContent>
+  <McAlertDialogHeader>
+    <McAlertDialogTitle media icon={<TriangleAlert />}>
+      Delete Account
+    </McAlertDialogTitle>
+    <McAlertDialogDescription>
+      This action is permanent and cannot be reversed.
+    </McAlertDialogDescription>
+  </McAlertDialogHeader>
+  <McAlertDialogFooter>
+    <McAlertDialogCancel>Cancel</McAlertDialogCancel>
+    <McAlertDialogAction>Delete</McAlertDialogAction>
+  </McAlertDialogFooter>
+</McAlertDialogContent>;
+```
+
+### Custom Action Variants
+
+`McAlertDialogAction` accepts all `Button` props, so you can apply variants for destructive or styled actions.
+
+```tsx
+<McAlertDialogFooter>
+  <McAlertDialogCancel>Cancel</McAlertDialogCancel>
+  <McAlertDialogAction variant="destructive">Delete permanently</McAlertDialogAction>
+</McAlertDialogFooter>
+```
+
+### Custom Cancel Style
+
+`McAlertDialogCancel` defaults to `variant="outline"` and `size="default"`, but both can be overridden.
+
+```tsx
+<McAlertDialogCancel variant="ghost" size="sm">
+  Go back
+</McAlertDialogCancel>
+```
+
+## API Reference
+
+### `McAlertDialog`
+
+Root component. Accepts all props from `AlertDialogPrimitive.Root`.
+
+### `McAlertDialogTrigger`
+
+The element that opens the dialog. Use the `render` prop for custom trigger elements.
+
+| Prop     | Type           | Default     | Description                          |
+| -------- | -------------- | ----------- | ------------------------------------ |
+| `render` | `ReactElement` | `undefined` | Polymorphic render prop from Base UI |
+
+### `McAlertDialogContent`
+
+The dialog popup container. Rendered inside a portal with an overlay.
+
+| Prop        | Type                | Default     | Description                          |
+| ----------- | ------------------- | ----------- | ------------------------------------ |
+| `size`      | `"default" \| "sm"` | `"default"` | Controls max-width and footer layout |
+| `className` | `string`            | `undefined` | Additional CSS classes               |
+
+### `McAlertDialogHeader`
+
+A flex column wrapper for the title and description. Adjusts text alignment responsively based on `size`.
+
+### `McAlertDialogTitle`
+
+The dialog heading. Supports an optional icon displayed inline via `media` and `icon` props.
+
+| Prop        | Type        | Default     | Description                                    |
+| ----------- | ----------- | ----------- | ---------------------------------------------- |
+| `media`     | `boolean`   | `undefined` | Enables the icon/media slot                    |
+| `icon`      | `ReactNode` | `undefined` | The icon element to render alongside the title |
+| `className` | `string`    | `undefined` | Additional CSS classes                         |
+
+### `McAlertDialogDescription`
+
+Descriptive text beneath the title. Supports inline `<a>` links with automatic underline styling.
+
+### `McAlertDialogFooter`
+
+Action button container. Uses `flex-col-reverse` on mobile, `flex-row` on desktop. Switches to a two-column grid when `size="sm"`.
+
+### `McAlertDialogAction`
+
+The confirm/submit button. Accepts all `Button` component props.
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `variant`   | `string` | `"default"` | Button visual style    |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+### `McAlertDialogCancel`
+
+The dismiss button. Uses `AlertDialogPrimitive.Close` with a `Button` rendered via the `render` prop.
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `variant`   | `string` | `"outline"` | Button visual style    |
+| `size`      | `string` | `"default"` | Button size            |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+### `McAlertDialogMedia`
+
+A wrapper for icon/media elements inside `McAlertDialogTitle`. Handles sizing and grid placement.
+
+### `McAlertDialogOverlay`
+
+The backdrop behind the dialog. Supports blur via `backdrop-filter` and fade animations.
+
+### `McAlertDialogPortal`
+
+Renders the dialog outside the DOM tree using a portal. Wraps `McAlertDialogContent` automatically.

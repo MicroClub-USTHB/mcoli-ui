@@ -3,7 +3,187 @@ title: MC Accordion
 description: A component that allows expanding and collapsing content sections.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-accordion` is a disclosure component of the MicroClub UI library. Built on the **@base-ui/react** accordion primitive, it helps organize related content into expandable sections while keeping keyboard navigation and accessibility behavior handled for you.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-accordion-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-accordion-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-accordion` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-accordion</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-accordion</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-accordion</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-accordion</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install @base-ui/react lucide-react</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react lucide-react</Tab>
+  <Tab value="yarn">yarn add @base-ui/react lucide-react</Tab>
+  <Tab value="bun">bun add @base-ui/react lucide-react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-accordion" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  McAccordion,
+  McAccordionContent,
+  McAccordionItem,
+  McAccordionTrigger,
+} from '@/registry/ui/mc-accordion';
+
+  return (
+    <McAccordion defaultValue={['product']} className="w-full max-w-[503px]">
+      <McAccordionItem value="product">
+        <McAccordionTrigger>Product Information</McAccordionTrigger>
+        <McAccordionContent>
+          <p>Our flagship product combine cutting-edge technology with sleek design.</p>
+        </McAccordionContent>
+      </McAccordionItem>
+    </McAccordion>
+  );
+}
+```
+
+## Examples
+
+### Basic Accordion
+
+```tsx
+<McAccordion defaultValue={['product']} className="w-full max-w-[503px]">
+  <McAccordionItem value="product">
+    <McAccordionTrigger>Product Information</McAccordionTrigger>
+    <McAccordionContent>
+      <p>Our flagship product combine cutting-edge technology with sleek design.</p>
+      <p>Key features include advanced processing capabilities and an intuitive interface.</p>
+    </McAccordionContent>
+  </McAccordionItem>
+
+  <McAccordionItem value="shipping">
+    <McAccordionTrigger>Shipping Details</McAccordionTrigger>
+    <McAccordionContent>
+      <p>We offer standard, express, and overnight shipping.</p>
+      <p>Free international shipping is available over the minimum order amount.</p>
+    </McAccordionContent>
+  </McAccordionItem>
+
+  <McAccordionItem value="returns">
+    <McAccordionTrigger>Return Policy</McAccordionTrigger>
+    <McAccordionContent>
+      <p>Returns are accepted within 30 days when items are unused and in original packaging.</p>
+    </McAccordionContent>
+  </McAccordionItem>
+</McAccordion>
+```
+
+### Width Control
+
+The accordion already accepts `className`, so width is usually controlled from the parent with Tailwind utilities.
+
+```tsx
+<McAccordion className="w-full max-w-[503px]">...</McAccordion>
+```
+
+Use `w-[503px]` for a fixed width, or `w-full max-w-[503px]` for a responsive layout that still respects the Figma width.
+
+### Long Trigger Text
+
+When trigger labels are long, keep the chevron separated from the text so content wraps cleanly instead of sliding underneath the icon.
+
+```tsx
+<McAccordionItem value="faq">
+  <McAccordionTrigger>
+    What happens if my accordion title is much longer than a single line?
+  </McAccordionTrigger>
+  <McAccordionContent>
+    <p>The trigger text should wrap naturally while the chevron keeps its own space.</p>
+  </McAccordionContent>
+</McAccordionItem>
+```
+
+### Multiple Paragraphs
+
+`AccordionContent` works well with stacked content such as paragraphs, links, and lists.
+
+```tsx
+<McAccordionContent>
+  <p>First paragraph of supporting information.</p>
+  <p>Second paragraph with more details.</p>
+  <a href="#learn-more">Learn more</a>
+</McAccordionContent>
+```
+
+## API Reference
+
+### Accordion
+
+| Prop            | Type                        | Default     | Description                                            |
+| --------------- | --------------------------- | ----------- | ------------------------------------------------------ |
+| `className`     | `string`                    | `undefined` | Additional CSS classes, commonly used to control width |
+| `defaultValue`  | `string[]`                  | `undefined` | The item values opened by default                      |
+| `value`         | `string[]`                  | `undefined` | Controlled open item values                            |
+| `onValueChange` | `(value: string[]) => void` | `undefined` | Called when open items change                          |
+
+All other props from `@base-ui/react/accordion` root are supported.
+
+### AccordionItem
+
+| Prop        | Type     | Default     | Description                            |
+| ----------- | -------- | ----------- | -------------------------------------- |
+| `value`     | `string` | `-`         | Unique value used to identify the item |
+| `className` | `string` | `undefined` | Additional CSS classes                 |
+
+All other props from `@base-ui/react/accordion` item are supported.
+
+### AccordionTrigger
+
+| Prop        | Type        | Default     | Description                          |
+| ----------- | ----------- | ----------- | ------------------------------------ |
+| `children`  | `ReactNode` | `-`         | The clickable heading content        |
+| `className` | `string`    | `undefined` | Additional CSS classes               |
+| `disabled`  | `boolean`   | `false`     | Prevents interaction for the trigger |
+
+All other props from `@base-ui/react/accordion` trigger are supported.
+
+### AccordionContent
+
+| Prop        | Type        | Default     | Description            |
+| ----------- | ----------- | ----------- | ---------------------- |
+| `children`  | `ReactNode` | `-`         | The revealed content   |
+| `className` | `string`    | `undefined` | Additional CSS classes |
+
+All other props from `@base-ui/react/accordion` panel are supported.

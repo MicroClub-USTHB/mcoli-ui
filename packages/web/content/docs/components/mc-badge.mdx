@@ -3,7 +3,145 @@ title: MC Badge
 description: A small label for status or categorization.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-badge` is a compact label used to highlight status, categories, or metadata.
+It is built on **@base-ui/react** and styled with **Tailwind CSS v4** for consistent design.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-badge-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-badge-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-badge` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-badge</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-badge</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-badge</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-badge</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install @base-ui/react</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react</Tab>
+  <Tab value="yarn">yarn add @base-ui/react</Tab>
+  <Tab value="bun">bun add @base-ui/react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-badge" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McBadge } from '@/components/ui/mc-badge';
+
+export default function Example() {
+  return <McBadge>Label</McBadge>;
+}
+```
+
+## Examples
+
+### Variants
+
+```tsx
+<McBadge variant="default">Default</McBadge>
+<McBadge variant="secondary">Secondary</McBadge>
+<McBadge variant="destructive">Destructive</McBadge>
+<McBadge variant="outline">Outline</McBadge>
+<McBadge variant="ghost">Ghost</McBadge>
+```
+
+### Sizes
+
+```tsx
+<McBadge size="sm">Small</McBadge>
+<McBadge size="md">Medium</McBadge>
+<McBadge size="lg">Large</McBadge>
+```
+
+### Icon Support
+
+```tsx
+import { ArrowRight, Dot } from "lucide-react"
+
+<McBadge icon={<Dot />} iconPosition="start">
+  Status
+</McBadge>
+
+<McBadge icon={<ArrowRight />} iconPosition="end">
+  More
+</McBadge>
+```
+
+### Badge Group
+
+Use `leadingBadge` to render a nested badge before or after the parent content.
+When the child badge is after the content, the optional icon is rendered inside the child badge.
+
+```tsx
+import { ArrowRight } from "lucide-react"
+
+<McBadge
+  groupSize="md"
+  leadingBadge="New"
+  leadingBadgePosition="start"
+  icon={<ArrowRight />}
+  iconPosition="end"
+>
+  We just shipped a feature
+</McBadge>
+
+<McBadge
+  groupSize="lg"
+  leadingBadge="New"
+  leadingBadgePosition="end"
+  leadingBadgeIcon={<ArrowRight />}
+>
+  We just shipped a feature
+</McBadge>
+```
+
+## API Reference
+
+### Props
+
+| Prop                   | Type                                                                | Default     | Description                                                    |
+| ---------------------- | ------------------------------------------------------------------- | ----------- | -------------------------------------------------------------- |
+| `variant`              | `"default" \| "secondary" \| "destructive" \| "outline" \| "ghost"` | `"default"` | Visual style of the badge                                      |
+| `size`                 | `"sm" \| "md" \| "lg"`                                              | `"sm"`      | Size of the badge                                              |
+| `icon`                 | `ReactNode`                                                         | `undefined` | Icon to render in the parent badge                             |
+| `iconPosition`         | `"start" \| "end"`                                                  | `"start"`   | Icon placement within the parent badge                         |
+| `leadingBadge`         | `ReactNode`                                                         | `undefined` | Nested badge content or element                                |
+| `leadingBadgePosition` | `"start" \| "end"`                                                  | `"start"`   | Placement of the nested badge                                  |
+| `leadingBadgeIcon`     | `ReactNode`                                                         | `undefined` | Icon rendered inside the nested badge (when positioned at end) |
+| `groupSize`            | `"md" \| "lg"`                                                      | `"md"`      | Parent height when using a nested badge                        |
+| `render`               | `ReactElement \| ((props: HTMLProps) => ReactElement)`              | `undefined` | Polymorphic render prop from Base UI                           |
+| `className`            | `string`                                                            | `undefined` | Additional CSS classes                                         |
+
+All other props from `@base-ui/react` span rendering are supported.

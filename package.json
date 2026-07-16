@@ -5,14 +5,15 @@
   "private": true,
   "scripts": {
     "dev": "pnpm --filter @mcoli/web dev",
-    "build": "pnpm --filter @mcoli/web build",
+    "build": "pnpm --filter @mcoli/web build && prettier --write .",
+    "build:registry": "pnpm --filter @mcoli/web build:registry",
     "start": "pnpm --filter @mcoli/web start",
     "lint": "pnpm --filter @mcoli/web lint",
     "typecheck": "pnpm --filter @mcoli/web typecheck",
     "storybook": "pnpm --filter @mcoli/web storybook",
     "build-storybook": "pnpm --filter @mcoli/web build-storybook",
-    "cli": "pnpm --filter mcoli-ui",
-    "cli:dev": "MCOLI_UI_REGISTRY_URL=http://localhost:3000 pnpm --filter mcoli-ui",
+    "cli": "pnpm --filter mcoli-ui exec mcoli-ui",
+    "cli:dev": "MCOLI_UI_REGISTRY_URL=http://localhost:3000 pnpm --filter mcoli-ui exec mcoli-ui",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky"

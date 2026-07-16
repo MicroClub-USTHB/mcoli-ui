@@ -3,7 +3,176 @@ title: MC Avatar
 description: A component for displaying user profile images.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-avatar` family provides a polished avatar system for user identity and presence. Built on the **@base-ui/react/avatar** primitive, it supports image rendering, initials fallback, badge overlays, and grouped avatars with responsive sizing.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-avatar-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-avatar-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-avatar` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-avatar</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-avatar</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-avatar</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-avatar</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install @base-ui/react</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react</Tab>
+  <Tab value="yarn">yarn add @base-ui/react</Tab>
+  <Tab value="bun">bun add @base-ui/react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-avatar" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  McAvatar,
+  McAvatarImage,
+  McAvatarFallback,
+  McAvatarBadge,
+  McAvatarGroup,
+  McAvatarGroupCount,
+} from '@/components/ui/mc-avatar';
+
+export default function Example() {
+  return (
+    <McAvatar>
+      <McAvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+      <McAvatarFallback>CN</McAvatarFallback>
+    </McAvatar>
+  );
+}
+```
+
+## Examples
+
+### Size Variants
+
+```tsx
+<McAvatar size="xs">
+  <McAvatarFallback>XS</McAvatarFallback>
+</McAvatar>
+<McAvatar size="md">
+  <McAvatarFallback>MD</McAvatarFallback>
+</McAvatar>
+<McAvatar size="2xl">
+  <McAvatarFallback>2XL</McAvatarFallback>
+</McAvatar>
+```
+
+### Image + Fallback
+
+Use `McAvatarImage` for the user photo and `McAvatarFallback` for initials or a placeholder when the image fails to load.
+
+```tsx
+<McAvatar>
+  <McAvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+  <McAvatarFallback>CN</McAvatarFallback>
+</McAvatar>
+```
+
+### Badge Overlay
+
+`McAvatarBadge` is a small status or presence indicator that scales with the avatar size.
+
+```tsx
+<McAvatar>
+  <McAvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
+  <McAvatarFallback>ER</McAvatarFallback>
+  <McAvatarBadge className="bg-green-600 dark:bg-green-800" />
+</McAvatar>
+```
+
+### Avatar Groups
+
+Group related avatars with `McAvatarGroup`. Use `McAvatarGroupCount` to represent extra members.
+
+```tsx
+<McAvatarGroup>
+  <McAvatar>
+    <McAvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+    <McAvatarFallback>CN</McAvatarFallback>
+  </McAvatar>
+  <McAvatar>
+    <McAvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
+    <McAvatarFallback>LR</McAvatarFallback>
+  </McAvatar>
+  <McAvatarGroupCount>+3</McAvatarGroupCount>
+</McAvatarGroup>
+```
+
+## API Reference
+
+### McAvatar Props
+
+| Prop        | Type                                       | Default     | Description                                                            |
+| ----------- | ------------------------------------------ | ----------- | ---------------------------------------------------------------------- |
+| `size`      | `"default" "xs" "sm" "md" "lg" "xl" "2xl"` | `"default"` | Controls avatar dimensions and badge scaling                           |
+| `className` | `string`                                   | `undefined` | Additional CSS classes for the root avatar wrapper                     |
+| `children`  | `ReactNode`                                | `undefined` | Avatar slots like `McAvatarImage`, `McAvatarFallback`, `McAvatarBadge` |
+
+### McAvatarImage Props
+
+| Prop        | Type     | Default     | Description                          |
+| ----------- | -------- | ----------- | ------------------------------------ |
+| `src`       | `string` | `undefined` | Image source URL                     |
+| `alt`       | `string` | `undefined` | Accessible alt text for the image    |
+| `className` | `string` | `undefined` | Additional CSS classes for the image |
+
+### McAvatarFallback Props
+
+| Prop        | Type     | Default     | Description                              |
+| ----------- | -------- | ----------- | ---------------------------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes for fallback view |
+
+### McAvatarBadge Props
+
+| Prop        | Type     | Default     | Description                          |
+| ----------- | -------- | ----------- | ------------------------------------ |
+| `className` | `string` | `undefined` | Additional CSS classes for the badge |
+
+### McAvatarGroup Props
+
+| Prop        | Type     | Default     | Description                          |
+| ----------- | -------- | ----------- | ------------------------------------ |
+| `className` | `string` | `undefined` | Additional CSS classes for the group |
+
+### McAvatarGroupCount Props
+
+| Prop        | Type     | Default     | Description                                   |
+| ----------- | -------- | ----------- | --------------------------------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes for the overflow count |

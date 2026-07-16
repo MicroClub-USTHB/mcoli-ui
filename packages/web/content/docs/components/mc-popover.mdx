@@ -3,7 +3,266 @@ title: MC Popover
 description: A floating panel that appears on click or trigger.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-popover` is a core component of the MicroClub UI library. Built on the **@base-ui/react** popover primitive, it combines world-class accessibility with MicroClub's signature styling via **Tailwind CSS v4**.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-popover-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-popover-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-popover` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-popover</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-popover</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-popover</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-popover</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install @base-ui/react</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react</Tab>
+  <Tab value="yarn">yarn add @base-ui/react</Tab>
+  <Tab value="bun">bun add @base-ui/react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-popover" />
+
+<Step>Add the CSS variables</Step>
+
+Add the following to your global CSS file:
+
+```css
+@layer base {
+  :root {
+    --z-popover: 50;
+
+    /* Dimensions */
+    --popover-width: 276px;
+    --popover-height: 268px;
+
+    /* Positioning */
+    --popover-top: 59px;
+    --popover-left: 22px;
+
+    /* Appearance */
+    --popover-radius: var(--radius-gl);
+    --popover-bg: var(--Card-Background, #ffffff);
+    --popover-shadow: 0px 4px 12px -4px #00000014;
+    --popover-opacity: 1;
+
+    /* Spacing */
+    --popover-gap: 13px;
+    --popover-padding: 16px;
+    --popover-header-gap: 0.125rem;
+
+    /* Typography */
+    --popover-font-size: 0.875rem;
+
+    /* Animation */
+    --popover-duration: 100ms;
+  }
+}
+```
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  McPopover,
+  McPopoverTrigger,
+  McPopoverContent,
+  McPopoverHeader,
+  McPopoverTitle,
+  McPopoverDescription,
+} from '@/components/ui/mc-popover';
+
+export default function Example() {
+  return (
+    <McPopover>
+      <McPopoverTrigger>Open</McPopoverTrigger>
+      <McPopoverContent>
+        <McPopoverHeader>
+          <McPopoverTitle>Title</McPopoverTitle>
+          <McPopoverDescription>Description goes here.</McPopoverDescription>
+        </McPopoverHeader>
+      </McPopoverContent>
+    </McPopover>
+  );
+}
+```
+
+## Examples
+
+### Side Placement
+
+```tsx
+<McPopover>
+  <McPopoverTrigger>Top</McPopoverTrigger>
+  <McPopoverContent side="top">
+    <McPopoverHeader>
+      <McPopoverTitle>Top McPopover</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
+
+<McPopover>
+  <McPopoverTrigger>Right</McPopoverTrigger>
+  <McPopoverContent side="right">
+    <McPopoverHeader>
+      <McPopoverTitle>Right McPopover</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
+
+<McPopover>
+  <McPopoverTrigger>Bottom</McPopoverTrigger>
+  <McPopoverContent side="bottom">
+    <McPopoverHeader>
+      <McPopoverTitle>Bottom McPopover</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
+
+<McPopover>
+  <McPopoverTrigger>Left</McPopoverTrigger>
+  <McPopoverContent side="left">
+    <McPopoverHeader>
+      <McPopoverTitle>Left McPopover</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
+```
+
+### Alignment
+
+```tsx
+<McPopover>
+  <McPopoverTrigger>Start</McPopoverTrigger>
+  <McPopoverContent align="start">
+    <McPopoverHeader>
+      <McPopoverTitle>Aligned Start</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
+
+<McPopover>
+  <McPopoverTrigger>Center</McPopoverTrigger>
+  <McPopoverContent align="center">
+    <McPopoverHeader>
+      <McPopoverTitle>Aligned Center</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
+
+<McPopover>
+  <McPopoverTrigger>End</McPopoverTrigger>
+  <McPopoverContent align="end">
+    <McPopoverHeader>
+      <McPopoverTitle>Aligned End</McPopoverTitle>
+    </McPopoverHeader>
+  </McPopoverContent>
+</McPopover>
+```
+
+### With Custom Content
+
+```tsx
+<McPopover>
+  <McPopoverTrigger>Settings</McPopoverTrigger>
+  <McPopoverContent>
+    <McPopoverHeader>
+      <McPopoverTitle>Settings</McPopoverTitle>
+      <McPopoverDescription>Manage your preferences.</McPopoverDescription>
+    </McPopoverHeader>
+    <div className="flex flex-col gap-2">
+      <McButton variant="secondary">Save Changes</McButton>
+      <McButton variant="tertiary">Reset</McButton>
+    </div>
+  </McPopoverContent>
+</McPopover>
+```
+
+## API Reference
+
+### McPopover
+
+The root component that manages open/close state.
+
+| Prop           | Type                      | Default     | Description                            |
+| -------------- | ------------------------- | ----------- | -------------------------------------- |
+| `defaultOpen`  | `boolean`                 | `false`     | Initial open state (uncontrolled)      |
+| `open`         | `boolean`                 | `undefined` | Controlled open state                  |
+| `onOpenChange` | `(open: boolean) => void` | `undefined` | Callback fired when open state changes |
+
+### McPopoverTrigger
+
+The element that toggles the popover. Renders a `<button>` by default.
+
+All props from `@base-ui/react/popover` `Trigger` are supported.
+
+### McPopoverContent
+
+The floating panel that appears when the popover is open.
+
+| Prop          | Type                                     | Default     | Description                              |
+| ------------- | ---------------------------------------- | ----------- | ---------------------------------------- |
+| `side`        | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"`  | Preferred side of the trigger to open on |
+| `sideOffset`  | `number`                                 | `4`         | Distance in px from the trigger          |
+| `align`       | `"start" \| "center" \| "end"`           | `"center"`  | Alignment along the trigger axis         |
+| `alignOffset` | `number`                                 | `0`         | Offset in px along the alignment axis    |
+| `className`   | `string`                                 | `undefined` | Additional CSS classes                   |
+
+All other props from `@base-ui/react/popover` `Popup` are supported.
+
+### McPopoverHeader
+
+A layout wrapper for the title and description.
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+### McPopoverTitle
+
+The accessible title of the popover.
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+### McPopoverDescription
+
+The accessible description of the popover.
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |

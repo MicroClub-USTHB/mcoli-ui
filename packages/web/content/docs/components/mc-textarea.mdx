@@ -1,9 +1,157 @@
 ---
 title: MC Textarea
-description: A multi-line text input component.
+description: A multi-line text input with field integration and block addons.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-textarea` is a multi-line text input for the MicroClub UI library. It follows the same single-component pattern as `mc-input` — label, description, and error are built in as props. Block addons (top/bottom) support toolbars, character counters, and action bars.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-textarea-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-textarea-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-textarea` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-textarea</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-textarea</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-textarea</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-textarea</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-textarea" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McTextarea } from '@/components/ui/mc-textarea';
+
+export default function Example() {
+  return <McTextarea label="Message" placeholder="Type your message..." />;
+}
+```
+
+## Examples
+
+### With Description
+
+```tsx
+<McTextarea label="Bio" description="Tell us about yourself." placeholder="Write something..." />
+```
+
+### Error State
+
+```tsx
+<McTextarea label="Message" error="Message is required." placeholder="Type your message..." />
+```
+
+### Character Counter
+
+Use `addonBottom` to add a live character counter below the textarea.
+
+```tsx
+const [value, setValue] = useState('');
+const max = 280;
+
+<McTextarea
+  label="Post"
+  addonBottom={
+    <span className="ml-auto text-xs">
+      {value.length}/{max}
+    </span>
+  }
+  value={value}
+  onChange={(e) => setValue(e.target.value.slice(0, max))}
+  placeholder="What's happening?"
+/>;
+```
+
+### Toolbar
+
+Use `addonTop` to add a formatting toolbar above the textarea. Buttons can use `McInputButton` from `mc-input`.
+
+```tsx
+import { McInputButton } from '@/components/ui/mc-input';
+import { Bold, Italic, Link } from 'lucide-react';
+
+<McTextarea
+  label="Comment"
+  addonTop={
+    <div className="flex items-center gap-1">
+      <McInputButton variant="ghost">
+        <Bold />
+      </McInputButton>
+      <McInputButton variant="ghost">
+        <Italic />
+      </McInputButton>
+      <McInputButton variant="ghost">
+        <Link />
+      </McInputButton>
+    </div>
+  }
+  placeholder="Write a comment..."
+/>;
+```
+
+### Action Bar
+
+Combine a character counter and a submit button in `addonBottom`.
+
+```tsx
+<McTextarea
+  label="Feedback"
+  addonBottom={
+    <div className="flex w-full items-center justify-between">
+      <span className="text-xs">{value.length} characters</span>
+      <McInputButton variant="filled">
+        <Send /> Send
+      </McInputButton>
+    </div>
+  }
+  placeholder="Tell us what you think..."
+/>
+```
+
+## API Reference
+
+### Props
+
+| Prop          | Type        | Default     | Description                                                   |
+| ------------- | ----------- | ----------- | ------------------------------------------------------------- |
+| `label`       | `ReactNode` | `undefined` | Label rendered above the textarea                             |
+| `description` | `ReactNode` | `undefined` | Help text below the textarea. Hidden when `error` is present. |
+| `error`       | `ReactNode` | `undefined` | Error message below the textarea. `true` = red border only.   |
+| `addonTop`    | `ReactNode` | `undefined` | Block-start addon (toolbar, controls above the textarea)      |
+| `addonBottom` | `ReactNode` | `undefined` | Block-end addon (character count, action buttons below)       |
+| `rows`        | `number`    | `3`         | Number of visible text rows                                   |
+| `disabled`    | `boolean`   | `false`     | Disables interactions and applies disabled styles             |
+| `required`    | `boolean`   | `false`     | Marks the textarea as required                                |
+| `className`   | `string`    | `undefined` | Additional CSS classes for the root element                   |
+
+All standard HTML textarea attributes are also supported.

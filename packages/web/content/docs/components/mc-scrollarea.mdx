@@ -3,7 +3,126 @@ title: MC Scroll Area
 description: A component that provides a scrollable area with custom scrollbar.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-scrollarea` is a core component of the MicroClub UI library. Built on the **@base-ui/react** scroll area primitive, it combines world-class accessibility with MicroClub's signature styling via **Tailwind CSS v4**.
+
+As a part of the MicroClub library, this component is designed for **instant deployment into your codebase**, giving you full ownership of its look and behavior.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-scrollarea-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-scrollarea-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-scrollarea` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-scrollarea</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-scrollarea</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-scrollarea</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-scrollarea</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install @base-ui/react</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react</Tab>
+  <Tab value="yarn">yarn add @base-ui/react</Tab>
+  <Tab value="bun">bun add @base-ui/react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-scrollarea" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McScrollArea, McScrollBar } from '@/components/ui/mc-scrollarea';
+
+export default function Example() {
+  return (
+    <McScrollArea className="h-72 w-48">
+      <div>Content that scrolls</div>
+    </McScrollArea>
+  );
+}
+```
+
+## Examples
+
+### Vertical Scrolling
+
+```tsx
+<McScrollArea className="h-72 w-48">
+  <div className="p-4">
+    <p>Long content here...</p>
+  </div>
+</McScrollArea>
+```
+
+### Horizontal Scrolling
+
+```tsx
+<McScrollArea className="w-96 rounded-md border whitespace-nowrap">
+  <div className="flex w-max space-x-4 p-4">
+    <div>Item 1</div>
+    <div>Item 2</div>
+    <div>Item 3</div>
+  </div>
+  <McScrollBar orientation="horizontal" />
+</McScrollArea>
+```
+
+### With Title and Description
+
+```tsx
+const tags = ['tag1', 'tag2', 'tag3'];
+
+<McScrollArea className="h-72 w-48" title="Tags" desc={tags}>
+  <div>Additional content</div>
+</McScrollArea>;
+```
+
+## API Reference
+
+### McScrollArea Props
+
+| Prop        | Type        | Default | Description                         |
+| ----------- | ----------- | ------- | ----------------------------------- |
+| `title`     | `string`    | -       | Optional title displayed at the top |
+| `desc`      | `string[]`  | -       | Optional array of description lines |
+| `className` | `string`    | -       | Additional CSS classes              |
+| `children`  | `ReactNode` | -       | The content to be scrolled          |
+
+All other props from `@base-ui/react/scroll-area/Root` are supported.
+
+### McScrollBar Props
+
+| Prop          | Type                         | Default      | Description                      |
+| ------------- | ---------------------------- | ------------ | -------------------------------- |
+| `orientation` | `"vertical" \| "horizontal"` | `"vertical"` | The orientation of the scrollbar |
+| `className`   | `string`                     | -            | Additional CSS classes           |
+
+All other props from `@base-ui/react/scroll-area/Scrollbar` are supported.

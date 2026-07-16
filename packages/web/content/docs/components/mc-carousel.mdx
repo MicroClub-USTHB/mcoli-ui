@@ -3,7 +3,163 @@ title: MC Carousel
 description: A component for cycling through a series of content.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-carousel` is a flexible carousel component for the MicroClub UI library. Built on **embla-carousel-react**, it provides smooth, performant scrolling through slides with navigation controls.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-carousel-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-carousel-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-carousel` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-carousel</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-carousel</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-carousel</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-carousel</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install embla-carousel-react lucide-react</Tab>
+  <Tab value="pnpm">pnpm add embla-carousel-react lucide-react</Tab>
+  <Tab value="yarn">yarn add embla-carousel-react lucide-react</Tab>
+  <Tab value="bun">bun add embla-carousel-react lucide-react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-carousel" />
+
+<Step>Copy the example</Step>
+
+<ComponentSource name="mc-carousel-demo" />
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  McCarousel,
+  McCarouselContent,
+  McCarouselItem,
+  McCarouselPrevious,
+  McCarouselNext,
+} from '@/components/ui/mc-carousel';
+
+export default function Example() {
+  return (
+    <McCarousel className="w-full max-w-xs">
+      <McCarouselContent>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <McCarouselItem key={index}>
+            <div className="flex aspect-square items-center justify-center p-6">
+              <span className="text-4xl font-semibold">{index + 1}</span>
+            </div>
+          </McCarouselItem>
+        ))}
+      </McCarouselContent>
+      <McCarouselPrevious />
+      <McCarouselNext />
+    </McCarousel>
+  );
+}
+```
+
+## Examples
+
+### Basic Carousel
+
+```tsx
+<McCarousel className="w-full max-w-xs">
+  <McCarouselContent>
+    {Array.from({ length: 5 }).map((_, index) => (
+      <McCarouselItem key={index}>
+        <div className="flex aspect-square items-center justify-center p-6">
+          <span className="text-4xl font-semibold">{index + 1}</span>
+        </div>
+      </McCarouselItem>
+    ))}
+  </McCarouselContent>
+  <McCarouselPrevious />
+  <McCarouselNext />
+</McCarousel>
+```
+
+### Vertical Orientation
+
+```tsx
+<McCarousel orientation="vertical" className="w-full max-w-xs">
+  <McCarouselContent>
+    {Array.from({ length: 5 }).map((_, index) => (
+      <McCarouselItem key={index}>
+        <div className="flex aspect-square items-center justify-center p-6">
+          <span className="text-4xl font-semibold">{index + 1}</span>
+        </div>
+      </McCarouselItem>
+    ))}
+  </McCarouselContent>
+  <McCarouselPrevious />
+  <McCarouselNext />
+</McCarousel>
+```
+
+## API Reference
+
+### McCarousel Props
+
+`McCarousel` accepts all props from a standard `div`, plus:
+
+| Prop          | Type                           | Default        | Description                                   |
+| ------------- | ------------------------------ | -------------- | --------------------------------------------- |
+| `orientation` | `"horizontal" \| "vertical"`   | `"horizontal"` | The direction of the carousel                 |
+| `opts`        | `EmblaOptionsType`             | `undefined`    | Options passed to the Embla carousel instance |
+| `plugins`     | `EmblaPluginsType`             | `undefined`    | Plugins passed to the Embla carousel instance |
+| `setApi`      | `(api: McCarouselApi) => void` | `undefined`    | Callback to access the Embla carousel API     |
+| `className`   | `string`                       | `undefined`    | Additional CSS classes                        |
+
+### McCarouselContent
+
+A container for the carousel slides. Wraps the scrollable area.
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+### McCarouselItem
+
+A single slide within the carousel. Each item fills the full viewport width by default.
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+### McCarouselPrevious / McCarouselNext
+
+Navigation buttons to scroll to the previous or next slide.
+
+Accepts all props from `Button`, with the following defaults:
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `variant`   | `string` | `"outline"` | Button variant         |
+| `size`      | `string` | `"icon-sm"` | Button size            |
+| `className` | `string` | `undefined` | Additional CSS classes |
