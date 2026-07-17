@@ -25,7 +25,7 @@ function Shadow() {
             className="flex flex-col items-center gap-4 p-6 rounded-2xl border border-border bg-surface/30"
           >
             <div
-              className={`size-16 bg-background rounded-xl flex items-center justify-center border border-border/50 ${s.class}`}
+              className={`size-16 bg-background rounded-xl flex items-center justify-center border border-border/50 shadow-foreground ${s.class}`}
             >
               <span className="text-xs font-bold text-foreground">{s.name}</span>
             </div>

@@ -4,13 +4,12 @@ import * as React from 'react';
 import { Check, Palette } from 'lucide-react';
 import { useColorTheme, ThemePalette } from './ColorThemeProvider';
 
-import { Button } from '@/components/ui/button';
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+  McDropdownMenu,
+  McDropdownMenuContent,
+  McDropdownMenuItem,
+  McDropdownMenuTrigger,
+} from '@/components/ui/mc-dropdown-menu';
 import { cn } from '@/lib/utils';
 
 const themes: { name: string; value: ThemePalette; color: string }[] = [
@@ -30,22 +29,14 @@ export function ThemeSwitcher() {
   }, []);
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger
-        render={
-          <Button
-            variant="ghost"
-            size="icon-sm"
-            className="text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors focus-visible:ring-offset-0"
-          >
-            <Palette className="size-4.5" />
-            <span className="sr-only">Toggle Color Palette</span>
-          </Button>
-        }
-      />
-      <DropdownMenuContent align="end" className="w-48 rounded-xl shadow-lg">
+    <McDropdownMenu>
+      <McDropdownMenuTrigger className="inline-flex size-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-0">
+        <Palette className="size-4.5" />
+        <span className="sr-only">Toggle Color Palette</span>
+      </McDropdownMenuTrigger>
+      <McDropdownMenuContent align="end" className="w-48 rounded-xl shadow-lg">
         {themes.map((t) => (
-          <DropdownMenuItem
+          <McDropdownMenuItem
             key={t.value}
             onClick={() => setColorTheme(t.value)}
             className="flex items-center justify-between cursor-pointer rounded-lg my-0.5"
@@ -65,9 +56,9 @@ export function ThemeSwitcher() {
               </span>
             </div>
             {mounted && colorTheme === t.value && <Check className="size-4 text-primary" />}
-          </DropdownMenuItem>
+          </McDropdownMenuItem>
         ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </McDropdownMenuContent>
+    </McDropdownMenu>
   );
 }

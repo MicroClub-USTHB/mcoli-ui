@@ -1,214 +1,362 @@
+'use client';
+
+import * as React from 'react';
+
+import { McButton } from '@/components/ui/mc-button';
+import { McCard } from '@/registry/ui/mc-card';
+import { McInput, McInputButton } from '@/registry/ui/mc-input';
+import { McSwitch } from '@/registry/ui/mc-switch';
 import {
-  AlertCircle,
-  AlertTriangle,
-  BarChart3,
-  CheckCircle2,
-  ChevronRight,
-  Info,
-  LayoutTemplate,
-  MousePointerClick,
-  PanelLeftClose,
-  Search,
-  Settings,
-  ShieldAlert,
-} from 'lucide-react';
+  McAvatar,
+  McAvatarImage,
+  McAvatarFallback,
+  McAvatarGroup,
+  McAvatarGroupCount,
+  McAvatarBadge,
+} from '@/registry/ui/mc-avatar';
+import { McAlert } from '@/registry/ui/mc-alert';
+import { McBadge } from '@/registry/ui/mc-badge';
+import { McTabs, McTabsList, McTabsTrigger } from '@/registry/ui/mc-tabs';
+import {
+  McSelect,
+  McSelectContent,
+  McSelectGroup,
+  McSelectItem,
+  McSelectTrigger,
+  McSelectValue,
+} from '@/registry/ui/mc-select';
+import McSonner, { toast } from '@/registry/ui/mc-sonner';
 
-export function Showcase() {
+const tabs = [
+  { value: 'form', label: 'Form' },
+  { value: 'feedback', label: 'Feedback' },
+] as const;
+
+const TEAM = [
+  { value: 'olivia', name: 'Olivia Rhye', handle: '@olivia', color: '#FDE68A' },
+  { value: 'phoenix', name: 'Phoenix Baker', handle: '@phoenix', color: '#BFDBFE' },
+  { value: 'lana', name: 'Lana Steiner', handle: '@lana', color: '#DDD6FE' },
+  { value: 'demi', name: 'Demi Wilkinson', handle: '@demi', color: '#FBCFE8' },
+];
+
+function MiniAvatar({ name, color }: { name: string; color: string }) {
+  const initials = name
+    .split(' ')
+    .map((part) => part[0])
+    .join('')
+    .slice(0, 2)
+    .toUpperCase();
+
   return (
-    <section className="w-full max-w-[1200px] mx-auto space-y-8 sm:space-y-12 relative px-4">
-      {/* Dashed background grid (2026 Developer Aesthetic) */}
-      <div className="absolute inset-0 -z-10 h-full w-full bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:32px_32px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_20%,transparent_100%)] opacity-30"></div>
+    <span
+      aria-hidden
+      className="flex size-5 items-center justify-center rounded-full text-[10px] font-semibold text-slate-700"
+      style={{ backgroundColor: color }}
+    >
+      {initials}
+    </span>
+  );
+}
 
-      <div className="space-y-4 text-center">
-        <h2 className="header-sm md:header-md font-bold text-foreground">The Variable Anatomy</h2>
-        <p className="paragraph-sm sm:paragraph-md md:paragraph-lg text-muted-foreground max-w-2xl mx-auto font-dm-sans px-2 sm:px-0">
-          Every single semantic variable mapped. Change the theme in the navigation bar to see the
-          entire grid adapt instantly with perfect contrast ratios
+function DemoCard({
+  token,
+  title,
+  desc,
+  wide,
+  className,
+  children,
+}: {
+  token: string;
+  title: string;
+  desc?: string;
+  wide?: boolean;
+  className?: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <McCard
+      className={`rounded-2xl shadow-sm flex flex-col gap-4 overflow-hidden p-6 ${
+        wide ? 'md:col-span-2' : ''
+      } ${className ?? ''}`}
+    >
+      <div className="flex items-center justify-between border-b border-border/50 pb-2">
+        <h3 className="header-xs font-semibold text-foreground">{title}</h3>
+        <span className="text-[10px] font-mono text-muted-foreground">{token}</span>
+      </div>
+      {desc ? <p className="text-xs text-muted-foreground">{desc}</p> : null}
+      {children}
+    </McCard>
+  );
+}
+
+function Showcase() {
+  const [tab, setTab] = React.useState<string>('form');
+  const [notify, setNotify] = React.useState(true);
+  const [show, setShow] = React.useState(false);
+  const [member, setMember] = React.useState<string | null>(null);
+
+  const selectedMember = TEAM.find((m) => m.value === member) ?? null;
+
+  return (
+    <section className="w-full max-w-[1200px] mx-auto space-y-8 sm:space-y-10 px-4">
+      {/* Section header */}
+      <div className="space-y-2 text-center sm:text-left mb-6">
+        <h2 className="header-sm md:header-md font-bold text-foreground">Showcase</h2>
+        <p className="paragraph-sm sm:paragraph-md text-muted-foreground font-dm-sans px-2 sm:px-0">
+          Interactive previews of some mcoli-ui primitive, themed and ready to ship.
         </p>
       </div>
 
-      {/* BENTO GRID: Fully responsive, explicitly labeled UI tokens */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {/* 1. Base UI Box */}
-        <div className="flex flex-col rounded-2xl border border-border bg-background shadow-lg overflow-hidden relative">
-          <div className="p-4 border-b border-border bg-surface text-surface-foreground flex items-center justify-between">
-            <div className="flex items-center gap-2 font-medium">
-              <LayoutTemplate className="size-4 text-primary" /> Base UI
-            </div>
-            <span className="text-[10px] font-mono opacity-50">--background & --surface</span>
-          </div>
-          <div className="p-6 flex-1 flex items-center justify-center bg-background text-foreground">
-            <div className="w-full relative">
-              <Search className="absolute left-3 top-1/3 -translate-y-1/2 size-4 text-muted-foreground" />
-              <input
-                disabled
-                placeholder="Search documentation..."
-                className="w-full h-10 pl-9 pr-4 rounded-md border border-input bg-background text-sm ring-2 ring-ring/50 outline-none"
-              />
-              <div className="mt-2 flex justify-between px-1">
-                <span className="text-[10px] font-mono text-muted-foreground">--input</span>
-                <span className="text-[10px] font-mono text-muted-foreground">--ring</span>
-              </div>
-            </div>
-          </div>
+      {/* Category tabs */}
+      <McTabs value={tab} onValueChange={(value) => setTab(String(value))}>
+        <div className="flex justify-center">
+          <McTabsList className="flex-wrap justify-center">
+            {tabs.map((t) => (
+              <McTabsTrigger key={t.value} value={t.value}>
+                {t.label}
+              </McTabsTrigger>
+            ))}
+          </McTabsList>
         </div>
+      </McTabs>
 
-        {/* 2. Action Tokens */}
-        <div className="flex flex-col rounded-2xl border border-border bg-card shadow-lg overflow-hidden">
-          <div className="p-4 border-b border-border flex items-center justify-between">
-            <div className="flex items-center gap-2 font-medium text-card-foreground">
-              <MousePointerClick className="size-4 text-primary" /> Action States
-            </div>
-          </div>
-          <div className="p-6 flex-1 flex flex-col justify-center gap-4 bg-card text-card-foreground">
-            <div className="grid grid-cols-2 gap-3">
-              <div className="flex flex-col gap-1">
-                <button className="h-9 rounded-md bg-primary text-primary-foreground text-sm font-medium hover:opacity-90">
-                  Primary
-                </button>
-                <span className="text-[10px] font-mono text-center text-muted-foreground">
-                  --primary
-                </span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <button className="h-9 rounded-md bg-secondary text-secondary-foreground text-sm font-medium hover:opacity-90">
-                  Secondary
-                </button>
-                <span className="text-[10px] font-mono text-center text-muted-foreground">
-                  --secondary
-                </span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <button className="h-9 rounded-md bg-accent text-accent-foreground border border-border text-sm font-medium hover:opacity-90">
-                  Accent
-                </button>
-                <span className="text-[10px] font-mono text-center text-muted-foreground">
-                  --accent
-                </span>
-              </div>
-              <div className="flex flex-col gap-1">
-                <button className="h-9 rounded-md bg-muted text-muted-foreground text-sm font-medium hover:opacity-90">
-                  Muted
-                </button>
-                <span className="text-[10px] font-mono text-center text-muted-foreground">
-                  --muted
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 3. Semantic Feedback */}
-        <div className="flex flex-col rounded-2xl border border-border bg-background shadow-lg overflow-hidden">
-          <div className="p-4 border-b border-border flex items-center justify-between">
-            <div className="flex items-center gap-2 font-medium text-foreground">
-              <ShieldAlert className="size-4 text-primary" /> Semantic States
-            </div>
-          </div>
-          <div className="p-6 flex-1 flex flex-col gap-3">
-            <div className="flex items-center gap-3 p-3 rounded-lg bg-success text-success-foreground border border-success/20">
-              <CheckCircle2 className="size-4" />
-              <span className="text-sm font-medium flex-1">Completed</span>
-              <span className="text-[10px] font-mono opacity-70">--success</span>
-            </div>
-            <div className="flex items-center gap-3 p-3 rounded-lg bg-warning text-warning-foreground border border-warning/20">
-              <AlertCircle className="size-4" />
-              <span className="text-sm font-medium flex-1">Warning</span>
-              <span className="text-[10px] font-mono opacity-70">--warning</span>
-            </div>
-            <div className="flex items-center gap-3 p-3 rounded-lg bg-destructive text-destructive-foreground border border-destructive/20">
-              <AlertTriangle className="size-4" />
-              <span className="text-sm font-medium flex-1">Destructive</span>
-              <span className="text-[10px] font-mono opacity-70">--destructive</span>
-            </div>
-            <div className="flex items-center gap-3 p-3 rounded-lg bg-info text-info-foreground border border-info/20">
-              <Info className="size-4" />
-              <span className="text-sm font-medium flex-1">Info</span>
-              <span className="text-[10px] font-mono opacity-70">--info</span>
-            </div>
-          </div>
-        </div>
-
-        {/* 4. Elevations (Card vs Popover) */}
-        <div className="flex flex-col rounded-2xl border border-border bg-background shadow-lg overflow-hidden lg:col-span-2">
-          <div className="p-4 border-b border-border flex items-center justify-between">
-            <div className="flex items-center gap-2 font-medium text-foreground">
-              <Settings className="size-4 text-primary" /> Elevation & Surfaces
-            </div>
-          </div>
-          <div className="p-6 flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6 bg-surface/50">
-            {/* Card */}
-            <div className="p-5 rounded-xl border border-border bg-card text-card-foreground shadow-sm flex flex-col">
-              <span className="text-[10px] font-mono text-muted-foreground mb-2">
-                --card & --card-foreground
-              </span>
-              <h4 className="font-semibold mb-1">Standard Card</h4>
-              <p className="text-sm text-muted-foreground mb-4">
-                Base elevation for standard content blocks.
-              </p>
-              <div className="mt-auto h-8 bg-muted rounded-md w-full animate-pulse" />
-            </div>
-            {/* Popover */}
-            <div className="p-5 rounded-xl border border-border bg-popover text-popover-foreground shadow-2xl flex flex-col scale-105 z-10">
-              <span className="text-[10px] font-mono text-muted-foreground mb-2">
-                --popover & --popover-foreground
-              </span>
-              <h4 className="font-semibold mb-1 flex items-center justify-between">
-                Dropdown Menu <ChevronRight className="size-4" />
-              </h4>
-              <p className="text-sm opacity-80 mb-4">Highest elevation for floating elements.</p>
-              <div className="mt-auto space-y-2">
-                <div className="h-8 bg-accent rounded-md w-full" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 5. Data Viz & Sidebar */}
-        <div className="flex flex-col rounded-2xl border border-border bg-card shadow-lg overflow-hidden">
-          <div className="p-4 border-b border-border flex items-center justify-between">
-            <div className="flex items-center gap-2 font-medium text-card-foreground">
-              <BarChart3 className="size-4 text-primary" /> Data & Sidebar
-            </div>
-          </div>
-
-          {/* Charts Row */}
-          <div className="p-5 border-b border-border">
-            <span className="text-[10px] font-mono text-muted-foreground mb-2 block">
-              --chart-1 to --chart-5
-            </span>
-            <div className="flex items-end justify-between h-20 gap-2">
-              {[
-                'var(--chart-1)',
-                'var(--chart-2)',
-                'var(--chart-3)',
-                'var(--chart-4)',
-                'var(--chart-5)',
-              ].map((color, i) => (
-                <div
-                  key={i}
-                  className="w-full rounded-t-md hover:opacity-80 transition-opacity"
-                  style={{ backgroundColor: color, height: `${40 + i * 15}%` }}
+      {/* PANELS */}
+      <div className="min-h-[440px]">
+        {tab === 'form' && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <DemoCard
+              token="mc-input"
+              title="Text fields"
+              desc="Labels, addons and inline validation."
+            >
+              <div className="flex flex-col gap-4">
+                <McInput
+                  label="Email address"
+                  type="email"
+                  placeholder="you@microclub.info"
+                  description="We only send updates about new components."
+                  addonEnd={
+                    <McInputButton variant="attached" className="font-medium">
+                      Subscribe
+                    </McInputButton>
+                  }
                 />
-              ))}
-            </div>
-          </div>
+                <McInput
+                  label="Username"
+                  placeholder="adel"
+                  error="This username is already taken."
+                />
+                <McInput
+                  label="Password"
+                  type={show ? 'text' : 'password'}
+                  placeholder="Your secret passphrase"
+                  description="At least 8 characters, one symbol."
+                  addonEnd={
+                    <McInputButton variant="ghost" onClick={() => setShow((s) => !s)}>
+                      {show ? 'Hide' : 'Show'}
+                    </McInputButton>
+                  }
+                />
+              </div>
+            </DemoCard>
 
-          {/* Sidebar Row */}
-          <div className="p-5 bg-sidebar text-sidebar-foreground flex-1 flex flex-col gap-3">
-            <div className="flex items-center justify-between">
-              <span className="text-[10px] font-mono opacity-50">--sidebar (bg & text)</span>
-              <PanelLeftClose className="size-4 opacity-50" />
-            </div>
-            <div className="flex items-center gap-2 p-2 rounded bg-sidebar-primary text-sidebar-primary-foreground text-sm font-medium">
-              <div className="size-4 rounded-sm bg-background/20" /> --sidebar-primary
-            </div>
-            <div className="flex items-center gap-2 p-2 rounded bg-sidebar-accent text-sidebar-accent-foreground text-sm font-medium border border-sidebar-border ring-1 ring-sidebar-ring">
-              <div className="size-4 rounded-sm bg-sidebar-foreground/20" /> --sidebar-accent
-            </div>
+            <DemoCard token="mc-button" title="Buttons" desc="Four variants across the size scale.">
+              <div className="flex flex-col gap-4">
+                <div className="flex flex-wrap gap-3">
+                  <McButton variant="primary" size="md">
+                    Primary
+                  </McButton>
+                  <McButton variant="secondary" size="md">
+                    Secondary
+                  </McButton>
+                  <McButton variant="tertiary" size="md">
+                    Tertiary
+                  </McButton>
+                  <McButton variant="link" size="md">
+                    Link
+                  </McButton>
+                </div>
+                <div className="flex flex-wrap items-center gap-3">
+                  <McButton variant="secondary" size="sm">
+                    Small
+                  </McButton>
+                  <McButton variant="primary" size="lg">
+                    Large
+                  </McButton>
+                  <McButton variant="secondary" size="md" isLoading>
+                    Saving
+                  </McButton>
+                </div>
+              </div>
+            </DemoCard>
+
+            <DemoCard token="mc-switch" title="Toggle" desc="An accessible on and off control.">
+              <div className="flex items-center justify-between gap-4">
+                <div className="space-y-0.5">
+                  <p className="text-sm font-medium text-foreground">Push notifications</p>
+                  <p className="text-xs text-muted-foreground">Get told when a new theme drops.</p>
+                </div>
+                <McSwitch
+                  checked={notify}
+                  onCheckedChange={(checked) => setNotify(Boolean(checked))}
+                />
+              </div>
+            </DemoCard>
+
+            <DemoCard token="mc-select" title="Select" desc="Grouped options with avatar previews.">
+              <div className="w-full max-w-xs">
+                <McSelect value={member} onValueChange={setMember}>
+                  <McSelectTrigger
+                    variant="avatar-leading"
+                    leadingAvatar={
+                      selectedMember ? (
+                        <MiniAvatar name={selectedMember.name} color={selectedMember.color} />
+                      ) : null
+                    }
+                  >
+                    <McSelectValue placeholder="Assign to a teammate">
+                      {selectedMember ? (
+                        <span className="font-medium">{selectedMember.name}</span>
+                      ) : null}
+                    </McSelectValue>
+                  </McSelectTrigger>
+                  <McSelectContent>
+                    <McSelectGroup>
+                      {TEAM.map((m) => (
+                        <McSelectItem
+                          key={m.value}
+                          value={m.value}
+                          leadingAvatar={<MiniAvatar name={m.name} color={m.color} />}
+                          supportingText={m.handle}
+                        >
+                          {m.name}
+                        </McSelectItem>
+                      ))}
+                    </McSelectGroup>
+                  </McSelectContent>
+                </McSelect>
+              </div>
+            </DemoCard>
           </div>
-        </div>
+        )}
+
+        {tab === 'feedback' && (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <DemoCard token="mc-alert" title="Alerts" desc="Semantic feedback for every state.">
+              <div className="flex flex-col gap-3">
+                <McAlert
+                  variant="success"
+                  title="Deployed successfully"
+                  description="mcoli-ui v1.0 is live on the registry."
+                />
+                <McAlert
+                  variant="default"
+                  title="Heads up"
+                  description="A new theme engine is in preview."
+                />
+                <McAlert
+                  variant="destructive"
+                  title="Subscription failed"
+                  description="We couldn't process your payment method."
+                />
+              </div>
+            </DemoCard>
+
+            <DemoCard
+              token="mc-sonner"
+              title="Toasts"
+              desc="Transient notifications with optional actions."
+            >
+              <div className="flex flex-wrap gap-3">
+                <McButton variant="secondary" size="sm" onClick={() => toast('Event created')}>
+                  Simple
+                </McButton>
+                <McButton
+                  variant="secondary"
+                  size="sm"
+                  onClick={() => toast.success('Saved', { description: 'Your changes are live.' })}
+                >
+                  Success
+                </McButton>
+                <McButton
+                  variant="secondary"
+                  size="sm"
+                  onClick={() =>
+                    toast.warning('Low storage', { description: 'You are almost out of space.' })
+                  }
+                >
+                  Warning
+                </McButton>
+                <McButton
+                  variant="secondary"
+                  size="sm"
+                  onClick={() =>
+                    toast.error('Upload failed', {
+                      description: 'Please try again.',
+                      action: { label: 'Retry', onClick: () => {} },
+                    })
+                  }
+                >
+                  Error
+                </McButton>
+              </div>
+            </DemoCard>
+
+            <DemoCard token="mc-avatar" title="Avatars" desc="Groups, fallbacks and live status.">
+              <div className="flex flex-row flex-wrap items-center gap-6 md:gap-12">
+                <McAvatar>
+                  <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+                  <McAvatarFallback>CN</McAvatarFallback>
+                </McAvatar>
+                <McAvatar>
+                  <McAvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
+                  <McAvatarFallback>ER</McAvatarFallback>
+                  <McAvatarBadge className="bg-green-600 dark:bg-green-800" />
+                </McAvatar>
+                <McAvatarGroup className="grayscale">
+                  <McAvatar>
+                    <McAvatarImage src="https://github.com/Adel2411.png" alt="@Adel2411" />
+                    <McAvatarFallback>CN</McAvatarFallback>
+                  </McAvatar>
+                  <McAvatar>
+                    <McAvatarImage src="https://github.com/maxleiter.png" alt="@maxleiter" />
+                    <McAvatarFallback>LR</McAvatarFallback>
+                  </McAvatar>
+                  <McAvatar>
+                    <McAvatarImage src="https://github.com/evilrabbit.png" alt="@evilrabbit" />
+                    <McAvatarFallback>ER</McAvatarFallback>
+                  </McAvatar>
+                  <McAvatarGroupCount>+3</McAvatarGroupCount>
+                </McAvatarGroup>
+              </div>
+            </DemoCard>
+
+            <DemoCard token="mc-badge" title="Badges" desc="Status, counts and labels.">
+              <div className="flex flex-wrap gap-2 content-start">
+                <McBadge variant="default" size="md">
+                  Primary
+                </McBadge>
+                <McBadge variant="secondary" size="md">
+                  Secondary
+                </McBadge>
+                <McBadge variant="ghost" size="md">
+                  Ghost
+                </McBadge>
+                <McBadge variant="outline" size="md">
+                  Outline
+                </McBadge>
+                <McBadge variant="destructive" size="md">
+                  Destructive
+                </McBadge>
+              </div>
+            </DemoCard>
+          </div>
+        )}
       </div>
+
+      <McSonner />
     </section>
   );
 }
+
+export { Showcase };

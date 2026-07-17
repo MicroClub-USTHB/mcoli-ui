@@ -1,4 +1,5 @@
 import { CheckCircle2, AlertTriangle, Info, XCircle } from 'lucide-react';
+import { McCard } from '@/components/ui/mc-card';
 
 // Mapping of prefixes and steps to explicit Tailwind class names
 // This ensures Tailwind JIT can scan the full strings at build time.
@@ -202,9 +203,9 @@ function Colors() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Core Ramps */}
         {colorRamps.map((ramp) => (
-          <div
+          <McCard
             key={ramp.name}
-            className="flex flex-col rounded-xl border border-border bg-card shadow-sm overflow-hidden p-3 sm:p-4"
+            className="flex flex-col gap-3 rounded-xl shadow-sm overflow-hidden p-3 sm:p-4"
           >
             <div className="flex items-center justify-between mb-2 sm:mb-3">
               <h3 className="text-xs sm:text-sm font-semibold text-foreground">{ramp.name}</h3>
@@ -224,11 +225,11 @@ function Colors() {
                 );
               })}
             </div>
-          </div>
+          </McCard>
         ))}
 
         {/* Gradients */}
-        <div className="flex flex-col rounded-xl border border-border bg-card shadow-sm overflow-hidden p-4">
+        <McCard className="flex flex-col gap-3 rounded-xl shadow-sm overflow-hidden p-4">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm font-semibold text-foreground">Gradients</h3>
             <span className="text-[10px] font-mono text-muted-foreground">--*-gradient</span>
@@ -239,10 +240,10 @@ function Colors() {
               title="--it-gradient"
             />
           </div>
-        </div>
+        </McCard>
 
         {/* Neutrals */}
-        <div className="flex flex-col rounded-xl border border-border bg-card shadow-sm overflow-hidden p-4">
+        <McCard className="flex flex-col gap-3 rounded-xl shadow-sm overflow-hidden p-4">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-sm font-semibold text-foreground">Neutrals</h3>
             <span className="text-[10px] font-mono text-muted-foreground">--neutral-*</span>
@@ -257,10 +258,10 @@ function Colors() {
               title="--neutral-white"
             />
           </div>
-        </div>
+        </McCard>
 
         {/* Semantic Colors */}
-        <div className="flex flex-col rounded-xl border border-border bg-card shadow-sm overflow-hidden p-3 sm:p-4 sm:col-span-2 lg:col-span-3">
+        <McCard className="flex flex-col rounded-xl shadow-sm overflow-hidden p-3 sm:p-4 gap-3 sm:col-span-2 lg:col-span-3">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-xs sm:text-sm font-semibold text-foreground">Semantic</h3>
             <span className="text-[8px] sm:text-[10px] font-mono text-muted-foreground">
@@ -285,7 +286,7 @@ function Colors() {
               <span className="text-[10px] font-semibold">Info</span>
             </div>
           </div>
-        </div>
+        </McCard>
       </div>
     </section>
   );
