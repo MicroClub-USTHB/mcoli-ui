@@ -13,7 +13,7 @@ import {
 } from 'react-day-picker';
 
 import { cn } from '@/lib/utils';
-import { Button, buttonVariants } from '@/components/ui/button';
+import { McButton, buttonVariants } from '@/components/ui/mc-button';
 import { McPopover, McPopoverContent, McPopoverTrigger } from '@/registry/ui/mc-popover';
 
 function McCalendar({
@@ -21,13 +21,13 @@ function McCalendar({
   classNames,
   showOutsideDays = true,
   captionLayout = 'label',
-  buttonVariant = 'ghost',
+  buttonVariant = 'secondary',
   locale,
   formatters,
   components,
   ...props
 }: React.ComponentProps<typeof DayPicker> & {
-  buttonVariant?: React.ComponentProps<typeof Button>['variant'];
+  buttonVariant?: React.ComponentProps<typeof McButton>['variant'];
 }) {
   const defaultClassNames = getDefaultClassNames();
 
@@ -193,9 +193,8 @@ function McCalendarDayButton({
   }, [modifiers.focused]);
 
   return (
-    <Button
-      variant="ghost"
-      size="icon"
+    <button
+      type="button"
       data-day={day.date.toLocaleDateString(locale?.code)}
       data-selected-single={
         modifiers.selected &&

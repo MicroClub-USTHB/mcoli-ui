@@ -40,7 +40,7 @@ const meta = {
     captionLayout: 'dropdown',
     showOutsideDays: true,
     showWeekNumber: false,
-    buttonVariant: 'ghost',
+    buttonVariant: 'secondary',
   },
 } satisfies Meta<typeof McCalendar>;
 
@@ -56,7 +56,6 @@ export const Default: Story = {
 };
 
 export const WithDatePicker: Story = {
-  name: 'With Date Picker',
   render: (args) => {
     const [date, setDate] = React.useState<Date | undefined>();
 

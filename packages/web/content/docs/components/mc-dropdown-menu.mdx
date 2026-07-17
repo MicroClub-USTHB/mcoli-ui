@@ -63,7 +63,7 @@ Ensure your `@/lib/utils` helper is correctly imported and your trigger componen
 ## Usage
 
 ```tsx
-import { Button } from '@/components/ui/button';
+import { McButton } from '@/components/ui/mc-button';
 import {
   McDropdownMenu,
   McDropdownMenuContent,
@@ -74,7 +74,7 @@ import {
 export default function Example() {
   return (
     <McDropdownMenu>
-      <McDropdownMenuTrigger render={<Button variant="outline">Open menu</Button>} />
+      <McDropdownMenuTrigger render={<McButton variant="secondary">Open menu</McButton>} />
       <McDropdownMenuContent>
         <McDropdownMenuItem>Profile</McDropdownMenuItem>
         <McDropdownMenuItem>Settings</McDropdownMenuItem>
@@ -90,7 +90,7 @@ export default function Example() {
 
 ```tsx
 <McDropdownMenu>
-  <McDropdownMenuTrigger render={<Button variant="outline">Open</Button>} />
+  <McDropdownMenuTrigger render={<McButton variant="secondary">Open</McButton>} />
   <McDropdownMenuContent align="start">
     <McDropdownMenuGroup>
       <McDropdownMenuLabel>My Account</McDropdownMenuLabel>
@@ -111,7 +111,7 @@ export default function Example() {
 
 ```tsx
 <McDropdownMenu>
-  <McDropdownMenuTrigger render={<Button variant="outline">Invite</Button>} />
+  <McDropdownMenuTrigger render={<McButton variant="secondary">Invite</McButton>} />
   <McDropdownMenuContent>
     <McDropdownMenuSub>
       <McDropdownMenuSubTrigger>Invite users</McDropdownMenuSubTrigger>
@@ -131,7 +131,7 @@ export default function Example() {
 
 ```tsx
 <McDropdownMenu>
-  <McDropdownMenuTrigger render={<Button variant="outline">Preferences</Button>} />
+  <McDropdownMenuTrigger render={<McButton variant="secondary">Preferences</McButton>} />
   <McDropdownMenuContent align="end">
     <McDropdownMenuCheckboxItem checked>Notifications</McDropdownMenuCheckboxItem>
     <McDropdownMenuCheckboxItem>Auto updates</McDropdownMenuCheckboxItem>
