@@ -11,7 +11,6 @@ import {
   McAlertDialogDescription,
   McAlertDialogAction,
   McAlertDialogCancel,
-  McAlertDialogMedia,
 } from '@/registry/ui/mc-alert-dialog';
 import { McButton } from '@/components/ui/mc-button';
 import { TrashIcon } from 'lucide-react';

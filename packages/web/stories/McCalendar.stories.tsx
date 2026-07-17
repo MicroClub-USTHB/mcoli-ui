@@ -56,7 +56,6 @@ export const Default: Story = {
 };
 
 export const WithDatePicker: Story = {
-  name: 'With Date Picker',
   render: (args) => {
     const [date, setDate] = React.useState<Date | undefined>();
 
