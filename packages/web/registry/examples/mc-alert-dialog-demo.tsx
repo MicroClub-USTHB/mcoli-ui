@@ -9,12 +9,12 @@ import {
   McAlertDialogTitle,
   McAlertDialogTrigger,
 } from '@/registry/ui/mc-alert-dialog';
-import { Button } from '@/components/ui/button';
+import { McButton } from '@/components/ui/mc-button';
 
 export default function McAlertDialogDemo() {
   return (
     <McAlertDialog>
-      <McAlertDialogTrigger render={<Button variant="outline">Show Dialog</Button>} />
+      <McAlertDialogTrigger render={<McButton variant="secondary">Show Dialog</McButton>} />
       <McAlertDialogContent>
         <McAlertDialogHeader>
           <McAlertDialogTitle>Are you absolutely sure?</McAlertDialogTitle>

@@ -5,7 +5,7 @@ import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-reac
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
+import { McButton } from '@/components/ui/mc-button';
 
 type McCarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -168,21 +168,18 @@ function McCarouselItem({ className, children, ...props }: React.ComponentProps<
   );
 }
 
-function McCarouselPrevious({
-  className,
-  variant = 'outline',
-  size = 'icon-sm',
-  ...props
-}: React.ComponentProps<typeof Button>) {
+function McCarouselPrevious({ className, ...props }: React.ComponentProps<typeof McButton>) {
   const { orientation, scrollPrev, canScrollPrev } = useMcCarousel();
 
   return (
-    <Button
+    <McButton
       data-slot="carousel-previous"
-      variant={variant}
-      size={size}
+      variant="secondary"
+      size="sm"
+      icon="only"
+      iconDefinition={<ChevronLeftIcon />}
       className={cn(
-        'absolute size-8.5 touch-manipulation rounded-full border border-border bg-card p-2.5 shadow-[0px_0.81px_2.44px_0px_rgba(0,0,0,0.1)]',
+        'absolute size-8.5 touch-manipulation rounded-full border border-border bg-card p-2.5 shadow-[0px_0.81px_2.44px_0px_rgba(0,0,0,0.1)] [&_svg]:size-4',
         orientation === 'horizontal'
           ? 'inset-y-0 -left-12 my-auto'
           : '-top-12 -right-[-140px] rotate-90',
@@ -193,27 +190,23 @@ function McCarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeftIcon className="cn-rtl-flip" />
       <span className="sr-only">Previous slide</span>
-    </Button>
+    </McButton>
   );
 }
 
-function McCarouselNext({
-  className,
-  variant = 'outline',
-  size = 'icon-sm',
-  ...props
-}: React.ComponentProps<typeof Button>) {
+function McCarouselNext({ className, ...props }: React.ComponentProps<typeof McButton>) {
   const { orientation, scrollNext, canScrollNext } = useMcCarousel();
 
   return (
-    <Button
+    <McButton
       data-slot="carousel-next"
-      variant={variant}
-      size={size}
+      variant="secondary"
+      size="sm"
+      icon="only"
+      iconDefinition={<ChevronRightIcon />}
       className={cn(
-        'absolute size-[34px] touch-manipulation rounded-full border-[1px] border-border bg-card p-[10px] ',
+        'absolute size-[34px] touch-manipulation rounded-full border-[1px] border-border bg-card p-[10px] [&_svg]:size-4',
         orientation === 'horizontal'
           ? 'inset-y-0 -right-12 my-auto'
           : '-bottom-12 -right-[-140px]   rotate-90',
@@ -223,9 +216,8 @@ function McCarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRightIcon className="cn-rtl-flip" />
       <span className="sr-only">Next slide</span>
-    </Button>
+    </McButton>
   );
 }
 

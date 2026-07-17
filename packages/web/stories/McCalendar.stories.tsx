@@ -40,7 +40,7 @@ const meta = {
     captionLayout: 'dropdown',
     showOutsideDays: true,
     showWeekNumber: false,
-    buttonVariant: 'ghost',
+    buttonVariant: 'secondary',
   },
 } satisfies Meta<typeof McCalendar>;
 
