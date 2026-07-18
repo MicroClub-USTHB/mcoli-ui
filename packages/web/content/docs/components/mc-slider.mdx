@@ -80,6 +80,18 @@ export default function Example() {
 <McSlider defaultValue={[20, 80]} max={100} step={1} />
 ```
 
+### With value labels
+
+```tsx
+<McSlider defaultValue={[60]} max={100} step={1} unity="%" />
+```
+
+### With border and custom label styling
+
+```tsx
+<McSlider defaultValue={[35]} max={100} step={1} showValue border unity="°C" />
+```
+
 ### Vertical
 
 ```tsx
@@ -96,15 +108,18 @@ export default function Example() {
 
 ### Props
 
-| Prop           | Type                         | Default        | Description                     |
-| -------------- | ---------------------------- | -------------- | ------------------------------- |
-| `defaultValue` | `number[]`                   | `undefined`    | Initial value(s) for the slider |
-| `value`        | `number[]`                   | `undefined`    | Controlled value(s)             |
-| `min`          | `number`                     | `0`            | Minimum slider value            |
-| `max`          | `number`                     | `100`          | Maximum slider value            |
-| `step`         | `number`                     | `1`            | Increment step                  |
-| `orientation`  | `"horizontal" \| "vertical"` | `"horizontal"` | Slider orientation              |
-| `disabled`     | `boolean`                    | `false`        | Disables interaction            |
-| `className`    | `string`                     | `undefined`    | Additional CSS classes          |
+| Prop           | Type                         | Default        | Description                                         |
+| -------------- | ---------------------------- | -------------- | --------------------------------------------------- |
+| `defaultValue` | `number[]`                   | `undefined`    | Initial value(s) for the slider                     |
+| `value`        | `number[]`                   | `undefined`    | Controlled value(s)                                 |
+| `min`          | `number`                     | `0`            | Minimum slider value                                |
+| `max`          | `number`                     | `100`          | Maximum slider value                                |
+| `step`         | `number`                     | `1`            | Increment step                                      |
+| `orientation`  | `"horizontal" \| "vertical"` | `"horizontal"` | Slider orientation                                  |
+| `disabled`     | `boolean`                    | `false`        | Disables interaction                                |
+| `showValue`    | `boolean`                    | `true`         | Shows the floating value badge above each thumb     |
+| `border`       | `boolean`                    | `false`        | Adds a bordered value badge style                   |
+| `unity`        | `string`                     | `undefined`    | Optional suffix displayed next to the current value |
+| `className`    | `string`                     | `undefined`    | Additional CSS classes                              |
 
 All other props from `@base-ui/react/slider` are supported.
