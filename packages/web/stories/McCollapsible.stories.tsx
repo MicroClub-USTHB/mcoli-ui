@@ -1,38 +1,19 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 
-import { McButton } from '@/registry/ui/mc-button';
-import {
-  McCollapsible,
-  McCollapsibleContent,
-  McCollapsibleTrigger,
-} from '@/registry/ui/mc-collapsible';
+import McCollapsibleDemo from '@/registry/examples/mc-collapsible-demo';
 
-const meta: Meta<typeof McCollapsible> = {
+const meta: Meta<typeof McCollapsibleDemo> = {
   title: 'Components/McCollapsible',
-  component: McCollapsible,
+  component: McCollapsibleDemo,
   tags: ['autodocs'],
   args: {
     defaultOpen: false,
   },
-  render: (args) => (
-    <McCollapsible {...args} className="w-full max-w-sm space-y-2">
-      <McCollapsibleTrigger
-        render={
-          <McButton variant="tertiary" size="sm">
-            Toggle collapse
-          </McButton>
-        }
-      />
-      <McCollapsibleContent className="rounded-lg border border-border bg-card p-4 text-sm text-card-foreground">
-        This is the collapsible content.
-      </McCollapsibleContent>
-    </McCollapsible>
-  ),
 };
 
 export default meta;
 
-type Story = StoryObj<typeof McCollapsible>;
+type Story = StoryObj<typeof McCollapsibleDemo>;
 
 export const Playground: Story = {};
 

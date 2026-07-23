@@ -325,10 +325,8 @@ export const examples: Registry['items'] = [
         type: 'registry:example',
       },
     ],
-    registryDependencies: [
-      `${REGISTRY_URL}/r/mc-collapsible.json`,
-      `${REGISTRY_URL}/r/mc-button.json`,
-    ],
+    dependencies: ['lucide-react'],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-collapsible.json`],
   },
   {
     name: 'mc-separator-demo',
