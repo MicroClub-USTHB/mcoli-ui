@@ -314,6 +314,19 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react', 'lucide-react'],
   },
   {
+    name: 'mc-collapsible',
+    type: 'registry:component',
+    title: 'MicroClub Collapsible',
+    description: 'A collapsible component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-collapsible.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react'],
+  },
+  {
     name: 'mc-separator',
     type: 'registry:component',
     title: 'MicroClub Separator',
