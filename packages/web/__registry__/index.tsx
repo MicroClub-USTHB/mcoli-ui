@@ -2488,6 +2488,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-slider': {
+    name: 'mc-slider',
+    description: 'A slider component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-slider.tsx',
+        content:
+          'import * as React from \'react\';\nimport { Slider as SliderPrimitive } from \'@base-ui/react/slider\';\n\nimport { cn } from \'@/lib/utils\';\n\nfunction McSlider({\n  className,\n  defaultValue,\n  value,\n  min = 0,\n  max = 100,\n  showValue = true,\n  border = false,\n  unity,\n  onValueChange,\n  ...props\n}: SliderPrimitive.Root.Props & {\n  showValue?: boolean;\n  border?: boolean;\n  unity?: string;\n}) {\n  const isControlled = value !== undefined;\n\n  const [internalValues, setInternalValues] = React.useState<number[]>(\n    Array.isArray(defaultValue) ? defaultValue : [min]\n  );\n\n  const values = isControlled ? (Array.isArray(value) ? value : [value]) : internalValues;\n\n  return (\n    <SliderPrimitive.Root\n      className={cn(\'data-horizontal:w-full data-vertical:h-full mt-12\', className)}\n      data-slot="slider"\n      defaultValue={defaultValue}\n      value={value}\n      min={min}\n      max={max}\n      thumbAlignment="edge-client-only"\n      onValueChange={(newValues, event) => {\n        if (!isControlled) {\n          setInternalValues(Array.isArray(newValues) ? newValues : [newValues]);\n        }\n        onValueChange?.(newValues, event);\n      }}\n      {...props}\n    >\n      <SliderPrimitive.Control className="relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col">\n        <SliderPrimitive.Track\n          data-slot="slider-track"\n          className="relative grow overflow-hidden rounded-full bg-muted ring-1 ring-inset ring-ring select-none data-horizontal:h-1 data-horizontal:w-full data-vertical:h-full data-vertical:w-1"\n        >\n          <SliderPrimitive.Indicator\n            data-slot="slider-range"\n            className="bg-primary select-none data-horizontal:h-full data-vertical:w-full"\n          />\n        </SliderPrimitive.Track>\n\n        {values.map((currentValue, index) => (\n          <SliderPrimitive.Thumb\n            key={index}\n            data-slot="slider-thumb"\n            className="group relative block size-3 shrink-0 rounded-full border-2 border-primary bg-muted ring-accent-foreground backdrop-blur-3xl transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:ring-3 focus-visible:ring-3 focus-visible:outline-hidden active:ring-3 active:bg-primary disabled:pointer-events-none disabled:opacity-50 disabled:bg-blue-500"\n          >\n            {showValue && (\n              <div\n                className={cn(\n                  \'pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap rounded-xl \',\n                  \'px-3.5 py-2.5 gap-2.5  text-md text-foreground bg-transparent \',\n                  border && \'ring-1 ring-inset ring-border bg-muted\'\n                )}\n              >\n                {currentValue} {unity}\n              </div>\n            )}\n          </SliderPrimitive.Thumb>\n        ))}\n      </SliderPrimitive.Control>\n    </SliderPrimitive.Root>\n  );\n}\n\nexport { McSlider };\n',
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-carousel': {
     name: 'mc-carousel',
     description: 'A carousel component for MicroClub UI',
@@ -3028,6 +3041,22 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-hover-card-demo.tsx')),
     source:
       'import { McHoverCard, McHoverCardContent, McHoverCardTrigger } from \'../ui/mc-hover-card\';\n\nexport default function McHoverCardDemo() {\n  return (\n    <div>\n      <McHoverCard>\n        <McHoverCardTrigger>\n          <button type="button" className="cursor-pointer rounded-full">\n            hover me\n          </button>\n        </McHoverCardTrigger>\n        <McHoverCardContent\n          textAlign="start"\n          title="John Doe"\n          subtitle="Software Engineer"\n          description="John is a software engineer with 5 years of experience in web development. He loves working with React and TypeScript."\n        />\n      </McHoverCard>\n    </div>\n  );\n}\n',
+  },
+  'mc-slider-demo': {
+    name: 'mc-slider-demo',
+    description: 'Demo for MicroClub Slider',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-slider-demo.tsx',
+        content:
+          'import { McSlider } from \'@/registry/ui/mc-slider\';\n\nexport default function SliderDemo() {\n  return <McSlider defaultValue={[75]} max={100} step={1} className="mx-auto w-full max-w-xs" />;\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-slider-demo.tsx')),
+    source:
+      'import { McSlider } from \'@/registry/ui/mc-slider\';\n\nexport default function SliderDemo() {\n  return <McSlider defaultValue={[75]} max={100} step={1} className="mx-auto w-full max-w-xs" />;\n}\n',
   },
   'mc-carousel-demo': {
     name: 'mc-carousel-demo',
