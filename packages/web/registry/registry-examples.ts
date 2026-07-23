@@ -315,6 +315,20 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-accordion.json`],
   },
   {
+    name: 'mc-collapsible-demo',
+    type: 'registry:example',
+    title: 'MicroClub Collapsible Demo',
+    description: 'Demo for MicroClub Collapsible',
+    files: [
+      {
+        path: 'examples/mc-collapsible-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    dependencies: ['lucide-react'],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-collapsible.json`],
+  },
+  {
     name: 'mc-separator-demo',
     type: 'registry:example',
     title: 'MicroClub Separator Demo',

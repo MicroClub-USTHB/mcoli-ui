@@ -2371,6 +2371,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-collapsible': {
+    name: 'mc-collapsible',
+    description: 'A collapsible component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-collapsible.tsx',
+        content:
+          '\'use client\';\n\nimport { Collapsible as CollapsiblePrimitive } from \'@base-ui/react/collapsible\';\n\nfunction McCollapsible({ ...props }: CollapsiblePrimitive.Root.Props) {\n  return <CollapsiblePrimitive.Root data-slot="collapsible" {...props} />;\n}\n\nfunction McCollapsibleTrigger({ ...props }: CollapsiblePrimitive.Trigger.Props) {\n  return <CollapsiblePrimitive.Trigger data-slot="collapsible-trigger" {...props} />;\n}\n\nfunction McCollapsibleContent({ ...props }: CollapsiblePrimitive.Panel.Props) {\n  return <CollapsiblePrimitive.Panel data-slot="collapsible-content" {...props} />;\n}\n\nexport { McCollapsible, McCollapsibleTrigger, McCollapsibleContent };\n',
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-separator': {
     name: 'mc-separator',
     description: 'A separator component for MicroClub UI',
@@ -2871,6 +2884,22 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-accordion-demo.tsx')),
     source:
       'import {\n  McAccordion,\n  McAccordionContent,\n  McAccordionItem,\n  McAccordionTrigger,\n} from \'../ui/mc-accordion\';\n\nexport function AccordionDemo() {\n  return (\n    <McAccordion defaultValue={[\'product\']} className="max-w-lg">\n      <McAccordionItem value="product">\n        <McAccordionTrigger>Product Information</McAccordionTrigger>\n        <McAccordionContent>\n          <p>\n            Our flagship product combines cutting-edge technology with sleek design. Built with\n            premium materials, it offers unparalleled performance and reliability.\n          </p>\n          <p>\n            Key features include advanced processing capabilities, and an intuitive user interface\n            designed for both beginners and experts.\n          </p>\n        </McAccordionContent>\n      </McAccordionItem>\n      <McAccordionItem value="shipping">\n        <McAccordionTrigger>Shipping Details</McAccordionTrigger>\n        <McAccordionContent>\n          <p>We offer standard (5-7 days), express (2-3 days), and overnight shipping.</p>\n          <p>\n            Free shipping on international orders is available once the minimum order amount is\n            reached.\n          </p>\n        </McAccordionContent>\n      </McAccordionItem>\n      <McAccordionItem value="returns">\n        <McAccordionTrigger>Return Policy</McAccordionTrigger>\n        <McAccordionContent>\n          <p>\n            Returns accepted within 30 days. Items must be unused and in original packaging. Refunds\n            processed within 5-7 business days.\n          </p>\n        </McAccordionContent>\n      </McAccordionItem>\n    </McAccordion>\n  );\n}\n\nexport default AccordionDemo;\n',
+  },
+  'mc-collapsible-demo': {
+    name: 'mc-collapsible-demo',
+    description: 'Demo for MicroClub Collapsible',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-collapsible-demo.tsx',
+        content:
+          'import type { ComponentProps } from \'react\';\nimport { ChevronsUpDown } from \'lucide-react\';\n\nimport { McCollapsible, McCollapsibleContent, McCollapsibleTrigger } from \'../ui/mc-collapsible\';\n\nexport default function McCollapsibleDemo(props: ComponentProps<typeof McCollapsible>) {\n  return (\n    <McCollapsible {...props} className="w-[350px] space-y-2">\n      <div className="flex items-center justify-between gap-4 px-4">\n        <h4 className="paragraph-sm font-semibold text-foreground">\n          @peduarte starred 3 repositories\n        </h4>\n        <McCollapsibleTrigger className="inline-flex size-8 shrink-0 items-center justify-center rounded-md text-foreground outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50">\n          <ChevronsUpDown className="size-4" />\n          <span className="sr-only">Toggle repositories</span>\n        </McCollapsibleTrigger>\n      </div>\n      <div className="paragraph-sm rounded-md border border-border bg-background px-4 py-2 text-primary">\n        @radix-ui/primitives\n      </div>\n      <McCollapsibleContent className="space-y-2">\n        <div className="paragraph-sm rounded-md border border-border bg-background px-4 py-2 text-primary">\n          @radix-ui/colors\n        </div>\n        <div className="paragraph-sm rounded-md border border-border bg-background px-4 py-2 text-primary">\n          @stitches/react\n        </div>\n      </McCollapsibleContent>\n    </McCollapsible>\n  );\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-collapsible-demo.tsx')),
+    source:
+      'import type { ComponentProps } from \'react\';\nimport { ChevronsUpDown } from \'lucide-react\';\n\nimport { McCollapsible, McCollapsibleContent, McCollapsibleTrigger } from \'../ui/mc-collapsible\';\n\nexport default function McCollapsibleDemo(props: ComponentProps<typeof McCollapsible>) {\n  return (\n    <McCollapsible {...props} className="w-[350px] space-y-2">\n      <div className="flex items-center justify-between gap-4 px-4">\n        <h4 className="paragraph-sm font-semibold text-foreground">\n          @peduarte starred 3 repositories\n        </h4>\n        <McCollapsibleTrigger className="inline-flex size-8 shrink-0 items-center justify-center rounded-md text-foreground outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50">\n          <ChevronsUpDown className="size-4" />\n          <span className="sr-only">Toggle repositories</span>\n        </McCollapsibleTrigger>\n      </div>\n      <div className="paragraph-sm rounded-md border border-border bg-background px-4 py-2 text-primary">\n        @radix-ui/primitives\n      </div>\n      <McCollapsibleContent className="space-y-2">\n        <div className="paragraph-sm rounded-md border border-border bg-background px-4 py-2 text-primary">\n          @radix-ui/colors\n        </div>\n        <div className="paragraph-sm rounded-md border border-border bg-background px-4 py-2 text-primary">\n          @stitches/react\n        </div>\n      </McCollapsibleContent>\n    </McCollapsible>\n  );\n}\n',
   },
   'mc-separator-demo': {
     name: 'mc-separator-demo',
