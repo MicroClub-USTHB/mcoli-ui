@@ -3,7 +3,7 @@
   "name": "mc-checkbox",
   "title": "MicroClub Checkbox",
   "description": "A checkbox component for MicroClub UI",
-  "dependencies": ["@base-ui/react"],
+  "dependencies": ["@base-ui/react", "lucide-react"],
   "files": [
     {
       "path": "registry/ui/mc-checkbox.tsx",

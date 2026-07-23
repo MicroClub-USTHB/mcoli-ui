@@ -12,8 +12,8 @@
     "typecheck": "pnpm --filter @mcoli/web typecheck",
     "storybook": "pnpm --filter @mcoli/web storybook",
     "build-storybook": "pnpm --filter @mcoli/web build-storybook",
-    "cli": "pnpm --filter mcoli-ui",
-    "cli:dev": "MCOLI_UI_REGISTRY_URL=http://localhost:3000 pnpm --filter mcoli-ui",
+    "cli": "pnpm --filter mcoli-ui exec mcoli-ui",
+    "cli:dev": "MCOLI_UI_REGISTRY_URL=http://localhost:3000 pnpm --filter mcoli-ui exec mcoli-ui",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "prepare": "husky"
@@ -29,9 +29,5 @@
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.1",
     "typescript": "^5.7.2"
-  },
-  "dependencies": {
-    "next-themes": "^0.4.6",
-    "sonner": "^2.0.7"
   }
 }

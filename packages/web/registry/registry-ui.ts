@@ -12,7 +12,7 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'lucide-react'],
   },
   {
     name: 'mc-input',
@@ -64,7 +64,7 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'lucide-react'],
   },
   {
     name: 'mc-radio-group',
@@ -90,20 +90,20 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['class-variance-authority'],
+    dependencies: [],
   },
   {
     name: 'mc-select',
     type: 'registry:component',
     title: 'MicroClub Select',
-    description: 'A Selector component for MicroClub UI',
+    description: 'A select component for MicroClub UI',
     files: [
       {
         path: 'ui/mc-select.tsx',
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'lucide-react'],
   },
   {
     name: 'mc-combobox',
@@ -116,7 +116,7 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'lucide-react'],
   },
   {
     name: 'mc-switch',
@@ -142,7 +142,7 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'lucide-react'],
   },
   {
     name: 'mc-sidebar',
@@ -155,7 +155,7 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'lucide-react'],
   },
   {
     name: 'mc-tabs',
@@ -194,7 +194,7 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'lucide-react'],
   },
   {
     name: 'mc-dialog',
@@ -207,7 +207,7 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'lucide-react'],
   },
   {
     name: 'mc-alert-dialog',
@@ -233,7 +233,7 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['lucide-react'],
   },
   {
     name: 'mc-sonner',
@@ -246,7 +246,7 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react', 'sonner'],
+    dependencies: ['sonner', 'lucide-react'],
   },
   {
     name: 'mc-tooltip',
@@ -285,7 +285,7 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'lucide-react'],
   },
   {
     name: 'mc-context-menu',
@@ -311,6 +311,19 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
+    dependencies: ['@base-ui/react', 'lucide-react'],
+  },
+  {
+    name: 'mc-collapsible',
+    type: 'registry:component',
+    title: 'MicroClub Collapsible',
+    description: 'A collapsible component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-collapsible.tsx',
+        type: 'registry:component',
+      },
+    ],
     dependencies: ['@base-ui/react'],
   },
   {
@@ -325,6 +338,19 @@ export const ui: Registry['items'] = [
       },
     ],
     dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-calendar',
+    type: 'registry:component',
+    title: 'MicroClub Calendar',
+    description: 'A calendar component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-calendar.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['react-day-picker', 'date-fns', 'lucide-react'],
   },
   {
     name: 'mc-scrollarea',
@@ -350,7 +376,7 @@ export const ui: Registry['items'] = [
         type: 'registry:component',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: [],
   },
   {
     name: 'mc-badge',
@@ -379,6 +405,19 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-drawer',
+    type: 'registry:component',
+    title: 'MicroClub Drawer',
+    description: 'A drawer component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-drawer.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['vaul'],
+  },
+  {
     name: 'mc-hover-card',
     type: 'registry:component',
     title: 'MicroClub Hover Card',
@@ -403,5 +442,18 @@ export const ui: Registry['items'] = [
       },
     ],
     dependencies: ['@base-ui/react'],
+  },
+  {
+    name: 'mc-carousel',
+    type: 'registry:component',
+    title: 'MicroClub Carousel',
+    description: 'A carousel component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-carousel.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['embla-carousel-react', 'lucide-react'],
   },
 ];

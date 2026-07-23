@@ -236,18 +236,18 @@ When adding a new item, you will create/edit these files:
 | `mc-context-menu`    | ✅           | ✅        |
 | `mc-data-table`      | ✅           |           |
 | `mc-accordion`       | ✅           | ✅        |
-| `mc-collapsible`     | ✅           |           |
+| `mc-collapsible`     | ✅           | ✅        |
 | `mc-separator`       | ✅           | ✅        |
 | `mc-progress`        | ✅           |           |
-| `mc-calendar`        | ✅           |           |
+| `mc-calendar`        | ✅           | ✅        |
 | `mc-scrollarea`      | ✅           | ✅        |
 | `mc-skeleton`        | ✅           | ✅        |
 | `mc-badge`           | ✅           | ✅        |
 | `mc-avatar`          | ✅           | ✅        |
-| `mc-drawer`          | ✅           |           |
+| `mc-drawer`          | ✅           | ✅        |
 | `mc-hover-card`      | ✅           | ✅        |
 | `mc-slider`          | ✅           |           |
-| `mc-carousel`        | ✅           |           |
+| `mc-carousel`        | ✅           | ✅        |
 
 # Important Notes
 

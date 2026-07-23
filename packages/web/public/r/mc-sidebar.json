@@ -3,7 +3,7 @@
   "name": "mc-sidebar",
   "title": "MicroClub Sidebar",
   "description": "A sidebar component for MicroClub UI",
-  "dependencies": ["@base-ui/react"],
+  "dependencies": ["@base-ui/react", "lucide-react"],
   "files": [
     {
       "path": "registry/ui/mc-sidebar.tsx",

@@ -3,7 +3,7 @@
   "name": "mc-accordion",
   "title": "MicroClub Accordion",
   "description": "An accordion component for MicroClub UI",
-  "dependencies": ["@base-ui/react"],
+  "dependencies": ["@base-ui/react", "lucide-react"],
   "files": [
     {
       "path": "registry/ui/mc-accordion.tsx",

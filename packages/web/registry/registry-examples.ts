@@ -97,7 +97,7 @@ export const examples: Registry['items'] = [
     name: 'mc-select-demo',
     type: 'registry:example',
     title: 'MicroClub Select Demo',
-    description: 'Demo for MicroClub Selector',
+    description: 'Demo for MicroClub Select',
     files: [
       {
         path: 'examples/mc-select-demo.tsx',
@@ -315,6 +315,20 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-accordion.json`],
   },
   {
+    name: 'mc-collapsible-demo',
+    type: 'registry:example',
+    title: 'MicroClub Collapsible Demo',
+    description: 'Demo for MicroClub Collapsible',
+    files: [
+      {
+        path: 'examples/mc-collapsible-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    dependencies: ['lucide-react'],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-collapsible.json`],
+  },
+  {
     name: 'mc-separator-demo',
     type: 'registry:example',
     title: 'MicroClub Separator Demo',
@@ -328,6 +342,19 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-separator.json`],
   },
 
+  {
+    name: 'mc-calendar-demo',
+    type: 'registry:example',
+    title: 'MicroClub Calendar Demo',
+    description: 'Demo for MicroClub Calendar',
+    files: [
+      {
+        path: 'examples/mc-calendar-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-calendar.json`],
+  },
   {
     name: 'mc-scrollarea-demo',
     type: 'registry:example',
@@ -381,6 +408,19 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-avatar.json`],
   },
   {
+    name: 'mc-drawer-demo',
+    type: 'registry:example',
+    title: 'MicroClub Drawer Demo',
+    description: 'Demo for MicroClub drawer',
+    files: [
+      {
+        path: 'examples/mc-drawer-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-drawer.json`],
+  },
+  {
     name: 'mc-hover-card-demo',
     type: 'registry:example',
     title: 'MicroClub Hover Card Demo',
@@ -405,5 +445,18 @@ export const examples: Registry['items'] = [
       },
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-slider.json`],
+  },
+  {
+    name: 'mc-carousel-demo',
+    type: 'registry:example',
+    title: 'MicroClub Carousel Demo',
+    description: 'Demo for MicroClub Carousel',
+    files: [
+      {
+        path: 'examples/mc-carousel-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-carousel.json`],
   },
 ];

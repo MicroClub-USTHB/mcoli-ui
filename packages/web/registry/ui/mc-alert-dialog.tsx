@@ -4,7 +4,7 @@ import * as React from 'react';
 import { AlertDialog as AlertDialogPrimitive } from '@base-ui/react/alert-dialog';
 
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
+import { McButton } from '@/components/ui/mc-button';
 
 function McAlertDialog({ ...props }: AlertDialogPrimitive.Root.Props) {
   return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />;
@@ -150,22 +150,22 @@ function McAlertDialogDescription({
   );
 }
 
-function McAlertDialogAction({ className, ...props }: React.ComponentProps<typeof Button>) {
-  return <Button data-slot="alert-dialog-action" className={cn(className)} {...props} />;
+function McAlertDialogAction({ className, ...props }: React.ComponentProps<typeof McButton>) {
+  return <McButton data-slot="alert-dialog-action" className={cn(className)} {...props} />;
 }
 
 function McAlertDialogCancel({
   className,
-  variant = 'outline',
-  size = 'default',
+  variant = 'secondary',
+  size = 'md',
   ...props
 }: AlertDialogPrimitive.Close.Props &
-  Pick<React.ComponentProps<typeof Button>, 'variant' | 'size'>) {
+  Pick<React.ComponentProps<typeof McButton>, 'variant' | 'size'>) {
   return (
     <AlertDialogPrimitive.Close
       data-slot="alert-dialog-cancel"
       className={cn('', className)}
-      render={<Button variant={variant} size={size} />}
+      render={<McButton variant={variant} size={size} />}
       {...props}
     />
   );

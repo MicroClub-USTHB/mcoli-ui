@@ -3,7 +3,7 @@
   "name": "mc-dropdown-menu",
   "title": "MicroClub Dropdown Menu",
   "description": "A dropdown menu component for MicroClub UI",
-  "dependencies": ["@base-ui/react"],
+  "dependencies": ["@base-ui/react", "lucide-react"],
   "files": [
     {
       "path": "registry/ui/mc-dropdown-menu.tsx",
