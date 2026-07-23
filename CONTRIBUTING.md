@@ -236,7 +236,7 @@ When adding a new item, you will create/edit these files:
 | `mc-context-menu`    | ✅           | ✅        |
 | `mc-data-table`      | ✅           |           |
 | `mc-accordion`       | ✅           | ✅        |
-| `mc-collapsible`     | ✅           |           |
+| `mc-collapsible`     | ✅           | ✅        |
 | `mc-separator`       | ✅           | ✅        |
 | `mc-progress`        | ✅           |           |
 | `mc-calendar`        | ✅           | ✅        |
