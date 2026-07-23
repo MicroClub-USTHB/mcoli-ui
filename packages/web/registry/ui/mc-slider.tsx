@@ -35,7 +35,7 @@ function McSlider({
       value={value}
       min={min}
       max={max}
-      thumbAlignment="edge"
+      thumbAlignment="edge-client-only"
       onValueChange={(newValues, event) => {
         if (!isControlled) {
           setInternalValues(Array.isArray(newValues) ? newValues : [newValues]);
