@@ -2371,6 +2371,19 @@ export const Index: Record<string, any> = {
       },
     ],
   },
+  'mc-collapsible': {
+    name: 'mc-collapsible',
+    description: 'A collapsible component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-collapsible.tsx',
+        content:
+          '\'use client\';\n\nimport { Collapsible as CollapsiblePrimitive } from \'@base-ui/react/collapsible\';\n\nfunction McCollapsible({ ...props }: CollapsiblePrimitive.Root.Props) {\n  return <CollapsiblePrimitive.Root data-slot="collapsible" {...props} />;\n}\n\nfunction McCollapsibleTrigger({ ...props }: CollapsiblePrimitive.Trigger.Props) {\n  return <CollapsiblePrimitive.Trigger data-slot="collapsible-trigger" {...props} />;\n}\n\nfunction McCollapsibleContent({ ...props }: CollapsiblePrimitive.Panel.Props) {\n  return <CollapsiblePrimitive.Panel data-slot="collapsible-content" {...props} />;\n}\n\nexport { McCollapsible, McCollapsibleTrigger, McCollapsibleContent };\n',
+        type: 'registry:component',
+      },
+    ],
+  },
   'mc-separator': {
     name: 'mc-separator',
     description: 'A separator component for MicroClub UI',
@@ -2471,6 +2484,19 @@ export const Index: Record<string, any> = {
         path: 'registry/ui/mc-hover-card.tsx',
         content:
           "'use client';\n\nimport { PreviewCard as PreviewCardPrimitive } from '@base-ui/react/preview-card';\n\nimport { cn } from '@/lib/utils';\n\nfunction McHoverCard({ ...props }: PreviewCardPrimitive.Root.Props) {\n  return <PreviewCardPrimitive.Root data-slot=\"hover-card\" {...props} />;\n}\n\nfunction McHoverCardTrigger({ ...props }: PreviewCardPrimitive.Trigger.Props) {\n  return <PreviewCardPrimitive.Trigger data-slot=\"hover-card-trigger\" {...props} />;\n}\n\nfunction McHoverCardContent({\n  className,\n  side = 'bottom',\n  sideOffset = 4,\n  align = 'center',\n  alignOffset = 4,\n  textAlign = 'start',\n  imageSrc = null,\n  imageposition = 'top',\n  title,\n  subtitle,\n  description,\n  ...props\n}: PreviewCardPrimitive.Popup.Props &\n  Pick<PreviewCardPrimitive.Positioner.Props, 'align' | 'alignOffset' | 'side' | 'sideOffset'> & {\n    textAlign?: 'start' | 'center';\n    imageSrc?: string | null;\n    imageposition?: 'top' | 'bottom';\n    title?: string;\n    subtitle?: string;\n    description?: string;\n  }) {\n  return (\n    <PreviewCardPrimitive.Portal data-slot=\"hover-card-portal\">\n      <PreviewCardPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n        className=\"isolate z-50 w-76 origin-(--transform-origin) rounded-lg bg-card p-4 text-sm text-popover-foreground shadow-md ring-inset  ring-1 ring-border flex flex-col \"\n      >\n        <div className={`${imageposition === 'top' ? 'flex-col' : 'flex-col-reverse'} flex gap-4`}>\n          {imageSrc && <img src={imageSrc} alt=\"Profile\" className={`w-full    `} />}\n          <div\n            className={`${textAlign === 'start' ? 'items-start' : 'items-center'} flex flex-col gap-2`}\n          >\n            {title && <h4 className=\"font-semibold text-card-foreground\">{title}</h4>}\n            <div\n              className={`${textAlign === 'start' ? 'items-start' : 'text-center'} flex flex-col`}\n            >\n              {subtitle && <p className=\" font-regular text-card-foreground\">{subtitle}</p>}\n              {description && <p className=\"font-regular text-card-foreground\">{description}</p>}\n            </div>\n          </div>\n        </div>\n\n        <PreviewCardPrimitive.Popup\n          data-slot=\"hover-card-content\"\n          className={cn(\n            ' outline-hidden duration-100   ',\n            ' data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 ',\n            ' data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ',\n            ' data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 ',\n            'data-closed:zoom-out-95 gap-4',\n            className\n          )}\n          {...props}\n        />\n      </PreviewCardPrimitive.Positioner>\n    </PreviewCardPrimitive.Portal>\n  );\n}\n\nexport { McHoverCard, McHoverCardTrigger, McHoverCardContent };\n",
+        type: 'registry:component',
+      },
+    ],
+  },
+  'mc-slider': {
+    name: 'mc-slider',
+    description: 'A slider component for MicroClub UI',
+    type: 'registry:component',
+    files: [
+      {
+        path: 'registry/ui/mc-slider.tsx',
+        content:
+          'import * as React from \'react\';\nimport { Slider as SliderPrimitive } from \'@base-ui/react/slider\';\n\nimport { cn } from \'@/lib/utils\';\n\nfunction McSlider({\n  className,\n  defaultValue,\n  value,\n  min = 0,\n  max = 100,\n  showValue = true,\n  border = false,\n  unity,\n  onValueChange,\n  ...props\n}: SliderPrimitive.Root.Props & {\n  showValue?: boolean;\n  border?: boolean;\n  unity?: string;\n}) {\n  const isControlled = value !== undefined;\n\n  const [internalValues, setInternalValues] = React.useState<number[]>(\n    Array.isArray(defaultValue) ? defaultValue : [min]\n  );\n\n  const values = isControlled ? (Array.isArray(value) ? value : [value]) : internalValues;\n\n  return (\n    <SliderPrimitive.Root\n      className={cn(\'data-horizontal:w-full data-vertical:h-full mt-12\', className)}\n      data-slot="slider"\n      defaultValue={defaultValue}\n      value={value}\n      min={min}\n      max={max}\n      thumbAlignment="edge-client-only"\n      onValueChange={(newValues, event) => {\n        if (!isControlled) {\n          setInternalValues(Array.isArray(newValues) ? newValues : [newValues]);\n        }\n        onValueChange?.(newValues, event);\n      }}\n      {...props}\n    >\n      <SliderPrimitive.Control className="relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col">\n        <SliderPrimitive.Track\n          data-slot="slider-track"\n          className="relative grow overflow-hidden rounded-full bg-muted ring-1 ring-inset ring-ring select-none data-horizontal:h-1 data-horizontal:w-full data-vertical:h-full data-vertical:w-1"\n        >\n          <SliderPrimitive.Indicator\n            data-slot="slider-range"\n            className="bg-primary select-none data-horizontal:h-full data-vertical:w-full"\n          />\n        </SliderPrimitive.Track>\n\n        {values.map((currentValue, index) => (\n          <SliderPrimitive.Thumb\n            key={index}\n            data-slot="slider-thumb"\n            className="group relative block size-3 shrink-0 rounded-full border-2 border-primary bg-muted ring-accent-foreground backdrop-blur-3xl transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:ring-3 focus-visible:ring-3 focus-visible:outline-hidden active:ring-3 active:bg-primary disabled:pointer-events-none disabled:opacity-50 disabled:bg-blue-500"\n          >\n            {showValue && (\n              <div\n                className={cn(\n                  \'pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap rounded-xl \',\n                  \'px-3.5 py-2.5 gap-2.5  text-md text-foreground bg-transparent \',\n                  border && \'ring-1 ring-inset ring-border bg-muted\'\n                )}\n              >\n                {currentValue} {unity}\n              </div>\n            )}\n          </SliderPrimitive.Thumb>\n        ))}\n      </SliderPrimitive.Control>\n    </SliderPrimitive.Root>\n  );\n}\n\nexport { McSlider };\n',
         type: 'registry:component',
       },
     ],
@@ -2872,6 +2898,22 @@ export const Index: Record<string, any> = {
     source:
       'import {\n  McAccordion,\n  McAccordionContent,\n  McAccordionItem,\n  McAccordionTrigger,\n} from \'../ui/mc-accordion\';\n\nexport function AccordionDemo() {\n  return (\n    <McAccordion defaultValue={[\'product\']} className="max-w-lg">\n      <McAccordionItem value="product">\n        <McAccordionTrigger>Product Information</McAccordionTrigger>\n        <McAccordionContent>\n          <p>\n            Our flagship product combines cutting-edge technology with sleek design. Built with\n            premium materials, it offers unparalleled performance and reliability.\n          </p>\n          <p>\n            Key features include advanced processing capabilities, and an intuitive user interface\n            designed for both beginners and experts.\n          </p>\n        </McAccordionContent>\n      </McAccordionItem>\n      <McAccordionItem value="shipping">\n        <McAccordionTrigger>Shipping Details</McAccordionTrigger>\n        <McAccordionContent>\n          <p>We offer standard (5-7 days), express (2-3 days), and overnight shipping.</p>\n          <p>\n            Free shipping on international orders is available once the minimum order amount is\n            reached.\n          </p>\n        </McAccordionContent>\n      </McAccordionItem>\n      <McAccordionItem value="returns">\n        <McAccordionTrigger>Return Policy</McAccordionTrigger>\n        <McAccordionContent>\n          <p>\n            Returns accepted within 30 days. Items must be unused and in original packaging. Refunds\n            processed within 5-7 business days.\n          </p>\n        </McAccordionContent>\n      </McAccordionItem>\n    </McAccordion>\n  );\n}\n\nexport default AccordionDemo;\n',
   },
+  'mc-collapsible-demo': {
+    name: 'mc-collapsible-demo',
+    description: 'Demo for MicroClub Collapsible',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-collapsible-demo.tsx',
+        content:
+          'import type { ComponentProps } from \'react\';\nimport { ChevronsUpDown } from \'lucide-react\';\n\nimport { McCollapsible, McCollapsibleContent, McCollapsibleTrigger } from \'../ui/mc-collapsible\';\n\nexport default function McCollapsibleDemo(props: ComponentProps<typeof McCollapsible>) {\n  return (\n    <McCollapsible {...props} className="w-[350px] space-y-2">\n      <div className="flex items-center justify-between gap-4 px-4">\n        <h4 className="paragraph-sm font-semibold text-foreground">\n          @peduarte starred 3 repositories\n        </h4>\n        <McCollapsibleTrigger className="inline-flex size-8 shrink-0 items-center justify-center rounded-md text-foreground outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50">\n          <ChevronsUpDown className="size-4" />\n          <span className="sr-only">Toggle repositories</span>\n        </McCollapsibleTrigger>\n      </div>\n      <div className="paragraph-sm rounded-md border border-border bg-background px-4 py-2 text-primary">\n        @radix-ui/primitives\n      </div>\n      <McCollapsibleContent className="space-y-2">\n        <div className="paragraph-sm rounded-md border border-border bg-background px-4 py-2 text-primary">\n          @radix-ui/colors\n        </div>\n        <div className="paragraph-sm rounded-md border border-border bg-background px-4 py-2 text-primary">\n          @stitches/react\n        </div>\n      </McCollapsibleContent>\n    </McCollapsible>\n  );\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-collapsible-demo.tsx')),
+    source:
+      'import type { ComponentProps } from \'react\';\nimport { ChevronsUpDown } from \'lucide-react\';\n\nimport { McCollapsible, McCollapsibleContent, McCollapsibleTrigger } from \'../ui/mc-collapsible\';\n\nexport default function McCollapsibleDemo(props: ComponentProps<typeof McCollapsible>) {\n  return (\n    <McCollapsible {...props} className="w-[350px] space-y-2">\n      <div className="flex items-center justify-between gap-4 px-4">\n        <h4 className="paragraph-sm font-semibold text-foreground">\n          @peduarte starred 3 repositories\n        </h4>\n        <McCollapsibleTrigger className="inline-flex size-8 shrink-0 items-center justify-center rounded-md text-foreground outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50">\n          <ChevronsUpDown className="size-4" />\n          <span className="sr-only">Toggle repositories</span>\n        </McCollapsibleTrigger>\n      </div>\n      <div className="paragraph-sm rounded-md border border-border bg-background px-4 py-2 text-primary">\n        @radix-ui/primitives\n      </div>\n      <McCollapsibleContent className="space-y-2">\n        <div className="paragraph-sm rounded-md border border-border bg-background px-4 py-2 text-primary">\n          @radix-ui/colors\n        </div>\n        <div className="paragraph-sm rounded-md border border-border bg-background px-4 py-2 text-primary">\n          @stitches/react\n        </div>\n      </McCollapsibleContent>\n    </McCollapsible>\n  );\n}\n',
+  },
   'mc-separator-demo': {
     name: 'mc-separator-demo',
     description: 'Demo for MicroClub Separator',
@@ -2999,6 +3041,22 @@ export const Index: Record<string, any> = {
     component: React.lazy(() => import('@/registry/examples/mc-hover-card-demo.tsx')),
     source:
       'import { McHoverCard, McHoverCardContent, McHoverCardTrigger } from \'../ui/mc-hover-card\';\n\nexport default function McHoverCardDemo() {\n  return (\n    <div>\n      <McHoverCard>\n        <McHoverCardTrigger>\n          <button type="button" className="cursor-pointer rounded-full">\n            hover me\n          </button>\n        </McHoverCardTrigger>\n        <McHoverCardContent\n          textAlign="start"\n          title="John Doe"\n          subtitle="Software Engineer"\n          description="John is a software engineer with 5 years of experience in web development. He loves working with React and TypeScript."\n        />\n      </McHoverCard>\n    </div>\n  );\n}\n',
+  },
+  'mc-slider-demo': {
+    name: 'mc-slider-demo',
+    description: 'Demo for MicroClub Slider',
+    type: 'registry:example',
+    files: [
+      {
+        path: 'registry/examples/mc-slider-demo.tsx',
+        content:
+          'import { McSlider } from \'@/registry/ui/mc-slider\';\n\nexport default function SliderDemo() {\n  return <McSlider defaultValue={[75]} max={100} step={1} className="mx-auto w-full max-w-xs" />;\n}\n',
+        type: 'registry:example',
+      },
+    ],
+    component: React.lazy(() => import('@/registry/examples/mc-slider-demo.tsx')),
+    source:
+      'import { McSlider } from \'@/registry/ui/mc-slider\';\n\nexport default function SliderDemo() {\n  return <McSlider defaultValue={[75]} max={100} step={1} className="mx-auto w-full max-w-xs" />;\n}\n',
   },
   'mc-carousel-demo': {
     name: 'mc-carousel-demo',

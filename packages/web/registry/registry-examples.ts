@@ -315,6 +315,20 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-accordion.json`],
   },
   {
+    name: 'mc-collapsible-demo',
+    type: 'registry:example',
+    title: 'MicroClub Collapsible Demo',
+    description: 'Demo for MicroClub Collapsible',
+    files: [
+      {
+        path: 'examples/mc-collapsible-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    dependencies: ['lucide-react'],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-collapsible.json`],
+  },
+  {
     name: 'mc-separator-demo',
     type: 'registry:example',
     title: 'MicroClub Separator Demo',
@@ -418,6 +432,19 @@ export const examples: Registry['items'] = [
       },
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-hover-card.json`],
+  },
+  {
+    name: 'mc-slider-demo',
+    type: 'registry:example',
+    title: 'MicroClub Slider Demo',
+    description: 'Demo for MicroClub Slider',
+    files: [
+      {
+        path: 'examples/mc-slider-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-slider.json`],
   },
   {
     name: 'mc-carousel-demo',

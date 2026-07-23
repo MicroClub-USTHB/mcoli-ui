@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "mc-collapsible",
+  "title": "MicroClub Collapsible",
+  "description": "A collapsible component for MicroClub UI",
+  "dependencies": ["@base-ui/react"],
+  "files": [
+    {
+      "path": "registry/ui/mc-collapsible.tsx",
+      "content": "'use client';\n\nimport { Collapsible as CollapsiblePrimitive } from '@base-ui/react/collapsible';\n\nfunction McCollapsible({ ...props }: CollapsiblePrimitive.Root.Props) {\n  return <CollapsiblePrimitive.Root data-slot=\"collapsible\" {...props} />;\n}\n\nfunction McCollapsibleTrigger({ ...props }: CollapsiblePrimitive.Trigger.Props) {\n  return <CollapsiblePrimitive.Trigger data-slot=\"collapsible-trigger\" {...props} />;\n}\n\nfunction McCollapsibleContent({ ...props }: CollapsiblePrimitive.Panel.Props) {\n  return <CollapsiblePrimitive.Panel data-slot=\"collapsible-content\" {...props} />;\n}\n\nexport { McCollapsible, McCollapsibleTrigger, McCollapsibleContent };\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:component"
+}

@@ -1,9 +1,112 @@
 ---
 title: MC Collapsible
-description: A component that can show or hide content.
+description: An interactive component that expands and collapses a panel.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-collapsible` component shows or hides a single panel. It uses the **@base-ui/react**
+collapsible primitive for accessible behavior and leaves visual styling to the consumer.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-collapsible-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-collapsible-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-collapsible</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-collapsible</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-collapsible</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-collapsible</Tab>
+</Tabs>
+
+### Manual Setup
+
+<Steps>
+
+<Step>Install the dependency</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install @base-ui/react</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react</Tab>
+  <Tab value="yarn">yarn add @base-ui/react</Tab>
+  <Tab value="bun">bun add @base-ui/react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-collapsible" />
+
+</Steps>
+
+## Usage
+
+```tsx
+import {
+  McCollapsible,
+  McCollapsibleContent,
+  McCollapsibleTrigger,
+} from '@/components/ui/mc-collapsible';
+
+export default function Example() {
+  return (
+    <McCollapsible>
+      <McCollapsibleTrigger>Toggle collapse</McCollapsibleTrigger>
+      <McCollapsibleContent>Details are shown when the panel is open.</McCollapsibleContent>
+    </McCollapsible>
+  );
+}
+```
+
+## Controlled State
+
+Use `open` and `onOpenChange` to control the component state.
+
+```tsx
+'use client';
+
+import * as React from 'react';
+import {
+  McCollapsible,
+  McCollapsibleContent,
+  McCollapsibleTrigger,
+} from '@/components/ui/mc-collapsible';
+
+export default function ControlledExample() {
+  const [open, setOpen] = React.useState(false);
+
+  return (
+    <McCollapsible open={open} onOpenChange={setOpen}>
+      <McCollapsibleTrigger>{open ? 'Hide' : 'Show'} details</McCollapsibleTrigger>
+      <McCollapsibleContent>Controlled panel content.</McCollapsibleContent>
+    </McCollapsible>
+  );
+}
+```
+
+## API Reference
+
+### McCollapsible
+
+| Prop           | Type                      | Default | Description                        |
+| -------------- | ------------------------- | ------- | ---------------------------------- |
+| `defaultOpen`  | `boolean`                 | `false` | Initial state when uncontrolled    |
+| `open`         | `boolean`                 | `-`     | Controlled open state              |
+| `onOpenChange` | `(open: boolean) => void` | `-`     | Called when the open state changes |
+| `disabled`     | `boolean`                 | `false` | Prevents the trigger from toggling |
+
+### McCollapsibleTrigger
+
+Accepts all Base UI collapsible trigger props, including `render` for custom trigger elements.
+
+### McCollapsibleContent
+
+Accepts all Base UI collapsible panel props, including `keepMounted` and `hiddenUntilFound`.

@@ -3,9 +3,6 @@
 </p>
 
 <p align="center">
-  <a href="https://app.netlify.com/projects/mcoli-ui/deploys">
-    <img src="https://api.netlify.com/api/v1/badges/51ed2171-a305-4dbf-990c-7c7f82c710af/deploy-status" alt="Netlify Status" />
-  </a>
   <a href="https://www.npmjs.com/package/mcoli-ui">
     <img src="https://img.shields.io/npm/dw/mcoli-ui" alt="npm downloads" />
   </a>
