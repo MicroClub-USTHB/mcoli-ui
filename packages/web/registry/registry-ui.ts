@@ -430,4 +430,17 @@ export const ui: Registry['items'] = [
     ],
     dependencies: ['embla-carousel-react', 'lucide-react'],
   },
+  {
+    name: 'mc-progress',
+    type: 'registry:component',
+    title: 'MicroClub Progress',
+    description: 'A progress component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-progress.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['@base-ui/react', 'lucide-react'],
+  },
 ];
