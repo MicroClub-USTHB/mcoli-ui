@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import * as React from 'react';
-import { McProgress } from '@/registry/ui/test';
+import { McProgress } from '@/registry/ui/mc-progress';
 
 // Interface des contrôles pour le Playground Storybook
 interface McProgressStoryArgs {
@@ -69,7 +69,6 @@ const meta: Meta<McProgressStoryArgs> = {
   },
 
   decorators: [
-    // FIX TS7006: Typage explicite du composant Story passé au decorator
     (Story: React.ComponentType) => (
       <div className="p-12 w-full flex items-center justify-center">
         <div className="w-96 max-w-full">
@@ -84,9 +83,8 @@ export default meta;
 
 type Story = StoryObj<McProgressStoryArgs>;
 
-// ----------------------------------------------------------------------
-// 1. PLAYGROUND INTERACTIF
-// ----------------------------------------------------------------------
+// Playground Storybook pour le composant McProgress
+
 export const Playground: Story = {
   // FIX TS7031: Typage explicite des arguments destructurés pour la fonction render
   render: (args: McProgressStoryArgs) => {
@@ -113,50 +111,3 @@ export const Playground: Story = {
     );
   },
 };
-
-// ----------------------------------------------------------------------
-// 2. EXEMPLES D'UTILISATION
-// ----------------------------------------------------------------------
-
-// export const WithFloatingLabel: Story = {
-//   render: () => (
-//     <McProgress value={65}>
-//       <McProgress.FloatingLabel />
-//       <McProgress.Track />
-//     </McProgress>
-//   ),
-// };
-
-// export const SegmentedWithHeader: Story = {
-//   render: () => (
-//     <McProgress value={50}>
-//       <div className="flex justify-between items-center">
-//         <span className="text-xs font-medium">Étape 2 sur 4</span>
-//         <McProgress.Label formatter={(val) => `${val}% complété`} />
-//       </div>
-//       <McProgress.Segments count={4} />
-//     </McProgress>
-//   ),
-// };
-
-// export const HorizontalInline: Story = {
-//   render: () => (
-//     <McProgress value={80} className="flex-row items-center gap-3">
-//       <McProgress.Track className="flex-1" />
-//       <McProgress.Label className="font-bold text-primary text-sm" />
-//     </McProgress>
-//   ),
-// };
-
-// export const CustomFormatter: Story = {
-//   render: () => (
-//     <McProgress value={750} max={1000}>
-//       <div className="flex justify-between text-xs mb-1">
-//         <span>Objectif de collecte</span>
-//         <McProgress.Label formatter={(v) => `${v}% atteint`} />
-//       </div>
-//       <McProgress.FloatingLabel formatter={(v) => `$${v * 10} / $1000`} />
-//       <McProgress.Track barClassName="bg-emerald-500" />
-//     </McProgress>
-//   ),
-// };
