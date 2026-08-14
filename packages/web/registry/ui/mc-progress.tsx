@@ -53,7 +53,7 @@ ProgressRoot.displayName = 'McProgress';
 
 //bar component
 
-const progressBarVariants = cva('w-full bg-muted overflow-hidden border transition-all', {
+const progressBarVariants = cva('relative w-full bg-muted overflow-hidden border transition-all', {
   variants: {
     size: {
       sm: 'h-1.5 rounded-xs',
@@ -127,14 +127,14 @@ const ProgressFloatingLabel = React.forwardRef<HTMLDivElement, ProgressFloatingL
     const { value } = useProgressContext();
 
     return (
-      <div ref={ref} className={cn('relative w-full h-5', className)} {...props}>
-        <span
-          className="absolute top-0 text-xs font-semibold text-primary transition-all duration-300 -translate-x-1/2 whitespace-nowrap"
-          style={{ left: `${value}%` }}
-        >
-          {formatter ? formatter(value) : `${value}%`}
-        </span>
-      </div>
+      <span
+        ref={ref}
+        className="absolute bottom-full text-xs font-semibold text-primary transition-all duration-300 -translate-x-1/2 whitespace-nowrap"
+        style={{ left: `${value}%` }}
+        {...props}
+      >
+        {formatter ? formatter(value) : `${value}%`}
+      </span>
     );
   }
 );

@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/nextjs';
 import * as React from 'react';
 import { McProgress } from '@/registry/ui/mc-progress';
 
-// Interface des contrôles pour le Playground Storybook
 interface McProgressStoryArgs {
   value: number;
   max: number;
