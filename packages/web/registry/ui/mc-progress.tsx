@@ -129,7 +129,7 @@ const ProgressFloatingLabel = React.forwardRef<HTMLDivElement, ProgressFloatingL
     return (
       <span
         ref={ref}
-        className="absolute bottom-full text-xs font-semibold text-primary transition-all duration-300 -translate-x-1/2 whitespace-nowrap"
+        className="absolute bottom-full text-xs font-semibold text-primary transition-all  -translate-x-1/2 whitespace-nowrap"
         style={{ left: `${value}%` }}
         {...props}
       >
