@@ -90,22 +90,25 @@ export const Playground: Story = {
     const { value, max, size, variant, segmentsCount, showFloatingLabel, showHeader } = args;
 
     return (
-      <McProgress value={value} max={max} size={size}>
-        {showHeader && (
-          <div className="flex justify-between items-center text-xs">
-            <span className="font-medium text-muted-foreground">Progression</span>
-            <McProgress.Label />
-            {/* <McProgress.FloatingLabel /> */}
-          </div>
-        )}
+      // <McProgress value={value} max={max} size={size}>
+      //   {showHeader && (
+      //     <div className="flex justify-between items-center text-xs">
+      //       <span className="font-medium text-muted-foreground">Progression</span>
+      //       <McProgress.Label />
+      //       {/* <McProgress.FloatingLabel /> */}
+      //     </div>
+      //   )}
 
-        {showFloatingLabel && <McProgress.FloatingLabel />}
+      //   {showFloatingLabel && <McProgress.FloatingLabel />}
 
-        {variant === 'segmented' ? (
-          <McProgress.Segments count={segmentsCount} />
-        ) : (
-          <McProgress.Track />
-        )}
+      //   {variant === 'segmented' ? (
+      //     <McProgress.Segments count={segmentsCount} />
+      //   ) : (
+      //     <McProgress.Track />
+      //   )}
+      // </McProgress>
+      <McProgress value={75} size="lg">
+        <McProgress.Circle showValue />
       </McProgress>
     );
   },

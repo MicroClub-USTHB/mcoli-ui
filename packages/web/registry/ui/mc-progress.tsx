@@ -163,11 +163,71 @@ const ProgressLabel = React.forwardRef<HTMLSpanElement, ProgressLabelProps>(
 );
 ProgressLabel.displayName = 'McProgress.Label';
 
+//curculaire
+interface ProgressCircleProps extends React.SVGAttributes<SVGSVGElement> {
+  showValue?: boolean;
+  strokeWidth?: number;
+}
+
+const circleSizes = {
+  sm: { size: 40, stroke: 4 },
+  md: { size: 64, stroke: 6 },
+  lg: { size: 96, stroke: 8 },
+};
+
+const ProgressCircle = React.forwardRef<SVGSVGElement, ProgressCircleProps>(
+  ({ className, showValue = false, strokeWidth, ...props }, ref) => {
+    const { value, size = 'md' } = useProgressContext();
+    const config = circleSizes[size];
+    const sw = strokeWidth ?? config.stroke;
+    const radius = (config.size - sw) / 2;
+    const circumference = 2 * Math.PI * radius;
+    const strokeDashoffset = circumference - (value / 100) * circumference;
+
+    return (
+      <div className="relative inline-flex items-center justify-center">
+        <svg
+          ref={ref}
+          width={config.size}
+          height={config.size}
+          className={cn('transform -rotate-90', className)}
+          {...props}
+        >
+          {/* Cercle de fond */}
+          <circle
+            cx={config.size / 2}
+            cy={config.size / 2}
+            r={radius}
+            className="stroke-muted fill-none"
+            strokeWidth={sw}
+          />
+          {/* Cercle actif */}
+          <circle
+            cx={config.size / 2}
+            cy={config.size / 2}
+            r={radius}
+            className="stroke-primary fill-none transition-all duration-300 ease-out"
+            strokeWidth={sw}
+            strokeDasharray={circumference}
+            strokeDashoffset={strokeDashoffset}
+            strokeLinecap="round"
+          />
+        </svg>
+        {showValue && (
+          <span className="absolute text-xs font-semibold text-foreground">{value}%</span>
+        )}
+      </div>
+    );
+  }
+);
+ProgressCircle.displayName = 'McProgress.Circle';
+
 // export compose
 
 export const McProgress = Object.assign(ProgressRoot, {
   Track: ProgressTrack,
   Segments: ProgressSegments,
   FloatingLabel: ProgressFloatingLabel,
+  Circle: ProgressCircle,
   Label: ProgressLabel,
 });
