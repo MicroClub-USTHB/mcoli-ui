@@ -21,6 +21,8 @@ interface McProgressStoryArgs {
   stepperOrientation: 'horizontal' | 'vertical';
   stepsCount: number;
   currentStep: number;
+  completedVariant: 'completedBackground' | 'completedBorder';
+  completedDisplay: 'icon' | 'number';
 }
 
 const meta: Meta<McProgressStoryArgs> = {
@@ -143,6 +145,18 @@ const meta: Meta<McProgressStoryArgs> = {
       },
       description: 'Étape courante active',
     },
+
+    completedVariant: {
+      control: 'radio',
+      options: ['completedBackground', 'completedBorder'],
+      description: 'Style visuel des étapes complétées',
+    },
+
+    completedDisplay: {
+      control: 'radio',
+      options: ['icon', 'number'],
+      description: 'Contenu affiché dans les étapes complétées (icône ou numéro)',
+    },
   },
 
   args: {
@@ -164,6 +178,8 @@ const meta: Meta<McProgressStoryArgs> = {
     stepperOrientation: 'horizontal',
     stepsCount: 4,
     currentStep: 2,
+    completedVariant: 'completedBackground',
+    completedDisplay: 'icon',
   },
 
   decorators: [
@@ -258,16 +274,24 @@ export const CirclePlayground: Story = {
 
 export const StepperPlayground: Story = {
   render: (args: McProgressStoryArgs) => {
-    const { stepperOrientation, stepsCount, currentStep, size } = args;
+    const {
+      stepperOrientation,
+      stepsCount,
+      currentStep,
+      size,
+      completedVariant,
+      completedDisplay,
+    } = args;
 
     return (
       <McProgress.Stepper orientation={stepperOrientation}>
         {Array.from({ length: stepsCount }).map((_, index) => {
           const stepNumber = index + 1;
-          let status: 'completed' | 'active' | 'inactive' = 'inactive';
+          let status: 'completedBackground' | 'completedBorder' | 'active' | 'inactive' =
+            'inactive';
 
           if (stepNumber < currentStep) {
-            status = 'completed';
+            status = completedVariant;
           } else if (stepNumber === currentStep) {
             status = 'active';
           }
@@ -276,7 +300,12 @@ export const StepperPlayground: Story = {
 
           return (
             <React.Fragment key={stepNumber}>
-              <McProgress.Step status={status} size={size} step={stepNumber} />
+              <McProgress.Step
+                status={status}
+                size={size}
+                step={stepNumber}
+                completed={completedDisplay}
+              />
               {!isLast && (
                 <McProgress.StepLine
                   active={stepNumber < currentStep}
@@ -295,5 +324,7 @@ export const StepperPlayground: Story = {
     stepsCount: 4,
     currentStep: 2,
     size: 'md',
+    completedVariant: 'completedBackground',
+    completedDisplay: 'icon',
   },
 };

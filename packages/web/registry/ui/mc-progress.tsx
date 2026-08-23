@@ -256,15 +256,16 @@ const stepVariants = cva(
   {
     variants: {
       status: {
-        completed: 'bg-primary border-primary text-primary-foreground',
+        completedBackground: 'bg-primary  text-primary-foreground',
+        completedBorder: 'bg-white border-primary text-primary-foreground',
         active: 'border-primary text-primary font-bold bg-background',
         inactive: 'border-muted text-muted-foreground bg-muted/30',
         outlinedCompleted: 'border-primary text-primary bg-background font-semibold',
       },
       size: {
-        sm: 'w-6 h-6 text-[10px]',
-        md: 'w-8 h-8 text-xs',
-        lg: 'w-10 h-10 text-sm',
+        sm: 'w-6 h-6  text-[10px]',
+        md: 'w-8 h-8   text-xs',
+        lg: 'w-10 h-10  text-sm',
       },
     },
     defaultVariants: {
@@ -277,16 +278,38 @@ const stepVariants = cva(
 interface StepProps
   extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof stepVariants> {
   step?: number;
+  completed?: 'number' | 'icon';
   icon?: React.ReactNode;
 }
 
 //step component
 
 const ProgressStep = React.forwardRef<HTMLDivElement, StepProps>(
-  ({ status, size, step, icon, children, className, ...props }, ref) => {
+  ({ status, size, step, completed = 'icon', icon, children, className, ...props }, ref) => {
+    const isCompleted = status === 'completedBackground' || status === 'completedBorder';
+
+    const renderContent = () => {
+      if (isCompleted && completed === 'icon') {
+        return status === 'completedBackground' ? (
+          <Check className="w-4 h-4 text-muted" />
+        ) : (
+          <Check className="w-4 h-4 text-primary" />
+        );
+      }
+      if (isCompleted && completed === 'number') {
+        return status === 'completedBackground' ? (
+          <span className="text-muted">{step}</span>
+        ) : (
+          <span className="text-primary">{step}</span>
+        );
+      }
+
+      return children || step;
+    };
+
     return (
       <div ref={ref} className={cn(stepVariants({ status, size }), className)} {...props}>
-        {status === 'completed' ? icon || <Check className="w-4 h-4" /> : children || step}
+        {renderContent()}
       </div>
     );
   }
