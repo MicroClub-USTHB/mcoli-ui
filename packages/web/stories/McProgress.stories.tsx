@@ -16,6 +16,11 @@ interface McProgressStoryArgs {
   // Circle progress
   showValue: boolean;
   strokeWidth: number;
+
+  // Stepper progress
+  stepperOrientation: 'horizontal' | 'vertical';
+  stepsCount: number;
+  currentStep: number;
 }
 
 const meta: Meta<McProgressStoryArgs> = {
@@ -108,6 +113,36 @@ const meta: Meta<McProgressStoryArgs> = {
       },
       description: 'Épaisseur du contour du cercle',
     },
+
+    // ==========================================
+    // STEPPER PROGRESS
+    // ==========================================
+
+    stepperOrientation: {
+      control: 'radio',
+      options: ['horizontal', 'vertical'],
+      description: 'Orientation du stepper',
+    },
+
+    stepsCount: {
+      control: {
+        type: 'number',
+        min: 2,
+        max: 6,
+        step: 1,
+      },
+      description: "Nombre total d'étapes dans le stepper",
+    },
+
+    currentStep: {
+      control: {
+        type: 'number',
+        min: 1,
+        max: 6,
+        step: 1,
+      },
+      description: 'Étape courante active',
+    },
   },
 
   args: {
@@ -124,6 +159,11 @@ const meta: Meta<McProgressStoryArgs> = {
     // Circle progress
     showValue: true,
     strokeWidth: 6,
+
+    // Stepper progress
+    stepperOrientation: 'horizontal',
+    stepsCount: 4,
+    currentStep: 2,
   },
 
   decorators: [
@@ -154,7 +194,6 @@ export const Playground: Story = {
         {showHeader && (
           <div className="flex items-center justify-between text-xs">
             <span className="font-medium text-muted-foreground">Progression</span>
-
             <McProgress.Label />
           </div>
         )}
@@ -174,10 +213,8 @@ export const Playground: Story = {
     value: 60,
     max: 100,
     size: 'md',
-
     variant: 'track',
     segmentsCount: 4,
-
     showFloatingLabel: true,
     showHeader: false,
   },
@@ -202,7 +239,6 @@ export const CirclePlayground: Story = {
     value: 60,
     max: 100,
     size: 'md',
-
     showValue: true,
     strokeWidth: 6,
   },
@@ -214,4 +250,50 @@ export const CirclePlayground: Story = {
       </div>
     ),
   ],
+};
+
+// ======================================================
+// STEPPER PROGRESS PLAYGROUND
+// ======================================================
+
+export const StepperPlayground: Story = {
+  render: (args: McProgressStoryArgs) => {
+    const { stepperOrientation, stepsCount, currentStep, size } = args;
+
+    return (
+      <McProgress.Stepper orientation={stepperOrientation}>
+        {Array.from({ length: stepsCount }).map((_, index) => {
+          const stepNumber = index + 1;
+          let status: 'completed' | 'active' | 'inactive' = 'inactive';
+
+          if (stepNumber < currentStep) {
+            status = 'completed';
+          } else if (stepNumber === currentStep) {
+            status = 'active';
+          }
+
+          const isLast = stepNumber === stepsCount;
+
+          return (
+            <React.Fragment key={stepNumber}>
+              <McProgress.Step status={status} size={size} step={stepNumber} />
+              {!isLast && (
+                <McProgress.StepLine
+                  active={stepNumber < currentStep}
+                  orientation={stepperOrientation}
+                />
+              )}
+            </React.Fragment>
+          );
+        })}
+      </McProgress.Stepper>
+    );
+  },
+
+  args: {
+    stepperOrientation: 'horizontal',
+    stepsCount: 4,
+    currentStep: 2,
+    size: 'md',
+  },
 };
