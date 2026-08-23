@@ -118,11 +118,11 @@ const ProgressSegments = React.forwardRef<HTMLDivElement, ProgressSegmentsProps>
 ProgressSegments.displayName = 'McProgress.Segments';
 
 //dynamic floating label component
-interface ProgressFloatingLabelProps extends React.HTMLAttributes<HTMLDivElement> {
+interface ProgressFloatingLabelProps extends React.HTMLAttributes<HTMLSpanElement> {
   formatter?: (value: number) => React.ReactNode;
 }
 
-const ProgressFloatingLabel = React.forwardRef<HTMLDivElement, ProgressFloatingLabelProps>(
+const ProgressFloatingLabel = React.forwardRef<HTMLSpanElement, ProgressFloatingLabelProps>(
   ({ formatter, className, ...props }, ref) => {
     const { value } = useProgressContext();
 
@@ -170,9 +170,9 @@ interface ProgressCircleProps extends React.SVGAttributes<SVGSVGElement> {
 }
 
 const circleSizes = {
-  sm: { size: 40, stroke: 4 },
-  md: { size: 64, stroke: 6 },
-  lg: { size: 96, stroke: 8 },
+  sm: { size: 60, stroke: 6, fontSize: 'text-sm' },
+  md: { size: 84, stroke: 8, fontSize: 'text-md' },
+  lg: { size: 106, stroke: 12, fontSize: 'text-lg' },
 };
 
 const ProgressCircle = React.forwardRef<SVGSVGElement, ProgressCircleProps>(
@@ -214,7 +214,9 @@ const ProgressCircle = React.forwardRef<SVGSVGElement, ProgressCircleProps>(
           />
         </svg>
         {showValue && (
-          <span className="absolute text-xs font-semibold text-foreground">{value}%</span>
+          <span className={`absolute ${config.fontSize} font-semibold text-foreground`}>
+            {value}%
+          </span>
         )}
       </div>
     );
@@ -228,6 +230,6 @@ export const McProgress = Object.assign(ProgressRoot, {
   Track: ProgressTrack,
   Segments: ProgressSegments,
   FloatingLabel: ProgressFloatingLabel,
-  Circle: ProgressCircle,
   Label: ProgressLabel,
+  Circle: ProgressCircle,
 });
