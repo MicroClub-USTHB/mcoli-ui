@@ -263,9 +263,9 @@ const stepVariants = cva(
         outlinedCompleted: 'border-primary text-primary bg-background font-semibold',
       },
       size: {
-        sm: 'w-6 h-6  text-[10px]',
-        md: 'w-8 h-8   text-xs',
-        lg: 'w-10 h-10  text-sm',
+        sm: 'w-8 h-8 text-sm',
+        md: 'w-12 h-12 text-base',
+        lg: 'w-14 h-14 text-xl',
       },
     },
     defaultVariants: {
@@ -291,16 +291,16 @@ const ProgressStep = React.forwardRef<HTMLDivElement, StepProps>(
     const renderContent = () => {
       if (isCompleted && completed === 'icon') {
         return status === 'completedBackground' ? (
-          <Check className="w-4 h-4 text-muted" />
+          <Check className="w-4 h-4 text-muted text-bold" />
         ) : (
-          <Check className="w-4 h-4 text-primary" />
+          <Check className="w-4 h-4 text-primary text-bold" />
         );
       }
       if (isCompleted && completed === 'number') {
         return status === 'completedBackground' ? (
-          <span className="text-muted">{step}</span>
+          <span className="text-muted text-bold">{step}</span>
         ) : (
-          <span className="text-primary">{step}</span>
+          <span className="text-primary text-bold">{step}</span>
         );
       }
 
