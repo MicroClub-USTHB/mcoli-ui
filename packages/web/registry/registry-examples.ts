@@ -420,6 +420,19 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-hover-card.json`],
   },
   {
+    name: 'mc-carousel-demo',
+    type: 'registry:example',
+    title: 'MicroClub Carousel Demo',
+    description: 'Demo for MicroClub Carousel',
+    files: [
+      {
+        path: 'examples/mc-carousel-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-carousel.json`],
+  },
+  {
     name: 'mc-progress-demo',
     type: 'registry:example',
     title: 'MicroClub Progress Demo',
