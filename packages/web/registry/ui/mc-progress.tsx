@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
+import { Check } from 'lucide-react';
 
 interface ProgressContextValue {
   value: number;
@@ -163,7 +164,8 @@ const ProgressLabel = React.forwardRef<HTMLSpanElement, ProgressLabelProps>(
 );
 ProgressLabel.displayName = 'McProgress.Label';
 
-//curculaire
+//circle component
+
 interface ProgressCircleProps extends React.SVGAttributes<SVGSVGElement> {
   showValue?: boolean;
   strokeWidth?: number;
@@ -193,7 +195,7 @@ const ProgressCircle = React.forwardRef<SVGSVGElement, ProgressCircleProps>(
           className={cn('transform -rotate-90', className)}
           {...props}
         >
-          {/* Cercle de fond */}
+          {/* inactif circle */}
           <circle
             cx={config.size / 2}
             cy={config.size / 2}
@@ -201,7 +203,7 @@ const ProgressCircle = React.forwardRef<SVGSVGElement, ProgressCircleProps>(
             className="stroke-muted fill-none"
             strokeWidth={sw}
           />
-          {/* Cercle actif */}
+          {/* actif circle */}
           <circle
             cx={config.size / 2}
             cy={config.size / 2}
@@ -224,6 +226,98 @@ const ProgressCircle = React.forwardRef<SVGSVGElement, ProgressCircleProps>(
 );
 ProgressCircle.displayName = 'McProgress.Circle';
 
+//stepper horizontal/vertical component
+
+interface StepperProps extends React.HTMLAttributes<HTMLDivElement> {
+  orientation?: 'horizontal' | 'vertical';
+}
+
+const ProgressStepper = React.forwardRef<HTMLDivElement, StepperProps>(
+  ({ orientation = 'horizontal', className, children, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          'flex w-full items-center',
+          orientation === 'vertical' ? 'flex-col items-start gap-1' : 'flex-row items-center gap-1',
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </div>
+    );
+  }
+);
+ProgressStepper.displayName = 'McProgress.Stepper';
+
+const stepVariants = cva(
+  'relative flex items-center justify-center rounded-full font-medium transition-colors border-2 shrink-0',
+  {
+    variants: {
+      status: {
+        completed: 'bg-primary border-primary text-primary-foreground',
+        active: 'border-primary text-primary font-bold bg-background',
+        inactive: 'border-muted text-muted-foreground bg-muted/30',
+        outlinedCompleted: 'border-primary text-primary bg-background font-semibold',
+      },
+      size: {
+        sm: 'w-6 h-6 text-[10px]',
+        md: 'w-8 h-8 text-xs',
+        lg: 'w-10 h-10 text-sm',
+      },
+    },
+    defaultVariants: {
+      status: 'inactive',
+      size: 'md',
+    },
+  }
+);
+
+interface StepProps
+  extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof stepVariants> {
+  step?: number;
+  icon?: React.ReactNode;
+}
+
+//step component
+
+const ProgressStep = React.forwardRef<HTMLDivElement, StepProps>(
+  ({ status, size, step, icon, children, className, ...props }, ref) => {
+    return (
+      <div ref={ref} className={cn(stepVariants({ status, size }), className)} {...props}>
+        {status === 'completed' ? icon || <Check className="w-4 h-4" /> : children || step}
+      </div>
+    );
+  }
+);
+ProgressStep.displayName = 'McProgress.Step';
+
+interface StepLineProps extends React.HTMLAttributes<HTMLDivElement> {
+  active?: boolean;
+  orientation?: 'horizontal' | 'vertical';
+}
+
+//step line component
+
+const ProgressStepLine = React.forwardRef<HTMLDivElement, StepLineProps>(
+  ({ active = false, orientation = 'horizontal', className, ...props }, ref) => {
+    return (
+      <div
+        ref={ref}
+        className={cn(
+          'transition-colors duration-300',
+          orientation === 'horizontal' ? 'h-0.5 flex-1' : 'w-0.5 h-6 self-center',
+          active ? 'bg-primary' : 'bg-muted',
+          className
+        )}
+        {...props}
+      />
+    );
+  }
+);
+ProgressStepLine.displayName = 'McProgress.StepLine';
+
 // export compose
 
 export const McProgress = Object.assign(ProgressRoot, {
@@ -232,4 +326,7 @@ export const McProgress = Object.assign(ProgressRoot, {
   FloatingLabel: ProgressFloatingLabel,
   Label: ProgressLabel,
   Circle: ProgressCircle,
+  Stepper: ProgressStepper,
+  Step: ProgressStep,
+  StepLine: ProgressStepLine,
 });
