@@ -395,10 +395,10 @@ const ProgressStepLine = React.forwardRef<HTMLDivElement, StepLineProps>(
           : 'h-px min-w-8 flex-1';
     const verticalSizeClass =
       size === 'lg'
-        ? 'w-1 h-8 self-center'
+        ? 'w-1 h-16 self-center'
         : size === 'md'
-          ? 'w-0.5 h-6 self-center'
-          : 'w-px h-4 self-center';
+          ? 'w-0.5 h-12 self-center'
+          : 'w-px h-8 self-center';
 
     return (
       <div
