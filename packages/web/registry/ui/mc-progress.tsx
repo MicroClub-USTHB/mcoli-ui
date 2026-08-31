@@ -251,18 +251,21 @@ ProgressCircle.displayName = 'McProgress.Circle';
 
 interface StepperProps extends React.HTMLAttributes<HTMLDivElement> {
   orientation?: 'horizontal' | 'vertical';
+  size?: 'sm' | 'md' | 'lg';
 }
 
 const ProgressStepper = React.forwardRef<HTMLDivElement, StepperProps>(
-  ({ orientation = 'horizontal', className, children, ...props }, ref) => {
+  ({ orientation = 'horizontal', size = 'md', className, children, ...props }, ref) => {
+    const spacingClass = size === 'lg' ? 'gap-4' : size === 'md' ? 'gap-2' : 'gap-1';
+
     return (
       <div
         ref={ref}
         className={cn(
           'flex w-full items-center',
           orientation === 'vertical'
-            ? 'flex-col items-center gap-1'
-            : 'flex-row items-center gap-1',
+            ? cn('flex-col items-center', spacingClass)
+            : cn('flex-row items-center', spacingClass),
           className
         )}
         {...props}
@@ -362,12 +365,25 @@ const stepLineVariants = cva('transition-colors duration-300', {
 
 const ProgressStepLine = React.forwardRef<HTMLDivElement, StepLineProps>(
   ({ active = false, orientation = 'horizontal', size = 'md', className, ...props }, ref) => {
+    const horizontalSizeClass =
+      size === 'lg'
+        ? 'h-1 min-w-16 flex-1'
+        : size === 'md'
+          ? 'h-0.5 min-w-12 flex-1'
+          : 'h-px min-w-8 flex-1';
+    const verticalSizeClass =
+      size === 'lg'
+        ? 'w-1 h-8 self-center'
+        : size === 'md'
+          ? 'w-0.5 h-6 self-center'
+          : 'w-px h-4 self-center';
+
     return (
       <div
         ref={ref}
         className={cn(
           stepLineVariants({ size }),
-          orientation === 'horizontal' ? 'h-0.5 flex-1' : 'w-0.5 h-6 self-center',
+          orientation === 'horizontal' ? horizontalSizeClass : verticalSizeClass,
           active ? 'bg-primary' : 'bg-muted',
           className
         )}

@@ -293,7 +293,7 @@ export const StepperPlayground: Story = {
     const stepperSize = size === 'xs' || size === 'xl' ? 'md' : size;
 
     return (
-      <McProgress.Stepper orientation={stepperOrientation}>
+      <McProgress.Stepper orientation={stepperOrientation} size={stepperSize}>
         {Array.from({ length: stepsCount }).map((_, index) => {
           const stepNumber = index + 1;
           let status: 'completedBackground' | 'completedBorder' | 'active' | 'inactive' =
@@ -333,7 +333,7 @@ export const StepperPlayground: Story = {
     stepperOrientation: 'horizontal',
     stepsCount: 4,
     currentStep: 2,
-    size: 'md',
+    size: 'lg',
     completedVariant: 'completedBackground',
     completedDisplay: 'icon',
   },
