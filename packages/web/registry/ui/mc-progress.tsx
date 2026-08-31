@@ -65,6 +65,17 @@ const progressBarVariants = cva('relative w-full bg-muted overflow-hidden border
   defaultVariants: { size: 'md' },
 });
 
+const progressLabelVariants = cva('font-medium whitespace-nowrap', {
+  variants: {
+    size: {
+      sm: 'text-xs',
+      md: 'text-base',
+      lg: 'text-lg',
+    },
+  },
+  defaultVariants: { size: 'md' },
+});
+
 interface ProgressTrackProps extends React.HTMLAttributes<HTMLDivElement> {
   barClassName?: string;
 }
@@ -125,12 +136,16 @@ interface ProgressFloatingLabelProps extends React.HTMLAttributes<HTMLSpanElemen
 
 const ProgressFloatingLabel = React.forwardRef<HTMLSpanElement, ProgressFloatingLabelProps>(
   ({ formatter, className, ...props }, ref) => {
-    const { value } = useProgressContext();
+    const { value, size } = useProgressContext();
 
     return (
       <span
         ref={ref}
-        className="absolute bottom-full text-xs font-semibold text-primary transition-all  -translate-x-1/2 whitespace-nowrap"
+        className={cn(
+          'absolute bottom-full font-semibold text-primary transition-all -translate-x-1/2',
+          progressLabelVariants({ size }),
+          className
+        )}
         style={{ left: `${value}%` }}
         {...props}
       >
@@ -149,12 +164,12 @@ interface ProgressLabelProps extends React.HTMLAttributes<HTMLSpanElement> {
 
 const ProgressLabel = React.forwardRef<HTMLSpanElement, ProgressLabelProps>(
   ({ formatter, className, ...props }, ref) => {
-    const { value } = useProgressContext();
+    const { value, size } = useProgressContext();
 
     return (
       <span
         ref={ref}
-        className={cn('text-xs font-medium text-muted-foreground', className)}
+        className={cn(progressLabelVariants({ size }), 'text-muted-foreground', className)}
         {...props}
       >
         {formatter ? formatter(value) : `${value}%`}
