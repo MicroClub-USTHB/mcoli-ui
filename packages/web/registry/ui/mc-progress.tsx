@@ -286,9 +286,9 @@ const stepVariants = cva(
         outlinedCompleted: 'border-primary text-primary bg-background font-semibold',
       },
       size: {
-        sm: 'w-8 h-8 text-sm',
+        sm: 'w-8 h-8 text-sm ',
         md: 'w-12 h-12 text-base',
-        lg: 'w-14 h-14 text-xl',
+        lg: 'w-14 h-14 text-xl ',
       },
     },
     defaultVariants: {
@@ -342,17 +342,31 @@ ProgressStep.displayName = 'McProgress.Step';
 interface StepLineProps extends React.HTMLAttributes<HTMLDivElement> {
   active?: boolean;
   orientation?: 'horizontal' | 'vertical';
+  size?: 'sm' | 'md' | 'lg';
 }
 
 //step line component
 
+const stepLineVariants = cva('transition-colors duration-300', {
+  variants: {
+    size: {
+      sm: 'rounded-sm',
+      md: 'rounded-md',
+      lg: 'rounded-lg',
+    },
+  },
+  defaultVariants: {
+    size: 'md',
+  },
+});
+
 const ProgressStepLine = React.forwardRef<HTMLDivElement, StepLineProps>(
-  ({ active = false, orientation = 'horizontal', className, ...props }, ref) => {
+  ({ active = false, orientation = 'horizontal', size = 'md', className, ...props }, ref) => {
     return (
       <div
         ref={ref}
         className={cn(
-          'transition-colors duration-300',
+          stepLineVariants({ size }),
           orientation === 'horizontal' ? 'h-0.5 flex-1' : 'w-0.5 h-6 self-center',
           active ? 'bg-primary' : 'bg-muted',
           className

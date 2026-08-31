@@ -319,6 +319,7 @@ export const StepperPlayground: Story = {
                 <McProgress.StepLine
                   active={stepNumber < currentStep}
                   orientation={stepperOrientation}
+                  size={stepperSize}
                 />
               )}
             </React.Fragment>
