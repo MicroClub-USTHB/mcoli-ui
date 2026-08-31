@@ -3,7 +3,306 @@ title: MC Progress
 description: A component that displays progress of an operation.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-progress` component is a composable progress system for MicroClub UI.
+
+It includes:
+
+- **Linear progress** (`Track`) with optional static and floating labels
+- **Segmented progress** (`Segments`) for milestone-style feedback
+- **Circular progress** (`Circle`) with optional value in the center
+- **Stepper primitives** (`Stepper`, `Step`, `StepLine`) for multi-step flows
+
+The component is optimized for library usage: each piece can be used alone or combined, and styling can be overridden with `className` and variant props.
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-progress-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-progress-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-progress` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-progress</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-progress</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-progress</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-progress</Tab>
+</Tabs>
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install class-variance-authority lucide-react</Tab>
+  <Tab value="pnpm">pnpm add class-variance-authority lucide-react</Tab>
+  <Tab value="yarn">yarn add class-variance-authority lucide-react</Tab>
+  <Tab value="bun">bun add class-variance-authority lucide-react</Tab>
+</Tabs>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-progress" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` (or equivalent classname helper) is correctly configured.
+
+</Steps>
+
+## Usage
+
+```tsx
+import { McProgress } from '@/components/ui/mc-progress';
+
+export default function Example() {
+  return (
+    <McProgress value={62} max={100} size="md">
+      <div className="flex items-center justify-between">
+        <span className="text-xs text-muted-foreground">Upload status</span>
+        <McProgress.Label />
+      </div>
+
+      <McProgress.FloatingLabel />
+      <McProgress.Track />
+    </McProgress>
+  );
+}
+```
+
+## Composition Model
+
+`McProgress` exposes sub-components from one entry point:
+
+- `McProgress.Track`
+- `McProgress.Segments`
+- `McProgress.Label`
+- `McProgress.FloatingLabel`
+- `McProgress.Circle`
+- `McProgress.Stepper`
+- `McProgress.Step`
+- `McProgress.StepLine`
+
+### Important Context Rule
+
+These sub-components **must be rendered inside** `McProgress`:
+
+- `Track`
+- `Segments`
+- `Label`
+- `FloatingLabel`
+- `Circle`
+
+`Stepper`, `Step`, and `StepLine` are primitives and can be used standalone.
+
+## Examples
+
+### Linear Progress with Header and Floating Label
+
+```tsx
+<McProgress value={72} max={100} size="lg">
+  <div className="flex items-center justify-between">
+    <span className="text-sm text-muted-foreground">Deployment</span>
+    <McProgress.Label formatter={(value) => `${value}% complete`} />
+  </div>
+  <McProgress.FloatingLabel />
+  <McProgress.Track />
+</McProgress>
+```
+
+### Segmented Progress
+
+```tsx
+<McProgress value={40} max={100} size="sm">
+  <McProgress.Segments count={5} />
+</McProgress>
+```
+
+### Circular Progress
+
+```tsx
+<McProgress value={68} max={100} size="md">
+  <McProgress.Circle showValue strokeWidth={10} />
+</McProgress>
+```
+
+### Circular Progress Sizes and Stroke Limits
+
+`Circle` applies a max stroke width per size:
+
+- `xs`: max `8`
+- `sm`: max `12`
+- `md`: max `20`
+- `lg`: max `24`
+- `xl`: max `28`
+
+If a larger value is passed, it is clamped automatically.
+
+### Horizontal Stepper
+
+```tsx
+<McProgress.Stepper orientation="horizontal" size="md">
+  <McProgress.Step status="completedBackground" step={1} completed="icon" />
+  <McProgress.StepLine active orientation="horizontal" size="md" />
+
+  <McProgress.Step status="completedBorder" step={2} completed="number" />
+  <McProgress.StepLine active orientation="horizontal" size="md" />
+
+  <McProgress.Step status="active" step={3} />
+  <McProgress.StepLine orientation="horizontal" size="md" />
+
+  <McProgress.Step status="inactive" step={4} />
+</McProgress.Stepper>
+```
+
+### Vertical Stepper
+
+```tsx
+<McProgress.Stepper orientation="vertical" size="lg">
+  <div className="flex flex-col items-center">
+    <McProgress.Step status="completedBackground" step={1} completed="icon" />
+    <McProgress.StepLine active orientation="vertical" size="lg" />
+  </div>
+
+  <div className="flex flex-col items-center">
+    <McProgress.Step status="active" step={2} />
+    <McProgress.StepLine orientation="vertical" size="lg" />
+  </div>
+
+  <McProgress.Step status="inactive" step={3} />
+</McProgress.Stepper>
+```
+
+### Custom Completed Icon
+
+```tsx
+import { Star } from 'lucide-react';
+
+<McProgress.Step
+  status="completedBackground"
+  size="md"
+  completed="icon"
+  icon={<Star className="h-5 w-5 text-primary-foreground" />}
+/>;
+```
+
+## API Reference
+
+### `McProgress` (Root)
+
+| Prop        | Type                                   | Default     | Description                                   |
+| ----------- | -------------------------------------- | ----------- | --------------------------------------------- |
+| `value`     | `number`                               | —           | Current progress value                        |
+| `max`       | `number`                               | `100`       | Maximum progress value                        |
+| `size`      | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"`      | Global size used by track, labels, and circle |
+| `className` | `string`                               | `undefined` | Extra classes for the root wrapper            |
+| `children`  | `React.ReactNode`                      | —           | Composed progress children                    |
+
+Also supports standard `HTMLDivElement` props.
+
+### `McProgress.Track`
+
+| Prop           | Type     | Default     | Description                              |
+| -------------- | -------- | ----------- | ---------------------------------------- |
+| `barClassName` | `string` | `undefined` | Extra classes for the filled bar element |
+| `className`    | `string` | `undefined` | Extra classes for the track container    |
+
+Also supports standard `HTMLDivElement` props.
+
+### `McProgress.Segments`
+
+| Prop        | Type     | Default     | Description                       |
+| ----------- | -------- | ----------- | --------------------------------- |
+| `count`     | `number` | `4`         | Number of segments                |
+| `className` | `string` | `undefined` | Extra classes for segment wrapper |
+
+Also supports standard `HTMLDivElement` props.
+
+### `McProgress.Label`
+
+| Prop        | Type                                 | Default     | Description                    |
+| ----------- | ------------------------------------ | ----------- | ------------------------------ |
+| `formatter` | `(value: number) => React.ReactNode` | `undefined` | Custom renderer for label text |
+| `className` | `string`                             | `undefined` | Extra classes for the label    |
+
+Also supports standard `HTMLSpanElement` props.
+
+### `McProgress.FloatingLabel`
+
+| Prop        | Type                                 | Default     | Description                             |
+| ----------- | ------------------------------------ | ----------- | --------------------------------------- |
+| `formatter` | `(value: number) => React.ReactNode` | `undefined` | Custom renderer for floating label text |
+| `className` | `string`                             | `undefined` | Extra classes for floating label        |
+
+Also supports standard `HTMLSpanElement` props.
+
+### `McProgress.Circle`
+
+| Prop          | Type      | Default          | Description                                                    |
+| ------------- | --------- | ---------------- | -------------------------------------------------------------- |
+| `showValue`   | `boolean` | `false`          | Display the numeric percentage at center                       |
+| `strokeWidth` | `number`  | per-size default | Stroke width for the active/inactive circles (clamped by size) |
+| `className`   | `string`  | `undefined`      | Extra classes for the SVG element                              |
+
+Also supports standard `SVGSVGElement` props.
+
+### `McProgress.Stepper`
+
+| Prop          | Type                         | Default        | Description                           |
+| ------------- | ---------------------------- | -------------- | ------------------------------------- |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Stepper axis direction                |
+| `size`        | `"sm" \| "md" \| "lg"`       | `"md"`         | Controls gap and connector sizing     |
+| `className`   | `string`                     | `undefined`    | Extra classes for the stepper wrapper |
+
+Also supports standard `HTMLDivElement` props.
+
+### `McProgress.Step`
+
+| Prop        | Type                                                                                          | Default      | Description                                          |
+| ----------- | --------------------------------------------------------------------------------------------- | ------------ | ---------------------------------------------------- |
+| `status`    | `"completedBackground" \| "completedBorder" \| "active" \| "inactive" \| "outlinedCompleted"` | `"inactive"` | Visual state of the step                             |
+| `size`      | `"sm" \| "md" \| "lg"`                                                                        | `"md"`       | Step circle size                                     |
+| `step`      | `number`                                                                                      | `undefined`  | Number displayed when content is not overridden      |
+| `completed` | `"number" \| "icon"`                                                                          | `"icon"`     | Display mode for completed states                    |
+| `icon`      | `React.ReactNode`                                                                             | `undefined`  | Custom completed icon (used when `completed="icon"`) |
+| `className` | `string`                                                                                      | `undefined`  | Extra classes for the step                           |
+
+Also supports standard `HTMLDivElement` props.
+
+### `McProgress.StepLine`
+
+| Prop          | Type                         | Default        | Description                                    |
+| ------------- | ---------------------------- | -------------- | ---------------------------------------------- |
+| `active`      | `boolean`                    | `false`        | Applies active color for completed connections |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Connector direction                            |
+| `size`        | `"sm" \| "md" \| "lg"`       | `"md"`         | Connector thickness, radius, and length        |
+| `className`   | `string`                     | `undefined`    | Extra classes for the connector line           |
+
+Also supports standard `HTMLDivElement` props.
+
+## Accessibility Notes
+
+- `McProgress` root exposes `role="progressbar"`, `aria-valuenow`, `aria-valuemin`, and `aria-valuemax`.
+- Keep labels and progress intent visible in surrounding UI for better context.
+- For stepper flows, add semantic headings or text labels near steps in your product UI.
+
+## Styling and Customization Tips
+
+- Use `className` on every sub-component for local styling adjustments.
+- Use `barClassName` on `Track` to style only the filled bar.
+- Use `formatter` on `Label` and `FloatingLabel` for localized or custom text.
+- Use `icon` on `Step` for branded completion icons.
+- For complex product themes, keep your color tokens (`primary`, `muted`, `foreground`) consistent globally instead of hardcoding per component.
