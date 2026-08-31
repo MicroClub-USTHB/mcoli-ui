@@ -191,18 +191,18 @@ interface ProgressCircleProps extends React.SVGAttributes<SVGSVGElement> {
 }
 
 const circleSizes = {
-  xs: { size: 44, stroke: 4, fontSize: 'text-[10px]' },
-  sm: { size: 60, stroke: 6, fontSize: 'text-sm' },
-  md: { size: 84, stroke: 8, fontSize: 'text-md' },
-  lg: { size: 106, stroke: 12, fontSize: 'text-lg' },
-  xl: { size: 132, stroke: 14, fontSize: 'text-xl' },
+  xs: { size: 44, stroke: 4, maxStroke: 8, fontSize: 'text-[10px]' },
+  sm: { size: 60, stroke: 6, maxStroke: 12, fontSize: 'text-sm' },
+  md: { size: 84, stroke: 8, maxStroke: 20, fontSize: 'text-md' },
+  lg: { size: 106, stroke: 12, maxStroke: 24, fontSize: 'text-lg' },
+  xl: { size: 132, stroke: 14, maxStroke: 28, fontSize: 'text-xl' },
 };
 
 const ProgressCircle = React.forwardRef<SVGSVGElement, ProgressCircleProps>(
   ({ className, showValue = false, strokeWidth, ...props }, ref) => {
     const { value, size = 'md' } = useProgressContext();
     const config = circleSizes[size];
-    const sw = strokeWidth ?? config.stroke;
+    const sw = Math.min(strokeWidth ?? config.stroke, config.maxStroke);
     const radius = (config.size - sw) / 2;
     const circumference = 2 * Math.PI * radius;
     const strokeDashoffset = circumference - (value / 100) * circumference;

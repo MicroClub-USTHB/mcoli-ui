@@ -109,10 +109,10 @@ const meta: Meta<McProgressStoryArgs> = {
       control: {
         type: 'range',
         min: 1,
-        max: 20,
+        max: 28,
         step: 1,
       },
-      description: 'Épaisseur du contour du cercle',
+      description: 'Épaisseur du contour du cercle, limitée selon la taille du cercle',
     },
 
     // ==========================================
@@ -242,11 +242,20 @@ export const Playground: Story = {
 export const CirclePlayground: Story = {
   render: (args: McProgressStoryArgs) => {
     const { value, max, size, showValue, strokeWidth } = args;
+    const maxStrokeBySize = {
+      xs: 8,
+      sm: 12,
+      md: 20,
+      lg: 24,
+      xl: 28,
+    } as const;
 
     return (
-      <McProgress value={value} max={max} size={size}>
-        <McProgress.Circle showValue={showValue} strokeWidth={strokeWidth} />
-      </McProgress>
+      <div className="flex flex-col items-center gap-2">
+        <McProgress value={value} max={max} size={size}>
+          <McProgress.Circle showValue={showValue} strokeWidth={strokeWidth} />
+        </McProgress>
+      </div>
     );
   },
 
