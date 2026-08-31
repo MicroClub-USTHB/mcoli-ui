@@ -260,7 +260,9 @@ const ProgressStepper = React.forwardRef<HTMLDivElement, StepperProps>(
         ref={ref}
         className={cn(
           'flex w-full items-center',
-          orientation === 'vertical' ? 'flex-col items-start gap-1' : 'flex-row items-center gap-1',
+          orientation === 'vertical'
+            ? 'flex-col items-center gap-1'
+            : 'flex-row items-center gap-1',
           className
         )}
         {...props}
