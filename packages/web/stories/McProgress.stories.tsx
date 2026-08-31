@@ -41,7 +41,7 @@ const meta: Meta<McProgressStoryArgs> = {
         max: 100,
         step: 1,
       },
-      description: 'Valeur actuelle de la progression',
+      description: 'Current progress value',
     },
 
     max: {
@@ -49,13 +49,13 @@ const meta: Meta<McProgressStoryArgs> = {
         type: 'number',
         min: 1,
       },
-      description: 'Valeur maximale de la progression',
+      description: 'Maximum progress value',
     },
 
     size: {
       control: 'select',
       options: ['xs', 'sm', 'md', 'lg', 'xl'],
-      description: 'Taille du composant',
+      description: 'Component size',
     },
 
     // ==========================================
@@ -65,7 +65,7 @@ const meta: Meta<McProgressStoryArgs> = {
     variant: {
       control: 'radio',
       options: ['track', 'segmented'],
-      description: 'Type de barre : continue ou segmentée',
+      description: 'Bar type: continuous or segmented',
     },
 
     segmentsCount: {
@@ -75,7 +75,7 @@ const meta: Meta<McProgressStoryArgs> = {
         max: 10,
         step: 1,
       },
-      description: 'Nombre de segments',
+      description: 'Number of segments',
       if: {
         arg: 'variant',
         eq: 'segmented',
@@ -84,7 +84,7 @@ const meta: Meta<McProgressStoryArgs> = {
 
     showFloatingLabel: {
       control: 'boolean',
-      description: 'Affiche le label dynamique au-dessus de la progression',
+      description: 'Show floating label above the progress bar',
       if: {
         arg: 'variant',
         eq: 'track',
@@ -93,7 +93,7 @@ const meta: Meta<McProgressStoryArgs> = {
 
     showHeader: {
       control: 'boolean',
-      description: 'Affiche un en-tête avec le label de progression',
+      description: 'Show a header with the progress label',
     },
 
     // ==========================================
@@ -102,7 +102,7 @@ const meta: Meta<McProgressStoryArgs> = {
 
     showValue: {
       control: 'boolean',
-      description: 'Affiche la valeur au centre du cercle',
+      description: 'Show value in the center of the circle',
     },
 
     strokeWidth: {
@@ -112,7 +112,7 @@ const meta: Meta<McProgressStoryArgs> = {
         max: 28,
         step: 1,
       },
-      description: 'Épaisseur du contour du cercle, limitée selon la taille du cercle',
+      description: 'Circle stroke width, capped based on selected size',
     },
 
     // ==========================================
@@ -122,7 +122,7 @@ const meta: Meta<McProgressStoryArgs> = {
     stepperOrientation: {
       control: 'radio',
       options: ['horizontal', 'vertical'],
-      description: 'Orientation du stepper',
+      description: 'Stepper orientation',
     },
 
     stepsCount: {
@@ -132,7 +132,7 @@ const meta: Meta<McProgressStoryArgs> = {
         max: 6,
         step: 1,
       },
-      description: "Nombre total d'étapes dans le stepper",
+      description: 'Total number of steps in the stepper',
     },
 
     currentStep: {
@@ -142,19 +142,19 @@ const meta: Meta<McProgressStoryArgs> = {
         max: 6,
         step: 1,
       },
-      description: 'Étape courante active',
+      description: 'Current active step',
     },
 
     completedVariant: {
       control: 'radio',
       options: ['completedBackground', 'completedBorder'],
-      description: 'Style visuel des étapes complétées',
+      description: 'Visual style for completed steps',
     },
 
     completedDisplay: {
       control: 'radio',
       options: ['icon', 'number'],
-      description: 'Contenu affiché dans les étapes complétées (icône ou numéro)',
+      description: 'Content shown in completed steps (icon or number)',
     },
   },
 
@@ -208,7 +208,7 @@ export const Playground: Story = {
       <McProgress value={value} max={max} size={size}>
         {showHeader && (
           <div className="flex items-center justify-between text-xs">
-            <span className="font-medium text-muted-foreground">Progression</span>
+            <span className="font-medium text-muted-foreground">Progress</span>
             <McProgress.Label />
           </div>
         )}
