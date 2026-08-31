@@ -282,8 +282,8 @@ const stepVariants = cva(
   {
     variants: {
       status: {
-        completedBackground: 'bg-primary  text-primary-foreground',
-        completedBorder: 'bg-white border-primary text-primary-foreground',
+        completedBackground: 'bg-primary  ',
+        completedBorder: 'bg-white border-primary ',
         active: 'border-primary text-primary font-bold bg-background',
         inactive: 'border-muted text-muted-foreground bg-muted/30',
         outlinedCompleted: 'border-primary text-primary bg-background font-semibold',
@@ -294,6 +294,23 @@ const stepVariants = cva(
         lg: 'w-14 h-14 text-xl ',
       },
     },
+    compoundVariants: [
+      {
+        status: 'completedBorder',
+        size: 'sm',
+        className: 'border-6',
+      },
+      {
+        status: 'completedBorder',
+        size: 'md',
+        className: 'border-8',
+      },
+      {
+        status: 'completedBorder',
+        size: 'lg',
+        className: 'border-12',
+      },
+    ],
     defaultVariants: {
       status: 'inactive',
       size: 'md',
@@ -313,13 +330,14 @@ interface StepProps
 const ProgressStep = React.forwardRef<HTMLDivElement, StepProps>(
   ({ status, size, step, completed = 'icon', icon, children, className, ...props }, ref) => {
     const isCompleted = status === 'completedBackground' || status === 'completedBorder';
+    const checkSizeClass = size === 'lg' ? 'w-6 h-6' : size === 'md' ? 'w-5 h-5' : 'w-4 h-4';
 
     const renderContent = () => {
       if (isCompleted && completed === 'icon') {
         return status === 'completedBackground' ? (
-          <Check className="w-4 h-4 text-muted text-bold" />
+          <Check className={cn(checkSizeClass, 'text-muted text-bold')} />
         ) : (
-          <Check className="w-4 h-4 text-primary text-bold" />
+          <Check className={cn(checkSizeClass, 'text-primary text-bold')} />
         );
       }
       if (isCompleted && completed === 'number') {
