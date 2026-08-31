@@ -242,13 +242,6 @@ export const Playground: Story = {
 export const CirclePlayground: Story = {
   render: (args: McProgressStoryArgs) => {
     const { value, max, size, showValue, strokeWidth } = args;
-    const maxStrokeBySize = {
-      xs: 8,
-      sm: 12,
-      md: 20,
-      lg: 24,
-      xl: 28,
-    } as const;
 
     return (
       <div className="flex flex-col items-center gap-2">

@@ -193,7 +193,7 @@ interface ProgressCircleProps extends React.SVGAttributes<SVGSVGElement> {
 const circleSizes = {
   xs: { size: 44, stroke: 4, maxStroke: 8, fontSize: 'text-[10px]' },
   sm: { size: 60, stroke: 6, maxStroke: 12, fontSize: 'text-sm' },
-  md: { size: 84, stroke: 8, maxStroke: 20, fontSize: 'text-md' },
+  md: { size: 84, stroke: 8, maxStroke: 20, fontSize: 'text-base' },
   lg: { size: 106, stroke: 12, maxStroke: 24, fontSize: 'text-lg' },
   xl: { size: 132, stroke: 14, maxStroke: 28, fontSize: 'text-xl' },
 };
@@ -334,17 +334,21 @@ const ProgressStep = React.forwardRef<HTMLDivElement, StepProps>(
 
     const renderContent = () => {
       if (isCompleted && completed === 'icon') {
+        if (icon) {
+          return icon;
+        }
+
         return status === 'completedBackground' ? (
-          <Check className={cn(checkSizeClass, 'text-primary-foreground text-bold')} />
+          <Check className={cn(checkSizeClass, 'text-primary-foreground font-bold')} />
         ) : (
-          <Check className={cn(checkSizeClass, 'text-primary text-bold')} />
+          <Check className={cn(checkSizeClass, 'text-primary font-bold')} />
         );
       }
       if (isCompleted && completed === 'number') {
         return status === 'completedBackground' ? (
-          <span className="text-primary-foreground text-bold">{step}</span>
+          <span className="text-primary-foreground font-bold">{step}</span>
         ) : (
-          <span className="text-primary text-bold">{step}</span>
+          <span className="text-primary font-bold">{step}</span>
         );
       }
 
