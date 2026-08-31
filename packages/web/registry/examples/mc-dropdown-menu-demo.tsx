@@ -1,6 +1,6 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
+import { McButton } from '@/components/ui/mc-button';
 import {
   McDropdownMenu,
   McDropdownMenuContent,
@@ -20,12 +20,12 @@ export default function McDropdownMenuDemo() {
     <McDropdownMenu>
       <McDropdownMenuTrigger
         render={
-          <Button
+          <McButton
             className="w-17 h-10 aria-expanded:shadow-[0_0_0_4px_var(--muted)] aria-expanded:text-primary"
-            variant="outline"
+            variant="secondary"
           >
             Open
-          </Button>
+          </McButton>
         }
       />
       <McDropdownMenuContent className="w-56">

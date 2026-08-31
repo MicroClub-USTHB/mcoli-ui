@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import * as React from 'react';
 
-import { Button } from '@/components/ui/button';
+import { McButton } from '@/components/ui/mc-button';
 import {
   McDropdownMenu,
   McDropdownMenuCheckboxItem,
@@ -67,12 +67,12 @@ function AccountMenu({
       <McDropdownMenu open={open}>
         <McDropdownMenuTrigger
           render={
-            <Button
+            <McButton
               className="w-17 h-10 aria-expanded:shadow-[0_0_0_4px_var(--muted)] aria-expanded:text-primary"
-              variant="outline"
+              variant="secondary"
             >
               Open
-            </Button>
+            </McButton>
           }
         />
         <McDropdownMenuContent className="w-56" align={align} side={side}>
@@ -124,9 +124,12 @@ function PreferencesMenu({
       <McDropdownMenu open={open}>
         <McDropdownMenuTrigger
           render={
-            <Button className="w-17 h-10 active:primary shadow-[0_0_0_4px_muted]" variant="outline">
+            <McButton
+              className="w-17 h-10 active:primary shadow-[0_0_0_4px_muted]"
+              variant="secondary"
+            >
               Open
-            </Button>
+            </McButton>
           }
         />
         <McDropdownMenuContent className="w-56" align={align} side={side}>

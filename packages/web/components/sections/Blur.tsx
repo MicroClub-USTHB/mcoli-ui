@@ -20,7 +20,7 @@ function Blur() {
         {blurs.map((b) => (
           <div
             key={b.name}
-            className="flex flex-col items-center gap-4 p-6 rounded-2xl border border-border bg-surface/30 shadow-sm transition-transform hover:scale-[1.02] duration-300"
+            className="flex flex-col items-center gap-4 p-6 rounded-2xl border border-border bg-surface/30 shadow-sm transition-transform duration-300"
           >
             {/* Element Container */}
             <div className="relative size-20 flex items-center justify-center border border-border/50 bg-background rounded-xl overflow-hidden shadow-sm shrink-0">

@@ -16,6 +16,7 @@ const dmSansDmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://mcoli-ui.microclub.info'),
   title: 'Mcoli UI – MicroClub UI Components Library',
   description:
     'Official React UI component library by MicroClub. Reusable, accessible, and customizable components for modern web apps. Built with Next.js and shadcn/ui. Documented and showcased using Fumadocs.',
@@ -39,6 +40,12 @@ export const metadata: Metadata = {
     url: 'https://github.com/MicroClub-USTHB/mcoli-ui',
     siteName: 'Mcoli UI',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mcoli UI – MicroClub UI Components Library',
+    description:
+      'Reusable, accessible, and customizable React components for modern web applications.',
   },
 };
 

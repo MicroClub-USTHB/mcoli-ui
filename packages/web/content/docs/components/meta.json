@@ -26,6 +26,7 @@
     "mc-dropdown-menu",
     "mc-context-menu",
     "mc-accordion",
+    "mc-collapsible",
     "mc-separator",
     "mc-calendar",
     "mc-scrollarea",
@@ -34,11 +35,10 @@
     "mc-avatar",
     "mc-drawer",
     "mc-hover-card",
+    "mc-slider",
     "mc-carousel",
     "---Coming Soon---",
     "mc-data-table",
-    "mc-collapsible",
-    "mc-progress",
-    "mc-slider"
+    "mc-progress"
   ]
 }

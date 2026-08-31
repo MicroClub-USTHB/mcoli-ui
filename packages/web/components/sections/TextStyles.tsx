@@ -1,3 +1,5 @@
+import { McCard } from '@/components/ui/mc-card';
+
 function TextStyles() {
   return (
     <section className="w-full max-w-[1200px] mx-auto space-y-6 sm:space-y-8 px-4">
@@ -10,7 +12,7 @@ function TextStyles() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Headers */}
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col gap-6 overflow-hidden">
+        <McCard className="rounded-2xl shadow-sm flex flex-col gap-6 overflow-hidden p-6">
           <div className="flex items-center justify-between border-b border-border/50 pb-2">
             <h3 className="header-xs font-semibold text-foreground">Headings</h3>
             <span className="text-[10px] font-mono text-muted-foreground">header-*</span>
@@ -32,10 +34,10 @@ function TextStyles() {
               <h6 className="header-xs font-bold leading-none">Header XS</h6>
             </div>
           </div>
-        </div>
+        </McCard>
 
         {/* Paragraphs */}
-        <div className="rounded-2xl border border-border bg-card p-6 shadow-sm flex flex-col gap-6 overflow-hidden">
+        <McCard className="rounded-2xl shadow-sm flex flex-col gap-6 overflow-hidden p-6">
           <div className="flex items-center justify-between border-b border-border/50 pb-2">
             <h3 className="font-semibold text-foreground font-plus-jakarta-sans">Paragraphs</h3>
             <span className="text-[10px] font-mono text-muted-foreground">.paragraph-*</span>
@@ -62,7 +64,7 @@ function TextStyles() {
               <span className="text-xs font-mono opacity-50">12px / 18px</span>
             </div>
           </div>
-        </div>
+        </McCard>
       </div>
     </section>
   );

@@ -11,9 +11,8 @@ import {
   McAlertDialogDescription,
   McAlertDialogAction,
   McAlertDialogCancel,
-  McAlertDialogMedia,
 } from '@/registry/ui/mc-alert-dialog';
-import { Button } from '@/components/ui/button';
+import { McButton } from '@/components/ui/mc-button';
 import { TrashIcon } from 'lucide-react';
 
 const meta: Meta<typeof McAlertDialog> = {
@@ -32,7 +31,7 @@ export const Default: Story = {
   render: () => (
     <McAlertDialog>
       <McAlertDialogTrigger>
-        <Button>Open Dialog</Button>
+        <McButton>Open Dialog</McButton>
       </McAlertDialogTrigger>
 
       <McAlertDialogContent>
@@ -56,7 +55,7 @@ export const WithMedia: Story = {
   render: () => (
     <McAlertDialog>
       <McAlertDialogTrigger>
-        <Button variant="destructive">Delete</Button>
+        <McButton destructive>Delete</McButton>
       </McAlertDialogTrigger>
 
       <McAlertDialogContent>
@@ -83,7 +82,7 @@ export const SmallSize: Story = {
   render: () => (
     <McAlertDialog>
       <McAlertDialogTrigger>
-        <Button variant="outline">Open Small Dialog</Button>
+        <McButton variant="secondary">Open Small Dialog</McButton>
       </McAlertDialogTrigger>
 
       <McAlertDialogContent size="sm">
@@ -105,7 +104,7 @@ export const LongContent: Story = {
   render: () => (
     <McAlertDialog>
       <McAlertDialogTrigger>
-        <Button>Open Long Content</Button>
+        <McButton>Open Long Content</McButton>
       </McAlertDialogTrigger>
       <McAlertDialogContent>
         <McAlertDialogHeader>

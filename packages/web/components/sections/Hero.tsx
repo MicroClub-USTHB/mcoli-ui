@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import { ArrowRight, Terminal, GitFork, Check, Copy } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { McButton } from '@/components/ui/mc-button';
+import { McCard } from '@/components/ui/mc-card';
 import { useState } from 'react';
 
 function Hero() {
@@ -35,35 +36,34 @@ function Hero() {
 
       {/* Call to Actions */}
       <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 mb-12 sm:mb-16 w-full sm:w-auto px-4 sm:px-0 z-10">
-        <Button
+        <McButton
+          nativeButton={false}
           render={
             <Link href="/docs/introduction">
               Get Started <ArrowRight className="ml-2 size-4" />
             </Link>
           }
-          nativeButton={false}
+          variant="primary"
           size="lg"
-          className="w-full sm:w-auto px-6 sm:px-8 h-11 sm:h-12 text-sm sm:text-base shadow-xl shadow-primary/20 transition-all hover:bg-primary/90"
         />
-        <Button
+        <McButton
+          nativeButton={false}
           render={
-            <a
+            <Link
               href="https://github.com/MicroClub-USTHB/mcoli-ui"
               target="_blank"
               rel="noopener noreferrer"
             >
               <GitFork className="size-4 mr-2" /> GitHub
-            </a>
+            </Link>
           }
-          nativeButton={false}
-          variant="outline"
+          variant="secondary"
           size="lg"
-          className="w-full sm:w-auto px-6 sm:px-8 h-11 sm:h-12 text-sm sm:text-base border-border bg-surface/50 backdrop-blur-md hover:bg-accent hover:text-accent-foreground transition-all"
         />
       </div>
 
       {/* High-End Terminal CLI Snippet */}
-      <div className="max-w-lg w-full rounded-xl sm:rounded-2xl border border-border bg-card overflow-hidden transition-transform duration-300 z-10 p-3 sm:p-4">
+      <McCard className="max-w-lg w-full rounded-xl sm:rounded-2xl shadow-sm overflow-hidden transition-transform duration-300 z-10 p-3 sm:p-4">
         <div className="flex items-center justify-between gap-3">
           <span className="flex items-center gap-2 sm:gap-3 font-mono text-xs sm:text-sm text-foreground min-w-0">
             <Terminal size={16} className="shrink-0" />
@@ -76,7 +76,7 @@ function Hero() {
             {copied ? <Check className="size-4" /> : <Copy className="size-4" />}
           </button>
         </div>
-      </div>
+      </McCard>
     </section>
   );
 }
