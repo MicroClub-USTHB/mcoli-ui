@@ -6,7 +6,7 @@ import { Check } from 'lucide-react';
 interface ProgressContextValue {
   value: number;
   max: number;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 }
 
 const ProgressContext = React.createContext<ProgressContextValue | null>(null);
@@ -24,7 +24,7 @@ function useProgressContext() {
 interface McProgressProps extends React.HTMLAttributes<HTMLDivElement> {
   value: number;
   max?: number;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   children: React.ReactNode;
 }
 
@@ -57,9 +57,11 @@ ProgressRoot.displayName = 'McProgress';
 const progressBarVariants = cva('relative w-full bg-muted overflow-hidden border transition-all', {
   variants: {
     size: {
+      xs: 'h-1 rounded-xs',
       sm: 'h-1.5 rounded-xs',
       md: 'h-2.5 rounded-sm',
       lg: 'h-5.5 rounded-lg',
+      xl: 'h-7 rounded-xl',
     },
   },
   defaultVariants: { size: 'md' },
@@ -68,9 +70,11 @@ const progressBarVariants = cva('relative w-full bg-muted overflow-hidden border
 const progressLabelVariants = cva('font-medium whitespace-nowrap', {
   variants: {
     size: {
+      xs: 'text-[10px]',
       sm: 'text-xs',
       md: 'text-base',
       lg: 'text-lg',
+      xl: 'text-xl',
     },
   },
   defaultVariants: { size: 'md' },
@@ -187,9 +191,11 @@ interface ProgressCircleProps extends React.SVGAttributes<SVGSVGElement> {
 }
 
 const circleSizes = {
+  xs: { size: 44, stroke: 4, fontSize: 'text-[10px]' },
   sm: { size: 60, stroke: 6, fontSize: 'text-sm' },
   md: { size: 84, stroke: 8, fontSize: 'text-md' },
   lg: { size: 106, stroke: 12, fontSize: 'text-lg' },
+  xl: { size: 132, stroke: 14, fontSize: 'text-xl' },
 };
 
 const ProgressCircle = React.forwardRef<SVGSVGElement, ProgressCircleProps>(

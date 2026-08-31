@@ -5,7 +5,7 @@ import { McProgress } from '@/registry/ui/mc-progress';
 interface McProgressStoryArgs {
   value: number;
   max: number;
-  size: 'sm' | 'md' | 'lg';
+  size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   // Linear progress
   variant: 'track' | 'segmented';
@@ -27,7 +27,6 @@ interface McProgressStoryArgs {
 
 const meta: Meta<McProgressStoryArgs> = {
   title: 'Components/McProgress',
-  component: McProgress,
   tags: ['autodocs'],
 
   argTypes: {
@@ -55,7 +54,7 @@ const meta: Meta<McProgressStoryArgs> = {
 
     size: {
       control: 'select',
-      options: ['sm', 'md', 'lg'],
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
       description: 'Taille du composant',
     },
 
@@ -282,6 +281,7 @@ export const StepperPlayground: Story = {
       completedVariant,
       completedDisplay,
     } = args;
+    const stepperSize = size === 'xs' || size === 'xl' ? 'md' : size;
 
     return (
       <McProgress.Stepper orientation={stepperOrientation}>
@@ -302,7 +302,7 @@ export const StepperPlayground: Story = {
             <React.Fragment key={stepNumber}>
               <McProgress.Step
                 status={status}
-                size={size}
+                size={stepperSize}
                 step={stepNumber}
                 completed={completedDisplay}
               />
