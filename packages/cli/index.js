@@ -279,7 +279,11 @@ function displayRegistry(data) {
 
   const themes = items.filter((item) => item.type === 'registry:theme');
   const fonts = items.filter((item) => item.type === 'registry:font');
-  const components = items.filter((item) => item.type === 'registry:component');
+  // `registry:component` is accepted for backwards compatibility with registries
+  // deployed before components were retyped as `registry:ui`.
+  const components = items.filter(
+    (item) => item.type === 'registry:ui' || item.type === 'registry:component'
+  );
 
   if (themes.length > 0) {
     console.log();
