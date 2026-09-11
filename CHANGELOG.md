@@ -14,7 +14,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- `list` accepts both `registry:ui` and `registry:component`, so it keeps working against registries deployed before this release
 - Cross-component imports ship as `@/registry/ui/<name>` so the shadcn CLI rewrites them to your alias (some previously shipped a hardcoded `@/components/ui/<name>` that resolved nowhere)
 - Removed stale `mc-drawer-card.json` from the served registry
 
