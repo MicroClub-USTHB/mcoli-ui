@@ -12,7 +12,7 @@ import {
   McAlertDialogAction,
   McAlertDialogCancel,
 } from '@/registry/ui/mc-alert-dialog';
-import { McButton } from '@/components/ui/mc-button';
+import { McButton } from '@/registry/ui/mc-button';
 import { TrashIcon } from 'lucide-react';
 
 const meta: Meta<typeof McAlertDialog> = {

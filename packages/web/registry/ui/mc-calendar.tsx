@@ -13,7 +13,7 @@ import {
 } from 'react-day-picker';
 
 import { cn } from '@/lib/utils';
-import { McButton, buttonVariants } from '@/components/ui/mc-button';
+import { McButton, buttonVariants } from '@/registry/ui/mc-button';
 import { McPopover, McPopoverContent, McPopoverTrigger } from '@/registry/ui/mc-popover';
 
 function McCalendar({

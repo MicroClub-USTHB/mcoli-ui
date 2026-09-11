@@ -5,7 +5,7 @@ import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-reac
 import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { McButton } from '@/components/ui/mc-button';
+import { McButton } from '@/registry/ui/mc-button';
 
 type McCarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
