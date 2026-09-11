@@ -1,4 +1,14 @@
-import { McProgress } from '../ui/mc-progress';
+import {
+  McProgress,
+  McProgressCircle,
+  McProgressFloatingLabel,
+  McProgressLabel,
+  McProgressSegments,
+  McProgressStep,
+  McProgressStepLine,
+  McProgressStepper,
+  McProgressTrack,
+} from '../ui/mc-progress';
 
 const progressValue = 68;
 const progressMax = 100;
@@ -14,17 +24,17 @@ export default function McProgressDemo() {
         <McProgress value={progressValue} max={progressMax} size="md">
           <div className="flex items-center justify-between">
             <span className="text-xs text-muted-foreground">Upload status</span>
-            <McProgress.Label />
+            <McProgressLabel />
           </div>
-          <McProgress.FloatingLabel />
-          <McProgress.Track />
+          <McProgressFloatingLabel />
+          <McProgressTrack />
         </McProgress>
       </div>
 
       <div className="space-y-3">
         <p className="text-sm font-medium text-foreground">Segmented Progress</p>
         <McProgress value={progressValue} max={progressMax} size="sm">
-          <McProgress.Segments count={6} />
+          <McProgressSegments count={6} />
         </McProgress>
       </div>
 
@@ -32,13 +42,13 @@ export default function McProgressDemo() {
         <div className="space-y-3">
           <p className="text-sm font-medium text-foreground">Circle Progress</p>
           <McProgress value={progressValue} max={progressMax} size="lg">
-            <McProgress.Circle showValue strokeWidth={16} />
+            <McProgressCircle showValue strokeWidth={16} />
           </McProgress>
         </div>
 
         <div className="space-y-3">
           <p className="text-sm font-medium text-foreground">Stepper Progress</p>
-          <McProgress.Stepper orientation="vertical" size="md">
+          <McProgressStepper orientation="vertical" size="md">
             {stepItems.map((stepNumber) => {
               let status: 'completedBackground' | 'completedBorder' | 'active' | 'inactive' =
                 'inactive';
@@ -51,9 +61,9 @@ export default function McProgressDemo() {
 
               return (
                 <div key={stepNumber} className="flex flex-col items-center">
-                  <McProgress.Step status={status} size="md" step={stepNumber} completed="icon" />
+                  <McProgressStep status={status} size="md" step={stepNumber} completed="icon" />
                   {stepNumber < stepItems.length && (
-                    <McProgress.StepLine
+                    <McProgressStepLine
                       active={stepNumber < currentStep}
                       orientation="vertical"
                       size="md"
@@ -62,7 +72,7 @@ export default function McProgressDemo() {
                 </div>
               );
             })}
-          </McProgress.Stepper>
+          </McProgressStepper>
         </div>
       </div>
     </div>

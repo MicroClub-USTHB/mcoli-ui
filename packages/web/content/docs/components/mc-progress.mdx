@@ -66,18 +66,23 @@ Ensure your `@/lib/utils` (or equivalent classname helper) is correctly configur
 ## Usage
 
 ```tsx
-import { McProgress } from '@/components/ui/mc-progress';
+import {
+  McProgress,
+  McProgressLabel,
+  McProgressFloatingLabel,
+  McProgressTrack,
+} from '@/components/ui/mc-progress';
 
 export default function Example() {
   return (
     <McProgress value={62} max={100} size="md">
       <div className="flex items-center justify-between">
         <span className="text-xs text-muted-foreground">Upload status</span>
-        <McProgress.Label />
+        <McProgressLabel />
       </div>
 
-      <McProgress.FloatingLabel />
-      <McProgress.Track />
+      <McProgressFloatingLabel />
+      <McProgressTrack />
     </McProgress>
   );
 }
@@ -91,10 +96,10 @@ export default function Example() {
 <McProgress value={72} max={100} size="lg">
   <div className="flex items-center justify-between">
     <span className="text-sm text-muted-foreground">Deployment</span>
-    <McProgress.Label formatter={(value) => `${value}% complete`} />
+    <McProgressLabel formatter={(value) => `${value}% complete`} />
   </div>
-  <McProgress.FloatingLabel />
-  <McProgress.Track />
+  <McProgressFloatingLabel />
+  <McProgressTrack />
 </McProgress>
 ```
 
@@ -102,7 +107,7 @@ export default function Example() {
 
 ```tsx
 <McProgress value={40} max={100} size="sm">
-  <McProgress.Segments count={5} />
+  <McProgressSegments count={5} />
 </McProgress>
 ```
 
@@ -110,7 +115,7 @@ export default function Example() {
 
 ```tsx
 <McProgress value={68} max={100} size="md">
-  <McProgress.Circle showValue strokeWidth={10} />
+  <McProgressCircle showValue strokeWidth={10} />
 </McProgress>
 ```
 
@@ -129,36 +134,36 @@ If a larger value is passed, it is clamped automatically.
 ### Horizontal Stepper
 
 ```tsx
-<McProgress.Stepper orientation="horizontal" size="md">
-  <McProgress.Step status="completedBackground" step={1} completed="icon" />
-  <McProgress.StepLine active orientation="horizontal" size="md" />
+<McProgressStepper orientation="horizontal" size="md">
+  <McProgressStep status="completedBackground" step={1} completed="icon" />
+  <McProgressStepLine active orientation="horizontal" size="md" />
 
-  <McProgress.Step status="completedBorder" step={2} completed="number" />
-  <McProgress.StepLine active orientation="horizontal" size="md" />
+  <McProgressStep status="completedBorder" step={2} completed="number" />
+  <McProgressStepLine active orientation="horizontal" size="md" />
 
-  <McProgress.Step status="active" step={3} />
-  <McProgress.StepLine orientation="horizontal" size="md" />
+  <McProgressStep status="active" step={3} />
+  <McProgressStepLine orientation="horizontal" size="md" />
 
-  <McProgress.Step status="inactive" step={4} />
-</McProgress.Stepper>
+  <McProgressStep status="inactive" step={4} />
+</McProgressStepper>
 ```
 
 ### Vertical Stepper
 
 ```tsx
-<McProgress.Stepper orientation="vertical" size="lg">
+<McProgressStepper orientation="vertical" size="lg">
   <div className="flex flex-col items-center">
-    <McProgress.Step status="completedBackground" step={1} completed="icon" />
-    <McProgress.StepLine active orientation="vertical" size="lg" />
+    <McProgressStep status="completedBackground" step={1} completed="icon" />
+    <McProgressStepLine active orientation="vertical" size="lg" />
   </div>
 
   <div className="flex flex-col items-center">
-    <McProgress.Step status="active" step={2} />
-    <McProgress.StepLine orientation="vertical" size="lg" />
+    <McProgressStep status="active" step={2} />
+    <McProgressStepLine orientation="vertical" size="lg" />
   </div>
 
-  <McProgress.Step status="inactive" step={3} />
-</McProgress.Stepper>
+  <McProgressStep status="inactive" step={3} />
+</McProgressStepper>
 ```
 
 ### Custom Completed Icon
@@ -166,7 +171,7 @@ If a larger value is passed, it is clamped automatically.
 ```tsx
 import { Star } from 'lucide-react';
 
-<McProgress.Step
+<McProgressStep
   status="completedBackground"
   size="md"
   completed="icon"
@@ -188,7 +193,7 @@ import { Star } from 'lucide-react';
 
 Also supports standard `HTMLDivElement` props.
 
-### `McProgress.Track`
+### `McProgressTrack`
 
 | Prop           | Type     | Default     | Description                              |
 | -------------- | -------- | ----------- | ---------------------------------------- |
@@ -197,7 +202,7 @@ Also supports standard `HTMLDivElement` props.
 
 Also supports standard `HTMLDivElement` props.
 
-### `McProgress.Segments`
+### `McProgressSegments`
 
 | Prop        | Type     | Default     | Description                       |
 | ----------- | -------- | ----------- | --------------------------------- |
@@ -206,7 +211,7 @@ Also supports standard `HTMLDivElement` props.
 
 Also supports standard `HTMLDivElement` props.
 
-### `McProgress.Label`
+### `McProgressLabel`
 
 | Prop        | Type                                 | Default     | Description                    |
 | ----------- | ------------------------------------ | ----------- | ------------------------------ |
@@ -215,7 +220,7 @@ Also supports standard `HTMLDivElement` props.
 
 Also supports standard `HTMLSpanElement` props.
 
-### `McProgress.FloatingLabel`
+### `McProgressFloatingLabel`
 
 | Prop        | Type                                 | Default     | Description                             |
 | ----------- | ------------------------------------ | ----------- | --------------------------------------- |
@@ -224,7 +229,7 @@ Also supports standard `HTMLSpanElement` props.
 
 Also supports standard `HTMLSpanElement` props.
 
-### `McProgress.Circle`
+### `McProgressCircle`
 
 | Prop          | Type      | Default          | Description                                                    |
 | ------------- | --------- | ---------------- | -------------------------------------------------------------- |
@@ -234,7 +239,7 @@ Also supports standard `HTMLSpanElement` props.
 
 Also supports standard `SVGSVGElement` props.
 
-### `McProgress.Stepper`
+### `McProgressStepper`
 
 | Prop          | Type                         | Default        | Description                           |
 | ------------- | ---------------------------- | -------------- | ------------------------------------- |
@@ -244,7 +249,7 @@ Also supports standard `SVGSVGElement` props.
 
 Also supports standard `HTMLDivElement` props.
 
-### `McProgress.Step`
+### `McProgressStep`
 
 | Prop        | Type                                                                                          | Default      | Description                                          |
 | ----------- | --------------------------------------------------------------------------------------------- | ------------ | ---------------------------------------------------- |
@@ -257,7 +262,7 @@ Also supports standard `HTMLDivElement` props.
 
 Also supports standard `HTMLDivElement` props.
 
-### `McProgress.StepLine`
+### `McProgressStepLine`
 
 | Prop          | Type                         | Default        | Description                                    |
 | ------------- | ---------------------------- | -------------- | ---------------------------------------------- |
