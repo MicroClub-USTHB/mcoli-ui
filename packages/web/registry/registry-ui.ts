@@ -340,6 +340,19 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react'],
   },
   {
+    name: 'mc-progress',
+    type: 'registry:component',
+    title: 'MicroClub Progress',
+    description: 'A progress component for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-progress.tsx',
+        type: 'registry:component',
+      },
+    ],
+    dependencies: ['lucide-react'],
+  },
+  {
     name: 'mc-calendar',
     type: 'registry:component',
     title: 'MicroClub Calendar',

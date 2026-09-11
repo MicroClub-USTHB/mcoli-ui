@@ -28,6 +28,7 @@
     "mc-accordion",
     "mc-collapsible",
     "mc-separator",
+    "mc-progress",
     "mc-calendar",
     "mc-scrollarea",
     "mc-skeleton",
@@ -38,7 +39,6 @@
     "mc-slider",
     "mc-carousel",
     "---Coming Soon---",
-    "mc-data-table",
-    "mc-progress"
+    "mc-data-table"
   ]
 }
