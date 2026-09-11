@@ -2163,10 +2163,10 @@
       "files": [
         {
           "path": "registry/ui/mc-button.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-input",
@@ -2176,10 +2176,10 @@
       "files": [
         {
           "path": "registry/ui/mc-input.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-textarea",
@@ -2189,10 +2189,10 @@
       "files": [
         {
           "path": "registry/ui/mc-textarea.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-input-otp",
@@ -2202,10 +2202,10 @@
       "files": [
         {
           "path": "registry/ui/mc-input-otp.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-checkbox",
@@ -2215,10 +2215,10 @@
       "files": [
         {
           "path": "registry/ui/mc-checkbox.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-radio-group",
@@ -2228,10 +2228,10 @@
       "files": [
         {
           "path": "registry/ui/mc-radio-group.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-card",
@@ -2241,10 +2241,10 @@
       "files": [
         {
           "path": "registry/ui/mc-card.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-select",
@@ -2254,10 +2254,10 @@
       "files": [
         {
           "path": "registry/ui/mc-select.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-combobox",
@@ -2267,10 +2267,10 @@
       "files": [
         {
           "path": "registry/ui/mc-combobox.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-switch",
@@ -2280,10 +2280,10 @@
       "files": [
         {
           "path": "registry/ui/mc-switch.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-navigation-menu",
@@ -2293,10 +2293,10 @@
       "files": [
         {
           "path": "registry/ui/mc-navigation-menu.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-sidebar",
@@ -2306,10 +2306,10 @@
       "files": [
         {
           "path": "registry/ui/mc-sidebar.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-tabs",
@@ -2319,10 +2319,10 @@
       "files": [
         {
           "path": "registry/ui/mc-tabs.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-breadcrumb",
@@ -2332,10 +2332,10 @@
       "files": [
         {
           "path": "registry/ui/mc-breadcrumb.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-pagination",
@@ -2345,10 +2345,10 @@
       "files": [
         {
           "path": "registry/ui/mc-pagination.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-dialog",
@@ -2358,10 +2358,10 @@
       "files": [
         {
           "path": "registry/ui/mc-dialog.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-alert-dialog",
@@ -2371,10 +2371,10 @@
       "files": [
         {
           "path": "registry/ui/mc-alert-dialog.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-alert",
@@ -2384,10 +2384,10 @@
       "files": [
         {
           "path": "registry/ui/mc-alert.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-sonner",
@@ -2397,10 +2397,10 @@
       "files": [
         {
           "path": "registry/ui/mc-sonner.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-tooltip",
@@ -2410,10 +2410,10 @@
       "files": [
         {
           "path": "registry/ui/mc-tooltip.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-popover",
@@ -2423,10 +2423,10 @@
       "files": [
         {
           "path": "registry/ui/mc-popover.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-dropdown-menu",
@@ -2436,10 +2436,10 @@
       "files": [
         {
           "path": "registry/ui/mc-dropdown-menu.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-context-menu",
@@ -2449,10 +2449,10 @@
       "files": [
         {
           "path": "registry/ui/mc-context-menu.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-accordion",
@@ -2462,10 +2462,10 @@
       "files": [
         {
           "path": "registry/ui/mc-accordion.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-collapsible",
@@ -2475,10 +2475,10 @@
       "files": [
         {
           "path": "registry/ui/mc-collapsible.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-separator",
@@ -2488,10 +2488,10 @@
       "files": [
         {
           "path": "registry/ui/mc-separator.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-progress",
@@ -2501,10 +2501,10 @@
       "files": [
         {
           "path": "registry/ui/mc-progress.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-calendar",
@@ -2514,10 +2514,10 @@
       "files": [
         {
           "path": "registry/ui/mc-calendar.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-scrollarea",
@@ -2527,10 +2527,10 @@
       "files": [
         {
           "path": "registry/ui/mc-scrollarea.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-skeleton",
@@ -2540,10 +2540,10 @@
       "files": [
         {
           "path": "registry/ui/mc-skeleton.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-badge",
@@ -2553,10 +2553,10 @@
       "files": [
         {
           "path": "registry/ui/mc-badge.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-avatar",
@@ -2566,10 +2566,10 @@
       "files": [
         {
           "path": "registry/ui/mc-avatar.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-drawer",
@@ -2579,10 +2579,10 @@
       "files": [
         {
           "path": "registry/ui/mc-drawer.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-hover-card",
@@ -2592,10 +2592,10 @@
       "files": [
         {
           "path": "registry/ui/mc-hover-card.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-slider",
@@ -2605,10 +2605,10 @@
       "files": [
         {
           "path": "registry/ui/mc-slider.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     },
     {
       "name": "mc-carousel",
@@ -2618,10 +2618,10 @@
       "files": [
         {
           "path": "registry/ui/mc-carousel.tsx",
-          "type": "registry:component"
+          "type": "registry:ui"
         }
       ],
-      "type": "registry:component"
+      "type": "registry:ui"
     }
   ]
 }
