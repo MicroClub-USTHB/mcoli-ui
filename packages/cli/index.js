@@ -207,7 +207,9 @@ function addTheme(themeValue, themeName) {
   const spinner = createSpinner(`Adding ${ansis.yellow(themeName)} mcoli-ui theme...`).start();
 
   try {
-    execSync(`npx shadcn@latest add ${REGISTRY_URL}/r/${themeValue}.json`, {
+    // --yes skips shadcn's confirmation prompt, which defaults to "no" and would
+    // otherwise leave the theme uninstalled while this command reported success.
+    execSync(`npx shadcn@latest add ${REGISTRY_URL}/r/${themeValue}.json --yes`, {
       stdio: 'inherit',
     });
     spinner.success({
@@ -240,7 +242,9 @@ function handleAdd(componentNames) {
 
     try {
       const url = new URL(`r/${componentName}.json`, REGISTRY_URL);
-      execSync(`npx shadcn@latest add ${url.toString()}`, {
+      // --yes skips the confirmation prompt. It does not imply --overwrite, so
+      // existing files are left untouched rather than clobbered.
+      execSync(`npx shadcn@latest add ${url.toString()} --yes`, {
         stdio: 'inherit',
       });
       spinner.success({
