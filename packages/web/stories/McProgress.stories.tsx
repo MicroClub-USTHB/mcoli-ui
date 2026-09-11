@@ -1,6 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import * as React from 'react';
-import { McProgress } from '@/registry/ui/mc-progress';
+import {
+  McProgress,
+  McProgressCircle,
+  McProgressFloatingLabel,
+  McProgressLabel,
+  McProgressSegments,
+  McProgressStep,
+  McProgressStepLine,
+  McProgressStepper,
+  McProgressTrack,
+} from '@/registry/ui/mc-progress';
 
 interface McProgressStoryArgs {
   value: number;
@@ -209,16 +219,16 @@ export const Playground: Story = {
         {showHeader && (
           <div className="flex items-center justify-between text-xs">
             <span className="font-medium text-muted-foreground">Progress</span>
-            <McProgress.Label />
+            <McProgressLabel />
           </div>
         )}
 
-        {showFloatingLabel && variant === 'track' && <McProgress.FloatingLabel />}
+        {showFloatingLabel && variant === 'track' && <McProgressFloatingLabel />}
 
         {variant === 'segmented' ? (
-          <McProgress.Segments count={segmentsCount} />
+          <McProgressSegments count={segmentsCount} />
         ) : (
-          <McProgress.Track />
+          <McProgressTrack />
         )}
       </McProgress>
     );
@@ -246,7 +256,7 @@ export const CirclePlayground: Story = {
     return (
       <div className="flex flex-col items-center gap-2">
         <McProgress value={value} max={max} size={size}>
-          <McProgress.Circle showValue={showValue} strokeWidth={strokeWidth} />
+          <McProgressCircle showValue={showValue} strokeWidth={strokeWidth} />
         </McProgress>
       </div>
     );
@@ -286,7 +296,7 @@ export const StepperPlayground: Story = {
     const stepperSize = size === 'xs' || size === 'xl' ? 'md' : size;
 
     return (
-      <McProgress.Stepper orientation={stepperOrientation} size={stepperSize}>
+      <McProgressStepper orientation={stepperOrientation} size={stepperSize}>
         {Array.from({ length: stepsCount }).map((_, index) => {
           const stepNumber = index + 1;
           let status: 'completedBackground' | 'completedBorder' | 'active' | 'inactive' =
@@ -302,14 +312,14 @@ export const StepperPlayground: Story = {
 
           return (
             <React.Fragment key={stepNumber}>
-              <McProgress.Step
+              <McProgressStep
                 status={status}
                 size={stepperSize}
                 step={stepNumber}
                 completed={completedDisplay}
               />
               {!isLast && (
-                <McProgress.StepLine
+                <McProgressStepLine
                   active={stepNumber < currentStep}
                   orientation={stepperOrientation}
                   size={stepperSize}
@@ -318,7 +328,7 @@ export const StepperPlayground: Story = {
             </React.Fragment>
           );
         })}
-      </McProgress.Stepper>
+      </McProgressStepper>
     );
   },
 

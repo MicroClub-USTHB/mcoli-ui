@@ -30,7 +30,7 @@ interface McProgressProps extends React.HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
-const ProgressRoot = React.forwardRef<HTMLDivElement, McProgressProps>(
+const McProgress = React.forwardRef<HTMLDivElement, McProgressProps>(
   ({ value, max = 100, size = 'md', className, children, ...props }, ref) => {
     const clampedValue = Math.min(max, Math.max(0, value));
     const percentage = Math.round((clampedValue / max) * 100);
@@ -52,7 +52,7 @@ const ProgressRoot = React.forwardRef<HTMLDivElement, McProgressProps>(
     );
   }
 );
-ProgressRoot.displayName = 'McProgress';
+McProgress.displayName = 'McProgress';
 
 //bar component
 
@@ -86,7 +86,7 @@ interface ProgressTrackProps extends React.HTMLAttributes<HTMLDivElement> {
   barClassName?: string;
 }
 
-const ProgressTrack = React.forwardRef<HTMLDivElement, ProgressTrackProps>(
+const McProgressTrack = React.forwardRef<HTMLDivElement, ProgressTrackProps>(
   ({ className, barClassName, ...props }, ref) => {
     const { value, size } = useProgressContext();
 
@@ -100,7 +100,7 @@ const ProgressTrack = React.forwardRef<HTMLDivElement, ProgressTrackProps>(
     );
   }
 );
-ProgressTrack.displayName = 'McProgress.Track';
+McProgressTrack.displayName = 'McProgressTrack';
 
 //segmented bar component
 
@@ -108,7 +108,7 @@ interface ProgressSegmentsProps extends React.HTMLAttributes<HTMLDivElement> {
   count?: number;
 }
 
-const ProgressSegments = React.forwardRef<HTMLDivElement, ProgressSegmentsProps>(
+const McProgressSegments = React.forwardRef<HTMLDivElement, ProgressSegmentsProps>(
   ({ count = 4, className, ...props }, ref) => {
     const { value, size } = useProgressContext();
 
@@ -133,14 +133,14 @@ const ProgressSegments = React.forwardRef<HTMLDivElement, ProgressSegmentsProps>
     );
   }
 );
-ProgressSegments.displayName = 'McProgress.Segments';
+McProgressSegments.displayName = 'McProgressSegments';
 
 //dynamic floating label component
 interface ProgressFloatingLabelProps extends React.HTMLAttributes<HTMLSpanElement> {
   formatter?: (value: number) => React.ReactNode;
 }
 
-const ProgressFloatingLabel = React.forwardRef<HTMLSpanElement, ProgressFloatingLabelProps>(
+const McProgressFloatingLabel = React.forwardRef<HTMLSpanElement, ProgressFloatingLabelProps>(
   ({ formatter, className, ...props }, ref) => {
     const { value, size } = useProgressContext();
 
@@ -160,7 +160,7 @@ const ProgressFloatingLabel = React.forwardRef<HTMLSpanElement, ProgressFloating
     );
   }
 );
-ProgressFloatingLabel.displayName = 'McProgress.FloatingLabel';
+McProgressFloatingLabel.displayName = 'McProgressFloatingLabel';
 
 //static label component
 
@@ -168,7 +168,7 @@ interface ProgressLabelProps extends React.HTMLAttributes<HTMLSpanElement> {
   formatter?: (value: number) => React.ReactNode;
 }
 
-const ProgressLabel = React.forwardRef<HTMLSpanElement, ProgressLabelProps>(
+const McProgressLabel = React.forwardRef<HTMLSpanElement, ProgressLabelProps>(
   ({ formatter, className, ...props }, ref) => {
     const { value, size } = useProgressContext();
 
@@ -183,7 +183,7 @@ const ProgressLabel = React.forwardRef<HTMLSpanElement, ProgressLabelProps>(
     );
   }
 );
-ProgressLabel.displayName = 'McProgress.Label';
+McProgressLabel.displayName = 'McProgressLabel';
 
 //circle component
 
@@ -200,7 +200,7 @@ const circleSizes = {
   xl: { size: 132, stroke: 14, maxStroke: 28, fontSize: 'text-xl' },
 };
 
-const ProgressCircle = React.forwardRef<SVGSVGElement, ProgressCircleProps>(
+const McProgressCircle = React.forwardRef<SVGSVGElement, ProgressCircleProps>(
   ({ className, showValue = false, strokeWidth, ...props }, ref) => {
     const { value, size = 'md' } = useProgressContext();
     const config = circleSizes[size];
@@ -247,7 +247,7 @@ const ProgressCircle = React.forwardRef<SVGSVGElement, ProgressCircleProps>(
     );
   }
 );
-ProgressCircle.displayName = 'McProgress.Circle';
+McProgressCircle.displayName = 'McProgressCircle';
 
 //stepper horizontal/vertical component
 
@@ -256,7 +256,7 @@ interface StepperProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: 'sm' | 'md' | 'lg';
 }
 
-const ProgressStepper = React.forwardRef<HTMLDivElement, StepperProps>(
+const McProgressStepper = React.forwardRef<HTMLDivElement, StepperProps>(
   ({ orientation = 'horizontal', size = 'md', className, children, ...props }, ref) => {
     const spacingClass = size === 'lg' ? 'gap-4' : size === 'md' ? 'gap-2' : 'gap-1';
 
@@ -277,7 +277,7 @@ const ProgressStepper = React.forwardRef<HTMLDivElement, StepperProps>(
     );
   }
 );
-ProgressStepper.displayName = 'McProgress.Stepper';
+McProgressStepper.displayName = 'McProgressStepper';
 
 const stepVariants = cva(
   'relative flex items-center justify-center rounded-full font-medium transition-colors border-2 shrink-0',
@@ -329,7 +329,7 @@ interface StepProps
 
 //step component
 
-const ProgressStep = React.forwardRef<HTMLDivElement, StepProps>(
+const McProgressStep = React.forwardRef<HTMLDivElement, StepProps>(
   ({ status, size, step, completed = 'icon', icon, children, className, ...props }, ref) => {
     const isCompleted = status === 'completedBackground' || status === 'completedBorder';
     const checkSizeClass = size === 'lg' ? 'w-6 h-6' : size === 'md' ? 'w-5 h-5' : 'w-4 h-4';
@@ -364,7 +364,7 @@ const ProgressStep = React.forwardRef<HTMLDivElement, StepProps>(
     );
   }
 );
-ProgressStep.displayName = 'McProgress.Step';
+McProgressStep.displayName = 'McProgressStep';
 
 interface StepLineProps extends React.HTMLAttributes<HTMLDivElement> {
   active?: boolean;
@@ -387,7 +387,7 @@ const stepLineVariants = cva('transition-colors duration-300', {
   },
 });
 
-const ProgressStepLine = React.forwardRef<HTMLDivElement, StepLineProps>(
+const McProgressStepLine = React.forwardRef<HTMLDivElement, StepLineProps>(
   ({ active = false, orientation = 'horizontal', size = 'md', className, ...props }, ref) => {
     const horizontalSizeClass =
       size === 'lg'
@@ -416,17 +416,16 @@ const ProgressStepLine = React.forwardRef<HTMLDivElement, StepLineProps>(
     );
   }
 );
-ProgressStepLine.displayName = 'McProgress.StepLine';
+McProgressStepLine.displayName = 'McProgressStepLine';
 
-// export compose
-
-export const McProgress = Object.assign(ProgressRoot, {
-  Track: ProgressTrack,
-  Segments: ProgressSegments,
-  FloatingLabel: ProgressFloatingLabel,
-  Label: ProgressLabel,
-  Circle: ProgressCircle,
-  Stepper: ProgressStepper,
-  Step: ProgressStep,
-  StepLine: ProgressStepLine,
-});
+export {
+  McProgress,
+  McProgressTrack,
+  McProgressSegments,
+  McProgressFloatingLabel,
+  McProgressLabel,
+  McProgressCircle,
+  McProgressStepper,
+  McProgressStep,
+  McProgressStepLine,
+};
