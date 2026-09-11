@@ -1,6 +1,6 @@
 {
   "name": "mcoli-ui",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "license": "MIT",
   "type": "module",
   "description": "CLI tool for mcoli-ui",
@@ -14,8 +14,7 @@
   },
   "dependencies": {
     "ansis": "^4.2.0",
-    "dotenv": "^17.3.1",
-    "inquirer": "^13.3.2",
+    "inquirer": "^14.2.2",
     "nanospinner": "^1.2.2"
   }
 }

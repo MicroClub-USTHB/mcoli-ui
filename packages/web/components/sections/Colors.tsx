@@ -1,5 +1,5 @@
 import { CheckCircle2, AlertTriangle, Info, XCircle } from 'lucide-react';
-import { McCard } from '@/components/ui/mc-card';
+import { McCard } from '@/registry/ui/mc-card';
 
 // Mapping of prefixes and steps to explicit Tailwind class names
 // This ensures Tailwind JIT can scan the full strings at build time.

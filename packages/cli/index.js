@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { config } from 'dotenv';
 import { execSync } from 'node:child_process';
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
@@ -8,7 +7,13 @@ import inquirer from 'inquirer';
 import { createSpinner } from 'nanospinner';
 import ansis from 'ansis';
 
-config({ quiet: true });
+// Load .env from the current working directory if there is one.
+// process.loadEnvFile throws when the file is missing, which is the normal case.
+try {
+  process.loadEnvFile();
+} catch {
+  // No .env file - environment variables can still be set directly.
+}
 
 // =============================================================================
 // CONSTANTS
@@ -279,7 +284,7 @@ function displayRegistry(data) {
 
   const themes = items.filter((item) => item.type === 'registry:theme');
   const fonts = items.filter((item) => item.type === 'registry:font');
-  const components = items.filter((item) => item.type === 'registry:component');
+  const components = items.filter((item) => item.type === 'registry:ui');
 
   if (themes.length > 0) {
     console.log();

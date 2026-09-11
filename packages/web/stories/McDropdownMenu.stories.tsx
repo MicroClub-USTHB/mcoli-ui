@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import * as React from 'react';
 
-import { McButton } from '@/components/ui/mc-button';
+import { McButton } from '@/registry/ui/mc-button';
 import {
   McDropdownMenu,
   McDropdownMenuCheckboxItem,

@@ -1,4 +1,4 @@
-import { McButton } from '@/components/ui/mc-button';
+import { McButton } from '@/registry/ui/mc-button';
 import { McTooltip, McTooltipContent, McTooltipTrigger } from '../ui/mc-tooltip';
 
 export default function McTooltipDemo() {

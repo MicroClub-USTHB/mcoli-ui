@@ -9,7 +9,7 @@ import {
   McAlertDialogTitle,
   McAlertDialogTrigger,
 } from '@/registry/ui/mc-alert-dialog';
-import { McButton } from '@/components/ui/mc-button';
+import { McButton } from '@/registry/ui/mc-button';
 
 export default function McAlertDialogDemo() {
   return (

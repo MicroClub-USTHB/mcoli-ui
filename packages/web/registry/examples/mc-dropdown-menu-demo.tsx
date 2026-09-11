@@ -1,6 +1,6 @@
 'use client';
 
-import { McButton } from '@/components/ui/mc-button';
+import { McButton } from '@/registry/ui/mc-button';
 import {
   McDropdownMenu,
   McDropdownMenuContent,

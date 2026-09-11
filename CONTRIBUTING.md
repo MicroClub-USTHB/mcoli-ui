@@ -238,7 +238,7 @@ When adding a new item, you will create/edit these files:
 | `mc-accordion`       | ✅           | ✅        |
 | `mc-collapsible`     | ✅           | ✅        |
 | `mc-separator`       | ✅           | ✅        |
-| `mc-progress`        | ✅           |           |
+| `mc-progress`        | ✅           | ✅        |
 | `mc-calendar`        | ✅           | ✅        |
 | `mc-scrollarea`      | ✅           | ✅        |
 | `mc-skeleton`        | ✅           | ✅        |

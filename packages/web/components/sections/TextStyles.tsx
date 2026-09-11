@@ -1,4 +1,4 @@
-import { McCard } from '@/components/ui/mc-card';
+import { McCard } from '@/registry/ui/mc-card';
 
 function TextStyles() {
   return (

@@ -9,7 +9,7 @@ import {
   McDropdownMenuContent,
   McDropdownMenuItem,
   McDropdownMenuTrigger,
-} from '@/components/ui/mc-dropdown-menu';
+} from '@/registry/ui/mc-dropdown-menu';
 import { cn } from '@/lib/utils';
 
 const themes: { name: string; value: ThemePalette; color: string }[] = [

@@ -2,8 +2,8 @@
 
 import Link from 'next/link';
 import { ArrowRight, Terminal, GitFork, Check, Copy } from 'lucide-react';
-import { McButton } from '@/components/ui/mc-button';
-import { McCard } from '@/components/ui/mc-card';
+import { McButton } from '@/registry/ui/mc-button';
+import { McCard } from '@/registry/ui/mc-card';
 import { useState } from 'react';
 
 function Hero() {

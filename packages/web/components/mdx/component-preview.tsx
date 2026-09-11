@@ -7,6 +7,13 @@ import { Index } from '@/__registry__';
 export const ComponentPreview: React.FC<{ name: string }> = ({ name }) => {
   const Preview = React.useMemo(() => {
     const Component = Index[name]?.component;
+    if (!Component) {
+      return (
+        <div className="text-muted-foreground text-sm">
+          Preview component &quot;{name}&quot; was not found in registry.
+        </div>
+      );
+    }
     return <Component />;
   }, [name]);
   return (

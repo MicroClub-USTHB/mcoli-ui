@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 
-import { McButton } from '@/components/ui/mc-button';
+import { McButton } from '@/registry/ui/mc-button';
 import { McCard } from '@/registry/ui/mc-card';
 import { McInput, McInputButton } from '@/registry/ui/mc-input';
 import { McSwitch } from '@/registry/ui/mc-switch';
