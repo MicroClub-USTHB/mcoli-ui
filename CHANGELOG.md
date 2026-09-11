@@ -7,29 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v0.3.0](https://github.com/MicroClub-USTHB/mcoli-ui/releases/tag/v0.3.0) - 2026-09-11
 
-Components now install to `components/ui/` instead of `components/`, and composed components pull in the components they depend on. Both are breaking changes to where files land in your project, so this is a minor bump rather than a patch (in `0.x`, the minor slot is the breaking slot).
-
 ### Changed
 
-- **BREAKING** — Registry items are typed `registry:ui` instead of `registry:component`, so `mcoli-ui add <component>` now writes to your `components/ui` directory (the `aliases.ui` path in `components.json`) rather than `components`. This matches what the documentation has always described, and what `shadcn/ui` itself does for its own primitives.
-- **BREAKING** — `mc-alert-dialog`, `mc-calendar`, `mc-carousel`, `mc-dialog` and `mc-sidebar` now declare `registryDependencies`, so adding any of them also installs the components they import. Previously they installed alone and left an unresolvable import behind.
+- **Breaking**: components are typed `registry:ui` instead of `registry:component`, so `add` installs to `components/ui` instead of `components`
+- **Breaking**: `mc-alert-dialog`, `mc-calendar`, `mc-carousel`, `mc-dialog` and `mc-sidebar` declare `registryDependencies`, so adding them also installs the components they import
 
 ### Fixed
 
-- `list` no longer depends on a single item type; it accepts both `registry:ui` and `registry:component`, so the command keeps working against registries deployed before this release.
-- Cross-component imports in distributed source are now written uniformly as `@/registry/ui/<name>`, which the shadcn CLI rewrites to your configured alias on install. Previously some components shipped a hardcoded `@/components/ui/<name>` that was never rewritten and pointed at a directory nothing was installed into.
-- Removed a stale `mc-drawer-card.json` from the served registry; it had no corresponding component.
+- `list` accepts both `registry:ui` and `registry:component`, so it keeps working against registries deployed before this release
+- Cross-component imports ship as `@/registry/ui/<name>` so the shadcn CLI rewrites them to your alias (some previously shipped a hardcoded `@/components/ui/<name>` that resolved nowhere)
+- Removed stale `mc-drawer-card.json` from the served registry
 
 ### Migration
 
-Existing files are not moved or deleted for you. If you added components with `0.2.x`, they are in `components/` and re-running `add` will place a second copy in `components/ui/`. To migrate:
-
-```bash
-rm components/mc-*.tsx          # remove the old copies
-npx mcoli-ui@latest add mc-button   # re-add what you use
-```
-
-Then update imports from `@/components/mc-<name>` to `@/components/ui/mc-<name>`.
+- Delete the old copies (`rm components/mc-*.tsx`), re-add the components you use, and update imports from `@/components/mc-<name>` to `@/components/ui/mc-<name>`
 
 ## [v0.2.1](https://github.com/MicroClub-USTHB/mcoli-ui/releases/tag/v0.2.1) - 2026-03-30
 
