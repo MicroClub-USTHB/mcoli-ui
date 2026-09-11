@@ -2303,6 +2303,7 @@
       "title": "MicroClub Sidebar",
       "description": "A sidebar component for MicroClub UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
       "files": [
         {
           "path": "registry/ui/mc-sidebar.tsx",
@@ -2355,6 +2356,7 @@
       "title": "MicroClub Dialog",
       "description": "A dialog component for MicroClub UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
+      "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
       "files": [
         {
           "path": "registry/ui/mc-dialog.tsx",
@@ -2368,6 +2370,7 @@
       "title": "MicroClub Alert Dialog",
       "description": "An alert dialog component for MicroClub UI",
       "dependencies": ["@base-ui/react"],
+      "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
       "files": [
         {
           "path": "registry/ui/mc-alert-dialog.tsx",
@@ -2511,6 +2514,10 @@
       "title": "MicroClub Calendar",
       "description": "A calendar component for MicroClub UI",
       "dependencies": ["react-day-picker", "date-fns", "lucide-react"],
+      "registryDependencies": [
+        "https://mcoli-ui.microclub.info/r/mc-button.json",
+        "https://mcoli-ui.microclub.info/r/mc-popover.json"
+      ],
       "files": [
         {
           "path": "registry/ui/mc-calendar.tsx",
@@ -2615,6 +2622,7 @@
       "title": "MicroClub Carousel",
       "description": "A carousel component for MicroClub UI",
       "dependencies": ["embla-carousel-react", "lucide-react"],
+      "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
       "files": [
         {
           "path": "registry/ui/mc-carousel.tsx",

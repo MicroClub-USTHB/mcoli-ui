@@ -4,6 +4,7 @@
   "title": "MicroClub Alert Dialog",
   "description": "An alert dialog component for MicroClub UI",
   "dependencies": ["@base-ui/react"],
+  "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
   "files": [
     {
       "path": "registry/ui/mc-alert-dialog.tsx",

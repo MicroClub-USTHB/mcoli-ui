@@ -4,6 +4,10 @@
   "title": "MicroClub Calendar",
   "description": "A calendar component for MicroClub UI",
   "dependencies": ["react-day-picker", "date-fns", "lucide-react"],
+  "registryDependencies": [
+    "https://mcoli-ui.microclub.info/r/mc-button.json",
+    "https://mcoli-ui.microclub.info/r/mc-popover.json"
+  ],
   "files": [
     {
       "path": "registry/ui/mc-calendar.tsx",

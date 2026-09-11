@@ -4,6 +4,7 @@
   "title": "MicroClub Carousel",
   "description": "A carousel component for MicroClub UI",
   "dependencies": ["embla-carousel-react", "lucide-react"],
+  "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
   "files": [
     {
       "path": "registry/ui/mc-carousel.tsx",

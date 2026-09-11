@@ -1,4 +1,5 @@
 import type { Registry } from 'shadcn/schema';
+import { REGISTRY_URL } from './consts';
 
 export const ui: Registry['items'] = [
   {
@@ -156,6 +157,7 @@ export const ui: Registry['items'] = [
       },
     ],
     dependencies: ['@base-ui/react', 'lucide-react'],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-button.json`],
   },
   {
     name: 'mc-tabs',
@@ -208,6 +210,7 @@ export const ui: Registry['items'] = [
       },
     ],
     dependencies: ['@base-ui/react', 'lucide-react'],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-button.json`],
   },
   {
     name: 'mc-alert-dialog',
@@ -221,6 +224,7 @@ export const ui: Registry['items'] = [
       },
     ],
     dependencies: ['@base-ui/react'],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-button.json`],
   },
   {
     name: 'mc-alert',
@@ -364,6 +368,7 @@ export const ui: Registry['items'] = [
       },
     ],
     dependencies: ['react-day-picker', 'date-fns', 'lucide-react'],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-button.json`, `${REGISTRY_URL}/r/mc-popover.json`],
   },
   {
     name: 'mc-scrollarea',
@@ -468,5 +473,6 @@ export const ui: Registry['items'] = [
       },
     ],
     dependencies: ['embla-carousel-react', 'lucide-react'],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-button.json`],
   },
 ];

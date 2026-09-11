@@ -4,6 +4,7 @@
   "title": "MicroClub Sidebar",
   "description": "A sidebar component for MicroClub UI",
   "dependencies": ["@base-ui/react", "lucide-react"],
+  "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
   "files": [
     {
       "path": "registry/ui/mc-sidebar.tsx",
