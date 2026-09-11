@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [v0.3.1](https://github.com/MicroClub-USTHB/mcoli-ui/releases/tag/v0.3.1) - 2026-09-11
+
+### Fixed
+
+- `init` passes `--yes` to shadcn, so the theme is actually installed instead of being skipped at a confirmation prompt while the command reported success
+- `add` passes `--yes` as well, so it no longer stalls on a prompt in non-interactive shells (existing files are still left untouched)
+- `add` exits with a non-zero code when a component fails, so CI and `&&` chains can see it
+- `mc-progress` and `mc-slider` declare `'use client'`, so they no longer crash the build when used from a server component
+
 ## [v0.3.0](https://github.com/MicroClub-USTHB/mcoli-ui/releases/tag/v0.3.0) - 2026-09-11
 
 ### Changed
