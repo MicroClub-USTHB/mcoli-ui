@@ -7,7 +7,7 @@
   "files": [
     {
       "path": "registry/ui/mc-skeleton.tsx",
-      "content": "import { cn } from '@/lib/utils';\r\n\r\ntype McSkeletonProps = {\r\n  width?: number;\r\n  height?: number;\r\n  rectangle?: boolean;\r\n} & React.ComponentProps<'div'>;\r\n\r\nfunction McSkeleton({ className, rectangle, width, height, ...props }: McSkeletonProps) {\r\n  return (\r\n    <div\r\n      data-slot=\"skeleton\"\r\n      style={{\r\n        width,\r\n        height,\r\n        ...(height === width ? { marginRight: 16 } : { marginBottom: 8 }),\r\n      }}\r\n      className={cn('animate-pulse bg-muted', rectangle ? 'rounded-md' : 'rounded-full', className)}\r\n      {...props}\r\n    />\r\n  );\r\n}\r\n\r\nexport { McSkeleton };\r\n",
+      "content": "import { cn } from '@/lib/utils';\n\ntype McSkeletonProps = {\n  width?: number;\n  height?: number;\n  rectangle?: boolean;\n} & React.ComponentProps<'div'>;\n\nfunction McSkeleton({ className, rectangle, width, height, ...props }: McSkeletonProps) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      style={{\n        width,\n        height,\n        ...(height === width ? { marginRight: 16 } : { marginBottom: 8 }),\n      }}\n      className={cn('animate-pulse bg-muted', rectangle ? 'rounded-md' : 'rounded-full', className)}\n      {...props}\n    />\n  );\n}\n\nexport { McSkeleton };\n",
       "type": "registry:component"
     }
   ],
