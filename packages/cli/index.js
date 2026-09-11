@@ -258,6 +258,9 @@ function handleAdd(componentNames) {
         `Error adding ${ansis.red(componentName)}:`,
         error instanceof Error ? error.message : String(error)
       );
+      // Keep going through the remaining components, but make the failure
+      // visible to callers such as CI and && chains.
+      process.exitCode = 1;
     }
   }
 }
