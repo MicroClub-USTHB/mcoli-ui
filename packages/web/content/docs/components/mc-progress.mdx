@@ -47,10 +47,10 @@ If you prefer manual control:
 <Step>Install the core dependencies</Step>
 
 <Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
-  <Tab value="npm">npm install class-variance-authority lucide-react</Tab>
-  <Tab value="pnpm">pnpm add class-variance-authority lucide-react</Tab>
-  <Tab value="yarn">yarn add class-variance-authority lucide-react</Tab>
-  <Tab value="bun">bun add class-variance-authority lucide-react</Tab>
+  <Tab value="npm">npm install lucide-react</Tab>
+  <Tab value="pnpm">pnpm add lucide-react</Tab>
+  <Tab value="yarn">yarn add lucide-react</Tab>
+  <Tab value="bun">bun add lucide-react</Tab>
 </Tabs>
 
 <Step>Copy the source code</Step>
@@ -82,31 +82,6 @@ export default function Example() {
   );
 }
 ```
-
-## Composition Model
-
-`McProgress` exposes sub-components from one entry point:
-
-- `McProgress.Track`
-- `McProgress.Segments`
-- `McProgress.Label`
-- `McProgress.FloatingLabel`
-- `McProgress.Circle`
-- `McProgress.Stepper`
-- `McProgress.Step`
-- `McProgress.StepLine`
-
-### Important Context Rule
-
-These sub-components **must be rendered inside** `McProgress`:
-
-- `Track`
-- `Segments`
-- `Label`
-- `FloatingLabel`
-- `Circle`
-
-`Stepper`, `Step`, and `StepLine` are primitives and can be used standalone.
 
 ## Examples
 
@@ -292,17 +267,3 @@ Also supports standard `HTMLDivElement` props.
 | `className`   | `string`                     | `undefined`    | Extra classes for the connector line           |
 
 Also supports standard `HTMLDivElement` props.
-
-## Accessibility Notes
-
-- `McProgress` root exposes `role="progressbar"`, `aria-valuenow`, `aria-valuemin`, and `aria-valuemax`.
-- Keep labels and progress intent visible in surrounding UI for better context.
-- For stepper flows, add semantic headings or text labels near steps in your product UI.
-
-## Styling and Customization Tips
-
-- Use `className` on every sub-component for local styling adjustments.
-- Use `barClassName` on `Track` to style only the filled bar.
-- Use `formatter` on `Label` and `FloatingLabel` for localized or custom text.
-- Use `icon` on `Step` for branded completion icons.
-- For complex product themes, keep your color tokens (`primary`, `muted`, `foreground`) consistent globally instead of hardcoding per component.

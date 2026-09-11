@@ -341,7 +341,19 @@ export const examples: Registry['items'] = [
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-separator.json`],
   },
-
+  {
+    name: 'mc-progress-demo',
+    type: 'registry:example',
+    title: 'MicroClub Progress Demo',
+    description: 'Demo for MicroClub Progress',
+    files: [
+      {
+        path: 'examples/mc-progress-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-progress.json`],
+  },
   {
     name: 'mc-calendar-demo',
     type: 'registry:example',
@@ -458,18 +470,5 @@ export const examples: Registry['items'] = [
       },
     ],
     registryDependencies: [`${REGISTRY_URL}/r/mc-carousel.json`],
-  },
-  {
-    name: 'mc-progress-demo',
-    type: 'registry:example',
-    title: 'MicroClub Progress Demo',
-    description: 'Demo for MicroClub Progress',
-    files: [
-      {
-        path: 'examples/mc-progress-demo.tsx',
-        type: 'registry:example',
-      },
-    ],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-progress.json`],
   },
 ];

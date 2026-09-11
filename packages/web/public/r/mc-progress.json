@@ -3,7 +3,7 @@
   "name": "mc-progress",
   "title": "MicroClub Progress",
   "description": "A progress component for MicroClub UI",
-  "dependencies": ["@base-ui/react", "lucide-react"],
+  "dependencies": ["lucide-react"],
   "files": [
     {
       "path": "registry/ui/mc-progress.tsx",
