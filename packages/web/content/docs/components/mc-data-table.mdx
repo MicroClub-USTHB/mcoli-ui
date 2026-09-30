@@ -1,9 +1,301 @@
 ---
 title: MC Data Table
-description: A powerful table component with sorting, filtering, and pagination.
+description: A table component with sorting, row selection, search, and pagination.
 ---
 
-<Callout type="warn">
-  This component is coming soon. Check our [contributing guide](/docs/introduction#contributing) for
-  more information.
-</Callout>
+## Overview
+
+The `mc-data-table` component is a composable data table for MicroClub UI, built on [TanStack Table v9](https://tanstack.com/table).
+
+It includes:
+
+- **`McDataTable`** which takes `columns` and `data` and handles sorting, row selection, search, and pagination
+- **Card chrome** (`McDataTableCard`, `McDataTableHeader`, `McDataTableToolbar`) for the title, actions, tabs, and search above the table
+- **`McDataTableEmpty`** for empty, no-results, and error states
+- **`McDataTableCellUser`** for the common avatar + title + subtitle cell
+- **Table primitives** (`McTable`, `McTableRow`, `McTableCell`, …) for static tables that need no logic
+
+## Preview
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-data-table-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-data-table-demo" />
+  </Tab>
+</Tabs>
+
+## Add to Your Project
+
+Deploy the `mc-data-table` directly to your `components/ui` directory:
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npx mcoli-ui@latest add mc-data-table</Tab>
+  <Tab value="pnpm">pnpm dlx mcoli-ui@latest add mc-data-table</Tab>
+  <Tab value="yarn">yarn dlx mcoli-ui@latest add mc-data-table</Tab>
+  <Tab value="bun">bunx mcoli-ui@latest add mc-data-table</Tab>
+</Tabs>
+
+This also installs `mc-button`, `mc-checkbox`, and `mc-tooltip`.
+
+### Manual Setup
+
+If you prefer manual control:
+
+<Steps>
+
+<Step>Install the core dependencies</Step>
+
+<Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
+  <Tab value="npm">npm install @tanstack/react-table lucide-react</Tab>
+  <Tab value="pnpm">pnpm add @tanstack/react-table lucide-react</Tab>
+  <Tab value="yarn">yarn add @tanstack/react-table lucide-react</Tab>
+  <Tab value="bun">bun add @tanstack/react-table lucide-react</Tab>
+</Tabs>
+
+<Step>Add `mc-button`, `mc-checkbox`, and `mc-tooltip`</Step>
+
+<Step>Copy the source code</Step>
+
+<ComponentSource name="mc-data-table" />
+
+<Step>Adjust import paths</Step>
+
+Ensure your `@/lib/utils` (or equivalent classname helper) is correctly configured.
+
+</Steps>
+
+## Usage
+
+Define columns with `createMcDataTableColumnHelper`, then pass them to `McDataTable` with your data.
+
+```tsx
+import {
+  createMcDataTableColumnHelper,
+  McDataTable,
+  McDataTableCard,
+  McDataTableHeader,
+} from '@/components/ui/mc-data-table';
+
+type Member = { id: string; name: string; role: string };
+
+const helper = createMcDataTableColumnHelper<Member>();
+
+const columns = helper.columns([
+  helper.accessor('name', { header: 'Name' }),
+  helper.accessor('role', { header: 'Role' }),
+]);
+
+export default function Example({ members }: { members: Member[] }) {
+  return (
+    <McDataTableCard>
+      <McDataTableHeader title="Team members" badge={`${members.length} users`} />
+      <McDataTable columns={columns} data={members} getRowId={(member) => member.id} />
+    </McDataTableCard>
+  );
+}
+```
+
+Keep `columns` outside the component (or memoize it) so the table does not rebuild on every render.
+
+## Examples
+
+### Custom cells
+
+Use `cell` to render anything in a column. `McDataTableCellUser` covers the avatar + name + subtitle layout.
+
+```tsx
+helper.accessor('name', {
+  header: 'Name',
+  cell: ({ row }) => (
+    <McDataTableCellUser
+      avatar={
+        <McAvatar size="md">
+          <McAvatarImage src={row.original.avatar} />
+          <McAvatarFallback>OR</McAvatarFallback>
+        </McAvatar>
+      }
+      title={row.original.name}
+      subtitle={row.original.email}
+    />
+  ),
+}),
+```
+
+### Sorting
+
+Every accessor column is sortable by default. Click a header to cycle ascending, descending, and unsorted. Turn it off per column with `enableSorting: false`.
+
+```tsx
+helper.accessor('teams', { header: 'Teams', enableSorting: false }),
+```
+
+### Header tooltip
+
+Add a help icon with a tooltip next to a header through the column `meta`.
+
+```tsx
+helper.accessor('role', {
+  header: 'Role',
+  meta: { headerTooltip: 'The role this member holds in the club.' },
+}),
+```
+
+`meta` also accepts `headerClassName` and `cellClassName` to style a single column.
+
+### Row actions
+
+Use a display column for per-row buttons.
+
+```tsx
+helper.display({
+  id: 'actions',
+  cell: ({ row }) => (
+    <McButton
+      variant="tertiary"
+      size="sm"
+      icon="only"
+      iconDefinition={<PencilIcon />}
+      aria-label={`Edit ${row.original.name}`}
+    />
+  ),
+}),
+```
+
+### Row selection
+
+`enableRowSelection` adds checkboxes to the first column. The header checkbox selects every row on the current page and shows an indeterminate state when only some are selected. Pass `rowSelection` and `onRowSelectionChange` to control the selection yourself.
+
+```tsx
+const [rowSelection, setRowSelection] = React.useState<RowSelectionState>({});
+
+<McDataTable
+  columns={columns}
+  data={members}
+  getRowId={(member) => member.id}
+  enableRowSelection
+  rowSelection={rowSelection}
+  onRowSelectionChange={setRowSelection}
+/>;
+```
+
+Always pass `getRowId` with selection so selected rows stay stable when data is sorted, filtered, or reloaded.
+
+### Toolbar and search
+
+Put tabs, search, and filter buttons in `McDataTableToolbar`, and pass the search text as `globalFilter`.
+
+```tsx
+const [search, setSearch] = React.useState('');
+
+<McDataTableCard>
+  <McDataTableHeader
+    title="Vendor movements"
+    badge="240 vendors"
+    description="Keep track of vendors and their security ratings."
+    actions={<McButton size="sm">Add vendor</McButton>}
+  />
+  <McDataTableToolbar>
+    <McTabs defaultValue="all">...</McTabs>
+    <McInput
+      placeholder="Search"
+      value={search}
+      onChange={(event) => setSearch(event.target.value)}
+    />
+  </McDataTableToolbar>
+  <McDataTable columns={columns} data={vendors} globalFilter={search} pagination="compact" />
+</McDataTableCard>;
+```
+
+### Pagination styles
+
+| Value        | Footer                                          |
+| ------------ | ----------------------------------------------- |
+| `"numbered"` | Previous, page numbers, Next                    |
+| `"compact"`  | "Page 1 of 10" with Previous and Next buttons   |
+| `"minimal"`  | Arrow buttons around "Page 1 of 10", for mobile |
+| `false`      | No footer; every row is shown                   |
+
+### Empty and error states
+
+`empty` is rendered in place of the rows when there is no data or the search matches nothing. For a failed load, render `McDataTableEmpty` instead of the table.
+
+```tsx
+<McDataTable
+  columns={columns}
+  data={vendors}
+  globalFilter={search}
+  empty={
+    <McDataTableEmpty
+      icon={<SearchIcon />}
+      title="No vendors found"
+      description={`Your search "${search}" did not match any vendors.`}
+      actions={<McButton onClick={() => setSearch('')}>Clear search</McButton>}
+    />
+  }
+/>
+```
+
+## API Reference
+
+### `McDataTable`
+
+| Prop                   | Type                                            | Default      | Description                                   |
+| ---------------------- | ----------------------------------------------- | ------------ | --------------------------------------------- |
+| `columns`              | `McDataTableColumnDef<TData>[]`                 | —            | Column definitions                            |
+| `data`                 | `TData[]`                                       | —            | Rows to display                               |
+| `getRowId`             | `(row: TData, index: number) => string`         | row index    | Stable id for each row                        |
+| `enableRowSelection`   | `boolean`                                       | `false`      | Show selection checkboxes in the first column |
+| `rowSelection`         | `RowSelectionState`                             | `undefined`  | Controlled selection (`{ [rowId]: true }`)    |
+| `onRowSelectionChange` | `OnChangeFn<RowSelectionState>`                 | `undefined`  | Called when the selection changes             |
+| `globalFilter`         | `string`                                        | `undefined`  | Search text matched against every column      |
+| `pageSize`             | `number`                                        | `10`         | Rows per page                                 |
+| `pagination`           | `"numbered" \| "compact" \| "minimal" \| false` | `"numbered"` | Footer style, or `false` to show every row    |
+| `empty`                | `React.ReactNode`                               | "No results" | Rendered when there are no rows               |
+| `className`            | `string`                                        | `undefined`  | Extra classes for the wrapper                 |
+
+### Column `meta`
+
+| Field             | Type     | Description                                 |
+| ----------------- | -------- | ------------------------------------------- |
+| `headerTooltip`   | `string` | Shows a help icon with this tooltip text    |
+| `headerClassName` | `string` | Extra classes for this column's header cell |
+| `cellClassName`   | `string` | Extra classes for this column's body cells  |
+
+### `McDataTableHeader`
+
+| Prop          | Type              | Default | Description                     |
+| ------------- | ----------------- | ------- | ------------------------------- |
+| `title`       | `React.ReactNode` | —       | Table title                     |
+| `badge`       | `React.ReactNode` | —       | Count badge next to the title   |
+| `description` | `React.ReactNode` | —       | Supporting text under the title |
+| `actions`     | `React.ReactNode` | —       | Buttons aligned to the right    |
+
+Also supports standard `HTMLDivElement` props.
+
+### `McDataTableEmpty`
+
+| Prop          | Type              | Default | Description                   |
+| ------------- | ----------------- | ------- | ----------------------------- |
+| `icon`        | `React.ReactNode` | —       | Icon shown in a tinted circle |
+| `title`       | `React.ReactNode` | —       | Heading                       |
+| `description` | `React.ReactNode` | —       | Supporting text               |
+| `actions`     | `React.ReactNode` | —       | Buttons under the text        |
+
+Also supports standard `HTMLDivElement` props.
+
+### `McDataTableCellUser`
+
+| Prop       | Type              | Default | Description                |
+| ---------- | ----------------- | ------- | -------------------------- |
+| `avatar`   | `React.ReactNode` | —       | Avatar, logo, or file icon |
+| `title`    | `React.ReactNode` | —       | Primary text               |
+| `subtitle` | `React.ReactNode` | —       | Secondary text             |
+
+### Other exports
+
+- `McDataTableCard` and `McDataTableToolbar` are styled `div` wrappers.
+- `McDataTablePagination` and `McDataTableColumnHeader` are the pieces `McDataTable` renders internally, exported for custom layouts.
+- `McTable`, `McTableHeader`, `McTableBody`, `McTableRow`, `McTableHead`, `McTableCell`, and `McTableCaption` are styled table elements with no logic.
+- `mcDataTableFeatures` is the TanStack feature set the table registers (sorting, filtering, selection, pagination). Use it with `useTable` if you need full control.

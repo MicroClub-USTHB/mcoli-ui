@@ -2630,6 +2630,24 @@
         }
       ],
       "type": "registry:ui"
+    },
+    {
+      "name": "mc-data-table",
+      "title": "MicroClub Data Table",
+      "description": "A data table component with sorting, selection and pagination for MicroClub UI",
+      "dependencies": ["@tanstack/react-table", "lucide-react"],
+      "registryDependencies": [
+        "https://mcoli-ui.microclub.info/r/mc-button.json",
+        "https://mcoli-ui.microclub.info/r/mc-checkbox.json",
+        "https://mcoli-ui.microclub.info/r/mc-tooltip.json"
+      ],
+      "files": [
+        {
+          "path": "registry/ui/mc-data-table.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "type": "registry:ui"
     }
   ]
 }
