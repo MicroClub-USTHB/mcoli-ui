@@ -305,6 +305,24 @@ export const ui: Registry['items'] = [
     dependencies: ['@base-ui/react', 'lucide-react'],
   },
   {
+    name: 'mc-data-table',
+    type: 'registry:ui',
+    title: 'MicroClub Data Table',
+    description: 'A data table component with sorting, selection and pagination for MicroClub UI',
+    files: [
+      {
+        path: 'ui/mc-data-table.tsx',
+        type: 'registry:ui',
+      },
+    ],
+    dependencies: ['@tanstack/react-table', 'lucide-react'],
+    registryDependencies: [
+      `${REGISTRY_URL}/r/mc-button.json`,
+      `${REGISTRY_URL}/r/mc-checkbox.json`,
+      `${REGISTRY_URL}/r/mc-tooltip.json`,
+    ],
+  },
+  {
     name: 'mc-accordion',
     type: 'registry:ui',
     title: 'MicroClub Accordion',

@@ -302,6 +302,23 @@ export const examples: Registry['items'] = [
     registryDependencies: [`${REGISTRY_URL}/r/mc-context-menu.json`],
   },
   {
+    name: 'mc-data-table-demo',
+    type: 'registry:example',
+    title: 'MicroClub Data Table Demo',
+    description: 'Demo for MicroClub Data Table',
+    files: [
+      {
+        path: 'examples/mc-data-table-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [
+      `${REGISTRY_URL}/r/mc-data-table.json`,
+      `${REGISTRY_URL}/r/mc-avatar.json`,
+      `${REGISTRY_URL}/r/mc-badge.json`,
+    ],
+  },
+  {
     name: 'mc-accordion-demo',
     type: 'registry:example',
     title: 'MicroClub Accordion Demo',
