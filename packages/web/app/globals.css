@@ -9,6 +9,7 @@
 @import './themes/robotics.css';
 @import './themes/it.css';
 @import './landing.css';
+@import './docs.css';
 
 @theme inline {
   --color-accent-blue-50: #0066ff;
@@ -216,11 +217,6 @@
   --font-sans: var(--font-sans);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
-}
-
-.fd-step::before {
-  background-color: var(--primary) !important;
-  color: var(--primary-foreground) !important;
 }
 
 @layer base {

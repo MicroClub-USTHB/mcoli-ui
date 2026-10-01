@@ -1,0 +1,92 @@
+/*
+ * Docs-site refinements so Fumadocs matches the landing page.
+ * Colors come from the theme tokens (via --color-fd-* in globals.css), so every rule
+ * re-skins with data-theme and .dark.
+ */
+
+/* Theme-tinted glow + fading grid behind the top of every docs page (Notebook containerProps). */
+@utility docs-backdrop {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 30rem;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(
+        ellipse 55% 70% at 50% 0%,
+        color-mix(in oklab, var(--primary) 16%, transparent),
+        transparent 70%
+      ),
+      linear-gradient(to right, var(--border) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+    background-size:
+      100% 100%,
+      56px 56px,
+      56px 56px;
+    mask-image: radial-gradient(ellipse 70% 100% at 50% 0%, #000 20%, transparent 75%);
+    opacity: 0.3;
+  }
+}
+
+/* Borders are softer in dark themes, so the grid can come forward a bit. */
+.dark .docs-backdrop::before {
+  opacity: 0.55;
+}
+
+/* Breadcrumb as a landing-style eyebrow: mono, uppercase, primary. */
+@utility docs-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+
+  & a,
+  & span {
+    color: inherit;
+  }
+}
+
+/* Headings use the brand display face, like header-* on the landing page. */
+.prose :where(h1, h2, h3, h4):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  font-family:
+    var(--font-plus-jakarta-sans),
+    Plus Jakarta Sans,
+    system-ui,
+    sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.prose :where(h2):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  font-weight: 700;
+}
+
+/* Inline code: token-tinted chip instead of plain muted. */
+.prose :where(:not(pre) > code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  border: 1px solid var(--border);
+  background-color: color-mix(in oklab, var(--primary) 7%, var(--card));
+  color: var(--foreground);
+  border-radius: var(--radius-md);
+  padding: 0.125rem 0.375rem;
+  font-size: 0.85em;
+}
+
+/* Sidebar: brand surface + a primary accent rail on the active link. */
+#nd-sidebar a[data-active='true'] {
+  font-weight: 500;
+  background-color: color-mix(in oklab, var(--primary) 12%, transparent);
+  color: var(--sidebar-primary);
+}
+
+/* Fumadocs steps use the brand primary (kept from the previous override). */
+.fd-step::before {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+  font-family: var(--font-plus-jakarta-sans);
+  font-weight: 700;
+}

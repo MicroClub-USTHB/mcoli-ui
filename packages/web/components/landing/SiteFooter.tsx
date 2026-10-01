@@ -104,7 +104,7 @@ export function SiteFooter() {
         className="pointer-events-none mx-auto -mb-[4vw] max-w-6xl px-4 select-none md:px-6"
       >
         <p className="bg-linear-to-b from-foreground/10 to-transparent bg-clip-text text-center font-plus-jakarta-sans text-[22vw] leading-none font-extrabold tracking-tighter text-transparent lg:text-[15rem]">
-          mcoli
+          mcoli-ui
         </p>
       </div>
     </footer>

@@ -7,26 +7,14 @@ import { Foundations } from '@/components/landing/Foundations';
 import { Hero } from '@/components/landing/Hero';
 import { HowItWorks } from '@/components/landing/HowItWorks';
 import { SiteFooter } from '@/components/landing/SiteFooter';
-import { SiteHeader } from '@/components/landing/SiteHeader';
 import { Stats } from '@/components/landing/Stats';
 import { ThemeGallery } from '@/components/landing/ThemeGallery';
+import { SiteHeader } from '@/components/site/SiteHeader';
+import { getGithubStars } from '@/lib/github';
 import { ui } from '@/registry/registry-ui';
 
-async function getStars(): Promise<number | null> {
-  try {
-    const res = await fetch('https://api.github.com/repos/MicroClub-USTHB/mcoli-ui', {
-      next: { revalidate: 3600 },
-    });
-    if (!res.ok) return null;
-    const data = (await res.json()) as { stargazers_count?: number };
-    return data.stargazers_count ?? null;
-  } catch {
-    return null;
-  }
-}
-
 export default async function Home() {
-  const stars = await getStars();
+  const stars = await getGithubStars();
   const components = ui.map((item) => ({ name: item.name, title: item.title ?? item.name }));
 
   return (
