@@ -234,7 +234,7 @@ When adding a new item, you will create/edit these files:
 | `mc-popover`         | ✅           | ✅        |
 | `mc-dropdown-menu`   | ✅           | ✅        |
 | `mc-context-menu`    | ✅           | ✅        |
-| `mc-data-table`      | ✅           |           |
+| `mc-data-table`      | ✅           | ✅        |
 | `mc-accordion`       | ✅           | ✅        |
 | `mc-collapsible`     | ✅           | ✅        |
 | `mc-separator`       | ✅           | ✅        |

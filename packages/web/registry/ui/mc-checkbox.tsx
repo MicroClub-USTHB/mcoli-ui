@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { Checkbox as CheckboxPrimitive } from '@base-ui/react/checkbox';
 import { cva, type VariantProps } from 'class-variance-authority';
-import { CheckIcon } from 'lucide-react';
+import { CheckIcon, MinusIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -95,7 +95,7 @@ function McCheckbox({
           'focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-ring',
           'focus-within:outline-none focus-within:ring-4 focus-within:ring-ring',
           'data-disabled:border-muted-foreground data-disabled:hover:border-muted-foreground',
-          'data-checked:border-primary'
+          'data-checked:border-primary data-indeterminate:border-primary'
         )}
         checked={checked}
         onCheckedChange={onCheckedChange}
@@ -108,7 +108,8 @@ function McCheckbox({
           data-slot="checkbox-indicator"
           className="flex items-center justify-center text-current data-disabled:text-muted-foreground"
         >
-          <CheckIcon className="stroke-3" />
+          <CheckIcon className="stroke-3 in-data-indeterminate:hidden" />
+          <MinusIcon className="hidden stroke-3 in-data-indeterminate:block" />
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
 
