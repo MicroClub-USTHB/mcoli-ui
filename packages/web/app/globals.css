@@ -8,6 +8,7 @@
 @import './themes/game-dev.css';
 @import './themes/robotics.css';
 @import './themes/it.css';
+@import './landing.css';
 
 @theme inline {
   --color-accent-blue-50: #0066ff;

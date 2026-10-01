@@ -1,48 +1,50 @@
-import { ModeToggle } from '@/components/ModeToggle';
-import { ThemeSwitcher } from '@/components/ThemeSwitcher';
-import BackgroundBlur from '@/components/sections/BackgroundBlur';
-import Blur from '@/components/sections/Blur';
-import BorderRadius from '@/components/sections/BorderRadius';
-import Colors from '@/components/sections/Colors';
-import Footer from '@/components/sections/Footer';
-import Hero from '@/components/sections/Hero';
-import Shadow from '@/components/sections/Shadow';
-import { Showcase } from '@/components/sections/Showcase';
-import Stroke from '@/components/sections/Stroke';
-import TextStyles from '@/components/sections/TextStyles';
-import Link from 'next/link';
-import Logo from '@/components/Logo';
+import { ComponentIndex } from '@/components/landing/ComponentIndex';
+import { ComponentShowcase } from '@/components/landing/ComponentShowcase';
+import { Faq } from '@/components/landing/Faq';
+import { Features } from '@/components/landing/Features';
+import { FinalCta } from '@/components/landing/FinalCta';
+import { Foundations } from '@/components/landing/Foundations';
+import { Hero } from '@/components/landing/Hero';
+import { HowItWorks } from '@/components/landing/HowItWorks';
+import { SiteFooter } from '@/components/landing/SiteFooter';
+import { SiteHeader } from '@/components/landing/SiteHeader';
+import { Stats } from '@/components/landing/Stats';
+import { ThemeGallery } from '@/components/landing/ThemeGallery';
+import { ui } from '@/registry/registry-ui';
 
-export default function Home() {
+async function getStars(): Promise<number | null> {
+  try {
+    const res = await fetch('https://api.github.com/repos/MicroClub-USTHB/mcoli-ui', {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return null;
+    const data = (await res.json()) as { stargazers_count?: number };
+    return data.stargazers_count ?? null;
+  } catch {
+    return null;
+  }
+}
+
+export default async function Home() {
+  const stars = await getStars();
+  const components = ui.map((item) => ({ name: item.name, title: item.title ?? item.name }));
+
   return (
-    <div className="relative flex min-h-screen flex-col bg-background text-foreground overflow-x-hidden">
-      {/* Sticky Glassmorphic Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg supports-backdrop-filter:bg-background/60">
-        <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 md:px-8">
-          <Link href="/" className="transition-opacity hover:opacity-80">
-            <Logo />
-          </Link>
-          <div className="flex items-center gap-3">
-            <ThemeSwitcher />
-            <ModeToggle />
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="flex-1 px-3 sm:px-6 md:px-10 xl:px-16 py-12 sm:py-16 md:py-20 flex flex-col items-center gap-16 sm:gap-20 md:gap-24">
-        <Hero />
-        <Showcase />
-        <Colors />
-        <TextStyles />
-        <Shadow />
-        <Stroke />
-        <BorderRadius />
-        <Blur />
-        <BackgroundBlur />
+    <div className="relative flex min-h-screen flex-col overflow-x-clip bg-background text-foreground">
+      <SiteHeader stars={stars} />
+      <main className="flex-1">
+        <Hero componentCount={components.length} />
+        <Stats componentCount={components.length} />
+        <HowItWorks />
+        <ThemeGallery />
+        <ComponentShowcase />
+        <ComponentIndex components={components} />
+        <Foundations />
+        <Features />
+        <Faq />
+        <FinalCta />
       </main>
-
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }
