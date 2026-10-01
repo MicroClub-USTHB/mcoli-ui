@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState } from 'react';
+import { withViewTransition } from '@/lib/view-transition';
 
 export type ThemePalette = 'primary' | 'secondary' | 'game-dev' | 'robotics' | 'it';
 
@@ -21,9 +22,11 @@ export function ColorThemeProvider({ children }: { children: React.ReactNode }) 
   });
 
   const setColorTheme = (theme: ThemePalette) => {
-    setColorThemeState(theme);
-    localStorage.setItem('mcoli-ui-color-theme', theme);
-    document.documentElement.setAttribute('data-theme', theme);
+    withViewTransition(() => {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('mcoli-ui-color-theme', theme);
+      setColorThemeState(theme);
+    });
   };
 
   // We always render the Provider to keep the React tree stable and prevent script injection errors

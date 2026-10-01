@@ -104,7 +104,7 @@ function McInput({
         )}
 
         {/*
-          has-data-attached:items-stretch — When an attached McInputButton is
+          has-data-attached:items-stretch: when an attached McInputButton is
           anywhere inside this row, switch from center to stretch so the addon
           container fills the full row height and the button can match it.
         */}
@@ -114,10 +114,10 @@ function McInput({
               data-slot="input-addon"
               data-align="start"
               className={cn(
-                // group/addon — lets attached buttons detect start/end via group-data-[align]/addon
-                // :has(>svg:first-child):pl-3.5 — widen padding only when the edge element is an icon
-                // has-data-attached:pl-0 — flush for attached buttons (attribute selector beats type selector)
-                // has-data-attached:items-stretch — let attached button fill full height
+                // group/addon: lets attached buttons detect start/end via group-data-[align]/addon
+                // :has(>svg:first-child):pl-3.5: widen padding only when the edge element is an icon
+                // has-data-attached:pl-0: flush for attached buttons (attribute selector beats type selector)
+                // has-data-attached:items-stretch: let attached button fill full height
                 'group/addon flex shrink-0 items-center gap-2 pl-2 text-sm text-muted-foreground select-none [&:has(>svg:first-child)]:pl-3.5 has-data-attached:items-stretch has-data-attached:pl-0',
                 "[&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0"
               )}
@@ -232,7 +232,7 @@ function McInputButton({
         variant === 'filled' &&
           'h-7 rounded-md px-3 bg-primary text-primary-foreground hover:bg-primary/90',
 
-        // Attached — flush with input border, auto-detects position via group/addon.
+        // Attached: flush with input border, auto-detects position via group/addon.
         // Radius is rounded-lg minus 1px to sit inside the group's border.
         isAttached && [
           'h-full px-4 bg-primary text-primary-foreground hover:bg-primary/90 border-border',

@@ -69,7 +69,7 @@ const footerVariants = cva('flex gap-2', {
     },
   },
   compoundVariants: [
-    // cardDirection: column — matches previous footer-only (direction × align) behavior
+    // cardDirection: column: matches previous footer-only (direction × align) behavior
     {
       cardDirection: 'column',
       direction: 'row',
@@ -118,7 +118,7 @@ const footerVariants = cva('flex gap-2', {
       align: 'stretch',
       className: 'items-stretch justify-start *:min-h-0 *:flex-1',
     },
-    // cardDirection: row — horizontal card; footer sits beside header/body, align controls vertical position
+    // cardDirection: row: horizontal card; footer sits beside header/body, align controls vertical position
     // footer direction: row → children horizontal, align maps to cross-axis (items-*)
     {
       cardDirection: 'row',

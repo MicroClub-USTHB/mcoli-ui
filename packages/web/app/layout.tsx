@@ -1,8 +1,9 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { RootProvider } from 'fumadocs-ui/provider/next';
 import { ColorThemeProvider } from '@/components/ColorThemeProvider';
 import './globals.css';
 import { DM_Sans, Plus_Jakarta_Sans } from 'next/font/google';
+import { site } from '@/lib/site';
 import { cn } from '@/lib/utils';
 
 const plusJakartaSansPlusJakartaSans = Plus_Jakarta_Sans({
@@ -16,37 +17,53 @@ const dmSansDmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://mcoli-ui.microclub.info'),
-  title: 'Mcoli UI – MicroClub UI Components Library',
-  description:
-    'Official React UI component library by MicroClub. Reusable, accessible, and customizable components for modern web apps. Built with Next.js and shadcn/ui. Documented and showcased using Fumadocs.',
-  keywords: [
-    'Mcoli UI',
-    'MicroClub',
-    'UI components',
-    'React',
-    'Next.js',
-    'shadcn/ui',
-    'Component Library',
-    'Web Development',
-    'Documentation',
-    'Fumadocs',
-  ],
-  authors: [{ name: 'MicroClub' }],
+  metadataBase: new URL(site.url),
+  title: {
+    default: site.title,
+    template: `%s | ${site.name}`,
+  },
+  description: site.description,
+  applicationName: site.name,
+  authors: [{ name: site.organization.name, url: site.organization.url }],
+  creator: site.organization.name,
+  publisher: site.organization.name,
+  category: 'technology',
   openGraph: {
-    title: 'Mcoli UI – MicroClub UI Components Library',
-    description:
-      'Reusable, accessible, and customizable React components for modern web applications. Built with Next.js and shadcn/ui. Documented and showcased using Fumadocs.',
-    url: 'https://github.com/MicroClub-USTHB/mcoli-ui',
-    siteName: 'Mcoli UI',
     type: 'website',
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
+    locale: site.locale,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Mcoli UI – MicroClub UI Components Library',
-    description:
-      'Reusable, accessible, and customizable React components for modern web applications.',
+    title: site.title,
+    description: site.description,
   },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a0a' },
+  ],
+  colorScheme: 'light dark',
 };
 
 export default function RootLayout({
