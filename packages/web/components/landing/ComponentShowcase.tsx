@@ -142,7 +142,12 @@ export function ComponentShowcase({ componentCount }: { componentCount: number }
 
             <Tile name="mc-input-otp" title="Verify your email" className="lg:col-span-2">
               <p className="mb-4 text-sm text-muted-foreground">Enter the 6-digit code we sent.</p>
-              <McInputOtp maxLength={6} value={otp} onChange={setOtp}>
+              <McInputOtp
+                maxLength={6}
+                value={otp}
+                onChange={setOtp}
+                aria-label="Verification code"
+              >
                 <McInputOtpGroup>
                   <McInputOtpSlot index={0} />
                   <McInputOtpSlot index={1} />
@@ -195,6 +200,7 @@ export function ComponentShowcase({ componentCount }: { componentCount: number }
             <Tile name="mc-select" title="Assign a mentor" className="lg:col-span-2">
               <McSelect value={member} onValueChange={setMember}>
                 <McSelectTrigger
+                  aria-label="Mentor"
                   variant="avatar-leading"
                   leadingAvatar={selected ? <MiniAvatar name={selected.name} /> : null}
                 >
@@ -220,7 +226,15 @@ export function ComponentShowcase({ componentCount }: { componentCount: number }
             </Tile>
 
             <Tile name="mc-slider" title="Team size" className="lg:col-span-2" bodyClassName="pt-2">
-              <McSlider defaultValue={[4]} min={1} max={6} step={1} unity="members" border />
+              <McSlider
+                defaultValue={[4]}
+                min={1}
+                max={6}
+                step={1}
+                unity="members"
+                border
+                thumbAriaLabel="Team size"
+              />
             </Tile>
 
             <Tile name="mc-alert" title="Alerts" className="lg:col-span-3">

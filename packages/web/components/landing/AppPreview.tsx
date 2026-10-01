@@ -66,7 +66,7 @@ function Stat({
           {delta}
         </span>
       </div>
-      <McProgress value={progress} size="xs">
+      <McProgress value={progress} size="xs" aria-label={label}>
         <McProgressTrack className="rounded-full" />
       </McProgress>
     </McCard>
@@ -126,7 +126,7 @@ export function AppPreview() {
             <div className="mt-auto rounded-xl border border-sidebar-border bg-background p-3">
               <p className="text-xs font-semibold text-foreground">Storage</p>
               <p className="mb-2 text-[11px] text-muted-foreground">6.2 of 10 GB used</p>
-              <McProgress value={62} size="xs">
+              <McProgress value={62} size="xs" aria-label="Storage used">
                 <McProgressTrack className="rounded-full" />
               </McProgress>
             </div>
@@ -137,9 +137,9 @@ export function AppPreview() {
             <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
               <div>
                 <div className="mb-1 flex items-center gap-2">
-                  <h3 className="font-plus-jakarta-sans text-lg font-bold text-foreground sm:text-xl">
+                  <p className="font-plus-jakarta-sans text-lg font-bold text-foreground sm:text-xl">
                     Hackathon 2026
-                  </h3>
+                  </p>
                   <McBadge variant="secondary">Live</McBadge>
                 </div>
                 <p className="text-sm text-muted-foreground">USTHB · 48h · 62 teams competing</p>
@@ -161,7 +161,7 @@ export function AppPreview() {
                 direction="row"
                 className="hidden items-center gap-4 rounded-xl p-4 shadow-xs sm:flex"
               >
-                <McProgress value={74} size="sm">
+                <McProgress value={74} size="sm" aria-label="Check-ins">
                   <McProgressCircle showValue />
                 </McProgress>
                 <div className="min-w-0 space-y-0.5 whitespace-nowrap">
@@ -216,7 +216,11 @@ export function AppPreview() {
                     <p className="text-sm font-medium text-foreground">Registrations open</p>
                     <p className="text-xs text-muted-foreground">Closes when 64 teams are in.</p>
                   </div>
-                  <McSwitch checked={open} onCheckedChange={(v) => setOpen(Boolean(v))} />
+                  <McSwitch
+                    aria-label="Registrations open"
+                    checked={open}
+                    onCheckedChange={(v) => setOpen(Boolean(v))}
+                  />
                 </div>
               </McCard>
 

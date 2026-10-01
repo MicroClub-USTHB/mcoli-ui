@@ -157,6 +157,8 @@ function McButton({
 
       {icon !== 'only' && children}
       {icon === 'only' && !isLoading && effectiveIcon}
+      {/* Icon-only buttons keep their children as the accessible name. */}
+      {icon === 'only' && children ? <span className="sr-only">{children}</span> : null}
 
       {icon === 'trailing' && !isLoading && effectiveIcon && (
         <span data-slot="trailing-icon" className="size-4 shrink-0 [&_svg]:size-full">
