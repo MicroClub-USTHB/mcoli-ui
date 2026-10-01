@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "private": true,
+  "packageManager": "pnpm@12.8.1",
   "scripts": {
     "dev": "pnpm --filter @mcoli/web dev",
     "build": "pnpm --filter @mcoli/web build && prettier --write .",
