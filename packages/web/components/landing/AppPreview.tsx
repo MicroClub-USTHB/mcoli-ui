@@ -1,6 +1,7 @@
 'use client';
 
 import * as React from 'react';
+import dynamic from 'next/dynamic';
 import {
   CalendarDays,
   LayoutDashboard,
@@ -15,11 +16,17 @@ import {
 import { McAvatar, McAvatarFallback, McAvatarGroup } from '@/registry/ui/mc-avatar';
 import { McBadge } from '@/registry/ui/mc-badge';
 import { McButton } from '@/registry/ui/mc-button';
-import { McCalendar } from '@/registry/ui/mc-calendar';
 import { McCard } from '@/registry/ui/mc-card';
 import { McProgress, McProgressCircle, McProgressTrack } from '@/registry/ui/mc-progress';
 import { McSwitch } from '@/registry/ui/mc-switch';
 import { cn } from '@/lib/utils';
+
+// react-day-picker is ~22 KiB and this card is decorative (hidden on mobile), so it loads after
+// first paint. The placeholder matches the rendered calendar's size to avoid layout shift.
+const McCalendar = dynamic(() => import('@/registry/ui/mc-calendar').then((m) => m.McCalendar), {
+  ssr: false,
+  loading: () => <div aria-hidden className="h-[260px] w-[212px]" />,
+});
 
 const NAV = [
   { icon: LayoutDashboard, label: 'Overview', active: true },
