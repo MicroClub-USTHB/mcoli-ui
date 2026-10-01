@@ -48,6 +48,7 @@
     "@storybook/nextjs": "^10.4.1",
     "@storybook/nextjs-vite": "^10.4.1",
     "@tailwindcss/postcss": "^4",
+    "@tailwindcss/vite": "^4",
     "@types/mdx": "^2.0.13",
     "@types/node": "^25",
     "@types/react": "^19",
