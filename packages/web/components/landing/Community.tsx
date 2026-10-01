@@ -1,5 +1,6 @@
 'use client';
 
+import { getImageProps } from 'next/image';
 import { ArrowUpRight, BookMarked, GitPullRequest, History } from 'lucide-react';
 
 import { Reveal } from '@/components/landing/primitives';
@@ -55,6 +56,12 @@ const QUESTIONS = [
 
 const MAX_AVATARS = 10;
 
+/** Optimized src/srcSet for a 40px avatar (1x and 2x) from Next's image optimizer. */
+function avatarProps(src: string) {
+  const { props } = getImageProps({ src, alt: '', width: 40, height: 40 });
+  return { src: props.src, srcSet: props.srcSet, width: 40, height: 40 };
+}
+
 export function Community({ contributors }: { contributors: Contributor[] }) {
   const shown = contributors.slice(0, MAX_AVATARS);
   const extra = contributors.length - shown.length;
@@ -87,7 +94,7 @@ export function Community({ contributors }: { contributors: Contributor[] }) {
                       className="block rounded-full ring-2 ring-card transition-transform hover:z-10 hover:-translate-y-1"
                     >
                       <McAvatar size="md">
-                        <McAvatarImage src={`${c.avatarUrl}&s=80`} alt="" />
+                        <McAvatarImage {...avatarProps(c.avatarUrl)} alt="" />
                         <McAvatarFallback className="text-xs">
                           {c.login.slice(0, 2).toUpperCase()}
                         </McAvatarFallback>

@@ -93,7 +93,7 @@ export default function RootLayout({
       </head>
       <body className={`antialiased`}>
         <ColorThemeProvider>
-          <RootProvider>{children}</RootProvider>
+          <RootProvider search={{ preload: false }}>{children}</RootProvider>
         </ColorThemeProvider>
       </body>
     </html>

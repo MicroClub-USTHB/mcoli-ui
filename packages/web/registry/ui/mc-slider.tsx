@@ -14,12 +14,15 @@ function McSlider({
   showValue = true,
   border = false,
   unity,
+  thumbAriaLabel,
   onValueChange,
   ...props
 }: SliderPrimitive.Root.Props & {
   showValue?: boolean;
   border?: boolean;
   unity?: string;
+  /** Accessible name for the thumb's input, e.g. "Team size". */
+  thumbAriaLabel?: string;
 }) {
   const isControlled = value !== undefined;
 
@@ -61,6 +64,7 @@ function McSlider({
           <SliderPrimitive.Thumb
             key={index}
             data-slot="slider-thumb"
+            getAriaLabel={thumbAriaLabel ? () => thumbAriaLabel : undefined}
             className="group relative block size-3 shrink-0 rounded-full border-2 border-primary bg-muted ring-accent-foreground backdrop-blur-3xl transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:ring-3 focus-visible:ring-3 focus-visible:outline-hidden active:ring-3 active:bg-primary disabled:pointer-events-none disabled:opacity-50 disabled:bg-blue-500"
           >
             {showValue && (

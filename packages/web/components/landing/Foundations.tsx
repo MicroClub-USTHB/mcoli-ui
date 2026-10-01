@@ -587,7 +587,7 @@ function PreviewPanel() {
             <span className="text-muted-foreground">Seats filled</span>
             <span className="font-medium text-foreground">72%</span>
           </div>
-          <McProgress value={72} size="xs">
+          <McProgress value={72} size="xs" aria-label="Seats filled">
             <McProgressTrack className="rounded-full" />
           </McProgress>
         </div>

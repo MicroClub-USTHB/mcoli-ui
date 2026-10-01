@@ -6,6 +6,11 @@ const withMDX = createMDX();
 const noindex = [{ key: 'X-Robots-Tag', value: 'noindex' }];
 
 const nextConfig: NextConfig = {
+  images: {
+    // Contributor avatars on the landing page, served through the image optimizer so they get
+    // long-lived cache headers and sizes that match the 40px slot.
+    remotePatterns: [{ protocol: 'https', hostname: 'avatars.githubusercontent.com' }],
+  },
   async rewrites() {
     return [
       // Markdown copy of any docs page for AI tools: /docs/components/mc-button.md
