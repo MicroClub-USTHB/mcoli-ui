@@ -303,7 +303,7 @@ function ColorPanel() {
               <div className="px-2.5 py-2">
                 <p className="truncate text-xs font-medium text-foreground">{s.token}</p>
                 <p className="truncate font-mono text-[10px] text-muted-foreground uppercase">
-                  {values[s.token] || '—'}
+                  {values[s.token] || '-'}
                 </p>
               </div>
             </div>

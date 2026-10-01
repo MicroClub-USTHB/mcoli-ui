@@ -12,5 +12,9 @@ export function withViewTransition(update: () => void) {
     update();
     return;
   }
-  document.startViewTransition(() => flushSync(update));
+  const transition = document.startViewTransition(() => flushSync(update));
+  // The browser skips the animation (but still runs the update) if, say, the tab is hidden.
+  // That rejects these promises; nothing is wrong, so keep it out of the console.
+  transition.ready.catch(() => {});
+  transition.finished.catch(() => {});
 }

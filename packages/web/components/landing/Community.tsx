@@ -45,7 +45,7 @@ const QUESTIONS = [
   },
   {
     q: 'Can I use it outside MicroClub projects?',
-    a: 'Absolutely. It is MIT licensed. The themes carry the MicroClub identity, but the tokens are plain CSS variables you can retune.',
+    a: "Absolutely. It is MIT licensed. The themes carry MicroClub's identity, but the tokens are plain CSS variables you can retune.",
   },
   {
     q: 'Can I switch themes later?',
@@ -69,7 +69,7 @@ export function Community({ contributors }: { contributors: Contributor[] }) {
             Built by MicroClub, in the open
           </h2>
           <p className="mt-3 paragraph-md text-pretty text-muted-foreground">
-            Designed and maintained by the MicroClub dev team at USTHB. Every component is
+            Designed and maintained by MicroClub&apos;s dev team at USTHB. Every component is
             documented and has Storybook stories before it ships.
           </p>
 

@@ -1,6 +1,6 @@
 # Contributing to mcoli-ui
 
-This guide covers how to add a new registry item (component, hook, or theme) to the MicroClub registry.
+This guide covers how to add a new registry item (component, hook, or theme) to MicroClub's registry.
 
 ## Our Priority
 

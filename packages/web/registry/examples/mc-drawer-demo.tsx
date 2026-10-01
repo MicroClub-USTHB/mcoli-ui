@@ -25,11 +25,11 @@ function DesktopWithIcons() {
   return (
     <McDrawer direction="right">
       <McDrawerTrigger className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
-        Drawer — icons
+        Drawer with icons
       </McDrawerTrigger>
 
       <McDrawerContent>
-        <McDrawerTitle className="sr-only">Navigation — icons</McDrawerTitle>
+        <McDrawerTitle className="sr-only">Navigation with icons</McDrawerTitle>
         <McDrawerNav />
 
         <div className="flex flex-1 flex-col gap-0 overflow-y-auto px-0 pt-9">
@@ -52,11 +52,11 @@ function DesktopNoIcons() {
   return (
     <McDrawer direction="right">
       <McDrawerTrigger className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
-        Drawer — no icons
+        Drawer without icons
       </McDrawerTrigger>
 
       <McDrawerContent>
-        <McDrawerTitle className="sr-only">Navigation — no icons</McDrawerTitle>
+        <McDrawerTitle className="sr-only">Navigation without icons</McDrawerTitle>
         <McDrawerNav />
 
         <div className="flex flex-1 flex-col gap-0 overflow-y-auto px-0 pt-9">
@@ -77,7 +77,7 @@ function MobileSheet() {
   return (
     <McDrawer direction="bottom">
       <McDrawerTrigger className="inline-flex items-center justify-center rounded-full bg-primary px-5 py-3.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-ring/50">
-        Drawer — mobile
+        Drawer on mobile
       </McDrawerTrigger>
 
       <McDrawerContent>
