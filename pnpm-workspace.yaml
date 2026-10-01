@@ -1,2 +1,8 @@
 packages:
   - 'packages/*'
+allowBuilds:
+  core-js-pure: true
+  esbuild: true
+  msw: true
+  sharp: true
+  unrs-resolver: true
