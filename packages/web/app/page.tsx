@@ -1,48 +1,50 @@
-import { ModeToggle } from '@/components/ModeToggle';
-import { ThemeSwitcher } from '@/components/ThemeSwitcher';
-import BackgroundBlur from '@/components/sections/BackgroundBlur';
-import Blur from '@/components/sections/Blur';
-import BorderRadius from '@/components/sections/BorderRadius';
-import Colors from '@/components/sections/Colors';
-import Footer from '@/components/sections/Footer';
-import Hero from '@/components/sections/Hero';
-import Shadow from '@/components/sections/Shadow';
-import { Showcase } from '@/components/sections/Showcase';
-import Stroke from '@/components/sections/Stroke';
-import TextStyles from '@/components/sections/TextStyles';
-import Link from 'next/link';
-import Logo from '@/components/Logo';
+import { Community } from '@/components/landing/Community';
+import { ComponentShowcase } from '@/components/landing/ComponentShowcase';
+import { Features } from '@/components/landing/Features';
+import { FinalCta } from '@/components/landing/FinalCta';
+import { ThemesAndFoundations } from '@/components/landing/Foundations';
+import { Hero } from '@/components/landing/Hero';
+import { HowItWorks } from '@/components/landing/HowItWorks';
+import { SiteFooter } from '@/components/landing/SiteFooter';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { SiteHeader } from '@/components/site/SiteHeader';
+import { getGithubContributors, getGithubStars } from '@/lib/github';
+import { getHomeJsonLd } from '@/lib/seo';
+import { site } from '@/lib/site';
+import { ui } from '@/registry/registry-ui';
+import type { Metadata } from 'next';
 
-export default function Home() {
+export const metadata: Metadata = {
+  // Canonical lives here, not in the root layout, so other routes never inherit "/".
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    url: '/',
+    siteName: site.name,
+    title: site.title,
+    description: site.description,
+    locale: site.locale,
+  },
+};
+
+export default async function Home() {
+  const [stars, contributors] = await Promise.all([getGithubStars(), getGithubContributors()]);
+  const componentCount = ui.length;
+
   return (
-    <div className="relative flex min-h-screen flex-col bg-background text-foreground overflow-x-hidden">
-      {/* Sticky Glassmorphic Header */}
-      <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/80 backdrop-blur-lg supports-backdrop-filter:bg-background/60">
-        <div className="container mx-auto flex h-16 max-w-screen-2xl items-center justify-between px-4 md:px-8">
-          <Link href="/" className="transition-opacity hover:opacity-80">
-            <Logo />
-          </Link>
-          <div className="flex items-center gap-3">
-            <ThemeSwitcher />
-            <ModeToggle />
-          </div>
-        </div>
-      </header>
-
-      {/* Main Content */}
-      <main className="flex-1 px-3 sm:px-6 md:px-10 xl:px-16 py-12 sm:py-16 md:py-20 flex flex-col items-center gap-16 sm:gap-20 md:gap-24">
-        <Hero />
-        <Showcase />
-        <Colors />
-        <TextStyles />
-        <Shadow />
-        <Stroke />
-        <BorderRadius />
-        <Blur />
-        <BackgroundBlur />
+    <div className="relative flex min-h-screen flex-col overflow-x-clip bg-background text-foreground">
+      <JsonLd data={getHomeJsonLd()} />
+      <SiteHeader stars={stars} />
+      <main className="flex-1">
+        <Hero componentCount={componentCount} />
+        <HowItWorks />
+        <ComponentShowcase componentCount={componentCount} />
+        <ThemesAndFoundations />
+        <Features />
+        <Community contributors={contributors} />
+        <FinalCta componentCount={componentCount} />
       </main>
-
-      <Footer />
+      <SiteFooter />
     </div>
   );
 }

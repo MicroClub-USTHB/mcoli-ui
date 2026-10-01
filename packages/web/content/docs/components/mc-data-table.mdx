@@ -243,8 +243,8 @@ const [search, setSearch] = React.useState('');
 
 | Prop                   | Type                                            | Default      | Description                                   |
 | ---------------------- | ----------------------------------------------- | ------------ | --------------------------------------------- |
-| `columns`              | `McDataTableColumnDef<TData>[]`                 | —            | Column definitions                            |
-| `data`                 | `TData[]`                                       | —            | Rows to display                               |
+| `columns`              | `McDataTableColumnDef<TData>[]`                 | -            | Column definitions                            |
+| `data`                 | `TData[]`                                       | -            | Rows to display                               |
 | `getRowId`             | `(row: TData, index: number) => string`         | row index    | Stable id for each row                        |
 | `enableRowSelection`   | `boolean`                                       | `false`      | Show selection checkboxes in the first column |
 | `rowSelection`         | `RowSelectionState`                             | `undefined`  | Controlled selection (`{ [rowId]: true }`)    |
@@ -267,10 +267,10 @@ const [search, setSearch] = React.useState('');
 
 | Prop          | Type              | Default | Description                     |
 | ------------- | ----------------- | ------- | ------------------------------- |
-| `title`       | `React.ReactNode` | —       | Table title                     |
-| `badge`       | `React.ReactNode` | —       | Count badge next to the title   |
-| `description` | `React.ReactNode` | —       | Supporting text under the title |
-| `actions`     | `React.ReactNode` | —       | Buttons aligned to the right    |
+| `title`       | `React.ReactNode` | -       | Table title                     |
+| `badge`       | `React.ReactNode` | -       | Count badge next to the title   |
+| `description` | `React.ReactNode` | -       | Supporting text under the title |
+| `actions`     | `React.ReactNode` | -       | Buttons aligned to the right    |
 
 Also supports standard `HTMLDivElement` props.
 
@@ -278,10 +278,10 @@ Also supports standard `HTMLDivElement` props.
 
 | Prop          | Type              | Default | Description                   |
 | ------------- | ----------------- | ------- | ----------------------------- |
-| `icon`        | `React.ReactNode` | —       | Icon shown in a tinted circle |
-| `title`       | `React.ReactNode` | —       | Heading                       |
-| `description` | `React.ReactNode` | —       | Supporting text               |
-| `actions`     | `React.ReactNode` | —       | Buttons under the text        |
+| `icon`        | `React.ReactNode` | -       | Icon shown in a tinted circle |
+| `title`       | `React.ReactNode` | -       | Heading                       |
+| `description` | `React.ReactNode` | -       | Supporting text               |
+| `actions`     | `React.ReactNode` | -       | Buttons under the text        |
 
 Also supports standard `HTMLDivElement` props.
 
@@ -289,9 +289,9 @@ Also supports standard `HTMLDivElement` props.
 
 | Prop       | Type              | Default | Description                |
 | ---------- | ----------------- | ------- | -------------------------- |
-| `avatar`   | `React.ReactNode` | —       | Avatar, logo, or file icon |
-| `title`    | `React.ReactNode` | —       | Primary text               |
-| `subtitle` | `React.ReactNode` | —       | Secondary text             |
+| `avatar`   | `React.ReactNode` | -       | Avatar, logo, or file icon |
+| `title`    | `React.ReactNode` | -       | Primary text               |
+| `subtitle` | `React.ReactNode` | -       | Secondary text             |
 
 ### Other exports
 

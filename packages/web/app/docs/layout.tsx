@@ -1,28 +1,30 @@
 import * as React from 'react';
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
-import { ThemeSwitcher } from '@/components/ThemeSwitcher';
-import { source } from '@/lib/source';
-import LogoIcon from '@/components/LogoIcon';
+import { DocsLayout } from 'fumadocs-ui/layouts/notebook';
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+import { DocsHeader, StarsProvider } from '@/components/docs/DocsHeader';
+import { getGithubStars } from '@/lib/github';
+import { baseOptions } from '@/lib/layout.shared';
+import { source } from '@/lib/source';
+
+export default async function Layout({ children }: { children: React.ReactNode }) {
+  const base = baseOptions();
+  const stars = await getGithubStars();
+
   return (
-    <DocsLayout
-      tree={source.pageTree}
-      nav={{
-        title: (
-          <div className="transition-opacity hover:opacity-80">
-            <LogoIcon />
-          </div>
-        ),
-        transparentMode: 'top',
-        children: [
-          <div key="theme-switcher" className="mr-1">
-            <ThemeSwitcher />
-          </div>,
-        ],
-      }}
-    >
-      {children}
-    </DocsLayout>
+    <StarsProvider stars={stars}>
+      <DocsLayout
+        {...base}
+        tree={source.pageTree}
+        nav={{ ...base.nav, mode: 'top' }}
+        slots={{ ...base.slots, header: DocsHeader }}
+        containerProps={{
+          className: 'docs-backdrop',
+          // Matches the h-16 SiteHeader so the sticky sidebar and TOC sit right below it.
+          style: { '--fd-header-height': '4rem' } as React.CSSProperties,
+        }}
+      >
+        {children}
+      </DocsLayout>
+    </StarsProvider>
   );
 }

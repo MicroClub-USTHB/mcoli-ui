@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <style>
+    .fg { stroke: #000350; }
+    .pr { stroke: #0006b1; }
+    @media (prefers-color-scheme: dark) {
+      .fg { stroke: #fafafa; }
+      .pr { stroke: #3a81f6; }
+    }
+  </style>
+  <path class="fg" d="M 16 79 V 31 A 22 22 0 0 1 60 31 A 22 22 0 0 1 104 31 V 79 M 60 31 V 79" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+  <path class="pr" d="M 38 30 V 80 A 22 22 0 0 0 82 80 V 30" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
