@@ -20,21 +20,23 @@ export function useMounted() {
  */
 export function ThemeScope({
   theme,
+  mode,
   className,
   children,
   ...props
-}: React.ComponentProps<'div'> & { theme: ThemePalette }) {
+}: React.ComponentProps<'div'> & {
+  theme: ThemePalette;
+  /** Force a mode regardless of the page's; defaults to following the page. */
+  mode?: 'light' | 'dark';
+}) {
   const { resolvedTheme } = useTheme();
   const mounted = useMounted();
+  const isDark = mode ? mode === 'dark' : mounted && resolvedTheme === 'dark';
 
   return (
     <div
       data-theme={theme}
-      className={cn(
-        mounted && resolvedTheme === 'dark' && 'dark',
-        'bg-background text-foreground',
-        className
-      )}
+      className={cn(isDark && 'dark', 'bg-background text-foreground', className)}
       {...props}
     >
       {children}
@@ -150,10 +152,7 @@ export function SectionHeader({
         className
       )}
     >
-      <span className="inline-flex items-center gap-2 font-mono text-xs font-medium tracking-[0.18em] text-primary uppercase">
-        <span className="h-px w-6 bg-primary/60" aria-hidden />
-        {eyebrow}
-      </span>
+      <span className="text-sm font-semibold text-primary">{eyebrow}</span>
       <h2 className="header-sm md:header-md font-bold text-balance text-foreground">{title}</h2>
       {description ? (
         <p className="paragraph-md md:paragraph-lg text-pretty text-muted-foreground">

@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Link from 'next/link';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 
 import { Reveal, SectionHeader } from '@/components/landing/primitives';
 import { McAlert } from '@/registry/ui/mc-alert';
@@ -97,7 +97,7 @@ function Tile({
   );
 }
 
-export function ComponentShowcase() {
+export function ComponentShowcase({ componentCount }: { componentCount: number }) {
   const [member, setMember] = React.useState<string | null>('lina');
   const [showPassword, setShowPassword] = React.useState(false);
   const [remember, setRemember] = React.useState(true);
@@ -106,7 +106,7 @@ export function ComponentShowcase() {
   const selected = TEAM.find((m) => m.value === member) ?? null;
 
   return (
-    <section id="components" className="relative scroll-mt-16 py-24 md:py-32">
+    <section id="components" className="relative scroll-mt-16 py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <SectionHeader
           eyebrow="Components"
@@ -285,6 +285,19 @@ export function ComponentShowcase() {
               </div>
             </Tile>
           </div>
+        </Reveal>
+
+        <Reveal delay={140} className="mt-10 flex justify-center">
+          <McButton
+            nativeButton={false}
+            variant="secondary"
+            size="lg"
+            icon="trailing"
+            iconDefinition={<ArrowRight />}
+            render={<Link href="/docs/components" />}
+          >
+            Browse all {componentCount} components
+          </McButton>
         </Reveal>
       </div>
       <McSonner />

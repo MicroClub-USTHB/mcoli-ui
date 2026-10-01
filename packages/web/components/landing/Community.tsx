@@ -1,0 +1,154 @@
+'use client';
+
+import { ArrowUpRight, BookMarked, GitPullRequest, History } from 'lucide-react';
+
+import { Reveal } from '@/components/landing/primitives';
+import { REPO_URL } from '@/components/landing/themes';
+import type { Contributor } from '@/lib/github';
+import {
+  McAccordion,
+  McAccordionContent,
+  McAccordionItem,
+  McAccordionTrigger,
+} from '@/registry/ui/mc-accordion';
+import { McAvatar, McAvatarFallback, McAvatarImage } from '@/registry/ui/mc-avatar';
+
+const LINKS = [
+  {
+    icon: GitPullRequest,
+    label: 'Contribute a component',
+    hint: 'Branch, build, open a PR',
+    href: `${REPO_URL}/blob/main/CONTRIBUTING.md`,
+  },
+  {
+    icon: History,
+    label: 'Changelog',
+    hint: 'Every release, in the open',
+    href: `${REPO_URL}/blob/main/CHANGELOG.md`,
+  },
+  {
+    icon: BookMarked,
+    label: 'Report an issue',
+    hint: 'Bugs, ideas, questions',
+    href: `${REPO_URL}/issues`,
+  },
+];
+
+const QUESTIONS = [
+  {
+    q: 'Why copy components instead of installing a package?',
+    a: 'Because you will want to change them. Copied source means no wrapper APIs, no version pinning and no waiting on a release to fix a padding. mcoli-ui is a registry, the same model shadcn/ui made popular.',
+  },
+  {
+    q: 'Do I need shadcn/ui first?',
+    a: 'Yes. The CLI checks for a components.json and stops if it is missing. Run npx shadcn@latest init once, then npx mcoli-ui init.',
+  },
+  {
+    q: 'Can I use it outside MicroClub projects?',
+    a: 'Absolutely. It is MIT licensed. The themes carry the MicroClub identity, but the tokens are plain CSS variables you can retune.',
+  },
+  {
+    q: 'Can I switch themes later?',
+    a: 'Run npx mcoli-ui init with another theme name. Since every component reads the same variables, the new palette, radii and fonts apply everywhere at once.',
+  },
+];
+
+const MAX_AVATARS = 10;
+
+export function Community({ contributors }: { contributors: Contributor[] }) {
+  const shown = contributors.slice(0, MAX_AVATARS);
+  const extra = contributors.length - shown.length;
+
+  return (
+    <section className="py-20 md:py-24">
+      <div className="mx-auto grid max-w-6xl gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-8">
+        {/* Built by MicroClub */}
+        <Reveal className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8">
+          <span className="text-sm font-semibold text-primary">Open source</span>
+          <h2 className="mt-3 header-xs font-bold text-balance text-card-foreground md:header-sm">
+            Built by MicroClub, in the open
+          </h2>
+          <p className="mt-3 paragraph-md text-pretty text-muted-foreground">
+            Designed and maintained by the MicroClub dev team at USTHB. Every component is
+            documented and has Storybook stories before it ships.
+          </p>
+
+          {shown.length ? (
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <ul className="flex -space-x-2">
+                {shown.map((c) => (
+                  <li key={c.login}>
+                    <a
+                      href={c.profileUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`${c.login} · ${c.contributions} commits`}
+                      aria-label={`${c.login} on GitHub`}
+                      className="block rounded-full ring-2 ring-card transition-transform hover:z-10 hover:-translate-y-1"
+                    >
+                      <McAvatar size="md">
+                        <McAvatarImage src={`${c.avatarUrl}&s=80`} alt="" />
+                        <McAvatarFallback className="text-xs">
+                          {c.login.slice(0, 2).toUpperCase()}
+                        </McAvatarFallback>
+                      </McAvatar>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href={`${REPO_URL}/graphs/contributors`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {extra > 0 ? `+${extra} more · ` : ''}
+                {contributors.length} contributors
+              </a>
+            </div>
+          ) : null}
+
+          <ul className="mt-8 grid gap-2 border-t border-border pt-6">
+            {LINKS.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-muted"
+                >
+                  <span className="flex size-9 shrink-0 items-center justify-center rounded-lg border border-border bg-background text-primary">
+                    <link.icon className="size-4" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-semibold text-foreground">
+                      {link.label}
+                    </span>
+                    <span className="block text-xs text-muted-foreground">{link.hint}</span>
+                  </span>
+                  <ArrowUpRight className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+
+        {/* FAQ */}
+        <Reveal delay={100} className="flex flex-col p-2 md:p-4">
+          <span className="text-sm font-semibold text-primary">FAQ</span>
+          <h2 className="mt-3 header-xs font-bold text-foreground md:header-sm">The fine print</h2>
+          <McAccordion defaultValue={['q-0']} className="mt-6 w-full max-w-none">
+            {QUESTIONS.map((item, i) => (
+              <McAccordionItem key={item.q} value={`q-${i}`}>
+                <McAccordionTrigger>{item.q}</McAccordionTrigger>
+                <McAccordionContent>
+                  <p>{item.a}</p>
+                </McAccordionContent>
+              </McAccordionItem>
+            ))}
+          </McAccordion>
+        </Reveal>
+      </div>
+    </section>
+  );
+}

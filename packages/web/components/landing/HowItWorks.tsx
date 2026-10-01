@@ -136,7 +136,7 @@ export function HowItWorks() {
   const finished = elapsed >= total;
 
   return (
-    <section id="install" className="relative py-24 md:py-32">
+    <section id="install" className="relative py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <SectionHeader
           eyebrow="How it works"
@@ -256,9 +256,7 @@ export function HowItWorks() {
 
             {/* Files touched */}
             <div className="rounded-2xl border border-border bg-card/60 p-4">
-              <p className="mb-3 font-mono text-[11px] tracking-wider text-muted-foreground uppercase">
-                Files changed
-              </p>
+              <p className="mb-3 text-xs font-medium text-muted-foreground">Files changed</p>
               <ul className="grid gap-2 sm:grid-cols-2">
                 {step.files.map((f) => (
                   <li

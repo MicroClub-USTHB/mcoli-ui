@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState } from 'react';
-import { flushSync } from 'react-dom';
+import { withViewTransition } from '@/lib/view-transition';
 
 export type ThemePalette = 'primary' | 'secondary' | 'game-dev' | 'robotics' | 'it';
 
@@ -22,19 +22,11 @@ export function ColorThemeProvider({ children }: { children: React.ReactNode }) 
   });
 
   const setColorTheme = (theme: ThemePalette) => {
-    const apply = () => {
-      flushSync(() => setColorThemeState(theme));
-      localStorage.setItem('mcoli-ui-color-theme', theme);
+    withViewTransition(() => {
       document.documentElement.setAttribute('data-theme', theme);
-    };
-
-    // Crossfade the whole palette swap where the browser supports it.
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!document.startViewTransition || reduceMotion) {
-      apply();
-      return;
-    }
-    document.startViewTransition(apply);
+      localStorage.setItem('mcoli-ui-color-theme', theme);
+      setColorThemeState(theme);
+    });
   };
 
   // We always render the Provider to keep the React tree stable and prevent script injection errors

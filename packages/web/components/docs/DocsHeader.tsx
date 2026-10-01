@@ -33,6 +33,7 @@ export function DocsHeader({ className, ...props }: React.ComponentProps<'header
     <SiteHeader
       {...props}
       stars={stars}
+      showNav={false}
       contentClassName="max-w-[97rem]"
       // Spans every grid column; inline-size containment keeps its content width from
       // inflating the layout's min-content side columns.

@@ -20,20 +20,7 @@ export function Hero({ componentCount }: { componentCount: number }) {
         className="landing-glow absolute top-[-14rem] left-1/2 -z-10 h-[34rem] w-[56rem] max-w-[140vw] rounded-full bg-primary/25 blur-[120px]"
       />
 
-      <div className="mx-auto flex max-w-6xl flex-col items-center px-4 pt-16 text-center sm:pt-24 md:px-6">
-        <Link
-          href="/docs/components/mc-data-table"
-          className="group mb-8 inline-flex items-center gap-2 rounded-full border border-border bg-background/70 py-1 pr-3 pl-1 text-sm text-muted-foreground shadow-xs backdrop-blur transition-colors hover:border-primary/40 hover:text-foreground"
-        >
-          <span className="rounded-full bg-primary px-2 py-0.5 text-xs font-semibold text-primary-foreground">
-            New
-          </span>
-          <span>
-            <span className="font-mono text-foreground">mc-data-table</span> just landed
-          </span>
-          <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-0.5" />
-        </Link>
-
+      <div className="mx-auto flex max-w-6xl flex-col items-center px-4 pt-20 text-center sm:pt-32 md:px-6">
         <h1 className="max-w-4xl text-[2.6rem] leading-[1.08] font-extrabold tracking-[-0.03em] text-balance text-foreground sm:header-lg md:header-xl md:leading-[1.05] font-plus-jakarta-sans">
           Ship the MicroClub design system{' '}
           <span className="text-gradient-primary">in one command.</span>
@@ -67,6 +54,15 @@ export function Hero({ componentCount }: { componentCount: number }) {
             Browse {componentCount} components
           </McButton>
         </div>
+
+        <p className="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
+          {[`${componentCount} components`, '5 themes', 'light & dark', 'MIT'].map((item, i) => (
+            <span key={item} className="inline-flex items-center gap-2">
+              {i > 0 ? <span className="size-1 rounded-full bg-border" aria-hidden /> : null}
+              {item}
+            </span>
+          ))}
+        </p>
 
         <InstallCommand className="mt-10 max-w-xl" />
 

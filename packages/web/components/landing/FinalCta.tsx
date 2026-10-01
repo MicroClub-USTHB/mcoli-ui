@@ -1,44 +1,64 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
-import { InstallCommand } from '@/components/landing/InstallCommand';
+import LogoIcon from '@/components/LogoIcon';
 import { GithubIcon, Reveal } from '@/components/landing/primitives';
 import { REPO_URL } from '@/components/landing/themes';
 import { McButton } from '@/registry/ui/mc-button';
 
-export function FinalCta() {
+export function FinalCta({ componentCount }: { componentCount: number }) {
   return (
-    <section className="px-4 pb-24 md:px-6 md:pb-32">
-      <Reveal className="relative isolate mx-auto max-w-6xl overflow-hidden rounded-3xl border border-border bg-card px-6 py-16 text-center shadow-2xl sm:px-12 md:py-24">
-        <div
-          aria-hidden
-          className="absolute inset-0 -z-10 bg-grid opacity-30 mask-radial dark:opacity-60"
-        />
-        <div
-          aria-hidden
-          className="absolute -top-40 left-1/2 -z-10 h-80 w-[40rem] max-w-full -translate-x-1/2 rounded-full bg-primary/30 blur-[100px]"
-        />
+    <section className="relative isolate overflow-hidden border-t border-border">
+      {/* Beam: a primary hairline on the top edge, a glow falling from it, and a faint grid. */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-primary/70 to-transparent"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10"
+        style={{
+          background:
+            'radial-gradient(55% 60% at 50% 0%, color-mix(in oklab, var(--primary) 22%, transparent), transparent 75%)',
+        }}
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-20 bg-grid opacity-25 dark:opacity-50"
+        style={{
+          maskImage: 'radial-gradient(ellipse 60% 70% at 50% 0%, #000 10%, transparent 70%)',
+        }}
+      />
 
-        <h2 className="mx-auto max-w-3xl header-sm font-extrabold text-balance text-foreground md:header-lg">
-          Bring MicroClub DNA to your next project
+      <Reveal className="mx-auto flex max-w-3xl flex-col items-center px-4 py-24 text-center md:py-28">
+        <div className="relative mb-10">
+          <div
+            aria-hidden
+            className="absolute -inset-6 -z-10 rounded-full bg-primary/25 blur-2xl"
+          />
+          <div className="flex size-18 items-center justify-center rounded-2xl border border-border bg-card shadow-2xl ring-8 ring-primary/5">
+            <LogoIcon size={40} />
+          </div>
+        </div>
+
+        <h2 className="header-sm font-extrabold text-balance text-foreground md:header-lg">
+          Build your next club project with Mcoli UI
         </h2>
-        <p className="mx-auto mt-5 max-w-xl paragraph-md text-muted-foreground md:paragraph-lg">
-          Stop rebuilding buttons for every club event. Pick a theme, run one command, and start
-          shipping.
+        <p className="mt-5 max-w-xl paragraph-md text-pretty text-muted-foreground md:paragraph-lg">
+          Five themes, light and dark, and {componentCount} accessible components. Free and open
+          source, ready the moment you are.
         </p>
 
-        <InstallCommand showThemes={false} className="mx-auto mt-10 max-w-lg" />
-
-        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <div className="mt-10 flex w-full flex-col items-center justify-center gap-3 sm:w-auto sm:flex-row">
           <McButton
             nativeButton={false}
             size="lg"
             icon="trailing"
             iconDefinition={<ArrowRight />}
-            className="w-full sm:w-auto"
-            render={<Link href="/docs/installation" />}
+            className="w-full shadow-lg shadow-primary/20 sm:w-auto"
+            render={<Link href="/docs/introduction" />}
           >
-            Read the install guide
+            Get started
           </McButton>
           <McButton
             nativeButton={false}
@@ -49,9 +69,13 @@ export function FinalCta() {
             className="w-full sm:w-auto"
             render={<a href={REPO_URL} target="_blank" rel="noopener noreferrer" />}
           >
-            Star on GitHub
+            View on GitHub
           </McButton>
         </div>
+
+        <p className="mt-10 text-sm text-muted-foreground">
+          Made by the MicroClub dev team at USTHB
+        </p>
       </Reveal>
     </section>
   );

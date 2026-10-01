@@ -2,7 +2,24 @@
 
 import * as React from 'react';
 
-import { Reveal, SectionHeader, useMounted } from '@/components/landing/primitives';
+import { Check } from 'lucide-react';
+
+import { useColorTheme } from '@/components/ColorThemeProvider';
+import {
+  CopyButton,
+  Reveal,
+  SectionHeader,
+  ThemeScope,
+  useMounted,
+} from '@/components/landing/primitives';
+import { THEMES, type ThemeMeta } from '@/components/landing/themes';
+import { McAlert } from '@/registry/ui/mc-alert';
+import { McAvatar, McAvatarFallback, McAvatarGroup } from '@/registry/ui/mc-avatar';
+import { McBadge } from '@/registry/ui/mc-badge';
+import { McButton } from '@/registry/ui/mc-button';
+import { McInput } from '@/registry/ui/mc-input';
+import { McProgress, McProgressTrack } from '@/registry/ui/mc-progress';
+import { McSwitch } from '@/registry/ui/mc-switch';
 import { McTabs, McTabsList, McTabsTrigger } from '@/registry/ui/mc-tabs';
 import { cn } from '@/lib/utils';
 
@@ -232,6 +249,7 @@ const BLURS = [
 ];
 
 const TABS = [
+  { value: 'preview', label: 'Preview' },
   { value: 'color', label: 'Color' },
   { value: 'type', label: 'Typography' },
   { value: 'elevation', label: 'Elevation' },
@@ -240,11 +258,7 @@ const TABS = [
 ] as const;
 
 function Label({ children }: { children: React.ReactNode }) {
-  return (
-    <p className="mb-3 font-mono text-[11px] tracking-wider text-muted-foreground uppercase">
-      {children}
-    </p>
-  );
+  return <p className="mb-3 text-xs font-medium text-muted-foreground">{children}</p>;
 }
 
 /** Reads resolved token values so swatches show the active theme's real hex. */
@@ -482,41 +496,211 @@ function BlurPanel() {
   );
 }
 
-export function Foundations() {
-  const [tab, setTab] = React.useState<string>('color');
+/* -------------------------------------------------------------------------------------------- */
+/* Theme picker: each option renders in its own theme, so all five identities sit side by side  */
+/* -------------------------------------------------------------------------------------------- */
+
+const SWATCHES = ['bg-primary', 'bg-secondary', 'bg-accent', 'bg-muted', 'bg-foreground'] as const;
+
+function ThemeOption({
+  theme,
+  active,
+  onSelect,
+}: {
+  theme: ThemeMeta;
+  active: boolean;
+  onSelect: () => void;
+}) {
+  return (
+    <button
+      type="button"
+      aria-pressed={active}
+      onClick={onSelect}
+      className="group w-[13.5rem] shrink-0 snap-start rounded-2xl text-start focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none lg:w-auto"
+    >
+      <ThemeScope
+        theme={theme.value}
+        className={cn(
+          'flex h-full flex-col gap-3 rounded-2xl border p-4 transition-all duration-300',
+          active
+            ? 'border-primary shadow-lg ring-4 ring-ring/40'
+            : 'border-border shadow-xs group-hover:-translate-y-0.5 group-hover:shadow-md'
+        )}
+      >
+        <div className="flex items-start justify-between gap-2">
+          <div className="min-w-0">
+            <p className="font-plus-jakarta-sans text-base font-bold text-foreground">
+              {theme.name}
+            </p>
+            <p className="truncate text-xs text-muted-foreground">{theme.description}</p>
+          </div>
+          {active ? (
+            <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-primary px-2 py-0.5 text-[10px] font-semibold text-primary-foreground">
+              <Check className="size-3" /> Active
+            </span>
+          ) : null}
+        </div>
+        <div className="flex gap-1" aria-hidden>
+          {SWATCHES.map((cls) => (
+            <span key={cls} className={cn('h-5 flex-1 rounded-sm border border-border', cls)} />
+          ))}
+        </div>
+        <div className="flex items-center gap-1.5" aria-hidden>
+          <span className="rounded-lg bg-primary px-2.5 py-1 text-xs font-semibold text-primary-foreground">
+            Join
+          </span>
+          <span className="rounded-lg bg-secondary px-2.5 py-1 text-xs font-medium text-secondary-foreground">
+            Later
+          </span>
+        </div>
+      </ThemeScope>
+    </button>
+  );
+}
+
+/* -------------------------------------------------------------------------------------------- */
+/* Preview tab: a composed screen in the active theme                                           */
+/* -------------------------------------------------------------------------------------------- */
+
+function PreviewPanel() {
+  const [notify, setNotify] = React.useState(true);
+
+  return (
+    <div className="grid gap-4 lg:grid-cols-2">
+      <div className="flex flex-col gap-4 rounded-xl border border-border bg-background p-5">
+        <div className="flex items-center justify-between gap-3">
+          <div>
+            <p className="font-plus-jakarta-sans text-lg font-bold text-foreground">
+              Join the workshop
+            </p>
+            <p className="text-sm text-muted-foreground">Intro to design systems · Saturday</p>
+          </div>
+          <McBadge>Free</McBadge>
+        </div>
+        <McInput label="Email" type="email" placeholder="you@microclub.info" />
+        <label className="flex items-center justify-between gap-3 text-sm text-foreground">
+          Remind me the day before
+          <McSwitch checked={notify} onCheckedChange={(v) => setNotify(Boolean(v))} />
+        </label>
+        <div className="space-y-1.5">
+          <div className="flex justify-between text-xs">
+            <span className="text-muted-foreground">Seats filled</span>
+            <span className="font-medium text-foreground">72%</span>
+          </div>
+          <McProgress value={72} size="xs">
+            <McProgressTrack className="rounded-full" />
+          </McProgress>
+        </div>
+        <div className="flex gap-2">
+          <McButton className="flex-1">Reserve a seat</McButton>
+          <McButton variant="secondary">Details</McButton>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <McAlert
+          variant="success"
+          title="Seat reserved"
+          description="We sent the details to your inbox."
+          className="w-full max-w-none"
+        />
+        <McAlert
+          variant="default"
+          title="Bring a laptop"
+          description="We will build a themed UI together, from scratch."
+          className="w-full max-w-none"
+        />
+        <div className="flex flex-1 items-center justify-between gap-4 rounded-xl border border-border bg-background p-5">
+          <div>
+            <p className="text-sm font-semibold text-foreground">48 attending</p>
+            <p className="text-xs text-muted-foreground">Across the club</p>
+          </div>
+          <McAvatarGroup>
+            {['YB', 'RK', 'LM', 'AH'].map((i) => (
+              <McAvatar key={i}>
+                <McAvatarFallback className="bg-secondary text-xs font-semibold text-secondary-foreground">
+                  {i}
+                </McAvatarFallback>
+              </McAvatar>
+            ))}
+          </McAvatarGroup>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/* -------------------------------------------------------------------------------------------- */
+/* Section                                                                                      */
+/* -------------------------------------------------------------------------------------------- */
+
+export function ThemesAndFoundations() {
+  const { colorTheme, setColorTheme } = useColorTheme();
+  const mounted = useMounted();
+  const [tab, setTab] = React.useState<string>('preview');
+  const active = mounted ? colorTheme : 'primary';
 
   return (
     <section
-      id="foundations"
-      className="relative scroll-mt-16 border-t border-border py-24 md:py-32"
+      id="themes"
+      className="relative scroll-mt-16 border-y border-border bg-muted/30 py-20 md:py-24"
     >
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+      <div aria-hidden className="absolute inset-0 bg-dots opacity-40 mask-fade-x" />
+      <div className="relative mx-auto max-w-6xl px-4 md:px-6">
         <SectionHeader
-          eyebrow="Foundations"
-          title="Tokens all the way down"
-          description="Color, type, elevation, shape and blur from the MicroClub Figma library, shipped as Tailwind v4 CSS variables. Use them directly: bg-primary, header-lg, shadow-xl."
+          eyebrow="Themes & foundations"
+          title="Five themes. One design system."
+          description="Pick a theme to re-skin this page. Every token below, from color and type to elevation and blur, follows it in light and dark."
         />
 
-        <Reveal delay={100} className="mt-12">
-          <McTabs value={tab} onValueChange={(v) => setTab(String(v))}>
-            <div className="mb-6 flex justify-center overflow-x-auto">
-              <McTabsList>
-                {TABS.map((t) => (
-                  <McTabsTrigger key={t.value} value={t.value} className="px-3">
-                    {t.label}
-                  </McTabsTrigger>
-                ))}
-              </McTabsList>
-            </div>
-          </McTabs>
+        <Reveal delay={80}>
+          <div
+            role="group"
+            aria-label="Theme"
+            className="-mx-4 mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pt-1 pb-4 [scrollbar-width:none] lg:mx-0 lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-0"
+          >
+            {THEMES.map((t) => (
+              <ThemeOption
+                key={t.value}
+                theme={t}
+                active={active === t.value}
+                onSelect={() => setColorTheme(t.value)}
+              />
+            ))}
+          </div>
+        </Reveal>
 
-          <div className="rounded-2xl border border-border bg-card p-4 shadow-sm sm:p-6 md:p-8">
-            <div key={tab} className="animate-in fade-in slide-in-from-bottom-1 duration-300">
-              {tab === 'color' && <ColorPanel />}
-              {tab === 'type' && <TypePanel />}
-              {tab === 'elevation' && <ElevationPanel />}
-              {tab === 'shape' && <ShapePanel />}
-              {tab === 'blur' && <BlurPanel />}
+        <Reveal delay={140} className="mt-6">
+          <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-4 py-3 sm:px-6">
+              <McTabs value={tab} onValueChange={(v) => setTab(String(v))}>
+                <div className="max-w-full overflow-x-auto">
+                  <McTabsList>
+                    {TABS.map((t) => (
+                      <McTabsTrigger key={t.value} value={t.value} className="px-3">
+                        {t.label}
+                      </McTabsTrigger>
+                    ))}
+                  </McTabsList>
+                </div>
+              </McTabs>
+              <div className="flex items-center gap-1 rounded-lg border border-border bg-background py-1 ps-3 pe-1">
+                <code className="font-mono text-xs text-muted-foreground">
+                  init <span className="font-semibold text-primary">{active}</span>
+                </code>
+                <CopyButton value={`npx mcoli-ui@latest init ${active}`} className="size-7" />
+              </div>
+            </div>
+
+            <div className="p-4 sm:p-6 md:p-8">
+              <div key={tab} className="animate-in fade-in slide-in-from-bottom-1 duration-300">
+                {tab === 'preview' && <PreviewPanel />}
+                {tab === 'color' && <ColorPanel />}
+                {tab === 'type' && <TypePanel />}
+                {tab === 'elevation' && <ElevationPanel />}
+                {tab === 'shape' && <ShapePanel />}
+                {tab === 'blur' && <BlurPanel />}
+              </div>
             </div>
           </div>
         </Reveal>

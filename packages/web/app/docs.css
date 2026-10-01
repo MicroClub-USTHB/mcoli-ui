@@ -38,12 +38,10 @@
   opacity: 0.55;
 }
 
-/* Breadcrumb as a landing-style eyebrow: mono, uppercase, primary. */
+/* Breadcrumb styled like the landing section labels: small, semibold, primary. */
 @utility docs-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 600;
   color: var(--primary);
 
   & a,

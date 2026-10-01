@@ -14,13 +14,7 @@ const RUNNERS = [
   { label: 'yarn', bin: 'yarn dlx' },
 ] as const;
 
-export function InstallCommand({
-  className,
-  showThemes = true,
-}: {
-  className?: string;
-  showThemes?: boolean;
-}) {
+export function InstallCommand({ className }: { className?: string }) {
   const { colorTheme, setColorTheme } = useColorTheme();
   const mounted = useMounted();
   const [runner, setRunner] = React.useState<(typeof RUNNERS)[number]>(RUNNERS[0]);
@@ -74,39 +68,35 @@ export function InstallCommand({
         <CopyButton value={command} />
       </div>
 
-      {showThemes ? (
-        <div className="flex flex-wrap items-center gap-1.5 border-t border-border bg-muted/40 px-3 py-2.5">
-          <span className="mr-1 font-mono text-[11px] tracking-wider text-muted-foreground uppercase">
-            Theme
-          </span>
-          {THEMES.map((t) => {
-            const active = theme === t.value;
-            return (
-              <button
-                key={t.value}
-                type="button"
-                aria-pressed={active}
-                onClick={() => setColorTheme(t.value)}
-                className={cn(
-                  'inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium transition-all',
-                  active
-                    ? 'border-primary/40 bg-background text-foreground shadow-sm'
-                    : 'border-transparent text-muted-foreground hover:bg-background/70 hover:text-foreground'
-                )}
-              >
-                <span
-                  className="size-2.5 rounded-full ring-1 ring-border"
-                  style={{
-                    background: `linear-gradient(135deg, ${t.swatch[0]} 50%, ${t.swatch[1]} 50%)`,
-                  }}
-                  aria-hidden
-                />
-                {t.name}
-              </button>
-            );
-          })}
-        </div>
-      ) : null}
+      <div className="flex flex-wrap items-center gap-1.5 border-t border-border bg-muted/40 px-3 py-2.5">
+        <span className="mr-1 text-xs font-medium text-muted-foreground">Theme</span>
+        {THEMES.map((t) => {
+          const active = theme === t.value;
+          return (
+            <button
+              key={t.value}
+              type="button"
+              aria-pressed={active}
+              onClick={() => setColorTheme(t.value)}
+              className={cn(
+                'inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-medium transition-all',
+                active
+                  ? 'border-primary/40 bg-background text-foreground shadow-sm'
+                  : 'border-transparent text-muted-foreground hover:bg-background/70 hover:text-foreground'
+              )}
+            >
+              <span
+                className="size-2.5 rounded-full ring-1 ring-border"
+                style={{
+                  background: `linear-gradient(135deg, ${t.swatch[0]} 50%, ${t.swatch[1]} 50%)`,
+                }}
+                aria-hidden
+              />
+              {t.name}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 }

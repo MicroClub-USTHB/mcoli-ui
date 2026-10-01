@@ -4,6 +4,7 @@ import * as React from 'react';
 import { Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { cn } from '@/lib/utils';
+import { withViewTransition } from '@/lib/view-transition';
 
 export function ModeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
@@ -21,12 +22,25 @@ export function ModeToggle() {
   // We use resolvedTheme so it accurately detects Dark Mode even if set to "system"
   const isDark = resolvedTheme === 'dark';
 
+  const toggle = () => {
+    const next = isDark ? 'light' : 'dark';
+    withViewTransition(() => {
+      // next-themes applies the class in an effect, after the transition's snapshot would be
+      // taken, so mirror what it does on <html> first and let it catch up.
+      const root = document.documentElement;
+      root.classList.remove('light', 'dark');
+      root.classList.add(next);
+      root.style.colorScheme = next;
+      setTheme(next);
+    });
+  };
+
   return (
     <button
       type="button"
       role="switch"
       aria-checked={isDark}
-      onClick={() => setTheme(isDark ? 'light' : 'dark')}
+      onClick={toggle}
       className={cn(
         'relative inline-flex h-7 w-12 shrink-0 cursor-pointer items-center rounded-full border-2 border-transparent transition-colors duration-300 ease-in-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background',
         isDark ? 'bg-primary' : 'bg-muted'
