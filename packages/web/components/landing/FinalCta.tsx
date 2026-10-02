@@ -72,10 +72,6 @@ export function FinalCta({ componentCount }: { componentCount: number }) {
             View on GitHub
           </McButton>
         </div>
-
-        <p className="mt-10 text-sm text-muted-foreground">
-          Made by MicroClub&apos;s dev team at USTHB
-        </p>
       </Reveal>
     </section>
   );
