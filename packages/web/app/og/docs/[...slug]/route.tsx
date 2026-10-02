@@ -1,7 +1,7 @@
 import { notFound } from 'next/navigation';
 import { ImageResponse } from 'next/og';
 
-import { OgCard } from '@/lib/og';
+import { loadOgFonts, OgCard } from '@/lib/og';
 import { getDocsOgImage, getDocsTitle } from '@/lib/seo';
 import { source } from '@/lib/source';
 
@@ -20,8 +20,9 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
       eyebrow={isComponent ? 'Component' : 'Documentation'}
       title={isComponent ? page.data.title : getDocsTitle(page)}
       description={page.data.description}
+      command={isComponent ? ['add', page.slugs[1]] : ['init', 'primary']}
     />,
-    { width: 1200, height: 630 }
+    { width: 1200, height: 630, fonts: await loadOgFonts() }
   );
 }
 
