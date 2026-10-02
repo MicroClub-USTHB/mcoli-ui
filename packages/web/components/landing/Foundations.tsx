@@ -360,7 +360,9 @@ function TypePanel() {
                 key={h.cls}
                 className="flex items-center justify-between gap-4 overflow-hidden px-5 py-3"
               >
-                <p className={cn(h.cls, 'truncate font-bold text-foreground')}>Join the club</p>
+                <p className={cn(h.cls, 'truncate font-bold text-foreground')}>
+                  Build something great
+                </p>
                 <span className="shrink-0 font-mono text-[11px] text-muted-foreground">
                   {h.cls} · {h.spec}
                 </span>
@@ -613,7 +615,7 @@ function PreviewPanel() {
         <div className="flex flex-1 items-center justify-between gap-4 rounded-xl border border-border bg-background p-5">
           <div>
             <p className="text-sm font-semibold text-foreground">48 attending</p>
-            <p className="text-xs text-muted-foreground">Across the club</p>
+            <p className="text-xs text-muted-foreground">This week</p>
           </div>
           <McAvatarGroup>
             {['YB', 'RK', 'LM', 'AH'].map((i) => (
@@ -657,7 +659,7 @@ export function ThemesAndFoundations() {
           <div
             role="group"
             aria-label="Theme"
-            className="-mx-4 mt-12 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pt-1 pb-4 [scrollbar-width:none] lg:mx-0 lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-0"
+            className="-mx-4 mt-12 flex snap-x snap-mandatory scroll-px-4 gap-3 overflow-x-auto px-4 pt-1 pb-4 [scrollbar-width:none] lg:mx-0 lg:grid lg:grid-cols-5 lg:overflow-visible lg:px-0"
           >
             {THEMES.map((t) => (
               <ThemeOption
@@ -673,11 +675,16 @@ export function ThemesAndFoundations() {
         <Reveal delay={140} className="mt-6">
           <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
             <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border px-4 py-3 sm:px-6">
-              <McTabs value={tab} onValueChange={(v) => setTab(String(v))}>
-                <div className="max-w-full overflow-x-auto">
-                  <McTabsList>
+              {/* Six tabs do not fit a phone row, so they wrap into a 3-column grid below sm. */}
+              <McTabs
+                value={tab}
+                onValueChange={(v) => setTab(String(v))}
+                className="w-full sm:w-auto"
+              >
+                <div>
+                  <McTabsList className="grid w-full grid-cols-3 sm:flex sm:w-fit">
                     {TABS.map((t) => (
-                      <McTabsTrigger key={t.value} value={t.value} className="px-3">
+                      <McTabsTrigger key={t.value} value={t.value} className="min-w-0 px-3">
                         {t.label}
                       </McTabsTrigger>
                     ))}
