@@ -200,7 +200,7 @@ function OwnCodeVisual() {
             <p className="mb-3 text-xs font-medium text-muted-foreground">Preview</p>
             <div className="flex flex-wrap items-center gap-3">
               <McButton size="sm" className="rounded-full">
-                Join the club
+                Get started
               </McButton>
               <McButton size="sm" variant="secondary" className="rounded-full">
                 Learn more

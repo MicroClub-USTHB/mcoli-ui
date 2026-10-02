@@ -360,7 +360,9 @@ function TypePanel() {
                 key={h.cls}
                 className="flex items-center justify-between gap-4 overflow-hidden px-5 py-3"
               >
-                <p className={cn(h.cls, 'truncate font-bold text-foreground')}>Join the club</p>
+                <p className={cn(h.cls, 'truncate font-bold text-foreground')}>
+                  Build something great
+                </p>
                 <span className="shrink-0 font-mono text-[11px] text-muted-foreground">
                   {h.cls} · {h.spec}
                 </span>
@@ -613,7 +615,7 @@ function PreviewPanel() {
         <div className="flex flex-1 items-center justify-between gap-4 rounded-xl border border-border bg-background p-5">
           <div>
             <p className="text-sm font-semibold text-foreground">48 attending</p>
-            <p className="text-xs text-muted-foreground">Across the club</p>
+            <p className="text-xs text-muted-foreground">This week</p>
           </div>
           <McAvatarGroup>
             {['YB', 'RK', 'LM', 'AH'].map((i) => (
