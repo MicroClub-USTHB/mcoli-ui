@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./public/banner.svg" alt="mcoli-ui dark" width="1000" />
+  <img src="./public/banner.png" alt="mcoli-ui dark" width="1000" />
 </p>
 
 <p align="center">
@@ -70,15 +70,6 @@ mcoli-ui is more than just a registry; it’s a **Professional Component Library
 1. **Signature Design**: Every pixel is aligned with MicroClub's high design standards.
 2. **Built for Performance**: No bulk. No unused dependencies. Just the code you need to shine.
 3. **Inclusive UI**: We handle the complex ARIA and keyboard logic so you don't have to.
-
-## Tech Stack
-
-<div align="center">
-  <img src="https://img.shields.io/badge/Next.js_16-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js" />
-  <img src="https://img.shields.io/badge/Tailwind_CSS_v4-38BDF8?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind" />
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-  <img src="https://img.shields.io/badge/Storybook-FF4785?style=for-the-badge&logo=storybook&logoColor=white" alt="Storybook" />
-</div>
 
 ## Join the Mission
 

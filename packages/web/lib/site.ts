@@ -7,7 +7,7 @@ export const site = {
   name: 'Mcoli UI',
   /** Home page title: brand first, then what it is (kept under 60 characters). */
   title: "Mcoli UI: MicroClub's design system for React",
-  description: `Ship MicroClub's design system in one command. Five themes, light and dark, and ${ui.length} accessible React components built on Base UI and Tailwind CSS v4, copied into your project with the shadcn CLI.`,
+  description: `Ship MicroClub's design system in one command: ${ui.length} accessible React components and five themes, copied in with the shadcn CLI.`,
   repo: 'https://github.com/MicroClub-USTHB/mcoli-ui',
   npm: 'https://www.npmjs.com/package/mcoli-ui',
   organization: {
