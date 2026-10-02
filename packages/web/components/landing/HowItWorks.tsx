@@ -210,7 +210,7 @@ export function HowItWorks() {
               <div className="flex items-center justify-between border-b border-border bg-muted/50 px-4 py-2.5">
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <Terminal className="size-3.5" />
-                  <span className="font-mono">~/my-club-app</span>
+                  <span className="font-mono">~/my-app</span>
                 </div>
                 <CopyButton value={step.command} className="size-7" />
               </div>

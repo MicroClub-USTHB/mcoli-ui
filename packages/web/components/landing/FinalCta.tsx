@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
-import LogoIcon from '@/components/LogoIcon';
 import { GithubIcon, Reveal } from '@/components/landing/primitives';
 import { REPO_URL } from '@/components/landing/themes';
 import { McButton } from '@/registry/ui/mc-button';
@@ -31,18 +30,8 @@ export function FinalCta({ componentCount }: { componentCount: number }) {
       />
 
       <Reveal className="mx-auto flex max-w-3xl flex-col items-center px-4 py-24 text-center md:py-28">
-        <div className="relative mb-10">
-          <div
-            aria-hidden
-            className="absolute -inset-6 -z-10 rounded-full bg-primary/25 blur-2xl"
-          />
-          <div className="flex size-18 items-center justify-center rounded-2xl border border-border bg-card shadow-2xl ring-8 ring-primary/5">
-            <LogoIcon size={40} />
-          </div>
-        </div>
-
         <h2 className="header-sm font-extrabold text-balance text-foreground md:header-lg">
-          Build your next club project with Mcoli UI
+          Build your next project with Mcoli UI
         </h2>
         <p className="mt-5 max-w-xl paragraph-md text-pretty text-muted-foreground md:paragraph-lg">
           Five themes, light and dark, and {componentCount} accessible components. Free and open
@@ -72,10 +61,6 @@ export function FinalCta({ componentCount }: { componentCount: number }) {
             View on GitHub
           </McButton>
         </div>
-
-        <p className="mt-10 text-sm text-muted-foreground">
-          Made by MicroClub&apos;s dev team at USTHB
-        </p>
       </Reveal>
     </section>
   );

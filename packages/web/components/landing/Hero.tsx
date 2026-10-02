@@ -55,15 +55,6 @@ export function Hero({ componentCount }: { componentCount: number }) {
           </McButton>
         </div>
 
-        <p className="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm text-muted-foreground">
-          {[`${componentCount} components`, '5 themes', 'light & dark', 'MIT'].map((item, i) => (
-            <span key={item} className="inline-flex items-center gap-2">
-              {i > 0 ? <span className="size-1 rounded-full bg-border" aria-hidden /> : null}
-              {item}
-            </span>
-          ))}
-        </p>
-
         <InstallCommand className="mt-10 max-w-xl" />
 
         <ul className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-medium text-muted-foreground">

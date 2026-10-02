@@ -45,8 +45,8 @@ const QUESTIONS = [
     a: 'Yes. The CLI checks for a components.json and stops if it is missing. Run npx shadcn@latest init once, then npx mcoli-ui init.',
   },
   {
-    q: 'Can I use it outside MicroClub projects?',
-    a: "Absolutely. It is MIT licensed. The themes carry MicroClub's identity, but the tokens are plain CSS variables you can retune.",
+    q: 'Can I use it in any project?',
+    a: "Yes. It is MIT licensed and works in any React project. The themes carry MicroClub's identity, but the tokens are plain CSS variables you can retune.",
   },
   {
     q: 'Can I switch themes later?',
