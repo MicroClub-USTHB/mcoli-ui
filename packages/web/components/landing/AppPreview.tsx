@@ -25,7 +25,7 @@ import { cn } from '@/lib/utils';
 // first paint. The placeholder matches the rendered calendar's size to avoid layout shift.
 const McCalendar = dynamic(() => import('@/registry/ui/mc-calendar').then((m) => m.McCalendar), {
   ssr: false,
-  loading: () => <div aria-hidden className="h-[260px] w-[212px]" />,
+  loading: () => <div aria-hidden className="h-[318px] w-[262px]" />,
 });
 
 const NAV = [

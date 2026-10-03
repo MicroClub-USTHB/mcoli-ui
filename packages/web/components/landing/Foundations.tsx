@@ -645,7 +645,7 @@ export function ThemesAndFoundations() {
   return (
     <section
       id="themes"
-      className="relative scroll-mt-16 border-y border-border bg-muted/30 py-20 md:py-24"
+      className="landing-deferred relative scroll-mt-16 border-y border-border bg-muted/30 py-20 md:py-24"
     >
       <div aria-hidden className="absolute inset-0 bg-dots opacity-40 mask-fade-x" />
       <div className="relative mx-auto max-w-6xl px-4 md:px-6">

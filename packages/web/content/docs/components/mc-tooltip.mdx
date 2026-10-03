@@ -70,66 +70,57 @@ export default function Example() {
   return (
     <McTooltipProvider>
       <McTooltip>
-        <McTooltipTrigger>
-          <button>Hover me</button>
-        </McTooltipTrigger>
-        <McTooltipContent title="McTooltip Title" desc="This is a description." />
+        <McTooltipTrigger>Hover me</McTooltipTrigger>
+        <McTooltipContent title="Tooltip title" description="This is a description." />
       </McTooltip>
     </McTooltipProvider>
   );
 }
 ```
 
-## Examples
-
-### Basic McTooltip
+`McTooltipTrigger` renders a `<button>`. To use your own element, pass it through `render` instead of nesting it:
 
 ```tsx
-<McTooltipProvider>
-  <McTooltip>
-    <McTooltipTrigger>
-      <button className="px-4 py-2 bg-blue-500 text-white rounded">Hover me</button>
-    </McTooltipTrigger>
-    <McTooltipContent title="Hello" desc="This is a basic tooltip." />
-  </McTooltip>
-</McTooltipProvider>
+<McTooltipTrigger render={<McButton variant="secondary">Hover me</McButton>} />
 ```
+
+<Callout>
+  Tooltip content isn't announced by screen readers. Give icon-only triggers an `aria-label`.
+</Callout>
+
+## Examples
 
 ### Positioning
 
 ```tsx
-<McTooltipProvider>
-  <McTooltip>
-    <McTooltipTrigger>
-      <button className="px-4 py-2 bg-green-500 text-white rounded">Top</button>
-    </McTooltipTrigger>
-    <McTooltipContent side="top" title="Top McTooltip" />
-  </McTooltip>
-  <McTooltip>
-    <McTooltipTrigger>
-      <button className="px-4 py-2 bg-red-500 text-white rounded">Bottom</button>
-    </McTooltipTrigger>
-    <McTooltipContent side="bottom" title="Bottom McTooltip" />
-  </McTooltip>
-</McTooltipProvider>
+<McTooltip>
+  <McTooltipTrigger>Bottom</McTooltipTrigger>
+  <McTooltipContent side="bottom" align="start" title="Bottom start" />
+</McTooltip>
+```
+
+### Without Arrow
+
+```tsx
+<McTooltip>
+  <McTooltipTrigger>Hover me</McTooltipTrigger>
+  <McTooltipContent arrow={false} title="Tooltip title" description="No arrow." />
+</McTooltip>
 ```
 
 ### With Custom Content
 
+Children render below the title and description.
+
 ```tsx
-<McTooltipProvider>
-  <McTooltip>
-    <McTooltipTrigger>
-      <button className="px-4 py-2 bg-purple-500 text-white rounded">Custom</button>
-    </McTooltipTrigger>
-    <McTooltipContent>
-      <div className="text-center">
-        <p className="font-semibold">Custom Content</p>
-        <p>You can put anything here!</p>
-      </div>
-    </McTooltipContent>
-  </McTooltip>
-</McTooltipProvider>
+<McTooltip>
+  <McTooltipTrigger>Custom</McTooltipTrigger>
+  <McTooltipContent title="Shortcuts">
+    <p>
+      Press <kbd>⌘K</kbd> to search.
+    </p>
+  </McTooltipContent>
+</McTooltip>
 ```
 
 ## API Reference
@@ -156,11 +147,13 @@ All props from `@base-ui/react/tooltip/trigger` are supported.
 | ------------- | ---------------------------------------- | ----------- | ----------------------------------------------- |
 | `className`   | `string`                                 | `undefined` | Additional CSS classes                          |
 | `side`        | `"top" \| "bottom" \| "left" \| "right"` | `"top"`     | The side of the trigger to position the tooltip |
-| `sideOffset`  | `number`                                 | `4`         | The offset from the trigger                     |
+| `sideOffset`  | `number`                                 | `16`        | The offset from the trigger                     |
 | `align`       | `"start" \| "center" \| "end"`           | `"center"`  | The alignment of the tooltip                    |
 | `alignOffset` | `number`                                 | `0`         | The offset for alignment                        |
-| `title`       | `string`                                 | `undefined` | The title text of the tooltip                   |
-| `desc`        | `string`                                 | `undefined` | The description text of the tooltip             |
+| `arrow`       | `boolean`                                | `true`      | Show the arrow pointing at the trigger          |
+| `title`       | `ReactNode`                              | `undefined` | The title text of the tooltip                   |
+| `description` | `ReactNode`                              | `undefined` | The description text of the tooltip             |
+| `desc`        | `ReactNode`                              | `undefined` | Deprecated alias for `description`              |
 | `children`    | `ReactNode`                              | `undefined` | Custom content for the tooltip                  |
 
 All other props from `@base-ui/react/tooltip/popup` and `@base-ui/react/tooltip/positioner` are supported.

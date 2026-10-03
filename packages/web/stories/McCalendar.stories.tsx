@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs';
 import React from 'react';
+import type { DateRange } from 'react-day-picker';
 import { McCalendar, McDatePicker } from '@/registry/ui/mc-calendar';
 
 const meta = {
@@ -31,8 +32,8 @@ const meta = {
     },
     buttonVariant: {
       control: 'select',
-      options: ['primary', 'secondary', 'tertiary', 'ghost', 'link'],
-      description: 'Variant for the navigation buttons.',
+      options: ['primary', 'secondary', 'tertiary', 'link'],
+      description: 'Variant for the navigation buttons. Unset renders plain chevrons.',
     },
   },
   args: {
@@ -40,7 +41,6 @@ const meta = {
     captionLayout: 'dropdown',
     showOutsideDays: true,
     showWeekNumber: false,
-    buttonVariant: 'secondary',
   },
 } satisfies Meta<typeof McCalendar>;
 
@@ -63,6 +63,33 @@ export const WithDatePicker: Story = {
       <div className="w-full max-w-2xl">
         <McDatePicker {...args} label="Submission date" selected={date} onSelect={setDate} />
       </div>
+    );
+  },
+};
+
+export const Range: Story = {
+  render: (args) => {
+    const [range, setRange] = React.useState<DateRange | undefined>(() => {
+      const from = new Date();
+      return { from, to: new Date(from.getFullYear(), from.getMonth(), from.getDate() + 4) };
+    });
+
+    return <McCalendar {...args} mode="range" selected={range} onSelect={setRange} />;
+  },
+};
+
+export const WithDisabledDays: Story = {
+  render: (args) => {
+    const [date, setDate] = React.useState<Date | undefined>(new Date());
+
+    return (
+      <McCalendar
+        {...args}
+        mode="single"
+        disabled={{ dayOfWeek: [0, 6] }}
+        selected={date}
+        onSelect={setDate}
+      />
     );
   },
 };

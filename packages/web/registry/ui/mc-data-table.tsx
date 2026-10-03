@@ -307,7 +307,7 @@ function McDataTableColumnHeader<TData extends RowData>({
       >
         <HelpCircleIcon className="size-4" />
       </McTooltipTrigger>
-      <McTooltipContent desc={tooltip} />
+      <McTooltipContent description={tooltip} />
     </McTooltip>
   );
 

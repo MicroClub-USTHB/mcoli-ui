@@ -136,7 +136,7 @@ export function HowItWorks() {
   const finished = elapsed >= total;
 
   return (
-    <section id="install" className="relative py-20 md:py-24">
+    <section id="install" className="landing-deferred relative py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <SectionHeader
           eyebrow="How it works"

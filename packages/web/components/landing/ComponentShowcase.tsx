@@ -106,7 +106,7 @@ export function ComponentShowcase({ componentCount }: { componentCount: number }
   const selected = TEAM.find((m) => m.value === member) ?? null;
 
   return (
-    <section id="components" className="relative scroll-mt-16 py-20 md:py-24">
+    <section id="components" className="landing-deferred relative scroll-mt-16 py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <SectionHeader
           eyebrow="Components"

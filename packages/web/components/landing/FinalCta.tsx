@@ -7,7 +7,7 @@ import { McButton } from '@/registry/ui/mc-button';
 
 export function FinalCta({ componentCount }: { componentCount: number }) {
   return (
-    <section className="relative isolate overflow-hidden border-t border-border">
+    <section className="landing-deferred relative isolate overflow-hidden border-t border-border">
       {/* Beam: a primary hairline on the top edge, a glow falling from it, and a faint grid. */}
       <div
         aria-hidden
