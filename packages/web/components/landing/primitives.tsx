@@ -131,6 +131,32 @@ export function Reveal({
   );
 }
 
+/** Card shell whose hover glow follows the cursor, via --x/--y written straight to the node. */
+export function Spotlight({
+  className,
+  children,
+}: {
+  className?: string;
+  children: React.ReactNode;
+}) {
+  const ref = React.useRef<HTMLDivElement>(null);
+
+  // Written to CSS vars instead of state to avoid re-renders on every pointer move.
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const node = ref.current;
+    if (!node) return;
+    const rect = node.getBoundingClientRect();
+    node.style.setProperty('--x', `${e.clientX - rect.left}px`);
+    node.style.setProperty('--y', `${e.clientY - rect.top}px`);
+  };
+
+  return (
+    <div ref={ref} onPointerMove={onPointerMove} className={className}>
+      {children}
+    </div>
+  );
+}
+
 export function SectionHeader({
   eyebrow,
   title,

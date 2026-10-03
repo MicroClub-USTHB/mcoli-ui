@@ -1,10 +1,9 @@
-'use client';
-
 import { getImageProps } from 'next/image';
 import { ArrowUpRight, BookMarked, GitPullRequest, History } from 'lucide-react';
 
 import { Reveal } from '@/components/landing/primitives';
 import { REPO_URL } from '@/components/landing/themes';
+import { FAQ } from '@/consts/faq';
 import type { Contributor } from '@/lib/github';
 import {
   McAccordion,
@@ -35,25 +34,6 @@ const LINKS = [
   },
 ];
 
-const QUESTIONS = [
-  {
-    q: 'Why copy components instead of installing a package?',
-    a: 'Because you will want to change them. Copied source means no wrapper APIs, no version pinning and no waiting on a release to fix a padding. mcoli-ui is a registry, the same model shadcn/ui made popular.',
-  },
-  {
-    q: 'Do I need shadcn/ui first?',
-    a: 'Yes. The CLI checks for a components.json and stops if it is missing. Run npx shadcn@latest init once, then npx mcoli-ui init.',
-  },
-  {
-    q: 'Can I use it in any project?',
-    a: "Yes. It is MIT licensed and works in any React project. The themes carry MicroClub's identity, but the tokens are plain CSS variables you can retune.",
-  },
-  {
-    q: 'Can I switch themes later?',
-    a: 'Run npx mcoli-ui init with another theme name. Since every component reads the same variables, the new palette, radii and fonts apply everywhere at once.',
-  },
-];
-
 const MAX_AVATARS = 10;
 
 /** Optimized src/srcSet for a 40px avatar (1x and 2x) from Next's image optimizer. */
@@ -67,7 +47,7 @@ export function Community({ contributors }: { contributors: Contributor[] }) {
   const extra = contributors.length - shown.length;
 
   return (
-    <section className="py-20 md:py-24">
+    <section className="landing-deferred py-20 md:py-24">
       <div className="mx-auto grid max-w-6xl gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-8">
         {/* Built by MicroClub */}
         <Reveal className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8">
@@ -144,8 +124,9 @@ export function Community({ contributors }: { contributors: Contributor[] }) {
         <Reveal delay={100} className="flex flex-col p-2 md:p-4">
           <span className="text-sm font-semibold text-primary">FAQ</span>
           <h2 className="mt-3 header-xs font-bold text-foreground md:header-sm">The fine print</h2>
-          <McAccordion defaultValue={['q-0']} className="mt-6 w-full max-w-none">
-            {QUESTIONS.map((item, i) => (
+          {/* hiddenUntilFound keeps closed answers in the HTML, for crawlers and find-in-page. */}
+          <McAccordion defaultValue={['q-0']} hiddenUntilFound className="mt-6 w-full max-w-none">
+            {FAQ.map((item, i) => (
               <McAccordionItem key={item.q} value={`q-${i}`}>
                 <McAccordionTrigger>{item.q}</McAccordionTrigger>
                 <McAccordionContent>
