@@ -69,7 +69,7 @@ function McComboboxContent({
         <ComboboxPrimitive.Popup
           data-slot="combobox-content"
           className={cn(
-            'w-[var(--anchor-width)] flex flex-col rounded-md ring-1 ring-inset ring-border bg-card-background shadow-md',
+            'w-[var(--anchor-width)] flex flex-col rounded-md ring-1 ring-inset ring-border bg-card shadow-md',
             className
           )}
           {...props}
