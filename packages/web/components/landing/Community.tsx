@@ -2,8 +2,8 @@ import { getImageProps } from 'next/image';
 import { ArrowUpRight, BookMarked, GitPullRequest, History } from 'lucide-react';
 
 import { Reveal } from '@/components/landing/primitives';
-import { FAQ } from '@/components/landing/faq';
 import { REPO_URL } from '@/components/landing/themes';
+import { FAQ } from '@/consts/faq';
 import type { Contributor } from '@/lib/github';
 import {
   McAccordion,

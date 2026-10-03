@@ -1,6 +1,6 @@
 import type { InferPageType } from 'fumadocs-core/source';
 
-import { FAQ } from '@/components/landing/faq';
+import { FAQ } from '@/consts/faq';
 import { absoluteUrl, site } from '@/lib/site';
 import { source } from '@/lib/source';
 
