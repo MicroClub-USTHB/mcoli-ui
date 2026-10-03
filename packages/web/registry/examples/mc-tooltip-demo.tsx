@@ -7,7 +7,7 @@ export default function McTooltipDemo() {
       <McTooltipTrigger render={<McButton variant="secondary">Hover</McButton>} />
       <McTooltipContent
         title="Lovely tooltip title"
-        desc="There are a lot of things you can do in space."
+        description="There are a lot of things you can do in space, and space essentially is unlimited resources."
       />
     </McTooltip>
   );
