@@ -1,9 +1,7 @@
-'use client';
-
 import * as React from 'react';
 import { Check, ChevronRight, FileCode2, Folder } from 'lucide-react';
 
-import { Reveal, SectionHeader } from '@/components/landing/primitives';
+import { Reveal, SectionHeader, Spotlight } from '@/components/landing/primitives';
 import { McButton } from '@/registry/ui/mc-button';
 import { cn } from '@/lib/utils';
 
@@ -24,21 +22,8 @@ function BentoTile({
   className?: string;
   visualClassName?: string;
 }) {
-  const ref = React.useRef<HTMLDivElement>(null);
-
-  // Cursor-following glow, written straight to CSS vars to avoid re-renders.
-  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
-    const node = ref.current;
-    if (!node) return;
-    const rect = node.getBoundingClientRect();
-    node.style.setProperty('--x', `${e.clientX - rect.left}px`);
-    node.style.setProperty('--y', `${e.clientY - rect.top}px`);
-  };
-
   return (
-    <div
-      ref={ref}
-      onPointerMove={onPointerMove}
+    <Spotlight
       className={cn(
         'group/tile relative isolate flex flex-col overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-shadow duration-300 hover:shadow-xl dark:shadow-[inset_0_-24px_80px_-24px_rgb(255_255_255/0.07)]',
         className
@@ -64,7 +49,7 @@ function BentoTile({
         <h3 className="font-plus-jakarta-sans text-lg font-bold text-card-foreground">{title}</h3>
         <p className="mt-1.5 max-w-[46ch] paragraph-sm text-pretty text-muted-foreground">{body}</p>
       </div>
-    </div>
+    </Spotlight>
   );
 }
 
@@ -301,7 +286,7 @@ function TypedVisual() {
 
 export function Features() {
   return (
-    <section className="py-20 md:py-24">
+    <section className="landing-deferred py-20 md:py-24">
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <SectionHeader
           eyebrow="Why mcoli-ui"

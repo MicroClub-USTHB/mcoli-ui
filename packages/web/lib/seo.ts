@@ -1,5 +1,6 @@
 import type { InferPageType } from 'fumadocs-core/source';
 
+import { FAQ } from '@/consts/faq';
 import { absoluteUrl, site } from '@/lib/site';
 import { source } from '@/lib/source';
 
@@ -26,8 +27,14 @@ const organization = {
   sameAs: [site.repo],
 };
 
-/** Home page graph: the site, the organization behind it, and the source code it ships. */
+/** Home page graph: the site, the organization behind it, the source code it ships and its FAQ. */
 export function getHomeJsonLd() {
+  // The docs change whenever a component does, so the newest docs edit (from git) dates the code.
+  const lastModified = source
+    .getPages()
+    .map((page) => page.data.lastModified?.getTime() ?? 0)
+    .reduce((a, b) => Math.max(a, b), 0);
+
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -48,10 +55,22 @@ export function getHomeJsonLd() {
         description: site.description,
         url: site.url,
         codeRepository: site.repo,
+        sameAs: [site.repo, site.npm],
         programmingLanguage: ['TypeScript', 'React'],
         runtimePlatform: 'Node.js',
         license: 'https://opensource.org/licenses/MIT',
+        isAccessibleForFree: true,
+        ...(lastModified ? { dateModified: new Date(lastModified).toISOString() } : {}),
         author: { '@id': `${site.url}/#organization` },
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${site.url}/#faq`,
+        mainEntity: FAQ.map((item) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: { '@type': 'Answer', text: item.a },
+        })),
       },
     ],
   };

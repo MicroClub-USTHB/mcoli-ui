@@ -37,6 +37,14 @@
   color: transparent;
 }
 
+/* Below-the-fold sections: the browser skips their style, layout and paint until they near the
+   viewport. Content stays in the DOM for crawlers, find-in-page and assistive tech. `auto`
+   remembers each section's real height once rendered, so the scrollbar settles after one pass. */
+@utility landing-deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1100px;
+}
+
 @keyframes landing-marquee {
   to {
     transform: translateX(calc(-50% - var(--marquee-gap, 0.375rem)));
