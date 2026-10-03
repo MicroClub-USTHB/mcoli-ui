@@ -1,5 +1,3 @@
-'use client';
-
 import { getImageProps } from 'next/image';
 import { ArrowUpRight, BookMarked, GitPullRequest, History } from 'lucide-react';
 
@@ -49,7 +47,7 @@ export function Community({ contributors }: { contributors: Contributor[] }) {
   const extra = contributors.length - shown.length;
 
   return (
-    <section className="py-20 md:py-24">
+    <section className="landing-deferred py-20 md:py-24">
       <div className="mx-auto grid max-w-6xl gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-8">
         {/* Built by MicroClub */}
         <Reveal className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8">
