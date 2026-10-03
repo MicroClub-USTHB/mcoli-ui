@@ -1,5 +1,6 @@
 import type { InferPageType } from 'fumadocs-core/source';
 
+import { FAQ } from '@/components/landing/faq';
 import { absoluteUrl, site } from '@/lib/site';
 import { source } from '@/lib/source';
 
@@ -26,7 +27,7 @@ const organization = {
   sameAs: [site.repo],
 };
 
-/** Home page graph: the site, the organization behind it, and the source code it ships. */
+/** Home page graph: the site, the organization behind it, the source code it ships and its FAQ. */
 export function getHomeJsonLd() {
   return {
     '@context': 'https://schema.org',
@@ -52,6 +53,15 @@ export function getHomeJsonLd() {
         runtimePlatform: 'Node.js',
         license: 'https://opensource.org/licenses/MIT',
         author: { '@id': `${site.url}/#organization` },
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${site.url}/#faq`,
+        mainEntity: FAQ.map((item) => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: { '@type': 'Answer', text: item.a },
+        })),
       },
     ],
   };
