@@ -100,6 +100,16 @@ Use `McDatePicker` when you want a compact trigger that opens the calendar in a 
 <McDatePicker label="Submission date" selected={date} onSelect={setDate} />
 ```
 
+### Date Range
+
+```tsx
+import type { DateRange } from 'react-day-picker';
+
+const [range, setRange] = useState<DateRange | undefined>();
+
+<McCalendar mode="range" selected={range} onSelect={setRange} />;
+```
+
 ### Without Outside Days
 
 ```tsx
@@ -118,12 +128,12 @@ Use `McDatePicker` when you want a compact trigger that opens the calendar in a 
 
 `McCalendar` accepts all props from `react-day-picker` `DayPicker`, plus a few MicroClub-specific options.
 
-| Prop              | Type                                                             | Default     | Description                                        |
-| ----------------- | ---------------------------------------------------------------- | ----------- | -------------------------------------------------- |
-| `showOutsideDays` | `boolean`                                                        | `true`      | Show days from adjacent months                     |
-| `captionLayout`   | `"label" \| "dropdown" \| "dropdown-months" \| "dropdown-years"` | `"label"`   | Controls the month/year caption layout             |
-| `buttonVariant`   | `Button` variant                                                 | `"ghost"`   | Variant used for the previous and next nav buttons |
-| `className`       | `string`                                                         | `undefined` | Additional CSS classes                             |
+| Prop              | Type                                                             | Default      | Description                                                                      |
+| ----------------- | ---------------------------------------------------------------- | ------------ | -------------------------------------------------------------------------------- |
+| `showOutsideDays` | `boolean`                                                        | `true`       | Show days from adjacent months                                                   |
+| `captionLayout`   | `"label" \| "dropdown" \| "dropdown-months" \| "dropdown-years"` | `"dropdown"` | Controls the month/year caption layout                                           |
+| `buttonVariant`   | `McButton` variant                                               | `undefined`  | Variant used for the previous and next nav buttons. Unset renders plain chevrons |
+| `className`       | `string`                                                         | `undefined`  | Additional CSS classes                                                           |
 
 All other props from `react-day-picker` are supported.
 
@@ -131,13 +141,15 @@ All other props from `react-day-picker` are supported.
 
 `McDatePicker` is a convenience wrapper around `McCalendar` and a popover trigger.
 
-| Prop               | Type                    | Default             | Description                               |
-| ------------------ | ----------------------- | ------------------- | ----------------------------------------- |
-| `label`            | `ReactNode`             | `"Submission date"` | Label shown above the trigger             |
-| `placeholder`      | `ReactNode`             | `"Pick a date"`     | Text shown when no date is selected       |
-| `selected`         | `Date`                  | `undefined`         | Currently selected date                   |
-| `onSelect`         | `(date?: Date) => void` | `undefined`         | Fired when a date is selected             |
-| `triggerClassName` | `string`                | `undefined`         | Additional classes for the trigger button |
-| `className`        | `string`                | `undefined`         | Additional classes for the wrapper        |
+| Prop               | Type                    | Default           | Description                               |
+| ------------------ | ----------------------- | ----------------- | ----------------------------------------- |
+| `label`            | `ReactNode`             | `undefined`       | Label shown above the trigger             |
+| `placeholder`      | `ReactNode`             | `"Pick a date"`   | Text shown when no date is selected       |
+| `dateFormat`       | `string`                | `"MMMM dd, yyyy"` | date-fns format for the selected date     |
+| `id`               | `string`                | auto-generated    | Id of the trigger button                  |
+| `selected`         | `Date`                  | `undefined`       | Currently selected date                   |
+| `onSelect`         | `(date?: Date) => void` | `undefined`       | Fired when a date is selected             |
+| `triggerClassName` | `string`                | `undefined`       | Additional classes for the trigger button |
+| `className`        | `string`                | `undefined`       | Additional classes for the wrapper        |
 
 All remaining calendar props are forwarded to `McCalendar`.
