@@ -28,15 +28,15 @@ type SidebarContextProps = {
 
 const SidebarContext = React.createContext<SidebarContextProps | null>(null);
 
-function useSidebar() {
+function useMcSidebar() {
   const context = React.useContext(SidebarContext);
   if (!context) {
-    throw new Error('useSidebar must be used within a SidebarProvider.');
+    throw new Error('useMcSidebar must be used within a McSidebarProvider.');
   }
   return context;
 }
 
-function SidebarProvider({
+function McSidebarProvider({
   defaultOpen = true,
   open: openProp,
   onOpenChange: setOpenProp,
@@ -149,7 +149,7 @@ function McSidebar({
   variant?: 'sidebar' | 'floating' | 'inset';
   collapsible?: 'offcanvas' | 'icon' | 'none';
 }) {
-  const { state, ready } = useSidebar();
+  const { state, ready } = useMcSidebar();
 
   return (
     <div
@@ -205,7 +205,7 @@ function McSidebar({
 }
 
 function McSidebarTrigger({ className, onClick, ...props }: React.ComponentProps<typeof McButton>) {
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar } = useMcSidebar();
   const handleClick: React.ComponentProps<typeof McButton>['onClick'] = (event) => {
     onClick?.(event);
     toggleSidebar();
@@ -229,7 +229,7 @@ function McSidebarTrigger({ className, onClick, ...props }: React.ComponentProps
 }
 
 function McSidebarRail({ className, ...props }: React.ComponentProps<'button'>) {
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar } = useMcSidebar();
 
   return (
     <button
@@ -456,7 +456,7 @@ function McSidebarCollapsible({
     setOpen(!isOpen);
   }, [hasChildren, isOpen, setOpen]);
 
-  const { state } = useSidebar();
+  const { state } = useMcSidebar();
 
   return (
     <McSidebarMenuItem className={cn('h-auto', className)} {...props}>
@@ -531,7 +531,7 @@ function McSidebarMenuButton({
     isActive?: boolean;
     tooltip?: string | React.HTMLAttributes<HTMLButtonElement>;
   } & VariantProps<typeof sidebarMenuButtonVariants>) {
-  const { state } = useSidebar();
+  const { state } = useMcSidebar();
   const tooltipLabel =
     typeof tooltip === 'string'
       ? tooltip
@@ -705,6 +705,11 @@ function McSidebarMenuSubButton({
   });
 }
 
+/** @deprecated Use `McSidebarProvider`. */
+const SidebarProvider = McSidebarProvider;
+/** @deprecated Use `useMcSidebar`. */
+const useSidebar = useMcSidebar;
+
 export {
   McSidebar,
   McSidebarContent,
@@ -725,9 +730,11 @@ export {
   McSidebarMenuSub,
   McSidebarMenuSubButton,
   McSidebarMenuSubItem,
+  McSidebarProvider,
   SidebarProvider,
   McSidebarRail,
   McSidebarSeparator,
   McSidebarTrigger,
+  useMcSidebar,
   useSidebar,
 };

@@ -30,8 +30,8 @@ import {
   McSidebarMenuSubItem,
   McSidebarRail,
   McSidebarTrigger,
-  SidebarProvider,
-  useSidebar,
+  McSidebarProvider,
+  useMcSidebar,
 } from '../ui/mc-sidebar';
 
 const platformItems = [
@@ -52,7 +52,7 @@ export default function McSidebarDemo() {
   const [open, setOpen] = useState(true);
 
   return (
-    <SidebarProvider
+    <McSidebarProvider
       open={open}
       onOpenChange={setOpen}
       className="!h-[24rem] !min-h-0 !w-full overflow-hidden"
@@ -63,12 +63,12 @@ export default function McSidebarDemo() {
       }
     >
       <SidebarDemoContent />
-    </SidebarProvider>
+    </McSidebarProvider>
   );
 }
 
 function SidebarTriggerButton() {
-  const { state } = useSidebar();
+  const { state } = useMcSidebar();
   const baseWidth = state === 'collapsed' ? 'var(--sidebar-width-icon)' : 'var(--sidebar-width)';
   const offsetValue = `calc(${baseWidth} + 26px)`;
 
@@ -81,7 +81,7 @@ function SidebarTriggerButton() {
 }
 
 function SidebarDemoContent() {
-  const { state } = useSidebar();
+  const { state } = useMcSidebar();
   const isCollapsed = state === 'collapsed';
   const insetPaddingLeft = isCollapsed
     ? 'calc(var(--sidebar-width-icon) + 3.5rem)'

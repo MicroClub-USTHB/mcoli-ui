@@ -62,7 +62,7 @@ Ensure your `@/lib/utils` (or equivalent classname helper) and component import 
 
 ```tsx
 import {
-  SidebarProvider,
+  McSidebarProvider,
   McSidebar,
   McSidebarContent,
   McSidebarInset,
@@ -70,12 +70,12 @@ import {
 
 export default function Example() {
   return (
-    <SidebarProvider>
+    <McSidebarProvider>
       <McSidebar>
         <McSidebarContent>{/* sidebar items */}</McSidebarContent>
       </McSidebar>
       <McSidebarInset>{/* page content */}</McSidebarInset>
-    </SidebarProvider>
+    </McSidebarProvider>
   );
 }
 ```
@@ -85,14 +85,14 @@ export default function Example() {
 ### Basic Layout
 
 ```tsx
-<SidebarProvider defaultOpen>
+<McSidebarProvider defaultOpen>
   <McSidebar>
     <McSidebarHeader>{/* header items */}</McSidebarHeader>
     <McSidebarContent>{/* menu groups */}</McSidebarContent>
     <McSidebarFooter>{/* footer items */}</McSidebarFooter>
   </McSidebar>
   <McSidebarInset>{/* main content */}</McSidebarInset>
-</SidebarProvider>
+</McSidebarProvider>
 ```
 
 ### Variants
@@ -113,19 +113,19 @@ export default function Example() {
 
 ### Controlled Open State
 
-Manage sidebar visibility programmatically with `open` and `onOpenChange` on `SidebarProvider`.
+Manage sidebar visibility programmatically with `open` and `onOpenChange` on `McSidebarProvider`.
 
 ```tsx
 import { useState } from 'react';
-import { SidebarProvider, McSidebar } from '@/components/ui/mc-sidebar';
+import { McSidebarProvider, McSidebar } from '@/components/ui/mc-sidebar';
 
 export default function Example() {
   const [open, setOpen] = useState(true);
 
   return (
-    <SidebarProvider open={open} onOpenChange={setOpen}>
+    <McSidebarProvider open={open} onOpenChange={setOpen}>
       <McSidebar />
-    </SidebarProvider>
+    </McSidebarProvider>
   );
 }
 ```
@@ -233,7 +233,7 @@ Show loading state while content is being fetched.
 
 ## API Reference
 
-### `SidebarProvider` Props
+### `McSidebarProvider` Props
 
 | Prop           | Type                      | Default     | Description                               |
 | -------------- | ------------------------- | ----------- | ----------------------------------------- |
@@ -447,7 +447,7 @@ Also supports standard `div` props.
 
 Also supports standard `main` props.
 
-### `useSidebar` Hook
+### `useMcSidebar` Hook
 
 A hook to access the sidebar context state and controls.
 

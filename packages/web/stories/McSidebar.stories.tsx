@@ -29,8 +29,8 @@ import {
   McSidebarMenuSubItem,
   McSidebarTrigger,
   McSidebarRail,
-  SidebarProvider,
-  useSidebar,
+  McSidebarProvider,
+  useMcSidebar,
 } from '@/registry/ui/mc-sidebar';
 
 type SidebarStoryArgs = {
@@ -96,7 +96,7 @@ const projectItems = [
 
 function SidebarScenario(args: SidebarStoryArgs) {
   return (
-    <SidebarProvider
+    <McSidebarProvider
       defaultOpen={args.defaultOpen}
       style={
         {
@@ -106,12 +106,12 @@ function SidebarScenario(args: SidebarStoryArgs) {
       }
     >
       <SidebarScenarioContent args={args} />
-    </SidebarProvider>
+    </McSidebarProvider>
   );
 }
 
 function SidebarScenarioContent({ args }: { args: SidebarStoryArgs }) {
-  const { toggleSidebar } = useSidebar();
+  const { toggleSidebar } = useMcSidebar();
   const canToggleSidebar = args.collapsible !== 'none';
 
   return (
@@ -309,7 +309,7 @@ function SidebarTriggerButton({
   side: SidebarStoryArgs['side'];
   collapsible: SidebarStoryArgs['collapsible'];
 }) {
-  const { state } = useSidebar();
+  const { state } = useMcSidebar();
   const offsetProperty = side === 'right' ? 'right' : 'left';
   const baseWidth =
     state === 'collapsed'
