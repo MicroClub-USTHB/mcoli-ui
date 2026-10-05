@@ -6,7 +6,7 @@ description: A small label for status or categorization.
 ## Overview
 
 The `mc-badge` is a compact label used to highlight status, categories, or metadata.
-It is built on **@base-ui/react** and styled with **Tailwind CSS v4** for consistent design.
+It is built on **@base-ui/react** and styled with **Tailwind CSS v4**. The same file also exports `McBadgeGroup`, a pill that pairs a badge with a short message.
 
 ## Preview
 
@@ -58,7 +58,7 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 ## Usage
 
 ```tsx
-import { McBadge } from '@/components/ui/mc-badge';
+import { McBadge, McBadgeGroup } from '@/components/ui/mc-badge';
 
 export default function Example() {
   return <McBadge>Label</McBadge>;
@@ -69,79 +69,145 @@ export default function Example() {
 
 ### Variants
 
-```tsx
-<McBadge variant="default">Default</McBadge>
-<McBadge variant="secondary">Secondary</McBadge>
-<McBadge variant="destructive">Destructive</McBadge>
-<McBadge variant="outline">Outline</McBadge>
-<McBadge variant="ghost">Ghost</McBadge>
-```
+`default` is the Figma Gray badge, and `primary` is the badge used inside a group. The other variants are extras.
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-badge-variants-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-badge-variants-demo" />
+  </Tab>
+</Tabs>
 
 ### Sizes
 
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-badge-sizes-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-badge-sizes-demo" />
+  </Tab>
+</Tabs>
+
+### Icons
+
+Pass any icon with `icon`. Use `McBadgeDot` for the dot, `iconPosition="end"` for a trailing icon, and `iconOnly` for a badge with no label.
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-badge-icons-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-badge-icons-demo" />
+  </Tab>
+</Tabs>
+
+### Image
+
+Use `image` for a country flag or an avatar. When `image` is set, `icon` is ignored.
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-badge-image-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-badge-image-demo" />
+  </Tab>
+</Tabs>
+
+### Badge group
+
+`McBadgeGroup` sizes its inner `McBadge` for you. Put the badge first for a leading badge, and pass `icon` to `McBadgeGroupText` for the arrow.
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-badge-group-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-badge-group-demo" />
+  </Tab>
+</Tabs>
+
+### Trailing badge
+
+Set `badgePosition="trailing"` and put the badge last. The arrow goes in the badge, with `iconPosition="end"`.
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-badge-group-trailing-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-badge-group-trailing-demo" />
+  </Tab>
+</Tabs>
+
+### Group sizes
+
+<Tabs items={['preview', 'code']}>
+  <Tab>
+    <ComponentPreview name="mc-badge-group-sizes-demo" />
+  </Tab>
+  <Tab>
+    <ComponentSource name="mc-badge-group-sizes-demo" />
+  </Tab>
+</Tabs>
+
+### As a link
+
+Use the `render` prop to render the badge as another element.
+
 ```tsx
-<McBadge size="sm">Small</McBadge>
-<McBadge size="md">Medium</McBadge>
-<McBadge size="lg">Large</McBadge>
+<McBadge render={<a href="/changelog" />}>Changelog</McBadge>
 ```
 
-### Icon Support
+## Accessibility
 
-```tsx
-import { ArrowRight, Dot } from "lucide-react"
-
-<McBadge icon={<Dot />} iconPosition="start">
-  Status
-</McBadge>
-
-<McBadge icon={<ArrowRight />} iconPosition="end">
-  More
-</McBadge>
-```
-
-### Badge Group
-
-Use `leadingBadge` to render a nested badge before or after the parent content.
-When the child badge is after the content, the optional icon is rendered inside the child badge.
-
-```tsx
-import { ArrowRight } from "lucide-react"
-
-<McBadge
-  groupSize="md"
-  leadingBadge="New"
-  leadingBadgePosition="start"
-  icon={<ArrowRight />}
-  iconPosition="end"
->
-  We just shipped a feature
-</McBadge>
-
-<McBadge
-  groupSize="lg"
-  leadingBadge="New"
-  leadingBadgePosition="end"
-  leadingBadgeIcon={<ArrowRight />}
->
-  We just shipped a feature
-</McBadge>
-```
+- A badge has no role and is not focusable. Keep its label short and meaningful on its own.
+- A badge with `iconOnly` has no text. Pass `aria-label` so screen readers can announce it.
+- `McBadgeDot` is hidden from assistive technology. Do not use color alone to carry meaning, write the status in the label.
+- To make a badge dismissible, put a real `<button>` with an `aria-label` in the `icon` slot.
 
 ## API Reference
 
-### Props
+### `McBadge`
 
-| Prop                   | Type                                                                | Default     | Description                                                    |
-| ---------------------- | ------------------------------------------------------------------- | ----------- | -------------------------------------------------------------- |
-| `variant`              | `"default" \| "secondary" \| "destructive" \| "outline" \| "ghost"` | `"default"` | Visual style of the badge                                      |
-| `size`                 | `"sm" \| "md" \| "lg"`                                              | `"sm"`      | Size of the badge                                              |
-| `icon`                 | `ReactNode`                                                         | `undefined` | Icon to render in the parent badge                             |
-| `iconPosition`         | `"start" \| "end"`                                                  | `"start"`   | Icon placement within the parent badge                         |
-| `leadingBadge`         | `ReactNode`                                                         | `undefined` | Nested badge content or element                                |
-| `leadingBadgePosition` | `"start" \| "end"`                                                  | `"start"`   | Placement of the nested badge                                  |
-| `leadingBadgeIcon`     | `ReactNode`                                                         | `undefined` | Icon rendered inside the nested badge (when positioned at end) |
-| `groupSize`            | `"md" \| "lg"`                                                      | `"md"`      | Parent height when using a nested badge                        |
-| `render`               | `ReactElement \| ((props: HTMLProps) => ReactElement)`              | `undefined` | Polymorphic render prop from Base UI                           |
-| `className`            | `string`                                                            | `undefined` | Additional CSS classes                                         |
+Extends the Base UI `useRender` span props.
 
-All other props from `@base-ui/react` span rendering are supported.
+| Prop            | Type                                                                             | Default     | Description                                                     |
+| --------------- | -------------------------------------------------------------------------------- | ----------- | --------------------------------------------------------------- |
+| `variant`       | `"default" \| "primary" \| "secondary" \| "destructive" \| "outline" \| "ghost"` | `"default"` | Visual style. Inside `McBadgeGroup` the default is `"primary"`. |
+| `size`          | `"sm" \| "md" \| "lg"`                                                           | `"sm"`      | Size of the badge. Inside `McBadgeGroup` the group sets it.     |
+| `icon`          | `ReactNode`                                                                      | `undefined` | Icon to show. Use `McBadgeDot` for the dot.                     |
+| `iconPosition`  | `"start" \| "end"`                                                               | `"start"`   | Side of the label where the icon sits.                          |
+| `iconOnly`      | `boolean`                                                                        | `false`     | Hides the label and shows only `icon`. Add `aria-label`.        |
+| `image`         | `string`                                                                         | `undefined` | URL of a flag or avatar image. Replaces `icon`.                 |
+| `imageAlt`      | `string`                                                                         | `""`        | Alt text for `image`.                                           |
+| `imagePosition` | `"start" \| "end"`                                                               | `"start"`   | Side of the label where the image sits.                         |
+| `render`        | `ReactElement \| ((props: HTMLProps) => ReactElement)`                           | `undefined` | Polymorphic render prop from Base UI.                           |
+| `className`     | `string`                                                                         | `undefined` | Additional CSS classes.                                         |
+
+### `McBadgeGroup`
+
+| Prop            | Type                                                   | Default     | Description                                          |
+| --------------- | ------------------------------------------------------ | ----------- | ---------------------------------------------------- |
+| `size`          | `"md" \| "lg"`                                         | `"md"`      | Size of the group and of the inner badge.            |
+| `badgePosition` | `"leading" \| "trailing"`                              | `"leading"` | Whether the badge comes before or after the message. |
+| `render`        | `ReactElement \| ((props: HTMLProps) => ReactElement)` | `undefined` | Polymorphic render prop from Base UI.                |
+| `className`     | `string`                                               | `undefined` | Additional CSS classes.                              |
+
+### `McBadgeGroupText`
+
+| Prop        | Type        | Default     | Description                                        |
+| ----------- | ----------- | ----------- | -------------------------------------------------- |
+| `icon`      | `ReactNode` | `undefined` | Icon shown after the message, for a leading badge. |
+| `className` | `string`    | `undefined` | Additional CSS classes.                            |
+
+### `McBadgeDot`
+
+An 8px dot that follows the text color. Pass it as the `icon` of `McBadge`.
+
+### Other exports
+
+`McBadgeVariants` and `McBadgeGroupVariants` are the `cva` style functions, for styling your own elements like a badge.

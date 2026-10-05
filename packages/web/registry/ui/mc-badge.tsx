@@ -1,13 +1,14 @@
+'use client';
+
 import { mergeProps } from '@base-ui/react/merge-props';
 import { useRender } from '@base-ui/react/use-render';
 import { cva, type VariantProps } from 'class-variance-authority';
-import type { ReactNode } from 'react';
-import { cloneElement, isValidElement } from 'react';
+import { createContext, useContext, type ComponentProps, type ReactNode } from 'react';
 
 import { cn } from '@/lib/utils';
 
 const McBadgeVariants = cva(
-  'group/badge inline-flex shrink-0 items-center justify-center gap-1 overflow-hidden rounded-[16px] border border-[#E6E9FF] text-xs font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:size-3 [&>svg]:shrink-0 [&>svg]:self-center',
+  'group/badge inline-flex shrink-0 items-center justify-center overflow-hidden rounded-[16px] border border-border font-medium whitespace-nowrap transition-all focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 [&>svg]:size-3 [&>svg]:shrink-0',
   {
     variants: {
       variant: {
@@ -15,16 +16,15 @@ const McBadgeVariants = cva(
         secondary: 'bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80',
         destructive:
           'bg-destructive/10 text-destructive focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:focus-visible:ring-destructive/40 [a]:hover:bg-destructive/20',
-        outline: 'border-border text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground',
+        outline: 'text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground',
         ghost: 'hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50',
-        leading: 'bg-accent-foreground text-accent',
+        primary: 'bg-accent-foreground text-accent',
       },
       size: {
-        sm: 'h-[22px] min-w-[47px] px-2 py-0.5 text-sm leading-[18px]',
-        md: 'h-[24px] min-w-[56px] px-[10px] py-0.5 text-sm leading-[20px]',
-        lg: 'h-[32px] min-w-[65px] px-3 py-1 text-sm leading-[24px]',
-        groupMd: 'h-[22px] min-w-[47px] px-2 py-0.5 text-sm leading-[18px]',
-        groupLg: 'h-[28px] min-w-[56px] px-[10px] py-1 text-sm leading-[20px]',
+        sm: 'paragraph-xs px-[7px] py-px',
+        md: 'paragraph-sm px-[9px] py-px',
+        lg: 'paragraph-md px-[11px] py-[3px]',
+        groupLeadingLg: 'paragraph-md px-[9px] py-px',
       },
     },
     defaultVariants: {
@@ -34,9 +34,68 @@ const McBadgeVariants = cva(
   }
 );
 
+type BadgeSize = 'sm' | 'md' | 'lg';
+type BadgeKind =
+  | 'dot-start'
+  | 'dot-end'
+  | 'image-start'
+  | 'image-end'
+  | 'icon-start'
+  | 'icon-end'
+  | 'only';
+
+// Figma paddings minus the 1px border, because Figma strokes sit inside the box.
+const McBadgePadding: Record<BadgeSize, Record<BadgeKind, string>> = {
+  sm: {
+    'dot-start': 'gap-1.5 pl-[5px] pr-[7px]',
+    'dot-end': 'gap-1.5 pl-[7px] pr-[5px]',
+    'image-start': 'gap-1.5 pl-[2px] pr-[7px]',
+    'image-end': 'gap-1.5 pl-[7px] pr-[2px]',
+    'icon-start': 'gap-1 pl-[5px] pr-[7px]',
+    'icon-end': 'gap-1 pl-[7px] pr-[5px]',
+    only: 'p-[3px]',
+  },
+  md: {
+    'dot-start': 'gap-1.5 pl-[7px] pr-[9px]',
+    'dot-end': 'gap-1.5 pl-[9px] pr-[7px]',
+    'image-start': 'gap-1.5 pl-[3px] pr-[9px]',
+    'image-end': 'gap-1.5 pl-[9px] pr-[3px]',
+    'icon-start': 'gap-1 pl-[9px] pr-[7px]',
+    'icon-end': 'gap-1 pl-[9px] pr-[7px]',
+    only: 'p-[5px]',
+  },
+  lg: {
+    'dot-start': 'gap-1.5 pl-[9px] pr-[11px]',
+    'dot-end': 'gap-1.5 pl-[11px] pr-[9px]',
+    'image-start': 'gap-1.5 pl-[5px] pr-[11px]',
+    'image-end': 'gap-1.5 pl-[11px] pr-[5px]',
+    'icon-start': 'gap-1 pl-[11px] pr-[9px]',
+    'icon-end': 'gap-1 pl-[11px] pr-[9px]',
+    only: 'p-[7px]',
+  },
+};
+
+type McBadgeGroupContextValue = {
+  size: 'md' | 'lg';
+  badgePosition: 'leading' | 'trailing';
+};
+
+const McBadgeGroupContext = createContext<McBadgeGroupContextValue | null>(null);
+
+function McBadgeDot({ className, ...props }: ComponentProps<'span'>) {
+  return (
+    <span
+      data-slot="badge-dot"
+      aria-hidden="true"
+      className={cn('inline-block size-2 shrink-0 rounded-full bg-current', className)}
+      {...props}
+    />
+  );
+}
+
 function McBadge({
   className,
-  variant = 'default',
+  variant,
   size = 'sm',
   render,
   icon,
@@ -45,170 +104,196 @@ function McBadge({
   image,
   imageAlt = '',
   imagePosition = 'start',
-  leadingBadge,
-  leadingBadgePosition = 'start',
-  leadingBadgeIcon,
-  groupSize = 'md',
   children,
   ...props
 }: useRender.ComponentProps<'span'> &
-  VariantProps<typeof McBadgeVariants> & {
+  Omit<VariantProps<typeof McBadgeVariants>, 'size'> & {
+    size?: BadgeSize;
     icon?: ReactNode;
     iconPosition?: 'start' | 'end';
     iconOnly?: boolean;
     image?: string;
     imageAlt?: string;
     imagePosition?: 'start' | 'end';
-    leadingBadge?: ReactNode;
-    leadingBadgePosition?: 'start' | 'end';
-    leadingBadgeIcon?: ReactNode;
-    groupSize?: 'md' | 'lg';
   }) {
-  const groupSizeClasses = {
-    md: 'h-[30px] leading-[22px]',
-    lg: 'h-[36px] leading-[26px]',
-  } as const;
-  const groupChildSize = groupSize === 'md' ? 'groupMd' : 'groupLg';
+  const group = useContext(McBadgeGroupContext);
+
+  const resolvedVariant = variant ?? (group ? 'primary' : 'default');
+  const resolvedSize: BadgeSize = group ? (group.size === 'md' ? 'sm' : 'md') : size;
+  const variantSize =
+    group?.size === 'lg' && group.badgePosition === 'leading' ? 'groupLeadingLg' : resolvedSize;
+
+  const isDot = isDotIcon(icon);
+  const placement = iconPosition === 'end' ? 'end' : 'start';
+
+  const kind: BadgeKind | undefined = image
+    ? `image-${imagePosition}`
+    : icon
+      ? iconOnly
+        ? 'only'
+        : `${isDot ? 'dot' : 'icon'}-${placement}`
+      : undefined;
+
+  const iconEl = icon ? (
+    isDot ? (
+      icon
+    ) : (
+      <span
+        data-slot="badge-icon"
+        className="inline-flex size-3 shrink-0 items-center justify-center [&>svg]:size-full"
+      >
+        {icon}
+      </span>
+    )
+  ) : null;
 
   const imageEl = image ? (
-    <img src={image} alt={imageAlt} className="size-4 shrink-0 rounded-full object-cover" />
+    <img
+      data-slot="badge-image"
+      src={image}
+      alt={imageAlt}
+      className="size-4 shrink-0 rounded-full object-cover"
+    />
   ) : null;
 
-  const useParentIcon = !leadingBadge || leadingBadgePosition === 'start';
-  const rawIcon = useParentIcon ? icon : undefined;
-  const parentIcon = rawIcon ? (
-    <span style={{ display: 'contents', pointerEvents: 'none' }}>
-      <span
-        style={{
-          width: 12,
-          height: 12,
-          display: 'inline-flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexShrink: 0,
-        }}
-      >
-        {rawIcon}
-      </span>
-    </span>
-  ) : undefined;
+  const leading = !image && placement === 'start' ? iconEl : null;
+  const trailing = !image && placement === 'end' ? iconEl : null;
 
-  const parentIconPlacement = parentIcon
-    ? iconPosition === 'end'
-      ? 'inline-end'
-      : 'inline-start'
-    : undefined;
-
-  const contentWithIcon = parentIcon ? (
-    iconPosition === 'end' ? (
-      <>
-        {children}
-        {parentIcon}
-      </>
-    ) : (
-      <>
-        {parentIcon}
-        {children}
-      </>
-    )
-  ) : (
-    children
-  );
-
-  const content = imageEl ? (
-    imagePosition === 'end' ? (
-      <>
-        {contentWithIcon}
-        {imageEl}
-      </>
-    ) : (
-      <>
-        {imageEl}
-        {contentWithIcon}
-      </>
-    )
-  ) : (
-    contentWithIcon
-  );
-
-  const resolvedLeadingBadge = leadingBadge ? (
-    isValidElement(leadingBadge) ? (
-      cloneElement(leadingBadge as React.ReactElement<Record<string, unknown>>, {
-        size: groupChildSize,
-        variant: 'leading', // ← forcé
-        icon: leadingBadgePosition === 'end' ? leadingBadgeIcon : undefined,
-        iconPosition: 'end',
-      })
-    ) : (
-      <McBadge
-        size={groupChildSize}
-        variant="leading" // ← forcé
-        icon={leadingBadgePosition === 'end' ? leadingBadgeIcon : undefined}
-        iconPosition="end"
-      >
-        {leadingBadge}
-      </McBadge>
-    )
-  ) : null;
-
-  const groupedContent = resolvedLeadingBadge ? (
-    leadingBadgePosition === 'end' ? (
-      <div className="flex items-center gap-3">
-        {content}
-        {resolvedLeadingBadge}
-      </div>
-    ) : (
-      <div className="flex items-center gap-3">
-        {resolvedLeadingBadge}
-        {content}
-      </div>
-    )
-  ) : (
-    content
-  );
-
-  const dataIconProps = parentIconPlacement
-    ? ({ 'data-icon': parentIconPlacement } as Record<string, string>)
-    : undefined;
-
-  const iconOnlyClasses = iconOnly ? 'min-w-0 px-1.5' : undefined;
-
-  const imagePaddingClasses = image
-    ? imagePosition === 'start'
-      ? 'pl-[3px]'
-      : 'pr-[3px]'
-    : undefined;
-
-  const groupPaddingClasses = resolvedLeadingBadge
-    ? leadingBadgePosition === 'start'
-      ? 'pl-1 pr-[10px]'
-      : 'pl-[10px] pr-1'
-    : undefined;
+  const dataProps: Record<string, string> = { 'data-slot': 'badge' };
+  if (icon && !image) dataProps['data-icon'] = `inline-${placement}`;
 
   return useRender({
     defaultTagName: 'span',
     props: mergeProps<'span'>(
       {
         className: cn(
-          McBadgeVariants({ variant, size }),
-          leadingBadge ? groupSizeClasses[groupSize] : undefined,
-          iconOnlyClasses,
-          imagePaddingClasses,
-          groupPaddingClasses,
+          McBadgeVariants({ variant: resolvedVariant, size: variantSize }),
+          kind && McBadgePadding[resolvedSize][kind],
           className
         ),
-        ...(dataIconProps ?? {}),
-        children: groupedContent,
+        ...dataProps,
+        children: (
+          <>
+            {imagePosition === 'start' ? imageEl : null}
+            {leading}
+            {iconOnly && icon ? null : children}
+            {trailing}
+            {imagePosition === 'end' ? imageEl : null}
+          </>
+        ),
       },
       props
     ),
     render,
     state: {
       slot: 'badge',
-      variant,
-      size,
+      variant: resolvedVariant,
+      size: resolvedSize,
     },
   });
 }
 
-export { McBadge, McBadgeVariants };
+function isDotIcon(icon: ReactNode) {
+  return (
+    typeof icon === 'object' &&
+    icon !== null &&
+    'type' in icon &&
+    (icon as { type: unknown }).type === McBadgeDot
+  );
+}
+
+const McBadgeGroupVariants = cva(
+  'inline-flex shrink-0 items-center rounded-[16px] border border-border bg-primary-foreground py-[3px] font-medium whitespace-nowrap text-primary',
+  {
+    variants: {
+      size: {
+        md: 'paragraph-xs gap-2',
+        lg: 'paragraph-md gap-3',
+      },
+      badgePosition: {
+        leading: 'pl-[3px] pr-[11px] has-[[data-slot=badge-group-icon]]:pr-[9px]',
+        trailing: '',
+      },
+    },
+    compoundVariants: [
+      { size: 'md', badgePosition: 'trailing', className: 'pl-[11px] pr-[3px]' },
+      {
+        size: 'lg',
+        badgePosition: 'trailing',
+        className: 'pl-[13px] pr-[5px] has-[[data-icon=inline-end]]:pr-[3px]',
+      },
+    ],
+    defaultVariants: {
+      size: 'md',
+      badgePosition: 'leading',
+    },
+  }
+);
+
+function McBadgeGroup({
+  className,
+  size = 'md',
+  badgePosition = 'leading',
+  render,
+  ...props
+}: useRender.ComponentProps<'span'> & {
+  size?: 'md' | 'lg';
+  badgePosition?: 'leading' | 'trailing';
+}) {
+  const element = useRender({
+    defaultTagName: 'span',
+    props: mergeProps<'span'>(
+      {
+        className: cn(McBadgeGroupVariants({ size, badgePosition }), className),
+        ...({ 'data-slot': 'badge-group' } as Record<string, string>),
+      },
+      props
+    ),
+    render,
+    state: {
+      slot: 'badge-group',
+      size,
+      badgePosition,
+    },
+  });
+
+  return (
+    <McBadgeGroupContext.Provider value={{ size, badgePosition }}>
+      {element}
+    </McBadgeGroupContext.Provider>
+  );
+}
+
+function McBadgeGroupText({
+  className,
+  icon,
+  children,
+  ...props
+}: ComponentProps<'span'> & { icon?: ReactNode }) {
+  return (
+    <span
+      data-slot="badge-group-text"
+      className={cn('inline-flex items-center gap-1', className)}
+      {...props}
+    >
+      {children}
+      {icon ? (
+        <span
+          data-slot="badge-group-icon"
+          className="inline-flex size-4 shrink-0 items-center justify-center [&>svg]:size-full"
+        >
+          {icon}
+        </span>
+      ) : null}
+    </span>
+  );
+}
+
+export {
+  McBadge,
+  McBadgeDot,
+  McBadgeGroup,
+  McBadgeGroupText,
+  McBadgeVariants,
+  McBadgeGroupVariants,
+};
