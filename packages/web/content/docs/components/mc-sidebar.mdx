@@ -7,15 +7,15 @@ description: A sidebar navigation component.
 
 The `mc-sidebar` is a layout and navigation system for MicroClub UI. It provides a complete sidebar architecture with provider state, collapsible behavior, grouped menus, nested navigation, and a content inset area.
 
+Opening and closing is animated as one 300ms motion: the width, the labels, the group titles and the nested menus all move together, and it is skipped for users who prefer reduced motion.
+
 Built as part of MicroClub UI, this component is designed for **instant deployment into your codebase**, while keeping full control over styling, structure, and interactions.
 
 ## Preview
 
 <Tabs items={['preview', 'code']}>
   <Tab>
-    <div>
-      <ComponentPreview name="mc-sidebar-demo" />
-    </div>
+    <ComponentPreview name="mc-sidebar-demo" />
   </Tab>
   <Tab>
     <ComponentSource name="mc-sidebar-demo" />
@@ -33,6 +33,8 @@ Deploy the `mc-sidebar` directly to your `components/ui` directory:
   <Tab value="bun">bunx mcoli-ui@latest add mc-sidebar</Tab>
 </Tabs>
 
+This also installs `mc-button` and `mc-tooltip`.
+
 ### Manual Setup
 
 If you prefer manual control:
@@ -47,6 +49,8 @@ If you prefer manual control:
   <Tab value="yarn">yarn add @base-ui/react lucide-react</Tab>
   <Tab value="bun">bun add @base-ui/react lucide-react</Tab>
 </Tabs>
+
+<Step>Add `mc-button` and `mc-tooltip`</Step>
 
 <Step>Copy the source code</Step>
 
@@ -109,6 +113,37 @@ export default function Example() {
 <McSidebar collapsible="icon" />
 <McSidebar collapsible="offcanvas" />
 <McSidebar collapsible="none" />
+```
+
+### Hiding content when collapsed
+
+Do not hide content with `hidden` when the sidebar collapses, because it disappears before the width finishes animating. Wrap it in `McSidebarFade` to fade it out instead. Labels inside `McSidebarMenuButton` and `McSidebarGroupLabel` already fade on their own.
+
+```tsx
+<McSidebarHeader>
+  <div className="flex items-center gap-2">
+    <Logo className="size-9 shrink-0" />
+    <McSidebarFade>
+      <p className="text-sm font-semibold">Micro Club</p>
+      <p className="text-xs">Scientific club</p>
+    </McSidebarFade>
+  </div>
+</McSidebarHeader>
+```
+
+### Persisting the open state
+
+The open state is saved in the `sidebar_state` cookie each time the user toggles it, and read again after the page mounts. Pass `open` and `onOpenChange` if you want to store it somewhere else. Use `Cmd/Ctrl + B` to toggle the sidebar from the keyboard.
+
+### Embedding in a container
+
+The sidebar is `fixed` by default. To place it inside a card or a preview, give the wrapper `position: relative` and a `transform`, and set the height on `McSidebar`.
+
+```tsx
+<McSidebarProvider className="relative h-[28rem] min-h-0 overflow-hidden [transform:translateZ(0)]">
+  <McSidebar className="h-[calc(100%-2.5rem)]">{/* ... */}</McSidebar>
+  <McSidebarInset>{/* ... */}</McSidebarInset>
+</McSidebarProvider>
 ```
 
 ### Controlled Open State
@@ -231,6 +266,14 @@ Show loading state while content is being fetched.
 <McSidebarMenuSkeleton />
 ```
 
+## Accessibility
+
+- Collapsed menu buttons keep their text in the page, so screen readers still read the label. A tooltip shows the same label on hover and focus.
+- A button with a nested menu sets `aria-expanded` and `aria-controls`.
+- Nested menus that are closed or collapsed are removed from the tab order.
+- `McSidebarTrigger` and `McSidebarRail` have the label "Toggle Sidebar".
+- Below the `md` breakpoint the sidebar is not rendered. Provide your own mobile navigation.
+
 ## API Reference
 
 ### `McSidebarProvider` Props
@@ -243,7 +286,7 @@ Show loading state while content is being fetched.
 | `className`    | `string`                  | `undefined` | Additional classes for sidebar wrapper    |
 | `children`     | `React.ReactNode`         | `undefined` | Sidebar and inset content                 |
 
-Also supports standard `div` props.
+Also supports standard `div` props. `SidebarProvider` is a deprecated alias of `McSidebarProvider`.
 
 ### `McSidebar` Props
 
@@ -263,7 +306,7 @@ Also supports standard `div` props.
 | ------------------ | --------------------------------------------- | ----------- | --------------------------------------------- |
 | `label`            | `React.ReactNode`                             | required    | Label content displayed in the trigger        |
 | `icon`             | `React.ComponentType<{ className?: string }>` | `undefined` | Optional icon displayed before the label      |
-| `tooltip`          | `string`                                      | `undefined` | Tooltip label when sidebar is collapsed       |
+| `tooltip`          | `string`                                      | `undefined` | Tooltip shown next to the icon when collapsed |
 | `defaultOpen`      | `boolean`                                     | `false`     | Initial open state for uncontrolled usage     |
 | `open`             | `boolean`                                     | `undefined` | Controlled open state                         |
 | `onOpenChange`     | `(open: boolean) => void`                     | `undefined` | Callback fired when collapsible state changes |
@@ -439,6 +482,16 @@ Also supports standard `div` props.
 
 Also supports standard `div` props.
 
+### `McSidebarFade` Props
+
+Fades its content out when the sidebar collapses.
+
+| Prop        | Type     | Default     | Description            |
+| ----------- | -------- | ----------- | ---------------------- |
+| `className` | `string` | `undefined` | Additional CSS classes |
+
+Also supports standard `div` props.
+
 ### `McSidebarInset` Props
 
 | Prop        | Type     | Default     | Description            |
@@ -457,3 +510,5 @@ A hook to access the sidebar context state and controls.
 | `open`          | `boolean`                   | Whether the sidebar is open |
 | `setOpen`       | `(open: boolean) => void`   | Function to set open state  |
 | `toggleSidebar` | `() => void`                | Function to toggle sidebar  |
+
+`useSidebar` is a deprecated alias of `useMcSidebar`.
