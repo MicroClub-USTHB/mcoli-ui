@@ -1,5 +1,5 @@
 import { ArrowRight, ArrowUp, Plus, X } from 'lucide-react';
-import { McBadge, McBadgeDot } from '../ui/mc-badge';
+import { McBadge, McBadgeDot } from '../../ui/mc-badge';
 
 export default function McBadgeIconsDemo() {
   return (

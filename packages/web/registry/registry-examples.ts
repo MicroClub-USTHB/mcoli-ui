@@ -417,7 +417,7 @@ export const examples: Registry['items'] = [
     description: 'Demo for MicroClub Badge',
     files: [
       {
-        path: 'examples/mc-badge-demo.tsx',
+        path: 'examples/mc-badge/mc-badge-demo.tsx',
         type: 'registry:example',
       },
     ],
@@ -430,7 +430,7 @@ export const examples: Registry['items'] = [
     description: 'Variants demo for MicroClub Badge',
     files: [
       {
-        path: 'examples/mc-badge-variants-demo.tsx',
+        path: 'examples/mc-badge/mc-badge-variants-demo.tsx',
         type: 'registry:example',
       },
     ],
@@ -443,7 +443,7 @@ export const examples: Registry['items'] = [
     description: 'Sizes demo for MicroClub Badge',
     files: [
       {
-        path: 'examples/mc-badge-sizes-demo.tsx',
+        path: 'examples/mc-badge/mc-badge-sizes-demo.tsx',
         type: 'registry:example',
       },
     ],
@@ -456,7 +456,7 @@ export const examples: Registry['items'] = [
     description: 'Icons demo for MicroClub Badge',
     files: [
       {
-        path: 'examples/mc-badge-icons-demo.tsx',
+        path: 'examples/mc-badge/mc-badge-icons-demo.tsx',
         type: 'registry:example',
       },
     ],
@@ -469,7 +469,7 @@ export const examples: Registry['items'] = [
     description: 'Image demo for MicroClub Badge',
     files: [
       {
-        path: 'examples/mc-badge-image-demo.tsx',
+        path: 'examples/mc-badge/mc-badge-image-demo.tsx',
         type: 'registry:example',
       },
     ],
@@ -482,7 +482,7 @@ export const examples: Registry['items'] = [
     description: 'Leading badge group demo for MicroClub Badge',
     files: [
       {
-        path: 'examples/mc-badge-group-demo.tsx',
+        path: 'examples/mc-badge/mc-badge-group-demo.tsx',
         type: 'registry:example',
       },
     ],
@@ -495,7 +495,7 @@ export const examples: Registry['items'] = [
     description: 'Trailing badge group demo for MicroClub Badge',
     files: [
       {
-        path: 'examples/mc-badge-group-trailing-demo.tsx',
+        path: 'examples/mc-badge/mc-badge-group-trailing-demo.tsx',
         type: 'registry:example',
       },
     ],
@@ -508,7 +508,7 @@ export const examples: Registry['items'] = [
     description: 'Badge group sizes demo for MicroClub Badge',
     files: [
       {
-        path: 'examples/mc-badge-group-sizes-demo.tsx',
+        path: 'examples/mc-badge/mc-badge-group-sizes-demo.tsx',
         type: 'registry:example',
       },
     ],

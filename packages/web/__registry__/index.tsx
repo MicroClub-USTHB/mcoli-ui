@@ -3042,15 +3042,15 @@ export const Index: Record<string, any> = {
     type: 'registry:example',
     files: [
       {
-        path: 'registry/examples/mc-badge-demo.tsx',
+        path: 'registry/examples/mc-badge/mc-badge-demo.tsx',
         content:
-          "import { McBadge } from '../ui/mc-badge';\n\nexport default function McBadgeDemo() {\n  return <McBadge>Label</McBadge>;\n}\n",
+          "import { McBadge } from '../../ui/mc-badge';\n\nexport default function McBadgeDemo() {\n  return <McBadge>Label</McBadge>;\n}\n",
         type: 'registry:example',
       },
     ],
-    component: React.lazy(() => import('@/registry/examples/mc-badge-demo.tsx')),
+    component: React.lazy(() => import('@/registry/examples/mc-badge/mc-badge-demo.tsx')),
     source:
-      "import { McBadge } from '../ui/mc-badge';\n\nexport default function McBadgeDemo() {\n  return <McBadge>Label</McBadge>;\n}\n",
+      "import { McBadge } from '../../ui/mc-badge';\n\nexport default function McBadgeDemo() {\n  return <McBadge>Label</McBadge>;\n}\n",
   },
   'mc-badge-variants-demo': {
     name: 'mc-badge-variants-demo',
@@ -3058,15 +3058,15 @@ export const Index: Record<string, any> = {
     type: 'registry:example',
     files: [
       {
-        path: 'registry/examples/mc-badge-variants-demo.tsx',
+        path: 'registry/examples/mc-badge/mc-badge-variants-demo.tsx',
         content:
-          'import { McBadge } from \'../ui/mc-badge\';\n\nexport default function McBadgeVariantsDemo() {\n  return (\n    <div className="flex flex-wrap items-center gap-3">\n      <McBadge variant="default">Default</McBadge>\n      <McBadge variant="primary">Primary</McBadge>\n      <McBadge variant="secondary">Secondary</McBadge>\n      <McBadge variant="destructive">Destructive</McBadge>\n      <McBadge variant="outline">Outline</McBadge>\n      <McBadge variant="ghost">Ghost</McBadge>\n    </div>\n  );\n}\n',
+          'import { McBadge } from \'../../ui/mc-badge\';\n\nexport default function McBadgeVariantsDemo() {\n  return (\n    <div className="flex flex-wrap items-center gap-3">\n      <McBadge variant="default">Default</McBadge>\n      <McBadge variant="primary">Primary</McBadge>\n      <McBadge variant="secondary">Secondary</McBadge>\n      <McBadge variant="destructive">Destructive</McBadge>\n      <McBadge variant="outline">Outline</McBadge>\n      <McBadge variant="ghost">Ghost</McBadge>\n    </div>\n  );\n}\n',
         type: 'registry:example',
       },
     ],
-    component: React.lazy(() => import('@/registry/examples/mc-badge-variants-demo.tsx')),
+    component: React.lazy(() => import('@/registry/examples/mc-badge/mc-badge-variants-demo.tsx')),
     source:
-      'import { McBadge } from \'../ui/mc-badge\';\n\nexport default function McBadgeVariantsDemo() {\n  return (\n    <div className="flex flex-wrap items-center gap-3">\n      <McBadge variant="default">Default</McBadge>\n      <McBadge variant="primary">Primary</McBadge>\n      <McBadge variant="secondary">Secondary</McBadge>\n      <McBadge variant="destructive">Destructive</McBadge>\n      <McBadge variant="outline">Outline</McBadge>\n      <McBadge variant="ghost">Ghost</McBadge>\n    </div>\n  );\n}\n',
+      'import { McBadge } from \'../../ui/mc-badge\';\n\nexport default function McBadgeVariantsDemo() {\n  return (\n    <div className="flex flex-wrap items-center gap-3">\n      <McBadge variant="default">Default</McBadge>\n      <McBadge variant="primary">Primary</McBadge>\n      <McBadge variant="secondary">Secondary</McBadge>\n      <McBadge variant="destructive">Destructive</McBadge>\n      <McBadge variant="outline">Outline</McBadge>\n      <McBadge variant="ghost">Ghost</McBadge>\n    </div>\n  );\n}\n',
   },
   'mc-badge-sizes-demo': {
     name: 'mc-badge-sizes-demo',
@@ -3074,15 +3074,15 @@ export const Index: Record<string, any> = {
     type: 'registry:example',
     files: [
       {
-        path: 'registry/examples/mc-badge-sizes-demo.tsx',
+        path: 'registry/examples/mc-badge/mc-badge-sizes-demo.tsx',
         content:
-          'import { McBadge } from \'../ui/mc-badge\';\n\nexport default function McBadgeSizesDemo() {\n  return (\n    <div className="flex flex-wrap items-center gap-3">\n      <McBadge size="sm">Small</McBadge>\n      <McBadge size="md">Medium</McBadge>\n      <McBadge size="lg">Large</McBadge>\n    </div>\n  );\n}\n',
+          'import { McBadge } from \'../../ui/mc-badge\';\n\nexport default function McBadgeSizesDemo() {\n  return (\n    <div className="flex flex-wrap items-center gap-3">\n      <McBadge size="sm">Small</McBadge>\n      <McBadge size="md">Medium</McBadge>\n      <McBadge size="lg">Large</McBadge>\n    </div>\n  );\n}\n',
         type: 'registry:example',
       },
     ],
-    component: React.lazy(() => import('@/registry/examples/mc-badge-sizes-demo.tsx')),
+    component: React.lazy(() => import('@/registry/examples/mc-badge/mc-badge-sizes-demo.tsx')),
     source:
-      'import { McBadge } from \'../ui/mc-badge\';\n\nexport default function McBadgeSizesDemo() {\n  return (\n    <div className="flex flex-wrap items-center gap-3">\n      <McBadge size="sm">Small</McBadge>\n      <McBadge size="md">Medium</McBadge>\n      <McBadge size="lg">Large</McBadge>\n    </div>\n  );\n}\n',
+      'import { McBadge } from \'../../ui/mc-badge\';\n\nexport default function McBadgeSizesDemo() {\n  return (\n    <div className="flex flex-wrap items-center gap-3">\n      <McBadge size="sm">Small</McBadge>\n      <McBadge size="md">Medium</McBadge>\n      <McBadge size="lg">Large</McBadge>\n    </div>\n  );\n}\n',
   },
   'mc-badge-icons-demo': {
     name: 'mc-badge-icons-demo',
@@ -3090,15 +3090,15 @@ export const Index: Record<string, any> = {
     type: 'registry:example',
     files: [
       {
-        path: 'registry/examples/mc-badge-icons-demo.tsx',
+        path: 'registry/examples/mc-badge/mc-badge-icons-demo.tsx',
         content:
-          'import { ArrowRight, ArrowUp, Plus, X } from \'lucide-react\';\nimport { McBadge, McBadgeDot } from \'../ui/mc-badge\';\n\nexport default function McBadgeIconsDemo() {\n  return (\n    <div className="flex flex-wrap items-center gap-3">\n      <McBadge icon={<McBadgeDot />}>Dot</McBadge>\n      <McBadge icon={<ArrowUp />}>Icon left</McBadge>\n      <McBadge icon={<ArrowRight />} iconPosition="end">\n        Icon right\n      </McBadge>\n      <McBadge icon={<X />} iconPosition="end">\n        Close\n      </McBadge>\n      <McBadge icon={<Plus />} iconOnly aria-label="Add" />\n    </div>\n  );\n}\n',
+          'import { ArrowRight, ArrowUp, Plus, X } from \'lucide-react\';\nimport { McBadge, McBadgeDot } from \'../../ui/mc-badge\';\n\nexport default function McBadgeIconsDemo() {\n  return (\n    <div className="flex flex-wrap items-center gap-3">\n      <McBadge icon={<McBadgeDot />}>Dot</McBadge>\n      <McBadge icon={<ArrowUp />}>Icon left</McBadge>\n      <McBadge icon={<ArrowRight />} iconPosition="end">\n        Icon right\n      </McBadge>\n      <McBadge icon={<X />} iconPosition="end">\n        Close\n      </McBadge>\n      <McBadge icon={<Plus />} iconOnly aria-label="Add" />\n    </div>\n  );\n}\n',
         type: 'registry:example',
       },
     ],
-    component: React.lazy(() => import('@/registry/examples/mc-badge-icons-demo.tsx')),
+    component: React.lazy(() => import('@/registry/examples/mc-badge/mc-badge-icons-demo.tsx')),
     source:
-      'import { ArrowRight, ArrowUp, Plus, X } from \'lucide-react\';\nimport { McBadge, McBadgeDot } from \'../ui/mc-badge\';\n\nexport default function McBadgeIconsDemo() {\n  return (\n    <div className="flex flex-wrap items-center gap-3">\n      <McBadge icon={<McBadgeDot />}>Dot</McBadge>\n      <McBadge icon={<ArrowUp />}>Icon left</McBadge>\n      <McBadge icon={<ArrowRight />} iconPosition="end">\n        Icon right\n      </McBadge>\n      <McBadge icon={<X />} iconPosition="end">\n        Close\n      </McBadge>\n      <McBadge icon={<Plus />} iconOnly aria-label="Add" />\n    </div>\n  );\n}\n',
+      'import { ArrowRight, ArrowUp, Plus, X } from \'lucide-react\';\nimport { McBadge, McBadgeDot } from \'../../ui/mc-badge\';\n\nexport default function McBadgeIconsDemo() {\n  return (\n    <div className="flex flex-wrap items-center gap-3">\n      <McBadge icon={<McBadgeDot />}>Dot</McBadge>\n      <McBadge icon={<ArrowUp />}>Icon left</McBadge>\n      <McBadge icon={<ArrowRight />} iconPosition="end">\n        Icon right\n      </McBadge>\n      <McBadge icon={<X />} iconPosition="end">\n        Close\n      </McBadge>\n      <McBadge icon={<Plus />} iconOnly aria-label="Add" />\n    </div>\n  );\n}\n',
   },
   'mc-badge-image-demo': {
     name: 'mc-badge-image-demo',
@@ -3106,15 +3106,15 @@ export const Index: Record<string, any> = {
     type: 'registry:example',
     files: [
       {
-        path: 'registry/examples/mc-badge-image-demo.tsx',
+        path: 'registry/examples/mc-badge/mc-badge-image-demo.tsx',
         content:
-          'import { McBadge } from \'../ui/mc-badge\';\n\nexport default function McBadgeImageDemo() {\n  return (\n    <McBadge image="https://flagcdn.com/w40/au.png" imageAlt="Australia">\n      Australia\n    </McBadge>\n  );\n}\n',
+          'import { McBadge } from \'../../ui/mc-badge\';\n\nexport default function McBadgeImageDemo() {\n  return (\n    <McBadge image="https://flagcdn.com/w40/au.png" imageAlt="Australia">\n      Australia\n    </McBadge>\n  );\n}\n',
         type: 'registry:example',
       },
     ],
-    component: React.lazy(() => import('@/registry/examples/mc-badge-image-demo.tsx')),
+    component: React.lazy(() => import('@/registry/examples/mc-badge/mc-badge-image-demo.tsx')),
     source:
-      'import { McBadge } from \'../ui/mc-badge\';\n\nexport default function McBadgeImageDemo() {\n  return (\n    <McBadge image="https://flagcdn.com/w40/au.png" imageAlt="Australia">\n      Australia\n    </McBadge>\n  );\n}\n',
+      'import { McBadge } from \'../../ui/mc-badge\';\n\nexport default function McBadgeImageDemo() {\n  return (\n    <McBadge image="https://flagcdn.com/w40/au.png" imageAlt="Australia">\n      Australia\n    </McBadge>\n  );\n}\n',
   },
   'mc-badge-group-demo': {
     name: 'mc-badge-group-demo',
@@ -3122,15 +3122,15 @@ export const Index: Record<string, any> = {
     type: 'registry:example',
     files: [
       {
-        path: 'registry/examples/mc-badge-group-demo.tsx',
+        path: 'registry/examples/mc-badge/mc-badge-group-demo.tsx',
         content:
-          "import { ArrowRight } from 'lucide-react';\nimport { McBadge, McBadgeGroup, McBadgeGroupText } from '../ui/mc-badge';\n\nexport default function McBadgeGroupDemo() {\n  return (\n    <McBadgeGroup>\n      <McBadge>New feature</McBadge>\n      <McBadgeGroupText icon={<ArrowRight />}>We’ve just released a new feature</McBadgeGroupText>\n    </McBadgeGroup>\n  );\n}\n",
+          "import { ArrowRight } from 'lucide-react';\nimport { McBadge, McBadgeGroup, McBadgeGroupText } from '../../ui/mc-badge';\n\nexport default function McBadgeGroupDemo() {\n  return (\n    <McBadgeGroup>\n      <McBadge>New feature</McBadge>\n      <McBadgeGroupText icon={<ArrowRight />}>We’ve just released a new feature</McBadgeGroupText>\n    </McBadgeGroup>\n  );\n}\n",
         type: 'registry:example',
       },
     ],
-    component: React.lazy(() => import('@/registry/examples/mc-badge-group-demo.tsx')),
+    component: React.lazy(() => import('@/registry/examples/mc-badge/mc-badge-group-demo.tsx')),
     source:
-      "import { ArrowRight } from 'lucide-react';\nimport { McBadge, McBadgeGroup, McBadgeGroupText } from '../ui/mc-badge';\n\nexport default function McBadgeGroupDemo() {\n  return (\n    <McBadgeGroup>\n      <McBadge>New feature</McBadge>\n      <McBadgeGroupText icon={<ArrowRight />}>We’ve just released a new feature</McBadgeGroupText>\n    </McBadgeGroup>\n  );\n}\n",
+      "import { ArrowRight } from 'lucide-react';\nimport { McBadge, McBadgeGroup, McBadgeGroupText } from '../../ui/mc-badge';\n\nexport default function McBadgeGroupDemo() {\n  return (\n    <McBadgeGroup>\n      <McBadge>New feature</McBadge>\n      <McBadgeGroupText icon={<ArrowRight />}>We’ve just released a new feature</McBadgeGroupText>\n    </McBadgeGroup>\n  );\n}\n",
   },
   'mc-badge-group-trailing-demo': {
     name: 'mc-badge-group-trailing-demo',
@@ -3138,15 +3138,17 @@ export const Index: Record<string, any> = {
     type: 'registry:example',
     files: [
       {
-        path: 'registry/examples/mc-badge-group-trailing-demo.tsx',
+        path: 'registry/examples/mc-badge/mc-badge-group-trailing-demo.tsx',
         content:
-          'import { ArrowRight } from \'lucide-react\';\nimport { McBadge, McBadgeGroup, McBadgeGroupText } from \'../ui/mc-badge\';\n\nexport default function McBadgeGroupTrailingDemo() {\n  return (\n    <McBadgeGroup badgePosition="trailing">\n      <McBadgeGroupText>We’ve just released a new feature</McBadgeGroupText>\n      <McBadge icon={<ArrowRight />} iconPosition="end">\n        New feature\n      </McBadge>\n    </McBadgeGroup>\n  );\n}\n',
+          'import { ArrowRight } from \'lucide-react\';\nimport { McBadge, McBadgeGroup, McBadgeGroupText } from \'../../ui/mc-badge\';\n\nexport default function McBadgeGroupTrailingDemo() {\n  return (\n    <McBadgeGroup badgePosition="trailing">\n      <McBadgeGroupText>We’ve just released a new feature</McBadgeGroupText>\n      <McBadge icon={<ArrowRight />} iconPosition="end">\n        New feature\n      </McBadge>\n    </McBadgeGroup>\n  );\n}\n',
         type: 'registry:example',
       },
     ],
-    component: React.lazy(() => import('@/registry/examples/mc-badge-group-trailing-demo.tsx')),
+    component: React.lazy(
+      () => import('@/registry/examples/mc-badge/mc-badge-group-trailing-demo.tsx')
+    ),
     source:
-      'import { ArrowRight } from \'lucide-react\';\nimport { McBadge, McBadgeGroup, McBadgeGroupText } from \'../ui/mc-badge\';\n\nexport default function McBadgeGroupTrailingDemo() {\n  return (\n    <McBadgeGroup badgePosition="trailing">\n      <McBadgeGroupText>We’ve just released a new feature</McBadgeGroupText>\n      <McBadge icon={<ArrowRight />} iconPosition="end">\n        New feature\n      </McBadge>\n    </McBadgeGroup>\n  );\n}\n',
+      'import { ArrowRight } from \'lucide-react\';\nimport { McBadge, McBadgeGroup, McBadgeGroupText } from \'../../ui/mc-badge\';\n\nexport default function McBadgeGroupTrailingDemo() {\n  return (\n    <McBadgeGroup badgePosition="trailing">\n      <McBadgeGroupText>We’ve just released a new feature</McBadgeGroupText>\n      <McBadge icon={<ArrowRight />} iconPosition="end">\n        New feature\n      </McBadge>\n    </McBadgeGroup>\n  );\n}\n',
   },
   'mc-badge-group-sizes-demo': {
     name: 'mc-badge-group-sizes-demo',
@@ -3154,15 +3156,17 @@ export const Index: Record<string, any> = {
     type: 'registry:example',
     files: [
       {
-        path: 'registry/examples/mc-badge-group-sizes-demo.tsx',
+        path: 'registry/examples/mc-badge/mc-badge-group-sizes-demo.tsx',
         content:
-          'import { McBadge, McBadgeGroup, McBadgeGroupText } from \'../ui/mc-badge\';\n\nexport default function McBadgeGroupSizesDemo() {\n  return (\n    <div className="flex flex-col items-start gap-3">\n      <McBadgeGroup size="md">\n        <McBadge>New feature</McBadge>\n        <McBadgeGroupText>We’ve just released a new feature</McBadgeGroupText>\n      </McBadgeGroup>\n      <McBadgeGroup size="lg">\n        <McBadge>New feature</McBadge>\n        <McBadgeGroupText>We’ve just released a new feature</McBadgeGroupText>\n      </McBadgeGroup>\n    </div>\n  );\n}\n',
+          'import { McBadge, McBadgeGroup, McBadgeGroupText } from \'../../ui/mc-badge\';\n\nexport default function McBadgeGroupSizesDemo() {\n  return (\n    <div className="flex flex-col items-start gap-3">\n      <McBadgeGroup size="md">\n        <McBadge>New feature</McBadge>\n        <McBadgeGroupText>We’ve just released a new feature</McBadgeGroupText>\n      </McBadgeGroup>\n      <McBadgeGroup size="lg">\n        <McBadge>New feature</McBadge>\n        <McBadgeGroupText>We’ve just released a new feature</McBadgeGroupText>\n      </McBadgeGroup>\n    </div>\n  );\n}\n',
         type: 'registry:example',
       },
     ],
-    component: React.lazy(() => import('@/registry/examples/mc-badge-group-sizes-demo.tsx')),
+    component: React.lazy(
+      () => import('@/registry/examples/mc-badge/mc-badge-group-sizes-demo.tsx')
+    ),
     source:
-      'import { McBadge, McBadgeGroup, McBadgeGroupText } from \'../ui/mc-badge\';\n\nexport default function McBadgeGroupSizesDemo() {\n  return (\n    <div className="flex flex-col items-start gap-3">\n      <McBadgeGroup size="md">\n        <McBadge>New feature</McBadge>\n        <McBadgeGroupText>We’ve just released a new feature</McBadgeGroupText>\n      </McBadgeGroup>\n      <McBadgeGroup size="lg">\n        <McBadge>New feature</McBadge>\n        <McBadgeGroupText>We’ve just released a new feature</McBadgeGroupText>\n      </McBadgeGroup>\n    </div>\n  );\n}\n',
+      'import { McBadge, McBadgeGroup, McBadgeGroupText } from \'../../ui/mc-badge\';\n\nexport default function McBadgeGroupSizesDemo() {\n  return (\n    <div className="flex flex-col items-start gap-3">\n      <McBadgeGroup size="md">\n        <McBadge>New feature</McBadge>\n        <McBadgeGroupText>We’ve just released a new feature</McBadgeGroupText>\n      </McBadgeGroup>\n      <McBadgeGroup size="lg">\n        <McBadge>New feature</McBadge>\n        <McBadgeGroupText>We’ve just released a new feature</McBadgeGroupText>\n      </McBadgeGroup>\n    </div>\n  );\n}\n',
   },
   'mc-avatar-demo': {
     name: 'mc-avatar-demo',

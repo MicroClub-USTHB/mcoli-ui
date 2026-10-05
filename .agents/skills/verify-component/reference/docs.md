@@ -25,10 +25,15 @@ Use this order. Omit a section only if it does not apply to the component.
 
 ## One preview, one demo file
 
+Demo file location:
+
+- **One demo**: `packages/web/registry/examples/$component-demo.tsx`.
+- **More than one demo**: all demos of the component go in a folder, `packages/web/registry/examples/$component/` (see `examples/mc-badge/`). Move the existing `$component-demo.tsx` into it as well. Import the component with `../../ui/$component`, and set each registry `path` to `examples/$component/<file>.tsx`.
+
 `ComponentPreview` renders a single registered example. For each example with a preview:
 
-1. Create `packages/web/registry/examples/$component-<example>-demo.tsx` (for example `mc-badge-sizes-demo.tsx`). It default-exports one small component. Keep it short: the file is shown as the code tab.
-2. Register it in `packages/web/registry/registry-examples.ts`, copying an existing entry (`type: 'registry:example'`, `registryDependencies` pointing to `$component`).
+1. Create `$component-<example>-demo.tsx` (for example `mc-badge-sizes-demo.tsx`). It default-exports one small component. Keep it short: the file is shown as the code tab.
+2. Register it in `packages/web/registry/registry-examples.ts`, copying an existing entry (`type: 'registry:example'`, `registryDependencies` pointing to `$component`). The `path` must match the file location.
 3. Run `pnpm run build:registry` so `__registry__` picks it up.
 4. Use it in the page with `ComponentPreview` and `ComponentSource`.
 

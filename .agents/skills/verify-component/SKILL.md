@@ -35,18 +35,18 @@ If there are uncommitted changes, stop and ask the user before you continue.
 
 All paths are relative to `packages/web/`. `<Name>` is the PascalCase name without the prefix, for example `Badge`. In the reference files, `$component` means the component name passed in.
 
-| Role                    | Path                                                                 |
-| ----------------------- | -------------------------------------------------------------------- |
-| Component (distributed) | `registry/ui/$component.tsx`                                         |
-| Registry entry          | `registry/registry-ui.ts`                                            |
-| Docs demos              | `registry/examples/$component-*demo.tsx`                             |
-| Demo registry entries   | `registry/registry-examples.ts`                                      |
-| Story                   | `stories/Mc<Name>.stories.tsx`                                       |
-| Docs page               | `content/docs/components/$component.mdx`                             |
-| Shipped tokens          | `registry/themes/*.ts`, `registry/themes/common/colors.ts`           |
-| Shipped utilities       | `registry/consts/index.ts` (`commonCSS`)                             |
-| Docs-site tokens        | `app/globals.css`, `app/themes/*.css`                                |
-| Consumers               | `grep -rn "$component" packages/web --include=*.tsx` (exclude above) |
+| Role                    | Path                                                                                              |
+| ----------------------- | ------------------------------------------------------------------------------------------------- |
+| Component (distributed) | `registry/ui/$component.tsx`                                                                      |
+| Registry entry          | `registry/registry-ui.ts`                                                                         |
+| Docs demos              | `registry/examples/$component/` (or `registry/examples/$component-demo.tsx` if there is one demo) |
+| Demo registry entries   | `registry/registry-examples.ts`                                                                   |
+| Story                   | `stories/Mc<Name>.stories.tsx`                                                                    |
+| Docs page               | `content/docs/components/$component.mdx`                                                          |
+| Shipped tokens          | `registry/themes/*.ts`, `registry/themes/common/colors.ts`                                        |
+| Shipped utilities       | `registry/consts/index.ts` (`commonCSS`)                                                          |
+| Docs-site tokens        | `app/globals.css`, `app/themes/*.css`                                                             |
+| Consumers               | `grep -rn "$component" packages/web --include=*.tsx` (exclude above)                              |
 
 ## Workflow
 

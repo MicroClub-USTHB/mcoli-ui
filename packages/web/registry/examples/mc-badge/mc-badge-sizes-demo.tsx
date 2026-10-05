@@ -1,4 +1,4 @@
-import { McBadge } from '../ui/mc-badge';
+import { McBadge } from '../../ui/mc-badge';
 
 export default function McBadgeSizesDemo() {
   return (

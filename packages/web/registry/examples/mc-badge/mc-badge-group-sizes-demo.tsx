@@ -1,4 +1,4 @@
-import { McBadge, McBadgeGroup, McBadgeGroupText } from '../ui/mc-badge';
+import { McBadge, McBadgeGroup, McBadgeGroupText } from '../../ui/mc-badge';
 
 export default function McBadgeGroupSizesDemo() {
   return (

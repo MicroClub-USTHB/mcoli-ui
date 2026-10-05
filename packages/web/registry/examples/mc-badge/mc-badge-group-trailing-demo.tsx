@@ -1,5 +1,5 @@
 import { ArrowRight } from 'lucide-react';
-import { McBadge, McBadgeGroup, McBadgeGroupText } from '../ui/mc-badge';
+import { McBadge, McBadgeGroup, McBadgeGroupText } from '../../ui/mc-badge';
 
 export default function McBadgeGroupTrailingDemo() {
   return (
