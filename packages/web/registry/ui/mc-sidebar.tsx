@@ -289,6 +289,20 @@ function McSidebarFooter({ className, ...props }: React.ComponentProps<'div'>) {
   );
 }
 
+function McSidebarFade({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="sidebar-fade"
+      className={cn(
+        'min-w-0 whitespace-nowrap transition-opacity group-data-[collapsible=icon]:pointer-events-none group-data-[collapsible=icon]:opacity-0',
+        SIDEBAR_TRANSITION,
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
 function McSidebarSeparator({ className, ...props }: React.ComponentProps<'div'>) {
   return (
     <div
@@ -720,6 +734,7 @@ const useSidebar = useMcSidebar;
 export {
   McSidebar,
   McSidebarContent,
+  McSidebarFade,
   McSidebarFooter,
   McSidebarGroup,
   McSidebarGroupAction,
