@@ -157,7 +157,7 @@ export const ui: Registry['items'] = [
       },
     ],
     dependencies: ['@base-ui/react', 'lucide-react'],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-button.json`],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-button.json`, `${REGISTRY_URL}/r/mc-tooltip.json`],
   },
   {
     name: 'mc-tabs',

@@ -9,6 +9,7 @@ import { ChevronRightIcon, PanelLeftIcon } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 import { McButton } from '@/registry/ui/mc-button';
+import { McTooltip, McTooltipContent, McTooltipTrigger } from '@/registry/ui/mc-tooltip';
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state';
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -544,7 +545,6 @@ function McSidebarMenuButton({
       {
         type: 'button',
         className: cn(sidebarMenuButtonVariants({ variant, size }), SIDEBAR_TRANSITION, className),
-        title: state === 'collapsed' ? tooltipLabel : undefined,
       },
       props
     ),
@@ -557,11 +557,18 @@ function McSidebarMenuButton({
     },
   });
 
-  if (!tooltip) {
+  if (!tooltipLabel) {
     return comp;
   }
 
-  return comp;
+  return (
+    <McTooltip disabled={state !== 'collapsed'}>
+      <McTooltipTrigger render={comp} />
+      <McTooltipContent side="right" sideOffset={12}>
+        {tooltipLabel}
+      </McTooltipContent>
+    </McTooltip>
+  );
 }
 
 function McSidebarMenuAction({
