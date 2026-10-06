@@ -29,6 +29,8 @@ Deploy the `mc-carousel` directly to your `components/ui` directory:
   <Tab value="bun">bunx mcoli-ui@latest add mc-carousel</Tab>
 </Tabs>
 
+This also installs `mc-button`.
+
 ### Manual Setup
 
 If you prefer manual control:
@@ -48,9 +50,9 @@ If you prefer manual control:
 
 <ComponentSource name="mc-carousel" />
 
-<Step>Copy the example</Step>
+<Step>Add `mc-button`</Step>
 
-<ComponentSource name="mc-carousel-demo" />
+The previous and next controls use [`mc-button`](/docs/components/mc-button). Set it up first.
 
 </Steps>
 
@@ -156,10 +158,10 @@ A single slide within the carousel. Each item fills the full viewport width by d
 
 Navigation buttons to scroll to the previous or next slide.
 
-Accepts all props from `Button`, with the following defaults:
+Both render an icon-only `McButton` and accept all of its props, with the following defaults:
 
-| Prop        | Type     | Default     | Description            |
-| ----------- | -------- | ----------- | ---------------------- |
-| `variant`   | `string` | `"outline"` | Button variant         |
-| `size`      | `string` | `"icon-sm"` | Button size            |
-| `className` | `string` | `undefined` | Additional CSS classes |
+| Prop        | Type     | Default       | Description            |
+| ----------- | -------- | ------------- | ---------------------- |
+| `variant`   | `string` | `"secondary"` | Button variant         |
+| `size`      | `string` | `"sm"`        | Button size            |
+| `className` | `string` | `undefined`   | Additional CSS classes |

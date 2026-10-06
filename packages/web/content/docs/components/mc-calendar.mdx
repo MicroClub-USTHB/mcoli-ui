@@ -31,6 +31,8 @@ Deploy the `mc-calendar` directly to your `components/ui` directory:
   <Tab value="bun">bunx mcoli-ui@latest add mc-calendar</Tab>
 </Tabs>
 
+This also installs `mc-button` and `mc-popover`.
+
 ### Manual Setup
 
 If you prefer manual control:
@@ -50,9 +52,10 @@ If you prefer manual control:
 
 <ComponentSource name="mc-calendar" />
 
-<Step>Copy the example if you want the date picker</Step>
+<Step>Add `mc-button` and `mc-popover`</Step>
 
-<ComponentSource name="mc-calendar-demo" />
+The navigation buttons use [`mc-button`](/docs/components/mc-button), and `McDatePicker` opens in
+[`mc-popover`](/docs/components/mc-popover). Set both up first.
 
 </Steps>
 

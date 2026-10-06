@@ -115,13 +115,11 @@ export default function Example() {
   <McDropdownMenuContent>
     <McDropdownMenuSub>
       <McDropdownMenuSubTrigger>Invite users</McDropdownMenuSubTrigger>
-      <McDropdownMenuPortal>
-        <McDropdownMenuSubContent>
-          <McDropdownMenuItem>Email</McDropdownMenuItem>
-          <McDropdownMenuItem>Message</McDropdownMenuItem>
-          <McDropdownMenuItem>Copy link</McDropdownMenuItem>
-        </McDropdownMenuSubContent>
-      </McDropdownMenuPortal>
+      <McDropdownMenuSubContent>
+        <McDropdownMenuItem>Email</McDropdownMenuItem>
+        <McDropdownMenuItem>Message</McDropdownMenuItem>
+        <McDropdownMenuItem>Copy link</McDropdownMenuItem>
+      </McDropdownMenuSubContent>
     </McDropdownMenuSub>
   </McDropdownMenuContent>
 </McDropdownMenu>
@@ -150,12 +148,12 @@ export default function Example() {
 
 ### Root Components
 
-| Component               | Description                                     |
-| ----------------------- | ----------------------------------------------- |
-| `McDropdownMenu`        | Root wrapper that manages the menu state        |
-| `McDropdownMenuTrigger` | Element that opens the menu                     |
-| `McDropdownMenuContent` | Main popup container for menu items             |
-| `McDropdownMenuPortal`  | Optional portal wrapper for nested menu content |
+| Component               | Description                                                                               |
+| ----------------------- | ----------------------------------------------------------------------------------------- |
+| `McDropdownMenu`        | Root wrapper that manages the menu state                                                  |
+| `McDropdownMenuTrigger` | Element that opens the menu                                                               |
+| `McDropdownMenuContent` | Main popup container for menu items                                                       |
+| `McDropdownMenuPortal`  | Base UI portal. `McDropdownMenuContent` and `McDropdownMenuSubContent` already render one |
 
 ### Structure Components
 

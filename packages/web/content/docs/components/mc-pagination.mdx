@@ -55,8 +55,7 @@ If you prefer manual control:
 
 <Step>Adjust import paths</Step>
 
-Ensure your `@/lib/utils` and `@/components/ui/mc-button` imports are correctly mapped in your
-project.
+Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 
 </Steps>
 
@@ -67,7 +66,6 @@ import * as React from 'react';
 import {
   McPagination,
   McPaginationContent,
-  McPaginationEllipsis,
   McPaginationItem,
   McPaginationLink,
   McPaginationNext,
@@ -106,9 +104,6 @@ export default function Example() {
             </McPaginationLink>
           </McPaginationItem>
         ))}
-        <McPaginationItem>
-          <McPaginationEllipsis />
-        </McPaginationItem>
         <McPaginationItem>
           <McPaginationNext href="#" onClick={goToNextPage} />
         </McPaginationItem>

@@ -94,7 +94,7 @@ const max = 280;
 
 ### Toolbar
 
-Use `addonTop` to add a formatting toolbar above the textarea. Buttons can use `McInputButton` from `mc-input`.
+Use `addonTop` to add a formatting toolbar above the textarea. Buttons can use `McInputButton` from [`mc-input`](/docs/components/mc-input), which you need to add separately. Give icon-only buttons an `aria-label`.
 
 ```tsx
 import { McInputButton } from '@/components/ui/mc-input';
@@ -104,13 +104,13 @@ import { Bold, Italic, Link } from 'lucide-react';
   label="Comment"
   addonTop={
     <div className="flex items-center gap-1">
-      <McInputButton variant="ghost">
+      <McInputButton variant="ghost" aria-label="Bold">
         <Bold />
       </McInputButton>
-      <McInputButton variant="ghost">
+      <McInputButton variant="ghost" aria-label="Italic">
         <Italic />
       </McInputButton>
-      <McInputButton variant="ghost">
+      <McInputButton variant="ghost" aria-label="Insert link">
         <Link />
       </McInputButton>
     </div>
@@ -124,6 +124,10 @@ import { Bold, Italic, Link } from 'lucide-react';
 Combine a character counter and a submit button in `addonBottom`.
 
 ```tsx
+import { Send } from 'lucide-react';
+
+const [value, setValue] = useState('');
+
 <McTextarea
   label="Feedback"
   addonBottom={
@@ -134,8 +138,10 @@ Combine a character counter and a submit button in `addonBottom`.
       </McInputButton>
     </div>
   }
+  value={value}
+  onChange={(e) => setValue(e.target.value)}
   placeholder="Tell us what you think..."
-/>
+/>;
 ```
 
 ## API Reference
