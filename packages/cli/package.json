@@ -4,6 +4,9 @@
   "license": "MIT",
   "type": "module",
   "description": "CLI tool for mcoli-ui",
+  "engines": {
+    "node": ">=20.17"
+  },
   "bin": {
     "mcoli-ui": "index.js"
   },
