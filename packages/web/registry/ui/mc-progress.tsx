@@ -16,7 +16,7 @@ const ProgressContext = React.createContext<ProgressContextValue | null>(null);
 function useProgressContext() {
   const context = React.useContext(ProgressContext);
   if (!context) {
-    throw new Error('Les sous-composants McProgress doivent être utilisés dans <McProgress />');
+    throw new Error('McProgress sub-components must be used within <McProgress />');
   }
   return context;
 }
@@ -218,7 +218,7 @@ const McProgressCircle = React.forwardRef<SVGSVGElement, ProgressCircleProps>(
           className={cn('transform -rotate-90', className)}
           {...props}
         >
-          {/* inactif circle */}
+          {/* inactive circle */}
           <circle
             cx={config.size / 2}
             cy={config.size / 2}
@@ -226,7 +226,7 @@ const McProgressCircle = React.forwardRef<SVGSVGElement, ProgressCircleProps>(
             className="stroke-muted fill-none"
             strokeWidth={sw}
           />
-          {/* actif circle */}
+          {/* active circle */}
           <circle
             cx={config.size / 2}
             cy={config.size / 2}
