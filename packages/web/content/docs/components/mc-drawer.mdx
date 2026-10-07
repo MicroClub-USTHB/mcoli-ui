@@ -53,6 +53,18 @@ If you prefer manual control:
 
 <ComponentSource name="mc-drawer" />
 
+<Step>Add the drawer sizes</Step>
+
+The drawer uses the `w-drawer`, `h-drawer-nav` and `h-drawer-item` utilities. Add their values to your global CSS:
+
+```css
+@theme inline {
+  --spacing-drawer: 26.6875rem;
+  --spacing-drawer-nav: 4.5rem;
+  --spacing-drawer-item: 4.125rem;
+}
+```
+
 <Step>Adjust import paths</Step>
 
 Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.

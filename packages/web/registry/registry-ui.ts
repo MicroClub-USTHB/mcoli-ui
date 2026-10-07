@@ -452,6 +452,14 @@ export const ui: Registry['items'] = [
       },
     ],
     dependencies: ['vaul'],
+    // Sizes behind the w-drawer, h-drawer-nav and h-drawer-item utilities.
+    cssVars: {
+      theme: {
+        'spacing-drawer': '26.6875rem',
+        'spacing-drawer-nav': '4.5rem',
+        'spacing-drawer-item': '4.125rem',
+      },
+    },
   },
   {
     name: 'mc-hover-card',
