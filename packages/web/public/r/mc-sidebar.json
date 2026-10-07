@@ -3,7 +3,7 @@
   "name": "mc-sidebar",
   "title": "MicroClub Sidebar",
   "description": "A sidebar component for MicroClub UI",
-  "dependencies": ["@base-ui/react", "lucide-react"],
+  "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
   "registryDependencies": [
     "https://mcoli-ui.microclub.info/r/mc-button.json",
     "https://mcoli-ui.microclub.info/r/mc-tooltip.json"
