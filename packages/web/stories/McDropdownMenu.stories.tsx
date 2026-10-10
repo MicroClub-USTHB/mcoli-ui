@@ -76,13 +76,13 @@ function AccountMenu({
           }
         />
         <McDropdownMenuContent className="w-56" align={align} side={side}>
-          <McDropdownMenuGroup className="h-auto">
+          <McDropdownMenuGroup>
             <McDropdownMenuLabel>My Account</McDropdownMenuLabel>
             <McDropdownMenuItem>Profile</McDropdownMenuItem>
             <McDropdownMenuItem>Settings</McDropdownMenuItem>
           </McDropdownMenuGroup>
           <McDropdownMenuSeparator />
-          <McDropdownMenuGroup className="h-auto">
+          <McDropdownMenuGroup>
             <McDropdownMenuItem>Team</McDropdownMenuItem>
             <McDropdownMenuSub>
               <McDropdownMenuSubTrigger>Invite users</McDropdownMenuSubTrigger>
@@ -97,7 +97,7 @@ function AccountMenu({
             </McDropdownMenuSub>
           </McDropdownMenuGroup>
           <McDropdownMenuSeparator />
-          <McDropdownMenuGroup className="h-auto">
+          <McDropdownMenuGroup>
             <McDropdownMenuItem>Log out</McDropdownMenuItem>
           </McDropdownMenuGroup>
         </McDropdownMenuContent>
@@ -133,7 +133,7 @@ function PreferencesMenu({
           }
         />
         <McDropdownMenuContent className="w-56" align={align} side={side}>
-          <McDropdownMenuGroup className="h-auto">
+          <McDropdownMenuGroup>
             <McDropdownMenuLabel>Preferences</McDropdownMenuLabel>
             <McDropdownMenuSeparator />
             <McDropdownMenuCheckboxItem
