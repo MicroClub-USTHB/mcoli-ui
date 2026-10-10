@@ -160,6 +160,7 @@ function themeInlineMappings(): Record<string, string> {
     '--color-warning': 'var(--warning)',
     '--color-warning-foreground': 'var(--warning-foreground)',
     '--color-error': 'var(--error)',
+    '--color-error-foreground': 'var(--error-foreground)',
     '--color-destructive': 'var(--destructive)',
     '--color-destructive-foreground': 'var(--destructive-foreground)',
     '--color-info': 'var(--info)',
