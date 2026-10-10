@@ -4,7 +4,7 @@ export const commonCSS = {
   '@layer base': {
     '*': {
       'border-color': 'var(--border)',
-      'outline-color': 'rgb(var(--ring) / 0.5)',
+      'outline-color': 'color-mix(in oklab, var(--ring) 50%, transparent)',
     },
     body: {
       'background-color': 'var(--background)',

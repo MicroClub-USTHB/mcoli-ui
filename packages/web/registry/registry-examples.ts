@@ -417,7 +417,98 @@ export const examples: Registry['items'] = [
     description: 'Demo for MicroClub Badge',
     files: [
       {
-        path: 'examples/mc-badge-demo.tsx',
+        path: 'examples/mc-badge/mc-badge-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-badge.json`],
+  },
+  {
+    name: 'mc-badge-variants-demo',
+    type: 'registry:example',
+    title: 'MicroClub Badge Variants Demo',
+    description: 'Variants demo for MicroClub Badge',
+    files: [
+      {
+        path: 'examples/mc-badge/mc-badge-variants-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-badge.json`],
+  },
+  {
+    name: 'mc-badge-sizes-demo',
+    type: 'registry:example',
+    title: 'MicroClub Badge Sizes Demo',
+    description: 'Sizes demo for MicroClub Badge',
+    files: [
+      {
+        path: 'examples/mc-badge/mc-badge-sizes-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-badge.json`],
+  },
+  {
+    name: 'mc-badge-icons-demo',
+    type: 'registry:example',
+    title: 'MicroClub Badge Icons Demo',
+    description: 'Icons demo for MicroClub Badge',
+    files: [
+      {
+        path: 'examples/mc-badge/mc-badge-icons-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-badge.json`],
+  },
+  {
+    name: 'mc-badge-image-demo',
+    type: 'registry:example',
+    title: 'MicroClub Badge Image Demo',
+    description: 'Image demo for MicroClub Badge',
+    files: [
+      {
+        path: 'examples/mc-badge/mc-badge-image-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-badge.json`],
+  },
+  {
+    name: 'mc-badge-group-demo',
+    type: 'registry:example',
+    title: 'MicroClub Badge Group Demo',
+    description: 'Leading badge group demo for MicroClub Badge',
+    files: [
+      {
+        path: 'examples/mc-badge/mc-badge-group-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-badge.json`],
+  },
+  {
+    name: 'mc-badge-group-trailing-demo',
+    type: 'registry:example',
+    title: 'MicroClub Badge Group Trailing Demo',
+    description: 'Trailing badge group demo for MicroClub Badge',
+    files: [
+      {
+        path: 'examples/mc-badge/mc-badge-group-trailing-demo.tsx',
+        type: 'registry:example',
+      },
+    ],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-badge.json`],
+  },
+  {
+    name: 'mc-badge-group-sizes-demo',
+    type: 'registry:example',
+    title: 'MicroClub Badge Group Sizes Demo',
+    description: 'Badge group sizes demo for MicroClub Badge',
+    files: [
+      {
+        path: 'examples/mc-badge/mc-badge-group-sizes-demo.tsx',
         type: 'registry:example',
       },
     ],

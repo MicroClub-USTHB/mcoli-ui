@@ -59,6 +59,7 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 ## Usage
 
 ```tsx
+import * as React from 'react';
 import {
   McCombobox,
   McComboboxTrigger,
@@ -71,11 +72,11 @@ import {
 const frameworks = ['Next.js', 'SvelteKit', 'Nuxt.js', 'Remix', 'Astro'];
 
 export default function Example() {
-  const [value, setValue] = React.useState('select value');
+  const [value, setValue] = React.useState<string | null>(null);
 
   return (
     <McCombobox items={frameworks} value={value} onValueChange={setValue}>
-      <McComboboxTrigger />
+      <McComboboxTrigger placeholder="Select a framework" />
       <McComboboxContent>
         <McComboboxSearch placeholder="Search framework..." />
         <McComboboxList>
@@ -93,11 +94,11 @@ export default function Example() {
 
 ## Examples
 
-### Basic McCombobox
+### Basic Combobox
 
 ```tsx
 <McCombobox items={frameworks} value={value} onValueChange={setValue}>
-  <McComboboxTrigger />
+  <McComboboxTrigger placeholder="Select a framework" />
   <McComboboxContent>
     <McComboboxSearch placeholder="Search framework..." />
     <McComboboxList>
@@ -166,3 +167,11 @@ All other props from `@base-ui/react/combobox` are supported.
 | `className` | `string`    | `undefined` | Additional CSS classes |
 | `value`     | `string`    | -           | Value of the item      |
 | `children`  | `ReactNode` | -           | Item content           |
+
+### McComboboxValue
+
+Renders the selected value. `McComboboxTrigger` already includes it, so you only need it when you build a custom trigger.
+
+| Prop          | Type        | Default     | Description                      |
+| ------------- | ----------- | ----------- | -------------------------------- |
+| `placeholder` | `ReactNode` | `undefined` | Shown while no value is selected |

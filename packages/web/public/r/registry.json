@@ -38,7 +38,7 @@
         "@layer base": {
           "*": {
             "border-color": "var(--border)",
-            "outline-color": "rgb(var(--ring) / 0.5)"
+            "outline-color": "color-mix(in oklab, var(--ring) 50%, transparent)"
           },
           "body": {
             "background-color": "var(--background)",
@@ -464,7 +464,7 @@
         "@layer base": {
           "*": {
             "border-color": "var(--border)",
-            "outline-color": "rgb(var(--ring) / 0.5)"
+            "outline-color": "color-mix(in oklab, var(--ring) 50%, transparent)"
           },
           "body": {
             "background-color": "var(--background)",
@@ -890,7 +890,7 @@
         "@layer base": {
           "*": {
             "border-color": "var(--border)",
-            "outline-color": "rgb(var(--ring) / 0.5)"
+            "outline-color": "color-mix(in oklab, var(--ring) 50%, transparent)"
           },
           "body": {
             "background-color": "var(--background)",
@@ -1316,7 +1316,7 @@
         "@layer base": {
           "*": {
             "border-color": "var(--border)",
-            "outline-color": "rgb(var(--ring) / 0.5)"
+            "outline-color": "color-mix(in oklab, var(--ring) 50%, transparent)"
           },
           "body": {
             "background-color": "var(--background)",
@@ -1742,7 +1742,7 @@
         "@layer base": {
           "*": {
             "border-color": "var(--border)",
-            "outline-color": "rgb(var(--ring) / 0.5)"
+            "outline-color": "color-mix(in oklab, var(--ring) 50%, transparent)"
           },
           "body": {
             "background-color": "var(--background)",
@@ -2159,7 +2159,7 @@
       "name": "mc-button",
       "title": "MicroClub Button",
       "description": "A button component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-button.tsx",
@@ -2211,7 +2211,7 @@
       "name": "mc-checkbox",
       "title": "MicroClub Checkbox",
       "description": "A checkbox component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-checkbox.tsx",
@@ -2224,7 +2224,7 @@
       "name": "mc-radio-group",
       "title": "MicroClub Radio Group",
       "description": "A radio group component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-radio-group.tsx",
@@ -2237,7 +2237,7 @@
       "name": "mc-card",
       "title": "MicroClub Card",
       "description": "A card layout with header, body, and footer regions for MicroClub UI",
-      "dependencies": [],
+      "dependencies": ["class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-card.tsx",
@@ -2289,7 +2289,7 @@
       "name": "mc-navigation-menu",
       "title": "MicroClub Navigation Menu",
       "description": "A navigation menu component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "lucide-react"],
+      "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-navigation-menu.tsx",
@@ -2302,8 +2302,11 @@
       "name": "mc-sidebar",
       "title": "MicroClub Sidebar",
       "description": "A sidebar component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "lucide-react"],
-      "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
+      "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
+      "registryDependencies": [
+        "https://mcoli-ui.microclub.info/r/mc-button.json",
+        "https://mcoli-ui.microclub.info/r/mc-tooltip.json"
+      ],
       "files": [
         {
           "path": "registry/ui/mc-sidebar.tsx",
@@ -2316,7 +2319,7 @@
       "name": "mc-tabs",
       "title": "MicroClub Tabs",
       "description": "A tabs component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-tabs.tsx",
@@ -2518,7 +2521,7 @@
       "name": "mc-progress",
       "title": "MicroClub Progress",
       "description": "A progress component for MicroClub UI",
-      "dependencies": ["lucide-react"],
+      "dependencies": ["lucide-react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-progress.tsx",
@@ -2574,7 +2577,7 @@
       "name": "mc-badge",
       "title": "MicroClub Badge",
       "description": "A badge component for MicroClub UI",
-      "dependencies": ["@base-ui/react"],
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-badge.tsx",
@@ -2607,6 +2610,13 @@
           "type": "registry:ui"
         }
       ],
+      "cssVars": {
+        "theme": {
+          "spacing-drawer": "26.6875rem",
+          "spacing-drawer-nav": "4.5rem",
+          "spacing-drawer-item": "4.125rem"
+        }
+      },
       "type": "registry:ui"
     },
     {

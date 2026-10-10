@@ -40,10 +40,10 @@ If you prefer manual control:
 <Step>Install the core dependencies</Step>
 
 <Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
-  <Tab value="npm">npm install @base-ui/react</Tab>
-  <Tab value="pnpm">pnpm add @base-ui/react</Tab>
-  <Tab value="yarn">yarn add @base-ui/react</Tab>
-  <Tab value="bun">bun add @base-ui/react</Tab>
+  <Tab value="npm">npm install @base-ui/react class-variance-authority</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react class-variance-authority</Tab>
+  <Tab value="yarn">yarn add @base-ui/react class-variance-authority</Tab>
+  <Tab value="bun">bun add @base-ui/react class-variance-authority</Tab>
 </Tabs>
 
 <Step>Copy the source code</Step>
@@ -112,6 +112,9 @@ export default function Example() {
   <McRadioGroupItem value="unchecked" id="r1" text="Unchecked" />
   <McRadioGroupItem value="checked" id="r2" text="Checked" />
   <McRadioGroupItem value="disabled" id="r3" text="Disabled" disabled />
+</McRadioGroup>
+
+<McRadioGroup defaultValue="disabled-checked">
   <McRadioGroupItem value="disabled-checked" id="r4" text="Disabled checked" disabled />
 </McRadioGroup>
 ```

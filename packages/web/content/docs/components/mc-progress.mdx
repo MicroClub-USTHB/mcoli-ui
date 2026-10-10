@@ -47,10 +47,10 @@ If you prefer manual control:
 <Step>Install the core dependencies</Step>
 
 <Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
-  <Tab value="npm">npm install lucide-react</Tab>
-  <Tab value="pnpm">pnpm add lucide-react</Tab>
-  <Tab value="yarn">yarn add lucide-react</Tab>
-  <Tab value="bun">bun add lucide-react</Tab>
+  <Tab value="npm">npm install lucide-react class-variance-authority</Tab>
+  <Tab value="pnpm">pnpm add lucide-react class-variance-authority</Tab>
+  <Tab value="yarn">yarn add lucide-react class-variance-authority</Tab>
+  <Tab value="bun">bun add lucide-react class-variance-authority</Tab>
 </Tabs>
 
 <Step>Copy the source code</Step>
@@ -121,7 +121,7 @@ export default function Example() {
 
 ### Circular Progress Sizes and Stroke Limits
 
-`Circle` applies a max stroke width per size:
+`McProgressCircle` applies a max stroke width per size:
 
 - `xs`: max `8`
 - `sm`: max `12`
@@ -241,11 +241,11 @@ Also supports standard `SVGSVGElement` props.
 
 ### `McProgressStepper`
 
-| Prop          | Type                         | Default        | Description                           |
-| ------------- | ---------------------------- | -------------- | ------------------------------------- |
-| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Stepper axis direction                |
-| `size`        | `"sm" \| "md" \| "lg"`       | `"md"`         | Controls gap and connector sizing     |
-| `className`   | `string`                     | `undefined`    | Extra classes for the stepper wrapper |
+| Prop          | Type                         | Default        | Description                                             |
+| ------------- | ---------------------------- | -------------- | ------------------------------------------------------- |
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Stepper axis direction                                  |
+| `size`        | `"sm" \| "md" \| "lg"`       | `"md"`         | Gap between steps. Set `size` on each step and line too |
+| `className`   | `string`                     | `undefined`    | Extra classes for the stepper wrapper                   |
 
 Also supports standard `HTMLDivElement` props.
 

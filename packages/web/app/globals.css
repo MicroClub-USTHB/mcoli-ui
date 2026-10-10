@@ -222,7 +222,6 @@
 @layer base {
   * {
     border-color: var(--border);
-    outline-color: rgb(var(--ring) / 0.5);
     @apply border-border outline-ring/50;
   }
   body {

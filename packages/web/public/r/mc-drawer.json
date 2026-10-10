@@ -11,5 +11,12 @@
       "type": "registry:ui"
     }
   ],
+  "cssVars": {
+    "theme": {
+      "spacing-drawer": "26.6875rem",
+      "spacing-drawer-nav": "4.5rem",
+      "spacing-drawer-item": "4.125rem"
+    }
+  },
   "type": "registry:ui"
 }

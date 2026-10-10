@@ -132,10 +132,18 @@ import { User } from 'lucide-react';
 Use the `avatar-leading` variant to display an avatar before the value.
 
 ```tsx
-import { Avatar } from 'lucide-react';
+import { McAvatar, McAvatarFallback, McAvatarImage } from '@/components/ui/mc-avatar';
 
 <McSelect defaultValue="designer">
-  <McSelectTrigger variant="avatar-leading" leadingAvatar={<Avatar />}>
+  <McSelectTrigger
+    variant="avatar-leading"
+    leadingAvatar={
+      <McAvatar size="xs">
+        <McAvatarImage src="https://github.com/shadcn.png" alt="" />
+        <McAvatarFallback>CN</McAvatarFallback>
+      </McAvatar>
+    }
+  >
     <McSelectValue placeholder="Select a role" />
   </McSelectTrigger>
   <McSelectContent>
@@ -164,7 +172,7 @@ Use the `dot-leading` variant to display a colored dot before the value.
 
 ### Search Variant
 
-The `search` variant is optimized for search input scenarios.
+The `search` variant shows a search icon in place of the chevron. It does not filter the items; use [`mc-combobox`](/docs/components/mc-combobox) for a searchable list.
 
 ```tsx
 <McSelect defaultValue="designer">
@@ -228,7 +236,7 @@ Choose between `default` and `sm` sizes.
 
 ### Disabled Item
 
-Selected items are automatically disabled to prevent re-selection.
+Pass `disabled` to an item to keep it visible but unselectable.
 
 ```tsx
 <McSelect defaultValue="designer">
@@ -236,9 +244,11 @@ Selected items are automatically disabled to prevent re-selection.
     <McSelectValue placeholder="Select a role" />
   </McSelectTrigger>
   <McSelectContent>
-    <McSelectItem value="designer">Designer (current)</McSelectItem>
+    <McSelectItem value="designer">Designer</McSelectItem>
     <McSelectItem value="developer">Developer</McSelectItem>
-    <McSelectItem value="manager">Manager</McSelectItem>
+    <McSelectItem value="manager" disabled>
+      Manager
+    </McSelectItem>
   </McSelectContent>
 </McSelect>
 ```
@@ -319,7 +329,7 @@ All other props from `@base-ui/react/select` are supported.
 | `dotColor`       | `string`    | `undefined` | Color class for the dot                    |
 | `className`      | `string`    | `undefined` | Additional CSS classes                     |
 
-The selected item is automatically styled with a blue background and becomes non-clickable.
+The selected item is highlighted with the theme's accent color and shows a check icon.
 
 All other props from `@base-ui/react/select` are supported.
 

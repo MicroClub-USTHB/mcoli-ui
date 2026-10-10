@@ -137,12 +137,12 @@ import { TriangleAlert } from 'lucide-react';
 
 ### Custom Action Variants
 
-`McAlertDialogAction` accepts all `Button` props, so you can apply variants for destructive or styled actions.
+`McAlertDialogAction` accepts all `McButton` props, so you can use `destructive` or any button variant.
 
 ```tsx
 <McAlertDialogFooter>
   <McAlertDialogCancel>Cancel</McAlertDialogCancel>
-  <McAlertDialogAction variant="destructive">Delete permanently</McAlertDialogAction>
+  <McAlertDialogAction destructive>Delete permanently</McAlertDialogAction>
 </McAlertDialogFooter>
 ```
 
@@ -203,22 +203,26 @@ Action button container. Uses `flex-col-reverse` on mobile, `flex-row` on deskto
 
 ### `McAlertDialogAction`
 
-The confirm/submit button. Accepts all `Button` component props.
+The confirm/submit button. Renders an `McButton` and accepts all of its props.
 
-| Prop        | Type     | Default     | Description            |
-| ----------- | -------- | ----------- | ---------------------- |
-| `variant`   | `string` | `"default"` | Button visual style    |
-| `className` | `string` | `undefined` | Additional CSS classes |
+It does not close the dialog on its own. Control `open` on `McAlertDialog` and close it from your
+handler once the action is done. For buttons that only dismiss, use `McAlertDialogCancel`.
+
+| Prop          | Type                                               | Default     | Description            |
+| ------------- | -------------------------------------------------- | ----------- | ---------------------- |
+| `variant`     | `"primary" \| "secondary" \| "tertiary" \| "link"` | `"primary"` | Button visual style    |
+| `destructive` | `boolean`                                          | `false`     | Destructive styling    |
+| `className`   | `string`                                           | `undefined` | Additional CSS classes |
 
 ### `McAlertDialogCancel`
 
-The dismiss button. Uses `AlertDialogPrimitive.Close` with a `Button` rendered via the `render` prop.
+The dismiss button. Uses `AlertDialogPrimitive.Close` with an `McButton` rendered via the `render` prop.
 
-| Prop        | Type     | Default     | Description            |
-| ----------- | -------- | ----------- | ---------------------- |
-| `variant`   | `string` | `"outline"` | Button visual style    |
-| `size`      | `string` | `"default"` | Button size            |
-| `className` | `string` | `undefined` | Additional CSS classes |
+| Prop        | Type                                               | Default       | Description            |
+| ----------- | -------------------------------------------------- | ------------- | ---------------------- |
+| `variant`   | `"primary" \| "secondary" \| "tertiary" \| "link"` | `"secondary"` | Button visual style    |
+| `size`      | `"sm" \| "md" \| "lg" \| "xl"`                     | `"md"`        | Button size            |
+| `className` | `string`                                           | `undefined`   | Additional CSS classes |
 
 ### `McAlertDialogMedia`
 

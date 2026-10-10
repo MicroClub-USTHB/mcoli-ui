@@ -13,7 +13,7 @@ export const ui: Registry['items'] = [
         type: 'registry:ui',
       },
     ],
-    dependencies: ['@base-ui/react', 'lucide-react'],
+    dependencies: ['@base-ui/react', 'lucide-react', 'class-variance-authority'],
   },
   {
     name: 'mc-input',
@@ -65,7 +65,7 @@ export const ui: Registry['items'] = [
         type: 'registry:ui',
       },
     ],
-    dependencies: ['@base-ui/react', 'lucide-react'],
+    dependencies: ['@base-ui/react', 'lucide-react', 'class-variance-authority'],
   },
   {
     name: 'mc-radio-group',
@@ -78,7 +78,7 @@ export const ui: Registry['items'] = [
         type: 'registry:ui',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'class-variance-authority'],
   },
   {
     name: 'mc-card',
@@ -91,7 +91,7 @@ export const ui: Registry['items'] = [
         type: 'registry:ui',
       },
     ],
-    dependencies: [],
+    dependencies: ['class-variance-authority'],
   },
   {
     name: 'mc-select',
@@ -143,7 +143,7 @@ export const ui: Registry['items'] = [
         type: 'registry:ui',
       },
     ],
-    dependencies: ['@base-ui/react', 'lucide-react'],
+    dependencies: ['@base-ui/react', 'lucide-react', 'class-variance-authority'],
   },
   {
     name: 'mc-sidebar',
@@ -156,8 +156,8 @@ export const ui: Registry['items'] = [
         type: 'registry:ui',
       },
     ],
-    dependencies: ['@base-ui/react', 'lucide-react'],
-    registryDependencies: [`${REGISTRY_URL}/r/mc-button.json`],
+    dependencies: ['@base-ui/react', 'lucide-react', 'class-variance-authority'],
+    registryDependencies: [`${REGISTRY_URL}/r/mc-button.json`, `${REGISTRY_URL}/r/mc-tooltip.json`],
   },
   {
     name: 'mc-tabs',
@@ -170,7 +170,7 @@ export const ui: Registry['items'] = [
         type: 'registry:ui',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'class-variance-authority'],
   },
   {
     name: 'mc-breadcrumb',
@@ -372,7 +372,7 @@ export const ui: Registry['items'] = [
         type: 'registry:ui',
       },
     ],
-    dependencies: ['lucide-react'],
+    dependencies: ['lucide-react', 'class-variance-authority'],
   },
   {
     name: 'mc-calendar',
@@ -425,7 +425,7 @@ export const ui: Registry['items'] = [
         type: 'registry:ui',
       },
     ],
-    dependencies: ['@base-ui/react'],
+    dependencies: ['@base-ui/react', 'class-variance-authority'],
   },
   {
     name: 'mc-avatar',
@@ -452,6 +452,14 @@ export const ui: Registry['items'] = [
       },
     ],
     dependencies: ['vaul'],
+    // Sizes behind the w-drawer, h-drawer-nav and h-drawer-item utilities.
+    cssVars: {
+      theme: {
+        'spacing-drawer': '26.6875rem',
+        'spacing-drawer-nav': '4.5rem',
+        'spacing-drawer-item': '4.125rem',
+      },
+    },
   },
   {
     name: 'mc-hover-card',

@@ -64,18 +64,22 @@ import { McHoverCard, McHoverCardTrigger, McHoverCardContent } from '@/component
 export default function Example() {
   return (
     <McHoverCard>
-      <McHoverCardTrigger>
-        <button type="button">Hover me</button>
-      </McHoverCardTrigger>
+      <McHoverCardTrigger href="#">Hover me</McHoverCardTrigger>
       <McHoverCardContent
         title="John Doe"
         subtitle="Software Engineer"
         description="John is a software engineer with 5 years of experience in web development. He loves working with React and TypeScript."
-        imageSrc="https://cdn-imgix.headout.com/media/images/c9db3cea62133b6a6bb70597326b4a34-388-dubai-img-worlds-of-adventure-tickets-01.jpg?auto=compress%2Cformat&w=1222.3999999999999&h=687.6&q=90&ar=16%3A9&crop=faces&fit=crop"
+        imageSrc="https://github.com/shadcn.png"
       />
     </McHoverCard>
   );
 }
+```
+
+`McHoverCardTrigger` renders an `<a>`, so give it an `href`. To use another element, pass it through `render` instead of nesting it:
+
+```tsx
+<McHoverCardTrigger render={<span tabIndex={0} />}>Hover me</McHoverCardTrigger>
 ```
 
 ## Examples
@@ -84,12 +88,10 @@ export default function Example() {
 
 ```tsx
 <McHoverCard>
-  <McHoverCardTrigger>
-    <button type="button">Hover me</button>
-  </McHoverCardTrigger>
+  <McHoverCardTrigger href="#">Hover me</McHoverCardTrigger>
   <McHoverCardContent
     textAlign="start"
-    imageSrc="https://cdn-imgix.headout.com/media/images/c9db3cea62133b6a6bb70597326b4a34-388-dubai-img-worlds-of-adventure-tickets-01.jpg?auto=compress%2Cformat&w=1222.3999999999999&h=687.6&q=90&ar=16%3A9&crop=faces&fit=crop"
+    imageSrc="https://github.com/shadcn.png"
     title="John Doe"
     subtitle="Software Engineer"
     description="John is a software engineer with 5 years of experience in web development. He loves working with React and TypeScript."
@@ -101,9 +103,7 @@ export default function Example() {
 
 ```tsx
 <McHoverCard>
-  <McHoverCardTrigger>
-    <button type="button">Hover me</button>
-  </McHoverCardTrigger>
+  <McHoverCardTrigger href="#">Hover me</McHoverCardTrigger>
   <McHoverCardContent
     imageposition="bottom"
     textAlign="center"
@@ -118,9 +118,7 @@ export default function Example() {
 
 ```tsx
 <McHoverCard>
-  <McHoverCardTrigger>
-    <button type="button">Hover me</button>
-  </McHoverCardTrigger>
+  <McHoverCardTrigger href="#">Hover me</McHoverCardTrigger>
   <McHoverCardContent side="right" sideOffset={8} align="start" alignOffset={8}>
     <div className="space-y-2">
       <h4 className="font-semibold">Details</h4>

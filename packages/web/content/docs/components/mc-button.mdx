@@ -40,10 +40,10 @@ If you prefer manual control:
 <Step>Install the core dependencies</Step>
 
 <Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
-  <Tab value="npm">npm install @base-ui/react lucide-react</Tab>
-  <Tab value="pnpm">pnpm add @base-ui/react lucide-react</Tab>
-  <Tab value="yarn">yarn add @base-ui/react lucide-react</Tab>
-  <Tab value="bun">bun add @base-ui/react lucide-react</Tab>
+  <Tab value="npm">npm install @base-ui/react lucide-react class-variance-authority</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react lucide-react class-variance-authority</Tab>
+  <Tab value="yarn">yarn add @base-ui/react lucide-react class-variance-authority</Tab>
+  <Tab value="bun">bun add @base-ui/react lucide-react class-variance-authority</Tab>
 </Tabs>
 
 <Step>Copy the source code</Step>
@@ -88,7 +88,7 @@ export default function Example() {
 
 ### Icons Support
 
-The `mc-button` features a unified icon system using the `icon` and `iconDefinition` props.
+The `mc-button` features a unified icon system using the `icon` and `iconDefinition` props. With `icon="only"`, the children are kept as visually hidden text, so they still name the button for screen readers.
 
 ```tsx
 import { Mail, ArrowRight, Plus } from "lucide-react"
@@ -105,7 +105,9 @@ import { Mail, ArrowRight, Plus } from "lucide-react"
   Status Online
 </McButton>
 
-<McButton icon="only" iconDefinition={<Plus />} />
+<McButton icon="only" iconDefinition={<Plus />}>
+  Add item
+</McButton>
 ```
 
 ### States

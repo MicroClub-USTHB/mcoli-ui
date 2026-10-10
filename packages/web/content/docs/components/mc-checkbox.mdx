@@ -40,10 +40,10 @@ If you prefer manual control:
 <Step>Install the core dependencies</Step>
 
 <Tabs items={['npm', 'pnpm', 'yarn', 'bun']}>
-  <Tab value="npm">npm install @base-ui/react lucide-react</Tab>
-  <Tab value="pnpm">pnpm add @base-ui/react lucide-react</Tab>
-  <Tab value="yarn">yarn add @base-ui/react lucide-react</Tab>
-  <Tab value="bun">bun add @base-ui/react lucide-react</Tab>
+  <Tab value="npm">npm install @base-ui/react lucide-react class-variance-authority</Tab>
+  <Tab value="pnpm">pnpm add @base-ui/react lucide-react class-variance-authority</Tab>
+  <Tab value="yarn">yarn add @base-ui/react lucide-react class-variance-authority</Tab>
+  <Tab value="bun">bun add @base-ui/react lucide-react class-variance-authority</Tab>
 </Tabs>
 
 <Step>Copy the source code</Step>
@@ -84,10 +84,11 @@ export default function Example() {
 ### States
 
 ```tsx
-<McCheckbox text="Unchecked" checked={false} />
-<McCheckbox text="Checked" checked />
+<McCheckbox text="Unchecked" />
+<McCheckbox text="Checked" defaultChecked />
+<McCheckbox text="Indeterminate" indeterminate />
 <McCheckbox text="Disabled" disabled />
-<McCheckbox text="Disabled checked" checked disabled />
+<McCheckbox text="Disabled checked" defaultChecked disabled />
 ```
 
 ### Controlled
@@ -109,15 +110,17 @@ export default function Example() {
 
 ### Props
 
-| Prop              | Type                                   | Default     | Description                                       |
-| ----------------- | -------------------------------------- | ----------- | ------------------------------------------------- |
-| `size`            | `"sm" \| "md"`                         | `"sm"`      | The checkbox size                                 |
-| `text`            | `string`                               | `undefined` | Main label displayed next to the checkbox         |
-| `supportText`     | `string`                               | `undefined` | Secondary helper text under the main label        |
-| `checked`         | `boolean`                              | `undefined` | Controlled checked state                          |
-| `onCheckedChange` | `(boolean \| "indeterminate") => void` | `undefined` | Callback when checked state changes               |
-| `disabled`        | `boolean`                              | `false`     | Disables interactions and applies disabled styles |
-| `id`              | `string`                               | `undefined` | Custom ID for the checkbox input                  |
-| `className`       | `string`                               | `undefined` | Additional CSS classes for the checkbox root      |
+| Prop              | Type                                       | Default     | Description                                        |
+| ----------------- | ------------------------------------------ | ----------- | -------------------------------------------------- |
+| `size`            | `"sm" \| "md"`                             | `"sm"`      | The checkbox size                                  |
+| `text`            | `string`                                   | `undefined` | Main label displayed next to the checkbox          |
+| `supportText`     | `string`                                   | `undefined` | Secondary helper text under the main label         |
+| `checked`         | `boolean`                                  | `undefined` | Controlled checked state                           |
+| `defaultChecked`  | `boolean`                                  | `false`     | Initial checked state when uncontrolled            |
+| `onCheckedChange` | `(checked: boolean, eventDetails) => void` | `undefined` | Callback when checked state changes                |
+| `indeterminate`   | `boolean`                                  | `false`     | Shows a dash instead of a check mark (mixed state) |
+| `disabled`        | `boolean`                                  | `false`     | Disables interactions and applies disabled styles  |
+| `id`              | `string`                                   | `undefined` | Custom ID for the checkbox input                   |
+| `className`       | `string`                                   | `undefined` | Additional CSS classes for the checkbox root       |
 
 All other props from `@base-ui/react/checkbox` are supported.

@@ -64,14 +64,15 @@ import {
   McAccordionContent,
   McAccordionItem,
   McAccordionTrigger,
-} from '@/registry/ui/mc-accordion';
+} from '@/components/ui/mc-accordion';
 
+export default function Example() {
   return (
     <McAccordion defaultValue={['product']} className="w-full max-w-[503px]">
       <McAccordionItem value="product">
         <McAccordionTrigger>Product Information</McAccordionTrigger>
         <McAccordionContent>
-          <p>Our flagship product combine cutting-edge technology with sleek design.</p>
+          <p>Our flagship product combines cutting-edge technology with sleek design.</p>
         </McAccordionContent>
       </McAccordionItem>
     </McAccordion>
@@ -88,7 +89,7 @@ import {
   <McAccordionItem value="product">
     <McAccordionTrigger>Product Information</McAccordionTrigger>
     <McAccordionContent>
-      <p>Our flagship product combine cutting-edge technology with sleek design.</p>
+      <p>Our flagship product combines cutting-edge technology with sleek design.</p>
       <p>Key features include advanced processing capabilities and an intuitive interface.</p>
     </McAccordionContent>
   </McAccordionItem>
@@ -118,7 +119,7 @@ The accordion already accepts `className`, so width is usually controlled from t
 <McAccordion className="w-full max-w-[503px]">...</McAccordion>
 ```
 
-Use `w-[503px]` for a fixed width, or `w-full max-w-[503px]` for a responsive layout that still respects the Figma width.
+Use `w-[503px]` for a fixed width, or `w-full max-w-[503px]` for a responsive layout that keeps the default width as a maximum.
 
 ### Long Trigger Text
 
@@ -137,7 +138,7 @@ When trigger labels are long, keep the chevron separated from the text so conten
 
 ### Multiple Paragraphs
 
-`AccordionContent` works well with stacked content such as paragraphs, links, and lists.
+`McAccordionContent` works well with stacked content such as paragraphs, links, and lists.
 
 ```tsx
 <McAccordionContent>
@@ -149,7 +150,7 @@ When trigger labels are long, keep the chevron separated from the text so conten
 
 ## API Reference
 
-### Accordion
+### McAccordion
 
 | Prop            | Type                        | Default     | Description                                            |
 | --------------- | --------------------------- | ----------- | ------------------------------------------------------ |
@@ -160,7 +161,7 @@ When trigger labels are long, keep the chevron separated from the text so conten
 
 All other props from `@base-ui/react/accordion` root are supported.
 
-### AccordionItem
+### McAccordionItem
 
 | Prop        | Type     | Default     | Description                            |
 | ----------- | -------- | ----------- | -------------------------------------- |
@@ -169,7 +170,7 @@ All other props from `@base-ui/react/accordion` root are supported.
 
 All other props from `@base-ui/react/accordion` item are supported.
 
-### AccordionTrigger
+### McAccordionTrigger
 
 | Prop        | Type        | Default     | Description                          |
 | ----------- | ----------- | ----------- | ------------------------------------ |
@@ -179,7 +180,7 @@ All other props from `@base-ui/react/accordion` item are supported.
 
 All other props from `@base-ui/react/accordion` trigger are supported.
 
-### AccordionContent
+### McAccordionContent
 
 | Prop        | Type        | Default     | Description            |
 | ----------- | ----------- | ----------- | ---------------------- |
