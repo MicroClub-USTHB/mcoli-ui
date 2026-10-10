@@ -3,7 +3,7 @@
   "name": "mc-button",
   "title": "MicroClub Button",
   "description": "A button component for MicroClub UI",
-  "dependencies": ["@base-ui/react", "lucide-react"],
+  "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
   "files": [
     {
       "path": "registry/ui/mc-button.tsx",

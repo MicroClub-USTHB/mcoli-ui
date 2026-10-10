@@ -3,7 +3,7 @@
   "name": "mc-badge",
   "title": "MicroClub Badge",
   "description": "A badge component for MicroClub UI",
-  "dependencies": ["@base-ui/react"],
+  "dependencies": ["@base-ui/react", "class-variance-authority"],
   "files": [
     {
       "path": "registry/ui/mc-badge.tsx",

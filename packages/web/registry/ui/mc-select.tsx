@@ -118,7 +118,7 @@ function McSelectTrigger({
       )}
 
       {variant === 'dot-leading' && (
-        <span className="dot size-2 shrink-0 rounded-full bg-green-500" />
+        <span className={cn('dot size-2 shrink-0 rounded-full', dotColor ?? 'bg-green-500')} />
       )}
 
       {children}
@@ -274,7 +274,7 @@ function McSelectItem({
         </span>
       )}
 
-      {dotColor && <span className="dot size-2 shrink-0 rounded-full bg-green-500" />}
+      {dotColor && <span className={cn('dot size-2 shrink-0 rounded-full', dotColor)} />}
 
       <SelectPrimitive.ItemText
         className={cn(
@@ -339,7 +339,7 @@ function McSelectScrollDownButton({
     <SelectPrimitive.ScrollDownArrow
       data-slot="select-scroll-down-button"
       className={cn(
-        "bottom-0 z-10 flex w-full cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4 bg-accent-red-50 ",
+        "bottom-0 z-10 flex w-full cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
