@@ -5,7 +5,7 @@ export default function McSkeletonDemo() {
     <div className="p-6">
       <div className="w-full max-w-sm space-y-4">
         {Array.from({ length: 3 }).map((_, i) => (
-          <div key={i} className="flex gap-3">
+          <div key={i} className="flex gap-4">
             <McSkeleton width={48} height={48} rectangle={false} />
             <div className="flex-1 space-y-2">
               <McSkeleton height={16} width={192} rectangle />
