@@ -2157,15 +2157,9 @@
     },
     {
       "name": "mc-button",
-<<<<<<< HEAD
-      "title": "MicroClub Button",
-      "description": "A button component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
-=======
       "title": "Micro Club Button",
       "description": "A button component for Micro Club UI",
-      "dependencies": ["@base-ui/react", "lucide-react"],
->>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
+      "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-button.tsx",
@@ -2215,15 +2209,9 @@
     },
     {
       "name": "mc-checkbox",
-<<<<<<< HEAD
-      "title": "MicroClub Checkbox",
-      "description": "A checkbox component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
-=======
       "title": "Micro Club Checkbox",
       "description": "A checkbox component for Micro Club UI",
-      "dependencies": ["@base-ui/react", "lucide-react"],
->>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
+      "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-checkbox.tsx",
@@ -2234,15 +2222,9 @@
     },
     {
       "name": "mc-radio-group",
-<<<<<<< HEAD
-      "title": "MicroClub Radio Group",
-      "description": "A radio group component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
-=======
       "title": "Micro Club Radio Group",
       "description": "A radio group component for Micro Club UI",
-      "dependencies": ["@base-ui/react"],
->>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-radio-group.tsx",
@@ -2253,15 +2235,9 @@
     },
     {
       "name": "mc-card",
-<<<<<<< HEAD
-      "title": "MicroClub Card",
-      "description": "A card layout with header, body, and footer regions for MicroClub UI",
-      "dependencies": ["class-variance-authority"],
-=======
       "title": "Micro Club Card",
       "description": "A card layout with header, body, and footer regions for Micro Club UI",
-      "dependencies": [],
->>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
+      "dependencies": ["class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-card.tsx",
@@ -2311,15 +2287,9 @@
     },
     {
       "name": "mc-navigation-menu",
-<<<<<<< HEAD
-      "title": "MicroClub Navigation Menu",
-      "description": "A navigation menu component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
-=======
       "title": "Micro Club Navigation Menu",
       "description": "A navigation menu component for Micro Club UI",
-      "dependencies": ["@base-ui/react", "lucide-react"],
->>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
+      "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-navigation-menu.tsx",
@@ -2330,15 +2300,9 @@
     },
     {
       "name": "mc-sidebar",
-<<<<<<< HEAD
-      "title": "MicroClub Sidebar",
-      "description": "A sidebar component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
-=======
       "title": "Micro Club Sidebar",
       "description": "A sidebar component for Micro Club UI",
-      "dependencies": ["@base-ui/react", "lucide-react"],
->>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
+      "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
       "registryDependencies": [
         "https://mcoli-ui.microclub.info/r/mc-button.json",
         "https://mcoli-ui.microclub.info/r/mc-tooltip.json"
@@ -2353,15 +2317,9 @@
     },
     {
       "name": "mc-tabs",
-<<<<<<< HEAD
-      "title": "MicroClub Tabs",
-      "description": "A tabs component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
-=======
       "title": "Micro Club Tabs",
       "description": "A tabs component for Micro Club UI",
-      "dependencies": ["@base-ui/react"],
->>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-tabs.tsx",
@@ -2561,15 +2519,9 @@
     },
     {
       "name": "mc-progress",
-<<<<<<< HEAD
-      "title": "MicroClub Progress",
-      "description": "A progress component for MicroClub UI",
-      "dependencies": ["lucide-react", "class-variance-authority"],
-=======
       "title": "Micro Club Progress",
       "description": "A progress component for Micro Club UI",
-      "dependencies": ["lucide-react"],
->>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
+      "dependencies": ["lucide-react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-progress.tsx",
@@ -2623,15 +2575,9 @@
     },
     {
       "name": "mc-badge",
-<<<<<<< HEAD
-      "title": "MicroClub Badge",
-      "description": "A badge component for MicroClub UI",
-      "dependencies": ["@base-ui/react", "class-variance-authority"],
-=======
       "title": "Micro Club Badge",
       "description": "A badge component for Micro Club UI",
-      "dependencies": ["@base-ui/react"],
->>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
       "files": [
         {
           "path": "registry/ui/mc-badge.tsx",

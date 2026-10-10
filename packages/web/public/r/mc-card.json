@@ -1,15 +1,9 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-card",
-<<<<<<< HEAD
-  "title": "MicroClub Card",
-  "description": "A card layout with header, body, and footer regions for MicroClub UI",
-  "dependencies": ["class-variance-authority"],
-=======
   "title": "Micro Club Card",
   "description": "A card layout with header, body, and footer regions for Micro Club UI",
-  "dependencies": [],
->>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
+  "dependencies": ["class-variance-authority"],
   "files": [
     {
       "path": "registry/ui/mc-card.tsx",

@@ -1,15 +1,9 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-navigation-menu",
-<<<<<<< HEAD
-  "title": "MicroClub Navigation Menu",
-  "description": "A navigation menu component for MicroClub UI",
-  "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
-=======
   "title": "Micro Club Navigation Menu",
   "description": "A navigation menu component for Micro Club UI",
-  "dependencies": ["@base-ui/react", "lucide-react"],
->>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
+  "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
   "files": [
     {
       "path": "registry/ui/mc-navigation-menu.tsx",
