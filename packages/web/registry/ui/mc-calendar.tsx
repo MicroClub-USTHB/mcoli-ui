@@ -272,7 +272,7 @@ function McDatePicker({
           }
         />
 
-        <McPopoverContent align="start" sideOffset={6} className="!h-auto !w-auto !gap-0 !p-2">
+        <McPopoverContent align="start" sideOffset={6} className="gap-0 p-2">
           <McCalendar
             defaultMonth={selected}
             {...calendarProps}
