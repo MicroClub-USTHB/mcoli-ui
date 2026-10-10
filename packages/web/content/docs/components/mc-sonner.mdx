@@ -360,6 +360,19 @@ toast.warning(message: string, options?: ToastOptions): string
 toast.error(message: string, options?: ToastOptions): string
 ```
 
+**Info Toast**:
+
+```tsx
+toast.info(message: string, options?: ToastOptions): string
+```
+
+**Helpers**: Sonner's `toast.loading`, `toast.promise`, `toast.custom`, `toast.dismiss`, `toast.getHistory` and `toast.getToasts` are also available:
+
+```tsx
+const id = toast.success('Uploading...', { duration: Infinity });
+toast.dismiss(id);
+```
+
 ### ToastOptions
 
 | Prop          | Type                                     | Default     | Description                                  |
@@ -369,6 +382,10 @@ toast.error(message: string, options?: ToastOptions): string
 | `duration`    | `number`                                 | `4000`      | Duration in milliseconds before auto-dismiss |
 | `icon`        | `ReactNode`                              | `undefined` | Custom icon (overrides variant icon)         |
 | `closeButton` | `boolean`                                | `false`     | Show a close button on this specific toast   |
+
+Every other Sonner per-toast option (`id`, `onDismiss`, `onAutoClose`, `important`, ...) is forwarded as well.
+
+Options passed to `McSonner`'s `toastOptions` are merged with the built-in styling: `classNames.toast` and `classNames.actionButton` are appended to the defaults instead of replacing them.
 
 ## Styling
 
