@@ -1,30 +1,29 @@
 'use client';
 
-import { Toaster as SonnerComponent, toast as rawToast } from 'sonner';
-import { CheckCircle2, AlertCircle } from 'lucide-react';
+import * as React from 'react';
+import { Toaster as SonnerComponent, toast as rawToast, type ExternalToast } from 'sonner';
+import { CheckCircle2, AlertCircle, Info } from 'lucide-react';
+
+import { cn } from '@/lib/utils';
 
 type ToasterProps = React.ComponentProps<typeof SonnerComponent>;
 
 const toastIcons = {
   success: <CheckCircle2 className="text-muted-foreground shrink-0 h-3.5 w-3.5" />,
   warning: <AlertCircle className="text-muted-foreground shrink-0 h-3.5 w-3.5" />,
-  error: <AlertCircle className="text-muted-foreground  shrink-0 h-3.5 w-3.5" />,
+  error: <AlertCircle className="text-muted-foreground shrink-0 h-3.5 w-3.5" />,
+  info: <Info className="text-muted-foreground shrink-0 h-3.5 w-3.5" />,
 };
 
-interface ToastOptions {
-  description?: string;
-  action?: {
-    label: string;
-    onClick: () => void;
-  };
-}
+type ToastVariant = keyof typeof toastIcons;
 
-const mcToastCustom = (
-  message: string,
-  variant?: 'success' | 'warning' | 'error',
-  options?: ToastOptions
-) => {
-  const Icon = variant ? toastIcons[variant] : null;
+type ToastOptions = Omit<ExternalToast, 'description'> & {
+  description?: React.ReactNode;
+};
+
+const mcToastCustom = (message: string, variant?: ToastVariant, options: ToastOptions = {}) => {
+  const { description, icon, ...rest } = options;
+  const Icon = icon ?? (variant ? toastIcons[variant] : null);
 
   return rawToast(
     <div className="w-full h-full flex flex-col items-start justify-center gap-0.5">
@@ -35,15 +34,13 @@ const mcToastCustom = (
         </span>
       </div>
 
-      {options?.description && (
+      {description && (
         <p className="text-sm font-normal tracking-normal leading-5 text-muted-foreground max-w-66.5">
-          {options.description}
+          {description}
         </p>
       )}
     </div>,
-    {
-      action: options?.action,
-    }
+    rest
   );
 };
 
@@ -55,21 +52,37 @@ export const toast = Object.assign(
     warning: (message: string, options?: ToastOptions) =>
       mcToastCustom(message, 'warning', options),
     error: (message: string, options?: ToastOptions) => mcToastCustom(message, 'error', options),
+    info: (message: string, options?: ToastOptions) => mcToastCustom(message, 'info', options),
+    message: (message: string, options?: ToastOptions) =>
+      mcToastCustom(message, undefined, options),
+    loading: rawToast.loading,
+    promise: rawToast.promise,
+    custom: rawToast.custom,
+    dismiss: rawToast.dismiss,
+    getHistory: rawToast.getHistory,
+    getToasts: rawToast.getToasts,
   }
 );
 
-const McSonner = ({ ...props }: ToasterProps) => {
+const McSonner = ({ toastOptions, ...props }: ToasterProps) => {
+  const { classNames, ...restToastOptions } = toastOptions ?? {};
+
   return (
     <SonnerComponent
-      className=""
       position="top-center"
       toastOptions={{
         unstyled: true,
+        ...restToastOptions,
         classNames: {
-          toast:
+          ...classNames,
+          toast: cn(
             'w-97.5 min-h-18.5 bg-background flex items-center justify-between gap-1.5 p-4 border-[1px] rounded-lg shadow-xs border-border',
-          actionButton:
+            classNames?.toast
+          ),
+          actionButton: cn(
             'flex items-center justify-center bg-primary text-background text-sm py-2 px-3.5 min-w-15.5 max-w-21.5 min-h-9 rounded-[8px] shadow-xs shrink-0 cursor-pointer',
+            classNames?.actionButton
+          ),
         },
       }}
       {...props}
