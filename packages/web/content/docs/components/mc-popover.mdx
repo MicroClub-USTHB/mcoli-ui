@@ -50,43 +50,6 @@ If you prefer manual control:
 
 <ComponentSource name="mc-popover" />
 
-<Step>Add the CSS variables</Step>
-
-Add the following to your global CSS file:
-
-```css
-@layer base {
-  :root {
-    --z-popover: 50;
-
-    /* Dimensions */
-    --popover-width: 276px;
-    --popover-height: 268px;
-
-    /* Positioning */
-    --popover-top: 59px;
-    --popover-left: 22px;
-
-    /* Appearance */
-    --popover-radius: var(--radius-gl);
-    --popover-bg: var(--Card-Background, #ffffff);
-    --popover-shadow: 0px 4px 12px -4px #00000014;
-    --popover-opacity: 1;
-
-    /* Spacing */
-    --popover-gap: 13px;
-    --popover-padding: 16px;
-    --popover-header-gap: 0.125rem;
-
-    /* Typography */
-    --popover-font-size: 0.875rem;
-
-    /* Animation */
-    --popover-duration: 100ms;
-  }
-}
-```
-
 <Step>Adjust import paths</Step>
 
 Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
@@ -236,7 +199,7 @@ The floating panel that appears when the popover is open.
 | Prop          | Type                                     | Default     | Description                              |
 | ------------- | ---------------------------------------- | ----------- | ---------------------------------------- |
 | `side`        | `"top" \| "bottom" \| "left" \| "right"` | `"bottom"`  | Preferred side of the trigger to open on |
-| `sideOffset`  | `number`                                 | `4`         | Distance in px from the trigger          |
+| `sideOffset`  | `number`                                 | `23`        | Distance in px from the trigger          |
 | `align`       | `"start" \| "center" \| "end"`           | `"center"`  | Alignment along the trigger axis         |
 | `alignOffset` | `number`                                 | `0`         | Offset in px along the alignment axis    |
 | `className`   | `string`                                 | `undefined` | Additional CSS classes                   |

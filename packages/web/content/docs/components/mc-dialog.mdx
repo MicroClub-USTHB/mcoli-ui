@@ -54,7 +54,7 @@ If you prefer manual control:
 
 <Step>Copy button dependency or replace render usage</Step>
 
-The default close controls inside `DialogContent` and `DialogFooter` use `McButton`.
+The default close controls inside `McDialogContent` and `McDialogFooter` use `McButton`.
 If you don't use `mc-button`, replace those `render` props with your own button component.
 
 <Step>Adjust import paths</Step>
@@ -68,20 +68,20 @@ Ensure your `@/lib/utils` and `@/components/ui/*` aliases are correctly configur
 ```tsx
 import { McButton } from '@/components/ui/mc-button';
 import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
+  McDialog,
+  McDialogClose,
+  McDialogContent,
+  McDialogDescription,
+  McDialogFooter,
+  McDialogHeader,
+  McDialogTitle,
+  McDialogTrigger,
 } from '@/components/ui/mc-dialog';
 
 export default function Example() {
   return (
-    <Dialog>
-      <DialogTrigger
+    <McDialog>
+      <McDialogTrigger
         render={
           <McButton variant="primary" size="md">
             Open dialog
@@ -89,32 +89,32 @@ export default function Example() {
         }
       />
 
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
-          <DialogDescription>
+      <McDialogContent>
+        <McDialogHeader>
+          <McDialogTitle>Edit profile</McDialogTitle>
+          <McDialogDescription>
             Make changes to your profile here. Click save when you're done.
-          </DialogDescription>
-        </DialogHeader>
+          </McDialogDescription>
+        </McDialogHeader>
 
-        <DialogFooter showCloseButton={false}>
-          <DialogClose
+        <McDialogFooter showCloseButton={false}>
+          <McDialogClose
             render={
               <McButton variant="secondary" size="md">
                 Cancel
               </McButton>
             }
           />
-          <DialogClose
+          <McDialogClose
             render={
               <McButton variant="primary" size="md">
                 Save changes
               </McButton>
             }
           />
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
+        </McDialogFooter>
+      </McDialogContent>
+    </McDialog>
   );
 }
 ```
@@ -124,51 +124,51 @@ export default function Example() {
 ### Basic Dialog
 
 ```tsx
-<Dialog>
-  <DialogTrigger render={<McButton>Open dialog</McButton>} />
-  <DialogContent>
-    <DialogHeader>
-      <DialogTitle>Title</DialogTitle>
-      <DialogDescription>Description</DialogDescription>
-    </DialogHeader>
-  </DialogContent>
-</Dialog>
+<McDialog>
+  <McDialogTrigger render={<McButton>Open dialog</McButton>} />
+  <McDialogContent>
+    <McDialogHeader>
+      <McDialogTitle>Title</McDialogTitle>
+      <McDialogDescription>Description</McDialogDescription>
+    </McDialogHeader>
+  </McDialogContent>
+</McDialog>
 ```
 
 ### Hide Top Close Button
 
 ```tsx
-<DialogContent showCloseButton={false}>
-  <DialogHeader>
-    <DialogTitle>Custom Header</DialogTitle>
-  </DialogHeader>
-</DialogContent>
+<McDialogContent showCloseButton={false}>
+  <McDialogHeader>
+    <McDialogTitle>Custom Header</McDialogTitle>
+  </McDialogHeader>
+</McDialogContent>
 ```
 
 ### Footer With Action Buttons
 
 ```tsx
-<DialogFooter showCloseButton={false}>
-  <DialogClose render={<McButton variant="secondary">Cancel</McButton>} />
-  <DialogClose render={<McButton variant="primary">Save changes</McButton>} />
-</DialogFooter>
+<McDialogFooter showCloseButton={false}>
+  <McDialogClose render={<McButton variant="secondary">Cancel</McButton>} />
+  <McDialogClose render={<McButton variant="primary">Save changes</McButton>} />
+</McDialogFooter>
 ```
 
 ## API Reference
 
-### Dialog
+### McDialog
 
 | Prop       | Type                         | Default | Description                                 |
 | ---------- | ---------------------------- | ------- | ------------------------------------------- |
 | `...props` | `DialogPrimitive.Root.Props` | -       | All root props from `@base-ui/react/dialog` |
 
-### DialogTrigger
+### McDialogTrigger
 
 | Prop       | Type                            | Default | Description                      |
 | ---------- | ------------------------------- | ------- | -------------------------------- |
 | `...props` | `DialogPrimitive.Trigger.Props` | -       | Trigger element and interactions |
 
-### DialogContent
+### McDialogContent
 
 | Prop              | Type                          | Default     | Description                               |
 | ----------------- | ----------------------------- | ----------- | ----------------------------------------- |
@@ -176,14 +176,14 @@ export default function Example() {
 | `className`       | `string`                      | `undefined` | Additional CSS classes                    |
 | `...props`        | `DialogPrimitive.Popup.Props` | -           | All popup props from Base UI              |
 
-### DialogHeader
+### McDialogHeader
 
 | Prop        | Type                          | Default     | Description            |
 | ----------- | ----------------------------- | ----------- | ---------------------- |
 | `className` | `string`                      | `undefined` | Additional CSS classes |
 | `...props`  | `React.ComponentProps<'div'>` | -           | Native div props       |
 
-### DialogFooter
+### McDialogFooter
 
 | Prop              | Type                          | Default     | Description                              |
 | ----------------- | ----------------------------- | ----------- | ---------------------------------------- |
@@ -191,20 +191,20 @@ export default function Example() {
 | `className`       | `string`                      | `undefined` | Additional CSS classes                   |
 | `...props`        | `React.ComponentProps<'div'>` | -           | Native div props                         |
 
-### DialogTitle
+### McDialogTitle
 
 | Prop        | Type                          | Default     | Description                  |
 | ----------- | ----------------------------- | ----------- | ---------------------------- |
 | `className` | `string`                      | `undefined` | Additional CSS classes       |
 | `...props`  | `DialogPrimitive.Title.Props` | -           | All title props from Base UI |
 
-### DialogDescription
+### McDialogDescription
 
 | Prop        | Type                                | Default     | Description                        |
 | ----------- | ----------------------------------- | ----------- | ---------------------------------- |
 | `className` | `string`                            | `undefined` | Additional CSS classes             |
 | `...props`  | `DialogPrimitive.Description.Props` | -           | All description props from Base UI |
 
-### DialogClose, DialogOverlay, DialogPortal
+### McDialogClose, McDialogOverlay, McDialogPortal
 
 All these helpers forward their corresponding `@base-ui/react/dialog` primitive props directly.
