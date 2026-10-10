@@ -29,13 +29,13 @@ export default function McDropdownMenuDemo() {
         }
       />
       <McDropdownMenuContent className="w-56">
-        <McDropdownMenuGroup className="h-auto">
+        <McDropdownMenuGroup>
           <McDropdownMenuLabel>My Account</McDropdownMenuLabel>
           <McDropdownMenuItem>Profile</McDropdownMenuItem>
           <McDropdownMenuItem>Settings</McDropdownMenuItem>
         </McDropdownMenuGroup>
         <McDropdownMenuSeparator />
-        <McDropdownMenuGroup className="h-auto">
+        <McDropdownMenuGroup>
           <McDropdownMenuItem>Team</McDropdownMenuItem>
           <McDropdownMenuSub>
             <McDropdownMenuSubTrigger>Invite users</McDropdownMenuSubTrigger>
@@ -50,7 +50,7 @@ export default function McDropdownMenuDemo() {
           </McDropdownMenuSub>
         </McDropdownMenuGroup>
         <McDropdownMenuSeparator />
-        <McDropdownMenuGroup className="h-auto">
+        <McDropdownMenuGroup>
           <McDropdownMenuItem variant="destructive">Log out</McDropdownMenuItem>
         </McDropdownMenuGroup>
       </McDropdownMenuContent>

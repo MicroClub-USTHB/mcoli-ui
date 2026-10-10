@@ -217,6 +217,7 @@ export const Index: Record<string, any> = {
         '--color-warning': 'var(--warning)',
         '--color-warning-foreground': 'var(--warning-foreground)',
         '--color-error': 'var(--error)',
+        '--color-error-foreground': 'var(--error-foreground)',
         '--color-destructive': 'var(--destructive)',
         '--color-destructive-foreground': 'var(--destructive-foreground)',
         '--color-info': 'var(--info)',
@@ -375,14 +376,22 @@ export const Index: Record<string, any> = {
         'accent-foreground': '#0092b8',
         card: '#ffffff',
         'card-foreground': '#1e1b4b',
+        popover: '#ffffff',
+        'popover-foreground': '#1e1b4b',
         muted: '#f9faff',
         'muted-foreground': '#54588b',
+        surface: '#f9faff',
+        'surface-foreground': '#000350',
         success: '#22c55e',
         'success-foreground': '#e6f9ee',
         warning: '#ff6900',
         'warning-foreground': '#fff7ed',
         destructive: '#e7000b',
         'destructive-foreground': '#ffedee',
+        error: '#e7000b',
+        'error-foreground': '#ffedee',
+        info: '#007aff',
+        'info-foreground': '#ffffff',
         border: '#e6e9ff',
         input: '#f9faff',
         ring: '#d9ddff',
@@ -411,14 +420,22 @@ export const Index: Record<string, any> = {
         'accent-foreground': '#fafafa',
         card: '#171717',
         'card-foreground': '#fafafa',
+        popover: '#171717',
+        'popover-foreground': '#fafafa',
         muted: '#262626',
         'muted-foreground': '#a1a1a1',
+        surface: '#262626',
+        'surface-foreground': '#fafafa',
         success: '#22c55e',
         'success-foreground': '#e6f9ee',
         warning: '#ff6900',
         'warning-foreground': '#fff7ed',
         destructive: '#e7000b',
         'destructive-foreground': '#ffedee',
+        error: '#e7000b',
+        'error-foreground': '#ffedee',
+        info: '#007aff',
+        'info-foreground': '#ffffff',
         border: '#262626',
         input: '#343434',
         ring: '#d9ddff',
@@ -626,6 +643,7 @@ export const Index: Record<string, any> = {
         '--color-warning': 'var(--warning)',
         '--color-warning-foreground': 'var(--warning-foreground)',
         '--color-error': 'var(--error)',
+        '--color-error-foreground': 'var(--error-foreground)',
         '--color-destructive': 'var(--destructive)',
         '--color-destructive-foreground': 'var(--destructive-foreground)',
         '--color-info': 'var(--info)',
@@ -784,14 +802,22 @@ export const Index: Record<string, any> = {
         'accent-foreground': '#ff6900',
         card: '#ffffff',
         'card-foreground': '#440b6d',
+        popover: '#ffffff',
+        'popover-foreground': '#440b6d',
         muted: '#fef7ff',
         'muted-foreground': '#c4b5fd',
+        surface: '#fef7ff',
+        'surface-foreground': '#370958',
         success: '#22c55e',
         'success-foreground': '#e6f9ee',
         warning: '#ff6900',
         'warning-foreground': '#fff7ed',
         destructive: '#e7000b',
         'destructive-foreground': '#ffedee',
+        error: '#e7000b',
+        'error-foreground': '#ffedee',
+        info: '#007aff',
+        'info-foreground': '#ffffff',
         border: '#fdecfe',
         input: '#fef7ff',
         ring: '#eab5ed',
@@ -820,14 +846,22 @@ export const Index: Record<string, any> = {
         'accent-foreground': '#fff7ed',
         card: '#1e1b4b',
         'card-foreground': '#e6e9ff',
+        popover: '#1e1b4b',
+        'popover-foreground': '#e6e9ff',
         muted: '#171447',
         'muted-foreground': '#c4b5fd',
+        surface: '#171447',
+        'surface-foreground': '#e6e9ff',
         success: '#22c55e',
         'success-foreground': '#e6f9ee',
         warning: '#ff6900',
         'warning-foreground': '#fff7ed',
         destructive: '#e7000b',
         'destructive-foreground': '#ffedee',
+        error: '#e7000b',
+        'error-foreground': '#ffedee',
+        info: '#007aff',
+        'info-foreground': '#ffffff',
         border: '#4916a1',
         input: '#2e1065',
         ring: '#8b5cf6',
@@ -1035,6 +1069,7 @@ export const Index: Record<string, any> = {
         '--color-warning': 'var(--warning)',
         '--color-warning-foreground': 'var(--warning-foreground)',
         '--color-error': 'var(--error)',
+        '--color-error-foreground': 'var(--error-foreground)',
         '--color-destructive': 'var(--destructive)',
         '--color-destructive-foreground': 'var(--destructive-foreground)',
         '--color-info': 'var(--info)',
@@ -1193,14 +1228,22 @@ export const Index: Record<string, any> = {
         'accent-foreground': '#8acfd1',
         card: '#fbe2a7',
         'card-foreground': '#454749',
+        popover: '#fbe2a7',
+        'popover-foreground': '#454749',
         muted: '#b2e1eb',
         'muted-foreground': '#5d5e61',
+        surface: '#b2e1eb',
+        'surface-foreground': '#2e3133',
         success: '#22c55e',
         'success-foreground': '#e6f9ee',
         warning: '#ff6900',
         'warning-foreground': '#fff7ed',
         destructive: '#f96f70',
         'destructive-foreground': '#ffffff',
+        error: '#f96f70',
+        'error-foreground': '#ffffff',
+        info: '#007aff',
+        'info-foreground': '#ffffff',
         border: '#d04f99',
         input: '#e4e4e4',
         ring: '#e670ab',
@@ -1229,14 +1272,22 @@ export const Index: Record<string, any> = {
         'accent-foreground': '#f3e3ea',
         card: '#121824',
         'card-foreground': '#f3e3ea',
+        popover: '#121824',
+        'popover-foreground': '#f3e3ea',
         muted: '#272e37',
         'muted-foreground': '#e4a2b1',
+        surface: '#272e37',
+        'surface-foreground': '#f3e3ea',
         success: '#22c55e',
         'success-foreground': '#e6f9ee',
         warning: '#ff6900',
         'warning-foreground': '#fff7ed',
         destructive: '#f96f70',
         'destructive-foreground': '#ffffff',
+        error: '#f96f70',
+        'error-foreground': '#ffffff',
+        info: '#007aff',
+        'info-foreground': '#ffffff',
         border: '#324859',
         input: '#20333d',
         ring: '#50afb6',
@@ -1444,6 +1495,7 @@ export const Index: Record<string, any> = {
         '--color-warning': 'var(--warning)',
         '--color-warning-foreground': 'var(--warning-foreground)',
         '--color-error': 'var(--error)',
+        '--color-error-foreground': 'var(--error-foreground)',
         '--color-destructive': 'var(--destructive)',
         '--color-destructive-foreground': 'var(--destructive-foreground)',
         '--color-info': 'var(--info)',
@@ -1602,14 +1654,22 @@ export const Index: Record<string, any> = {
         'accent-foreground': '#0b0e24',
         card: '#ffffff',
         'card-foreground': '#000000',
+        popover: '#ffffff',
+        'popover-foreground': '#000000',
         muted: '#f0f0f0',
         'muted-foreground': '#333333',
+        surface: '#f0f0f0',
+        'surface-foreground': '#000000',
         success: '#22c55e',
         'success-foreground': '#e6f9ee',
         warning: '#ff6900',
         'warning-foreground': '#fff7ed',
         destructive: '#e7000b',
         'destructive-foreground': '#ffffff',
+        error: '#e7000b',
+        'error-foreground': '#ffffff',
+        info: '#007aff',
+        'info-foreground': '#ffffff',
         border: '#000000',
         input: '#ffffff',
         ring: '#00d3ff',
@@ -1638,14 +1698,22 @@ export const Index: Record<string, any> = {
         'accent-foreground': '#ffffff',
         card: '#262626',
         'card-foreground': '#ffffff',
+        popover: '#262626',
+        'popover-foreground': '#ffffff',
         muted: '#1a1a1a',
         'muted-foreground': '#cccccc',
+        surface: '#1a1a1a',
+        'surface-foreground': '#ffffff',
         success: '#22c55e',
         'success-foreground': '#e6f9ee',
         warning: '#ff6900',
         'warning-foreground': '#fff7ed',
         destructive: '#e7000b',
         'destructive-foreground': '#ffffff',
+        error: '#e7000b',
+        'error-foreground': '#ffffff',
+        info: '#007aff',
+        'info-foreground': '#ffffff',
         border: '#676767',
         input: '#676767',
         ring: '#00b8cc',
@@ -1853,6 +1921,7 @@ export const Index: Record<string, any> = {
         '--color-warning': 'var(--warning)',
         '--color-warning-foreground': 'var(--warning-foreground)',
         '--color-error': 'var(--error)',
+        '--color-error-foreground': 'var(--error-foreground)',
         '--color-destructive': 'var(--destructive)',
         '--color-destructive-foreground': 'var(--destructive-foreground)',
         '--color-info': 'var(--info)',
@@ -2011,14 +2080,22 @@ export const Index: Record<string, any> = {
         'accent-foreground': '#374151',
         card: '#ffffff',
         'card-foreground': '#374151',
+        popover: '#ffffff',
+        'popover-foreground': '#374151',
         muted: '#f0f0f3',
         'muted-foreground': '#6b7280',
+        surface: '#f0f0f3',
+        'surface-foreground': '#374151',
         success: '#22c55e',
         'success-foreground': '#e6f9ee',
         warning: '#ff6900',
         'warning-foreground': '#fff7ed',
         destructive: '#e7000b',
         'destructive-foreground': '#ffffff',
+        error: '#e7000b',
+        'error-foreground': '#ffffff',
+        info: '#007aff',
+        'info-foreground': '#ffffff',
         border: '#e5e7eb',
         input: '#ffffff',
         ring: '#34d399',
@@ -2047,14 +2124,22 @@ export const Index: Record<string, any> = {
         'accent-foreground': '#a1a1a1',
         card: '#1e293b',
         'card-foreground': '#d1d5db',
+        popover: '#1e293b',
+        'popover-foreground': '#d1d5db',
         muted: '#19212e',
         'muted-foreground': '#6b7280',
+        surface: '#19212e',
+        'surface-foreground': '#d1d5db',
         success: '#22c55e',
         'success-foreground': '#e6f9ee',
         warning: '#ff6900',
         'warning-foreground': '#fff7ed',
         destructive: '#e7000b',
         'destructive-foreground': '#ffffff',
+        error: '#e7000b',
+        'error-foreground': '#ffffff',
+        info: '#007aff',
+        'info-foreground': '#ffffff',
         border: '#4b5563',
         input: '#4b5563',
         ring: '#34d399',
@@ -2076,7 +2161,7 @@ export const Index: Record<string, any> = {
   },
   'mc-button': {
     name: 'mc-button',
-    description: 'A button component for MicroClub UI',
+    description: 'A button component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2089,7 +2174,7 @@ export const Index: Record<string, any> = {
   },
   'mc-input': {
     name: 'mc-input',
-    description: 'An input component with field integration and addon support for MicroClub UI',
+    description: 'An input component with field integration and addon support for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2102,7 +2187,8 @@ export const Index: Record<string, any> = {
   },
   'mc-textarea': {
     name: 'mc-textarea',
-    description: 'A multi-line text input with field integration and block addons for MicroClub UI',
+    description:
+      'A multi-line text input with field integration and block addons for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2115,7 +2201,7 @@ export const Index: Record<string, any> = {
   },
   'mc-input-otp': {
     name: 'mc-input-otp',
-    description: 'An OTP input component for MicroClub UI',
+    description: 'An OTP input component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2128,7 +2214,7 @@ export const Index: Record<string, any> = {
   },
   'mc-checkbox': {
     name: 'mc-checkbox',
-    description: 'A checkbox component for MicroClub UI',
+    description: 'A checkbox component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2141,7 +2227,7 @@ export const Index: Record<string, any> = {
   },
   'mc-radio-group': {
     name: 'mc-radio-group',
-    description: 'A radio group component for MicroClub UI',
+    description: 'A radio group component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2154,7 +2240,7 @@ export const Index: Record<string, any> = {
   },
   'mc-card': {
     name: 'mc-card',
-    description: 'A card layout with header, body, and footer regions for MicroClub UI',
+    description: 'A card layout with header, body, and footer regions for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2167,7 +2253,7 @@ export const Index: Record<string, any> = {
   },
   'mc-select': {
     name: 'mc-select',
-    description: 'A select component for MicroClub UI',
+    description: 'A select component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2180,7 +2266,7 @@ export const Index: Record<string, any> = {
   },
   'mc-combobox': {
     name: 'mc-combobox',
-    description: 'A searchable dropdown with autocomplete functionality for MicroClub UI',
+    description: 'A searchable dropdown with autocomplete functionality for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2193,7 +2279,7 @@ export const Index: Record<string, any> = {
   },
   'mc-switch': {
     name: 'mc-switch',
-    description: 'A switch component for MicroClub UI',
+    description: 'A switch component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2206,7 +2292,7 @@ export const Index: Record<string, any> = {
   },
   'mc-navigation-menu': {
     name: 'mc-navigation-menu',
-    description: 'A navigation menu component for MicroClub UI',
+    description: 'A navigation menu component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2219,7 +2305,7 @@ export const Index: Record<string, any> = {
   },
   'mc-sidebar': {
     name: 'mc-sidebar',
-    description: 'A sidebar component for MicroClub UI',
+    description: 'A sidebar component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2232,20 +2318,20 @@ export const Index: Record<string, any> = {
   },
   'mc-tabs': {
     name: 'mc-tabs',
-    description: 'A tabs component for MicroClub UI',
+    description: 'A tabs component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
         path: 'registry/ui/mc-tabs.tsx',
         content:
-          "'use client';\n\nimport { Tabs as TabsPrimitive } from '@base-ui/react/tabs';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { cn } from '@/lib/utils';\n\nconst McTabsListVariants = cva('flex bg-muted rounded-lg p-[3px] size-fit', {\n  variants: {\n    variant: {\n      horizontal: 'flex-row',\n      vertical: 'flex-col',\n    },\n  },\n  defaultVariants: {\n    variant: 'horizontal',\n  },\n});\n\nfunction McTabs({ ...props }: TabsPrimitive.Root.Props) {\n  return <TabsPrimitive.Root data-slot=\"tabs\" {...props} />;\n}\n\nfunction McTabsList({\n  className,\n  variant,\n  ...props\n}: TabsPrimitive.List.Props & VariantProps<typeof McTabsListVariants>) {\n  return (\n    <TabsPrimitive.List\n      data-slot=\"tabs-list\"\n      className={cn(McTabsListVariants({ variant }), className)}\n      {...props}\n    />\n  );\n}\n\nfunction McTabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {\n  return (\n    <TabsPrimitive.Tab\n      data-slot=\"tabs-trigger\"\n      className={cn(\n        'flex flex-col items-center justify-center min-h-7 min-w-19.5 px-2 py-1 rounded-md text-[14px] gap-2.5 paragraph-sm font-medium text-muted-foreground bg-transparent',\n        'data-active:bg-accent',\n        'data-active:ring-1 data-active:ring-inset data-active:ring-border',\n        'data-active:text-accent-foreground',\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport { McTabs, McTabsList, McTabsTrigger };\n",
+          "'use client';\n\nimport { Tabs as TabsPrimitive } from '@base-ui/react/tabs';\nimport { cva, type VariantProps } from 'class-variance-authority';\nimport { cn } from '@/lib/utils';\n\nconst McTabsListVariants = cva(\n  'flex flex-row bg-muted rounded-lg p-[3px] size-fit data-[orientation=vertical]:flex-col',\n  {\n    variants: {\n      variant: {\n        horizontal: '',\n        vertical: 'flex-col',\n      },\n    },\n  }\n);\n\nfunction McTabs({ className, ...props }: TabsPrimitive.Root.Props) {\n  return (\n    <TabsPrimitive.Root\n      data-slot=\"tabs\"\n      className={cn('flex flex-col gap-2 data-[orientation=vertical]:flex-row', className)}\n      {...props}\n    />\n  );\n}\n\nfunction McTabsList({\n  className,\n  variant,\n  ...props\n}: TabsPrimitive.List.Props &\n  VariantProps<typeof McTabsListVariants> & {\n    /**\n     * @deprecated Only changes the layout. Set `orientation=\"vertical\"` on `McTabs` instead,\n     * which also switches keyboard navigation to ArrowUp/ArrowDown.\n     */\n    variant?: 'horizontal' | 'vertical' | null;\n  }) {\n  return (\n    <TabsPrimitive.List\n      data-slot=\"tabs-list\"\n      className={cn(McTabsListVariants({ variant }), className)}\n      {...props}\n    />\n  );\n}\n\nfunction McTabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {\n  return (\n    <TabsPrimitive.Tab\n      data-slot=\"tabs-trigger\"\n      className={cn(\n        'flex flex-col items-center justify-center min-h-7 min-w-19.5 px-2 py-1 rounded-md text-[14px] gap-2.5 paragraph-sm font-medium text-muted-foreground bg-transparent',\n        'data-active:bg-accent',\n        'data-active:ring-1 data-active:ring-inset data-active:ring-border',\n        'data-active:text-accent-foreground',\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction McTabsPanel({ className, ...props }: TabsPrimitive.Panel.Props) {\n  return (\n    <TabsPrimitive.Panel\n      data-slot=\"tabs-panel\"\n      className={cn('flex-1 text-sm text-foreground outline-none', className)}\n      {...props}\n    />\n  );\n}\n\nexport { McTabs, McTabsList, McTabsTrigger, McTabsPanel };\n",
         type: 'registry:ui',
       },
     ],
   },
   'mc-breadcrumb': {
     name: 'mc-breadcrumb',
-    description: 'A breadcrumb component for MicroClub UI',
+    description: 'A breadcrumb component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2258,7 +2344,7 @@ export const Index: Record<string, any> = {
   },
   'mc-pagination': {
     name: 'mc-pagination',
-    description: 'A pagination component for MicroClub UI',
+    description: 'A pagination component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2271,7 +2357,7 @@ export const Index: Record<string, any> = {
   },
   'mc-dialog': {
     name: 'mc-dialog',
-    description: 'A dialog component for MicroClub UI',
+    description: 'A dialog component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2284,7 +2370,7 @@ export const Index: Record<string, any> = {
   },
   'mc-alert-dialog': {
     name: 'mc-alert-dialog',
-    description: 'An alert dialog component for MicroClub UI',
+    description: 'An alert dialog component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2297,7 +2383,7 @@ export const Index: Record<string, any> = {
   },
   'mc-alert': {
     name: 'mc-alert',
-    description: 'An alert component for MicroClub UI',
+    description: 'An alert component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2310,20 +2396,20 @@ export const Index: Record<string, any> = {
   },
   'mc-sonner': {
     name: 'mc-sonner',
-    description: 'A toast component for MicroClub UI',
+    description: 'A toast component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
         path: 'registry/ui/mc-sonner.tsx',
         content:
-          "'use client';\n\nimport { Toaster as SonnerComponent, toast as rawToast } from 'sonner';\nimport { CheckCircle2, AlertCircle } from 'lucide-react';\n\ntype ToasterProps = React.ComponentProps<typeof SonnerComponent>;\n\nconst toastIcons = {\n  success: <CheckCircle2 className=\"text-muted-foreground shrink-0 h-3.5 w-3.5\" />,\n  warning: <AlertCircle className=\"text-muted-foreground shrink-0 h-3.5 w-3.5\" />,\n  error: <AlertCircle className=\"text-muted-foreground  shrink-0 h-3.5 w-3.5\" />,\n};\n\ninterface ToastOptions {\n  description?: string;\n  action?: {\n    label: string;\n    onClick: () => void;\n  };\n}\n\nconst mcToastCustom = (\n  message: string,\n  variant?: 'success' | 'warning' | 'error',\n  options?: ToastOptions\n) => {\n  const Icon = variant ? toastIcons[variant] : null;\n\n  return rawToast(\n    <div className=\"w-full h-full flex flex-col items-start justify-center gap-0.5\">\n      <div className=\"flex items-center gap-1.5 w-full max-w-66.5\">\n        {Icon}\n        <span className=\"text-sm font-medium tracking-normal leading-5 text-card-foreground\">\n          {message}\n        </span>\n      </div>\n\n      {options?.description && (\n        <p className=\"text-sm font-normal tracking-normal leading-5 text-muted-foreground max-w-66.5\">\n          {options.description}\n        </p>\n      )}\n    </div>,\n    {\n      action: options?.action,\n    }\n  );\n};\n\nexport const toast = Object.assign(\n  (message: string, options?: ToastOptions) => mcToastCustom(message, undefined, options),\n  {\n    success: (message: string, options?: ToastOptions) =>\n      mcToastCustom(message, 'success', options),\n    warning: (message: string, options?: ToastOptions) =>\n      mcToastCustom(message, 'warning', options),\n    error: (message: string, options?: ToastOptions) => mcToastCustom(message, 'error', options),\n  }\n);\n\nconst McSonner = ({ ...props }: ToasterProps) => {\n  return (\n    <SonnerComponent\n      className=\"\"\n      position=\"top-center\"\n      toastOptions={{\n        unstyled: true,\n        classNames: {\n          toast:\n            'w-97.5 min-h-18.5 bg-background flex items-center justify-between gap-1.5 p-4 border-[1px] rounded-lg shadow-xs border-border',\n          actionButton:\n            'flex items-center justify-center bg-primary text-background text-sm py-2 px-3.5 min-w-15.5 max-w-21.5 min-h-9 rounded-[8px] shadow-xs shrink-0 cursor-pointer',\n        },\n      }}\n      {...props}\n    />\n  );\n};\n\nexport default McSonner;\n",
+          "'use client';\n\nimport * as React from 'react';\nimport { Toaster as SonnerComponent, toast as rawToast, type ExternalToast } from 'sonner';\nimport { CheckCircle2, AlertCircle, Info } from 'lucide-react';\n\nimport { cn } from '@/lib/utils';\n\ntype ToasterProps = React.ComponentProps<typeof SonnerComponent>;\n\nconst toastIcons = {\n  success: <CheckCircle2 className=\"text-muted-foreground shrink-0 h-3.5 w-3.5\" />,\n  warning: <AlertCircle className=\"text-muted-foreground shrink-0 h-3.5 w-3.5\" />,\n  error: <AlertCircle className=\"text-muted-foreground shrink-0 h-3.5 w-3.5\" />,\n  info: <Info className=\"text-muted-foreground shrink-0 h-3.5 w-3.5\" />,\n};\n\ntype ToastVariant = keyof typeof toastIcons;\n\ntype ToastOptions = Omit<ExternalToast, 'description'> & {\n  description?: React.ReactNode;\n};\n\nconst mcToastCustom = (\n  message: string,\n  variant?: ToastVariant,\n  options: ToastOptions = {}\n) => {\n  const { description, icon, ...rest } = options;\n  const Icon = icon ?? (variant ? toastIcons[variant] : null);\n\n  return rawToast(\n    <div className=\"w-full h-full flex flex-col items-start justify-center gap-0.5\">\n      <div className=\"flex items-center gap-1.5 w-full max-w-66.5\">\n        {Icon}\n        <span className=\"text-sm font-medium tracking-normal leading-5 text-card-foreground\">\n          {message}\n        </span>\n      </div>\n\n      {description && (\n        <p className=\"text-sm font-normal tracking-normal leading-5 text-muted-foreground max-w-66.5\">\n          {description}\n        </p>\n      )}\n    </div>,\n    rest\n  );\n};\n\nexport const toast = Object.assign(\n  (message: string, options?: ToastOptions) => mcToastCustom(message, undefined, options),\n  {\n    success: (message: string, options?: ToastOptions) =>\n      mcToastCustom(message, 'success', options),\n    warning: (message: string, options?: ToastOptions) =>\n      mcToastCustom(message, 'warning', options),\n    error: (message: string, options?: ToastOptions) => mcToastCustom(message, 'error', options),\n    info: (message: string, options?: ToastOptions) => mcToastCustom(message, 'info', options),\n    message: (message: string, options?: ToastOptions) =>\n      mcToastCustom(message, undefined, options),\n    loading: rawToast.loading,\n    promise: rawToast.promise,\n    custom: rawToast.custom,\n    dismiss: rawToast.dismiss,\n    getHistory: rawToast.getHistory,\n    getToasts: rawToast.getToasts,\n  }\n);\n\nconst McSonner = ({ toastOptions, ...props }: ToasterProps) => {\n  const { classNames, ...restToastOptions } = toastOptions ?? {};\n\n  return (\n    <SonnerComponent\n      position=\"top-center\"\n      toastOptions={{\n        unstyled: true,\n        ...restToastOptions,\n        classNames: {\n          ...classNames,\n          toast: cn(\n            'w-97.5 min-h-18.5 bg-background flex items-center justify-between gap-1.5 p-4 border-[1px] rounded-lg shadow-xs border-border',\n            classNames?.toast\n          ),\n          actionButton: cn(\n            'flex items-center justify-center bg-primary text-background text-sm py-2 px-3.5 min-w-15.5 max-w-21.5 min-h-9 rounded-[8px] shadow-xs shrink-0 cursor-pointer',\n            classNames?.actionButton\n          ),\n        },\n      }}\n      {...props}\n    />\n  );\n};\n\nexport default McSonner;\n",
         type: 'registry:ui',
       },
     ],
   },
   'mc-tooltip': {
     name: 'mc-tooltip',
-    description: 'A tooltip component for MicroClub UI',
+    description: 'A tooltip component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2336,33 +2422,33 @@ export const Index: Record<string, any> = {
   },
   'mc-popover': {
     name: 'mc-popover',
-    description: 'A popover component for MicroClub UI',
+    description: 'A popover component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
         path: 'registry/ui/mc-popover.tsx',
         content:
-          "'use client';\nimport * as React from 'react';\nimport { Popover as PopoverPrimitive } from '@base-ui/react/popover';\nimport { cn } from '@/lib/utils';\nfunction McPopover({ ...props }: PopoverPrimitive.Root.Props) {\n  return <PopoverPrimitive.Root data-slot=\"popover\" {...props} />;\n}\nfunction McPopoverTrigger({ ...props }: PopoverPrimitive.Trigger.Props) {\n  return <PopoverPrimitive.Trigger data-slot=\"popover-trigger\" {...props} />;\n}\nfunction McPopoverContent({\n  className,\n  align = 'center',\n  alignOffset = 0,\n  side = 'bottom',\n  sideOffset = 23,\n  ...props\n}: PopoverPrimitive.Popup.Props &\n  Pick<PopoverPrimitive.Positioner.Props, 'align' | 'alignOffset' | 'side' | 'sideOffset'>) {\n  return (\n    <PopoverPrimitive.Portal>\n      <PopoverPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n        className=\"isolate z-50\"\n      >\n        <PopoverPrimitive.Popup\n          data-slot=\"popover-content\"\n          className={cn(\n            'z-50 flex h-[268px] w-[276px] origin-(--transform-origin) flex-col gap-[13px] rounded-lg bg-card p-4 text-sm text-card-foreground shadow-sm outline-hidden duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95',\n            className\n          )}\n          {...props}\n        />\n      </PopoverPrimitive.Positioner>\n    </PopoverPrimitive.Portal>\n  );\n}\n\nfunction McPopoverHeader({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"popover-header\"\n      className={cn('flex flex-col gap-[9px] text-sm', className)}\n      {...props}\n    />\n  );\n}\n\nfunction McPopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props) {\n  return (\n    <PopoverPrimitive.Title\n      data-slot=\"popover-title\"\n      className={cn(\n        'font-plus-jakarta-sans text-left text-[20px] leading-[30px] font-medium tracking-[0] text-card-foreground',\n        className\n      )}\n      {...props}\n    />\n  );\n}\nfunction McPopoverDescription({ className, ...props }: PopoverPrimitive.Description.Props) {\n  return (\n    <PopoverPrimitive.Description\n      data-slot=\"popover-description\"\n      className={cn(\n        'font-dm-sans text-left text-[14px] leading-[20px] font-normal tracking-[0] text-muted-foreground',\n        className\n      )}\n      {...props}\n    />\n  );\n}\nexport {\n  McPopover,\n  McPopoverContent,\n  McPopoverDescription,\n  McPopoverHeader,\n  McPopoverTitle,\n  McPopoverTrigger,\n};\n",
+          "'use client';\nimport * as React from 'react';\nimport { Popover as PopoverPrimitive } from '@base-ui/react/popover';\nimport { cn } from '@/lib/utils';\nfunction McPopover({ ...props }: PopoverPrimitive.Root.Props) {\n  return <PopoverPrimitive.Root data-slot=\"popover\" {...props} />;\n}\nfunction McPopoverTrigger({ ...props }: PopoverPrimitive.Trigger.Props) {\n  return <PopoverPrimitive.Trigger data-slot=\"popover-trigger\" {...props} />;\n}\nfunction McPopoverContent({\n  className,\n  align = 'center',\n  alignOffset = 0,\n  side = 'bottom',\n  sideOffset = 23,\n  ...props\n}: PopoverPrimitive.Popup.Props &\n  Pick<PopoverPrimitive.Positioner.Props, 'align' | 'alignOffset' | 'side' | 'sideOffset'>) {\n  return (\n    <PopoverPrimitive.Portal>\n      <PopoverPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n        className=\"isolate z-50\"\n      >\n        <PopoverPrimitive.Popup\n          data-slot=\"popover-content\"\n          className={cn(\n            'z-50 flex w-max max-w-(--available-width) max-h-(--available-height) overflow-y-auto origin-(--transform-origin) flex-col gap-[13px] rounded-lg bg-card p-4 text-sm text-card-foreground shadow-sm outline-hidden duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95',\n            className\n          )}\n          {...props}\n        />\n      </PopoverPrimitive.Positioner>\n    </PopoverPrimitive.Portal>\n  );\n}\n\nfunction McPopoverHeader({ className, ...props }: React.ComponentProps<'div'>) {\n  return (\n    <div\n      data-slot=\"popover-header\"\n      className={cn('flex flex-col gap-[9px] text-sm', className)}\n      {...props}\n    />\n  );\n}\n\nfunction McPopoverTitle({ className, ...props }: PopoverPrimitive.Title.Props) {\n  return (\n    <PopoverPrimitive.Title\n      data-slot=\"popover-title\"\n      className={cn(\n        'font-plus-jakarta-sans text-left text-[20px] leading-[30px] font-medium tracking-[0] text-card-foreground',\n        className\n      )}\n      {...props}\n    />\n  );\n}\nfunction McPopoverDescription({ className, ...props }: PopoverPrimitive.Description.Props) {\n  return (\n    <PopoverPrimitive.Description\n      data-slot=\"popover-description\"\n      className={cn(\n        'font-dm-sans text-left text-[14px] leading-[20px] font-normal tracking-[0] text-muted-foreground',\n        className\n      )}\n      {...props}\n    />\n  );\n}\nexport {\n  McPopover,\n  McPopoverContent,\n  McPopoverDescription,\n  McPopoverHeader,\n  McPopoverTitle,\n  McPopoverTrigger,\n};\n",
         type: 'registry:ui',
       },
     ],
   },
   'mc-dropdown-menu': {
     name: 'mc-dropdown-menu',
-    description: 'A dropdown menu component for MicroClub UI',
+    description: 'A dropdown menu component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
         path: 'registry/ui/mc-dropdown-menu.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\nimport { Menu as MenuPrimitive } from '@base-ui/react/menu';\nimport { CheckIcon, ChevronRightIcon } from 'lucide-react';\n\nimport { cn } from '@/lib/utils';\n\nfunction McDropdownMenu({ ...props }: MenuPrimitive.Root.Props) {\n  return <MenuPrimitive.Root data-slot=\"dropdown-menu\" {...props} />;\n}\n\nfunction McDropdownMenuPortal({ ...props }: MenuPrimitive.Portal.Props) {\n  return <MenuPrimitive.Portal data-slot=\"dropdown-menu-portal\" {...props} />;\n}\n\nfunction McDropdownMenuTrigger({ ...props }: MenuPrimitive.Trigger.Props) {\n  return <MenuPrimitive.Trigger data-slot=\"dropdown-menu-trigger\" {...props} />;\n}\n\nfunction McDropdownMenuContent({\n  align = 'start',\n  alignOffset = 0,\n  side = 'bottom',\n  sideOffset = 4,\n  className,\n  ...props\n}: MenuPrimitive.Popup.Props &\n  Pick<MenuPrimitive.Positioner.Props, 'align' | 'alignOffset' | 'side' | 'sideOffset'>) {\n  return (\n    <MenuPrimitive.Portal>\n      <MenuPrimitive.Positioner\n        className=\"isolate z-50 outline-none\"\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n      >\n        <MenuPrimitive.Popup\n          data-slot=\"dropdown-menu-content\"\n          className={cn(\n            'z-50 w-56 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-md border border-border bg-popover p-1 text-popover-foreground opacity-100 shadow-md ring-1 ring-foreground/10 duration-100 outline-none data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:overflow-hidden data-closed:fade-out-0 data-closed:zoom-out-95',\n            className\n          )}\n          {...props}\n        />\n      </MenuPrimitive.Positioner>\n    </MenuPrimitive.Portal>\n  );\n}\n\nfunction McDropdownMenuGroup({\n  className,\n  ...props\n}: MenuPrimitive.Group.Props & { className?: string }) {\n  return (\n    <MenuPrimitive.Group\n      data-slot=\"dropdown-menu-group\"\n      className={cn('w-56 h-[100px] opacity-100 pt-1 px-1', className)}\n      {...props}\n    />\n  );\n}\n\nfunction McDropdownMenuLabel({\n  className,\n  inset,\n  ...props\n}: MenuPrimitive.GroupLabel.Props & {\n  inset?: boolean;\n}) {\n  return (\n    <MenuPrimitive.GroupLabel\n      data-slot=\"dropdown-menu-label\"\n      data-inset={inset}\n      className={cn(\n        'font-sans font-semibold text-sm leading-5 px-1.5 py-1 text-foreground data-inset:pl-7',\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction McDropdownMenuItem({\n  className,\n  inset,\n  variant = 'default',\n  ...props\n}: MenuPrimitive.Item.Props & {\n  inset?: boolean;\n  variant?: 'default' | 'destructive';\n}) {\n  return (\n    <MenuPrimitive.Item\n      data-slot=\"dropdown-menu-item\"\n      data-inset={inset}\n      data-variant={variant}\n      className={cn(\n        'group/dropdown-menu-item relative flex cursor-default items-center gap-2 w-[208px] h-8 opacity-100 rounded-sm px-2 py-1.5 font-sans font-normal text-sm leading-5 outline-hidden select-none data-inset:pl-7 hover:bg-muted hover:text-muted-foreground focus:bg-accent focus:text-accent-foreground not-data-[variant=destructive]:focus:**:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 data-[variant=destructive]:focus:text-destructive dark:data-[variant=destructive]:focus:bg-destructive/20 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4 data-[variant=destructive]:*:[svg]:text-destructive',\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction McDropdownMenuSub({ ...props }: MenuPrimitive.SubmenuRoot.Props) {\n  return <MenuPrimitive.SubmenuRoot data-slot=\"dropdown-menu-sub\" {...props} />;\n}\n\nfunction McDropdownMenuSubTrigger({\n  className,\n  inset,\n  children,\n  ...props\n}: MenuPrimitive.SubmenuTrigger.Props & {\n  inset?: boolean;\n}) {\n  return (\n    <MenuPrimitive.SubmenuTrigger\n      data-slot=\"dropdown-menu-sub-trigger\"\n      data-inset={inset}\n      className={cn(\n        \"flex cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground not-data-[variant=destructive]:focus:**:text-accent-foreground data-inset:pl-7 data-popup-open:bg-accent data-popup-open:text-accent-foreground data-open:bg-accent data-open:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n      <ChevronRightIcon className=\"cn-rtl-flip ml-auto\" />\n    </MenuPrimitive.SubmenuTrigger>\n  );\n}\n\nfunction McDropdownMenuSubContent({\n  align = 'start',\n  alignOffset = -3,\n  side = 'right',\n  sideOffset = 0,\n  className,\n  ...props\n}: React.ComponentProps<typeof McDropdownMenuContent>) {\n  return (\n    <McDropdownMenuContent\n      data-slot=\"dropdown-menu-sub-content\"\n      className={cn(\n        'w-auto min-w-[96px] rounded-lg bg-popover p-1 text-popover-foreground shadow-lg ring-1 ring-foreground/10 duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95',\n        className\n      )}\n      align={align}\n      alignOffset={alignOffset}\n      side={side}\n      sideOffset={sideOffset}\n      {...props}\n    />\n  );\n}\n\nfunction McDropdownMenuCheckboxItem({\n  className,\n  children,\n  checked,\n  inset,\n  ...props\n}: MenuPrimitive.CheckboxItem.Props & {\n  inset?: boolean;\n}) {\n  return (\n    <MenuPrimitive.CheckboxItem\n      data-slot=\"dropdown-menu-checkbox-item\"\n      data-inset={inset}\n      className={cn(\n        'relative flex w-[216px] h-8 cursor-default items-center gap-2 rounded-sm px-2 py-1.5 font-sans text-sm leading-5 font-normal text-muted-foreground outline-hidden select-none focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4',\n        className\n      )}\n      checked={checked}\n      {...props}\n    >\n      <span\n        className=\"pointer-events-none mr-2 flex items-center justify-center w-4\"\n        data-slot=\"dropdown-menu-checkbox-item-indicator\"\n      >\n        <MenuPrimitive.CheckboxItemIndicator>\n          <CheckIcon />\n        </MenuPrimitive.CheckboxItemIndicator>\n      </span>\n      <span className=\"truncate\">{children}</span>\n    </MenuPrimitive.CheckboxItem>\n  );\n}\n\nfunction McDropdownMenuRadioGroup({ ...props }: MenuPrimitive.RadioGroup.Props) {\n  return <MenuPrimitive.RadioGroup data-slot=\"dropdown-menu-radio-group\" {...props} />;\n}\n\nfunction McDropdownMenuRadioItem({\n  className,\n  children,\n  inset,\n  ...props\n}: MenuPrimitive.RadioItem.Props & {\n  inset?: boolean;\n}) {\n  return (\n    <MenuPrimitive.RadioItem\n      data-slot=\"dropdown-menu-radio-item\"\n      data-inset={inset}\n      className={cn(\n        \"relative flex cursor-default items-center gap-1.5 rounded-md py-1 pl-1.5 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",\n        className\n      )}\n      {...props}\n    >\n      <span\n        className=\"pointer-events-none flex items-center justify-center\"\n        data-slot=\"dropdown-menu-radio-item-indicator\"\n      >\n        <MenuPrimitive.RadioItemIndicator>\n          <CheckIcon />\n        </MenuPrimitive.RadioItemIndicator>\n      </span>\n      <span>{children}</span>\n    </MenuPrimitive.RadioItem>\n  );\n}\n\nfunction McDropdownMenuSeparator({ className, ...props }: MenuPrimitive.Separator.Props) {\n  return (\n    <MenuPrimitive.Separator\n      data-slot=\"dropdown-menu-separator\"\n      className={cn('-mx-1 my-1 h-px bg-border', className)}\n      {...props}\n    />\n  );\n}\n\nfunction McDropdownMenuShortcut({ className, ...props }: React.ComponentProps<'span'>) {\n  return (\n    <span\n      data-slot=\"dropdown-menu-shortcut\"\n      className={cn(\n        'ml-auto text-xs tracking-widest text-muted-foreground group-focus/dropdown-menu-item:text-accent-foreground',\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport {\n  McDropdownMenu,\n  McDropdownMenuPortal,\n  McDropdownMenuTrigger,\n  McDropdownMenuContent,\n  McDropdownMenuGroup,\n  McDropdownMenuLabel,\n  McDropdownMenuItem,\n  McDropdownMenuCheckboxItem,\n  McDropdownMenuRadioGroup,\n  McDropdownMenuRadioItem,\n  McDropdownMenuSeparator,\n  McDropdownMenuShortcut,\n  McDropdownMenuSub,\n  McDropdownMenuSubTrigger,\n  McDropdownMenuSubContent,\n};\n",
+          "'use client';\n\nimport * as React from 'react';\nimport { Menu as MenuPrimitive } from '@base-ui/react/menu';\nimport { CheckIcon, ChevronRightIcon } from 'lucide-react';\n\nimport { cn } from '@/lib/utils';\n\nfunction McDropdownMenu({ ...props }: MenuPrimitive.Root.Props) {\n  return <MenuPrimitive.Root data-slot=\"dropdown-menu\" {...props} />;\n}\n\nfunction McDropdownMenuPortal({ ...props }: MenuPrimitive.Portal.Props) {\n  return <MenuPrimitive.Portal data-slot=\"dropdown-menu-portal\" {...props} />;\n}\n\nfunction McDropdownMenuTrigger({ ...props }: MenuPrimitive.Trigger.Props) {\n  return <MenuPrimitive.Trigger data-slot=\"dropdown-menu-trigger\" {...props} />;\n}\n\nfunction McDropdownMenuContent({\n  align = 'start',\n  alignOffset = 0,\n  side = 'bottom',\n  sideOffset = 4,\n  className,\n  ...props\n}: MenuPrimitive.Popup.Props &\n  Pick<MenuPrimitive.Positioner.Props, 'align' | 'alignOffset' | 'side' | 'sideOffset'>) {\n  return (\n    <MenuPrimitive.Portal>\n      <MenuPrimitive.Positioner\n        className=\"isolate z-50 outline-none\"\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n      >\n        <MenuPrimitive.Popup\n          data-slot=\"dropdown-menu-content\"\n          className={cn(\n            'z-50 w-56 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-md border border-border bg-popover p-1 text-popover-foreground opacity-100 shadow-md ring-1 ring-foreground/10 duration-100 outline-none data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:overflow-hidden data-closed:fade-out-0 data-closed:zoom-out-95',\n            className\n          )}\n          {...props}\n        />\n      </MenuPrimitive.Positioner>\n    </MenuPrimitive.Portal>\n  );\n}\n\nfunction McDropdownMenuGroup({\n  className,\n  ...props\n}: MenuPrimitive.Group.Props & { className?: string }) {\n  return (\n    <MenuPrimitive.Group\n      data-slot=\"dropdown-menu-group\"\n      className={cn('flex flex-col', className)}\n      {...props}\n    />\n  );\n}\n\nfunction McDropdownMenuLabel({\n  className,\n  inset,\n  ...props\n}: MenuPrimitive.GroupLabel.Props & {\n  inset?: boolean;\n}) {\n  return (\n    <MenuPrimitive.GroupLabel\n      data-slot=\"dropdown-menu-label\"\n      data-inset={inset}\n      className={cn(\n        'font-sans font-semibold text-sm leading-5 px-1.5 py-1 text-foreground data-inset:pl-7',\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction McDropdownMenuItem({\n  className,\n  inset,\n  variant = 'default',\n  ...props\n}: MenuPrimitive.Item.Props & {\n  inset?: boolean;\n  variant?: 'default' | 'destructive';\n}) {\n  return (\n    <MenuPrimitive.Item\n      data-slot=\"dropdown-menu-item\"\n      data-inset={inset}\n      data-variant={variant}\n      className={cn(\n        'group/dropdown-menu-item relative flex cursor-default items-center gap-2 w-full h-8 opacity-100 rounded-sm px-2 py-1.5 font-sans font-normal text-sm leading-5 outline-hidden select-none data-inset:pl-7 hover:bg-muted hover:text-muted-foreground focus:bg-accent focus:text-accent-foreground not-data-[variant=destructive]:focus:**:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 data-[variant=destructive]:focus:text-destructive dark:data-[variant=destructive]:focus:bg-destructive/20 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4 data-[variant=destructive]:*:[svg]:text-destructive',\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction McDropdownMenuSub({ ...props }: MenuPrimitive.SubmenuRoot.Props) {\n  return <MenuPrimitive.SubmenuRoot data-slot=\"dropdown-menu-sub\" {...props} />;\n}\n\nfunction McDropdownMenuSubTrigger({\n  className,\n  inset,\n  children,\n  ...props\n}: MenuPrimitive.SubmenuTrigger.Props & {\n  inset?: boolean;\n}) {\n  return (\n    <MenuPrimitive.SubmenuTrigger\n      data-slot=\"dropdown-menu-sub-trigger\"\n      data-inset={inset}\n      className={cn(\n        \"flex cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground not-data-[variant=destructive]:focus:**:text-accent-foreground data-inset:pl-7 data-popup-open:bg-accent data-popup-open:text-accent-foreground data-open:bg-accent data-open:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",\n        className\n      )}\n      {...props}\n    >\n      {children}\n      <ChevronRightIcon className=\"cn-rtl-flip ml-auto\" />\n    </MenuPrimitive.SubmenuTrigger>\n  );\n}\n\nfunction McDropdownMenuSubContent({\n  align = 'start',\n  alignOffset = -3,\n  side = 'right',\n  sideOffset = 0,\n  className,\n  ...props\n}: React.ComponentProps<typeof McDropdownMenuContent>) {\n  return (\n    <McDropdownMenuContent\n      data-slot=\"dropdown-menu-sub-content\"\n      className={cn(\n        'w-auto min-w-[96px] rounded-lg bg-popover p-1 text-popover-foreground shadow-lg ring-1 ring-foreground/10 duration-100 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95',\n        className\n      )}\n      align={align}\n      alignOffset={alignOffset}\n      side={side}\n      sideOffset={sideOffset}\n      {...props}\n    />\n  );\n}\n\nfunction McDropdownMenuCheckboxItem({\n  className,\n  children,\n  checked,\n  inset,\n  ...props\n}: MenuPrimitive.CheckboxItem.Props & {\n  inset?: boolean;\n}) {\n  return (\n    <MenuPrimitive.CheckboxItem\n      data-slot=\"dropdown-menu-checkbox-item\"\n      data-inset={inset}\n      className={cn(\n        'relative flex w-full h-8 cursor-default items-center gap-2 rounded-sm px-2 py-1.5 font-sans text-sm leading-5 font-normal text-muted-foreground outline-hidden select-none focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:size-4',\n        className\n      )}\n      checked={checked}\n      {...props}\n    >\n      <span\n        className=\"pointer-events-none mr-2 flex items-center justify-center w-4\"\n        data-slot=\"dropdown-menu-checkbox-item-indicator\"\n      >\n        <MenuPrimitive.CheckboxItemIndicator>\n          <CheckIcon />\n        </MenuPrimitive.CheckboxItemIndicator>\n      </span>\n      <span className=\"truncate\">{children}</span>\n    </MenuPrimitive.CheckboxItem>\n  );\n}\n\nfunction McDropdownMenuRadioGroup({ ...props }: MenuPrimitive.RadioGroup.Props) {\n  return <MenuPrimitive.RadioGroup data-slot=\"dropdown-menu-radio-group\" {...props} />;\n}\n\nfunction McDropdownMenuRadioItem({\n  className,\n  children,\n  inset,\n  ...props\n}: MenuPrimitive.RadioItem.Props & {\n  inset?: boolean;\n}) {\n  return (\n    <MenuPrimitive.RadioItem\n      data-slot=\"dropdown-menu-radio-item\"\n      data-inset={inset}\n      className={cn(\n        \"relative flex w-full cursor-default items-center gap-1.5 rounded-md py-1 pl-1.5 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4\",\n        className\n      )}\n      {...props}\n    >\n      <span\n        className=\"pointer-events-none flex items-center justify-center\"\n        data-slot=\"dropdown-menu-radio-item-indicator\"\n      >\n        <MenuPrimitive.RadioItemIndicator>\n          <CheckIcon />\n        </MenuPrimitive.RadioItemIndicator>\n      </span>\n      <span>{children}</span>\n    </MenuPrimitive.RadioItem>\n  );\n}\n\nfunction McDropdownMenuSeparator({ className, ...props }: MenuPrimitive.Separator.Props) {\n  return (\n    <MenuPrimitive.Separator\n      data-slot=\"dropdown-menu-separator\"\n      className={cn('-mx-1 my-1 h-px bg-border', className)}\n      {...props}\n    />\n  );\n}\n\nfunction McDropdownMenuShortcut({ className, ...props }: React.ComponentProps<'span'>) {\n  return (\n    <span\n      data-slot=\"dropdown-menu-shortcut\"\n      className={cn(\n        'ml-auto text-xs tracking-widest text-muted-foreground group-focus/dropdown-menu-item:text-accent-foreground',\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nexport {\n  McDropdownMenu,\n  McDropdownMenuPortal,\n  McDropdownMenuTrigger,\n  McDropdownMenuContent,\n  McDropdownMenuGroup,\n  McDropdownMenuLabel,\n  McDropdownMenuItem,\n  McDropdownMenuCheckboxItem,\n  McDropdownMenuRadioGroup,\n  McDropdownMenuRadioItem,\n  McDropdownMenuSeparator,\n  McDropdownMenuShortcut,\n  McDropdownMenuSub,\n  McDropdownMenuSubTrigger,\n  McDropdownMenuSubContent,\n};\n",
         type: 'registry:ui',
       },
     ],
   },
   'mc-context-menu': {
     name: 'mc-context-menu',
-    description: 'A context menu component for MicroClub UI',
+    description: 'A context menu component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2375,7 +2461,7 @@ export const Index: Record<string, any> = {
   },
   'mc-data-table': {
     name: 'mc-data-table',
-    description: 'A data table component with sorting, selection and pagination for MicroClub UI',
+    description: 'A data table component with sorting, selection and pagination for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2388,7 +2474,7 @@ export const Index: Record<string, any> = {
   },
   'mc-accordion': {
     name: 'mc-accordion',
-    description: 'An accordion component for MicroClub UI',
+    description: 'An accordion component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2401,7 +2487,7 @@ export const Index: Record<string, any> = {
   },
   'mc-collapsible': {
     name: 'mc-collapsible',
-    description: 'A collapsible component for MicroClub UI',
+    description: 'A collapsible component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2414,7 +2500,7 @@ export const Index: Record<string, any> = {
   },
   'mc-separator': {
     name: 'mc-separator',
-    description: 'A separator component for MicroClub UI',
+    description: 'A separator component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2427,7 +2513,7 @@ export const Index: Record<string, any> = {
   },
   'mc-progress': {
     name: 'mc-progress',
-    description: 'A progress component for MicroClub UI',
+    description: 'A progress component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2440,20 +2526,20 @@ export const Index: Record<string, any> = {
   },
   'mc-calendar': {
     name: 'mc-calendar',
-    description: 'A calendar component for MicroClub UI',
+    description: 'A calendar component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
         path: 'registry/ui/mc-calendar.tsx',
         content:
-          "'use client';\n\nimport * as React from 'react';\nimport { CalendarIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';\nimport { format } from 'date-fns';\nimport {\n  DayPicker,\n  defaultLocale,\n  getDefaultClassNames,\n  type DayButton,\n  type Locale,\n  type OptionProps,\n  type SelectProps,\n} from 'react-day-picker';\n\nimport { cn } from '@/lib/utils';\nimport { McButton, buttonVariants } from '@/registry/ui/mc-button';\nimport { McPopover, McPopoverContent, McPopoverTrigger } from '@/registry/ui/mc-popover';\n\nfunction McCalendar({\n  className,\n  classNames,\n  showOutsideDays = true,\n  captionLayout = 'dropdown',\n  buttonVariant,\n  locale,\n  formatters,\n  components,\n  ...props\n}: React.ComponentProps<typeof DayPicker> & {\n  /** Variant for the previous/next buttons. Leave unset for plain icon buttons. */\n  buttonVariant?: React.ComponentProps<typeof McButton>['variant'];\n}) {\n  const defaultClassNames = getDefaultClassNames();\n\n  // Without a variant the nav buttons are bare chevrons, as in the design.\n  const navButtonClassName = cn(\n    buttonVariant\n      ? buttonVariants({ variant: buttonVariant })\n      : 'inline-flex items-center justify-center text-foreground transition-colors outline-none hover:bg-secondary focus-visible:ring-4 focus-visible:ring-ring',\n    'size-(--cell-size) rounded-(--cell-radius) p-0 select-none aria-disabled:pointer-events-none aria-disabled:opacity-50'\n  );\n\n  return (\n    <DayPicker\n      showOutsideDays={showOutsideDays}\n      className={cn(\n        'group/calendar bg-background p-3 [--cell-radius:var(--radius-md)] [--cell-size:--spacing(8.5)] in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent',\n        String.raw`rtl:**:[.rdp-button\\_next>svg]:rotate-180`,\n        String.raw`rtl:**:[.rdp-button\\_previous>svg]:rotate-180`,\n        className\n      )}\n      captionLayout={captionLayout}\n      locale={locale}\n      formatters={{\n        formatMonthDropdown: (date) => date.toLocaleString(locale?.code, { month: 'short' }),\n        ...formatters,\n      }}\n      classNames={{\n        root: cn('w-fit', defaultClassNames.root),\n        months: cn('relative flex flex-col gap-4 md:flex-row', defaultClassNames.months),\n        month: cn('flex w-full flex-col gap-5', defaultClassNames.month),\n        nav: cn(\n          'absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1',\n          defaultClassNames.nav\n        ),\n        button_previous: cn(navButtonClassName, defaultClassNames.button_previous),\n        button_next: cn(navButtonClassName, defaultClassNames.button_next),\n        month_caption: cn(\n          'flex h-(--cell-size) w-full items-center justify-center px-(--cell-size)',\n          defaultClassNames.month_caption\n        ),\n        dropdowns: cn(\n          'flex h-(--cell-size) w-full items-center justify-center gap-2 text-sm font-medium',\n          defaultClassNames.dropdowns\n        ),\n        dropdown_root: cn(\n          'relative flex h-(--cell-size) items-center rounded-(--cell-radius) border border-border transition-shadow has-focus-visible:ring-4 has-focus-visible:ring-ring',\n          defaultClassNames.dropdown_root\n        ),\n        dropdown: cn('absolute inset-0 cursor-pointer opacity-0', defaultClassNames.dropdown),\n        caption_label: cn(\n          'font-medium text-foreground select-none',\n          captionLayout === 'label'\n            ? 'text-sm'\n            : 'flex h-full items-center gap-1.5 pr-1.5 pl-2.5 text-sm [&>svg]:size-3.5',\n          defaultClassNames.caption_label\n        ),\n        month_grid: cn('w-full border-collapse', defaultClassNames.month_grid),\n        weekdays: cn('flex', defaultClassNames.weekdays),\n        weekday: cn(\n          'w-(--cell-size) text-sm font-normal text-primary select-none',\n          defaultClassNames.weekday\n        ),\n        week: cn('mt-2.5 flex w-full', defaultClassNames.week),\n        week_number_header: cn('w-(--cell-size) select-none', defaultClassNames.week_number_header),\n        week_number: cn('text-sm text-muted-foreground select-none', defaultClassNames.week_number),\n        day: cn(\n          'group/day relative size-(--cell-size) p-0 text-center select-none',\n          defaultClassNames.day\n        ),\n        // Round the range highlight where it wraps onto a new week.\n        range_start: cn(\n          'rounded-l-full bg-secondary last:rounded-r-full',\n          defaultClassNames.range_start\n        ),\n        range_middle: cn(\n          'bg-secondary first:rounded-l-full last:rounded-r-full',\n          defaultClassNames.range_middle\n        ),\n        range_end: cn(\n          'rounded-r-full bg-secondary first:rounded-l-full',\n          defaultClassNames.range_end\n        ),\n        today: defaultClassNames.today,\n        outside: cn('text-accent-foreground', defaultClassNames.outside),\n        disabled: cn('text-muted-foreground', defaultClassNames.disabled),\n        hidden: cn('invisible', defaultClassNames.hidden),\n        ...classNames,\n      }}\n      components={{\n        Root: ({ className, rootRef, ...props }) => {\n          return <div data-slot=\"calendar\" ref={rootRef} className={cn(className)} {...props} />;\n        },\n        Chevron: ({ className, orientation, ...props }) => {\n          if (orientation === 'left') {\n            return <ChevronLeftIcon className={cn('size-4', className)} {...props} />;\n          }\n\n          if (orientation === 'right') {\n            return <ChevronRightIcon className={cn('size-4', className)} {...props} />;\n          }\n\n          return <ChevronDownIcon className={cn('size-4', className)} {...props} />;\n        },\n        DayButton: ({ ...props }) => <McCalendarDayButton locale={locale} {...props} />,\n        WeekNumber: ({ children, ...props }) => {\n          return (\n            <td {...props}>\n              <div className=\"flex size-(--cell-size) items-center justify-center text-center\">\n                {children}\n              </div>\n            </td>\n          );\n        },\n        Select: ({ className, ...props }: SelectProps) => {\n          return (\n            <select\n              className={cn('bg-popover text-popover-foreground outline-none', className)}\n              {...props}\n            />\n          );\n        },\n        Option: ({ className, ...props }: OptionProps) => {\n          return (\n            <option className={cn('bg-popover text-popover-foreground', className)} {...props} />\n          );\n        },\n        ...components,\n      }}\n      {...props}\n    />\n  );\n}\n\nfunction McCalendarDayButton({\n  className,\n  day,\n  modifiers,\n  locale,\n  ...props\n}: React.ComponentProps<typeof DayButton> & { locale?: Partial<Locale> }) {\n  const defaultClassNames = getDefaultClassNames();\n\n  const ref = React.useRef<HTMLButtonElement>(null);\n  React.useEffect(() => {\n    if (modifiers.focused) ref.current?.focus();\n  }, [modifiers.focused]);\n\n  const isRange = modifiers.range_start || modifiers.range_end || modifiers.range_middle;\n\n  return (\n    <button\n      ref={ref}\n      type=\"button\"\n      data-day={day.date.toLocaleDateString(locale?.code)}\n      data-selected-single={modifiers.selected && !isRange}\n      data-range-start={modifiers.range_start}\n      data-range-end={modifiers.range_end}\n      data-range-middle={modifiers.range_middle}\n      // Today is only highlighted while it isn't part of the selection, so it never fights the\n      // selected styles.\n      data-today={modifiers.today && !modifiers.selected}\n      className={cn(\n        'relative isolate z-10 flex size-(--cell-size) items-center justify-center rounded-full border-0 p-0 text-sm leading-none font-normal transition-colors outline-none focus-visible:z-20 focus-visible:ring-4 focus-visible:ring-ring',\n        !modifiers.selected && 'enabled:hover:bg-secondary',\n        'data-[today=true]:bg-secondary data-[today=true]:text-secondary-foreground',\n        'data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground',\n        'data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground',\n        'data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground',\n        'data-[range-middle=true]:text-secondary-foreground',\n        defaultClassNames.day_button,\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction McDatePicker({\n  id,\n  label,\n  placeholder = 'Pick a date',\n  dateFormat = 'MMMM dd, yyyy',\n  selected,\n  onSelect,\n  locale,\n  className,\n  triggerClassName,\n  ...calendarProps\n}: Omit<React.ComponentProps<typeof McCalendar>, 'mode' | 'selected' | 'onSelect'> & {\n  /** Id of the trigger button. */\n  id?: string;\n  /** Label rendered above the trigger. */\n  label?: React.ReactNode;\n  /** Text shown in the trigger while no date is selected. */\n  placeholder?: React.ReactNode;\n  /** date-fns format string for the selected date. */\n  dateFormat?: string;\n  selected?: Date;\n  onSelect?: (date?: Date) => void;\n  triggerClassName?: string;\n}) {\n  const [open, setOpen] = React.useState(false);\n  const generatedId = React.useId();\n  const triggerId = id ?? generatedId;\n  const labelId = `${triggerId}-label`;\n  const valueId = `${triggerId}-value`;\n\n  return (\n    <div className={cn('flex flex-col gap-1.5', className)}>\n      {label && (\n        <label\n          id={labelId}\n          htmlFor={triggerId}\n          className=\"text-sm font-medium text-muted-foreground\"\n        >\n          {label}\n        </label>\n      )}\n\n      <McPopover open={open} onOpenChange={setOpen}>\n        <McPopoverTrigger\n          render={\n            <button\n              id={triggerId}\n              type=\"button\"\n              aria-labelledby={label ? `${labelId} ${valueId}` : undefined}\n              className={cn(\n                'flex h-9 w-[240px] items-center justify-between rounded-md border border-border bg-input px-3 py-2 text-left text-foreground transition-[border-color,box-shadow] outline-none hover:border-ring focus-visible:ring-4 focus-visible:ring-ring',\n                triggerClassName\n              )}\n            >\n              <span id={valueId} className=\"text-sm leading-none font-medium\">\n                {selected\n                  ? format(selected, dateFormat, { locale: { ...defaultLocale, ...locale } })\n                  : placeholder}\n              </span>\n\n              <CalendarIcon aria-hidden className=\"size-4 shrink-0\" />\n            </button>\n          }\n        />\n\n        <McPopoverContent align=\"start\" sideOffset={6} className=\"!h-auto !w-auto !gap-0 !p-2\">\n          <McCalendar\n            defaultMonth={selected}\n            {...calendarProps}\n            locale={locale}\n            mode=\"single\"\n            selected={selected}\n            onSelect={(next) => {\n              onSelect?.(next);\n              if (next) setOpen(false);\n            }}\n          />\n        </McPopoverContent>\n      </McPopover>\n    </div>\n  );\n}\n\nexport { McCalendar, McCalendarDayButton, McDatePicker };\n",
+          "'use client';\n\nimport * as React from 'react';\nimport { CalendarIcon, ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';\nimport { format } from 'date-fns';\nimport {\n  DayPicker,\n  defaultLocale,\n  getDefaultClassNames,\n  type DayButton,\n  type Locale,\n  type OptionProps,\n  type SelectProps,\n} from 'react-day-picker';\n\nimport { cn } from '@/lib/utils';\nimport { McButton, buttonVariants } from '@/registry/ui/mc-button';\nimport { McPopover, McPopoverContent, McPopoverTrigger } from '@/registry/ui/mc-popover';\n\nfunction McCalendar({\n  className,\n  classNames,\n  showOutsideDays = true,\n  captionLayout = 'dropdown',\n  buttonVariant,\n  locale,\n  formatters,\n  components,\n  ...props\n}: React.ComponentProps<typeof DayPicker> & {\n  /** Variant for the previous/next buttons. Leave unset for plain icon buttons. */\n  buttonVariant?: React.ComponentProps<typeof McButton>['variant'];\n}) {\n  const defaultClassNames = getDefaultClassNames();\n\n  // Without a variant the nav buttons are bare chevrons, as in the design.\n  const navButtonClassName = cn(\n    buttonVariant\n      ? buttonVariants({ variant: buttonVariant })\n      : 'inline-flex items-center justify-center text-foreground transition-colors outline-none hover:bg-secondary focus-visible:ring-4 focus-visible:ring-ring',\n    'size-(--cell-size) rounded-(--cell-radius) p-0 select-none aria-disabled:pointer-events-none aria-disabled:opacity-50'\n  );\n\n  return (\n    <DayPicker\n      showOutsideDays={showOutsideDays}\n      className={cn(\n        'group/calendar bg-background p-3 [--cell-radius:var(--radius-md)] [--cell-size:--spacing(8.5)] in-data-[slot=card-content]:bg-transparent in-data-[slot=popover-content]:bg-transparent',\n        String.raw`rtl:**:[.rdp-button\\_next>svg]:rotate-180`,\n        String.raw`rtl:**:[.rdp-button\\_previous>svg]:rotate-180`,\n        className\n      )}\n      captionLayout={captionLayout}\n      locale={locale}\n      formatters={{\n        formatMonthDropdown: (date) => date.toLocaleString(locale?.code, { month: 'short' }),\n        ...formatters,\n      }}\n      classNames={{\n        root: cn('w-fit', defaultClassNames.root),\n        months: cn('relative flex flex-col gap-4 md:flex-row', defaultClassNames.months),\n        month: cn('flex w-full flex-col gap-5', defaultClassNames.month),\n        nav: cn(\n          'absolute inset-x-0 top-0 flex w-full items-center justify-between gap-1',\n          defaultClassNames.nav\n        ),\n        button_previous: cn(navButtonClassName, defaultClassNames.button_previous),\n        button_next: cn(navButtonClassName, defaultClassNames.button_next),\n        month_caption: cn(\n          'flex h-(--cell-size) w-full items-center justify-center px-(--cell-size)',\n          defaultClassNames.month_caption\n        ),\n        dropdowns: cn(\n          'flex h-(--cell-size) w-full items-center justify-center gap-2 text-sm font-medium',\n          defaultClassNames.dropdowns\n        ),\n        dropdown_root: cn(\n          'relative flex h-(--cell-size) items-center rounded-(--cell-radius) border border-border transition-shadow has-focus-visible:ring-4 has-focus-visible:ring-ring',\n          defaultClassNames.dropdown_root\n        ),\n        dropdown: cn('absolute inset-0 cursor-pointer opacity-0', defaultClassNames.dropdown),\n        caption_label: cn(\n          'font-medium text-foreground select-none',\n          captionLayout === 'label'\n            ? 'text-sm'\n            : 'flex h-full items-center gap-1.5 pr-1.5 pl-2.5 text-sm [&>svg]:size-3.5',\n          defaultClassNames.caption_label\n        ),\n        month_grid: cn('w-full border-collapse', defaultClassNames.month_grid),\n        weekdays: cn('flex', defaultClassNames.weekdays),\n        weekday: cn(\n          'w-(--cell-size) text-sm font-normal text-primary select-none',\n          defaultClassNames.weekday\n        ),\n        week: cn('mt-2.5 flex w-full', defaultClassNames.week),\n        week_number_header: cn('w-(--cell-size) select-none', defaultClassNames.week_number_header),\n        week_number: cn('text-sm text-muted-foreground select-none', defaultClassNames.week_number),\n        day: cn(\n          'group/day relative size-(--cell-size) p-0 text-center select-none',\n          defaultClassNames.day\n        ),\n        // Round the range highlight where it wraps onto a new week.\n        range_start: cn(\n          'rounded-l-full bg-secondary last:rounded-r-full',\n          defaultClassNames.range_start\n        ),\n        range_middle: cn(\n          'bg-secondary first:rounded-l-full last:rounded-r-full',\n          defaultClassNames.range_middle\n        ),\n        range_end: cn(\n          'rounded-r-full bg-secondary first:rounded-l-full',\n          defaultClassNames.range_end\n        ),\n        today: defaultClassNames.today,\n        outside: cn('text-accent-foreground', defaultClassNames.outside),\n        disabled: cn('text-muted-foreground', defaultClassNames.disabled),\n        hidden: cn('invisible', defaultClassNames.hidden),\n        ...classNames,\n      }}\n      components={{\n        Root: ({ className, rootRef, ...props }) => {\n          return <div data-slot=\"calendar\" ref={rootRef} className={cn(className)} {...props} />;\n        },\n        Chevron: ({ className, orientation, ...props }) => {\n          if (orientation === 'left') {\n            return <ChevronLeftIcon className={cn('size-4', className)} {...props} />;\n          }\n\n          if (orientation === 'right') {\n            return <ChevronRightIcon className={cn('size-4', className)} {...props} />;\n          }\n\n          return <ChevronDownIcon className={cn('size-4', className)} {...props} />;\n        },\n        DayButton: ({ ...props }) => <McCalendarDayButton locale={locale} {...props} />,\n        WeekNumber: ({ children, ...props }) => {\n          return (\n            <td {...props}>\n              <div className=\"flex size-(--cell-size) items-center justify-center text-center\">\n                {children}\n              </div>\n            </td>\n          );\n        },\n        Select: ({ className, ...props }: SelectProps) => {\n          return (\n            <select\n              className={cn('bg-popover text-popover-foreground outline-none', className)}\n              {...props}\n            />\n          );\n        },\n        Option: ({ className, ...props }: OptionProps) => {\n          return (\n            <option className={cn('bg-popover text-popover-foreground', className)} {...props} />\n          );\n        },\n        ...components,\n      }}\n      {...props}\n    />\n  );\n}\n\nfunction McCalendarDayButton({\n  className,\n  day,\n  modifiers,\n  locale,\n  ...props\n}: React.ComponentProps<typeof DayButton> & { locale?: Partial<Locale> }) {\n  const defaultClassNames = getDefaultClassNames();\n\n  const ref = React.useRef<HTMLButtonElement>(null);\n  React.useEffect(() => {\n    if (modifiers.focused) ref.current?.focus();\n  }, [modifiers.focused]);\n\n  const isRange = modifiers.range_start || modifiers.range_end || modifiers.range_middle;\n\n  return (\n    <button\n      ref={ref}\n      type=\"button\"\n      data-day={day.date.toLocaleDateString(locale?.code)}\n      data-selected-single={modifiers.selected && !isRange}\n      data-range-start={modifiers.range_start}\n      data-range-end={modifiers.range_end}\n      data-range-middle={modifiers.range_middle}\n      // Today is only highlighted while it isn't part of the selection, so it never fights the\n      // selected styles.\n      data-today={modifiers.today && !modifiers.selected}\n      className={cn(\n        'relative isolate z-10 flex size-(--cell-size) items-center justify-center rounded-full border-0 p-0 text-sm leading-none font-normal transition-colors outline-none focus-visible:z-20 focus-visible:ring-4 focus-visible:ring-ring',\n        !modifiers.selected && 'enabled:hover:bg-secondary',\n        'data-[today=true]:bg-secondary data-[today=true]:text-secondary-foreground',\n        'data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground',\n        'data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground',\n        'data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground',\n        'data-[range-middle=true]:text-secondary-foreground',\n        defaultClassNames.day_button,\n        className\n      )}\n      {...props}\n    />\n  );\n}\n\nfunction McDatePicker({\n  id,\n  label,\n  placeholder = 'Pick a date',\n  dateFormat = 'MMMM dd, yyyy',\n  selected,\n  onSelect,\n  locale,\n  className,\n  triggerClassName,\n  ...calendarProps\n}: Omit<React.ComponentProps<typeof McCalendar>, 'mode' | 'selected' | 'onSelect'> & {\n  /** Id of the trigger button. */\n  id?: string;\n  /** Label rendered above the trigger. */\n  label?: React.ReactNode;\n  /** Text shown in the trigger while no date is selected. */\n  placeholder?: React.ReactNode;\n  /** date-fns format string for the selected date. */\n  dateFormat?: string;\n  selected?: Date;\n  onSelect?: (date?: Date) => void;\n  triggerClassName?: string;\n}) {\n  const [open, setOpen] = React.useState(false);\n  const generatedId = React.useId();\n  const triggerId = id ?? generatedId;\n  const labelId = `${triggerId}-label`;\n  const valueId = `${triggerId}-value`;\n\n  return (\n    <div className={cn('flex flex-col gap-1.5', className)}>\n      {label && (\n        <label\n          id={labelId}\n          htmlFor={triggerId}\n          className=\"text-sm font-medium text-muted-foreground\"\n        >\n          {label}\n        </label>\n      )}\n\n      <McPopover open={open} onOpenChange={setOpen}>\n        <McPopoverTrigger\n          render={\n            <button\n              id={triggerId}\n              type=\"button\"\n              aria-labelledby={label ? `${labelId} ${valueId}` : undefined}\n              className={cn(\n                'flex h-9 w-[240px] items-center justify-between rounded-md border border-border bg-input px-3 py-2 text-left text-foreground transition-[border-color,box-shadow] outline-none hover:border-ring focus-visible:ring-4 focus-visible:ring-ring',\n                triggerClassName\n              )}\n            >\n              <span id={valueId} className=\"text-sm leading-none font-medium\">\n                {selected\n                  ? format(selected, dateFormat, { locale: { ...defaultLocale, ...locale } })\n                  : placeholder}\n              </span>\n\n              <CalendarIcon aria-hidden className=\"size-4 shrink-0\" />\n            </button>\n          }\n        />\n\n        <McPopoverContent align=\"start\" sideOffset={6} className=\"gap-0 p-2\">\n          <McCalendar\n            defaultMonth={selected}\n            {...calendarProps}\n            locale={locale}\n            mode=\"single\"\n            selected={selected}\n            onSelect={(next) => {\n              onSelect?.(next);\n              if (next) setOpen(false);\n            }}\n          />\n        </McPopoverContent>\n      </McPopover>\n    </div>\n  );\n}\n\nexport { McCalendar, McCalendarDayButton, McDatePicker };\n",
         type: 'registry:ui',
       },
     ],
   },
   'mc-scrollarea': {
     name: 'mc-scrollarea',
-    description: 'A scroll area component for MicroClub UI',
+    description: 'A scroll area component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2466,20 +2552,20 @@ export const Index: Record<string, any> = {
   },
   'mc-skeleton': {
     name: 'mc-skeleton',
-    description: 'A skeleton component for MicroClub UI',
+    description: 'A skeleton component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
         path: 'registry/ui/mc-skeleton.tsx',
         content:
-          "import { cn } from '@/lib/utils';\n\ntype McSkeletonProps = {\n  width?: number;\n  height?: number;\n  rectangle?: boolean;\n} & React.ComponentProps<'div'>;\n\nfunction McSkeleton({ className, rectangle, width, height, ...props }: McSkeletonProps) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      style={{\n        width,\n        height,\n        ...(height === width ? { marginRight: 16 } : { marginBottom: 8 }),\n      }}\n      className={cn('animate-pulse bg-muted', rectangle ? 'rounded-md' : 'rounded-full', className)}\n      {...props}\n    />\n  );\n}\n\nexport { McSkeleton };\n",
+          "import * as React from 'react';\n\nimport { cn } from '@/lib/utils';\n\ntype McSkeletonProps = {\n  width?: React.CSSProperties['width'];\n  height?: React.CSSProperties['height'];\n  rectangle?: boolean;\n} & React.ComponentProps<'div'>;\n\nfunction McSkeleton({ className, rectangle, width, height, style, ...props }: McSkeletonProps) {\n  return (\n    <div\n      data-slot=\"skeleton\"\n      style={{ width, height, ...style }}\n      className={cn('animate-pulse bg-muted', rectangle ? 'rounded-md' : 'rounded-full', className)}\n      {...props}\n    />\n  );\n}\n\nexport { McSkeleton };\n",
         type: 'registry:ui',
       },
     ],
   },
   'mc-badge': {
     name: 'mc-badge',
-    description: 'A badge component for MicroClub UI',
+    description: 'A badge component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2492,7 +2578,7 @@ export const Index: Record<string, any> = {
   },
   'mc-avatar': {
     name: 'mc-avatar',
-    description: 'An avatar component for MicroClub UI',
+    description: 'An avatar component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2505,7 +2591,7 @@ export const Index: Record<string, any> = {
   },
   'mc-drawer': {
     name: 'mc-drawer',
-    description: 'A drawer component for MicroClub UI',
+    description: 'A drawer component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2518,33 +2604,33 @@ export const Index: Record<string, any> = {
   },
   'mc-hover-card': {
     name: 'mc-hover-card',
-    description: 'A hover card component for MicroClub UI',
+    description: 'A hover card component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
         path: 'registry/ui/mc-hover-card.tsx',
         content:
-          "'use client';\n\nimport { PreviewCard as PreviewCardPrimitive } from '@base-ui/react/preview-card';\n\nimport { cn } from '@/lib/utils';\n\nfunction McHoverCard({ ...props }: PreviewCardPrimitive.Root.Props) {\n  return <PreviewCardPrimitive.Root data-slot=\"hover-card\" {...props} />;\n}\n\nfunction McHoverCardTrigger({ ...props }: PreviewCardPrimitive.Trigger.Props) {\n  return <PreviewCardPrimitive.Trigger data-slot=\"hover-card-trigger\" {...props} />;\n}\n\nfunction McHoverCardContent({\n  className,\n  side = 'bottom',\n  sideOffset = 4,\n  align = 'center',\n  alignOffset = 4,\n  textAlign = 'start',\n  imageSrc = null,\n  imageposition = 'top',\n  title,\n  subtitle,\n  description,\n  ...props\n}: PreviewCardPrimitive.Popup.Props &\n  Pick<PreviewCardPrimitive.Positioner.Props, 'align' | 'alignOffset' | 'side' | 'sideOffset'> & {\n    textAlign?: 'start' | 'center';\n    imageSrc?: string | null;\n    imageposition?: 'top' | 'bottom';\n    title?: string;\n    subtitle?: string;\n    description?: string;\n  }) {\n  return (\n    <PreviewCardPrimitive.Portal data-slot=\"hover-card-portal\">\n      <PreviewCardPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n        className=\"isolate z-50 w-76 origin-(--transform-origin) rounded-lg bg-card p-4 text-sm text-popover-foreground shadow-md ring-inset  ring-1 ring-border flex flex-col \"\n      >\n        <div className={`${imageposition === 'top' ? 'flex-col' : 'flex-col-reverse'} flex gap-4`}>\n          {imageSrc && <img src={imageSrc} alt=\"Profile\" className={`w-full    `} />}\n          <div\n            className={`${textAlign === 'start' ? 'items-start' : 'items-center'} flex flex-col gap-2`}\n          >\n            {title && <h4 className=\"font-semibold text-card-foreground\">{title}</h4>}\n            <div\n              className={`${textAlign === 'start' ? 'items-start' : 'text-center'} flex flex-col`}\n            >\n              {subtitle && <p className=\" font-regular text-card-foreground\">{subtitle}</p>}\n              {description && <p className=\"font-regular text-card-foreground\">{description}</p>}\n            </div>\n          </div>\n        </div>\n\n        <PreviewCardPrimitive.Popup\n          data-slot=\"hover-card-content\"\n          className={cn(\n            ' outline-hidden duration-100   ',\n            ' data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 ',\n            ' data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ',\n            ' data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 ',\n            'data-closed:zoom-out-95 gap-4',\n            className\n          )}\n          {...props}\n        />\n      </PreviewCardPrimitive.Positioner>\n    </PreviewCardPrimitive.Portal>\n  );\n}\n\nexport { McHoverCard, McHoverCardTrigger, McHoverCardContent };\n",
+          "'use client';\n\nimport { PreviewCard as PreviewCardPrimitive } from '@base-ui/react/preview-card';\n\nimport { cn } from '@/lib/utils';\n\nfunction McHoverCard({ ...props }: PreviewCardPrimitive.Root.Props) {\n  return <PreviewCardPrimitive.Root data-slot=\"hover-card\" {...props} />;\n}\n\nfunction McHoverCardTrigger({ ...props }: PreviewCardPrimitive.Trigger.Props) {\n  return <PreviewCardPrimitive.Trigger data-slot=\"hover-card-trigger\" {...props} />;\n}\n\nfunction McHoverCardContent({\n  className,\n  children,\n  side = 'bottom',\n  sideOffset = 4,\n  align = 'center',\n  alignOffset = 4,\n  textAlign = 'start',\n  imageSrc = null,\n  imageAlt = '',\n  imagePosition,\n  imageposition,\n  title,\n  subtitle,\n  description,\n  ...props\n}: PreviewCardPrimitive.Popup.Props &\n  Pick<PreviewCardPrimitive.Positioner.Props, 'align' | 'alignOffset' | 'side' | 'sideOffset'> & {\n    textAlign?: 'start' | 'center';\n    imageSrc?: string | null;\n    imageAlt?: string;\n    imagePosition?: 'top' | 'bottom';\n    /** @deprecated Use `imagePosition` instead. */\n    imageposition?: 'top' | 'bottom';\n    title?: string;\n    subtitle?: string;\n    description?: string;\n  }) {\n  const resolvedImagePosition = imagePosition ?? imageposition ?? 'top';\n  const hasBuiltInContent = Boolean(imageSrc || title || subtitle || description);\n\n  return (\n    <PreviewCardPrimitive.Portal data-slot=\"hover-card-portal\">\n      <PreviewCardPrimitive.Positioner\n        align={align}\n        alignOffset={alignOffset}\n        side={side}\n        sideOffset={sideOffset}\n        className=\"isolate z-50\"\n      >\n        <PreviewCardPrimitive.Popup\n          data-slot=\"hover-card-content\"\n          className={cn(\n            'flex w-76 origin-(--transform-origin) flex-col gap-4 rounded-lg bg-card p-4 text-sm text-popover-foreground shadow-md ring-1 ring-border ring-inset outline-hidden duration-100',\n            'data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2',\n            'data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',\n            'data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95',\n            className\n          )}\n          {...props}\n        >\n          {hasBuiltInContent && (\n            <div\n              className={cn(\n                'flex gap-4',\n                resolvedImagePosition === 'top' ? 'flex-col' : 'flex-col-reverse'\n              )}\n            >\n              {imageSrc && <img src={imageSrc} alt={imageAlt} className=\"w-full\" />}\n              <div\n                className={cn(\n                  'flex flex-col gap-2',\n                  textAlign === 'start' ? 'items-start' : 'items-center'\n                )}\n              >\n                {title && <h4 className=\"font-semibold text-card-foreground\">{title}</h4>}\n                <div\n                  className={cn(\n                    'flex flex-col',\n                    textAlign === 'start' ? 'items-start' : 'text-center'\n                  )}\n                >\n                  {subtitle && <p className=\"font-regular text-card-foreground\">{subtitle}</p>}\n                  {description && (\n                    <p className=\"font-regular text-card-foreground\">{description}</p>\n                  )}\n                </div>\n              </div>\n            </div>\n          )}\n          {children}\n        </PreviewCardPrimitive.Popup>\n      </PreviewCardPrimitive.Positioner>\n    </PreviewCardPrimitive.Portal>\n  );\n}\n\nexport { McHoverCard, McHoverCardTrigger, McHoverCardContent };\n",
         type: 'registry:ui',
       },
     ],
   },
   'mc-slider': {
     name: 'mc-slider',
-    description: 'A slider component for MicroClub UI',
+    description: 'A slider component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
         path: 'registry/ui/mc-slider.tsx',
         content:
-          '\'use client\';\n\nimport * as React from \'react\';\nimport { Slider as SliderPrimitive } from \'@base-ui/react/slider\';\n\nimport { cn } from \'@/lib/utils\';\n\nfunction McSlider({\n  className,\n  defaultValue,\n  value,\n  min = 0,\n  max = 100,\n  showValue = true,\n  border = false,\n  unity,\n  thumbAriaLabel,\n  onValueChange,\n  ...props\n}: SliderPrimitive.Root.Props & {\n  showValue?: boolean;\n  border?: boolean;\n  unity?: string;\n  /** Accessible name for the thumb\'s input, e.g. "Team size". */\n  thumbAriaLabel?: string;\n}) {\n  const isControlled = value !== undefined;\n\n  const [internalValues, setInternalValues] = React.useState<number[]>(\n    Array.isArray(defaultValue) ? defaultValue : [min]\n  );\n\n  const values = isControlled ? (Array.isArray(value) ? value : [value]) : internalValues;\n\n  return (\n    <SliderPrimitive.Root\n      className={cn(\'data-horizontal:w-full data-vertical:h-full mt-12\', className)}\n      data-slot="slider"\n      defaultValue={defaultValue}\n      value={value}\n      min={min}\n      max={max}\n      thumbAlignment="edge-client-only"\n      onValueChange={(newValues, event) => {\n        if (!isControlled) {\n          setInternalValues(Array.isArray(newValues) ? newValues : [newValues]);\n        }\n        onValueChange?.(newValues, event);\n      }}\n      {...props}\n    >\n      <SliderPrimitive.Control className="relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col">\n        <SliderPrimitive.Track\n          data-slot="slider-track"\n          className="relative grow overflow-hidden rounded-full bg-muted ring-1 ring-inset ring-ring select-none data-horizontal:h-1 data-horizontal:w-full data-vertical:h-full data-vertical:w-1"\n        >\n          <SliderPrimitive.Indicator\n            data-slot="slider-range"\n            className="bg-primary select-none data-horizontal:h-full data-vertical:w-full"\n          />\n        </SliderPrimitive.Track>\n\n        {values.map((currentValue, index) => (\n          <SliderPrimitive.Thumb\n            key={index}\n            data-slot="slider-thumb"\n            getAriaLabel={thumbAriaLabel ? () => thumbAriaLabel : undefined}\n            className="group relative block size-3 shrink-0 rounded-full border-2 border-primary bg-muted ring-accent-foreground backdrop-blur-3xl transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:ring-3 focus-visible:ring-3 focus-visible:outline-hidden active:ring-3 active:bg-primary disabled:pointer-events-none disabled:opacity-50 disabled:bg-blue-500"\n          >\n            {showValue && (\n              <div\n                className={cn(\n                  \'pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap rounded-xl \',\n                  \'px-3.5 py-2.5 gap-2.5  text-md text-foreground bg-transparent \',\n                  border && \'ring-1 ring-inset ring-border bg-muted\'\n                )}\n              >\n                {currentValue} {unity}\n              </div>\n            )}\n          </SliderPrimitive.Thumb>\n        ))}\n      </SliderPrimitive.Control>\n    </SliderPrimitive.Root>\n  );\n}\n\nexport { McSlider };\n',
+          '\'use client\';\n\nimport * as React from \'react\';\nimport { Slider as SliderPrimitive } from \'@base-ui/react/slider\';\n\nimport { cn } from \'@/lib/utils\';\n\nfunction McSlider({\n  className,\n  defaultValue,\n  value,\n  min = 0,\n  max = 100,\n  showValue = true,\n  border = false,\n  unit,\n  unity,\n  thumbAriaLabel,\n  onValueChange,\n  ...props\n}: SliderPrimitive.Root.Props & {\n  showValue?: boolean;\n  border?: boolean;\n  /** Suffix displayed after the value, e.g. "%". */\n  unit?: string;\n  /** @deprecated Use `unit` instead. */\n  unity?: string;\n  /** Accessible name for the thumb\'s input, e.g. "Team size". */\n  thumbAriaLabel?: string;\n}) {\n  const valueUnit = unit ?? unity;\n  const isControlled = value !== undefined;\n\n  const [internalValues, setInternalValues] = React.useState<number[]>(\n    Array.isArray(defaultValue) ? defaultValue : [min]\n  );\n\n  const values = isControlled ? (Array.isArray(value) ? value : [value]) : internalValues;\n\n  return (\n    <SliderPrimitive.Root\n      className={cn(\n        \'data-horizontal:w-full data-vertical:h-full\',\n        showValue && \'data-horizontal:mt-12\',\n        className\n      )}\n      data-slot="slider"\n      defaultValue={defaultValue}\n      value={value}\n      min={min}\n      max={max}\n      thumbAlignment="edge-client-only"\n      onValueChange={(newValues, event) => {\n        if (!isControlled) {\n          setInternalValues(Array.isArray(newValues) ? newValues : [newValues]);\n        }\n        onValueChange?.(newValues, event);\n      }}\n      {...props}\n    >\n      <SliderPrimitive.Control className="relative flex w-full touch-none items-center select-none data-disabled:opacity-50 data-vertical:h-full data-vertical:min-h-40 data-vertical:w-auto data-vertical:flex-col">\n        <SliderPrimitive.Track\n          data-slot="slider-track"\n          className="relative grow overflow-hidden rounded-full bg-muted ring-1 ring-inset ring-ring select-none data-horizontal:h-1 data-horizontal:w-full data-vertical:h-full data-vertical:w-1"\n        >\n          <SliderPrimitive.Indicator\n            data-slot="slider-range"\n            className="bg-primary select-none data-horizontal:h-full data-vertical:w-full"\n          />\n        </SliderPrimitive.Track>\n\n        {values.map((currentValue, index) => (\n          <SliderPrimitive.Thumb\n            key={index}\n            data-slot="slider-thumb"\n            getAriaLabel={thumbAriaLabel ? () => thumbAriaLabel : undefined}\n            className="group relative block size-3 shrink-0 rounded-full border-2 border-primary bg-muted ring-accent-foreground backdrop-blur-3xl transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:ring-3 focus-visible:ring-3 focus-visible:outline-hidden active:ring-3 active:bg-primary data-disabled:pointer-events-none data-disabled:bg-primary"\n          >\n            {showValue && (\n              <div\n                className={cn(\n                  \'pointer-events-none absolute bottom-full left-1/2 mb-3 -translate-x-1/2 whitespace-nowrap rounded-xl \',\n                  \'px-3.5 py-2.5 gap-2.5  text-md text-foreground bg-transparent \',\n                  border && \'ring-1 ring-inset ring-border bg-muted\'\n                )}\n              >\n                {currentValue} {valueUnit}\n              </div>\n            )}\n          </SliderPrimitive.Thumb>\n        ))}\n      </SliderPrimitive.Control>\n    </SliderPrimitive.Root>\n  );\n}\n\nexport { McSlider };\n',
         type: 'registry:ui',
       },
     ],
   },
   'mc-carousel': {
     name: 'mc-carousel',
-    description: 'A carousel component for MicroClub UI',
+    description: 'A carousel component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2557,7 +2643,7 @@ export const Index: Record<string, any> = {
   },
   'mc-button-demo': {
     name: 'mc-button-demo',
-    description: 'Demo for MicroClub Button',
+    description: 'Demo for Micro Club Button',
     type: 'registry:example',
     files: [
       {
@@ -2573,7 +2659,7 @@ export const Index: Record<string, any> = {
   },
   'mc-input-demo': {
     name: 'mc-input-demo',
-    description: 'Demo for MicroClub Input',
+    description: 'Demo for Micro Club Input',
     type: 'registry:example',
     files: [
       {
@@ -2589,7 +2675,7 @@ export const Index: Record<string, any> = {
   },
   'mc-textarea-demo': {
     name: 'mc-textarea-demo',
-    description: 'Demo for MicroClub Textarea',
+    description: 'Demo for Micro Club Textarea',
     type: 'registry:example',
     files: [
       {
@@ -2605,7 +2691,7 @@ export const Index: Record<string, any> = {
   },
   'mc-input-otp-demo': {
     name: 'mc-input-otp-demo',
-    description: 'Demo for MicroClub Input OTP',
+    description: 'Demo for Micro Club Input OTP',
     type: 'registry:example',
     files: [
       {
@@ -2621,7 +2707,7 @@ export const Index: Record<string, any> = {
   },
   'mc-checkbox-demo': {
     name: 'mc-checkbox-demo',
-    description: 'Demo for MicroClub Checkbox',
+    description: 'Demo for Micro Club Checkbox',
     type: 'registry:example',
     files: [
       {
@@ -2637,7 +2723,7 @@ export const Index: Record<string, any> = {
   },
   'mc-radio-demo': {
     name: 'mc-radio-demo',
-    description: 'Demo for MicroClub Radio',
+    description: 'Demo for Micro Club Radio',
     type: 'registry:example',
     files: [
       {
@@ -2653,7 +2739,7 @@ export const Index: Record<string, any> = {
   },
   'mc-card-demo': {
     name: 'mc-card-demo',
-    description: 'Demo for MicroClub Card',
+    description: 'Demo for Micro Club Card',
     type: 'registry:example',
     files: [
       {
@@ -2669,7 +2755,7 @@ export const Index: Record<string, any> = {
   },
   'mc-select-demo': {
     name: 'mc-select-demo',
-    description: 'Demo for MicroClub Select',
+    description: 'Demo for Micro Club Select',
     type: 'registry:example',
     files: [
       {
@@ -2685,7 +2771,7 @@ export const Index: Record<string, any> = {
   },
   'mc-combobox-demo': {
     name: 'mc-combobox-demo',
-    description: 'Demo for MicroClub Combobox',
+    description: 'Demo for Micro Club Combobox',
     type: 'registry:example',
     files: [
       {
@@ -2701,7 +2787,7 @@ export const Index: Record<string, any> = {
   },
   'mc-switch-demo': {
     name: 'mc-switch-demo',
-    description: 'Demo for MicroClub Switch',
+    description: 'Demo for Micro Club Switch',
     type: 'registry:example',
     files: [
       {
@@ -2717,7 +2803,7 @@ export const Index: Record<string, any> = {
   },
   'mc-navigation-menu-demo': {
     name: 'mc-navigation-menu-demo',
-    description: 'Demo for MicroClub Navigation Menu',
+    description: 'Demo for Micro Club Navigation Menu',
     type: 'registry:example',
     files: [
       {
@@ -2733,7 +2819,7 @@ export const Index: Record<string, any> = {
   },
   'mc-sidebar-demo': {
     name: 'mc-sidebar-demo',
-    description: 'Demo for MicroClub Sidebar',
+    description: 'Demo for Micro Club Sidebar',
     type: 'registry:example',
     files: [
       {
@@ -2749,23 +2835,23 @@ export const Index: Record<string, any> = {
   },
   'mc-tabs-demo': {
     name: 'mc-tabs-demo',
-    description: 'Demo for MicroClub Tabs',
+    description: 'Demo for Micro Club Tabs',
     type: 'registry:example',
     files: [
       {
         path: 'registry/examples/mc-tabs-demo.tsx',
         content:
-          'import { McTabs, McTabsList, McTabsTrigger } from \'../ui/mc-tabs\';\n\nexport default function McTabsDemo() {\n  return (\n    <McTabs defaultValue="tab1">\n      <McTabsList>\n        <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>\n        <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>\n        <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>\n      </McTabsList>\n    </McTabs>\n  );\n}\n',
+          'import { McTabs, McTabsList, McTabsPanel, McTabsTrigger } from \'../ui/mc-tabs\';\n\nexport default function McTabsDemo() {\n  return (\n    <McTabs defaultValue="tab1">\n      <McTabsList>\n        <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>\n        <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>\n        <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>\n      </McTabsList>\n      <McTabsPanel value="tab1">Content for the first tab.</McTabsPanel>\n      <McTabsPanel value="tab2">Content for the second tab.</McTabsPanel>\n      <McTabsPanel value="tab3">Content for the third tab.</McTabsPanel>\n    </McTabs>\n  );\n}\n',
         type: 'registry:example',
       },
     ],
     component: React.lazy(() => import('@/registry/examples/mc-tabs-demo.tsx')),
     source:
-      'import { McTabs, McTabsList, McTabsTrigger } from \'../ui/mc-tabs\';\n\nexport default function McTabsDemo() {\n  return (\n    <McTabs defaultValue="tab1">\n      <McTabsList>\n        <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>\n        <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>\n        <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>\n      </McTabsList>\n    </McTabs>\n  );\n}\n',
+      'import { McTabs, McTabsList, McTabsPanel, McTabsTrigger } from \'../ui/mc-tabs\';\n\nexport default function McTabsDemo() {\n  return (\n    <McTabs defaultValue="tab1">\n      <McTabsList>\n        <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>\n        <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>\n        <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>\n      </McTabsList>\n      <McTabsPanel value="tab1">Content for the first tab.</McTabsPanel>\n      <McTabsPanel value="tab2">Content for the second tab.</McTabsPanel>\n      <McTabsPanel value="tab3">Content for the third tab.</McTabsPanel>\n    </McTabs>\n  );\n}\n',
   },
   'mc-breadcrumb-demo': {
     name: 'mc-breadcrumb-demo',
-    description: 'Demo for MicroClub Breadcrumb',
+    description: 'Demo for Micro Club Breadcrumb',
     type: 'registry:example',
     files: [
       {
@@ -2781,7 +2867,7 @@ export const Index: Record<string, any> = {
   },
   'mc-pagination-demo': {
     name: 'mc-pagination-demo',
-    description: 'Demo for MicroClub Pagination',
+    description: 'Demo for Micro Club Pagination',
     type: 'registry:example',
     files: [
       {
@@ -2797,7 +2883,7 @@ export const Index: Record<string, any> = {
   },
   'mc-dialog-demo': {
     name: 'mc-dialog-demo',
-    description: 'Demo for MicroClub Dialog',
+    description: 'Demo for Micro Club Dialog',
     type: 'registry:example',
     files: [
       {
@@ -2813,7 +2899,7 @@ export const Index: Record<string, any> = {
   },
   'mc-alert-dialog-demo': {
     name: 'mc-alert-dialog-demo',
-    description: 'Demo for MicroClub Alert Dialog',
+    description: 'Demo for Micro Club Alert Dialog',
     type: 'registry:example',
     files: [
       {
@@ -2829,7 +2915,7 @@ export const Index: Record<string, any> = {
   },
   'mc-alert-demo': {
     name: 'mc-alert-demo',
-    description: 'Demo for MicroClub Alert',
+    description: 'Demo for Micro Club Alert',
     type: 'registry:example',
     files: [
       {
@@ -2845,7 +2931,7 @@ export const Index: Record<string, any> = {
   },
   'mc-sonner-demo': {
     name: 'mc-sonner-demo',
-    description: 'Demo for MicroClub Sonner',
+    description: 'Demo for Micro Club Sonner',
     type: 'registry:example',
     files: [
       {
@@ -2861,7 +2947,7 @@ export const Index: Record<string, any> = {
   },
   'mc-tooltip-demo': {
     name: 'mc-tooltip-demo',
-    description: 'Demo for MicroClub Tooltip',
+    description: 'Demo for Micro Club Tooltip',
     type: 'registry:example',
     files: [
       {
@@ -2877,7 +2963,7 @@ export const Index: Record<string, any> = {
   },
   'mc-popover-demo': {
     name: 'mc-popover-demo',
-    description: 'Demo for MicroClub Popover',
+    description: 'Demo for Micro Club Popover',
     type: 'registry:example',
     files: [
       {
@@ -2893,23 +2979,23 @@ export const Index: Record<string, any> = {
   },
   'mc-dropdown-menu-demo': {
     name: 'mc-dropdown-menu-demo',
-    description: 'Demo for MicroClub Dropdown Menu',
+    description: 'Demo for Micro Club Dropdown Menu',
     type: 'registry:example',
     files: [
       {
         path: 'registry/examples/mc-dropdown-menu-demo.tsx',
         content:
-          '\'use client\';\n\nimport { McButton } from \'@/registry/ui/mc-button\';\nimport {\n  McDropdownMenu,\n  McDropdownMenuContent,\n  McDropdownMenuGroup,\n  McDropdownMenuItem,\n  McDropdownMenuLabel,\n  McDropdownMenuPortal,\n  McDropdownMenuSeparator,\n  McDropdownMenuSub,\n  McDropdownMenuSubContent,\n  McDropdownMenuSubTrigger,\n  McDropdownMenuTrigger,\n} from \'@/registry/ui/mc-dropdown-menu\';\n\nexport default function McDropdownMenuDemo() {\n  return (\n    <McDropdownMenu>\n      <McDropdownMenuTrigger\n        render={\n          <McButton\n            className="w-17 h-10 aria-expanded:shadow-[0_0_0_4px_var(--muted)] aria-expanded:text-primary"\n            variant="secondary"\n          >\n            Open\n          </McButton>\n        }\n      />\n      <McDropdownMenuContent className="w-56">\n        <McDropdownMenuGroup className="h-auto">\n          <McDropdownMenuLabel>My Account</McDropdownMenuLabel>\n          <McDropdownMenuItem>Profile</McDropdownMenuItem>\n          <McDropdownMenuItem>Settings</McDropdownMenuItem>\n        </McDropdownMenuGroup>\n        <McDropdownMenuSeparator />\n        <McDropdownMenuGroup className="h-auto">\n          <McDropdownMenuItem>Team</McDropdownMenuItem>\n          <McDropdownMenuSub>\n            <McDropdownMenuSubTrigger>Invite users</McDropdownMenuSubTrigger>\n            <McDropdownMenuPortal>\n              <McDropdownMenuSubContent>\n                <McDropdownMenuItem>Email</McDropdownMenuItem>\n                <McDropdownMenuItem>Message</McDropdownMenuItem>\n                <McDropdownMenuSeparator />\n                <McDropdownMenuItem>More...</McDropdownMenuItem>\n              </McDropdownMenuSubContent>\n            </McDropdownMenuPortal>\n          </McDropdownMenuSub>\n        </McDropdownMenuGroup>\n        <McDropdownMenuSeparator />\n        <McDropdownMenuGroup className="h-auto">\n          <McDropdownMenuItem variant="destructive">Log out</McDropdownMenuItem>\n        </McDropdownMenuGroup>\n      </McDropdownMenuContent>\n    </McDropdownMenu>\n  );\n}\n',
+          '\'use client\';\n\nimport { McButton } from \'@/registry/ui/mc-button\';\nimport {\n  McDropdownMenu,\n  McDropdownMenuContent,\n  McDropdownMenuGroup,\n  McDropdownMenuItem,\n  McDropdownMenuLabel,\n  McDropdownMenuPortal,\n  McDropdownMenuSeparator,\n  McDropdownMenuSub,\n  McDropdownMenuSubContent,\n  McDropdownMenuSubTrigger,\n  McDropdownMenuTrigger,\n} from \'@/registry/ui/mc-dropdown-menu\';\n\nexport default function McDropdownMenuDemo() {\n  return (\n    <McDropdownMenu>\n      <McDropdownMenuTrigger\n        render={\n          <McButton\n            className="w-17 h-10 aria-expanded:shadow-[0_0_0_4px_var(--muted)] aria-expanded:text-primary"\n            variant="secondary"\n          >\n            Open\n          </McButton>\n        }\n      />\n      <McDropdownMenuContent className="w-56">\n        <McDropdownMenuGroup>\n          <McDropdownMenuLabel>My Account</McDropdownMenuLabel>\n          <McDropdownMenuItem>Profile</McDropdownMenuItem>\n          <McDropdownMenuItem>Settings</McDropdownMenuItem>\n        </McDropdownMenuGroup>\n        <McDropdownMenuSeparator />\n        <McDropdownMenuGroup>\n          <McDropdownMenuItem>Team</McDropdownMenuItem>\n          <McDropdownMenuSub>\n            <McDropdownMenuSubTrigger>Invite users</McDropdownMenuSubTrigger>\n            <McDropdownMenuPortal>\n              <McDropdownMenuSubContent>\n                <McDropdownMenuItem>Email</McDropdownMenuItem>\n                <McDropdownMenuItem>Message</McDropdownMenuItem>\n                <McDropdownMenuSeparator />\n                <McDropdownMenuItem>More...</McDropdownMenuItem>\n              </McDropdownMenuSubContent>\n            </McDropdownMenuPortal>\n          </McDropdownMenuSub>\n        </McDropdownMenuGroup>\n        <McDropdownMenuSeparator />\n        <McDropdownMenuGroup>\n          <McDropdownMenuItem variant="destructive">Log out</McDropdownMenuItem>\n        </McDropdownMenuGroup>\n      </McDropdownMenuContent>\n    </McDropdownMenu>\n  );\n}\n',
         type: 'registry:example',
       },
     ],
     component: React.lazy(() => import('@/registry/examples/mc-dropdown-menu-demo.tsx')),
     source:
-      '\'use client\';\n\nimport { McButton } from \'@/registry/ui/mc-button\';\nimport {\n  McDropdownMenu,\n  McDropdownMenuContent,\n  McDropdownMenuGroup,\n  McDropdownMenuItem,\n  McDropdownMenuLabel,\n  McDropdownMenuPortal,\n  McDropdownMenuSeparator,\n  McDropdownMenuSub,\n  McDropdownMenuSubContent,\n  McDropdownMenuSubTrigger,\n  McDropdownMenuTrigger,\n} from \'@/registry/ui/mc-dropdown-menu\';\n\nexport default function McDropdownMenuDemo() {\n  return (\n    <McDropdownMenu>\n      <McDropdownMenuTrigger\n        render={\n          <McButton\n            className="w-17 h-10 aria-expanded:shadow-[0_0_0_4px_var(--muted)] aria-expanded:text-primary"\n            variant="secondary"\n          >\n            Open\n          </McButton>\n        }\n      />\n      <McDropdownMenuContent className="w-56">\n        <McDropdownMenuGroup className="h-auto">\n          <McDropdownMenuLabel>My Account</McDropdownMenuLabel>\n          <McDropdownMenuItem>Profile</McDropdownMenuItem>\n          <McDropdownMenuItem>Settings</McDropdownMenuItem>\n        </McDropdownMenuGroup>\n        <McDropdownMenuSeparator />\n        <McDropdownMenuGroup className="h-auto">\n          <McDropdownMenuItem>Team</McDropdownMenuItem>\n          <McDropdownMenuSub>\n            <McDropdownMenuSubTrigger>Invite users</McDropdownMenuSubTrigger>\n            <McDropdownMenuPortal>\n              <McDropdownMenuSubContent>\n                <McDropdownMenuItem>Email</McDropdownMenuItem>\n                <McDropdownMenuItem>Message</McDropdownMenuItem>\n                <McDropdownMenuSeparator />\n                <McDropdownMenuItem>More...</McDropdownMenuItem>\n              </McDropdownMenuSubContent>\n            </McDropdownMenuPortal>\n          </McDropdownMenuSub>\n        </McDropdownMenuGroup>\n        <McDropdownMenuSeparator />\n        <McDropdownMenuGroup className="h-auto">\n          <McDropdownMenuItem variant="destructive">Log out</McDropdownMenuItem>\n        </McDropdownMenuGroup>\n      </McDropdownMenuContent>\n    </McDropdownMenu>\n  );\n}\n',
+      '\'use client\';\n\nimport { McButton } from \'@/registry/ui/mc-button\';\nimport {\n  McDropdownMenu,\n  McDropdownMenuContent,\n  McDropdownMenuGroup,\n  McDropdownMenuItem,\n  McDropdownMenuLabel,\n  McDropdownMenuPortal,\n  McDropdownMenuSeparator,\n  McDropdownMenuSub,\n  McDropdownMenuSubContent,\n  McDropdownMenuSubTrigger,\n  McDropdownMenuTrigger,\n} from \'@/registry/ui/mc-dropdown-menu\';\n\nexport default function McDropdownMenuDemo() {\n  return (\n    <McDropdownMenu>\n      <McDropdownMenuTrigger\n        render={\n          <McButton\n            className="w-17 h-10 aria-expanded:shadow-[0_0_0_4px_var(--muted)] aria-expanded:text-primary"\n            variant="secondary"\n          >\n            Open\n          </McButton>\n        }\n      />\n      <McDropdownMenuContent className="w-56">\n        <McDropdownMenuGroup>\n          <McDropdownMenuLabel>My Account</McDropdownMenuLabel>\n          <McDropdownMenuItem>Profile</McDropdownMenuItem>\n          <McDropdownMenuItem>Settings</McDropdownMenuItem>\n        </McDropdownMenuGroup>\n        <McDropdownMenuSeparator />\n        <McDropdownMenuGroup>\n          <McDropdownMenuItem>Team</McDropdownMenuItem>\n          <McDropdownMenuSub>\n            <McDropdownMenuSubTrigger>Invite users</McDropdownMenuSubTrigger>\n            <McDropdownMenuPortal>\n              <McDropdownMenuSubContent>\n                <McDropdownMenuItem>Email</McDropdownMenuItem>\n                <McDropdownMenuItem>Message</McDropdownMenuItem>\n                <McDropdownMenuSeparator />\n                <McDropdownMenuItem>More...</McDropdownMenuItem>\n              </McDropdownMenuSubContent>\n            </McDropdownMenuPortal>\n          </McDropdownMenuSub>\n        </McDropdownMenuGroup>\n        <McDropdownMenuSeparator />\n        <McDropdownMenuGroup>\n          <McDropdownMenuItem variant="destructive">Log out</McDropdownMenuItem>\n        </McDropdownMenuGroup>\n      </McDropdownMenuContent>\n    </McDropdownMenu>\n  );\n}\n',
   },
   'mc-context-menu-demo': {
     name: 'mc-context-menu-demo',
-    description: 'Demo for MicroClub Context Menu',
+    description: 'Demo for Micro Club Context Menu',
     type: 'registry:example',
     files: [
       {
@@ -2925,7 +3011,7 @@ export const Index: Record<string, any> = {
   },
   'mc-data-table-demo': {
     name: 'mc-data-table-demo',
-    description: 'Demo for MicroClub Data Table',
+    description: 'Demo for Micro Club Data Table',
     type: 'registry:example',
     files: [
       {
@@ -2941,7 +3027,7 @@ export const Index: Record<string, any> = {
   },
   'mc-accordion-demo': {
     name: 'mc-accordion-demo',
-    description: 'Demo for MicroClub Accordion',
+    description: 'Demo for Micro Club Accordion',
     type: 'registry:example',
     files: [
       {
@@ -2957,7 +3043,7 @@ export const Index: Record<string, any> = {
   },
   'mc-collapsible-demo': {
     name: 'mc-collapsible-demo',
-    description: 'Demo for MicroClub Collapsible',
+    description: 'Demo for Micro Club Collapsible',
     type: 'registry:example',
     files: [
       {
@@ -2973,23 +3059,23 @@ export const Index: Record<string, any> = {
   },
   'mc-separator-demo': {
     name: 'mc-separator-demo',
-    description: 'Demo for MicroClub Separator',
+    description: 'Demo for Micro Club Separator',
     type: 'registry:example',
     files: [
       {
         path: 'registry/examples/mc-separator-demo.tsx',
         content:
-          'import { McSeparator } from \'../ui/mc-separator\';\n\nexport default function McSeparatorDemo() {\n  return (\n    <div className="flex max-w-sm flex-col gap-4 text-sm">\n      <div className="flex flex-col gap-1.5">\n        <div className="leading-none font-medium">MicroClub UI</div>\n        <div className="text-muted-foreground">A simple content block separated by a divider.</div>\n      </div>\n      <McSeparator />\n      <div>Separators help create visual rhythm and improve scannability in dense interfaces.</div>\n    </div>\n  );\n}\n',
+          'import { McSeparator } from \'../ui/mc-separator\';\n\nexport default function McSeparatorDemo() {\n  return (\n    <div className="flex max-w-sm flex-col gap-4 text-sm">\n      <div className="flex flex-col gap-1.5">\n        <div className="leading-none font-medium">Micro Club UI</div>\n        <div className="text-muted-foreground">A simple content block separated by a divider.</div>\n      </div>\n      <McSeparator />\n      <div>Separators help create visual rhythm and improve scannability in dense interfaces.</div>\n    </div>\n  );\n}\n',
         type: 'registry:example',
       },
     ],
     component: React.lazy(() => import('@/registry/examples/mc-separator-demo.tsx')),
     source:
-      'import { McSeparator } from \'../ui/mc-separator\';\n\nexport default function McSeparatorDemo() {\n  return (\n    <div className="flex max-w-sm flex-col gap-4 text-sm">\n      <div className="flex flex-col gap-1.5">\n        <div className="leading-none font-medium">MicroClub UI</div>\n        <div className="text-muted-foreground">A simple content block separated by a divider.</div>\n      </div>\n      <McSeparator />\n      <div>Separators help create visual rhythm and improve scannability in dense interfaces.</div>\n    </div>\n  );\n}\n',
+      'import { McSeparator } from \'../ui/mc-separator\';\n\nexport default function McSeparatorDemo() {\n  return (\n    <div className="flex max-w-sm flex-col gap-4 text-sm">\n      <div className="flex flex-col gap-1.5">\n        <div className="leading-none font-medium">Micro Club UI</div>\n        <div className="text-muted-foreground">A simple content block separated by a divider.</div>\n      </div>\n      <McSeparator />\n      <div>Separators help create visual rhythm and improve scannability in dense interfaces.</div>\n    </div>\n  );\n}\n',
   },
   'mc-progress-demo': {
     name: 'mc-progress-demo',
-    description: 'Demo for MicroClub Progress',
+    description: 'Demo for Micro Club Progress',
     type: 'registry:example',
     files: [
       {
@@ -3005,7 +3091,7 @@ export const Index: Record<string, any> = {
   },
   'mc-calendar-demo': {
     name: 'mc-calendar-demo',
-    description: 'Demo for MicroClub Calendar',
+    description: 'Demo for Micro Club Calendar',
     type: 'registry:example',
     files: [
       {
@@ -3021,7 +3107,7 @@ export const Index: Record<string, any> = {
   },
   'mc-scrollarea-demo': {
     name: 'mc-scrollarea-demo',
-    description: 'Demo for MicroClub Scroll Area',
+    description: 'Demo for Micro Club Scroll Area',
     type: 'registry:example',
     files: [
       {
@@ -3037,23 +3123,23 @@ export const Index: Record<string, any> = {
   },
   'mc-skeleton-demo': {
     name: 'mc-skeleton-demo',
-    description: 'Demo for MicroClub Skeleton',
+    description: 'Demo for Micro Club Skeleton',
     type: 'registry:example',
     files: [
       {
         path: 'registry/examples/mc-skeleton-demo.tsx',
         content:
-          'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport default function McSkeletonDemo() {\n  return (\n    <div className="p-6">\n      <div className="w-full max-w-sm space-y-4">\n        {Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="flex gap-3">\n            <McSkeleton width={48} height={48} rectangle={false} />\n            <div className="flex-1 space-y-2">\n              <McSkeleton height={16} width={192} rectangle />\n              <McSkeleton height={12} width={256} rectangle />\n              <McSkeleton height={12} width={170} rectangle />\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n',
+          'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport default function McSkeletonDemo() {\n  return (\n    <div className="p-6">\n      <div className="w-full max-w-sm space-y-4">\n        {Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="flex gap-4">\n            <McSkeleton width={48} height={48} rectangle={false} />\n            <div className="flex-1 space-y-2">\n              <McSkeleton height={16} width={192} rectangle />\n              <McSkeleton height={12} width={256} rectangle />\n              <McSkeleton height={12} width={170} rectangle />\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n',
         type: 'registry:example',
       },
     ],
     component: React.lazy(() => import('@/registry/examples/mc-skeleton-demo.tsx')),
     source:
-      'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport default function McSkeletonDemo() {\n  return (\n    <div className="p-6">\n      <div className="w-full max-w-sm space-y-4">\n        {Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="flex gap-3">\n            <McSkeleton width={48} height={48} rectangle={false} />\n            <div className="flex-1 space-y-2">\n              <McSkeleton height={16} width={192} rectangle />\n              <McSkeleton height={12} width={256} rectangle />\n              <McSkeleton height={12} width={170} rectangle />\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n',
+      'import { McSkeleton } from \'../ui/mc-skeleton\';\n\nexport default function McSkeletonDemo() {\n  return (\n    <div className="p-6">\n      <div className="w-full max-w-sm space-y-4">\n        {Array.from({ length: 3 }).map((_, i) => (\n          <div key={i} className="flex gap-4">\n            <McSkeleton width={48} height={48} rectangle={false} />\n            <div className="flex-1 space-y-2">\n              <McSkeleton height={16} width={192} rectangle />\n              <McSkeleton height={12} width={256} rectangle />\n              <McSkeleton height={12} width={170} rectangle />\n            </div>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n}\n',
   },
   'mc-badge-demo': {
     name: 'mc-badge-demo',
-    description: 'Demo for MicroClub Badge',
+    description: 'Demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3069,7 +3155,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-variants-demo': {
     name: 'mc-badge-variants-demo',
-    description: 'Variants demo for MicroClub Badge',
+    description: 'Variants demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3085,7 +3171,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-sizes-demo': {
     name: 'mc-badge-sizes-demo',
-    description: 'Sizes demo for MicroClub Badge',
+    description: 'Sizes demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3101,7 +3187,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-icons-demo': {
     name: 'mc-badge-icons-demo',
-    description: 'Icons demo for MicroClub Badge',
+    description: 'Icons demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3117,7 +3203,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-image-demo': {
     name: 'mc-badge-image-demo',
-    description: 'Image demo for MicroClub Badge',
+    description: 'Image demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3133,7 +3219,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-group-demo': {
     name: 'mc-badge-group-demo',
-    description: 'Leading badge group demo for MicroClub Badge',
+    description: 'Leading badge group demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3149,7 +3235,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-group-trailing-demo': {
     name: 'mc-badge-group-trailing-demo',
-    description: 'Trailing badge group demo for MicroClub Badge',
+    description: 'Trailing badge group demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3167,7 +3253,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-group-sizes-demo': {
     name: 'mc-badge-group-sizes-demo',
-    description: 'Badge group sizes demo for MicroClub Badge',
+    description: 'Badge group sizes demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3185,7 +3271,7 @@ export const Index: Record<string, any> = {
   },
   'mc-avatar-demo': {
     name: 'mc-avatar-demo',
-    description: 'Demo for MicroClub Avatar',
+    description: 'Demo for Micro Club Avatar',
     type: 'registry:example',
     files: [
       {
@@ -3201,7 +3287,7 @@ export const Index: Record<string, any> = {
   },
   'mc-drawer-demo': {
     name: 'mc-drawer-demo',
-    description: 'Demo for MicroClub drawer',
+    description: 'Demo for Micro Club drawer',
     type: 'registry:example',
     files: [
       {
@@ -3217,7 +3303,7 @@ export const Index: Record<string, any> = {
   },
   'mc-hover-card-demo': {
     name: 'mc-hover-card-demo',
-    description: 'Demo for MicroClub Hover Card',
+    description: 'Demo for Micro Club Hover Card',
     type: 'registry:example',
     files: [
       {
@@ -3233,7 +3319,7 @@ export const Index: Record<string, any> = {
   },
   'mc-slider-demo': {
     name: 'mc-slider-demo',
-    description: 'Demo for MicroClub Slider',
+    description: 'Demo for Micro Club Slider',
     type: 'registry:example',
     files: [
       {
@@ -3249,7 +3335,7 @@ export const Index: Record<string, any> = {
   },
   'mc-carousel-demo': {
     name: 'mc-carousel-demo',
-    description: 'Demo for MicroClub Carousel',
+    description: 'Demo for Micro Club Carousel',
     type: 'registry:example',
     files: [
       {

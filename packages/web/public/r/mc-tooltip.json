@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-tooltip",
-  "title": "MicroClub Tooltip",
-  "description": "A tooltip component for MicroClub UI",
+  "title": "Micro Club Tooltip",
+  "description": "A tooltip component for Micro Club UI",
   "dependencies": ["@base-ui/react"],
   "files": [
     {

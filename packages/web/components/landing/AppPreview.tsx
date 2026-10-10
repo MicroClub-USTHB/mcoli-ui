@@ -114,7 +114,7 @@ export function AppPreview() {
               <span className="flex size-7 items-center justify-center rounded-lg bg-primary font-plus-jakarta-sans text-xs font-bold text-primary-foreground">
                 MC
               </span>
-              <span className="text-sm font-semibold text-sidebar-foreground">MicroClub</span>
+              <span className="text-sm font-semibold text-sidebar-foreground">Micro Club</span>
             </div>
             {NAV.map((item) => (
               <span

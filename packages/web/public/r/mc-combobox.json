@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-combobox",
-  "title": "MicroClub Combobox",
-  "description": "A searchable dropdown with autocomplete functionality for MicroClub UI",
+  "title": "Micro Club Combobox",
+  "description": "A searchable dropdown with autocomplete functionality for Micro Club UI",
   "dependencies": ["@base-ui/react", "lucide-react"],
   "files": [
     {

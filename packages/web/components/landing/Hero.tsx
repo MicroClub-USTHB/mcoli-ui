@@ -22,7 +22,7 @@ export function Hero({ componentCount }: { componentCount: number }) {
 
       <div className="mx-auto flex max-w-6xl flex-col items-center px-4 pt-20 text-center sm:pt-32 md:px-6">
         <h1 className="max-w-4xl text-[2.6rem] leading-[1.08] font-extrabold tracking-[-0.03em] text-balance text-foreground sm:header-lg md:header-xl md:leading-[1.05] font-plus-jakarta-sans">
-          Ship MicroClub&apos;s design system{' '}
+          Ship Micro Club&apos;s design system{' '}
           <span className="text-gradient-primary">in one command.</span>
         </h1>
 

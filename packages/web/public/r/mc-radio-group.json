@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-radio-group",
-  "title": "MicroClub Radio Group",
-  "description": "A radio group component for MicroClub UI",
+  "title": "Micro Club Radio Group",
+  "description": "A radio group component for Micro Club UI",
   "dependencies": ["@base-ui/react", "class-variance-authority"],
   "files": [
     {

@@ -5,7 +5,7 @@ description: A component for organizing content into tabs.
 
 ## Overview
 
-The `mc-tabs` collection is a flexible tab navigation primitive for MicroClub UI. Built on the **@base-ui/react** tabs primitive, it delivers accessible focus behavior and clean MicroClub styling through Tailwind CSS.
+The `mc-tabs` collection is a flexible tab navigation primitive for Micro Club UI. Built on the **@base-ui/react** tabs primitive, it delivers accessible focus behavior and clean Micro Club styling through Tailwind CSS.
 
 Use `mc-tabs` when you need a polished tabbed interface with horizontal or vertical layout options.
 
@@ -59,7 +59,7 @@ Ensure your `@/lib/utils` or equivalent classname helper is correctly imported.
 ## Usage
 
 ```tsx
-import { McTabs, McTabsList, McTabsTrigger } from '@/components/ui/mc-tabs';
+import { McTabs, McTabsList, McTabsPanel, McTabsTrigger } from '@/components/ui/mc-tabs';
 
 export default function Example() {
   return (
@@ -69,6 +69,9 @@ export default function Example() {
         <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>
         <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>
       </McTabsList>
+      <McTabsPanel value="tab1">Content for tab 1</McTabsPanel>
+      <McTabsPanel value="tab2">Content for tab 2</McTabsPanel>
+      <McTabsPanel value="tab3">Content for tab 3</McTabsPanel>
     </McTabs>
   );
 }
@@ -91,25 +94,33 @@ export default function Example() {
 ### Vertical Tabs
 
 ```tsx
-<McTabs defaultValue="tab1">
-  <McTabsList variant="vertical">
+<McTabs defaultValue="tab1" orientation="vertical">
+  <McTabsList>
     <McTabsTrigger value="tab1">Tab 1</McTabsTrigger>
     <McTabsTrigger value="tab2">Tab 2</McTabsTrigger>
     <McTabsTrigger value="tab3">Tab 3</McTabsTrigger>
   </McTabsList>
+  <McTabsPanel value="tab1">Content for tab 1</McTabsPanel>
+  <McTabsPanel value="tab2">Content for tab 2</McTabsPanel>
+  <McTabsPanel value="tab3">Content for tab 3</McTabsPanel>
 </McTabs>
 ```
+
+`orientation="vertical"` stacks the triggers, places the panel beside them and switches keyboard navigation to ArrowUp/ArrowDown.
 
 ## API Reference
 
 ### Props
 
-| Prop            | Type                         | Default        | Description                             |
-| --------------- | ---------------------------- | -------------- | --------------------------------------- |
-| `variant`       | `"horizontal" \| "vertical"` | `"horizontal"` | Layout for the tab list                 |
-| `defaultValue`  | `string`                     | `undefined`    | Initial tab value for uncontrolled mode |
-| `value`         | `string`                     | `undefined`    | Controlled selected tab value           |
-| `onValueChange` | `(value: string) => void`    | `undefined`    | Callback when the active tab changes    |
-| `className`     | `string`                     | `undefined`    | Additional CSS classes                  |
+| Prop            | Type                         | Default        | Description                               |
+| --------------- | ---------------------------- | -------------- | ----------------------------------------- |
+| `orientation`   | `"horizontal" \| "vertical"` | `"horizontal"` | Layout and keyboard navigation (`McTabs`) |
+| `variant`       | `"horizontal" \| "vertical"` | `undefined`    | Deprecated: use `orientation` on `McTabs` |
+| `defaultValue`  | `string`                     | `undefined`    | Initial tab value for uncontrolled mode   |
+| `value`         | `string`                     | `undefined`    | Controlled selected tab value             |
+| `onValueChange` | `(value: string) => void`    | `undefined`    | Callback when the active tab changes      |
+| `className`     | `string`                     | `undefined`    | Additional CSS classes                    |
+
+`McTabsPanel` takes the `value` of the tab it belongs to.
 
 All other props from `@base-ui/react/tabs` are supported.

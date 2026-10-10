@@ -1,20 +1,18 @@
+import * as React from 'react';
+
 import { cn } from '@/lib/utils';
 
 type McSkeletonProps = {
-  width?: number;
-  height?: number;
+  width?: React.CSSProperties['width'];
+  height?: React.CSSProperties['height'];
   rectangle?: boolean;
 } & React.ComponentProps<'div'>;
 
-function McSkeleton({ className, rectangle, width, height, ...props }: McSkeletonProps) {
+function McSkeleton({ className, rectangle, width, height, style, ...props }: McSkeletonProps) {
   return (
     <div
       data-slot="skeleton"
-      style={{
-        width,
-        height,
-        ...(height === width ? { marginRight: 16 } : { marginBottom: 8 }),
-      }}
+      style={{ width, height, ...style }}
       className={cn('animate-pulse bg-muted', rectangle ? 'rounded-md' : 'rounded-full', className)}
       {...props}
     />

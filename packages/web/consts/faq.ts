@@ -10,7 +10,7 @@ export const FAQ = [
   },
   {
     q: 'Can I use it in any project?',
-    a: "Yes. It is MIT licensed and works in any React project. The themes carry MicroClub's identity, but the tokens are plain CSS variables you can retune.",
+    a: "Yes. It is MIT licensed and works in any React project. The themes carry Micro Club's identity, but the tokens are plain CSS variables you can retune.",
   },
   {
     q: 'Can I switch themes later?',

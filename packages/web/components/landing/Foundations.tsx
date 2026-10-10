@@ -376,7 +376,7 @@ function TypePanel() {
             {PARAGRAPHS.map((p) => (
               <div key={p.cls} className="flex items-center justify-between gap-4 px-5 py-2.5">
                 <p className={cn(p.cls, 'truncate text-foreground')}>
-                  Build, ship and learn with MicroClub.
+                  Build, ship and learn with Micro Club.
                 </p>
                 <span className="shrink-0 font-mono text-[11px] text-muted-foreground">
                   {p.cls} · {p.spec}

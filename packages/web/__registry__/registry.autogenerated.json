@@ -230,6 +230,7 @@
           "--color-warning": "var(--warning)",
           "--color-warning-foreground": "var(--warning-foreground)",
           "--color-error": "var(--error)",
+          "--color-error-foreground": "var(--error-foreground)",
           "--color-destructive": "var(--destructive)",
           "--color-destructive-foreground": "var(--destructive-foreground)",
           "--color-info": "var(--info)",
@@ -388,14 +389,22 @@
           "accent-foreground": "#0092b8",
           "card": "#ffffff",
           "card-foreground": "#1e1b4b",
+          "popover": "#ffffff",
+          "popover-foreground": "#1e1b4b",
           "muted": "#f9faff",
           "muted-foreground": "#54588b",
+          "surface": "#f9faff",
+          "surface-foreground": "#000350",
           "success": "#22c55e",
           "success-foreground": "#e6f9ee",
           "warning": "#ff6900",
           "warning-foreground": "#fff7ed",
           "destructive": "#e7000b",
           "destructive-foreground": "#ffedee",
+          "error": "#e7000b",
+          "error-foreground": "#ffedee",
+          "info": "#007aff",
+          "info-foreground": "#ffffff",
           "border": "#e6e9ff",
           "input": "#f9faff",
           "ring": "#d9ddff",
@@ -424,14 +433,22 @@
           "accent-foreground": "#fafafa",
           "card": "#171717",
           "card-foreground": "#fafafa",
+          "popover": "#171717",
+          "popover-foreground": "#fafafa",
           "muted": "#262626",
           "muted-foreground": "#a1a1a1",
+          "surface": "#262626",
+          "surface-foreground": "#fafafa",
           "success": "#22c55e",
           "success-foreground": "#e6f9ee",
           "warning": "#ff6900",
           "warning-foreground": "#fff7ed",
           "destructive": "#e7000b",
           "destructive-foreground": "#ffedee",
+          "error": "#e7000b",
+          "error-foreground": "#ffedee",
+          "info": "#007aff",
+          "info-foreground": "#ffffff",
           "border": "#262626",
           "input": "#343434",
           "ring": "#d9ddff",
@@ -656,6 +673,7 @@
           "--color-warning": "var(--warning)",
           "--color-warning-foreground": "var(--warning-foreground)",
           "--color-error": "var(--error)",
+          "--color-error-foreground": "var(--error-foreground)",
           "--color-destructive": "var(--destructive)",
           "--color-destructive-foreground": "var(--destructive-foreground)",
           "--color-info": "var(--info)",
@@ -814,14 +832,22 @@
           "accent-foreground": "#ff6900",
           "card": "#ffffff",
           "card-foreground": "#440b6d",
+          "popover": "#ffffff",
+          "popover-foreground": "#440b6d",
           "muted": "#fef7ff",
           "muted-foreground": "#c4b5fd",
+          "surface": "#fef7ff",
+          "surface-foreground": "#370958",
           "success": "#22c55e",
           "success-foreground": "#e6f9ee",
           "warning": "#ff6900",
           "warning-foreground": "#fff7ed",
           "destructive": "#e7000b",
           "destructive-foreground": "#ffedee",
+          "error": "#e7000b",
+          "error-foreground": "#ffedee",
+          "info": "#007aff",
+          "info-foreground": "#ffffff",
           "border": "#fdecfe",
           "input": "#fef7ff",
           "ring": "#eab5ed",
@@ -850,14 +876,22 @@
           "accent-foreground": "#fff7ed",
           "card": "#1e1b4b",
           "card-foreground": "#e6e9ff",
+          "popover": "#1e1b4b",
+          "popover-foreground": "#e6e9ff",
           "muted": "#171447",
           "muted-foreground": "#c4b5fd",
+          "surface": "#171447",
+          "surface-foreground": "#e6e9ff",
           "success": "#22c55e",
           "success-foreground": "#e6f9ee",
           "warning": "#ff6900",
           "warning-foreground": "#fff7ed",
           "destructive": "#e7000b",
           "destructive-foreground": "#ffedee",
+          "error": "#e7000b",
+          "error-foreground": "#ffedee",
+          "info": "#007aff",
+          "info-foreground": "#ffffff",
           "border": "#4916a1",
           "input": "#2e1065",
           "ring": "#8b5cf6",
@@ -1082,6 +1116,7 @@
           "--color-warning": "var(--warning)",
           "--color-warning-foreground": "var(--warning-foreground)",
           "--color-error": "var(--error)",
+          "--color-error-foreground": "var(--error-foreground)",
           "--color-destructive": "var(--destructive)",
           "--color-destructive-foreground": "var(--destructive-foreground)",
           "--color-info": "var(--info)",
@@ -1240,14 +1275,22 @@
           "accent-foreground": "#8acfd1",
           "card": "#fbe2a7",
           "card-foreground": "#454749",
+          "popover": "#fbe2a7",
+          "popover-foreground": "#454749",
           "muted": "#b2e1eb",
           "muted-foreground": "#5d5e61",
+          "surface": "#b2e1eb",
+          "surface-foreground": "#2e3133",
           "success": "#22c55e",
           "success-foreground": "#e6f9ee",
           "warning": "#ff6900",
           "warning-foreground": "#fff7ed",
           "destructive": "#f96f70",
           "destructive-foreground": "#ffffff",
+          "error": "#f96f70",
+          "error-foreground": "#ffffff",
+          "info": "#007aff",
+          "info-foreground": "#ffffff",
           "border": "#d04f99",
           "input": "#e4e4e4",
           "ring": "#e670ab",
@@ -1276,14 +1319,22 @@
           "accent-foreground": "#f3e3ea",
           "card": "#121824",
           "card-foreground": "#f3e3ea",
+          "popover": "#121824",
+          "popover-foreground": "#f3e3ea",
           "muted": "#272e37",
           "muted-foreground": "#e4a2b1",
+          "surface": "#272e37",
+          "surface-foreground": "#f3e3ea",
           "success": "#22c55e",
           "success-foreground": "#e6f9ee",
           "warning": "#ff6900",
           "warning-foreground": "#fff7ed",
           "destructive": "#f96f70",
           "destructive-foreground": "#ffffff",
+          "error": "#f96f70",
+          "error-foreground": "#ffffff",
+          "info": "#007aff",
+          "info-foreground": "#ffffff",
           "border": "#324859",
           "input": "#20333d",
           "ring": "#50afb6",
@@ -1508,6 +1559,7 @@
           "--color-warning": "var(--warning)",
           "--color-warning-foreground": "var(--warning-foreground)",
           "--color-error": "var(--error)",
+          "--color-error-foreground": "var(--error-foreground)",
           "--color-destructive": "var(--destructive)",
           "--color-destructive-foreground": "var(--destructive-foreground)",
           "--color-info": "var(--info)",
@@ -1666,14 +1718,22 @@
           "accent-foreground": "#0b0e24",
           "card": "#ffffff",
           "card-foreground": "#000000",
+          "popover": "#ffffff",
+          "popover-foreground": "#000000",
           "muted": "#f0f0f0",
           "muted-foreground": "#333333",
+          "surface": "#f0f0f0",
+          "surface-foreground": "#000000",
           "success": "#22c55e",
           "success-foreground": "#e6f9ee",
           "warning": "#ff6900",
           "warning-foreground": "#fff7ed",
           "destructive": "#e7000b",
           "destructive-foreground": "#ffffff",
+          "error": "#e7000b",
+          "error-foreground": "#ffffff",
+          "info": "#007aff",
+          "info-foreground": "#ffffff",
           "border": "#000000",
           "input": "#ffffff",
           "ring": "#00d3ff",
@@ -1702,14 +1762,22 @@
           "accent-foreground": "#ffffff",
           "card": "#262626",
           "card-foreground": "#ffffff",
+          "popover": "#262626",
+          "popover-foreground": "#ffffff",
           "muted": "#1a1a1a",
           "muted-foreground": "#cccccc",
+          "surface": "#1a1a1a",
+          "surface-foreground": "#ffffff",
           "success": "#22c55e",
           "success-foreground": "#e6f9ee",
           "warning": "#ff6900",
           "warning-foreground": "#fff7ed",
           "destructive": "#e7000b",
           "destructive-foreground": "#ffffff",
+          "error": "#e7000b",
+          "error-foreground": "#ffffff",
+          "info": "#007aff",
+          "info-foreground": "#ffffff",
           "border": "#676767",
           "input": "#676767",
           "ring": "#00b8cc",
@@ -1934,6 +2002,7 @@
           "--color-warning": "var(--warning)",
           "--color-warning-foreground": "var(--warning-foreground)",
           "--color-error": "var(--error)",
+          "--color-error-foreground": "var(--error-foreground)",
           "--color-destructive": "var(--destructive)",
           "--color-destructive-foreground": "var(--destructive-foreground)",
           "--color-info": "var(--info)",
@@ -2092,14 +2161,22 @@
           "accent-foreground": "#374151",
           "card": "#ffffff",
           "card-foreground": "#374151",
+          "popover": "#ffffff",
+          "popover-foreground": "#374151",
           "muted": "#f0f0f3",
           "muted-foreground": "#6b7280",
+          "surface": "#f0f0f3",
+          "surface-foreground": "#374151",
           "success": "#22c55e",
           "success-foreground": "#e6f9ee",
           "warning": "#ff6900",
           "warning-foreground": "#fff7ed",
           "destructive": "#e7000b",
           "destructive-foreground": "#ffffff",
+          "error": "#e7000b",
+          "error-foreground": "#ffffff",
+          "info": "#007aff",
+          "info-foreground": "#ffffff",
           "border": "#e5e7eb",
           "input": "#ffffff",
           "ring": "#34d399",
@@ -2128,14 +2205,22 @@
           "accent-foreground": "#a1a1a1",
           "card": "#1e293b",
           "card-foreground": "#d1d5db",
+          "popover": "#1e293b",
+          "popover-foreground": "#d1d5db",
           "muted": "#19212e",
           "muted-foreground": "#6b7280",
+          "surface": "#19212e",
+          "surface-foreground": "#d1d5db",
           "success": "#22c55e",
           "success-foreground": "#e6f9ee",
           "warning": "#ff6900",
           "warning-foreground": "#fff7ed",
           "destructive": "#e7000b",
           "destructive-foreground": "#ffffff",
+          "error": "#e7000b",
+          "error-foreground": "#ffffff",
+          "info": "#007aff",
+          "info-foreground": "#ffffff",
           "border": "#4b5563",
           "input": "#4b5563",
           "ring": "#34d399",
@@ -2157,8 +2242,8 @@
     },
     {
       "name": "mc-button",
-      "title": "MicroClub Button",
-      "description": "A button component for MicroClub UI",
+      "title": "Micro Club Button",
+      "description": "A button component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
       "files": [
         {
@@ -2170,8 +2255,8 @@
     },
     {
       "name": "mc-input",
-      "title": "MicroClub Input",
-      "description": "An input component with field integration and addon support for MicroClub UI",
+      "title": "Micro Club Input",
+      "description": "An input component with field integration and addon support for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2183,8 +2268,8 @@
     },
     {
       "name": "mc-textarea",
-      "title": "MicroClub Textarea",
-      "description": "A multi-line text input with field integration and block addons for MicroClub UI",
+      "title": "Micro Club Textarea",
+      "description": "A multi-line text input with field integration and block addons for Micro Club UI",
       "dependencies": [],
       "files": [
         {
@@ -2196,8 +2281,8 @@
     },
     {
       "name": "mc-input-otp",
-      "title": "MicroClub Input OTP",
-      "description": "An OTP input component for MicroClub UI",
+      "title": "Micro Club Input OTP",
+      "description": "An OTP input component for Micro Club UI",
       "dependencies": ["input-otp", "lucide-react"],
       "files": [
         {
@@ -2209,8 +2294,8 @@
     },
     {
       "name": "mc-checkbox",
-      "title": "MicroClub Checkbox",
-      "description": "A checkbox component for MicroClub UI",
+      "title": "Micro Club Checkbox",
+      "description": "A checkbox component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
       "files": [
         {
@@ -2222,8 +2307,8 @@
     },
     {
       "name": "mc-radio-group",
-      "title": "MicroClub Radio Group",
-      "description": "A radio group component for MicroClub UI",
+      "title": "Micro Club Radio Group",
+      "description": "A radio group component for Micro Club UI",
       "dependencies": ["@base-ui/react", "class-variance-authority"],
       "files": [
         {
@@ -2235,8 +2320,8 @@
     },
     {
       "name": "mc-card",
-      "title": "MicroClub Card",
-      "description": "A card layout with header, body, and footer regions for MicroClub UI",
+      "title": "Micro Club Card",
+      "description": "A card layout with header, body, and footer regions for Micro Club UI",
       "dependencies": ["class-variance-authority"],
       "files": [
         {
@@ -2248,8 +2333,8 @@
     },
     {
       "name": "mc-select",
-      "title": "MicroClub Select",
-      "description": "A select component for MicroClub UI",
+      "title": "Micro Club Select",
+      "description": "A select component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2261,8 +2346,8 @@
     },
     {
       "name": "mc-combobox",
-      "title": "MicroClub Combobox",
-      "description": "A searchable dropdown with autocomplete functionality for MicroClub UI",
+      "title": "Micro Club Combobox",
+      "description": "A searchable dropdown with autocomplete functionality for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2274,8 +2359,8 @@
     },
     {
       "name": "mc-switch",
-      "title": "MicroClub Switch",
-      "description": "A switch component for MicroClub UI",
+      "title": "Micro Club Switch",
+      "description": "A switch component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2287,8 +2372,8 @@
     },
     {
       "name": "mc-navigation-menu",
-      "title": "MicroClub Navigation Menu",
-      "description": "A navigation menu component for MicroClub UI",
+      "title": "Micro Club Navigation Menu",
+      "description": "A navigation menu component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
       "files": [
         {
@@ -2300,8 +2385,8 @@
     },
     {
       "name": "mc-sidebar",
-      "title": "MicroClub Sidebar",
-      "description": "A sidebar component for MicroClub UI",
+      "title": "Micro Club Sidebar",
+      "description": "A sidebar component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
       "registryDependencies": [
         "https://mcoli-ui.microclub.info/r/mc-button.json",
@@ -2317,8 +2402,8 @@
     },
     {
       "name": "mc-tabs",
-      "title": "MicroClub Tabs",
-      "description": "A tabs component for MicroClub UI",
+      "title": "Micro Club Tabs",
+      "description": "A tabs component for Micro Club UI",
       "dependencies": ["@base-ui/react", "class-variance-authority"],
       "files": [
         {
@@ -2330,8 +2415,8 @@
     },
     {
       "name": "mc-breadcrumb",
-      "title": "MicroClub Breadcrumb",
-      "description": "A breadcrumb component for MicroClub UI",
+      "title": "Micro Club Breadcrumb",
+      "description": "A breadcrumb component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2343,8 +2428,8 @@
     },
     {
       "name": "mc-pagination",
-      "title": "MicroClub Pagination",
-      "description": "A pagination component for MicroClub UI",
+      "title": "Micro Club Pagination",
+      "description": "A pagination component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2356,8 +2441,8 @@
     },
     {
       "name": "mc-dialog",
-      "title": "MicroClub Dialog",
-      "description": "A dialog component for MicroClub UI",
+      "title": "Micro Club Dialog",
+      "description": "A dialog component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
       "files": [
@@ -2370,8 +2455,8 @@
     },
     {
       "name": "mc-alert-dialog",
-      "title": "MicroClub Alert Dialog",
-      "description": "An alert dialog component for MicroClub UI",
+      "title": "Micro Club Alert Dialog",
+      "description": "An alert dialog component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
       "files": [
@@ -2384,8 +2469,8 @@
     },
     {
       "name": "mc-alert",
-      "title": "MicroClub Alert",
-      "description": "An alert component for MicroClub UI",
+      "title": "Micro Club Alert",
+      "description": "An alert component for Micro Club UI",
       "dependencies": ["lucide-react"],
       "files": [
         {
@@ -2397,8 +2482,8 @@
     },
     {
       "name": "mc-sonner",
-      "title": "MicroClub Sonner",
-      "description": "A toast component for MicroClub UI",
+      "title": "Micro Club Sonner",
+      "description": "A toast component for Micro Club UI",
       "dependencies": ["sonner", "lucide-react"],
       "files": [
         {
@@ -2410,8 +2495,8 @@
     },
     {
       "name": "mc-tooltip",
-      "title": "MicroClub Tooltip",
-      "description": "A tooltip component for MicroClub UI",
+      "title": "Micro Club Tooltip",
+      "description": "A tooltip component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2423,8 +2508,8 @@
     },
     {
       "name": "mc-popover",
-      "title": "MicroClub Popover",
-      "description": "A popover component for MicroClub UI",
+      "title": "Micro Club Popover",
+      "description": "A popover component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2436,8 +2521,8 @@
     },
     {
       "name": "mc-dropdown-menu",
-      "title": "MicroClub Dropdown Menu",
-      "description": "A dropdown menu component for MicroClub UI",
+      "title": "Micro Club Dropdown Menu",
+      "description": "A dropdown menu component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2449,8 +2534,8 @@
     },
     {
       "name": "mc-context-menu",
-      "title": "MicroClub Context Menu",
-      "description": "A context menu component for MicroClub UI",
+      "title": "Micro Club Context Menu",
+      "description": "A context menu component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2462,8 +2547,8 @@
     },
     {
       "name": "mc-data-table",
-      "title": "MicroClub Data Table",
-      "description": "A data table component with sorting, selection and pagination for MicroClub UI",
+      "title": "Micro Club Data Table",
+      "description": "A data table component with sorting, selection and pagination for Micro Club UI",
       "dependencies": ["@tanstack/react-table", "lucide-react"],
       "registryDependencies": [
         "https://mcoli-ui.microclub.info/r/mc-button.json",
@@ -2480,8 +2565,8 @@
     },
     {
       "name": "mc-accordion",
-      "title": "MicroClub Accordion",
-      "description": "An accordion component for MicroClub UI",
+      "title": "Micro Club Accordion",
+      "description": "An accordion component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2493,8 +2578,8 @@
     },
     {
       "name": "mc-collapsible",
-      "title": "MicroClub Collapsible",
-      "description": "A collapsible component for MicroClub UI",
+      "title": "Micro Club Collapsible",
+      "description": "A collapsible component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2506,8 +2591,8 @@
     },
     {
       "name": "mc-separator",
-      "title": "MicroClub Separator",
-      "description": "A separator component for MicroClub UI",
+      "title": "Micro Club Separator",
+      "description": "A separator component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2519,8 +2604,8 @@
     },
     {
       "name": "mc-progress",
-      "title": "MicroClub Progress",
-      "description": "A progress component for MicroClub UI",
+      "title": "Micro Club Progress",
+      "description": "A progress component for Micro Club UI",
       "dependencies": ["lucide-react", "class-variance-authority"],
       "files": [
         {
@@ -2532,8 +2617,8 @@
     },
     {
       "name": "mc-calendar",
-      "title": "MicroClub Calendar",
-      "description": "A calendar component for MicroClub UI",
+      "title": "Micro Club Calendar",
+      "description": "A calendar component for Micro Club UI",
       "dependencies": ["react-day-picker", "date-fns", "lucide-react"],
       "registryDependencies": [
         "https://mcoli-ui.microclub.info/r/mc-button.json",
@@ -2549,8 +2634,8 @@
     },
     {
       "name": "mc-scrollarea",
-      "title": "MicroClub Scroll Area",
-      "description": "A scroll area component for MicroClub UI",
+      "title": "Micro Club Scroll Area",
+      "description": "A scroll area component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2562,8 +2647,8 @@
     },
     {
       "name": "mc-skeleton",
-      "title": "MicroClub Skeleton",
-      "description": "A skeleton component for MicroClub UI",
+      "title": "Micro Club Skeleton",
+      "description": "A skeleton component for Micro Club UI",
       "dependencies": [],
       "files": [
         {
@@ -2575,8 +2660,8 @@
     },
     {
       "name": "mc-badge",
-      "title": "MicroClub Badge",
-      "description": "A badge component for MicroClub UI",
+      "title": "Micro Club Badge",
+      "description": "A badge component for Micro Club UI",
       "dependencies": ["@base-ui/react", "class-variance-authority"],
       "files": [
         {
@@ -2588,8 +2673,8 @@
     },
     {
       "name": "mc-avatar",
-      "title": "MicroClub Avatar",
-      "description": "An avatar component for MicroClub UI",
+      "title": "Micro Club Avatar",
+      "description": "An avatar component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2601,8 +2686,8 @@
     },
     {
       "name": "mc-drawer",
-      "title": "MicroClub Drawer",
-      "description": "A drawer component for MicroClub UI",
+      "title": "Micro Club Drawer",
+      "description": "A drawer component for Micro Club UI",
       "dependencies": ["vaul"],
       "files": [
         {
@@ -2621,8 +2706,8 @@
     },
     {
       "name": "mc-hover-card",
-      "title": "MicroClub Hover Card",
-      "description": "A hover card component for MicroClub UI",
+      "title": "Micro Club Hover Card",
+      "description": "A hover card component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2634,8 +2719,8 @@
     },
     {
       "name": "mc-slider",
-      "title": "MicroClub Slider",
-      "description": "A slider component for MicroClub UI",
+      "title": "Micro Club Slider",
+      "description": "A slider component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2647,8 +2732,8 @@
     },
     {
       "name": "mc-carousel",
-      "title": "MicroClub Carousel",
-      "description": "A carousel component for MicroClub UI",
+      "title": "Micro Club Carousel",
+      "description": "A carousel component for Micro Club UI",
       "dependencies": ["embla-carousel-react", "lucide-react"],
       "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
       "files": [

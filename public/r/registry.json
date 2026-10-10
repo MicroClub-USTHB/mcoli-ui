@@ -2157,8 +2157,8 @@
     },
     {
       "name": "mc-button",
-      "title": "MicroClub Button",
-      "description": "A button component for MicroClub UI",
+      "title": "Micro Club Button",
+      "description": "A button component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {

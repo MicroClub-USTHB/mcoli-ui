@@ -5,7 +5,7 @@ description: A card that appears on hover with additional information.
 
 ## Overview
 
-The `mc-hover-card` is a lightweight, hover-triggered card component in MicroClub UI. Built on the **@base-ui/react** preview-card primitive, it delivers accessible hover interactions with a flexible card layout and image/content support.
+The `mc-hover-card` is a lightweight, hover-triggered card component in Micro Club UI. Built on the **@base-ui/react** preview-card primitive, it delivers accessible hover interactions with a flexible card layout and image/content support.
 
 This component is designed for seamless integration into your codebase, with customizable alignment, offset, and content props.
 
@@ -105,7 +105,7 @@ export default function Example() {
 <McHoverCard>
   <McHoverCardTrigger href="#">Hover me</McHoverCardTrigger>
   <McHoverCardContent
-    imageposition="bottom"
+    imagePosition="bottom"
     textAlign="center"
     title="Profile"
     subtitle="Designer"
@@ -134,18 +134,19 @@ export default function Example() {
 
 ### Props
 
-| Prop            | Type                                                                       | Default     | Description                                             |
-| --------------- | -------------------------------------------------------------------------- | ----------- | ------------------------------------------------------- |
-| `title`         | `string`                                                                   | `undefined` | Main heading displayed inside the hover card            |
-| `subtitle`      | `string`                                                                   | `undefined` | Secondary line of text below the title                  |
-| `description`   | `string`                                                                   | `undefined` | Body text shown inside the card                         |
-| `imageSrc`      | `string \| null`                                                           | `null`      | Optional image URL shown above or below the content     |
-| `imageposition` | `"top" \| "bottom"`                                                        | `"top"`     | Position of the image relative to the text content      |
-| `textAlign`     | `"start" \| "center"`                                                      | `"start"`   | Text alignment for title, subtitle, and description     |
-| `side`          | `"top" \| "right" \| "bottom" \| "left" \| "inline-start" \| "inline-end"` | `"bottom"`  | Side where the hover card appears                       |
-| `sideOffset`    | `number`                                                                   | `4`         | Offset distance from the trigger on the specified side  |
-| `align`         | `"start" \| "center" \| "end"`                                             | `"center"`  | Alignment of the hover card relative to the trigger     |
-| `alignOffset`   | `number`                                                                   | `4`         | Offset distance along the alignment axis                |
-| `className`     | `string`                                                                   | `undefined` | Additional CSS classes passed to the hover card content |
+| Prop            | Type                                                                       | Default     | Description                                            |
+| --------------- | -------------------------------------------------------------------------- | ----------- | ------------------------------------------------------ |
+| `title`         | `string`                                                                   | `undefined` | Main heading displayed inside the hover card           |
+| `subtitle`      | `string`                                                                   | `undefined` | Secondary line of text below the title                 |
+| `description`   | `string`                                                                   | `undefined` | Body text shown inside the card                        |
+| `imageSrc`      | `string \| null`                                                           | `null`      | Optional image URL shown above or below the content    |
+| `imageAlt`      | `string`                                                                   | `""`        | Alternative text for the image                         |
+| `imagePosition` | `"top" \| "bottom"`                                                        | `"top"`     | Position of the image relative to the text content     |
+| `textAlign`     | `"start" \| "center"`                                                      | `"start"`   | Text alignment for title, subtitle, and description    |
+| `side`          | `"top" \| "right" \| "bottom" \| "left" \| "inline-start" \| "inline-end"` | `"bottom"`  | Side where the hover card appears                      |
+| `sideOffset`    | `number`                                                                   | `4`         | Offset distance from the trigger on the specified side |
+| `align`         | `"start" \| "center" \| "end"`                                             | `"center"`  | Alignment of the hover card relative to the trigger    |
+| `alignOffset`   | `number`                                                                   | `4`         | Offset distance along the alignment axis               |
+| `className`     | `string`                                                                   | `undefined` | Additional CSS classes applied to the visible card     |
 
 All other props from `@base-ui/react/preview-card` are supported.

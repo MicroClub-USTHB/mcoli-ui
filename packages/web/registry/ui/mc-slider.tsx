@@ -13,6 +13,7 @@ function McSlider({
   max = 100,
   showValue = true,
   border = false,
+  unit,
   unity,
   thumbAriaLabel,
   onValueChange,
@@ -20,10 +21,14 @@ function McSlider({
 }: SliderPrimitive.Root.Props & {
   showValue?: boolean;
   border?: boolean;
+  /** Suffix displayed after the value, e.g. "%". */
+  unit?: string;
+  /** @deprecated Use `unit` instead. */
   unity?: string;
   /** Accessible name for the thumb's input, e.g. "Team size". */
   thumbAriaLabel?: string;
 }) {
+  const valueUnit = unit ?? unity;
   const isControlled = value !== undefined;
 
   const [internalValues, setInternalValues] = React.useState<number[]>(
@@ -34,7 +39,11 @@ function McSlider({
 
   return (
     <SliderPrimitive.Root
-      className={cn('data-horizontal:w-full data-vertical:h-full mt-12', className)}
+      className={cn(
+        'data-horizontal:w-full data-vertical:h-full',
+        showValue && 'data-horizontal:mt-12',
+        className
+      )}
       data-slot="slider"
       defaultValue={defaultValue}
       value={value}
@@ -65,7 +74,7 @@ function McSlider({
             key={index}
             data-slot="slider-thumb"
             getAriaLabel={thumbAriaLabel ? () => thumbAriaLabel : undefined}
-            className="group relative block size-3 shrink-0 rounded-full border-2 border-primary bg-muted ring-accent-foreground backdrop-blur-3xl transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:ring-3 focus-visible:ring-3 focus-visible:outline-hidden active:ring-3 active:bg-primary disabled:pointer-events-none disabled:opacity-50 disabled:bg-blue-500"
+            className="group relative block size-3 shrink-0 rounded-full border-2 border-primary bg-muted ring-accent-foreground backdrop-blur-3xl transition-[color,box-shadow] select-none after:absolute after:-inset-2 hover:ring-3 focus-visible:ring-3 focus-visible:outline-hidden active:ring-3 active:bg-primary data-disabled:pointer-events-none data-disabled:bg-primary"
           >
             {showValue && (
               <div
@@ -75,7 +84,7 @@ function McSlider({
                   border && 'ring-1 ring-inset ring-border bg-muted'
                 )}
               >
-                {currentValue} {unity}
+                {currentValue} {valueUnit}
               </div>
             )}
           </SliderPrimitive.Thumb>

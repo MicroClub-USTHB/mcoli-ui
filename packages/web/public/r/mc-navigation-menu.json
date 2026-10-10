@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-navigation-menu",
-  "title": "MicroClub Navigation Menu",
-  "description": "A navigation menu component for MicroClub UI",
+  "title": "Micro Club Navigation Menu",
+  "description": "A navigation menu component for Micro Club UI",
   "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
   "files": [
     {

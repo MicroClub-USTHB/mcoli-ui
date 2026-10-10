@@ -4,27 +4,40 @@ import { Tabs as TabsPrimitive } from '@base-ui/react/tabs';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
-const McTabsListVariants = cva('flex bg-muted rounded-lg p-[3px] size-fit', {
-  variants: {
-    variant: {
-      horizontal: 'flex-row',
-      vertical: 'flex-col',
+const McTabsListVariants = cva(
+  'flex flex-row bg-muted rounded-lg p-[3px] size-fit data-[orientation=vertical]:flex-col',
+  {
+    variants: {
+      variant: {
+        horizontal: '',
+        vertical: 'flex-col',
+      },
     },
-  },
-  defaultVariants: {
-    variant: 'horizontal',
-  },
-});
+  }
+);
 
-function McTabs({ ...props }: TabsPrimitive.Root.Props) {
-  return <TabsPrimitive.Root data-slot="tabs" {...props} />;
+function McTabs({ className, ...props }: TabsPrimitive.Root.Props) {
+  return (
+    <TabsPrimitive.Root
+      data-slot="tabs"
+      className={cn('flex flex-col gap-2 data-[orientation=vertical]:flex-row', className)}
+      {...props}
+    />
+  );
 }
 
 function McTabsList({
   className,
   variant,
   ...props
-}: TabsPrimitive.List.Props & VariantProps<typeof McTabsListVariants>) {
+}: TabsPrimitive.List.Props &
+  VariantProps<typeof McTabsListVariants> & {
+    /**
+     * @deprecated Only changes the layout. Set `orientation="vertical"` on `McTabs` instead,
+     * which also switches keyboard navigation to ArrowUp/ArrowDown.
+     */
+    variant?: 'horizontal' | 'vertical' | null;
+  }) {
   return (
     <TabsPrimitive.List
       data-slot="tabs-list"
@@ -50,4 +63,14 @@ function McTabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
   );
 }
 
-export { McTabs, McTabsList, McTabsTrigger };
+function McTabsPanel({ className, ...props }: TabsPrimitive.Panel.Props) {
+  return (
+    <TabsPrimitive.Panel
+      data-slot="tabs-panel"
+      className={cn('flex-1 text-sm text-foreground outline-none', className)}
+      {...props}
+    />
+  );
+}
+
+export { McTabs, McTabsList, McTabsTrigger, McTabsPanel };

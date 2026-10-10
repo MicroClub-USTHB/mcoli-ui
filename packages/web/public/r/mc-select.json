@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-select",
-  "title": "MicroClub Select",
-  "description": "A select component for MicroClub UI",
+  "title": "Micro Club Select",
+  "description": "A select component for Micro Club UI",
   "dependencies": ["@base-ui/react", "lucide-react"],
   "files": [
     {

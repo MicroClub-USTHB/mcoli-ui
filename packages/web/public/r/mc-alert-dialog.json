@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-alert-dialog",
-  "title": "MicroClub Alert Dialog",
-  "description": "An alert dialog component for MicroClub UI",
+  "title": "Micro Club Alert Dialog",
+  "description": "An alert dialog component for Micro Club UI",
   "dependencies": ["@base-ui/react"],
   "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
   "files": [

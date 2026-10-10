@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-badge",
-  "title": "MicroClub Badge",
-  "description": "A badge component for MicroClub UI",
+  "title": "Micro Club Badge",
+  "description": "A badge component for Micro Club UI",
   "dependencies": ["@base-ui/react", "class-variance-authority"],
   "files": [
     {

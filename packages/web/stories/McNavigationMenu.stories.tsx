@@ -110,7 +110,7 @@ export const BasicTrigger: Story = {
             <McNavigationMenuContent>
               <ul className="w-80">
                 <ListItem href="/docs/introduction" title="Introduction">
-                  Getting started with MicroClub UI
+                  Getting started with Micro Club UI
                 </ListItem>
                 <ListItem href="/docs/installation" title="Installation">
                   Step-by-step setup guide

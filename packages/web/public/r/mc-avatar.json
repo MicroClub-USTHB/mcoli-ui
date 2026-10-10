@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-avatar",
-  "title": "MicroClub Avatar",
-  "description": "An avatar component for MicroClub UI",
+  "title": "Micro Club Avatar",
+  "description": "An avatar component for Micro Club UI",
   "dependencies": ["@base-ui/react"],
   "files": [
     {

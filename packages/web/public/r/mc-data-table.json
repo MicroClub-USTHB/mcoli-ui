@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-data-table",
-  "title": "MicroClub Data Table",
-  "description": "A data table component with sorting, selection and pagination for MicroClub UI",
+  "title": "Micro Club Data Table",
+  "description": "A data table component with sorting, selection and pagination for Micro Club UI",
   "dependencies": ["@tanstack/react-table", "lucide-react"],
   "registryDependencies": [
     "https://mcoli-ui.microclub.info/r/mc-button.json",
