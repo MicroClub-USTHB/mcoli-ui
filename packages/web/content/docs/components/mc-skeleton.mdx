@@ -81,11 +81,11 @@ export default function Example() {
 
 ### Props
 
-| Prop        | Type      | Default     | Description                                                   |
-| ----------- | --------- | ----------- | ------------------------------------------------------------- |
-| `width`     | `number`  | `undefined` | Inline width passed to the skeleton container.                |
-| `height`    | `number`  | `undefined` | Inline height passed to the skeleton container.               |
-| `rectangle` | `boolean` | `false`     | Uses a rectangular shape instead of the default rounded pill. |
-| `className` | `string`  | `undefined` | Additional Tailwind classes.                                  |
+| Prop        | Type               | Default     | Description                                                                     |
+| ----------- | ------------------ | ----------- | ------------------------------------------------------------------------------- |
+| `width`     | `number \| string` | `undefined` | Inline width passed to the skeleton container (e.g. `48`, `"100%"`, `"12rem"`). |
+| `height`    | `number \| string` | `undefined` | Inline height passed to the skeleton container.                                 |
+| `rectangle` | `boolean`          | `false`     | Uses a rectangular shape instead of the default rounded pill.                   |
+| `className` | `string`           | `undefined` | Additional Tailwind classes.                                                    |
 
 All other props from `React.ComponentProps<'div'>` are supported.
