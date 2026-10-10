@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-carousel",
-  "title": "MicroClub Carousel",
-  "description": "A carousel component for MicroClub UI",
+  "title": "Micro Club Carousel",
+  "description": "A carousel component for Micro Club UI",
   "dependencies": ["embla-carousel-react", "lucide-react"],
   "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
   "files": [

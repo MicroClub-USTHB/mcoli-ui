@@ -43,7 +43,7 @@ export function getHomeJsonLd() {
         '@id': `${site.url}/#website`,
         url: site.url,
         name: site.name,
-        alternateName: ['mcoli-ui', 'MicroClub UI'],
+        alternateName: ['mcoli-ui', 'Micro Club UI'],
         description: site.description,
         inLanguage: 'en',
         publisher: { '@id': `${site.url}/#organization` },

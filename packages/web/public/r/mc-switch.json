@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-switch",
-  "title": "MicroClub Switch",
-  "description": "A switch component for MicroClub UI",
+  "title": "Micro Club Switch",
+  "description": "A switch component for Micro Club UI",
   "dependencies": ["@base-ui/react"],
   "files": [
     {

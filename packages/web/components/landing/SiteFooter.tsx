@@ -26,7 +26,7 @@ const COLUMNS = [
   {
     title: 'Club',
     links: [
-      { label: 'MicroClub', href: 'https://microclub.info' },
+      { label: 'Micro Club', href: 'https://microclub.info' },
       { label: 'GitHub', href: REPO_URL },
       { label: 'License (MIT)', href: `${REPO_URL}/blob/main/LICENSE` },
     ],
@@ -59,7 +59,7 @@ export function SiteFooter() {
               <Logo height={28} />
             </Link>
             <p className="max-w-xs text-sm text-muted-foreground">
-              Stop building from scratch. Elevate your UI with MicroClub DNA.
+              Stop building from scratch. Elevate your UI with Micro Club DNA.
             </p>
             <a
               href={REPO_URL}
@@ -84,7 +84,7 @@ export function SiteFooter() {
 
         <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} MicroClub. Released under the MIT License.
+            © {new Date().getFullYear()} Micro Club. Released under the MIT License.
           </p>
           <a
             href="https://microclub.info"

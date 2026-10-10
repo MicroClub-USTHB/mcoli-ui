@@ -49,14 +49,14 @@ export function Community({ contributors }: { contributors: Contributor[] }) {
   return (
     <section className="landing-deferred py-20 md:py-24">
       <div className="mx-auto grid max-w-6xl gap-6 px-4 md:px-6 lg:grid-cols-2 lg:gap-8">
-        {/* Built by MicroClub */}
+        {/* Built by Micro Club */}
         <Reveal className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm md:p-8">
           <span className="text-sm font-semibold text-primary">Open source</span>
           <h2 className="mt-3 header-xs font-bold text-balance text-card-foreground md:header-sm">
-            Built by MicroClub, in the open
+            Built by Micro Club, in the open
           </h2>
           <p className="mt-3 paragraph-md text-pretty text-muted-foreground">
-            Designed and maintained by MicroClub&apos;s dev team at USTHB. Every component is
+            Designed and maintained by Micro Club&apos;s dev team at USTHB. Every component is
             documented and has Storybook stories before it ships.
           </p>
 

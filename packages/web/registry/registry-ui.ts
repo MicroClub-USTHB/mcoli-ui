@@ -5,8 +5,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-button',
     type: 'registry:ui',
-    title: 'MicroClub Button',
-    description: 'A button component for MicroClub UI',
+    title: 'Micro Club Button',
+    description: 'A button component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-button.tsx',
@@ -18,8 +18,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-input',
     type: 'registry:ui',
-    title: 'MicroClub Input',
-    description: 'An input component with field integration and addon support for MicroClub UI',
+    title: 'Micro Club Input',
+    description: 'An input component with field integration and addon support for Micro Club UI',
     files: [
       {
         path: 'ui/mc-input.tsx',
@@ -31,8 +31,9 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-textarea',
     type: 'registry:ui',
-    title: 'MicroClub Textarea',
-    description: 'A multi-line text input with field integration and block addons for MicroClub UI',
+    title: 'Micro Club Textarea',
+    description:
+      'A multi-line text input with field integration and block addons for Micro Club UI',
     files: [
       {
         path: 'ui/mc-textarea.tsx',
@@ -44,8 +45,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-input-otp',
     type: 'registry:ui',
-    title: 'MicroClub Input OTP',
-    description: 'An OTP input component for MicroClub UI',
+    title: 'Micro Club Input OTP',
+    description: 'An OTP input component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-input-otp.tsx',
@@ -57,8 +58,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-checkbox',
     type: 'registry:ui',
-    title: 'MicroClub Checkbox',
-    description: 'A checkbox component for MicroClub UI',
+    title: 'Micro Club Checkbox',
+    description: 'A checkbox component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-checkbox.tsx',
@@ -70,8 +71,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-radio-group',
     type: 'registry:ui',
-    title: 'MicroClub Radio Group',
-    description: 'A radio group component for MicroClub UI',
+    title: 'Micro Club Radio Group',
+    description: 'A radio group component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-radio-group.tsx',
@@ -83,8 +84,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-card',
     type: 'registry:ui',
-    title: 'MicroClub Card',
-    description: 'A card layout with header, body, and footer regions for MicroClub UI',
+    title: 'Micro Club Card',
+    description: 'A card layout with header, body, and footer regions for Micro Club UI',
     files: [
       {
         path: 'ui/mc-card.tsx',
@@ -96,8 +97,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-select',
     type: 'registry:ui',
-    title: 'MicroClub Select',
-    description: 'A select component for MicroClub UI',
+    title: 'Micro Club Select',
+    description: 'A select component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-select.tsx',
@@ -109,8 +110,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-combobox',
     type: 'registry:ui',
-    title: 'MicroClub Combobox',
-    description: 'A searchable dropdown with autocomplete functionality for MicroClub UI',
+    title: 'Micro Club Combobox',
+    description: 'A searchable dropdown with autocomplete functionality for Micro Club UI',
     files: [
       {
         path: 'ui/mc-combobox.tsx',
@@ -122,8 +123,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-switch',
     type: 'registry:ui',
-    title: 'MicroClub Switch',
-    description: 'A switch component for MicroClub UI',
+    title: 'Micro Club Switch',
+    description: 'A switch component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-switch.tsx',
@@ -135,8 +136,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-navigation-menu',
     type: 'registry:ui',
-    title: 'MicroClub Navigation Menu',
-    description: 'A navigation menu component for MicroClub UI',
+    title: 'Micro Club Navigation Menu',
+    description: 'A navigation menu component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-navigation-menu.tsx',
@@ -148,8 +149,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-sidebar',
     type: 'registry:ui',
-    title: 'MicroClub Sidebar',
-    description: 'A sidebar component for MicroClub UI',
+    title: 'Micro Club Sidebar',
+    description: 'A sidebar component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-sidebar.tsx',
@@ -162,8 +163,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-tabs',
     type: 'registry:ui',
-    title: 'MicroClub Tabs',
-    description: 'A tabs component for MicroClub UI',
+    title: 'Micro Club Tabs',
+    description: 'A tabs component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-tabs.tsx',
@@ -175,8 +176,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-breadcrumb',
     type: 'registry:ui',
-    title: 'MicroClub Breadcrumb',
-    description: 'A breadcrumb component for MicroClub UI',
+    title: 'Micro Club Breadcrumb',
+    description: 'A breadcrumb component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-breadcrumb.tsx',
@@ -188,8 +189,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-pagination',
     type: 'registry:ui',
-    title: 'MicroClub Pagination',
-    description: 'A pagination component for MicroClub UI',
+    title: 'Micro Club Pagination',
+    description: 'A pagination component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-pagination.tsx',
@@ -201,8 +202,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-dialog',
     type: 'registry:ui',
-    title: 'MicroClub Dialog',
-    description: 'A dialog component for MicroClub UI',
+    title: 'Micro Club Dialog',
+    description: 'A dialog component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-dialog.tsx',
@@ -215,8 +216,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-alert-dialog',
     type: 'registry:ui',
-    title: 'MicroClub Alert Dialog',
-    description: 'An alert dialog component for MicroClub UI',
+    title: 'Micro Club Alert Dialog',
+    description: 'An alert dialog component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-alert-dialog.tsx',
@@ -229,8 +230,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-alert',
     type: 'registry:ui',
-    title: 'MicroClub Alert',
-    description: 'An alert component for MicroClub UI',
+    title: 'Micro Club Alert',
+    description: 'An alert component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-alert.tsx',
@@ -242,8 +243,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-sonner',
     type: 'registry:ui',
-    title: 'MicroClub Sonner',
-    description: 'A toast component for MicroClub UI',
+    title: 'Micro Club Sonner',
+    description: 'A toast component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-sonner.tsx',
@@ -255,8 +256,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-tooltip',
     type: 'registry:ui',
-    title: 'MicroClub Tooltip',
-    description: 'A tooltip component for MicroClub UI',
+    title: 'Micro Club Tooltip',
+    description: 'A tooltip component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-tooltip.tsx',
@@ -268,8 +269,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-popover',
     type: 'registry:ui',
-    title: 'MicroClub Popover',
-    description: 'A popover component for MicroClub UI',
+    title: 'Micro Club Popover',
+    description: 'A popover component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-popover.tsx',
@@ -281,8 +282,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-dropdown-menu',
     type: 'registry:ui',
-    title: 'MicroClub Dropdown Menu',
-    description: 'A dropdown menu component for MicroClub UI',
+    title: 'Micro Club Dropdown Menu',
+    description: 'A dropdown menu component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-dropdown-menu.tsx',
@@ -294,8 +295,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-context-menu',
     type: 'registry:ui',
-    title: 'MicroClub Context Menu',
-    description: 'A context menu component for MicroClub UI',
+    title: 'Micro Club Context Menu',
+    description: 'A context menu component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-context-menu.tsx',
@@ -307,8 +308,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-data-table',
     type: 'registry:ui',
-    title: 'MicroClub Data Table',
-    description: 'A data table component with sorting, selection and pagination for MicroClub UI',
+    title: 'Micro Club Data Table',
+    description: 'A data table component with sorting, selection and pagination for Micro Club UI',
     files: [
       {
         path: 'ui/mc-data-table.tsx',
@@ -325,8 +326,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-accordion',
     type: 'registry:ui',
-    title: 'MicroClub Accordion',
-    description: 'An accordion component for MicroClub UI',
+    title: 'Micro Club Accordion',
+    description: 'An accordion component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-accordion.tsx',
@@ -338,8 +339,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-collapsible',
     type: 'registry:ui',
-    title: 'MicroClub Collapsible',
-    description: 'A collapsible component for MicroClub UI',
+    title: 'Micro Club Collapsible',
+    description: 'A collapsible component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-collapsible.tsx',
@@ -351,8 +352,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-separator',
     type: 'registry:ui',
-    title: 'MicroClub Separator',
-    description: 'A separator component for MicroClub UI',
+    title: 'Micro Club Separator',
+    description: 'A separator component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-separator.tsx',
@@ -364,8 +365,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-progress',
     type: 'registry:ui',
-    title: 'MicroClub Progress',
-    description: 'A progress component for MicroClub UI',
+    title: 'Micro Club Progress',
+    description: 'A progress component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-progress.tsx',
@@ -377,8 +378,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-calendar',
     type: 'registry:ui',
-    title: 'MicroClub Calendar',
-    description: 'A calendar component for MicroClub UI',
+    title: 'Micro Club Calendar',
+    description: 'A calendar component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-calendar.tsx',
@@ -391,8 +392,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-scrollarea',
     type: 'registry:ui',
-    title: 'MicroClub Scroll Area',
-    description: 'A scroll area component for MicroClub UI',
+    title: 'Micro Club Scroll Area',
+    description: 'A scroll area component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-scrollarea.tsx',
@@ -404,8 +405,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-skeleton',
     type: 'registry:ui',
-    title: 'MicroClub Skeleton',
-    description: 'A skeleton component for MicroClub UI',
+    title: 'Micro Club Skeleton',
+    description: 'A skeleton component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-skeleton.tsx',
@@ -417,8 +418,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-badge',
     type: 'registry:ui',
-    title: 'MicroClub Badge',
-    description: 'A badge component for MicroClub UI',
+    title: 'Micro Club Badge',
+    description: 'A badge component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-badge.tsx',
@@ -430,8 +431,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-avatar',
     type: 'registry:ui',
-    title: 'MicroClub Avatar',
-    description: 'An avatar component for MicroClub UI',
+    title: 'Micro Club Avatar',
+    description: 'An avatar component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-avatar.tsx',
@@ -443,8 +444,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-drawer',
     type: 'registry:ui',
-    title: 'MicroClub Drawer',
-    description: 'A drawer component for MicroClub UI',
+    title: 'Micro Club Drawer',
+    description: 'A drawer component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-drawer.tsx',
@@ -464,8 +465,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-hover-card',
     type: 'registry:ui',
-    title: 'MicroClub Hover Card',
-    description: 'A hover card component for MicroClub UI',
+    title: 'Micro Club Hover Card',
+    description: 'A hover card component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-hover-card.tsx',
@@ -477,8 +478,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-slider',
     type: 'registry:ui',
-    title: 'MicroClub Slider',
-    description: 'A slider component for MicroClub UI',
+    title: 'Micro Club Slider',
+    description: 'A slider component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-slider.tsx',
@@ -490,8 +491,8 @@ export const ui: Registry['items'] = [
   {
     name: 'mc-carousel',
     type: 'registry:ui',
-    title: 'MicroClub Carousel',
-    description: 'A carousel component for MicroClub UI',
+    title: 'Micro Club Carousel',
+    description: 'A carousel component for Micro Club UI',
     files: [
       {
         path: 'ui/mc-carousel.tsx',

@@ -1,9 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-checkbox",
+<<<<<<< HEAD
   "title": "MicroClub Checkbox",
   "description": "A checkbox component for MicroClub UI",
   "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
+=======
+  "title": "Micro Club Checkbox",
+  "description": "A checkbox component for Micro Club UI",
+  "dependencies": ["@base-ui/react", "lucide-react"],
+>>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
   "files": [
     {
       "path": "registry/ui/mc-checkbox.tsx",

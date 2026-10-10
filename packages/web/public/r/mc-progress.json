@@ -1,9 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-progress",
+<<<<<<< HEAD
   "title": "MicroClub Progress",
   "description": "A progress component for MicroClub UI",
   "dependencies": ["lucide-react", "class-variance-authority"],
+=======
+  "title": "Micro Club Progress",
+  "description": "A progress component for Micro Club UI",
+  "dependencies": ["lucide-react"],
+>>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
   "files": [
     {
       "path": "registry/ui/mc-progress.tsx",

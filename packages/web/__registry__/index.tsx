@@ -2076,7 +2076,7 @@ export const Index: Record<string, any> = {
   },
   'mc-button': {
     name: 'mc-button',
-    description: 'A button component for MicroClub UI',
+    description: 'A button component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2089,7 +2089,7 @@ export const Index: Record<string, any> = {
   },
   'mc-input': {
     name: 'mc-input',
-    description: 'An input component with field integration and addon support for MicroClub UI',
+    description: 'An input component with field integration and addon support for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2102,7 +2102,8 @@ export const Index: Record<string, any> = {
   },
   'mc-textarea': {
     name: 'mc-textarea',
-    description: 'A multi-line text input with field integration and block addons for MicroClub UI',
+    description:
+      'A multi-line text input with field integration and block addons for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2115,7 +2116,7 @@ export const Index: Record<string, any> = {
   },
   'mc-input-otp': {
     name: 'mc-input-otp',
-    description: 'An OTP input component for MicroClub UI',
+    description: 'An OTP input component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2128,7 +2129,7 @@ export const Index: Record<string, any> = {
   },
   'mc-checkbox': {
     name: 'mc-checkbox',
-    description: 'A checkbox component for MicroClub UI',
+    description: 'A checkbox component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2141,7 +2142,7 @@ export const Index: Record<string, any> = {
   },
   'mc-radio-group': {
     name: 'mc-radio-group',
-    description: 'A radio group component for MicroClub UI',
+    description: 'A radio group component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2154,7 +2155,7 @@ export const Index: Record<string, any> = {
   },
   'mc-card': {
     name: 'mc-card',
-    description: 'A card layout with header, body, and footer regions for MicroClub UI',
+    description: 'A card layout with header, body, and footer regions for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2167,7 +2168,7 @@ export const Index: Record<string, any> = {
   },
   'mc-select': {
     name: 'mc-select',
-    description: 'A select component for MicroClub UI',
+    description: 'A select component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2180,7 +2181,7 @@ export const Index: Record<string, any> = {
   },
   'mc-combobox': {
     name: 'mc-combobox',
-    description: 'A searchable dropdown with autocomplete functionality for MicroClub UI',
+    description: 'A searchable dropdown with autocomplete functionality for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2193,7 +2194,7 @@ export const Index: Record<string, any> = {
   },
   'mc-switch': {
     name: 'mc-switch',
-    description: 'A switch component for MicroClub UI',
+    description: 'A switch component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2206,7 +2207,7 @@ export const Index: Record<string, any> = {
   },
   'mc-navigation-menu': {
     name: 'mc-navigation-menu',
-    description: 'A navigation menu component for MicroClub UI',
+    description: 'A navigation menu component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2219,7 +2220,7 @@ export const Index: Record<string, any> = {
   },
   'mc-sidebar': {
     name: 'mc-sidebar',
-    description: 'A sidebar component for MicroClub UI',
+    description: 'A sidebar component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2232,7 +2233,7 @@ export const Index: Record<string, any> = {
   },
   'mc-tabs': {
     name: 'mc-tabs',
-    description: 'A tabs component for MicroClub UI',
+    description: 'A tabs component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2245,7 +2246,7 @@ export const Index: Record<string, any> = {
   },
   'mc-breadcrumb': {
     name: 'mc-breadcrumb',
-    description: 'A breadcrumb component for MicroClub UI',
+    description: 'A breadcrumb component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2258,7 +2259,7 @@ export const Index: Record<string, any> = {
   },
   'mc-pagination': {
     name: 'mc-pagination',
-    description: 'A pagination component for MicroClub UI',
+    description: 'A pagination component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2271,7 +2272,7 @@ export const Index: Record<string, any> = {
   },
   'mc-dialog': {
     name: 'mc-dialog',
-    description: 'A dialog component for MicroClub UI',
+    description: 'A dialog component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2284,7 +2285,7 @@ export const Index: Record<string, any> = {
   },
   'mc-alert-dialog': {
     name: 'mc-alert-dialog',
-    description: 'An alert dialog component for MicroClub UI',
+    description: 'An alert dialog component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2297,7 +2298,7 @@ export const Index: Record<string, any> = {
   },
   'mc-alert': {
     name: 'mc-alert',
-    description: 'An alert component for MicroClub UI',
+    description: 'An alert component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2310,7 +2311,7 @@ export const Index: Record<string, any> = {
   },
   'mc-sonner': {
     name: 'mc-sonner',
-    description: 'A toast component for MicroClub UI',
+    description: 'A toast component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2323,7 +2324,7 @@ export const Index: Record<string, any> = {
   },
   'mc-tooltip': {
     name: 'mc-tooltip',
-    description: 'A tooltip component for MicroClub UI',
+    description: 'A tooltip component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2336,7 +2337,7 @@ export const Index: Record<string, any> = {
   },
   'mc-popover': {
     name: 'mc-popover',
-    description: 'A popover component for MicroClub UI',
+    description: 'A popover component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2349,7 +2350,7 @@ export const Index: Record<string, any> = {
   },
   'mc-dropdown-menu': {
     name: 'mc-dropdown-menu',
-    description: 'A dropdown menu component for MicroClub UI',
+    description: 'A dropdown menu component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2362,7 +2363,7 @@ export const Index: Record<string, any> = {
   },
   'mc-context-menu': {
     name: 'mc-context-menu',
-    description: 'A context menu component for MicroClub UI',
+    description: 'A context menu component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2375,7 +2376,7 @@ export const Index: Record<string, any> = {
   },
   'mc-data-table': {
     name: 'mc-data-table',
-    description: 'A data table component with sorting, selection and pagination for MicroClub UI',
+    description: 'A data table component with sorting, selection and pagination for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2388,7 +2389,7 @@ export const Index: Record<string, any> = {
   },
   'mc-accordion': {
     name: 'mc-accordion',
-    description: 'An accordion component for MicroClub UI',
+    description: 'An accordion component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2401,7 +2402,7 @@ export const Index: Record<string, any> = {
   },
   'mc-collapsible': {
     name: 'mc-collapsible',
-    description: 'A collapsible component for MicroClub UI',
+    description: 'A collapsible component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2414,7 +2415,7 @@ export const Index: Record<string, any> = {
   },
   'mc-separator': {
     name: 'mc-separator',
-    description: 'A separator component for MicroClub UI',
+    description: 'A separator component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2427,7 +2428,7 @@ export const Index: Record<string, any> = {
   },
   'mc-progress': {
     name: 'mc-progress',
-    description: 'A progress component for MicroClub UI',
+    description: 'A progress component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2440,7 +2441,7 @@ export const Index: Record<string, any> = {
   },
   'mc-calendar': {
     name: 'mc-calendar',
-    description: 'A calendar component for MicroClub UI',
+    description: 'A calendar component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2453,7 +2454,7 @@ export const Index: Record<string, any> = {
   },
   'mc-scrollarea': {
     name: 'mc-scrollarea',
-    description: 'A scroll area component for MicroClub UI',
+    description: 'A scroll area component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2466,7 +2467,7 @@ export const Index: Record<string, any> = {
   },
   'mc-skeleton': {
     name: 'mc-skeleton',
-    description: 'A skeleton component for MicroClub UI',
+    description: 'A skeleton component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2479,7 +2480,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge': {
     name: 'mc-badge',
-    description: 'A badge component for MicroClub UI',
+    description: 'A badge component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2492,7 +2493,7 @@ export const Index: Record<string, any> = {
   },
   'mc-avatar': {
     name: 'mc-avatar',
-    description: 'An avatar component for MicroClub UI',
+    description: 'An avatar component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2505,7 +2506,7 @@ export const Index: Record<string, any> = {
   },
   'mc-drawer': {
     name: 'mc-drawer',
-    description: 'A drawer component for MicroClub UI',
+    description: 'A drawer component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2518,7 +2519,7 @@ export const Index: Record<string, any> = {
   },
   'mc-hover-card': {
     name: 'mc-hover-card',
-    description: 'A hover card component for MicroClub UI',
+    description: 'A hover card component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2531,7 +2532,7 @@ export const Index: Record<string, any> = {
   },
   'mc-slider': {
     name: 'mc-slider',
-    description: 'A slider component for MicroClub UI',
+    description: 'A slider component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2544,7 +2545,7 @@ export const Index: Record<string, any> = {
   },
   'mc-carousel': {
     name: 'mc-carousel',
-    description: 'A carousel component for MicroClub UI',
+    description: 'A carousel component for Micro Club UI',
     type: 'registry:ui',
     files: [
       {
@@ -2557,7 +2558,7 @@ export const Index: Record<string, any> = {
   },
   'mc-button-demo': {
     name: 'mc-button-demo',
-    description: 'Demo for MicroClub Button',
+    description: 'Demo for Micro Club Button',
     type: 'registry:example',
     files: [
       {
@@ -2573,7 +2574,7 @@ export const Index: Record<string, any> = {
   },
   'mc-input-demo': {
     name: 'mc-input-demo',
-    description: 'Demo for MicroClub Input',
+    description: 'Demo for Micro Club Input',
     type: 'registry:example',
     files: [
       {
@@ -2589,7 +2590,7 @@ export const Index: Record<string, any> = {
   },
   'mc-textarea-demo': {
     name: 'mc-textarea-demo',
-    description: 'Demo for MicroClub Textarea',
+    description: 'Demo for Micro Club Textarea',
     type: 'registry:example',
     files: [
       {
@@ -2605,7 +2606,7 @@ export const Index: Record<string, any> = {
   },
   'mc-input-otp-demo': {
     name: 'mc-input-otp-demo',
-    description: 'Demo for MicroClub Input OTP',
+    description: 'Demo for Micro Club Input OTP',
     type: 'registry:example',
     files: [
       {
@@ -2621,7 +2622,7 @@ export const Index: Record<string, any> = {
   },
   'mc-checkbox-demo': {
     name: 'mc-checkbox-demo',
-    description: 'Demo for MicroClub Checkbox',
+    description: 'Demo for Micro Club Checkbox',
     type: 'registry:example',
     files: [
       {
@@ -2637,7 +2638,7 @@ export const Index: Record<string, any> = {
   },
   'mc-radio-demo': {
     name: 'mc-radio-demo',
-    description: 'Demo for MicroClub Radio',
+    description: 'Demo for Micro Club Radio',
     type: 'registry:example',
     files: [
       {
@@ -2653,7 +2654,7 @@ export const Index: Record<string, any> = {
   },
   'mc-card-demo': {
     name: 'mc-card-demo',
-    description: 'Demo for MicroClub Card',
+    description: 'Demo for Micro Club Card',
     type: 'registry:example',
     files: [
       {
@@ -2669,7 +2670,7 @@ export const Index: Record<string, any> = {
   },
   'mc-select-demo': {
     name: 'mc-select-demo',
-    description: 'Demo for MicroClub Select',
+    description: 'Demo for Micro Club Select',
     type: 'registry:example',
     files: [
       {
@@ -2685,7 +2686,7 @@ export const Index: Record<string, any> = {
   },
   'mc-combobox-demo': {
     name: 'mc-combobox-demo',
-    description: 'Demo for MicroClub Combobox',
+    description: 'Demo for Micro Club Combobox',
     type: 'registry:example',
     files: [
       {
@@ -2701,7 +2702,7 @@ export const Index: Record<string, any> = {
   },
   'mc-switch-demo': {
     name: 'mc-switch-demo',
-    description: 'Demo for MicroClub Switch',
+    description: 'Demo for Micro Club Switch',
     type: 'registry:example',
     files: [
       {
@@ -2717,7 +2718,7 @@ export const Index: Record<string, any> = {
   },
   'mc-navigation-menu-demo': {
     name: 'mc-navigation-menu-demo',
-    description: 'Demo for MicroClub Navigation Menu',
+    description: 'Demo for Micro Club Navigation Menu',
     type: 'registry:example',
     files: [
       {
@@ -2733,7 +2734,7 @@ export const Index: Record<string, any> = {
   },
   'mc-sidebar-demo': {
     name: 'mc-sidebar-demo',
-    description: 'Demo for MicroClub Sidebar',
+    description: 'Demo for Micro Club Sidebar',
     type: 'registry:example',
     files: [
       {
@@ -2749,7 +2750,7 @@ export const Index: Record<string, any> = {
   },
   'mc-tabs-demo': {
     name: 'mc-tabs-demo',
-    description: 'Demo for MicroClub Tabs',
+    description: 'Demo for Micro Club Tabs',
     type: 'registry:example',
     files: [
       {
@@ -2765,7 +2766,7 @@ export const Index: Record<string, any> = {
   },
   'mc-breadcrumb-demo': {
     name: 'mc-breadcrumb-demo',
-    description: 'Demo for MicroClub Breadcrumb',
+    description: 'Demo for Micro Club Breadcrumb',
     type: 'registry:example',
     files: [
       {
@@ -2781,7 +2782,7 @@ export const Index: Record<string, any> = {
   },
   'mc-pagination-demo': {
     name: 'mc-pagination-demo',
-    description: 'Demo for MicroClub Pagination',
+    description: 'Demo for Micro Club Pagination',
     type: 'registry:example',
     files: [
       {
@@ -2797,7 +2798,7 @@ export const Index: Record<string, any> = {
   },
   'mc-dialog-demo': {
     name: 'mc-dialog-demo',
-    description: 'Demo for MicroClub Dialog',
+    description: 'Demo for Micro Club Dialog',
     type: 'registry:example',
     files: [
       {
@@ -2813,7 +2814,7 @@ export const Index: Record<string, any> = {
   },
   'mc-alert-dialog-demo': {
     name: 'mc-alert-dialog-demo',
-    description: 'Demo for MicroClub Alert Dialog',
+    description: 'Demo for Micro Club Alert Dialog',
     type: 'registry:example',
     files: [
       {
@@ -2829,7 +2830,7 @@ export const Index: Record<string, any> = {
   },
   'mc-alert-demo': {
     name: 'mc-alert-demo',
-    description: 'Demo for MicroClub Alert',
+    description: 'Demo for Micro Club Alert',
     type: 'registry:example',
     files: [
       {
@@ -2845,7 +2846,7 @@ export const Index: Record<string, any> = {
   },
   'mc-sonner-demo': {
     name: 'mc-sonner-demo',
-    description: 'Demo for MicroClub Sonner',
+    description: 'Demo for Micro Club Sonner',
     type: 'registry:example',
     files: [
       {
@@ -2861,7 +2862,7 @@ export const Index: Record<string, any> = {
   },
   'mc-tooltip-demo': {
     name: 'mc-tooltip-demo',
-    description: 'Demo for MicroClub Tooltip',
+    description: 'Demo for Micro Club Tooltip',
     type: 'registry:example',
     files: [
       {
@@ -2877,7 +2878,7 @@ export const Index: Record<string, any> = {
   },
   'mc-popover-demo': {
     name: 'mc-popover-demo',
-    description: 'Demo for MicroClub Popover',
+    description: 'Demo for Micro Club Popover',
     type: 'registry:example',
     files: [
       {
@@ -2893,7 +2894,7 @@ export const Index: Record<string, any> = {
   },
   'mc-dropdown-menu-demo': {
     name: 'mc-dropdown-menu-demo',
-    description: 'Demo for MicroClub Dropdown Menu',
+    description: 'Demo for Micro Club Dropdown Menu',
     type: 'registry:example',
     files: [
       {
@@ -2909,7 +2910,7 @@ export const Index: Record<string, any> = {
   },
   'mc-context-menu-demo': {
     name: 'mc-context-menu-demo',
-    description: 'Demo for MicroClub Context Menu',
+    description: 'Demo for Micro Club Context Menu',
     type: 'registry:example',
     files: [
       {
@@ -2925,7 +2926,7 @@ export const Index: Record<string, any> = {
   },
   'mc-data-table-demo': {
     name: 'mc-data-table-demo',
-    description: 'Demo for MicroClub Data Table',
+    description: 'Demo for Micro Club Data Table',
     type: 'registry:example',
     files: [
       {
@@ -2941,7 +2942,7 @@ export const Index: Record<string, any> = {
   },
   'mc-accordion-demo': {
     name: 'mc-accordion-demo',
-    description: 'Demo for MicroClub Accordion',
+    description: 'Demo for Micro Club Accordion',
     type: 'registry:example',
     files: [
       {
@@ -2957,7 +2958,7 @@ export const Index: Record<string, any> = {
   },
   'mc-collapsible-demo': {
     name: 'mc-collapsible-demo',
-    description: 'Demo for MicroClub Collapsible',
+    description: 'Demo for Micro Club Collapsible',
     type: 'registry:example',
     files: [
       {
@@ -2973,23 +2974,23 @@ export const Index: Record<string, any> = {
   },
   'mc-separator-demo': {
     name: 'mc-separator-demo',
-    description: 'Demo for MicroClub Separator',
+    description: 'Demo for Micro Club Separator',
     type: 'registry:example',
     files: [
       {
         path: 'registry/examples/mc-separator-demo.tsx',
         content:
-          'import { McSeparator } from \'../ui/mc-separator\';\n\nexport default function McSeparatorDemo() {\n  return (\n    <div className="flex max-w-sm flex-col gap-4 text-sm">\n      <div className="flex flex-col gap-1.5">\n        <div className="leading-none font-medium">MicroClub UI</div>\n        <div className="text-muted-foreground">A simple content block separated by a divider.</div>\n      </div>\n      <McSeparator />\n      <div>Separators help create visual rhythm and improve scannability in dense interfaces.</div>\n    </div>\n  );\n}\n',
+          'import { McSeparator } from \'../ui/mc-separator\';\n\nexport default function McSeparatorDemo() {\n  return (\n    <div className="flex max-w-sm flex-col gap-4 text-sm">\n      <div className="flex flex-col gap-1.5">\n        <div className="leading-none font-medium">Micro Club UI</div>\n        <div className="text-muted-foreground">A simple content block separated by a divider.</div>\n      </div>\n      <McSeparator />\n      <div>Separators help create visual rhythm and improve scannability in dense interfaces.</div>\n    </div>\n  );\n}\n',
         type: 'registry:example',
       },
     ],
     component: React.lazy(() => import('@/registry/examples/mc-separator-demo.tsx')),
     source:
-      'import { McSeparator } from \'../ui/mc-separator\';\n\nexport default function McSeparatorDemo() {\n  return (\n    <div className="flex max-w-sm flex-col gap-4 text-sm">\n      <div className="flex flex-col gap-1.5">\n        <div className="leading-none font-medium">MicroClub UI</div>\n        <div className="text-muted-foreground">A simple content block separated by a divider.</div>\n      </div>\n      <McSeparator />\n      <div>Separators help create visual rhythm and improve scannability in dense interfaces.</div>\n    </div>\n  );\n}\n',
+      'import { McSeparator } from \'../ui/mc-separator\';\n\nexport default function McSeparatorDemo() {\n  return (\n    <div className="flex max-w-sm flex-col gap-4 text-sm">\n      <div className="flex flex-col gap-1.5">\n        <div className="leading-none font-medium">Micro Club UI</div>\n        <div className="text-muted-foreground">A simple content block separated by a divider.</div>\n      </div>\n      <McSeparator />\n      <div>Separators help create visual rhythm and improve scannability in dense interfaces.</div>\n    </div>\n  );\n}\n',
   },
   'mc-progress-demo': {
     name: 'mc-progress-demo',
-    description: 'Demo for MicroClub Progress',
+    description: 'Demo for Micro Club Progress',
     type: 'registry:example',
     files: [
       {
@@ -3005,7 +3006,7 @@ export const Index: Record<string, any> = {
   },
   'mc-calendar-demo': {
     name: 'mc-calendar-demo',
-    description: 'Demo for MicroClub Calendar',
+    description: 'Demo for Micro Club Calendar',
     type: 'registry:example',
     files: [
       {
@@ -3021,7 +3022,7 @@ export const Index: Record<string, any> = {
   },
   'mc-scrollarea-demo': {
     name: 'mc-scrollarea-demo',
-    description: 'Demo for MicroClub Scroll Area',
+    description: 'Demo for Micro Club Scroll Area',
     type: 'registry:example',
     files: [
       {
@@ -3037,7 +3038,7 @@ export const Index: Record<string, any> = {
   },
   'mc-skeleton-demo': {
     name: 'mc-skeleton-demo',
-    description: 'Demo for MicroClub Skeleton',
+    description: 'Demo for Micro Club Skeleton',
     type: 'registry:example',
     files: [
       {
@@ -3053,7 +3054,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-demo': {
     name: 'mc-badge-demo',
-    description: 'Demo for MicroClub Badge',
+    description: 'Demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3069,7 +3070,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-variants-demo': {
     name: 'mc-badge-variants-demo',
-    description: 'Variants demo for MicroClub Badge',
+    description: 'Variants demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3085,7 +3086,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-sizes-demo': {
     name: 'mc-badge-sizes-demo',
-    description: 'Sizes demo for MicroClub Badge',
+    description: 'Sizes demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3101,7 +3102,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-icons-demo': {
     name: 'mc-badge-icons-demo',
-    description: 'Icons demo for MicroClub Badge',
+    description: 'Icons demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3117,7 +3118,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-image-demo': {
     name: 'mc-badge-image-demo',
-    description: 'Image demo for MicroClub Badge',
+    description: 'Image demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3133,7 +3134,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-group-demo': {
     name: 'mc-badge-group-demo',
-    description: 'Leading badge group demo for MicroClub Badge',
+    description: 'Leading badge group demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3149,7 +3150,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-group-trailing-demo': {
     name: 'mc-badge-group-trailing-demo',
-    description: 'Trailing badge group demo for MicroClub Badge',
+    description: 'Trailing badge group demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3167,7 +3168,7 @@ export const Index: Record<string, any> = {
   },
   'mc-badge-group-sizes-demo': {
     name: 'mc-badge-group-sizes-demo',
-    description: 'Badge group sizes demo for MicroClub Badge',
+    description: 'Badge group sizes demo for Micro Club Badge',
     type: 'registry:example',
     files: [
       {
@@ -3185,7 +3186,7 @@ export const Index: Record<string, any> = {
   },
   'mc-avatar-demo': {
     name: 'mc-avatar-demo',
-    description: 'Demo for MicroClub Avatar',
+    description: 'Demo for Micro Club Avatar',
     type: 'registry:example',
     files: [
       {
@@ -3201,7 +3202,7 @@ export const Index: Record<string, any> = {
   },
   'mc-drawer-demo': {
     name: 'mc-drawer-demo',
-    description: 'Demo for MicroClub drawer',
+    description: 'Demo for Micro Club drawer',
     type: 'registry:example',
     files: [
       {
@@ -3217,7 +3218,7 @@ export const Index: Record<string, any> = {
   },
   'mc-hover-card-demo': {
     name: 'mc-hover-card-demo',
-    description: 'Demo for MicroClub Hover Card',
+    description: 'Demo for Micro Club Hover Card',
     type: 'registry:example',
     files: [
       {
@@ -3233,7 +3234,7 @@ export const Index: Record<string, any> = {
   },
   'mc-slider-demo': {
     name: 'mc-slider-demo',
-    description: 'Demo for MicroClub Slider',
+    description: 'Demo for Micro Club Slider',
     type: 'registry:example',
     files: [
       {
@@ -3249,7 +3250,7 @@ export const Index: Record<string, any> = {
   },
   'mc-carousel-demo': {
     name: 'mc-carousel-demo',
-    description: 'Demo for MicroClub Carousel',
+    description: 'Demo for Micro Club Carousel',
     type: 'registry:example',
     files: [
       {

@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-dropdown-menu",
-  "title": "MicroClub Dropdown Menu",
-  "description": "A dropdown menu component for MicroClub UI",
+  "title": "Micro Club Dropdown Menu",
+  "description": "A dropdown menu component for Micro Club UI",
   "dependencies": ["@base-ui/react", "lucide-react"],
   "files": [
     {

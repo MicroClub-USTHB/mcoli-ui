@@ -1,9 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-sidebar",
+<<<<<<< HEAD
   "title": "MicroClub Sidebar",
   "description": "A sidebar component for MicroClub UI",
   "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
+=======
+  "title": "Micro Club Sidebar",
+  "description": "A sidebar component for Micro Club UI",
+  "dependencies": ["@base-ui/react", "lucide-react"],
+>>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
   "registryDependencies": [
     "https://mcoli-ui.microclub.info/r/mc-button.json",
     "https://mcoli-ui.microclub.info/r/mc-tooltip.json"

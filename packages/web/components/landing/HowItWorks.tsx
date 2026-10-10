@@ -140,7 +140,7 @@ export function HowItWorks() {
       <div className="mx-auto max-w-6xl px-4 md:px-6">
         <SectionHeader
           eyebrow="How it works"
-          title="From an empty repo to MicroClub UI in three commands"
+          title="From an empty repo to Micro Club UI in three commands"
           description="No wrapper package, no runtime theme provider. The CLI writes plain CSS variables and plain TSX into your project, then gets out of the way."
         />
 

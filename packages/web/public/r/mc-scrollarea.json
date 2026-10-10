@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-scrollarea",
-  "title": "MicroClub Scroll Area",
-  "description": "A scroll area component for MicroClub UI",
+  "title": "Micro Club Scroll Area",
+  "description": "A scroll area component for Micro Club UI",
   "dependencies": ["@base-ui/react"],
   "files": [
     {

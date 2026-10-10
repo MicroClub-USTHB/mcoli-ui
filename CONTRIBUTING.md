@@ -1,6 +1,6 @@
 # Contributing to mcoli-ui
 
-This guide covers how to add a new registry item (component, hook, or theme) to MicroClub's registry.
+This guide covers how to add a new registry item (component, hook, or theme) to Micro Club's registry.
 
 ## Our Priority
 
@@ -109,7 +109,7 @@ If you have push access to the repository, follow these steps.
 
 ### Step 1: Find an Issue
 
-Browse the GitHub issues to find an item to implement. Each issue includes a Figma link with the design specifications. **Please stick to these designs to maintain MicroClub's identity.**
+Browse the GitHub issues to find an item to implement. Each issue includes a Figma link with the design specifications. **Please stick to these designs to maintain Micro Club's identity.**
 
 ### Step 2: Create a Branch
 

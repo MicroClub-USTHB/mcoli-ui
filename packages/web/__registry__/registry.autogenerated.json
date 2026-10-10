@@ -2157,9 +2157,15 @@
     },
     {
       "name": "mc-button",
+<<<<<<< HEAD
       "title": "MicroClub Button",
       "description": "A button component for MicroClub UI",
       "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
+=======
+      "title": "Micro Club Button",
+      "description": "A button component for Micro Club UI",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+>>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
       "files": [
         {
           "path": "registry/ui/mc-button.tsx",
@@ -2170,8 +2176,8 @@
     },
     {
       "name": "mc-input",
-      "title": "MicroClub Input",
-      "description": "An input component with field integration and addon support for MicroClub UI",
+      "title": "Micro Club Input",
+      "description": "An input component with field integration and addon support for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2183,8 +2189,8 @@
     },
     {
       "name": "mc-textarea",
-      "title": "MicroClub Textarea",
-      "description": "A multi-line text input with field integration and block addons for MicroClub UI",
+      "title": "Micro Club Textarea",
+      "description": "A multi-line text input with field integration and block addons for Micro Club UI",
       "dependencies": [],
       "files": [
         {
@@ -2196,8 +2202,8 @@
     },
     {
       "name": "mc-input-otp",
-      "title": "MicroClub Input OTP",
-      "description": "An OTP input component for MicroClub UI",
+      "title": "Micro Club Input OTP",
+      "description": "An OTP input component for Micro Club UI",
       "dependencies": ["input-otp", "lucide-react"],
       "files": [
         {
@@ -2209,9 +2215,15 @@
     },
     {
       "name": "mc-checkbox",
+<<<<<<< HEAD
       "title": "MicroClub Checkbox",
       "description": "A checkbox component for MicroClub UI",
       "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
+=======
+      "title": "Micro Club Checkbox",
+      "description": "A checkbox component for Micro Club UI",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+>>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
       "files": [
         {
           "path": "registry/ui/mc-checkbox.tsx",
@@ -2222,9 +2234,15 @@
     },
     {
       "name": "mc-radio-group",
+<<<<<<< HEAD
       "title": "MicroClub Radio Group",
       "description": "A radio group component for MicroClub UI",
       "dependencies": ["@base-ui/react", "class-variance-authority"],
+=======
+      "title": "Micro Club Radio Group",
+      "description": "A radio group component for Micro Club UI",
+      "dependencies": ["@base-ui/react"],
+>>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
       "files": [
         {
           "path": "registry/ui/mc-radio-group.tsx",
@@ -2235,9 +2253,15 @@
     },
     {
       "name": "mc-card",
+<<<<<<< HEAD
       "title": "MicroClub Card",
       "description": "A card layout with header, body, and footer regions for MicroClub UI",
       "dependencies": ["class-variance-authority"],
+=======
+      "title": "Micro Club Card",
+      "description": "A card layout with header, body, and footer regions for Micro Club UI",
+      "dependencies": [],
+>>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
       "files": [
         {
           "path": "registry/ui/mc-card.tsx",
@@ -2248,8 +2272,8 @@
     },
     {
       "name": "mc-select",
-      "title": "MicroClub Select",
-      "description": "A select component for MicroClub UI",
+      "title": "Micro Club Select",
+      "description": "A select component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2261,8 +2285,8 @@
     },
     {
       "name": "mc-combobox",
-      "title": "MicroClub Combobox",
-      "description": "A searchable dropdown with autocomplete functionality for MicroClub UI",
+      "title": "Micro Club Combobox",
+      "description": "A searchable dropdown with autocomplete functionality for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2274,8 +2298,8 @@
     },
     {
       "name": "mc-switch",
-      "title": "MicroClub Switch",
-      "description": "A switch component for MicroClub UI",
+      "title": "Micro Club Switch",
+      "description": "A switch component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2287,9 +2311,15 @@
     },
     {
       "name": "mc-navigation-menu",
+<<<<<<< HEAD
       "title": "MicroClub Navigation Menu",
       "description": "A navigation menu component for MicroClub UI",
       "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
+=======
+      "title": "Micro Club Navigation Menu",
+      "description": "A navigation menu component for Micro Club UI",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+>>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
       "files": [
         {
           "path": "registry/ui/mc-navigation-menu.tsx",
@@ -2300,9 +2330,15 @@
     },
     {
       "name": "mc-sidebar",
+<<<<<<< HEAD
       "title": "MicroClub Sidebar",
       "description": "A sidebar component for MicroClub UI",
       "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
+=======
+      "title": "Micro Club Sidebar",
+      "description": "A sidebar component for Micro Club UI",
+      "dependencies": ["@base-ui/react", "lucide-react"],
+>>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
       "registryDependencies": [
         "https://mcoli-ui.microclub.info/r/mc-button.json",
         "https://mcoli-ui.microclub.info/r/mc-tooltip.json"
@@ -2317,9 +2353,15 @@
     },
     {
       "name": "mc-tabs",
+<<<<<<< HEAD
       "title": "MicroClub Tabs",
       "description": "A tabs component for MicroClub UI",
       "dependencies": ["@base-ui/react", "class-variance-authority"],
+=======
+      "title": "Micro Club Tabs",
+      "description": "A tabs component for Micro Club UI",
+      "dependencies": ["@base-ui/react"],
+>>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
       "files": [
         {
           "path": "registry/ui/mc-tabs.tsx",
@@ -2330,8 +2372,8 @@
     },
     {
       "name": "mc-breadcrumb",
-      "title": "MicroClub Breadcrumb",
-      "description": "A breadcrumb component for MicroClub UI",
+      "title": "Micro Club Breadcrumb",
+      "description": "A breadcrumb component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2343,8 +2385,8 @@
     },
     {
       "name": "mc-pagination",
-      "title": "MicroClub Pagination",
-      "description": "A pagination component for MicroClub UI",
+      "title": "Micro Club Pagination",
+      "description": "A pagination component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2356,8 +2398,8 @@
     },
     {
       "name": "mc-dialog",
-      "title": "MicroClub Dialog",
-      "description": "A dialog component for MicroClub UI",
+      "title": "Micro Club Dialog",
+      "description": "A dialog component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
       "files": [
@@ -2370,8 +2412,8 @@
     },
     {
       "name": "mc-alert-dialog",
-      "title": "MicroClub Alert Dialog",
-      "description": "An alert dialog component for MicroClub UI",
+      "title": "Micro Club Alert Dialog",
+      "description": "An alert dialog component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
       "files": [
@@ -2384,8 +2426,8 @@
     },
     {
       "name": "mc-alert",
-      "title": "MicroClub Alert",
-      "description": "An alert component for MicroClub UI",
+      "title": "Micro Club Alert",
+      "description": "An alert component for Micro Club UI",
       "dependencies": ["lucide-react"],
       "files": [
         {
@@ -2397,8 +2439,8 @@
     },
     {
       "name": "mc-sonner",
-      "title": "MicroClub Sonner",
-      "description": "A toast component for MicroClub UI",
+      "title": "Micro Club Sonner",
+      "description": "A toast component for Micro Club UI",
       "dependencies": ["sonner", "lucide-react"],
       "files": [
         {
@@ -2410,8 +2452,8 @@
     },
     {
       "name": "mc-tooltip",
-      "title": "MicroClub Tooltip",
-      "description": "A tooltip component for MicroClub UI",
+      "title": "Micro Club Tooltip",
+      "description": "A tooltip component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2423,8 +2465,8 @@
     },
     {
       "name": "mc-popover",
-      "title": "MicroClub Popover",
-      "description": "A popover component for MicroClub UI",
+      "title": "Micro Club Popover",
+      "description": "A popover component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2436,8 +2478,8 @@
     },
     {
       "name": "mc-dropdown-menu",
-      "title": "MicroClub Dropdown Menu",
-      "description": "A dropdown menu component for MicroClub UI",
+      "title": "Micro Club Dropdown Menu",
+      "description": "A dropdown menu component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2449,8 +2491,8 @@
     },
     {
       "name": "mc-context-menu",
-      "title": "MicroClub Context Menu",
-      "description": "A context menu component for MicroClub UI",
+      "title": "Micro Club Context Menu",
+      "description": "A context menu component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2462,8 +2504,8 @@
     },
     {
       "name": "mc-data-table",
-      "title": "MicroClub Data Table",
-      "description": "A data table component with sorting, selection and pagination for MicroClub UI",
+      "title": "Micro Club Data Table",
+      "description": "A data table component with sorting, selection and pagination for Micro Club UI",
       "dependencies": ["@tanstack/react-table", "lucide-react"],
       "registryDependencies": [
         "https://mcoli-ui.microclub.info/r/mc-button.json",
@@ -2480,8 +2522,8 @@
     },
     {
       "name": "mc-accordion",
-      "title": "MicroClub Accordion",
-      "description": "An accordion component for MicroClub UI",
+      "title": "Micro Club Accordion",
+      "description": "An accordion component for Micro Club UI",
       "dependencies": ["@base-ui/react", "lucide-react"],
       "files": [
         {
@@ -2493,8 +2535,8 @@
     },
     {
       "name": "mc-collapsible",
-      "title": "MicroClub Collapsible",
-      "description": "A collapsible component for MicroClub UI",
+      "title": "Micro Club Collapsible",
+      "description": "A collapsible component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2506,8 +2548,8 @@
     },
     {
       "name": "mc-separator",
-      "title": "MicroClub Separator",
-      "description": "A separator component for MicroClub UI",
+      "title": "Micro Club Separator",
+      "description": "A separator component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2519,9 +2561,15 @@
     },
     {
       "name": "mc-progress",
+<<<<<<< HEAD
       "title": "MicroClub Progress",
       "description": "A progress component for MicroClub UI",
       "dependencies": ["lucide-react", "class-variance-authority"],
+=======
+      "title": "Micro Club Progress",
+      "description": "A progress component for Micro Club UI",
+      "dependencies": ["lucide-react"],
+>>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
       "files": [
         {
           "path": "registry/ui/mc-progress.tsx",
@@ -2532,8 +2580,8 @@
     },
     {
       "name": "mc-calendar",
-      "title": "MicroClub Calendar",
-      "description": "A calendar component for MicroClub UI",
+      "title": "Micro Club Calendar",
+      "description": "A calendar component for Micro Club UI",
       "dependencies": ["react-day-picker", "date-fns", "lucide-react"],
       "registryDependencies": [
         "https://mcoli-ui.microclub.info/r/mc-button.json",
@@ -2549,8 +2597,8 @@
     },
     {
       "name": "mc-scrollarea",
-      "title": "MicroClub Scroll Area",
-      "description": "A scroll area component for MicroClub UI",
+      "title": "Micro Club Scroll Area",
+      "description": "A scroll area component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2562,8 +2610,8 @@
     },
     {
       "name": "mc-skeleton",
-      "title": "MicroClub Skeleton",
-      "description": "A skeleton component for MicroClub UI",
+      "title": "Micro Club Skeleton",
+      "description": "A skeleton component for Micro Club UI",
       "dependencies": [],
       "files": [
         {
@@ -2575,9 +2623,15 @@
     },
     {
       "name": "mc-badge",
+<<<<<<< HEAD
       "title": "MicroClub Badge",
       "description": "A badge component for MicroClub UI",
       "dependencies": ["@base-ui/react", "class-variance-authority"],
+=======
+      "title": "Micro Club Badge",
+      "description": "A badge component for Micro Club UI",
+      "dependencies": ["@base-ui/react"],
+>>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
       "files": [
         {
           "path": "registry/ui/mc-badge.tsx",
@@ -2588,8 +2642,8 @@
     },
     {
       "name": "mc-avatar",
-      "title": "MicroClub Avatar",
-      "description": "An avatar component for MicroClub UI",
+      "title": "Micro Club Avatar",
+      "description": "An avatar component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2601,8 +2655,8 @@
     },
     {
       "name": "mc-drawer",
-      "title": "MicroClub Drawer",
-      "description": "A drawer component for MicroClub UI",
+      "title": "Micro Club Drawer",
+      "description": "A drawer component for Micro Club UI",
       "dependencies": ["vaul"],
       "files": [
         {
@@ -2621,8 +2675,8 @@
     },
     {
       "name": "mc-hover-card",
-      "title": "MicroClub Hover Card",
-      "description": "A hover card component for MicroClub UI",
+      "title": "Micro Club Hover Card",
+      "description": "A hover card component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2634,8 +2688,8 @@
     },
     {
       "name": "mc-slider",
-      "title": "MicroClub Slider",
-      "description": "A slider component for MicroClub UI",
+      "title": "Micro Club Slider",
+      "description": "A slider component for Micro Club UI",
       "dependencies": ["@base-ui/react"],
       "files": [
         {
@@ -2647,8 +2701,8 @@
     },
     {
       "name": "mc-carousel",
-      "title": "MicroClub Carousel",
-      "description": "A carousel component for MicroClub UI",
+      "title": "Micro Club Carousel",
+      "description": "A carousel component for Micro Club UI",
       "dependencies": ["embla-carousel-react", "lucide-react"],
       "registryDependencies": ["https://mcoli-ui.microclub.info/r/mc-button.json"],
       "files": [

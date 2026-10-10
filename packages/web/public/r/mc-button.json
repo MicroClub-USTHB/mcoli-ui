@@ -1,9 +1,15 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-button",
+<<<<<<< HEAD
   "title": "MicroClub Button",
   "description": "A button component for MicroClub UI",
   "dependencies": ["@base-ui/react", "lucide-react", "class-variance-authority"],
+=======
+  "title": "Micro Club Button",
+  "description": "A button component for Micro Club UI",
+  "dependencies": ["@base-ui/react", "lucide-react"],
+>>>>>>> fb23d10 (chore: rename MicroClub to Micro Club in branding)
   "files": [
     {
       "path": "registry/ui/mc-button.tsx",

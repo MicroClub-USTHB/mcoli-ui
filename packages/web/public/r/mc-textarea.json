@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-textarea",
-  "title": "MicroClub Textarea",
-  "description": "A multi-line text input with field integration and block addons for MicroClub UI",
+  "title": "Micro Club Textarea",
+  "description": "A multi-line text input with field integration and block addons for Micro Club UI",
   "dependencies": [],
   "files": [
     {

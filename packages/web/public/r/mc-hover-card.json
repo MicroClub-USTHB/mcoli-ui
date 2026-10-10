@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-hover-card",
-  "title": "MicroClub Hover Card",
-  "description": "A hover card component for MicroClub UI",
+  "title": "Micro Club Hover Card",
+  "description": "A hover card component for Micro Club UI",
   "dependencies": ["@base-ui/react"],
   "files": [
     {

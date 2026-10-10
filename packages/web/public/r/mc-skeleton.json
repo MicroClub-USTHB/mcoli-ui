@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-skeleton",
-  "title": "MicroClub Skeleton",
-  "description": "A skeleton component for MicroClub UI",
+  "title": "Micro Club Skeleton",
+  "description": "A skeleton component for Micro Club UI",
   "dependencies": [],
   "files": [
     {

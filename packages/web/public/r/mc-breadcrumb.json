@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-breadcrumb",
-  "title": "MicroClub Breadcrumb",
-  "description": "A breadcrumb component for MicroClub UI",
+  "title": "Micro Club Breadcrumb",
+  "description": "A breadcrumb component for Micro Club UI",
   "dependencies": ["@base-ui/react", "lucide-react"],
   "files": [
     {

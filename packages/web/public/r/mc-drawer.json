@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-drawer",
-  "title": "MicroClub Drawer",
-  "description": "A drawer component for MicroClub UI",
+  "title": "Micro Club Drawer",
+  "description": "A drawer component for Micro Club UI",
   "dependencies": ["vaul"],
   "files": [
     {

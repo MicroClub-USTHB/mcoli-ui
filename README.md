@@ -21,7 +21,7 @@
 
 ## Build Faster
 
-**mcoli-ui** is the premier React component library that brings professional-grade UI components with a bold **MicroClub DNA** to developers everywhere. We’ve combined world-class design standards with an elite visual identity to help you build stunning web applications in record time.
+**mcoli-ui** is the premier React component library that brings professional-grade UI components with a bold **Micro Club DNA** to developers everywhere. We’ve combined world-class design standards with an elite visual identity to help you build stunning web applications in record time.
 
 Stop fighting with generic components. **Infuse your project with signature UI.**
 
@@ -67,7 +67,7 @@ npx mcoli-ui@latest add mc-button
 
 mcoli-ui is more than just a registry; it’s a **Professional Component Library** designed for the modern web.
 
-1. **Signature Design**: Every pixel is aligned with MicroClub's high design standards.
+1. **Signature Design**: Every pixel is aligned with Micro Club's high design standards.
 2. **Built for Performance**: No bulk. No unused dependencies. Just the code you need to shine.
 3. **Inclusive UI**: We handle the complex ARIA and keyboard logic so you don't have to.
 
@@ -78,5 +78,5 @@ We’re on a quest to build the ultimate UI toolkit. Contribute your components 
 ---
 
 <p align="center">
-  Developed with passion by the <b>Dev Department</b> of <a href="https://microclub.info">MicroClub</a>
+  Developed with passion by the <b>Dev Department</b> of <a href="https://microclub.info">Micro Club</a>
 </p>

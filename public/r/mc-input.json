@@ -1,8 +1,8 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "mc-input",
-  "title": "MicroClub Input",
-  "description": "A text input component for MicroClub UI",
+  "title": "Micro Club Input",
+  "description": "A text input component for Micro Club UI",
   "dependencies": ["@base-ui/react"],
   "files": [
     {

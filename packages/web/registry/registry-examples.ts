@@ -5,8 +5,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-button-demo',
     type: 'registry:example',
-    title: 'MicroClub Button Demo',
-    description: 'Demo for MicroClub Button',
+    title: 'Micro Club Button Demo',
+    description: 'Demo for Micro Club Button',
     files: [
       {
         path: 'examples/mc-button-demo.tsx',
@@ -18,8 +18,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-input-demo',
     type: 'registry:example',
-    title: 'MicroClub Input Demo',
-    description: 'Demo for MicroClub Input',
+    title: 'Micro Club Input Demo',
+    description: 'Demo for Micro Club Input',
     files: [
       {
         path: 'examples/mc-input-demo.tsx',
@@ -31,8 +31,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-textarea-demo',
     type: 'registry:example',
-    title: 'MicroClub Textarea Demo',
-    description: 'Demo for MicroClub Textarea',
+    title: 'Micro Club Textarea Demo',
+    description: 'Demo for Micro Club Textarea',
     files: [
       {
         path: 'examples/mc-textarea-demo.tsx',
@@ -44,8 +44,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-input-otp-demo',
     type: 'registry:example',
-    title: 'MicroClub Input OTP Demo',
-    description: 'Demo for MicroClub Input OTP',
+    title: 'Micro Club Input OTP Demo',
+    description: 'Demo for Micro Club Input OTP',
     files: [
       {
         path: 'examples/mc-input-otp-demo.tsx',
@@ -57,8 +57,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-checkbox-demo',
     type: 'registry:example',
-    title: 'MicroClub Checkbox Demo',
-    description: 'Demo for MicroClub Checkbox',
+    title: 'Micro Club Checkbox Demo',
+    description: 'Demo for Micro Club Checkbox',
     files: [
       {
         path: 'examples/mc-checkbox-demo.tsx',
@@ -70,8 +70,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-radio-demo',
     type: 'registry:example',
-    title: 'MicroClub Radio Demo',
-    description: 'Demo for MicroClub Radio',
+    title: 'Micro Club Radio Demo',
+    description: 'Demo for Micro Club Radio',
     files: [
       {
         path: 'examples/mc-radio-group-demo.tsx',
@@ -83,8 +83,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-card-demo',
     type: 'registry:example',
-    title: 'MicroClub Card Demo',
-    description: 'Demo for MicroClub Card',
+    title: 'Micro Club Card Demo',
+    description: 'Demo for Micro Club Card',
     files: [
       {
         path: 'examples/mc-card-demo.tsx',
@@ -96,8 +96,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-select-demo',
     type: 'registry:example',
-    title: 'MicroClub Select Demo',
-    description: 'Demo for MicroClub Select',
+    title: 'Micro Club Select Demo',
+    description: 'Demo for Micro Club Select',
     files: [
       {
         path: 'examples/mc-select-demo.tsx',
@@ -109,8 +109,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-combobox-demo',
     type: 'registry:example',
-    title: 'MicroClub Combobox Demo',
-    description: 'Demo for MicroClub Combobox',
+    title: 'Micro Club Combobox Demo',
+    description: 'Demo for Micro Club Combobox',
     files: [
       {
         path: 'examples/mc-combobox-demo.tsx',
@@ -122,8 +122,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-switch-demo',
     type: 'registry:example',
-    title: 'MicroClub Switch Demo',
-    description: 'Demo for MicroClub Switch',
+    title: 'Micro Club Switch Demo',
+    description: 'Demo for Micro Club Switch',
     files: [
       {
         path: 'examples/mc-switch-demo.tsx',
@@ -135,8 +135,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-navigation-menu-demo',
     type: 'registry:example',
-    title: 'MicroClub Navigation Menu Demo',
-    description: 'Demo for MicroClub Navigation Menu',
+    title: 'Micro Club Navigation Menu Demo',
+    description: 'Demo for Micro Club Navigation Menu',
     files: [
       {
         path: 'examples/mc-navigation-menu-demo.tsx',
@@ -148,8 +148,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-sidebar-demo',
     type: 'registry:example',
-    title: 'MicroClub Sidebar Demo',
-    description: 'Demo for MicroClub Sidebar',
+    title: 'Micro Club Sidebar Demo',
+    description: 'Demo for Micro Club Sidebar',
     files: [
       {
         path: 'examples/mc-sidebar-demo.tsx',
@@ -161,8 +161,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-tabs-demo',
     type: 'registry:example',
-    title: 'MicroClub Tabs Demo',
-    description: 'Demo for MicroClub Tabs',
+    title: 'Micro Club Tabs Demo',
+    description: 'Demo for Micro Club Tabs',
     files: [
       {
         path: 'examples/mc-tabs-demo.tsx',
@@ -174,8 +174,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-breadcrumb-demo',
     type: 'registry:example',
-    title: 'MicroClub Breadcrumb Demo',
-    description: 'Demo for MicroClub Breadcrumb',
+    title: 'Micro Club Breadcrumb Demo',
+    description: 'Demo for Micro Club Breadcrumb',
     files: [
       {
         path: 'examples/mc-breadcrumb-demo.tsx',
@@ -187,8 +187,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-pagination-demo',
     type: 'registry:example',
-    title: 'MicroClub Pagination Demo',
-    description: 'Demo for MicroClub Pagination',
+    title: 'Micro Club Pagination Demo',
+    description: 'Demo for Micro Club Pagination',
     files: [
       {
         path: 'examples/mc-pagination-demo.tsx',
@@ -200,8 +200,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-dialog-demo',
     type: 'registry:example',
-    title: 'MicroClub Dialog Demo',
-    description: 'Demo for MicroClub Dialog',
+    title: 'Micro Club Dialog Demo',
+    description: 'Demo for Micro Club Dialog',
     files: [
       {
         path: 'examples/mc-dialog-demo.tsx',
@@ -213,8 +213,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-alert-dialog-demo',
     type: 'registry:example',
-    title: 'MicroClub Alert Dialog Demo',
-    description: 'Demo for MicroClub Alert Dialog',
+    title: 'Micro Club Alert Dialog Demo',
+    description: 'Demo for Micro Club Alert Dialog',
     files: [
       {
         path: 'examples/mc-alert-dialog-demo.tsx',
@@ -226,8 +226,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-alert-demo',
     type: 'registry:example',
-    title: 'MicroClub Alert Demo',
-    description: 'Demo for MicroClub Alert',
+    title: 'Micro Club Alert Demo',
+    description: 'Demo for Micro Club Alert',
     files: [
       {
         path: 'examples/mc-alert-demo.tsx',
@@ -239,8 +239,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-sonner-demo',
     type: 'registry:example',
-    title: 'MicroClub Sonner Demo',
-    description: 'Demo for MicroClub Sonner',
+    title: 'Micro Club Sonner Demo',
+    description: 'Demo for Micro Club Sonner',
     files: [
       {
         path: 'examples/mc-sonner-demo.tsx',
@@ -252,8 +252,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-tooltip-demo',
     type: 'registry:example',
-    title: 'MicroClub Tooltip Demo',
-    description: 'Demo for MicroClub Tooltip',
+    title: 'Micro Club Tooltip Demo',
+    description: 'Demo for Micro Club Tooltip',
     files: [
       {
         path: 'examples/mc-tooltip-demo.tsx',
@@ -265,8 +265,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-popover-demo',
     type: 'registry:example',
-    title: 'MicroClub Popover Demo',
-    description: 'Demo for MicroClub Popover',
+    title: 'Micro Club Popover Demo',
+    description: 'Demo for Micro Club Popover',
     files: [
       {
         path: 'examples/mc-popover-demo.tsx',
@@ -278,8 +278,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-dropdown-menu-demo',
     type: 'registry:example',
-    title: 'MicroClub Dropdown Menu Demo',
-    description: 'Demo for MicroClub Dropdown Menu',
+    title: 'Micro Club Dropdown Menu Demo',
+    description: 'Demo for Micro Club Dropdown Menu',
     files: [
       {
         path: 'examples/mc-dropdown-menu-demo.tsx',
@@ -291,8 +291,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-context-menu-demo',
     type: 'registry:example',
-    title: 'MicroClub Context Menu Demo',
-    description: 'Demo for MicroClub Context Menu',
+    title: 'Micro Club Context Menu Demo',
+    description: 'Demo for Micro Club Context Menu',
     files: [
       {
         path: 'examples/mc-context-menu-demo.tsx',
@@ -304,8 +304,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-data-table-demo',
     type: 'registry:example',
-    title: 'MicroClub Data Table Demo',
-    description: 'Demo for MicroClub Data Table',
+    title: 'Micro Club Data Table Demo',
+    description: 'Demo for Micro Club Data Table',
     files: [
       {
         path: 'examples/mc-data-table-demo.tsx',
@@ -321,8 +321,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-accordion-demo',
     type: 'registry:example',
-    title: 'MicroClub Accordion Demo',
-    description: 'Demo for MicroClub Accordion',
+    title: 'Micro Club Accordion Demo',
+    description: 'Demo for Micro Club Accordion',
     files: [
       {
         path: 'examples/mc-accordion-demo.tsx',
@@ -334,8 +334,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-collapsible-demo',
     type: 'registry:example',
-    title: 'MicroClub Collapsible Demo',
-    description: 'Demo for MicroClub Collapsible',
+    title: 'Micro Club Collapsible Demo',
+    description: 'Demo for Micro Club Collapsible',
     files: [
       {
         path: 'examples/mc-collapsible-demo.tsx',
@@ -348,8 +348,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-separator-demo',
     type: 'registry:example',
-    title: 'MicroClub Separator Demo',
-    description: 'Demo for MicroClub Separator',
+    title: 'Micro Club Separator Demo',
+    description: 'Demo for Micro Club Separator',
     files: [
       {
         path: 'examples/mc-separator-demo.tsx',
@@ -361,8 +361,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-progress-demo',
     type: 'registry:example',
-    title: 'MicroClub Progress Demo',
-    description: 'Demo for MicroClub Progress',
+    title: 'Micro Club Progress Demo',
+    description: 'Demo for Micro Club Progress',
     files: [
       {
         path: 'examples/mc-progress-demo.tsx',
@@ -374,8 +374,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-calendar-demo',
     type: 'registry:example',
-    title: 'MicroClub Calendar Demo',
-    description: 'Demo for MicroClub Calendar',
+    title: 'Micro Club Calendar Demo',
+    description: 'Demo for Micro Club Calendar',
     files: [
       {
         path: 'examples/mc-calendar-demo.tsx',
@@ -387,8 +387,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-scrollarea-demo',
     type: 'registry:example',
-    title: 'MicroClub Scroll Area Demo',
-    description: 'Demo for MicroClub Scroll Area',
+    title: 'Micro Club Scroll Area Demo',
+    description: 'Demo for Micro Club Scroll Area',
     files: [
       {
         path: 'examples/mc-scrollarea-demo.tsx',
@@ -400,8 +400,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-skeleton-demo',
     type: 'registry:example',
-    title: 'MicroClub Skeleton Demo',
-    description: 'Demo for MicroClub Skeleton',
+    title: 'Micro Club Skeleton Demo',
+    description: 'Demo for Micro Club Skeleton',
     files: [
       {
         path: 'examples/mc-skeleton-demo.tsx',
@@ -413,8 +413,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-badge-demo',
     type: 'registry:example',
-    title: 'MicroClub Badge Demo',
-    description: 'Demo for MicroClub Badge',
+    title: 'Micro Club Badge Demo',
+    description: 'Demo for Micro Club Badge',
     files: [
       {
         path: 'examples/mc-badge/mc-badge-demo.tsx',
@@ -426,8 +426,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-badge-variants-demo',
     type: 'registry:example',
-    title: 'MicroClub Badge Variants Demo',
-    description: 'Variants demo for MicroClub Badge',
+    title: 'Micro Club Badge Variants Demo',
+    description: 'Variants demo for Micro Club Badge',
     files: [
       {
         path: 'examples/mc-badge/mc-badge-variants-demo.tsx',
@@ -439,8 +439,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-badge-sizes-demo',
     type: 'registry:example',
-    title: 'MicroClub Badge Sizes Demo',
-    description: 'Sizes demo for MicroClub Badge',
+    title: 'Micro Club Badge Sizes Demo',
+    description: 'Sizes demo for Micro Club Badge',
     files: [
       {
         path: 'examples/mc-badge/mc-badge-sizes-demo.tsx',
@@ -452,8 +452,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-badge-icons-demo',
     type: 'registry:example',
-    title: 'MicroClub Badge Icons Demo',
-    description: 'Icons demo for MicroClub Badge',
+    title: 'Micro Club Badge Icons Demo',
+    description: 'Icons demo for Micro Club Badge',
     files: [
       {
         path: 'examples/mc-badge/mc-badge-icons-demo.tsx',
@@ -465,8 +465,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-badge-image-demo',
     type: 'registry:example',
-    title: 'MicroClub Badge Image Demo',
-    description: 'Image demo for MicroClub Badge',
+    title: 'Micro Club Badge Image Demo',
+    description: 'Image demo for Micro Club Badge',
     files: [
       {
         path: 'examples/mc-badge/mc-badge-image-demo.tsx',
@@ -478,8 +478,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-badge-group-demo',
     type: 'registry:example',
-    title: 'MicroClub Badge Group Demo',
-    description: 'Leading badge group demo for MicroClub Badge',
+    title: 'Micro Club Badge Group Demo',
+    description: 'Leading badge group demo for Micro Club Badge',
     files: [
       {
         path: 'examples/mc-badge/mc-badge-group-demo.tsx',
@@ -491,8 +491,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-badge-group-trailing-demo',
     type: 'registry:example',
-    title: 'MicroClub Badge Group Trailing Demo',
-    description: 'Trailing badge group demo for MicroClub Badge',
+    title: 'Micro Club Badge Group Trailing Demo',
+    description: 'Trailing badge group demo for Micro Club Badge',
     files: [
       {
         path: 'examples/mc-badge/mc-badge-group-trailing-demo.tsx',
@@ -504,8 +504,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-badge-group-sizes-demo',
     type: 'registry:example',
-    title: 'MicroClub Badge Group Sizes Demo',
-    description: 'Badge group sizes demo for MicroClub Badge',
+    title: 'Micro Club Badge Group Sizes Demo',
+    description: 'Badge group sizes demo for Micro Club Badge',
     files: [
       {
         path: 'examples/mc-badge/mc-badge-group-sizes-demo.tsx',
@@ -517,8 +517,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-avatar-demo',
     type: 'registry:example',
-    title: 'MicroClub Avatar Demo',
-    description: 'Demo for MicroClub Avatar',
+    title: 'Micro Club Avatar Demo',
+    description: 'Demo for Micro Club Avatar',
     files: [
       {
         path: 'examples/mc-avatar-demo.tsx',
@@ -530,8 +530,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-drawer-demo',
     type: 'registry:example',
-    title: 'MicroClub Drawer Demo',
-    description: 'Demo for MicroClub drawer',
+    title: 'Micro Club Drawer Demo',
+    description: 'Demo for Micro Club drawer',
     files: [
       {
         path: 'examples/mc-drawer-demo.tsx',
@@ -543,8 +543,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-hover-card-demo',
     type: 'registry:example',
-    title: 'MicroClub Hover Card Demo',
-    description: 'Demo for MicroClub Hover Card',
+    title: 'Micro Club Hover Card Demo',
+    description: 'Demo for Micro Club Hover Card',
     files: [
       {
         path: 'examples/mc-hover-card-demo.tsx',
@@ -556,8 +556,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-slider-demo',
     type: 'registry:example',
-    title: 'MicroClub Slider Demo',
-    description: 'Demo for MicroClub Slider',
+    title: 'Micro Club Slider Demo',
+    description: 'Demo for Micro Club Slider',
     files: [
       {
         path: 'examples/mc-slider-demo.tsx',
@@ -569,8 +569,8 @@ export const examples: Registry['items'] = [
   {
     name: 'mc-carousel-demo',
     type: 'registry:example',
-    title: 'MicroClub Carousel Demo',
-    description: 'Demo for MicroClub Carousel',
+    title: 'Micro Club Carousel Demo',
+    description: 'Demo for Micro Club Carousel',
     files: [
       {
         path: 'examples/mc-carousel-demo.tsx',
