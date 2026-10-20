@@ -9,7 +9,7 @@ export default function LogoIcon({ className, size = 32 }: LogoIconProps) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 120 120"
+      viewBox="0 -4.5 120 120"
       width={size}
       height={size}
       fill="none"
