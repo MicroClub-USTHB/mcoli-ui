@@ -55,7 +55,7 @@ export function LogoMark({
   primary?: string;
 }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 120 120" fill="none">
+    <svg width={size} height={size} viewBox="0 -4.5 120 120" fill="none">
       <path
         d="M 16 79 V 31 A 22 22 0 0 1 60 31 A 22 22 0 0 1 104 31 V 79 M 60 31 V 79"
         stroke={foreground}
