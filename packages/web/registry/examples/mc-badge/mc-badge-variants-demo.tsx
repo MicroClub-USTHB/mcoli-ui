@@ -7,6 +7,9 @@ export default function McBadgeVariantsDemo() {
       <McBadge variant="primary">Primary</McBadge>
       <McBadge variant="secondary">Secondary</McBadge>
       <McBadge variant="destructive">Destructive</McBadge>
+      <McBadge variant="info">Info</McBadge>
+      <McBadge variant="warning">Warning</McBadge>
+      <McBadge variant="success">Success</McBadge>
       <McBadge variant="outline">Outline</McBadge>
       <McBadge variant="ghost">Ghost</McBadge>
     </div>
