@@ -56,7 +56,17 @@ const meta: Meta<BadgeStoryArgs> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['default', 'primary', 'secondary', 'destructive', 'outline', 'ghost'],
+      options: [
+        'default',
+        'primary',
+        'secondary',
+        'destructive',
+        'info',
+        'warning',
+        'success',
+        'outline',
+        'ghost',
+      ],
     },
     size: { control: 'inline-radio', options: ['sm', 'md', 'lg'] },
     content: {
@@ -95,13 +105,23 @@ export const Variants: Story = {
   parameters: { controls: { exclude: ['variant'] } },
   render: (args) => (
     <div className="flex flex-wrap items-center gap-3">
-      {(['default', 'primary', 'secondary', 'destructive', 'outline', 'ghost'] as const).map(
-        (variant) => (
-          <McBadge key={variant} {...args} variant={variant}>
-            {variant}
-          </McBadge>
-        )
-      )}
+      {(
+        [
+          'default',
+          'primary',
+          'secondary',
+          'destructive',
+          'info',
+          'warning',
+          'success',
+          'outline',
+          'ghost',
+        ] as const
+      ).map((variant) => (
+        <McBadge key={variant} {...args} variant={variant}>
+          {variant}
+        </McBadge>
+      ))}
     </div>
   ),
 };
