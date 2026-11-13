@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 import type { NextConfig } from 'next';
 import { createMDX } from 'fumadocs-mdx/next';
 
@@ -6,6 +7,12 @@ const withMDX = createMDX();
 const noindex = [{ key: 'X-Robots-Tag', value: 'noindex' }];
 
 const nextConfig: NextConfig = {
+  // Self-contained server in .next/standalone for the Docker image (see Dockerfile).
+  output: 'standalone',
+  // pnpm workspace: trace from the repo root so hoisted dependencies are copied too.
+  outputFileTracingRoot: fileURLToPath(new URL('../..', import.meta.url)),
+  // lib/og.tsx reads its fonts from disk, which tracing cannot see.
+  outputFileTracingIncludes: { '/**': ['./assets/og/**/*'] },
   images: {
     // Contributor avatars on the landing page, served through the image optimizer so they get
     // long-lived cache headers and sizes that match the 40px slot.

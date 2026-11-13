@@ -1,0 +1,12 @@
+**/node_modules
+**/.next
+**/.source
+**/storybook-static
+**/*.tsbuildinfo
+**/.DS_Store
+.github
+.husky
+.vercel
+.env*
+brag-output
+graphify-out
