@@ -217,7 +217,31 @@ mcoli-ui components use CSS variables tied to theme tokens. To switch themes, re
   <Tab value="bun">bunx mcoli-ui@latest init secondary</Tab>
 </Tabs>
 
-This replaces the theme's CSS variables in your global CSS with the new theme's values.
+This replaces the theme's CSS variables in your global CSS with the new theme's values. Your existing `DESIGN.md` is kept; add `--overwrite` to regenerate it for the new theme.
+
+## DESIGN.md for Coding Agents
+
+`init` writes a `DESIGN.md` at the project root that follows the [DESIGN.md format](https://github.com/google-labs-code/design.md). Its YAML front matter lists the theme's exact tokens (colors for light and dark mode, typography, radii, spacing and the main component variants), and its prose explains when to use each one, ending with do's and don'ts. Coding agents such as Claude Code, Cursor and Codex read it to build UI that matches your theme.
+
+The file is generated from the same values as the theme CSS, so the two never drift apart. Each theme's file is also a registry item:
+
+```bash
+npx shadcn@latest add https://mcoli-ui.microclub.info/r/design-primary.json
+```
+
+To make your agent read it on every task, pass `--agents`. It adds a short pointer to `AGENTS.md`, or to `CLAUDE.md` when that is your only instructions file:
+
+```bash
+npx mcoli-ui@latest init --theme primary --agents
+```
+
+### Agent Skill
+
+mcoli-ui also ships an [Agent Skill](https://agentskills.io) that teaches agents how to add and style `mc-*` components. Install it with `init --skill`, or directly:
+
+```bash
+npx skills add MicroClub-USTHB/mcoli-ui --skill mcoli-ui
+```
 
 ## Customizing Themes
 
