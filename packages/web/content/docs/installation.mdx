@@ -40,6 +40,16 @@ The init command will:
 - Ask you to pick a theme, unless you pass one (`init primary`)
 - Add the theme's CSS variables and base styles to your global CSS through shadcn
 - Install the theme fonts, DM Sans and Plus Jakarta Sans
+- Write a `DESIGN.md` at the project root that describes the theme to coding agents (skip with `--no-design`; an existing file is kept unless you pass `--overwrite`)
+- Register the `@mcoli` namespace in `components.json`, so `npx shadcn@latest add @mcoli/mc-button` works too
+
+In CI or from a coding agent, pass the theme and `--yes` so the command never prompts:
+
+```bash
+npx mcoli-ui@latest init --theme primary --yes
+```
+
+Preview what `init` would change with `--dry-run`. Run `npx mcoli-ui@latest help init` for every option.
 
 ### Choosing Your Theme
 
@@ -68,6 +78,8 @@ Once initialized, add components to your project:
 
 This injects the component source directly into `components/ui`, giving you full ownership and customization power.
 
+Add several components in one go with `add mc-button mc-input mc-card`, and preview the files first with `--dry-run`.
+
 ### Available Components
 
 Check what's available in the registry:
@@ -78,6 +90,8 @@ Check what's available in the registry:
   <Tab value="yarn">yarn dlx mcoli-ui@latest list</Tab>
   <Tab value="bun">bunx mcoli-ui@latest list</Tab>
 </Tabs>
+
+Scripts and agents can use `list --json`, which prints a stable `{ registry, themes, fonts, components }` object.
 
 ## Next Steps
 
