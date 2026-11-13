@@ -14,6 +14,8 @@ type ThemeConfig = {
   };
   title: string;
   description: string;
+  /** Swatch colors the CLI shows in its theme picker. */
+  colors: [string, string];
 };
 
 const themeMap: Record<string, ThemeConfig> = {
@@ -21,26 +23,31 @@ const themeMap: Record<string, ThemeConfig> = {
     theme: primaryTheme,
     title: 'Primary',
     description: 'Blue Primary with Purple Secondary accents - Professional and modern.',
+    colors: ['#0006B1', '#E6E9FF'],
   },
   secondary: {
     theme: secondaryTheme,
     title: 'Secondary',
     description: 'Purple Secondary with Blue Primary accents - Creative and bold.',
+    colors: ['#6A0DAD', '#FDDDFF'],
   },
   'game-dev': {
     theme: gameDevTheme,
     title: 'GameDev',
     description: 'Pink Primary with Yellow accents - Vibrant and energetic for gaming.',
+    colors: ['#D04F99', '#FACC15'],
   },
   robotics: {
     theme: roboticsTheme,
     title: 'Robotics',
     description: 'Blue Primary with Accent Blue accents - Technical and precise.',
+    colors: ['#001EFF', '#0006B1'],
   },
   it: {
     theme: itTheme,
     title: 'IT',
     description: 'Green Primary with Gray accents - Clean and professional for IT.',
+    colors: ['#34D399', '#BEFFD4'],
   },
 };
 
@@ -225,5 +232,6 @@ export default function createTheme(name: string): Registry['items'][number] {
       dark: config.theme.dark,
     },
     css: commonCSS,
+    meta: { colors: config.colors },
   };
 }

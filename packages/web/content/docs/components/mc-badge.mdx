@@ -69,7 +69,7 @@ export default function Example() {
 
 ### Variants
 
-`default` is the Figma Gray badge, and `primary` is the badge used inside a group. The other variants are extras.
+`default` is the Figma Gray badge, and `primary` is the badge used inside a group. `info`, `warning` and `success` are status tones built on the theme's status colors. The other variants are extras.
 
 <Tabs items={['preview', 'code']}>
   <Tab>
@@ -175,18 +175,18 @@ Use the `render` prop to render the badge as another element.
 
 Extends the Base UI `useRender` span props.
 
-| Prop            | Type                                                                             | Default     | Description                                                     |
-| --------------- | -------------------------------------------------------------------------------- | ----------- | --------------------------------------------------------------- |
-| `variant`       | `"default" \| "primary" \| "secondary" \| "destructive" \| "outline" \| "ghost"` | `"default"` | Visual style. Inside `McBadgeGroup` the default is `"primary"`. |
-| `size`          | `"sm" \| "md" \| "lg"`                                                           | `"sm"`      | Size of the badge. Inside `McBadgeGroup` the group sets it.     |
-| `icon`          | `ReactNode`                                                                      | `undefined` | Icon to show. Use `McBadgeDot` for the dot.                     |
-| `iconPosition`  | `"start" \| "end"`                                                               | `"start"`   | Side of the label where the icon sits.                          |
-| `iconOnly`      | `boolean`                                                                        | `false`     | Hides the label and shows only `icon`. Add `aria-label`.        |
-| `image`         | `string`                                                                         | `undefined` | URL of a flag or avatar image. Replaces `icon`.                 |
-| `imageAlt`      | `string`                                                                         | `""`        | Alt text for `image`.                                           |
-| `imagePosition` | `"start" \| "end"`                                                               | `"start"`   | Side of the label where the image sits.                         |
-| `render`        | `ReactElement \| ((props: HTMLProps) => ReactElement)`                           | `undefined` | Polymorphic render prop from Base UI.                           |
-| `className`     | `string`                                                                         | `undefined` | Additional CSS classes.                                         |
+| Prop            | Type                                                                                                                 | Default     | Description                                                     |
+| --------------- | -------------------------------------------------------------------------------------------------------------------- | ----------- | --------------------------------------------------------------- |
+| `variant`       | `"default" \| "primary" \| "secondary" \| "destructive" \| "info" \| "warning" \| "success" \| "outline" \| "ghost"` | `"default"` | Visual style. Inside `McBadgeGroup` the default is `"primary"`. |
+| `size`          | `"sm" \| "md" \| "lg"`                                                                                               | `"sm"`      | Size of the badge. Inside `McBadgeGroup` the group sets it.     |
+| `icon`          | `ReactNode`                                                                                                          | `undefined` | Icon to show. Use `McBadgeDot` for the dot.                     |
+| `iconPosition`  | `"start" \| "end"`                                                                                                   | `"start"`   | Side of the label where the icon sits.                          |
+| `iconOnly`      | `boolean`                                                                                                            | `false`     | Hides the label and shows only `icon`. Add `aria-label`.        |
+| `image`         | `string`                                                                                                             | `undefined` | URL of a flag or avatar image. Replaces `icon`.                 |
+| `imageAlt`      | `string`                                                                                                             | `""`        | Alt text for `image`.                                           |
+| `imagePosition` | `"start" \| "end"`                                                                                                   | `"start"`   | Side of the label where the image sits.                         |
+| `render`        | `ReactElement \| ((props: HTMLProps) => ReactElement)`                                                               | `undefined` | Polymorphic render prop from Base UI.                           |
+| `className`     | `string`                                                                                                             | `undefined` | Additional CSS classes.                                         |
 
 ### `McBadgeGroup`
 

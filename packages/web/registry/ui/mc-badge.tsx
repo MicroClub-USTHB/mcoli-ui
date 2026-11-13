@@ -12,10 +12,18 @@ const McBadgeVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-primary-foreground text-primary [a]:hover:bg-primary-foreground/80',
-        secondary: 'bg-secondary text-secondary-foreground [a]:hover:bg-secondary/80',
+        default:
+          'bg-primary-foreground text-primary dark:border-primary/25 dark:bg-primary/10 [a]:hover:bg-primary-foreground/80',
+        secondary:
+          'bg-secondary text-secondary-foreground dark:border-transparent [a]:hover:bg-secondary/80',
         destructive:
-          'bg-destructive/10 text-destructive focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:focus-visible:ring-destructive/40 [a]:hover:bg-destructive/20',
+          'bg-destructive/10 text-destructive focus-visible:ring-destructive/20 dark:border-destructive/30 dark:bg-destructive/15 dark:text-[color-mix(in_srgb,var(--color-destructive)_55%,white)] dark:focus-visible:ring-destructive/40 [a]:hover:bg-destructive/20',
+        // Status tones: a light tint in light mode, a faint tint with lightened text in dark mode.
+        info: 'bg-info-foreground text-info dark:border-info/30 dark:bg-info/15 dark:text-[color-mix(in_srgb,var(--color-info)_60%,white)]',
+        warning:
+          'bg-warning-foreground text-warning dark:border-warning/30 dark:bg-warning/15 dark:text-[color-mix(in_srgb,var(--color-warning)_70%,white)]',
+        success:
+          'bg-success-foreground text-success dark:border-success/30 dark:bg-success/15 dark:text-[color-mix(in_srgb,var(--color-success)_70%,white)]',
         outline: 'text-foreground [a]:hover:bg-muted [a]:hover:text-muted-foreground',
         ghost: 'hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50',
         primary: 'bg-accent-foreground text-accent',
