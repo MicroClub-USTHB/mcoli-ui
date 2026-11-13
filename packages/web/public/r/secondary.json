@@ -440,5 +440,8 @@
       "background": "var(--it-gradient)"
     }
   },
+  "meta": {
+    "colors": ["#6A0DAD", "#FDDDFF"]
+  },
   "type": "registry:theme"
 }

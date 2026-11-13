@@ -466,6 +466,9 @@
           "sidebar-border": "#262626",
           "sidebar-ring": "#d9ddff"
         }
+      },
+      "meta": {
+        "colors": ["#0006B1", "#E6E9FF"]
       }
     },
     {
@@ -909,6 +912,9 @@
           "sidebar-border": "#4916a1",
           "sidebar-ring": "#8b5cf6"
         }
+      },
+      "meta": {
+        "colors": ["#6A0DAD", "#FDDDFF"]
       }
     },
     {
@@ -1352,6 +1358,9 @@
           "sidebar-border": "#324859",
           "sidebar-ring": "#50afb6"
         }
+      },
+      "meta": {
+        "colors": ["#D04F99", "#FACC15"]
       }
     },
     {
@@ -1795,6 +1804,9 @@
           "sidebar-border": "#676767",
           "sidebar-ring": "#00b8cc"
         }
+      },
+      "meta": {
+        "colors": ["#001EFF", "#0006B1"]
       }
     },
     {
@@ -2238,7 +2250,75 @@
           "sidebar-border": "#4b5563",
           "sidebar-ring": "#34d399"
         }
+      },
+      "meta": {
+        "colors": ["#34D399", "#BEFFD4"]
       }
+    },
+    {
+      "name": "design-primary",
+      "title": "DESIGN.md (Primary)",
+      "description": "DESIGN.md that describes the Primary theme to coding agents.",
+      "files": [
+        {
+          "path": "registry/design/primary/DESIGN.md",
+          "type": "registry:file",
+          "target": "~/DESIGN.md"
+        }
+      ],
+      "type": "registry:item"
+    },
+    {
+      "name": "design-secondary",
+      "title": "DESIGN.md (Secondary)",
+      "description": "DESIGN.md that describes the Secondary theme to coding agents.",
+      "files": [
+        {
+          "path": "registry/design/secondary/DESIGN.md",
+          "type": "registry:file",
+          "target": "~/DESIGN.md"
+        }
+      ],
+      "type": "registry:item"
+    },
+    {
+      "name": "design-game-dev",
+      "title": "DESIGN.md (GameDev)",
+      "description": "DESIGN.md that describes the GameDev theme to coding agents.",
+      "files": [
+        {
+          "path": "registry/design/game-dev/DESIGN.md",
+          "type": "registry:file",
+          "target": "~/DESIGN.md"
+        }
+      ],
+      "type": "registry:item"
+    },
+    {
+      "name": "design-robotics",
+      "title": "DESIGN.md (Robotics)",
+      "description": "DESIGN.md that describes the Robotics theme to coding agents.",
+      "files": [
+        {
+          "path": "registry/design/robotics/DESIGN.md",
+          "type": "registry:file",
+          "target": "~/DESIGN.md"
+        }
+      ],
+      "type": "registry:item"
+    },
+    {
+      "name": "design-it",
+      "title": "DESIGN.md (IT)",
+      "description": "DESIGN.md that describes the IT theme to coding agents.",
+      "files": [
+        {
+          "path": "registry/design/it/DESIGN.md",
+          "type": "registry:file",
+          "target": "~/DESIGN.md"
+        }
+      ],
+      "type": "registry:item"
     },
     {
       "name": "mc-button",
